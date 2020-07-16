@@ -1,5 +1,14 @@
-Access 102: Access Building Blocks 
-==================================
+Lab: Access 102: Access Building Blocks 
+=======================================
+
+This lab documents builds on foundational concepts of Access Policy Manager (APM) and covers key building blocks of APM configurations.
+
+Keywords: saml, sp, idp, kerberos, http basic
+
+DC: single
+
+Objective:
+----------
 
 Welcome
 -------
