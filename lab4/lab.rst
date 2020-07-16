@@ -5,7 +5,7 @@ This lab documents provides a step-by-step guide for deploying SAML and oAuth/OI
 
 Keywords: saml, sp, idp, oauth, microsoft, ms, oidc
 
-DC: single, multi
+DC: single
 
 Objective:
 ----------
