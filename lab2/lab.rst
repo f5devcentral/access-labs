@@ -1,5 +1,5 @@
-Access 302: Ephemeral Authentication
-====================================
+Lab: Access 302: Ephemeral Authentication
+=========================================
 
 This lab documents provides a step-by-step guide for deploying ephemeral authentication using extended certificate authentication controls.
 
