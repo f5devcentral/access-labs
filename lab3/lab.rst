@@ -5,7 +5,7 @@ This lab documents provides a step-by-step guide for deploying Identity Aware Pr
 
 Keywords: iap, guided, configuration
 
-DC: single, multi
+DC: single
 
 Objective:
 ----------
