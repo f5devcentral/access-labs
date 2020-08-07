@@ -1,0 +1,1 @@
+newman run "lab3-create.postman_collection.json" -e master-single-dc.postman_environment.json -k
