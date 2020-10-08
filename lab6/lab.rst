@@ -17,7 +17,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    close*
    
    
-Keywords: saml, sp, idp, kerberos, http basic
+Keywords: webtop, ad, psp
 
 DC: single
    

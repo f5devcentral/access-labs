@@ -18,115 +18,105 @@ Task 1: Define an Authentication Server
 Before we can create an access profile, we must create the necessary AAA
 server profile for our Active Directory.
 
-1. From the main screen, browse to **Access > Authentication > Active
+#. From the main screen, browse to **Access > Authentication > Active
    Directory**
 
-2. Click **Create** in the upper right-hand corner
+#. Click **Create** in the upper right-hand corner
 
-3. Configure the new server profile as follows:
+#. Configure the new server profile as follows:
 
-    Name: **lab101-ad-servers**
+	- Name: **lab101-ad-servers**
+	- Domain Name: **f5lab.local**
+	- Server Connection: **Use Pool**
+	- Domain Controller Pool Name: **lab101-ad-pool**
+    - IP Address: **10.1.20.7**
+	- Hostname: **dc1.f5lab.local**
+    - User Name: **admin**
+    - Password: **admin**
 
-    Domain Name: **f5lab.local**
+#. Click **Finished**
 
-    Server Connection: **Use Pool**
-	
-	Domain Controller Pool Name: **lab101-ad-pool**
-
-    IP Address: **10.1.20.7**
-	
-	Hostname: **dc1.f5lab.local
-
-    User Name: **admin**
-
-    Password: **admin**
-
-
-
-4. Click **Finished**
+	|image1|
 
 
 Task 2: Create a Simple Access Profile
 --------------------------------------
 
-1. Navigate to **Access > Profiles / Policies > Access Profiles
-   (Per-Session Policies)**
-   
-   |image10|
+#. Navigate to **Access > Profiles / Policies > Access Profiles (Per-Session Policies)**. Click the **(Plus +) Symbol.   
+   |image2|
 
-2. From the Access Profiles screen, click **Create...** in the upper
-   right-hand corner
 
-3. In the Name field, enter **lab101-psp** and for the **Profile Type**, 
-   select the dropdown and choose **All**
+#. In the Name field enter **lab101-psp** and for the Profile Type select **All** from the dropdown.
 	 
-   |image11|
+   |image3|
 
-4. Under “Language Settings”, choose **English** and click the
+#. Under “Language Settings”, choose **English** and click the
    “\ **<<**\ “ button to slide over to the “Accepted Languages” column.
    
-   |image12|
+   |image4|
 
-5. Click **Finished**, which will bring you back to the Access Profiles
+#. Click **Finished**, which will bring you back to the Access Profiles
    screen.
 
-6. On the Access Profiles screen, click the **Edit** link under the
+#. On the Access Profiles screen, click the **Edit** link under the
    Per-Session Policy column. 
    
-   |image13|
+   |image5|
    
    The Visual Policy Editor (VPE) will open in a new tab.
 
-7. On the VPE page, click the ‘\ **+**\ ’ icon on the “fallback” path,
+#. On the VPE page, click the ‘\ **+**\ ’ icon on the “fallback” path,
    to the right of the **Start** object.
    
-   |image14|
+   |image6|
 
-8. On the popup menu, choose the **Logon Page** radio button under the
+#. On the popup menu, choose the **Logon Page** radio button under the
    Logon tab and click **Add Item**
    
-   |image15|
+   |image7|
    
-   |image16|
+#. Accept the defaults and click **Save**
 
-9. Accept the defaults and click **Save**
+   |image8|
 
-Now let’s authenticate the client using the credentials to be provided
-via the “Logon Page” object.
 
-1. Between the “Logon Page” and “Deny” objects, click the ‘\ **+**\ ’
-   icon, select **AD Auth** found under the **Authentication** tab,
-   and click the **Add Item** button
+#. Between the “Logon Page” and “Deny” objects, click the ‘\ **+**\ ’
+   icon. 
    
-   |image17|
+   |image9|
    
-   |image18|
+#  Select **AD Auth** found under the **Authentication** tab,
+   and click the **Add Item** button.
+   
+   |image10|
 
-2. Accept the default for the **Name** and in the **Server** drop-down
+#. Accept the default for the **Name** and in the **Server** drop-down
    menu select the AD server created above:
    **/Common/lab101-ad-servers**, then click **Save**
    
-   |image19|
+   |image11|
 
-3. On the “Successful” branch between the **AD Auth** and **Deny**
+#. On the “Successful” branch between the **AD Auth** and **Deny**
    objects, click on the word **Deny** to change the ending
    
-   |image20|
+   |image12|
 
-4. Change the “Successful” branch ending to **Allow**, then click **Save**
+#. Change the “Successful” branch ending to **Allow**, then click **Save**
 
-   |image21|
+   |image13|
    
-   |image22|
+#. The completed policy should now appear like the one below.
+   
+   |image14|
 
-5. In the upper left-hand corner of the screen, click on the **Apply
-   Access Policy** link, then close the window using the **Close**
-   button in the upper right-hand. Click **Yes** when asked “Do you
-   want to close this tab?”
+#. In the upper left-hand corner of the screen, click on the **Apply
+   Access Policy** link.
    
-   |image23|
-   
-   |image24|
+    |image15|
+
+#. Close the window using the **Close** button in the upper right-hand. Click **Yes** when asked “Do you want to close this tab?”
+  
+   |image16|
 
 Task 3: Associate Access Policy to Virtual Servers
 --------------------------------------------------
@@ -136,12 +126,12 @@ appropriate virtual server to be able to use it.
 
 1. From the **Local Traffic** menu, navigate to the **Virtual Servers
    List** and click the name of the virtual server created previously:
-   **demo-vs-https**.
+   **lab101-https**.
 
 2. Scroll down to the “Access Policy” section, then for the “Access
    Profile” dropdown, select **lab101-psp**
    
-   |image25|
+   |image17|
 
 3. Click **Update** at the bottom of the screen
 
@@ -152,10 +142,10 @@ Now you are ready to test.
 
 1. Open a new browser window and open the URL for the virtual server
    that has the access policy applied:
-   `**https://server1.acme.com** <https://server1.acme.com>`
+   **https://server1.acme.com** 
    You will be presented with a login window
    
-   |image26|
+   |image18|
 
 2. Enter the following credentials and click **Logon**:
    - Username: **user1**
@@ -163,7 +153,7 @@ Now you are ready to test.
 
    You will see a screen similar to the following:
    
-   |image27|
+   |image19|
 
 
 Task 5: Troubleshooting tips
@@ -175,14 +165,14 @@ You will see a screen similar to the following:
 
 Click on the session id for the active session. If the session is active it will show up as a green in the status.
 
-|image30|
+|image20|
 
 Click on the "session ID" next to the active session. Note every session has a unique session id. Associated with it.
 This can be used for troubleshooting specific authentication problem.
 
 Once you click on the session id you wll be presented with a screen that is similar to the following.
 
-|image31|
+|image21|
 
 Note that the screen will show all of the log messages associated with the session. This becomes useful if there is a problem authenticating users.
 
@@ -197,80 +187,24 @@ https://support.f5.com/csp/article/K45423041
 
 Lab 1 is now complete.
 
-.. 
-.. |image8| image:: media/image10.png
-   :width: 2.59124in
-   :height: 2.90971in
-.. |image9| image:: media/image11.png
-   :width: 2.49705in
-   :height: 2.49047in
-.. |image10| image:: media/image12.png
-   :width: 2.81496in
-   :height: 2.04331in
-.. |image11| image:: media/image13.png
-   :width: 3.35694in
-   :height: 1.17083in
-.. |image12| image:: media/image14.png
-   :width: 5.30972in
-   :height: 1.96914in
-.. |image13| image:: media/image15.png
-   :width: 5.30625in
-   :height: 1.20139in
-.. |image14| image:: media/image16.png
-   :width: 3.67708in
-   :height: 1.59375in
-.. |image15| image:: media/image17.png
-   :width: 5.30972in
-   :height: 2.99543in
-.. |image16| image:: media/image18.png
-   :width: 4.09422in
-   :height: 4.25486in
-.. |image17| image:: media/image19.png
-   :width: 2.75000in
-   :height: 1.32500in
-.. |image18| image:: media/image20.png
-   :width: 2.83858in
-   :height: 4.42520in
-.. |image19| image:: media/image21.png
-   :width: 5.05208in
-   :height: 2.44710in
-.. |image20| image:: media/image22.png
-   :width: 4.80000in
-   :height: 1.40000in
-.. |image21| image:: media/image23.png
-   :width: 2.17708in
-   :height: 2.73681in
-.. |image22| image:: media/image24.png
-   :width: 4.51887in
-   :height: 1.56041in
-.. |image23| image:: media/image25.png
-   :width: 2.14583in
-   :height: 0.73958in
-.. |image24| image:: media/image26.png
-   :width: 2.00000in
-   :height: 0.67921in
-.. |image25| image:: media/image27.png
-   :width: 2.40945in
-   :height: 3.52362in
-.. |image26| image:: media/image28.png
-   :width: 2.13489in
-   :height: 1.96875in
-.. |image27| image:: media/image9.png
-   :width: 5.07751in
-   :height: 2.84357in
-.. |image29| image:: media/image29.png
-   :width: 18.33in
-   :height: 3.17in
-.. |image30| image:: media/image30.png
-   :width: 14.44in
-   :height: 3.0in
-.. |image31| image:: media/image31.png
-   :width: 19.641in
-   :height: 4.65in
-   
-   
-   
-   
-   
-   
-   
+.. |image1| image:: media/001.png
+.. |image2| image:: media/002.png
+.. |image3| image:: media/003.png
+.. |image4| image:: media/004.png
+.. |image5| image:: media/005.png
+.. |image6| image:: media/006.png
+.. |image7| image:: media/007.png
+.. |image8| image:: media/008.png
+.. |image9| image:: media/009.png
+.. |image10| image:: media/010.png
+.. |image11| image:: media/011.png
+.. |image12| image:: media/012.png
+.. |image13| image:: media/013.png
+.. |image14| image:: media/014.png
+.. |image15| image:: media/015.png
+.. |image16| image:: media/016.png
+.. |image17| image:: media/017.png
+.. |image18| image:: media/018.png
+.. |image19| image:: media/019.png
+.. |image20| image:: media/020.png
+.. |image21| image:: media/021.png
