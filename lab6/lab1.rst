@@ -21,19 +21,23 @@ server profile for our Active Directory.
 1. From the main screen, browse to **Access > Authentication > Active
    Directory**
 
-2. Click **Create…** in the upper right-hand corner
+2. Click **Create** in the upper right-hand corner
 
 3. Configure the new server profile as follows:
 
-    Name: **Lab\_SSO\_AD\_Server**
+    Name: **lab101-ad-servers**
 
     Domain Name: **f5lab.local**
 
-    Server Connection: **Direct**
+    Server Connection: **Use Pool**
+	
+	Domain Controller Pool Name: **lab101-ad-pool**
 
-    Domain Controller: **10.1.20.7**
+    IP Address: **10.1.20.7**
+	
+	Hostname: **dc1.f5lab.local
 
-    User Name: **f5lab\\admin**
+    User Name: **admin**
 
     Password: **admin**
 
@@ -41,7 +45,6 @@ server profile for our Active Directory.
 
 4. Click **Finished**
 
-Note: If you wish you can simply use the **pre-built-ad-servers**.
 
 Task 2: Create a Simple Access Profile
 --------------------------------------
@@ -54,7 +57,7 @@ Task 2: Create a Simple Access Profile
 2. From the Access Profiles screen, click **Create...** in the upper
    right-hand corner
 
-3. In the Name field, enter **MyAccessPolicy** and for the **Profile Type**, 
+3. In the Name field, enter **lab101-psp** and for the **Profile Type**, 
    select the dropdown and choose **All**
 	 
    |image11|
@@ -101,7 +104,7 @@ via the “Logon Page” object.
 
 2. Accept the default for the **Name** and in the **Server** drop-down
    menu select the AD server created above:
-   **/Common/LAB\_SSO\_AD\_Server**, then click **Save**
+   **/Common/lab101-ad-servers**, then click **Save**
    
    |image19|
 
@@ -136,7 +139,7 @@ appropriate virtual server to be able to use it.
    **demo-vs-https**.
 
 2. Scroll down to the “Access Policy” section, then for the “Access
-   Profile” dropdown, select **MyAccessPolicy**
+   Profile” dropdown, select **lab101-psp**
    
    |image25|
 
@@ -155,8 +158,8 @@ Now you are ready to test.
    |image26|
 
 2. Enter the following credentials and click **Logon**:
-   Username: **user1**
-   Password: **user1**
+   - Username: **user1**
+   - Password: **user1**
 
    You will see a screen similar to the following:
    

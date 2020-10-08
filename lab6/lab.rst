@@ -1,21 +1,9 @@
 Lab: Access 101: Intro to Access Foundational Concepts
 ======================================================
 
-This lab documents provides foundational concepts for understanding Access Policy Manager (APM) and its core/common use cases.
+This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
-Keywords: saml, sp, idp, kerberos, http basic
 
-DC: single
-
-Objective:
-----------
-
-Welcome
--------
-
-Welcome to the |classbold| lab at F5 Agility |year|
-
-|repoinfo|
 
 .. toctree::
    :maxdepth: 2
@@ -27,5 +15,10 @@ Welcome to the |classbold| lab at F5 Agility |year|
    lab1*
    lab2*
    close*
+   
+   
+Keywords: saml, sp, idp, kerberos, http basic
+
+DC: single
    
 

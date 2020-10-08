@@ -13,7 +13,7 @@ Password: **user1**
 2. Access the BIG-IP GUI https://10.1.1.4 (you can double-click on the BIG-IP1 bookmark from Chrome).
 
 3. Login into the BIG-IP Configuration Utility with the following credentials:
-User: **admin**
+User: **f5lab\admin**
 Password: **admin**
 
 .. NOTE::
@@ -56,10 +56,10 @@ components:
 |                        | - External   10.1.10.5  |                          | 
 |                        | - Internal   10.1.20.5  |                          |
 +------------------------+-------------------------+--------------------------+
-| dc.f5lab.local         | - Management 10.1.1.7   | - administator/i3NqCqRQ  | 
+| dc1.f5lab.local         | - Management 10.1.1.7   | - admin/admin			  | 
 |                        | - Internal   10.1.20.7  |                          | 
 +------------------------+-------------------------+--------------------------+
-| iis.f5lab.local        | - Management 10.1.1.6   | - administator/i3NqCqRQ  | 
+| iis.f5lab.local        | - Management 10.1.1.6   | - admin/admin  		  | 
 |                        | - Internal   10.1.20.6  |                          | 
 +------------------------+-------------------------+--------------------------+
 | web.f5lab.local        | - Management 10.1.1.9   |                          | 

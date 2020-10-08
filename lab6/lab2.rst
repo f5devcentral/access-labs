@@ -7,16 +7,16 @@ created in the previous lab.
 Lab Requirements
 ----------------
 
-  - Working HTTPS Virtual Server with Access Policy Created in Lab 1 (Lab 1 successfully completed).
+Working HTTPS Virtual Server with Access Policy Created in Lab 1 (Lab 1 successfully completed).
 
 
-Task – Create a Webtop resource
+Task 1 – Create a Webtop resource
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Expand the **Access** tab from the main menu on the left and navigate
    to **Webtops** > **Webtop Lists**.
 
-#. Click **Create** to create a new Webtop called **MyFullWebtop**,
+#. Click **Create** to create a new Webtop called **lab101-webtop**,
    select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
    click **Finished**.
 
@@ -24,17 +24,17 @@ Task – Create a Webtop resource
 
 
 
-Task – Create Webtop Item
+Task 2 – Create Webtop Item
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 #. Browse to **Access** > **Webtops >** **Webtop Link** and click create.
 
 
 #. Complete the following entries.
 
-      - Name: F5Rocks
+      - Name: www.f5.com
       - Link Type Dropdown: Application URI
       - Applicatoin URI : https://www.f5.com
-      - Application Caption : F5 Rocks.
+      - Application Caption : www.f5.com
 
    |image39|
 
@@ -42,12 +42,12 @@ Task – Create Webtop Item
 
 
 
-Task – Add Webtop resource to existing Access Policy
+Task 3 – Add Webtop resource to existing Access Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Browse to **Access** > **Profiles / Policies > Access Profiles
-   (Per-Session Policies)**, click on **Edit** for **MyAccessPolicy**. A
-   new tab should open to the Visual Policy Editor for **MyAccessPolicy**.
+   (Per-Session Policies)**, click on **Edit** for **lab101-psp**. A
+   new tab should open to the Visual Policy Editor for **lab101-psp**.
 
    |image40|
 
@@ -68,7 +68,7 @@ Task – Add Webtop resource to existing Access Policy
 #. Then under the "Expression Section" click the "Add/Delete" button
 
 #. | Click on the **Webtop** tab, select the radio button for
-     **MyFullWebtop**. Click on the **Webop Links** tab, and select the radio button for **F5Rocks**
+     **lab101-webtop**. Click on the **Webop Links** tab, and select the radio button for **www.f5.com**
      then click the **Update** button at the bottom of
      the screen.
 
@@ -101,7 +101,7 @@ Task – Testing
 
    This will open the APM Webtop landing page that shows the resources you
    are allowed to access. In this lab, we’ve only configured one resource: 
-   **F5 Rocks**, but you can add as many as you want and they will
+   **www.f5.com**, but you can add as many as you want and they will
    appear on this Webtop page.
 
    |image43|

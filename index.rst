@@ -1,27 +1,24 @@
 Welcome
 =======
 
-Welcome to the Identity & Access Management lab series at Agility |year|.
+Welcome to the Access labs series currated by the F5 AMP SME-UA community .
 
-The following labs and exercises will instruct you on how to configure and
-troubleshoot federation use cases based on the experience of field
-engineers, support engineers and clients. This guide is intended to
-complement lecture material provided during the course as well as a
-reference guide that can be referred to after the class as a basis for
-configuring federation relationships in your own environment.
+The following labs will instruct you on how to configure a variety of APM use cases via the GUI
+ based on the experience of Solution Engineers
+engineers, Support Engineers, and clients. 
 
-|repoinfo|
+
 
 .. toctree::
    :maxdepth: 1
    :caption: Contents:
    :glob:
 
-   class6/class*
-   class7/class*
-   class3/class*
-   class4/class*
-   class2/class*
-   class5/class*
-   class1/class*
+   lab6/lab*
+   lab7/lab*
+   lab3/lab*
+   lab4/lab*
+   lab2/lab*
+   lab5/lab*
+   lab1/lab*
    archived/archived*
