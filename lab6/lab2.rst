@@ -20,7 +20,7 @@ Task 1 – Create a Webtop resource
    select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
    click **Finished**.
 
-   |image22|
+	|image22|
 
 
 
@@ -35,7 +35,7 @@ Task 2 – Create Webtop Item
       - Applicatoin URI : **https://www.f5.com**
       - Application Caption : **www.f5.com**
 
-   |image23|
+	|image23|
 
 
 Task 3 – Add Webtop resource to existing Access Policy
@@ -48,19 +48,19 @@ Task 3 – Add Webtop resource to existing Access Policy
 
 #. In between the AD Auth APM Item and the Allow APM item click the + option to add an item.
    
-   |image24|
+	|image24|
 
 #. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign"
    radio button. Click **Add Item**.
 
-   |image25|
+	|image25|
 
 #. Then Click the "Add New Entry" button. 
 
-   |image26|
+	|image26|
 
 
-#. Then under the "Expression Section" click the "Add/Delete" button
+#. Under the "Expression Section" click the "Add/Delete" button
 
 	|image27|
 
