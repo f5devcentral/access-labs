@@ -20,40 +20,35 @@ Task 1 – Create a Webtop resource
    select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
    click **Finished**.
 
-   |image38|
+   |image22|
 
 
 
 Task 2 – Create Webtop Item
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-#. Browse to **Access** > **Webtops >** **Webtop Link** and click create.
-
+#. Browse to **Access** > **Webtops >** **Webtop Link** and click the **+ (Plus Symbol)**
 
 #. Complete the following entries.
 
-      - Name: www.f5.com
-      - Link Type Dropdown: Application URI
-      - Applicatoin URI : https://www.f5.com
-      - Application Caption : www.f5.com
+      - Name: **www.f5.com**
+      - Link Type Dropdown: **Application URI**
+      - Applicatoin URI : **https://www.f5.com**
+      - Application Caption : **www.f5.com**
 
-   |image39|
-
-   |image45|
-
+   |image23|
 
 
 Task 3 – Add Webtop resource to existing Access Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Browse to **Access** > **Profiles / Policies > Access Profiles
+#. Browse to **Access > Profiles/Policies > Access Profiles
    (Per-Session Policies)**, click on **Edit** for **lab101-psp**. A
    new tab should open to the Visual Policy Editor for **lab101-psp**.
 
-   |image40|
 
 #. In between the AD Auth APM Item and the Allow APM item click the + option to add an item.
    
-   |image46|
+   |image24|
 
 #. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign"
    radio button. Click **Add Item**.
@@ -106,7 +101,9 @@ Task – Testing
 
    |image43|
 
-
+.. |image22| image:: media/image22.png
+.. |image23| image:: media/image23.png
+.. |image24| image:: media/image24.png
 
 .. |image38| image:: media/image39.png
    :width: 3.59097in
