@@ -88,9 +88,8 @@ Task – Testing
 
 #. Enter the following credentials:
 
-   Username: **user1**
-
-   Password: **user1**
+	- Username: **user1**
+	- Password: **user1**
 
 #. Click **Logon**.
 

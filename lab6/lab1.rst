@@ -29,7 +29,7 @@ server profile for our Active Directory.
 	- Domain Name: **f5lab.local**
 	- Server Connection: **Use Pool**
 	- Domain Controller Pool Name: **lab101-ad-pool**
-    - IP Address: **10.1.20.7**
+	- IP Address: **10.1.20.7**
 	- Hostname: **dc1.f5lab.local**
     - User Name: **admin**
     - Password: **admin**
@@ -42,7 +42,7 @@ server profile for our Active Directory.
 Task 2: Create a Simple Access Profile
 --------------------------------------
 
-#. Navigate to **Access > Profiles / Policies > Access Profiles (Per-Session Policies)**. Click the **(Plus +) Symbol.   
+#. Navigate to **Access > Profiles / Policies > Access Profiles (Per-Session Policies)**. Click the **+ (Plus Symbol)**.   
    |image2|
 
 
@@ -65,7 +65,7 @@ Task 2: Create a Simple Access Profile
    
    The Visual Policy Editor (VPE) will open in a new tab.
 
-#. On the VPE page, click the ‘\ **+**\ ’ icon on the “fallback” path,
+#. On the VPE page, click the ‘\**+**\’ icon on the “fallback” path,
    to the right of the **Start** object.
    
    |image6|
@@ -80,12 +80,12 @@ Task 2: Create a Simple Access Profile
    |image8|
 
 
-#. Between the “Logon Page” and “Deny” objects, click the ‘\ **+**\ ’
+#. Between the “Logon Page” and “Deny” objects, click the ‘\**+**\’
    icon. 
    
    |image9|
    
-#  Select **AD Auth** found under the **Authentication** tab,
+#.  Select **AD Auth** found under the **Authentication** tab,
    and click the **Add Item** button.
    
    |image10|
