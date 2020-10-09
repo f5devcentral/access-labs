@@ -53,33 +53,34 @@ Task 3 – Add Webtop resource to existing Access Policy
 #. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign"
    radio button. Click **Add Item**.
 
-   |image47|
+   |image25|
 
 #. Then Click the "Add New Entry" button. 
 
-   |image48|
+   |image26|
 
 
 #. Then under the "Expression Section" click the "Add/Delete" button
 
-#. | Click on the **Webtop** tab, select the radio button for
-     **lab101-webtop**. Click on the **Webop Links** tab, and select the radio button for **www.f5.com**
-     then click the **Update** button at the bottom of
-     the screen.
+	|image27|
 
-   |image49|
+#. Click on the **Webop Links** tab, and select the radio button for **www.f5.com*.
+
+	|image28|
+#. Click on the **Webtop** tab, select the radio button for **lab101-webtop**. Click the **Update** button at the bottom of the screen.
+
+	|image29|
+
 
 #. Click **Save**.
+
+	|image30|
 
 #. | At the top left of the browser window, click on “\ **Apply Access
      Policy**\ ”, then close the tab.
 
-   |image42|
 
-
-
-
-Task – Testing
+Task 4 – Testing
 ~~~~~~~~~~~~~~
 
 #. Open a web browser to the virtual server created in the previous lab
@@ -90,6 +91,8 @@ Task – Testing
 
 	- Username: **user1**
 	- Password: **user1**
+	
+	|image31|
 
 #. Click **Logon**.
 
@@ -98,42 +101,18 @@ Task – Testing
    **www.f5.com**, but you can add as many as you want and they will
    appear on this Webtop page.
 
-   |image43|
+   |image32|
 
 .. |image22| image:: media/022.png
 .. |image23| image:: media/023.png
 .. |image24| image:: media/024.png
+.. |image25| image:: media/025.png
+.. |image26| image:: media/026.png
+.. |image27| image:: media/027.png
+.. |image28| image:: media/028.png
+.. |image29| image:: media/029.png
+.. |image30| image:: media/030.png
+.. |image31| image:: media/031.png
+.. |image32| image:: media/032.png
 
-.. |image38| image:: media/image39.png
-   :width: 3.59097in
-   :height: 2.50000in
-.. |image39| image:: media/image40.png
-   :width: 19.83in
-   :height: 3.58in
-.. |image40| image:: media/image41.png
-   :width: 7.18in
-   :height: 3.21in
-.. |image41| image:: media/image42.png
-   :width: 3.89583in
-   :height: 0.98194in
-.. |image42| image:: media/image43.png
-   :width: 1.90000in
-   :height: 0.40000in
-.. |image43| image:: media/image44.png
-   :width: 7.31in
-   :height: 6.32in
-.. |image45| image:: media/image45.png
-   :width: 9.39in
-   :height: 6.17in
-.. |image46| image:: media/image46.png
-   :width: 6.71in
-   :height: 2.54in
-.. |image47| image:: media/image47.png
-   :width: 11.4in
-   :height: 3.82in
-.. |image48| image:: media/image48.png
-   :width: 11.4in
-   :height: 3.82in
-.. |image49| image:: media/image49.png
-   :width: 14.42in
-   :height: 9.86in
+
