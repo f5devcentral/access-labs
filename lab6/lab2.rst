@@ -64,7 +64,7 @@ Task 3 – Add Webtop resource to existing Access Policy
 
 	|image27|
 
-#. Click on the **Webop Links** tab, and select the radio button for **www.f5.com*.
+#. Click on the **Webop Links** tab, and select the radio button for **www.f5.com**.
 
 	|image28|
 #. Click on the **Webtop** tab, select the radio button for **lab101-webtop**. Click the **Update** button at the bottom of the screen.
@@ -76,8 +76,8 @@ Task 3 – Add Webtop resource to existing Access Policy
 
 	|image30|
 
-#. | At the top left of the browser window, click on “\ **Apply Access
-     Policy**\ ”, then close the tab.
+#. | At the top left of the browser window, click on **Apply Access
+     Policy**, then close the tab.
 
 
 Task 4 – Testing
