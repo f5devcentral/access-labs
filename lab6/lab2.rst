@@ -100,9 +100,9 @@ Task – Testing
 
    |image43|
 
-.. |image22| image:: media/image22.png
-.. |image23| image:: media/image23.png
-.. |image24| image:: media/image24.png
+.. |image22| image:: media/022.png
+.. |image23| image:: media/023.png
+.. |image24| image:: media/024.png
 
 .. |image38| image:: media/image39.png
    :width: 3.59097in
