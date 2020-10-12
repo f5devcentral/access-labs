@@ -37,7 +37,7 @@ Server-side Single-Sign-On
 
 Webtop Concepts
 ---------------------
- .. toctree::
+.. toctree::
    :maxdepth: 1
    :glob:
    
