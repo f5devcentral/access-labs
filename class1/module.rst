@@ -21,7 +21,9 @@ Client-side Authentication
    :glob:
    
    module2/lab*
-   
+  
+
+  
 Server-side Single-Sign-On
 ----------------------------- 
 .. toctree::
@@ -31,8 +33,10 @@ Server-side Single-Sign-On
    module3/lab*
    
    
-   Webtop Concepts
- ---------------------
+   
+
+Webtop Concepts
+---------------------
  .. toctree::
    :maxdepth: 1
    :glob:
