@@ -16,7 +16,7 @@ Access Policy Frameworks
    
 Client-side Authentication
 ------------------------------  
-   .. toctree::
+.. toctree::
    :maxdepth: 1
    :glob:
    
@@ -24,8 +24,7 @@ Client-side Authentication
    
 Server-side Single-Sign-On
 ----------------------------- 
-   
-   .. toctree::
+.. toctree::
    :maxdepth: 1
    :glob:
    
@@ -34,7 +33,7 @@ Server-side Single-Sign-On
    
    Webtop Concepts
  ---------------------
-    .. toctree::
+ .. toctree::
    :maxdepth: 1
    :glob:
    
