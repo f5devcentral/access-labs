@@ -12,7 +12,10 @@ This lab documents provides foundational concepts for understanding Access Polic
    :glob:
    
    intro*
-   module*\lab*.rst
+   module1\lab*.rst
+   module2\lab*.rst
+   module3\lab*.rst
+   module4\lab*.rst
 
    
    
