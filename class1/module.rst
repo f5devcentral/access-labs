@@ -6,8 +6,7 @@ This lab documents provides foundational concepts for understanding Access Polic
 
 
 .. toctree::
-   :maxdepth: 2
-   :numbered:
+   :maxdepth: 1
    :caption: Contents:
    :glob:
    
