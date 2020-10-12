@@ -14,7 +14,7 @@ engineers, Support Engineers, and clients.
    :caption: Contents:
    :glob:
 
-   lab6/lab*
+   class*/module.rst
    lab7/lab*
    lab3/lab*
    lab4/lab*
