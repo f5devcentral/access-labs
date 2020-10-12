@@ -15,10 +15,5 @@ engineers, Support Engineers, and clients.
    :glob:
 
    class*/module.rst
-   lab7/lab*
-   lab3/lab*
-   lab4/lab*
-   lab2/lab*
-   lab5/lab*
-   lab1/lab*
-   archived/archived*
+
+

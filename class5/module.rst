@@ -1,5 +1,5 @@
-100 Series: Intro to Access Foundational Concepts
-======================================================
+500 Series: Troubleshooting 
+==============================
 
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
