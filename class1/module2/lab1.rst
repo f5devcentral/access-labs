@@ -1,5 +1,5 @@
-Lab 1: Building a Basic Access Policy
-=====================================
+Lab 1: Active Directory Authentication
+========================================
 
 Objectives
 ----------

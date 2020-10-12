@@ -1,4 +1,4 @@
-Lab 1: Kerberos Constained Delegation
+Lab 2: Webtop Publication
 ============================================
 
 In this lab, we will add a Webtop resource to the Access Policy
