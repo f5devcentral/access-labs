@@ -4,7 +4,7 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
   
-Access Policy Frameworks
+101 - Access Policy Frameworks
 ---------------------------
 .. toctree::
    :maxdepth: 1
@@ -14,7 +14,7 @@ Access Policy Frameworks
    
    
    
-Client-side Authentication
+102 - Client-side Authentication
 ------------------------------  
 .. toctree::
    :maxdepth: 1
@@ -24,7 +24,7 @@ Client-side Authentication
   
 
   
-Server-side Single-Sign-On
+103 - Server-side Single-Sign-On
 ----------------------------- 
 .. toctree::
    :maxdepth: 1
@@ -35,7 +35,7 @@ Server-side Single-Sign-On
    
    
 
-Webtop Concepts
+104 - Webtop Concepts
 ---------------------
 .. toctree::
    :maxdepth: 1

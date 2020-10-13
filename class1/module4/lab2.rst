@@ -1,4 +1,4 @@
-Lab 1: Webtop Publication
+Lab 2: Webtop Links
 ============================================
 
 In this lab, we will add a Webtop resource to the Access Policy

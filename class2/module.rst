@@ -4,17 +4,51 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-
+201 - Federation
+---------------------------
 .. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: Contents:
+   :maxdepth: 1
    :glob:
    
-   intro*
-   module*\lab*
+   module1/lab*
+   
+   
+   
+202 - Zero Trust
+------------------------------  
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   module2/lab*
+  
 
+  
+203 - Microsoft Product Proxy
+----------------------------- 
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   module3/lab*
    
    
    
+
+204 - API Protection
+---------------------
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   module4/lab*
+ 
+ 
+105 - Credential Protection
+---------------------
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   module4/lab*
 
