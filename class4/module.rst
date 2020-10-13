@@ -1,20 +1,24 @@
-400 Series: Automation Labs 
-==============================
+400 Series: APM Automation Labs
+======================================================
 
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-
+401 - Per-Session Policy
+---------------------------
 .. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: Contents:
+   :maxdepth: 1
    :glob:
    
-   intro*
-   module*\lab*
-
+   module1/lab*
+     
    
+402 - Per-Request Policy
+------------------------------  
+.. toctree::
+   :maxdepth: 1
+   :glob:
    
-   
-
+   module2/lab*
+  
+ 
