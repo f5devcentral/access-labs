@@ -1,5 +1,5 @@
-Lab 1: Sessiondump
-=====================================
+Lab 3: OIDC Client/Resource 
+===================================
 
 Objectives
 ----------

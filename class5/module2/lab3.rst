@@ -1,4 +1,4 @@
-Lab 3: OIDC Client/Resource 
+Lab 3: Single Configuration File 
 ===================================
 
 Objectives

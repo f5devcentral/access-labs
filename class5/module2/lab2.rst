@@ -1,4 +1,4 @@
-Lab 2: SAML Service Provider
+Lab 2: TCPDump
 ===============================================
 
 Objectives

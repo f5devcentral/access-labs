@@ -1,4 +1,4 @@
-Lab 4: Identity Aware Proxy
+Lab 4: bigip.conf
 ==================================================
 
 Objectives

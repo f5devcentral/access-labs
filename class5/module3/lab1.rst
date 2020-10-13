@@ -1,4 +1,4 @@
-Lab 1: Sessiondump
+Lab 1: SAML Tracer
 =====================================
 
 Objectives

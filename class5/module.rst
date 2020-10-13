@@ -21,7 +21,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    
    module2/lab*
    
- 403 - Third-Party Tools
+403 - Third-Party Tools
 ------------------------------  
 .. toctree::
    :maxdepth: 1
