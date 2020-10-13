@@ -1,4 +1,4 @@
-Lab 2: API Protection Proxy
+Lab 1: API Protection Proxy
 ============================================
 
 In this lab, we will add a Webtop resource to the Access Policy

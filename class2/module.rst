@@ -44,7 +44,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    module4/lab*
  
  
-105 - Credential Protection
+205 - Credential Protection
 ---------------------
 .. toctree::
    :maxdepth: 1
