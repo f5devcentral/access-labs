@@ -1,5 +1,5 @@
-Lab 1: Intro to Per-Session Policy
-=====================================
+Lab 1: Intro to Access/Primary use Cases
+=========================================
 
 Objectives
 ----------

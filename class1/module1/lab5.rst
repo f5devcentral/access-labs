@@ -1,5 +1,5 @@
-Lab 1: Active Directory Authentication
-========================================
+Lab 5: Visual Policy Editor Concepts
+=============================================
 
 Objectives
 ----------

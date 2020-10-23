@@ -1,5 +1,5 @@
-Lab 1: Active Directory Authentication
-========================================
+Lab 7: Access Logs Overview
+=============================================
 
 Objectives
 ----------

@@ -1,5 +1,5 @@
-Lab 3: Intro to Posture Assessments
-=====================================
+Lab 3: Access Guided Configuration Concepts
+=============================================
 
 Objectives
 ----------

@@ -1,5 +1,5 @@
-Lab 2: Intro to Per-Request Policy
-=====================================
+Lab 2: Provisioning & Main Menu Navigation
+===========================================
 
 Objectives
 ----------

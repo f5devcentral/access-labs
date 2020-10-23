@@ -1,5 +1,5 @@
-Lab 1: Active Directory Authentication
-========================================
+Lab 1: Intro to Per-Session Policy
+=====================================
 
 Objectives
 ----------

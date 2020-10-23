@@ -1,4 +1,4 @@
-500 Series: Troubleshooting
+900 Series: Troubleshooting
 ======================================================
 
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.

@@ -1,5 +1,5 @@
-Lab 1: Active Directory Authentication
-========================================
+Lab 3: Intro to Posture Assessments
+=====================================
 
 Objectives
 ----------

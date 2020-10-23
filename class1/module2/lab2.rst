@@ -1,5 +1,5 @@
-Lab 1: Active Directory Authentication
-========================================
+Lab 2: Intro to Per-Request Policy
+=====================================
 
 Objectives
 ----------
