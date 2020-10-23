@@ -4,16 +4,16 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-101 - Access Policy Frameworks
+101 - Access Introduction
 ---------------------------
 .. toctree::
    :maxdepth: 1
    :glob:
    
-   module2/lab*
+   module1/lab*
   
 102 - Access Policy Frameworks
----------------------------
+------------------------------
 .. toctree::
    :maxdepth: 1
    :glob:
@@ -23,7 +23,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    
    
 103 - Client-side Authentication
-------------------------------  
+----------------------------------- 
 .. toctree::
    :maxdepth: 1
    :glob:
@@ -33,7 +33,7 @@ This lab documents provides foundational concepts for understanding Access Polic
 
   
 104 - Server-side Single-Sign-On
------------------------------ 
+---------------------------------- 
 .. toctree::
    :maxdepth: 1
    :glob:
