@@ -29,18 +29,23 @@ Task 1: Authentication Types
 #. Local DB Instances
 #. NTLM
 
-Task 2: Client Side Authentication
+Task 2:  Federation authentication
+-----------------------------------
+
+
+
+Task 3: Client Side Authentication
 --------------------------------------
 
 
 
-Task 3: Server Side Authentication
+Task 4: Server Side Authentication
 --------------------------------------------------
 
 
 
-Task 4: Frameworks
----------------
+Task 5: Frameworks???
+-------------------
 
 
 

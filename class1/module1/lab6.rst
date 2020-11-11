@@ -1,5 +1,5 @@
-Lab 6: Session/Subsession Concepts
-=============================================
+Lab 6: Profiles/Policies and Session/Subsession Concepts
+========================================================
 
 Objectives
 ----------
@@ -11,23 +11,23 @@ Lab Requirements
 
 -  A pre existing virtual server at 10.1.10.101 or https://server1.acme.com
 
-Task 1: What is a Session
+Task 1: What is a Per Session Policy
 ---------------------------------------
 
 
 
-Task 2: What is a Subsession
+Task 2: What is a Per Request Policy
 --------------------------------------
 
 
 
-Task 3:
---------------------------------------------------
+Task 3: What is a Session
+--------------------------
 
 
 
-Task 4:
----------------
+Task 4: What is a Subsession
+-----------------------------
 
 
 
