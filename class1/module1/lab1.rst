@@ -4,7 +4,14 @@ Lab 1: Intro to Access/Primary use Cases
 Objectives
 ----------
 
-The lab will walk you through a few primary use cases with some basic access policies.
+The lab will walk you through a few primary use cases with some basic access policies.  This is not an exhaustive list and intended
+as an introduction to APM functions.  Lab 1 will examine the pre-built policies and give the student a look at the user experience.
+Each of these cases will be explored in later labs.
+
+Lab Resources
+--------------
+Postman Collection
+
 
 Lab Requirements
 ----------------
