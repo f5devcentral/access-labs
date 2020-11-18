@@ -172,6 +172,14 @@ in more deail later).
     - Where did it flow?
     - Was the user successful?
 #.  Return to the first screen by using the back button in the browser
+#.  In **Active Sessions** click on the check box next to the session and select the **Kill Selected Sessions** button.  This will terminate the users session and make them login again.
+#.  Click on **Access Reports**
+#.  You will be prompted to enter a time period to run the report
+
+|image22|
+
+.. Note:: This is how you can view past sessions.  Pick a time frame and run a report.
+
 #.  There are two other reporting functions in this screen, **OAuth Report** and **SWG Reports** which will be covered in more detail in later labs
 #.  The last section is Event Logs.
 
@@ -179,8 +187,52 @@ in more deail later).
 
 #.  Click on **Event Logs** and choose **Settings**
 #.  This is where you can create logging profiles for access policies.  From here you can specify what information to collect and to what detail.
-#.  Check the box next to the default-log setting and choose **Edit** from Below
-#.  This opens the settings for the APM log
+#.  Click the **Create** button
+#.  We will create a new APM Log profile
+
++----------------------+---------------------------+----------------------------------+
+|General Information   | Name                      |  Basic_Log_profile               |
++----------------------+---------------------------+----------------------------------+
+|                      | Enable Access System Logs |  Check box                       |
++----------------------+---------------------------+----------------------------------+
+|Access System Logs    | Publisher                 |  /Common/sys-db-access-publisher |
++----------------------+---------------------------+----------------------------------+
+|                      | Access Policy             |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | ACL                       |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | Secure Web Gateway        |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | OAuth                     |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | VDI                       |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | ADFS Proxy                |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | Per-Request Policy        |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | SSO                       |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | ECA                       |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | PingAccess Profile        |  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|                      | Endpoint Management System|  Notice                          |
++----------------------+---------------------------+----------------------------------+
+|Access Profile        | Selected                  |  Blah                            |
++----------------------+---------------------------+----------------------------------+
+
+.. Note:: Within the Access System Logs section of the log profile is where you can change the logging for various portions of the APM Policies.  The one you will use most will be to move Access Policy
+from Notice to Debug and/or Pre-Request Policy from Notice to Debug.  As you can see you can pick and choose what level of notifications you want in your logs.  This will impact what you see in
+Access Reports for a session and what appears in /var/log/apm.
+
+#.  From the left menu go to **Access** --> **Overview** --> **Dashboard**
+
+|image23|
+
+#.  The Dashboard can give you a quick synopsis on Access Session, Network Access Session, Portal Access and Access control Lists.
+
+.. Note:: For more reporting on APM stats look to BIG-IQ or exporting logs to 3rd party SIEMs and create your own dashboard.
 
 
 Task 4: Profile/Policies
@@ -249,3 +301,5 @@ Lab 2 is now complete.
 .. |image19| image:: /class1/media/image19.png
 .. |image20| image:: /class1/media/image20.png
 .. |image21| image:: /class1/media/image21.png
+.. |image22| image:: /class1/media/image22.png
+.. |image23| image:: /class1/media/image23.png
