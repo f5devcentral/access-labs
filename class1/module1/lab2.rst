@@ -4,8 +4,8 @@ Lab 2: Provisioning & Main Menu Navigation
 Objectives
 ----------
 
-The lab steps through the provisioning process and various menu items for Access Policy Manager (APM).  The goal of this lab is to
-instruct users on enabling the module from their BIG-IP platforms and examine the components of APM.
+The intention of this lab will be to show how to enable Access Policy Manager (APM) through resource provisioning.  Next we will explore all the components within the **Access** left menu.
+This is not a deep dive on the components but an overview of the components/features of APM.
 
 Lab Requirements
 ----------------
@@ -14,16 +14,16 @@ Lab Requirements
 
 Task 1: Resource Provisioning
 ---------------------------------------
-Access Policy Manager (APM) is another module available for use on the BIG-IP platform (Hardware and Virtual).  Unlike other modules, APM can be provisioned with
+Access Policy Manager (APM) is a module available for use on the BIG-IP platform (Hardware and Virtual).  Unlike other modules, APM can be provisioned with
 limited functionality on any BIG-IP platform without a specific license (`see F5 KB15854 <https://support.f5.com/csp/article/K15854>`__).  APM is licensed based on the number of Access Sessions
 and Concurrent Users Sessions (`see APM Operations Guide <https://support.f5.com/csp/article/K72971039>`__). You can provision APM limited and immediately start using all the functions of APM with a
 limitation of 10 Access and Concurrent user session.
 
 #. Log in to bigip1.f5lab.local with administrative credentials provided
 #. On the left menu navigate to **System** --> **Resource Provisioning**
-#. Click box and on the drop down next to the module and choose Nominal
+#. Click box and on the drop down next to the module and choose **Nominal**
 
-.. Note:: What do the options mean?
+.. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
 +---------------+---------------------------------------------------------------------------------------+
 |Dedicated      |Specifies that all resources are dedicated to the module you are provisioning. For all |
 |               |other modules, the level option must be set to none.                                   |
@@ -38,7 +38,7 @@ limitation of 10 Access and Concurrent user session.
 |image1|
 
 #. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This
-will not require a reboot but will take approximately 2 to 5 minutes to complete.
+will not require a reboot but will take approximately 1 to 5 minutes to complete.
 
 |image2|
 |image3|
@@ -47,23 +47,11 @@ will not require a reboot but will take approximately 2 to 5 minutes to complete
 
 Task 2: Guided Configuration
 -----------------------------
-Access Guided Configuration provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is written in iAppsLX so is independent release from TMOS.  To find
-updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are just going to explore the menu and take a look at the options.
-We will not be deploying any of these solutions in this lab.
+Access Guided Configuration (AGC) provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is written in has an independent release from TMOS and requires
+updates for new configurations from time to time. To find updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are
+going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab. Lab 3 will dive a little deeper in to the use cases and when to use AGC.
 
-#.  Click on **Access** --> **Guided Configuration** from the left Menu
-#.  In the upper right corner you will find the version.
-
-|image4|
-
-#.  Click on Upgrade Guided configuration
-#.  Choose File
-#.  Navigate to blah and chose f5-iappslx-agc-usecase-pack-7.0-0.0.1481.tar.gz
-#.  Click Upload and Install
-
-|image5|
-
-#.  Click Continue
+#.  Go to **Access** --> **Guided Configuration**
 #.  A set of tiles appears at top listing the areas of use cases where Guided Configuration can be used
 
 |image6|
@@ -111,11 +99,11 @@ for details on client requirements.
 #.  Click on the Identity Aware Proxy configuration option
 #.  There are two topologies available:
 
-+---------------+---------------------------+
++---------------+-------------+-------------+
 |Single Proxy   | |image13|   |  |image17|  |
-+---------------+---------------------------+
++---------------+-------------+-------------+
 |Multi-Proxy    | |image14|   |  |image16|  |
-+---------------+---------------------------+
++---------------+-------------+-------------+
 
 #.  Proceeding with this configuration will create a number of object as seen here.
 
@@ -123,13 +111,21 @@ for details on client requirements.
 
 .. Note:: Webtop is available as of version 16.0
 
-#.  Return to the may screen by clicking the Guided Configuration bread crumb
+#.  Return to the main screen by clicking the Guided Configuration bread crumb
 #.  Click on the Microsoft Integration tile
 #.  There are three options available:
-    - ADFS Proxy:  This is the Web Application Proxy (WAP) replacement use case where BIG-IP can replace the ADFS Windows Servers in the DMZ and serve as the secure WAP platform between your
-    external users and the internal ADFS infrastructure.
-    - Azure AD Application: This allows integration of Azure AD in to various web applications without need of application changes.
-    - Exchange Proxy: This guided configuration replaces the need to run the iApps for Exchange
+
++-----------------------+-------------------------------------------------------------------------------------------------------+
+|ADFS Proxy             |This is the Web Application Proxy (WAP) replacement use case where BIG-IP can replace the ADFS Windows |
+|                       |Servers in the DMZ and serve as the secure WAP platform between your external users and the internal   |
+|                       |ADFS infrastructure.                                                                                   |
++-----------------------+-------------------------------------------------------------------------------------------------------+
+|Azure AD Application   |This allows integration of Azure AD in to various web applications connecting through without need of  |
+|                       |application changes.                                                                                   |
++-----------------------+-------------------------------------------------------------------------------------------------------+
+|Exchange Proxy         |This guided configuration replaces the need to run the iApps for Exchange.                             |
+|                       |                                                                                                       |
++-----------------------+-------------------------------------------------------------------------------------------------------+
 
 |image19|
 
@@ -167,7 +163,7 @@ The Overview menu is where an administrator can view active sessions, previous s
 
 #.  The Session ID will take you to the first set of reporting **Access Report**
 #.  This section will give you details on the session.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in
-in more deail later).
+in more detail later).
     - Can you find the first **Following Rule** log message?
     - Where did it flow?
     - Was the user successful?
@@ -238,10 +234,16 @@ Access Reports for a session and what appears in /var/log/apm.
 Task 4: Profile/Policies
 ------------------------
 Profiles and Policies are where we begin to learn about what makes APM function.  In order for APM functions to be added to a Virtual server we need to create Access Profiles and Policies.  These
-entities take all the components we will look at below and put them in a logical flow.  These entities are things like login pages, authentication, single sign on and endpoint checks.  To being we
-have to create an Access Profile.  Within that profile we create a per session policy.  When that is completed we attach that profile to a Virtual Server.
+entities take all the components we will look at below and put them in a logical flow through the Visual Policy Editor (VPE). These entities are things like login pages, authentication, single sign
+on methods and endpoint checks.  To being we have to create an Access Profile.  Within that profile we create a per session policy.  When that is completed we attach that profile to a Virtual Server.
+
+.. Note::  You can associate one Access Profile (which includes a per-session policy) and one per-request policy per virtual server.
 
 #.  From the left menu go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+
+The per-session policy runs when a client initiates a session. (A per-session policy is also known as an access policy.) Depending on the actions you include in the access policy, it can authenticate
+the user and perform other actions that populate session variables with data for use throughout the session.
+
 #.  Click on the Create button on the far right
 
 +----------------------+---------------------------+----------------------------------+
@@ -257,6 +259,7 @@ have to create an Access Profile.  Within that profile we create a per session p
 #.  Now we have a basic profile.  There were a number of other settings to modify and use in the profile.  For now we will focus just on the basics.
 #.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
 #.  There are two ways to edit the Policy piece of the profile.
+    First way
     - Click on the profile
     - Click on **Access Policy**
     - Click on the link to **Edit Access Policy for Profile "Basic_policy"**
@@ -267,7 +270,7 @@ have to create an Access Profile.  Within that profile we create a per session p
     - Middle of the line there will be an **Edit** link
     - Click the **Edit** link
 
-#.  Close the VPE.  Click on the **Basic_policy** and explore the settings for the Profile.
+#.  Close the VPE (we will visit the VPE and policy in more detail later)  Click on the **Basic_policy** and explore the settings for the Profile.
     - Settings:  Here you can manage settings for the profile.  You may want to change timeouts, max sessions and login attempts.  These are settings specifically for this profile.
     - Configurations: For various use cases this section may need configuration.
     - Language Settings: You set these at creation.
@@ -280,7 +283,14 @@ are created.
 #.  Click on logs
 #.  The log profile we create earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
 #.  Click Update.
+#.  From the left menu navigate to **Access** --> **Profiles/Policies** --> **Per Request Policies**
 
+APM executes per-session policies when a client attempts to connect to the enterprise. After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request.
+Because of this behavior, a per-request policy is particularly useful in the context of a Secure Web Gateway or Zero Trust scenario, where the client requires re-verification on every request,
+or changes based on gating criteria.
+
+A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You can use nearly all of the same agents in per-request policies that you
+can use in per-session policies. However, most of the agents (including authentication agents) have to be used in a subroutine in per-request policies.
 
 
 
@@ -327,8 +337,6 @@ Lab 2 is now complete.
 .. |image1| image:: /class1/media/image01.png
 .. |image2| image:: /class1/media/image02.png
 .. |image3| image:: /class1/media/image03.png
-.. |image4| image:: /class1/media/image4.png
-.. |image5| image:: /class1/media/image5.png
 .. |image6| image:: /class1/media/image6.png
 .. |image7| image:: /class1/media/image7.png
 .. |image8| image:: /class1/media/image8.png
