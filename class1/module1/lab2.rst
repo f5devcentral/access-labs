@@ -25,13 +25,13 @@ limitation of 10 Access and Concurrent user session.
 
 .. Note:: What do the options mean?
 +---------------+---------------------------------------------------------------------------------------+
-|Dedicated -    |Specifies that all resources are dedicated to the module you are provisioning. For all |
+|Dedicated      |Specifies that all resources are dedicated to the module you are provisioning. For all |
 |               |other modules, the level option must be set to none.                                   |
 +---------------+---------------------------------------------------------------------------------------+
-|Minimum -      |Specifies that you want to provision the minimum amount of  resources for the module   |
+|Minimum        |Specifies that you want to provision the minimum amount of  resources for the module   |
 |               |you are provisioning.                                                                  |
 +---------------+---------------------------------------------------------------------------------------+
-|Nominal -      |Specifies that you want to share all of the available resources equally among all of   |
+|Nominal        |Specifies that you want to share all of the available resources equally among all of   |
 |               |the modules that are licensed on the unit.                                             |
 +---------------+---------------------------------------------------------------------------------------+
 
@@ -228,24 +228,24 @@ Task 12: Webtops
 
 Lab 2 is now complete.
 
-.. |image1| image:: media/image01.png
-.. |image2| image:: media/image02.png
-.. |image3| image:: media/image03.png
-.. |image4| image:: media/image4.png
-.. |image5| image:: media/image5.png
-.. |image6| image:: media/image6.png
-.. |image7| image:: media/image7.png
-.. |image8| image:: media/image8.png
-.. |image9| image:: media/image9.png
-.. |image10| image:: media/image10.png
-.. |image11| image:: media/iamge11.png
-.. |image12| image:: media/image12.png
-.. |image13| image:: media/image13.png
-.. |image14| image:: media/image14.png
-.. |image15| image:: media/image15.png
-.. |image16| image:: media/image16.png
-.. |image17| image:: media/image17.png
-.. |image18| image:: media/imag18.png
-.. |image19| image:: media/image19.png
-.. |image20| image:: media/image20.png
-.. |image21| image:: media/image21.png
+.. |image1| image:: /class1/media/image01.png
+.. |image2| image:: /class1/media/image02.png
+.. |image3| image:: /class1/media/image03.png
+.. |image4| image:: /class1/media/image4.png
+.. |image5| image:: /class1/media/image5.png
+.. |image6| image:: /class1/media/image6.png
+.. |image7| image:: /class1/media/image7.png
+.. |image8| image:: /class1/media/image8.png
+.. |image9| image:: /class1/media/image9.png
+.. |image10| image:: /class1/media/image10.png
+.. |image11| image:: /class1/media/iamge11.png
+.. |image12| image:: /class1/media/image12.png
+.. |image13| image:: /class1/media/image13.png
+.. |image14| image:: /class1/media/image14.png
+.. |image15| image:: /class1/media/image15.png
+.. |image16| image:: /class1/media/image16.png
+.. |image17| image:: /class1/media/image17.png
+.. |image18| image:: /class1/media/imag18.png
+.. |image19| image:: /class1/media/image19.png
+.. |image20| image:: /class1/media/image20.png
+.. |image21| image:: /class1/media/image21.png
