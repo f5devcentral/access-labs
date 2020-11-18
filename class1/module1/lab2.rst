@@ -112,7 +112,7 @@ for details on client requirements.
 #.  There are two topologies available:
 
 +---------------+---------------------------+
-|Single Proxy   | |image113|  |  |image17|  |
+|Single Proxy   | |image13|   |  |image17|  |
 +---------------+---------------------------+
 |Multi-Proxy    | |image14|   |  |image16|  |
 +---------------+---------------------------+
