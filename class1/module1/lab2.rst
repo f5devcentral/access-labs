@@ -237,6 +237,50 @@ Access Reports for a session and what appears in /var/log/apm.
 
 Task 4: Profile/Policies
 ------------------------
+Profiles and Policies are where we begin to learn about what makes APM function.  In order for APM functions to be added to a Virtual server we need to create Access Profiles and Policies.  These
+entities take all the components we will look at below and put them in a logical flow.  These entities are things like login pages, authentication, single sign on and endpoint checks.  To being we
+have to create an Access Profile.  Within that profile we create a per session policy.  When that is completed we attach that profile to a Virtual Server.
+
+#.  From the left menu go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#.  Click on the Create button on the far right
+
++----------------------+---------------------------+----------------------------------+
+|General Properties    | Name                      |  Basic_policy                    |
++----------------------+---------------------------+----------------------------------+
+|                      | Profile Type              |  All                             |
++----------------------+---------------------------+----------------------------------+
+|                      | Profile Scope             |  Profile                         |
++----------------------+---------------------------+----------------------------------+
+|Language Settings     | Accepted Languages        |  English                         |
++----------------------+---------------------------+----------------------------------+
+
+#.  Now we have a basic profile.  There were a number of other settings to modify and use in the profile.  For now we will focus just on the basics.
+#.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
+#.  There are two ways to edit the Policy piece of the profile.
+    - Click on the profile
+    - Click on **Access Policy**
+    - Click on the link to **Edit Access Policy for Profile "Basic_policy"**
+    - This will take you to the Visual Policy Editor (VPE)
+
+    Second way
+    - Locate the **Basic_policy** in the Profile list and follow the line to the right.
+    - Middle of the line there will be an **Edit** link
+    - Click the **Edit** link
+
+#.  Close the VPE.  Click on the **Basic_policy** and explore the settings for the Profile.
+    - Settings:  Here you can manage settings for the profile.  You may want to change timeouts, max sessions and login attempts.  These are settings specifically for this profile.
+    - Configurations: For various use cases this section may need configuration.
+    - Language Settings: You set these at creation.
+
+.. Note:: If you are unsure of the settings you need at profile creation you can see that you can return to the profile and make adjustments.
+
+#.  Still in the profile click on **SSO/Auth Domain** at the top
+#.  We can leverage these configurations for allow many applications through a single policy or just a one to one relationship.  This is also where we can attach Single Sign On methods once they
+are created.
+#.  Click on logs
+#.  The log profile we create earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
+#.  Click Update.
+
 
 
 
@@ -297,7 +341,7 @@ Lab 2 is now complete.
 .. |image15| image:: /class1/media/image15.png
 .. |image16| image:: /class1/media/image16.png
 .. |image17| image:: /class1/media/image17.png
-.. |image18| image:: /class1/media/imag18.png
+.. |image18| image:: /class1/media/image18.png
 .. |image19| image:: /class1/media/image19.png
 .. |image20| image:: /class1/media/image20.png
 .. |image21| image:: /class1/media/image21.png
