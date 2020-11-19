@@ -76,9 +76,7 @@ be maintained within this menu.
 #.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
 
 #.  Click on the Guide Configuration bread crumb at the top of the screen to return to the main menu.
-
-#.  Zero Trust is the next tile.
-Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or
+#.  Zero Trust is the next tile. Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or
 outside of the network.
 
 The easiest way to create policies to support zero trust security is to use the Zero Trust-Identity Aware Proxy template in Access Guided Configuration. The template takes you through the
@@ -260,26 +258,69 @@ the user and perform other actions that populate session variables with data for
 #.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
 #.  There are two ways to edit the Policy piece of the profile.
     First way
-    - Click on the profile
-    - Click on **Access Policy**
-    - Click on the link to **Edit Access Policy for Profile "Basic_policy"**
-    - This will take you to the Visual Policy Editor (VPE)
+    +----------------------------------------------------------------------------+
+    | Click on the profile                                                       |
+    +----------------------------------------------------------------------------+
+    | Click on **Access Policy**                                                 |
+    +----------------------------------------------------------------------------+
+    | Click on the link to **Edit Access Policy for Profile "Basic_policy"**     |
+    +----------------------------------------------------------------------------+
+    | This will take you to the Visual Policy Editor (VPE)                       |
+    +----------------------------------------------------------------------------+
 
     Second way
-    - Locate the **Basic_policy** in the Profile list and follow the line to the right.
-    - Middle of the line there will be an **Edit** link
-    - Click the **Edit** link
+    +-----------------------------------------------------------------------------------+
+    | Locate the **Basic_policy** in the Profile list and follow the line to the right. |
+    +-----------------------------------------------------------------------------------+
+    | Middle of the line there will be an **Edit** link                                 |
+    +-----------------------------------------------------------------------------------+
+    | Click the **Edit** link                                                           |
+    +-----------------------------------------------------------------------------------+
 
 #.  Close the VPE (we will visit the VPE and policy in more detail later)  Click on the **Basic_policy** and explore the settings for the Profile.
-    - Settings:  Here you can manage settings for the profile.  You may want to change timeouts, max sessions and login attempts.  These are settings specifically for this profile.
-    - Configurations: For various use cases this section may need configuration.
-    - Language Settings: You set these at creation.
+    +----------------------+------------------------------------------------------------------------------------+
+    | Settings             | Here you can manage settings for the profile. You may want to change timeouts, max |
+    |                      | sessions and login attempts. These are settings specifically for this profile.     |
+    +----------------------+------------------------------------------------------------------------------------+
+    | Configurations       | For various use cases this section may need configuration.                         |
+    +----------------------+------------------------------------------------------------------------------------+
+    | Language Settings    | You set these at creation.                                                         |
+    +----------------------+------------------------------------------------------------------------------------+
 
 .. Note:: If you are unsure of the settings you need at profile creation you can see that you can return to the profile and make adjustments.
 
 #.  Still in the profile click on **SSO/Auth Domain** at the top
-#.  We can leverage these configurations for allow many applications through a single policy or just a one to one relationship.  This is also where we can attach Single Sign On methods once they
-are created.
+#.  What is Domain Mode?
+
+Access Policy Manager (APM) provides a method to enable users to use a single login or session across multiple virtual servers in separate
+domains. Users can access back-end applications through multiple domains or through multiple hosts within a single domain, eliminating additional
+credential requests when they go through those multiple domains. With multi-domain support, you have the option of applying different SSO methods
+across different domains.
+
+.. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP® system.
+
+These are some of the benefits that APM provides when you use it to set up multi-domain support for SSO.
+
+   - Users can sign out from all domains at once.
+   - Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
+   - Administrators can configure different cookie settings (Secure, Host/Domain and Persistent) for different domains, and for different hosts within same domain
+   - Administrators can set up multiple SSO configurations to sign users in to multiple back-end applications for a single APM® session
+
+
+.. Note:: The use of the term domain in this configuration does not refer to something like Active Directory Domain. in this case the use of
+domain relates to how the term is used for http request/responses as in www.abc.com is a domain. Think HTTP host.
+
+#.  What is are the options?
++----------------------+----------------------------------------------------------------------------------------+
+| Single Domain        | Choose this option for a single domain (think http host) with a single sign on method  |
++----------------------+----------------------------------------------------------------------------------------+
+| Multiple Domains     | For various use cases this section may need configuration.                             |
++----------------------+----------------------------------------------------------------------------------------+
+
+#.  Domain Cookie
+
+
+
 #.  Click on logs
 #.  The log profile we create earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
 #.  Click Update.
