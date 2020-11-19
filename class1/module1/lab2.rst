@@ -314,6 +314,7 @@ These are some of the benefits that APM provides when you use it to set up multi
 domain relates to how the term is used for http request/responses as in www.abc.com is a domain. Think HTTP host.
 
 #.  What is are the options?
+
 +----------------------+----------------------------------------------------------------------------------------+
 | Single Domain        | Choose this option for a single domain (think http host) with a single sign on method  |
 +----------------------+----------------------------------------------------------------------------------------+
