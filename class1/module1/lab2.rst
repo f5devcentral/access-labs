@@ -258,6 +258,7 @@ the user and perform other actions that populate session variables with data for
 #.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
 #.  There are two ways to edit the Policy piece of the profile.
     First way
+
     +----------------------------------------------------------------------------+
     | Click on the profile                                                       |
     +----------------------------------------------------------------------------+
@@ -269,6 +270,7 @@ the user and perform other actions that populate session variables with data for
     +----------------------------------------------------------------------------+
 
     Second way
+
     +-----------------------------------------------------------------------------------+
     | Locate the **Basic_policy** in the Profile list and follow the line to the right. |
     +-----------------------------------------------------------------------------------+
@@ -278,6 +280,7 @@ the user and perform other actions that populate session variables with data for
     +-----------------------------------------------------------------------------------+
 
 #.  Close the VPE (we will visit the VPE and policy in more detail later)  Click on the **Basic_policy** and explore the settings for the Profile.
+
     +----------------------+------------------------------------------------------------------------------------+
     | Settings             | Here you can manage settings for the profile. You may want to change timeouts, max |
     |                      | sessions and login attempts. These are settings specifically for this profile.     |
