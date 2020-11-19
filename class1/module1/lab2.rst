@@ -300,9 +300,10 @@ domains. Users can access back-end applications through multiple domains or thro
 credential requests when they go through those multiple domains. With multi-domain support, you have the option of applying different SSO methods
 across different domains.
 
-.. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP® system.
+.. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP system and share the same access profile. All virtual
+servers must include all of the profiles that the access profile requires (for example, VDI, rewrite, server SSL, connectivity, and so on).
 
-These are some of the benefits that APM provides when you use it to set up multi-domain support for SSO.
+APM provides the following benefits when using multi-domain support with SSO.
 
    - Users can sign out from all domains at once.
    - Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
@@ -310,16 +311,13 @@ These are some of the benefits that APM provides when you use it to set up multi
    - Administrators can set up multiple SSO configurations to sign users in to multiple back-end applications for a single APM® session
 
 
-.. Note:: The use of the term domain in this configuration does not refer to something like Active Directory Domain. in this case the use of
-domain relates to how the term is used for http request/responses as in www.abc.com is a domain. Think HTTP host.
-
 #.  What is are the options?
 
-+----------------------+----------------------------------------------------------------------------------------+
-| Single Domain        | Choose this option for a single domain (think http host) with a single sign on method  |
-+----------------------+----------------------------------------------------------------------------------------+
-| Multiple Domains     | For various use cases this section may need configuration.                             |
-+----------------------+----------------------------------------------------------------------------------------+
++----------------------+----------------------------------------------------------------------+
+| Single Domain        | Choose this option for a single domain with a single sign on method  |
++----------------------+----------------------------------------------------------------------+
+| Multiple Domains     | For various use cases this section may need configuration.           |
++----------------------+----------------------------------------------------------------------+
 
 #.  Domain Cookie
 
