@@ -319,8 +319,29 @@ APM provides the following benefits when using multi-domain support with SSO.
 | Multiple Domains     | For various use cases this section may need configuration.           |
 +----------------------+----------------------------------------------------------------------+
 
-#.  Domain Cookie
+#.  Leave Single Domain radio button selected.  What is a Domain Cookie?
 
+By default, BIG-IP APM requires authentication for each access profile.  This can easily be changed by adding the domain cookie. For this section you will add
+the domain for your application. For example, if you have two applications app1.f5demo.com and app2.f5demo.com you would enter the domain f5demo.com for your
+domain cookie. Now your users can access each application and will only be prompted for authentication once.
+
+#.  Cookie Options.
+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| secure               | If the BIG-IP APM virtual server is configured with a Client SSL profile, select **Secure** (default setting) when  |
+|                      | configuring the BIG-IP APM SSO/Auth Domain cookie settings.                                                         |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| Persistent           | Session cookie persistence functions only on BIG-IP LTM and APM deployments. For BIG-IP APM  deployments with       |
+|                      | connectivity resources (such as Network Access, Portal Access, etc.), you cannot set BIG-IP APM cookies as          |
+|                      | **Persistent**. This is by design, as session cookie persistence can present a security risk. For some deployments  |
+|                      | of the BIG-IP APM system, as with Microsoft SharePoint, cookie persistence may be required. When you select cookie  |
+|                      | persistence, persistence is hard coded at 60 seconds.                                                               |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| HTTP Only            | For BIG-IP APM deployments with connectivity resources (such as Network Access, Portal Access, etc.), do not set    |
+|                      | BIG-IP APM cookies with the **HTTP Only** flag.                                                                     |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+
+.. Note:: 
 
 
 #.  Click on logs
