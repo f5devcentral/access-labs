@@ -451,7 +451,7 @@ and is where most of the customization takes place.
 
 +======================+=====================================================================================================================+
 | View                 | Description                                                                                                         |
-+======================|=====================================================================================================================+
++======================+=====================================================================================================================+
 | Basic                | Basic customization provides a limited set of options intended for quick modification of the objects that are       |
 | Customization        | commonly displayed to users. This is the default customization view. Use this to configure basic look and feel      |
 |                      | for pages, and common text labels and captions for resources on the webtop. Different options exist depending on    |
@@ -475,7 +475,7 @@ and is where most of the customization takes place.
 
 .. Hint:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
 
-This is more
+
 Task 5: Authentication
 ----------------------------
 
