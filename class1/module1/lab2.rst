@@ -348,15 +348,15 @@ domain cookie. Now your users can access each application and will only be promp
 | HTTP Only            | For BIG-IP APM deployments with connectivity resources (such as Network Access, Portal Access, etc.), do not set    |
 |                      | BIG-IP APM cookies with the **HTTP Only** flag.                                                                     |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
-| Samesite             + New in version 16.x APM now has the option to enable Samesite attribute for session cookies. This attribute         |
-|                      + enforces samesite usage and prevents the cookies from being included with cross-site requests. It can have one of   |
-|                      + these values:                                                                                                       |
-|                      +  - Strict: Only include the cookie with requests originating from the same site as the cookie                       |
-|                      +  - Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP  |
-|                      +  method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user  |
-|                      +  navigates to the URL from an external site, such as by following a link.                                           |
-|                      +  - None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure  |
-|                      +  cookie attribute must be set.                                                                                      |
+| Samesite             | New in version 16.x APM now has the option to enable Samesite attribute for session cookies. This attribute         |
+|                      | enforces samesite usage and prevents the cookies from being included with cross-site requests. It can have one of   |
+|                      | these values:                                                                                                       |
+|                      | - Strict: Only include the cookie with requests originating from the same site as the cookie                        |
+|                      | - Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP   |
+|                      |   method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user |
+|                      |   navigates to the URL from an external site, such as by following a link.                                          |
+|                      | - None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure   |
+|                      |   cookie attribute must be set.                                                                                     |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 
 #.  SSO Configuration
@@ -459,18 +459,16 @@ and is where most of the customization takes place.
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 | General              | This view provides a tree structure containing all the configuration elements, and more detailed options to         |
 | Customization        | customize objects, such as:                                                                                         |
-|                      |                                                                                                                     |
-|                      |    - The size, color, and placement of forms and screens.                                                           |
-|                      |    - The look and feel of objects with more opportunities to replace images.                                        |
-|                      |    - Text on the screen, including headers and footers.                                                             |
-|                      |    - Messages, including installation and error messages.                                                           |
-|                      |                                                                                                                     |
+|                      | - The size, color, and placement of forms and screens.                                                              |
+|                      | - The look and feel of objects with more opportunities to replace images.                                           |
+|                      | - Text on the screen, including headers and footers.                                                                |
+|                      | - Messages, including installation and error messages.                                                              |
 |                      | Any text or image that you can customize using the visual policy editor, can also be adjusted using the general     |
 |                      | customization UI. Different options exist depending on the Customization Type selected when the policy was created, |
 |                      | and which elements were added to the access or per-request policy.                                                  |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 | Advanced             | Advanced customization provides direct access to PHP, Cascading Style Sheets (CSS), JavaScript, and HTML files that |
-| Customization        | you can edit to control the display and function of web and client pages in Access Policy Manager.                  |                                                    
+| Customization        | you can edit to control the display and function of web and client pages in Access Policy Manager.                  |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 
 .. Hint:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
