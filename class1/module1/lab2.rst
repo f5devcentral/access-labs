@@ -359,10 +359,10 @@ domain cookie. Now your users can access each application and will only be promp
 |                      |                                                                                                                    |
 |                      |- Strict: Only include the cookie with requests originating from the same site as the cookie                        |
 |                      |- Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP   |
-|                      |method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user   |
-|                      |navigates to the URL from an external site, such as by following a link.                                            |
+|                      |  method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user |
+|                      |  navigates to the URL from an external site, such as by following a link.                                          |
 |                      |- None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure   |
-|                      |cookie attribute must be set.                                                                                       |
+|                      |  cookie attribute must be set.                                                                                     |
 +----------------------+--------------------------------------------------------------------------------------------------------------------+
 
 #.  SSO Configuration
@@ -377,12 +377,12 @@ first you must configuration the SSO object and then select in this section of t
 If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of
 the virtual servers and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login.
 
-- Primary Authentication URI:  Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where the user
-session is created. As long as you provide the URI, your users are able to access multiple backend applications from multiple domains and hosts without requiring
-them to re-enter their credentials because the user session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.
+- Primary Authentication URI:  Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where the user session
+  is created. As long as you provide the URI, your users are able to access multiple backend applications from multiple domains and hosts without requiring them to
+  re-enter their credentials because the user session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.
 - Authentication Domain Configuration: Set the domain acme.com
-- Authentication Domains:  To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app1.acme.com  If you have and SSO method
-created select the SSO method from the drop down box.  This can be edited later to add an SSO method.
+- Authentication Domains:  To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app1.acme.com  If you have and SSO
+  method created select the SSO method from the drop down box.  This can be edited later to add an SSO method.
 
 #.  Logs
 
