@@ -449,9 +449,9 @@ After you personalize settings, remember to click the **Save** icon to apply you
 The Customization tool provides three views that you can use to customize the interface. The General Customization view provides the greatest number of options
 and is where most of the customization takes place.
 
-+======================+=====================================================================================================================+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
 | View                 | Description                                                                                                         |
-+======================+=====================================================================================================================+
++----------------------+---------------------------------------------------------------------------------------------------------------------+
 | Basic                | Basic customization provides a limited set of options intended for quick modification of the objects that are       |
 | Customization        | commonly displayed to users. This is the default customization view. Use this to configure basic look and feel      |
 |                      | for pages, and common text labels and captions for resources on the webtop. Different options exist depending on    |
