@@ -150,10 +150,12 @@ The Overview menu is where an administrator can view active sessions, previous s
 #.  A new session will appear in the Total Active Sessions.  From this pane you can see the session ID, variables collected, Client IP, Virtual Server in use, session type and any profiles in use
 #.  Click on the View under Variables
 #.  This gives us all the information collected on the current session
+
 - Can you find the user logged in?
 - What is the client platform
 - Client Type?
 - Access Profile?
+
 #.  Click the back button on the browser to return to the Active Sessions.
 #.  Click on the Session ID
 
@@ -162,9 +164,11 @@ The Overview menu is where an administrator can view active sessions, previous s
 #.  The Session ID will take you to the first set of reporting **Access Report**
 #.  This section will give you details on the session.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in
 in more detail later).
+
 - Can you find the first **Following Rule** log message?
 - Where did it flow?
 - Was the user successful?
+
 #.  Return to the first screen by using the back button in the browser
 #.  In **Active Sessions** click on the check box next to the session and select the **Kill Selected Sessions** button.  This will terminate the users session and make them login again.
 #.  Click on **Access Reports**
@@ -312,6 +316,7 @@ are in the f5demo.com DNS domain.
 servers must include all of the profiles that the access profile requires (for example, VDI, rewrite, server SSL, connectivity, and so on).
 
 APM provides the following benefits when using multi-domain support with SSO.
+
 - Users can sign out from all domains at once.
 - Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
 - Administrators can configure different cookie settings (Secure, Host/Domain and Persistent) for different domains, and for different hosts within same domain
@@ -351,12 +356,13 @@ domain cookie. Now your users can access each application and will only be promp
 | Samesite             |New in version 16.x APM now has the option to enable Samesite attribute for session cookies. This attribute         |
 |                      |enforces samesite usage and prevents the cookies from being included with cross-site requests. It can have one of   |
 |                      |these values:                                                                                                       |
+|                      |                                                                                                                    |
 |                      |- Strict: Only include the cookie with requests originating from the same site as the cookie                        |
 |                      |- Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP   |
-|                      |  method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user |
-|                      |  navigates to the URL from an external site, such as by following a link.                                          |
+|                      |method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user   |
+|                      |navigates to the URL from an external site, such as by following a link.                                            |
 |                      |- None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure   |
-|                      |  cookie attribute must be set.                                                                                     |
+|                      |cookie attribute must be set.                                                                                       |
 +----------------------+--------------------------------------------------------------------------------------------------------------------+
 
 #.  SSO Configuration
@@ -372,11 +378,11 @@ If you return to the radio buttons and select Multiple Domains new options will 
 the virtual servers and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login.
 
 - Primary Authentication URI:  Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where the user
-   session is created. As long as you provide the URI, your users are able to access multiple backend applications from multiple domains and hosts without requiring
-   them to re-enter their credentials because the user session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.
+session is created. As long as you provide the URI, your users are able to access multiple backend applications from multiple domains and hosts without requiring
+them to re-enter their credentials because the user session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.
 - Authentication Domain Configuration: Set the domain acme.com
 - Authentication Domains:  To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app1.acme.com  If you have and SSO method
-   created select the SSO method from the drop down box.  This can be edited later to add an SSO method.
+created select the SSO method from the drop down box.  This can be edited later to add an SSO method.
 
 #.  Logs
 
@@ -459,10 +465,12 @@ and is where most of the customization takes place.
 +----------------------+--------------------------------------------------------------------------------------------------------------------+
 | General              |This view provides a tree structure containing all the configuration elements, and more detailed options to         |
 | Customization        |customize objects, such as:                                                                                         |
+|                      |                                                                                                                    |
 |                      |- The size, color, and placement of forms and screens.                                                              |
 |                      |- The look and feel of objects with more opportunities to replace images.                                           |
 |                      |- Text on the screen, including headers and footers.                                                                |
 |                      |- Messages, including installation and error messages.                                                              |
+|                      |                                                                                                                    |
 |                      |Any text or image that you can customize using the visual policy editor, can also be adjusted using the general     |
 |                      |customization UI. Different options exist depending on the Customization Type selected when the policy was created, |
 |                      |and which elements were added to the access or per-request policy.                                                  |
