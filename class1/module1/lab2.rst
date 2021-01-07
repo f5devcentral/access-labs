@@ -293,6 +293,11 @@ the user and perform other actions that populate session variables with data for
 .. Note:: If you are unsure of the settings you need at profile creation you can see that you can return to the profile and make adjustments.
 
 #.  Still in the profile click on **SSO/Auth Domain** at the top
+
+BIG-IP APM offers a number of Single Sign On (SSO) options.  The SSO/Auth Domain tab in a Per Session Profile is where you will select what SSO method to use for your application.
+In Task 6 we will cover the objects that need to be created in order to associate that SSO method to a policy.  At this time the drop down for the SSO Configuration will be
+blank.
+
 #.  What is Domain Mode?
 
 Access Policy Manager (APM) provides a method to enable users to use a single login or session across multiple virtual servers in separate
@@ -300,32 +305,35 @@ domains. Users can access back-end applications through multiple domains or thro
 credential requests when they go through those multiple domains. With multi-domain support, you have the option of applying different SSO methods
 across different domains.
 
+.. Note:: When thinking Domain do not confuse this with Active Directory domain.  In this context domain refers to the DNS domain.  Example, app1.f5demo.com and app2.f5dmeo.com
+are in the f5demo.com DNS domain.
+
 .. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP system and share the same access profile. All virtual
 servers must include all of the profiles that the access profile requires (for example, VDI, rewrite, server SSL, connectivity, and so on).
 
 APM provides the following benefits when using multi-domain support with SSO.
-
    - Users can sign out from all domains at once.
    - Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
    - Administrators can configure different cookie settings (Secure, Host/Domain and Persistent) for different domains, and for different hosts within same domain
    - Administrators can set up multiple SSO configurations to sign users in to multiple back-end applications for a single APM® session
 
 
-#.  What is are the options?
+#.  What are the options?
 
-+----------------------+----------------------------------------------------------------------+
-| Single Domain        | Choose this option for a single domain with a single sign on method  |
-+----------------------+----------------------------------------------------------------------+
-| Multiple Domains     | For various use cases this section may need configuration.           |
-+----------------------+----------------------------------------------------------------------+
++----------------------+-----------------------------------------------------------------------------------------+
+| Single Domain        | Choose this option for a single domain with a single sign on method                     |
++----------------------+-----------------------------------------------------------------------------------------+
+| Multiple Domains     | This option allows for one policy and multiple SSO methods to multiple Virtual Servers  |
++----------------------+-----------------------------------------------------------------------------------------+
 
-#.  Leave Single Domain radio button selected.  What is a Domain Cookie?
+
+#.  What is a Domain Cookie?
 
 By default, BIG-IP APM requires authentication for each access profile.  This can easily be changed by adding the domain cookie. For this section you will add
 the domain for your application. For example, if you have two applications app1.f5demo.com and app2.f5demo.com you would enter the domain f5demo.com for your
 domain cookie. Now your users can access each application and will only be prompted for authentication once.
 
-#.  Cookie Options.
+#.  Cookie Options
 
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 | secure               | If the BIG-IP APM virtual server is configured with a Client SSL profile, select **Secure** (default setting) when  |
@@ -340,23 +348,132 @@ domain cookie. Now your users can access each application and will only be promp
 | HTTP Only            | For BIG-IP APM deployments with connectivity resources (such as Network Access, Portal Access, etc.), do not set    |
 |                      | BIG-IP APM cookies with the **HTTP Only** flag.                                                                     |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
+| Samesite             + New in version 16.x APM now has the option to enable Samesite attribute for session cookies. This attribute         |
+|                      + enforces samesite usage and prevents the cookies from being included with cross-site requests. It can have one of   |
+|                      + these values:                                                                                                       |
+|                      +  - Strict: Only include the cookie with requests originating from the same site as the cookie                       |
+|                      +  - Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP  |
+|                      +  method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user  |
+|                      +  navigates to the URL from an external site, such as by following a link.                                           |
+|                      +  - None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure  |
+|                      +  cookie attribute must be set.                                                                                      |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
 
-.. Note:: 
+#.  SSO Configuration
 
+This drop down is where you will find all the SSO objects that you have configured on this BIG-IP appliance. If you want to enable an SSO method for an application
+first you must configuration the SSO object and then select in this section of the policy.
 
-#.  Click on logs
-#.  The log profile we create earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
+.. Note:: Task 6 will review SSO methods and configuration.
+
+#.  Multiple domains
+
+If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of
+the virtual servers and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login.
+
+ - Primary Authentication URI:  Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where the user
+   session is created. As long as you provide the URI, your users are able to access multiple backend applications from multiple domains and hosts without requiring
+   them to re-enter their credentials because the user session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.
+ - Authentication Domain Configuration: Set the domain acme.com
+ - Authentication Domains:  To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app1.acme.com  If you have and SSO method
+   created select the SSO method from the drop down box.  This can be edited later to add an SSO method.
+
+#.  Logs
+
+#.  The log profile we created earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
 #.  Click Update.
+
+That concludes the review of the Per Session policy.
+
+.. Note:: A per session profile is required (even if it is blank) to be deployed with a per request policy
+
 #.  From the left menu navigate to **Access** --> **Profiles/Policies** --> **Per Request Policies**
 
-APM executes per-session policies when a client attempts to connect to the enterprise. After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request.
-Because of this behavior, a per-request policy is particularly useful in the context of a Secure Web Gateway or Zero Trust scenario, where the client requires re-verification on every request,
-or changes based on gating criteria.
+APM executes per-session policies when a client attempts to connect to the enterprise. After a session starts, a per-request policy runs each time the client
+makes an HTTP or HTTPS request. Because of this behavior, a per-request policy is particularly useful in the context of a Secure Web Gateway or Zero Trust
+scenario, where the client requires re-verification on every request, or changes based on gating criteria.
 
-A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You can use nearly all of the same agents in per-request policies that you
-can use in per-session policies. However, most of the agents (including authentication agents) have to be used in a subroutine in per-request policies.
+A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You can use nearly all of the same agents
+in per-request policies that you can use in per-session policies. However, most of the agents (including authentication agents) have to be used in a subroutine
+in per-request policies.
 
+#. Click **Create**
 
++----------------------+---------------------------+----------------------------------+
+|General Properties    | Name                      |  Basic_prp_policy                |
++----------------------+---------------------------+----------------------------------+
+|                      | Profile Type              |  All                             |
++----------------------+---------------------------+----------------------------------+
+|                      | Incomplete Action         |  Deny                            |
++----------------------+---------------------------+----------------------------------+
+|                      | Customization Type        |  Modern                          |
++----------------------+---------------------------+----------------------------------+
+|Language Settings     | Accepted Languages        |  English                         |
++----------------------+---------------------------+----------------------------------+
+
+#. Click *Edit**
+
+A per request policy creation will work the same way as a per session policy allowing you to create various box, subroutines and macros.  If you click on the plus between
+Start and Allow a new box will appear and you can explore the various components that can be added.  These options will be covered in later labs.
+
+#. Policy sync
+
+BIG-IP APM Policy Sync maintains access policies on multiple BIG-IP APM devices while adjusting appropriate settings for objects that are specific to device locations,
+such as network addresses. You can synchronize policies from one BIG-IP APM device to another BIG-IP APM device, or to multiple devices in a device group.
+
+A sync-only device group configured for automatic and full sync is required to synchronize access policies between multiple devices.
+
+.. Important:: USE WITH CAUTION.  This is an advanced feature and you should consult with your F5 Account team or Professional Services before implementing this configuration.
+
+.. Note:: In BIG-IP 13.1.0, a maximum of either BIG-IP APM systems are supported in a sync-only group type.
+
+#. What are customization and localization?
+
+Customization and localization are ways to change the text and the language that users see, and to change the appearance of the user interface that Access Policy Manager
+presents to client users. Customization provides numerous settings that let you adapt the interface to your particular operation. Localization allows you to use different
+languages in different countries.
+
+#. About the Customization tool
+
+The Customization tool is part of Access Policy Manager (APM). With the Customization tool, you can personalize screen messages and prompts, change screen layouts,
+colors, and images, and customize error messages and other messages using specific languages and text for policies and profiles developed in APM.
+
+You can customize settings in the Basic Customization view (fewer settings) or change the view to General Customization (many settings). In the General Customization
+view, you can use the Customization tool in the BIG-IP admin console, or click Popout to open it in a separate browser window. In either view, you can click Preview
+to see what an object (such as Logon page or Deny Ending Page) will look like.
+
+After you personalize settings, remember to click the **Save** icon to apply your changes.
+
+#. About basic, general, and advanced customization
+
+The Customization tool provides three views that you can use to customize the interface. The General Customization view provides the greatest number of options
+and is where most of the customization takes place.
+
++======================+=====================================================================================================================+
+| View                 | Description                                                                                                         |
++======================|=====================================================================================================================+
+| Basic                | Basic customization provides a limited set of options intended for quick modification of the objects that are       |
+| Customization        | commonly displayed to users. This is the default customization view. Use this to configure basic look and feel      |
+|                      | for pages, and common text labels and captions for resources on the webtop. Different options exist depending on    |
+|                      | the Customization Type selected when the policy was created.                                                        |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| General              | This view provides a tree structure containing all the configuration elements, and more detailed options to         |
+| Customization        | customize objects, such as:                                                                                         |
+|                      |                                                                                                                     |
+|                      |    - The size, color, and placement of forms and screens.                                                           |
+|                      |    - The look and feel of objects with more opportunities to replace images.                                        |
+|                      |    - Text on the screen, including headers and footers.                                                             |
+|                      |    - Messages, including installation and error messages.                                                           |
+|                      |                                                                                                                     |
+|                      | Any text or image that you can customize using the visual policy editor, can also be adjusted using the general     |
+|                      | customization UI. Different options exist depending on the Customization Type selected when the policy was created, |
+|                      | and which elements were added to the access or per-request policy.                                                  |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+| Advanced             | Advanced customization provides direct access to PHP, Cascading Style Sheets (CSS), JavaScript, and HTML files that |
+| Customization        | you can edit to control the display and function of web and client pages in Access Policy Manager.                  |                                                    |
++----------------------+---------------------------------------------------------------------------------------------------------------------+
+
+.. Hint:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization  
 
 Task 5: Authentication
 ----------------------------
