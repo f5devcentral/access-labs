@@ -470,7 +470,7 @@ and is where most of the customization takes place.
 |                      | and which elements were added to the access or per-request policy.                                                  |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 | Advanced             | Advanced customization provides direct access to PHP, Cascading Style Sheets (CSS), JavaScript, and HTML files that |
-| Customization        | you can edit to control the display and function of web and client pages in Access Policy Manager.                  |                                                    |
+| Customization        | you can edit to control the display and function of web and client pages in Access Policy Manager.                  |                                                    
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 
 .. Hint:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
