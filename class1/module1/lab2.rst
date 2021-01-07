@@ -473,8 +473,9 @@ and is where most of the customization takes place.
 | Customization        | you can edit to control the display and function of web and client pages in Access Policy Manager.                  |                                                    |
 +----------------------+---------------------------------------------------------------------------------------------------------------------+
 
-.. Hint:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization  
+.. Hint:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
 
+This is more
 Task 5: Authentication
 ----------------------------
 
