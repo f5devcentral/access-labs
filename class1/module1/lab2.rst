@@ -420,7 +420,8 @@ in per-request policies.
 #. Click *Edit**
 
 A per request policy creation will work the same way as a per session policy allowing you to create various box, subroutines and macros.  If you click on the plus between
-Start and Allow a new box will appear and you can explore the various components that can be added.  These options will be covered in later labs.
+Start and Allow a new box will appear and you can explore the various components that can be added.  At this time we will leave the policy blank and return to populate it
+in later tasks.
 
 #. Policy sync
 
@@ -479,12 +480,25 @@ and is where most of the customization takes place.
 | Customization        |you can edit to control the display and function of web and client pages in Access Policy Manager.                  |
 +----------------------+--------------------------------------------------------------------------------------------------------------------+
 
-.. Hint:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
+.. Note:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
 
 
 Task 5: Authentication
 ----------------------------
 
+BIG-IP APM serves as an authentication gateway or proxy. As an authentication proxy, BIG-IP APM provides separate client-side and server-side authentication. Client-side
+authentication occurs between the client and BIG-IP APM. Server-side authentication occurs between BIG-IP APM and servers.
+
+Loose coupling between the client-side and server-side layers allows for a rich set of identity transformation services. Combined with a Visual Policy Editor and an expansive
+set of access iRules functionality, BIG-IP APM provides flexible and dynamic identity and access, based on a variety of contexts and conditions.
+
+For example, a client accessing Microsoft SharePoint through BIG-IP APM in a corporate environment may silently authenticate to BIG-IP APM with NT LAN Manager (NTLM) or Kerberos
+credentials. On leaving that environment, or on using a different non-sanctioned device, the client may be required to go through another potentially stronger authentication,
+such as a smart card or other client certificate, RSA SecurID, or one-time passcode. You can require additional device vetting such as file, folder, and registry checks and
+antivirus and firewall software validation.
+
+A BIG-IP APM authentication and SSO features access and identity security posture can automatically change depending on environmental factors, such as who or where the user is,
+what resource the user is accessing, or when or with what method the user is attempting to gain access.
 
 Task 6: Single Sign-On
 ----------------------------
