@@ -417,7 +417,7 @@ in per-request policies.
 |Language Settings     | Accepted Languages        |  English                         |
 +----------------------+---------------------------+----------------------------------+
 
-#. Click *Edit**
+#. Click **Edit**
 
 A per request policy creation will work the same way as a per session policy allowing you to create various box, subroutines and macros.  If you click on the plus between
 Start and Allow a new box will appear and you can explore the various components that can be added.  At this time we will leave the policy blank and return to populate it
@@ -482,6 +482,21 @@ and is where most of the customization takes place.
 
 .. Note:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
 
+#. Click on --> **Access** --> **Profiles/Policies** --> **Customization**
+#. Under **Available Profiles** choose the /Common/Basic_policy
+#. Select Language:  **English**
+#. Let's upload a new image.  Click **Upload New Image**
+#. Choose an image from the selection and click **Open**
+#. Pick a Background color
+#. Pick a Header Background color
+#. Change the footer Text
+#. Click on the **Preview** button
+#. Choose **Access Profiles** --> **/Common/Basic_policy** --> **Access Policy** --> **Ending pages** -- **Deny**
+
+Bonus Answer:  Why don't we see logon pages?
+
+.. Hint::  What is in the policy so far?
+
 
 Task 5: Authentication
 ----------------------------
@@ -499,6 +514,63 @@ antivirus and firewall software validation.
 
 A BIG-IP APM authentication and SSO features access and identity security posture can automatically change depending on environmental factors, such as who or where the user is,
 what resource the user is accessing, or when or with what method the user is attempting to gain access.
+
+Data centers and Cloud deployments often face the challenge of offering multiple applications with different authentication requirements. You can deploy BIG-IP APM to consolidate
+and enforce all client-side authentication into a single process. BIG-IP APM can also perform identity transformation on the server side to authenticate to server services using
+the best-supported methods. This can reduce operational costs since applications remain in the most-supported and documented configurations. Common examples of identity
+transformation are client-side public key infrastructure (PKI) certificate to server-side Kerberos and client-side HTTP form to server-side HTTP Basic.
+
+The following figure shows BIG-IP APM acting as an authentication gateway. Information received during pre-authentication is transformed to authenticate to multiple enterprise
+applications with different requirements.
+
+|image25|
+
+#. Client-side authentication
+
+Client-side authentication involves the client (typically a user employing a browser) accessing a BIG-APM virtual server and presenting identity. This is called authentication, authorization, and accounting (AAA).
+
+Server-side authentication involves BIG-IP APM providing authentication to a server resource. This is called SSO.
+
+.. Note:: Single Sign On (SSO) will be covered in Task 6.
+
+BIG-IP APM supports industry standard authentication methods, including:
+
+- NTLM
+- Kerberos
+- Security Assertion Markup Language (SAML)
+- Client certificate
+- RSA SecurID
+- One-time passcode
+- HTTP Basic
+- HTTP Form
+- OAuth 2.0
+- OpenId Connect
+
+After access credentials are submitted, BIG-IP APM validates the listed methods with industry-standard mechanisms, including:
+
+- Active Directory authentication and query
+- LDAP and LDAPS authentication and query
+- Remote Authentication Dial-in User Service (RADIUS)
+- Terminal Access Controller Access Control System (TACACS)
+- Online Certificate Status Protocol (OCSP) and Certificate Revocation List Distribution Point (CRLDP) (for client certificates)
+- Local User Database authentication
+
+BIG-IP APM can further vet client access by inspecting the client device itself, using methods including (but not limited to):
+
+- File system checks
+- System service checks
+- Registry checks
+- Browser plug-in checks
+- Antivirus software checks
+- Firewall software checks
+- Hard-disk encryption software checks
+- Patch management software checks
+- Peer-to-peer software checks
+- Hardware certificate checks
+- OS and client device ID checks
+
+
+
 
 Task 6: Single Sign-On
 ----------------------------
@@ -557,3 +629,4 @@ Lab 2 is now complete.
 .. |image21| image:: /class1/media/image21.png
 .. |image22| image:: /class1/media/image22.png
 .. |image23| image:: /class1/media/image23.png
+.. |image25| image:: /class1/media/image25.png
