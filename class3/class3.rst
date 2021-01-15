@@ -10,7 +10,6 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   intro.rst
    module1/lab001.rst
    module1/lab002.rst
    module1/lab003.rst
@@ -23,7 +22,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   intro.rst
+  
    module2/lab001.rst
    module2/lab002.rst
   
@@ -34,7 +33,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   intro.rst
+
    module3/lab001.rst
    module3/lab002.rst
    module3/lab003.rst
@@ -45,7 +44,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   intro.rst
+
    module4/lab001.rst
    module4/lab002.rst
    
