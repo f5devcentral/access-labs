@@ -77,5 +77,3 @@ Task 6: Credential Protection
 
 Lab 3 is now complete.
 
-.. |image4| image:: /class1/media/image4.png
-.. |image5| image:: /class1/media/image5.png

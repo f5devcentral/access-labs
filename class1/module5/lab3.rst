@@ -103,16 +103,6 @@ Task 4 – Testing
 
    |image32|
 
-.. |image22| image:: media/022.png
-.. |image23| image:: media/023.png
-.. |image24| image:: media/024.png
-.. |image25| image:: media/025.png
-.. |image26| image:: media/026.png
-.. |image27| image:: media/027.png
-.. |image28| image:: media/028.png
-.. |image29| image:: media/029.png
-.. |image30| image:: media/030.png
-.. |image31| image:: media/031.png
-.. |image32| image:: media/032.png
+
 
 
