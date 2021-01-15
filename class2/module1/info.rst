@@ -1,5 +1,5 @@
-Getting Started
----------------
+TEST Getting Started
+--------------------
 
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
@@ -85,6 +85,6 @@ components:
 |                        |    - 10.1.20.18         |                          |
 +------------------------+-------------------------+--------------------------+
 
-.. |image0| image:: labinfo-media/image000.png
-.. |image1| image:: labinfo-media/image001.png
+.. |image0| image:: linfo-media/image000.png
+.. |image1| image:: info-media/image001.png
 

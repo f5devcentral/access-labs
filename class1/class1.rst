@@ -1,4 +1,4 @@
-100 Series:Access Foundational Concepts
+100 Series: Access Foundational Concepts
 ======================================================
 
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
@@ -18,6 +18,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
+   intro.rst
    module2/lab*
    
    
@@ -28,6 +29,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
+   intro.rst
    module3/lab*
   
 
@@ -38,6 +40,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
+   intro.rst
    module4/lab*
    
    
@@ -49,6 +52,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
+   intro.rst
    module5/lab*
  
 
