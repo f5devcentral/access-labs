@@ -6,13 +6,6 @@ As organizations move towards MFA to secure their enterprise applications, they 
 The F5 Client Certificate Constrained Delegation (C3D) feature allows the best of both worlds by allowing MFA at the proxy layer while maintaining strong security when performing SSO between the proxy and backend resource.
 
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   lab*
-
-
 Lab 1.1 - Create Authentication objects
 ---------------------------------------
 
