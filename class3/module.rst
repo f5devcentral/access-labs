@@ -4,7 +4,7 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-301 - SAML Federation
+301 - Identity and Access Federation
 ---------------------------
 .. toctree::
    :maxdepth: 1
@@ -14,8 +14,8 @@ This lab documents provides foundational concepts for understanding Access Polic
    
    
    
-302 - OAuth/OIDC
-------------------------------  
+302 - Ephemberal Authentication
+--------------------------------  
 .. toctree::
    :maxdepth: 1
    :glob:
@@ -23,60 +23,12 @@ This lab documents provides foundational concepts for understanding Access Polic
    module2/lab*
   
   
-303 - VPN
------------------------------ 
+303 - Per Request Application Control
+---------------------------------------- 
 .. toctree::
    :maxdepth: 1
    :glob:
    
    module3/lab*
    
-   
-304 - VDI
----------------------
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   module4/lab*
  
- 
-305 - Ephemeral Authentication
---------------------------------
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   module5/lab*
-   
-306 - Identity Aware Proxy
---------------------------------
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   module6/lab*
-   
-307 - API Protection
---------------------------------
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   module7/lab*
-
-308 - Per-Session Policy Use Cases
---------------------------------------
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   module8/lab*
-   
-309 - Per-Request Policy Use Cases
---------------------------------------
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   module9/lab*

@@ -12,7 +12,7 @@ F5's Identity Aware Proxy(IAP) can be deployed in a variety of ways.  In this la
    :caption: Contents:
    :glob:
 
-   labinfo*
+   labinfo.rst
    lab*
    
 
