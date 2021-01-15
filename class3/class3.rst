@@ -11,9 +11,9 @@ This lab documents provides foundational concepts for understanding Access Polic
    :glob:
    
    intro.rst
-   module1/lab1.rst
-   module1/lab2.rst
-   module1/lab3.rst
+   module1/lab001.rst
+   module1/lab002.rst
+   module1/lab003.rst
    
    
    
@@ -23,8 +23,9 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   module2/lab1.rst
-   module2/lab2.rst
+   intro.rst
+   module2/lab001.rst
+   module2/lab002.rst
   
   
 303 - Per Request Application Control
@@ -33,9 +34,10 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   module3/lab1.rst
-   module3/lab2.rst
-   module3/lab3.rst
+   intro.rst
+   module3/lab001.rst
+   module3/lab002.rst
+   module3/lab003.rst
    
 304 - API Protection
 ---------------------------------------- 
@@ -43,7 +45,8 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   module4/lab1.rst
-   module4/lab2.rst
+   intro.rst
+   module4/lab001.rst
+   module4/lab002.rst
    
  
