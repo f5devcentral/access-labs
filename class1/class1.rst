@@ -10,6 +10,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
+   intro.rst
    module1/lab*
   
 102 - Access Policy Frameworks
