@@ -14,10 +14,10 @@ engineers, Support Engineers, and clients.
    :caption: Contents:
    :glob:
 
-   class1/module.rst
-   class2/module.rst
-   class3/module.rst
-   class4/module.rst
-   class5/module.rst
+   class1/class1.rst
+   class2/class2.rst
+   class3/class3.rst
+   class4/class4.rst
+   class5/class5.rst
 
 

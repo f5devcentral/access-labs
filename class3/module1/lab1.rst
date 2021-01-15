@@ -1,210 +1,646 @@
-Lab 1: API Authorization with OAuth
-=====================================
+Lab 1: SAML Access Guided Configuration (AGC) Lab
+=================================================
 
-Objectives
+The purpose of this lab is to configure and test SAML Federation Services.
+This lab will be configured in two parts.  
+
+In Part 1, Students will leverage Access Guided Configuration (AGC) to 
+configure the various aspects of a SAML Identity Provider (IdP), import and bind
+to a SAML Service Provider (SP) and test IdP-Initiated SAML Federation.
+
+In Part 2, Students will leverage Access Guided Configuration (AGC) to 
+configure the various aspects of a SAML Service Provider (SP), import and bind to
+a SAML Identity Provider (IdP) and test SP-Initiated SAML Federation.
+
+Objective:
 ----------
 
-The lab has a pre-configured test Virtual Server which will be used throughout the lab.  You will the Visual Policy Editor (VPE)
-to create and attach a simple Access Profile which performs user authentication.
+-  Gain an understanding of SAML Federation configurations and
+   their component parts through Access Guided Configuration (AGC)
 
-Lab Requirements
-----------------
+-  Gain an understanding of the access flow for IDP & SP Initiated SAML
 
--  A pre existing virtual server at 10.1.10.101 or https://server1.acme.com
+Lab Requirements:
+-----------------
 
-Task 1: Define an Authentication Server
----------------------------------------
+-  All Lab requirements will be noted in the tasks that follow
 
-Before we can create an access profile, we must create the necessary AAA
-server profile for our Active Directory.
+-  Estimated completion time: 25-30 minutes
 
-#. From the main screen, browse to **Access > Authentication > Active
-   Directory**
+Lab 1 / Part 1 Tasks:
+---------------------
 
-#. Click **Create** in the upper right-hand corner
+TASK 1: Configure a SAML Identity Provider (IdP) via AGC 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Configure the new server profile as follows:
++----------------------------------------------------------------------------------------------+
+| 1. Login to your lab provided **Virtual Edition BIG-IP**  by clicking **bigip1** in the      |
+|                                                                                              |
+|    shortcut toolbar from the Jumphost.  Username: **admin**, Password: **admin**.            |
+|                                                                                              |
+| **Note:** *Many of the lab steps will need to be run from the Jumphost. This is to support*  |
+|                                                                                              |
+| *file imports and various other tasks.*                                                      |
++----------------------------------------------------------------------------------------------+
+| |image001|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-	- Name: **lab101-ad-servers**
-	- Domain Name: **f5lab.local**
-	- Server Connection: **Use Pool**
-	- Domain Controller Pool Name: **lab101-ad-pool**
-	- IP Address: **10.1.20.7**
-	- Hostname: **dc1.f5lab.local**
-    - User Name: **admin**
-    - Password: **admin**
++----------------------------------------------------------------------------------------------+
+| 2. Navigate to **Access -> Guided Configuration** in the left-hand menu.                     |
++----------------------------------------------------------------------------------------------+
+| |image002|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. Click **Finished**
++----------------------------------------------------------------------------------------------+
+| 3. Once **Guided Configuration** loads, click on **Federation** and then in the resulting    |
+|                                                                                              |
+|    **Federation** sub-menu click, **SAML Identity Provider Federation for Applications**.    |
++----------------------------------------------------------------------------------------------+
+| |image003|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-	|image1|
++----------------------------------------------------------------------------------------------+
+| 4. In the resulting **SAML Identity Provider Federation for Applications** window,           |
+|                                                                                              |
+|    review the **IdP-Initiated SAML flow** and then click the **right arrow**.                |
++----------------------------------------------------------------------------------------------+
+| |image004|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 5. Review the **SP-Initiated SAML flow** and then scroll down to the bottom of the window.   |
++----------------------------------------------------------------------------------------------+
+| |image005|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 6. Review the configuration objects to be created and the click **Next**.                    |
++----------------------------------------------------------------------------------------------+
+| |image006|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+TASK 2: Configure the Identity Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. In the **Identity Provider Properties** section, enter the following values in the fields |
+|                                                                                              |
+|    provided:                                                                                 |
+|                                                                                              |
+|    * In the **Configuration Name** field input **agc-idp.acme.com**.                         |
+|                                                                                              |
+|    * In the **Entity ID** field input **https://agc-idp.acme.com**.                          |
+|                                                                                              |
+| 2. In the **Assertion Properties** section, use the dropdowns to select the following:       |
+|                                                                                              |
+|    * For the **Signing Key** select **saml-agc-idp.acme.com**.                               |
+|                                                                                              |
+|    * For the **Signing Certificate** select **saml-agc-idp.acme.com**.                       |
+|                                                                                              |
+| 3. Click **Save & Next**.                                                                    |
++----------------------------------------------------------------------------------------------+
+| |image007|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+TASK 3: Configure the Virtual Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. In the **Virtual Server Properties** section, enter the following values in the fields    |
+|                                                                                              |
+|    provided:                                                                                 |
+|                                                                                              |
+|    * In the **Destination Address** field input **10.1.10.102**.                             |
+|                                                                                              |
+|    * In the **Service Port** field input **443** **HTTPS**                                   |
+|                                                                                              |
+|    * In the **Redirect Port** field input **80** **HTTP**                                    |
+|                                                                                              |
+| 2. In the **Client SSL Profile** section, use the arrows to move only the                    |
+|                                                                                              |
+|    **wildcard.acme.com** profile to the right-hand column as shown.                          |
+|                                                                                              |
+| 3. Click **Save & Next**.                                                                    |
++----------------------------------------------------------------------------------------------+
+| |image008|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+TASK 4: Configure Authentication
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. In the **Authentication Properties** section, use the dropdowns to select the following:  |
+|                                                                                              |
+|    * For the **Choose Authentication Server Type** select **Active Directory**.              |
+|                                                                                              |
+|    * For the **Choose Authentication Server** select **f5lab.local**.                        |
+|                                                                                              |
+| 2. **Check** the **Active Directory Query Properties** checkbox.                             |
+|                                                                                              |
+| 3. Input **%{session.logon.last.username}** in **Search Filter** field. Your cursor will be  |
+|                                                                                              |
+|    next to the existing **sAMAccountName=**.                                                 |
+|                                                                                              |
+| 4. In the **Required Attributes** section, use the arrows to move only the                   |
+|                                                                                              |
+|    **memberOf** attribute to the right-hand column as shown.                                 |
+|                                                                                              |
+| 5. Scroll to the bottom of the window and click **Save & Next**.                             |
++----------------------------------------------------------------------------------------------+
+| |image009|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+TASK 5: Configure MFA
+~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. In the Multi Factor Authentication winodw, click **Save & Next**.                         |
+|                                                                                              |
+| **Note:** *Multiple MFA options can be easily integrated with TMOS.*                         |
++----------------------------------------------------------------------------------------------+
+| |image010|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+TASK 6: Configure Applications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. In the **Application Properties** section, use the **Select method to configure your**    |
+|                                                                                              |
+|    **application** dropdown to choose **Metadata**.                                          |
+|                                                                                              |
+| **Note:** *Multiple applications are available to be configured with more continually added* |
++----------------------------------------------------------------------------------------------+
+| |image011|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 2. In the updated **Application Properties** window, click the **Choose File** button, browse|
+|                                                                                              |
+|    the **Jumphost** desktop and select the **sp_partner_com_metadata.xml** file.             |
+|                                                                                              |
+| 3. For the **Application Name**, input **sp.partner.com**                                    |
+|                                                                                              |
+| 4. For the **Webtop Caption**, make sure the value is **sp.partner.com**                     |
+|                                                                                              |
+| 5. Scroll to the bottom of the window and click **Save**.                                    |
++----------------------------------------------------------------------------------------------+
+| |image012|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 6. Review the **Configured Application List** and then click **Save & Next**.                |
++----------------------------------------------------------------------------------------------+
+| |image013|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+TASK 7: Configure Endpoint Checks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. In the **Endpoints Checks Properties** window, click **Save & Next**.                     |
+|                                                                                              |
+| **Note:** *Endpoints checks can also be configured to protect application access.  The*      |
+|                                                                                              |
+| *Access 302 Lab, hosted at this year's Agility will have additional details.*                |
++----------------------------------------------------------------------------------------------+
+| |image014|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+TASK 8: Configure Customization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. Review the Customization options, then scroll to the bottom of the window and click       |
+|                                                                                              |
+|    **Save & Next**.                                                                          |
+|                                                                                              |
+| **Note:** *Unlike iApps, Access basic customizations are part of AGC.*                       |
++----------------------------------------------------------------------------------------------+
+| |image015|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
 
-Task 2: Create a Simple Access Profile
---------------------------------------
+TASK 9: Configure Logon Protection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Navigate to **Access > Profiles / Policies > Access Profiles (Per-Session Policies)**. Click the **+ (Plus Symbol)**.   
-   |image2|
++----------------------------------------------------------------------------------------------+
+| 1. In the **Logon Protection Properties** window, click **Save & Next**.                     |
+|                                                                                              |
+| **Note:** *Logon Page Protection enables Datasafe to further protect logon pages and*        |
+|                                                                                              |
+| *defend against malicious in-browser attacks*.                                               |
++----------------------------------------------------------------------------------------------+
+| |image016|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
+TASK 10: Configure Session Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. In the Name field enter **lab101-psp** and for the Profile Type select **All** from the dropdown.
-	 
-   |image3|
++----------------------------------------------------------------------------------------------+
+| 1. Review the Session Managment settings, in the **Timeout Settings** section then scroll to |
+|                                                                                              |
+|    the bottom of the window and click **Save & Next**.                                       |
++----------------------------------------------------------------------------------------------+
+| |image017|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. Under “Language Settings”, choose **English** and click the
-   “\ **<<**\ “ button to slide over to the “Accepted Languages” column.
-   
-   |image4|
+TASK 11: Review the Summary and Deploy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click **Finished**, which will bring you back to the Access Profiles
-   screen.
++----------------------------------------------------------------------------------------------+
+| 1. Review the Summary, then scroll to the bottom of the window and click **Deploy**.         |
++----------------------------------------------------------------------------------------------+
+| |image018|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. On the Access Profiles screen, click the **Edit** link under the
-   Per-Session Policy column. 
-   
-   |image5|
-   
-   The Visual Policy Editor (VPE) will open in a new tab.
++----------------------------------------------------------------------------------------------+
+| 2. Once the application is deployed, scroll to the bottom and click **Finish**.              |
++----------------------------------------------------------------------------------------------+
+| |image019|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. On the VPE page, click the ‘\**+**\’ icon on the “fallback” path,
-   to the right of the **Start** object.
-   
-   |image6|
++----------------------------------------------------------------------------------------------+
+| 3. Review the Access Guided Confguration window, **Status** for **agc-idp.acme.com** is      |
+|                                                                                              |
+|    **DEPLOYED**.                                                                             |
++----------------------------------------------------------------------------------------------+
+| |image020|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. On the popup menu, choose the **Logon Page** radio button under the
-   Logon tab and click **Add Item**
-   
-   |image7|
-   
-#. Accept the defaults and click **Save**
+TASK: 12: Testing the SAML Identity Provider (IdP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   |image8|
++----------------------------------------------------------------------------------------------+
+| 1. Open Firefox from the Jumphost desktop and click on the **AGC-IDP** link in the bookmark  |
+|                                                                                              |
+| toolbar.                                                                                     |
+|                                                                                              |
+| **Note:** *If you have issues, open Firefox in a New Private Window (Incognito/Safe Mode)*   |
++----------------------------------------------------------------------------------------------+
+| |image021|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
++----------------------------------------------------------------------------------------------+
+| 2. Once the page loads, enter **user1** for username and **user1** for password  in the      |
+|                                                                                              |
+|    logon form and click the logon button.                                                    |
++----------------------------------------------------------------------------------------------+
+| |image022|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. Between the “Logon Page” and “Deny” objects, click the ‘\**+**\’
-   icon. 
-   
-   |image9|
-   
-#.  Select **AD Auth** found under the **Authentication** tab,
-   and click the **Add Item** button.
-   
-   |image10|
++----------------------------------------------------------------------------------------------+
+| 3. On the presented webtop, click the **sp.partner.com** link in the **Applications and**    |
+|                                                                                              |
+|    **Links** section.                                                                        |
++----------------------------------------------------------------------------------------------+
+| |image023|                                                                                   |
++----------------------------------------------------------------------------------------------+
+ 
++----------------------------------------------------------------------------------------------+
+| 4. The **Partner Application** will now open if successfully configured.  Close the Partner  |
+|                                                                                              |
+|    Application window, navigate to the **F5 Dynamic Webtop** tab/window and click **Logout**.|
++----------------------------------------------------------------------------------------------+
+| |image024|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. Accept the default for the **Name** and in the **Server** drop-down
-   menu select the AD server created above:
-   **/Common/lab101-ad-servers**, then click **Save**
-   
-   |image11|
++----------------------------------------------------------------------------------------------+
+| 5. This concludes Part 1 of Lab1. Proceed to Part 2.                                         |
++----------------------------------------------------------------------------------------------+
+| |image025|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. On the “Successful” branch between the **AD Auth** and **Deny**
-   objects, click on the word **Deny** to change the ending
-   
-   |image12|
+Lab 1 / Part 2 Tasks:
+---------------------
 
-#. Change the “Successful” branch ending to **Allow**, then click **Save**
+TASK 1: Configure a SAML Service Provider (SP) via AGC 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   |image13|
-   
-#. The completed policy should now appear like the one below.
-   
-   |image14|
++----------------------------------------------------------------------------------------------+
+| 1. Navigate to **Access -> Guided Configuration** in the left-hand menu.                     |
+|                                                                                              |
+| 2. Once **Guided Configuration** loads, click on **Federation**.                             |
++----------------------------------------------------------------------------------------------+
+| |image026|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. In the upper left-hand corner of the screen, click on the **Apply
-   Access Policy** link.
-   
-    |image15|
++----------------------------------------------------------------------------------------------+
+| 3. In the resulting **Federation** sub-menu click, **SAML Service Provider**.                |
++----------------------------------------------------------------------------------------------+
+| |image027|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-#. Close the window using the **Close** button in the upper right-hand. Click **Yes** when asked “Do you want to close this tab?”
-  
-   |image16|
++----------------------------------------------------------------------------------------------+
+| 4. In the resulting **SAML Service Provider** window, review the **{SP-Initiated)** flow     |
+|                                                                                              |
+|    and then click the **right arrow**.                                                       |
++----------------------------------------------------------------------------------------------+
+| |image028|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-Task 3: Associate Access Policy to Virtual Servers
---------------------------------------------------
++----------------------------------------------------------------------------------------------+
+| 5. Review the **IdP-Initiated** flow and then scroll down to the bottom of the window.       |
++----------------------------------------------------------------------------------------------+
+| |image029|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-Now that we have created an access policy, we must apply it to the
-appropriate virtual server to be able to use it.
++----------------------------------------------------------------------------------------------+
+| 6. Review the configuration objects to be created and the click **Next**.                    |
++----------------------------------------------------------------------------------------------+
+| |image030|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-1. From the **Local Traffic** menu, navigate to the **Virtual Servers
-   List** and click the name of the virtual server created previously:
-   **lab101-https**.
+TASK 2: Configure the Service Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-2. Scroll down to the “Access Policy” section, then for the “Access
-   Profile” dropdown, select **lab101-psp**
-   
-   |image17|
++----------------------------------------------------------------------------------------------+
+| 1. In the **Service Provider Properties** section, enter the following values in the fields  |
+|                                                                                              |
+|    provided:                                                                                 |
+|                                                                                              |
+|    * In the **Configuration Name** field input **agc-sp.acme.com**.                          |
+|                                                                                              |
+|    * In the **Entity ID** field input **https://agc-sp.acme.com**.                           |
+|                                                                                              |
+| 2. In the **Security Settings** section, check the checkbox next to **Sign Authentication**  |
+|                                                                                              |
+|    **Requests**.                                                                             |
+|                                                                                              |
+| 3. In the updated **Security Settings** section, use the dropdowns to select the following:  |
+|                                                                                              |
+|    * For the **Message Signing Key** select **saml-agc-sp.acme.com**.                        |
+|                                                                                              |
+|    * For the **Message Signing Certificate** select **saml-agc-sp.acme.com**.                |
+|                                                                                              |
+| 4. Click **Save & Next**.                                                                    |
++----------------------------------------------------------------------------------------------+
+| |image031|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-3. Click **Update** at the bottom of the screen
+TASK 3: Configure the Virtual Server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Task 4: Testing
----------------
++----------------------------------------------------------------------------------------------+
+| 1. In the **Virtual Server Properties** section, enter the following values in the fields    |
+|                                                                                              |
+|    provided:                                                                                 |
+|                                                                                              |
+|    * In the **Destination Address** field input **10.1.10.103**.                             |
+|                                                                                              |
+|    * In the **Service Port** field input **443** **HTTPS**                                   |
+|                                                                                              |
+|    * In the **Redirect Port** field input **80** **HTTP**                                    |
+|                                                                                              |
+| 2. In the **Client SSL Profile** section, use the arrows to move only the                    |
+|                                                                                              |
+|    **wildcard.acme.com** profile to the right-hand column as shown.                          |
+|                                                                                              |
+| 3. Click **Save & Next**.                                                                    |
++----------------------------------------------------------------------------------------------+
+| |image032|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-Now you are ready to test.
+TASK 4: Configure External IdP Connector
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Open a new browser window and open the URL for the virtual server
-   that has the access policy applied:
-   **https://server1.acme.com** 
-   You will be presented with a login window
-   
-   |image18|
++----------------------------------------------------------------------------------------------+
+| 1. In the **External Identity Provider Connector Settings** section, use the first dropdown  |
+|                                                                                              |
+|    **Select Method to configure your IdP Connector** to select **Metadata**.                 |
+|                                                                                              |
+| 2. In the updated window, click the **Choose File** button and then browse the **Jumphost**  |
+|                                                                                              |
+|    desktop and select the file **idp_partner_com_metadata.xml**.                             |
+|                                                                                              |
+| 3. In the **Name** field, input **idp.partner.com**                                          |
+|                                                                                              |
+| 4. Click **Save & Next**.                                                                    |
++----------------------------------------------------------------------------------------------+
+| |image033|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-2. Enter the following credentials and click **Logon**:
-   - Username: **user1**
-   - Password: **user1**
+TASK 5: Configure Pool
+~~~~~~~~~~~~~~~~~~~~~~
 
-   You will see a screen similar to the following:
-   
-   |image19|
++----------------------------------------------------------------------------------------------+
+| 1. Click **Show Advanced Setting** in the upper right of the **Guided Configuration**.       |
+|                                                                                              |
+| 2. In the **Pool Properties** section, use the dropdown to select **Create New** for         |
+|                                                                                              |
+|    **Select a Pool**.                                                                        |
+|                                                                                              |
+| 3. In the **Health Monitors** section, use the arrows to move only the **/Common/http**      |
+|                                                                                              |
+|    health monitor to the right-hand column as shown.                                         |
+|                                                                                              |
+| 4. In the **Resource Properties** section, use the dropdown to select **Least Connections**  |
+|                                                                                              |
+|    **(member)** for **Load Balancing Method**.                                               |
+|                                                                                              |
+| 5. For the **Pool Servers** section, use the first dropdown for **IP Address/Node Name** to  |
+|                                                                                              |
+|    select **/Common/10.1.20.6**. Ensure port **80** and **HTTP** are set for the **Port**.   |
+|                                                                                              |
+| 6. Click **Save & Next**.                                                                    |
++----------------------------------------------------------------------------------------------+
+| |image034|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
+TASK 6: Configure SSO
+~~~~~~~~~~~~~~~~~~~~~
 
-Task 5: Troubleshooting tips
-----------------------------
++----------------------------------------------------------------------------------------------+
+| 1. In the **Single Sign-On Settings** section, check the **Enable Signle Sign-On** checkbox. |
+|                                                                                              |
+| 2. Use the **Selected Single Sign-On Type** dropdown to select **HTTP header-based**.        |
+|                                                                                              |
+| 3. In the **Username Source** field, ensure **session.saml.last.identity** is present.       |
+|                                                                                              |
+| 4. In the **SSO Headers** section, makes sure the following values are correct:              |
+|                                                                                              |
+|    * **Header Operation: replace**                                                           |
+|                                                                                              |
+|    * **Header Name: Authorization**                                                          |
+|                                                                                              |
+|    * **Header Value: %{session.saml.last.identity}**                                         |
+|                                                                                              |
+| 5. Scroll to the bottom of the window and Click **Save & Next**.                             |
++----------------------------------------------------------------------------------------------+
+| |image035|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-You can view active sessions by navigating Access/Overview/Active Sessions
+TASK 7: Configure Endpoint Checks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-You will see a screen similar to the following:
++----------------------------------------------------------------------------------------------+
+| 1. In the **Endpoints Checks Properties** window, click **Save & Next**.                     |
+|                                                                                              |
+| **Note:** *Endpoints checks can also be configured to protect application access.  The*      |
+|                                                                                              |
+| *Access 302 Lab, hosted at this year's Agility will have additional details.*                |
++----------------------------------------------------------------------------------------------+
+| |image036|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-Click on the session id for the active session. If the session is active it will show up as a green in the status.
+TASK 8: Configure Session Management
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image20|
++----------------------------------------------------------------------------------------------+
+| 1. Review the Session Managment settings, in the **Timeout Settings** section then scroll to |
+|                                                                                              |
+|    the bottom of the window and click **Save & Next**.                                       |
++----------------------------------------------------------------------------------------------+
+| |image037|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-Click on the "session ID" next to the active session. Note every session has a unique session id. Associated with it.
-This can be used for troubleshooting specific authentication problem.
+TASK 9: Review the Summary and Deploy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Once you click on the session id you wll be presented with a screen that is similar to the following.
++----------------------------------------------------------------------------------------------+
+| 1. Review the Summary, then scroll to the bottom of the window and click **Deploy**.         |
++----------------------------------------------------------------------------------------------+
+| |image038|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-|image21|
++----------------------------------------------------------------------------------------------+
+| 2. The application is now deployed click **Finish**.                                         |
++----------------------------------------------------------------------------------------------+
+| |image039|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-Note that the screen will show all of the log messages associated with the session. This becomes useful if there is a problem authenticating users.
++----------------------------------------------------------------------------------------------+
+| 3. Review the Access Guided Confguration window, **Status** for **agc-sp.acme.com** is       |
+|                                                                                              |
+|    **DEPLOYED**.                                                                             |
++----------------------------------------------------------------------------------------------+
+| |image040|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-The default log level shows limited "informational" messages but you can enable debug logging in the event that you need to increase the verbositiy of the logging 
-on the APM policy. Note you should always turn off debug logging when you are finished with trouble shooting as debug level logging can
-generate a lot of messages that will fill up log files and could lead to disk issues in the event that lgging is set to logto the
-local Big-IP.
+TASK: 10: Testing the SAML Service Provider (SP)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Please review the following support article that details how to enable debug logging.
++----------------------------------------------------------------------------------------------+
+| 1. Open Firefox from the Jumphost desktop and click on the **AGC-SP (Partner)** link in the  |
+|                                                                                              |
+|    bookmark toolbar.                                                                         |
+|                                                                                              |
+| **Note:** *If you have issues, open Firefox in a New Private Window (Incognito/Safe Mode)*   |
++----------------------------------------------------------------------------------------------+
+| |image041|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-https://support.f5.com/csp/article/K45423041
++----------------------------------------------------------------------------------------------+
+| 2. Once the page loads, enter **user1** for username and **user1** for password  in the      |
+|                                                                                              |
+|    **Partner Secure Logon** form and click the **Logon** button.                             |
++----------------------------------------------------------------------------------------------+
+| |image042|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-Lab 1 is now complete.
++----------------------------------------------------------------------------------------------+
+| 3. The **Partner Application** will now open if successfully configured.                     |
++----------------------------------------------------------------------------------------------+
+| |image043|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-.. |image1| image:: media/001.png
-.. |image2| image:: media/002.png
-.. |image3| image:: media/003.png
-.. |image4| image:: media/004.png
-.. |image5| image:: media/005.png
-.. |image6| image:: media/006.png
-.. |image7| image:: media/007.png
-.. |image8| image:: media/008.png
-.. |image9| image:: media/009.png
-.. |image10| image:: media/010.png
-.. |image11| image:: media/011.png
-.. |image12| image:: media/012.png
-.. |image13| image:: media/013.png
-.. |image14| image:: media/014.png
-.. |image15| image:: media/015.png
-.. |image16| image:: media/016.png
-.. |image17| image:: media/017.png
-.. |image18| image:: media/018.png
-.. |image19| image:: media/019.png
-.. |image20| image:: media/020.png
-.. |image21| image:: media/021.png
+TASK 11: End of Lab1
+~~~~~~~~~~~~~~~~~~~~
+
++----------------------------------------------------------------------------------------------+
+| 1. This concludes Part 2 of Lab1. This concludes Lab1, feel free to review and test the      |
+|                                                                                              |
+|    configuration.                                                                            |
++----------------------------------------------------------------------------------------------+
+| |image000|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
+.. |image000| image:: ./media/image001.png
+   :width: 800px
+.. |image001| image:: ./media/lab1-001.png
+   :width: 800px
+.. |image002| image:: ./media/lab1-002.png
+   :width: 800px
+.. |image003| image:: ./media/lab1-003.png
+   :width: 800px
+.. |image004| image:: ./media/lab1-004.png
+   :width: 800px
+.. |image005| image:: ./media/lab1-005.png
+   :width: 800px
+.. |image006| image:: ./media/lab1-006.png
+   :width: 800px
+.. |image007| image:: ./media/lab1-007.png
+   :width: 800px
+.. |image008| image:: ./media/lab1-008.png
+   :width: 800px
+.. |image009| image:: ./media/lab1-009.png
+   :width: 800px
+.. |image010| image:: ./media/lab1-010.png
+   :width: 800px
+.. |image011| image:: ./media/lab1-011.png
+   :width: 800px
+.. |image012| image:: ./media/lab1-012.png
+   :width: 800px
+.. |image013| image:: ./media/lab1-013.png
+   :width: 800px
+.. |image014| image:: ./media/lab1-014.png
+   :width: 800px
+.. |image015| image:: ./media/lab1-015.png
+   :width: 800px
+.. |image016| image:: ./media/lab1-016.png
+   :width: 800px
+.. |image017| image:: ./media/lab1-017.png
+   :width: 800px
+.. |image018| image:: ./media/lab1-018.png
+   :width: 800px
+.. |image019| image:: ./media/lab1-019.png
+   :width: 800px
+.. |image020| image:: ./media/lab1-020.png
+   :width: 800px
+.. |image021| image:: ./media/lab1-021.png
+   :width: 800px
+.. |image022| image:: ./media/lab1-022.png
+   :width: 800px
+.. |image023| image:: ./media/lab1-023.png
+   :width: 800px
+.. |image024| image:: ./media/lab1-024.png
+   :width: 800px
+.. |image025| image:: ./media/lab1-025.png
+   :width: 800px
+.. |image026| image:: ./media/lab1-026.png
+   :width: 800px
+.. |image027| image:: ./media/lab1-027.png
+   :width: 800px
+.. |image028| image:: ./media/lab1-028.png
+   :width: 800px
+.. |image029| image:: ./media/lab1-029.png
+   :width: 800px
+.. |image030| image:: ./media/lab1-030.png
+   :width: 800px
+.. |image031| image:: ./media/lab1-031.png
+   :width: 800px
+.. |image032| image:: ./media/lab1-032.png
+   :width: 800px
+.. |image033| image:: ./media/lab1-033.png
+   :width: 800px
+.. |image034| image:: ./media/lab1-034.png
+   :width: 800px
+.. |image035| image:: ./media/lab1-035.png
+   :width: 800px
+.. |image036| image:: ./media/lab1-036.png
+   :width: 800px
+.. |image037| image:: ./media/lab1-037.png
+   :width: 800px
+.. |image038| image:: ./media/lab1-038.png
+   :width: 800px
+.. |image039| image:: ./media/lab1-039.png
+   :width: 800px
+.. |image040| image:: ./media/lab1-040.png
+   :width: 800px
+.. |image041| image:: ./media/lab1-041.png
+   :width: 800px
+.. |image042| image:: ./media/lab1-042.png
+   :width: 800px
+.. |image043| image:: ./media/lab1-043.png
+   :width: 800px
+
