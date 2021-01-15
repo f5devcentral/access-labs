@@ -427,55 +427,34 @@ Task - Enable Windows Firewall
 
 
 .. |image0| image:: lab001-media/image000.png
-	:width: 800px
 .. |image1| image:: lab001-media/image001.png
 .. |image2| image:: lab001-media/image002.png
-	:width: 800px
 .. |image3| image:: lab001-media/image003.png
 .. |image4| image:: lab001-media/image004.png
-	:width: 800px
 .. |image5| image:: lab001-media/image005.png
-	:width: 800px
 .. |image6| image:: lab001-media/image006.png
-	:width: 800px
 .. |image7| image:: lab001-media/image007.png
-	:width: 800px
 .. |image8| image:: lab001-media/image008.png
-	:width: 1200px
 .. |image9| image:: lab001-media/image009.png
 .. |image10| image:: lab001-media/image010.png
-	:width: 800px
 .. |image11| image:: lab001-media/image011.png
 .. |image13| image:: lab001-media/image013.png
-	:width: 800px
 .. |image14| image:: lab001-media/image014.png
-	:width: 800px
 .. |image15| image:: lab001-media/image015.png
-	:width: 400px
 .. |image16| image:: lab001-media/image016.png
 .. |image17| image:: lab001-media/image017.png
-	:width: 400px
 .. |image18| image:: lab001-media/image018.png
 .. |image19| image:: lab001-media/image019.png
 .. |image20| image:: lab001-media/image020.png
 .. |image21| image:: lab001-media/image021.png
 .. |image22| image:: lab001-media/image022.png
-	:width: 1000px
-	
-	.. |image23| image:: lab001-media/image023.png
+.. |image23| image:: lab001-media/image023.png
 .. |image24| image:: lab001-media/image024.png
 .. |image25| image:: lab001-media/image025.png
-
 .. |image28| image:: lab001-media/image028.png
 .. |image29| image:: lab001-media/image029.png
-	:width: 1000px
 .. |image30| image:: lab001-media/image030.png
-	:width: 1000px
 .. |image31| image:: lab001-media/image031.png
-	:width: 800px
-
-
-
 .. |image32| image:: lab001-media/image032.png
 .. |image33| image:: lab001-media/image033.png
 .. |image34| image:: lab001-media/image034.png
@@ -486,8 +465,6 @@ Task - Enable Windows Firewall
 .. |image39| image:: lab001-media/image039.png
 .. |image40| image:: lab001-media/image040.png
 .. |image41| image:: lab001-media/image041.png
-	
-	
 .. |image42| image:: lab001-media/image042.png
 .. |image43| image:: lab001-media/image043.png
 

@@ -10,7 +10,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   module/lab*
+   module1/lab*
    
    
    
