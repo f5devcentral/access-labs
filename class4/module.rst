@@ -3,8 +3,16 @@
 
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
+401 - Access Objects
+---------------------------
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   module1/lab*
 
-401 - Per-Session Policy
+
+402 - Per-Session Policy
 ---------------------------
 .. toctree::
    :maxdepth: 1
@@ -13,7 +21,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    module1/lab*
      
    
-402 - Per-Request Policy
+403 - Per-Request Policy
 ------------------------------  
 .. toctree::
    :maxdepth: 1

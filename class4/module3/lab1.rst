@@ -1,5 +1,5 @@
-Lab 1: Create a Empty Per-Session Policy
-==========================================
+Lab 1: Create a blank PRP Policy
+=====================================
 
 Objectives
 ----------

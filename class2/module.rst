@@ -4,8 +4,8 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-201 - Federation
----------------------------
+201 - Zero Trust - Identity Aware Proxy
+-----------------------------------------  
 .. toctree::
    :maxdepth: 1
    :glob:
@@ -13,9 +13,8 @@ This lab documents provides foundational concepts for understanding Access Polic
    module1/lab*
    
    
-   
-202 - Zero Trust
-------------------------------  
+202 - Federation
+---------------------------
 .. toctree::
    :maxdepth: 1
    :glob:

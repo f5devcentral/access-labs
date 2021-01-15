@@ -1,5 +1,5 @@
-Lab 1: Identity Aware Proxy
-========================================
+Lab 1: API Authorization with OAuth
+=====================================
 
 Objectives
 ----------

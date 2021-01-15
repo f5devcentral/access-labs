@@ -1,4 +1,4 @@
-Lab 1: Create a blank Policy
+Lab 1: SAML Service Provider(SP)
 =====================================
 
 Objectives
