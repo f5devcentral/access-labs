@@ -14,7 +14,7 @@ Welcome to the |classbold| lab at F5 Agility |year|
    :caption: Contents:
    :glob:
    
-   labinfo*
+   info.rst
    lab1*
    lab2*
    lab3*

@@ -23,5 +23,5 @@ During this hands-on lab you will learn how to configure the following:
    :caption: Contents:
    :glob:
 
-   labinfo*
+   info.rst
    lab*

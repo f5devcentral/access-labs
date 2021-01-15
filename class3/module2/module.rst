@@ -11,6 +11,6 @@ Welcome
    :caption: Contents:
    :glob:
 
-   labinfo.rst
+   info.rst
    lab*
  

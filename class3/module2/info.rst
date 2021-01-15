@@ -85,6 +85,6 @@ components:
 |                        |    - 10.1.20.18         |                          |
 +------------------------+-------------------------+--------------------------+
 
-.. |image0| image:: labinfo-media/image000.png
-.. |image1| image:: labinfo-media/image001.png
+.. |image0| image:: info-media/image000.png
+.. |image1| image:: info-media/image001.png
 
