@@ -1,11 +1,11 @@
-Module 2 - Additional Security - Bot Defense and WAF
+Lab 2 - Additional Security - Bot Defense and WAF
 ========================================================
 
 The API protection profile provides authorization and basic WAF policy to protect an API. This module will demonstrate how to layer on additional protections to further validate what is accessing the API and that the client is behaving within the norms of the API.
 
 
-Lab 2.1 - Prepping the Lab
-=======================================================================
+Section 2.1 - Prepping the Lab
+==============================
 
 By default, security events are not logged, in this lab the student will create a security logging profile with Application Security, Bot Defense and DOS Protection enabled.
 The student will also place the waf policy in trasnparent to show the difference in behavior when client traffic that is deemed malicious is and is not blocked.
@@ -145,7 +145,7 @@ Task 3 - Set the WAF policy to Transparent and assign it to the virtual
 #. Click **Update**.
 
 
-Lab 2.2 - Create and Configure a Bot Defense Profile in Transparent Mode
+Section 2.2 - Create and Configure a Bot Defense Profile in Transparent Mode
 ==================================================================================
 
 An api's clients, unlike a typical web application, will often be non-human, maybe even exclusively.
@@ -257,7 +257,7 @@ block bot traffic. Keep in mind that the bot profile allows for fine-grained con
    |module2Lab2Task2-image11|
 
 
-Lab 2.3 - Tweaking the WAF Policy to provide additional security
+Section 2.3 - Tweaking the WAF Policy to provide additional security
 =======================================================================
 
 
@@ -406,8 +406,8 @@ What if that character was a legitimate value for a parameter?
 |module2Lab3Task1-image18|
 
 
-Lab 2.4 - Protect against a SSRF attack
-========================================
+Section 2.4 - Protect against a SSRF attack
+=============================================
 
 
 

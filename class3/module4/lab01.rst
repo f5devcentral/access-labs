@@ -1,4 +1,4 @@
-Module 1 - Deploy an API Protection Profile
+Lab 1 - Deploy an API Protection Profile
 ===========================================
 
 An API protection profile is the primary tool that Access Policy Manager administrators use to safeguard API servers. Protection profiles define groups of related RESTful APIs used by applications. The protection profile contains a list of paths that may appear in a request. The system classifies requests and sends them to specific API servers.
@@ -14,33 +14,13 @@ The simplest way to create an API protection profile and establish API protectio
 
 To enable API protection, the API Protection Profile must be associated with a virtual server. If using API Protection, the virtual server can have only one API Protection Profile associated with it. You cannot select other access profiles or per-request policies in that virtual server.
 
-
-
-Class - API Protection
-======================
-
-Expected time to complete: **1 hour**
-
-
-UDF blueprint version: **44**
-
 Setup Lab Environment
 ----------------------------------------
 
-#. Click the **Command Prompt** shortcut to open the command prompt on the jumphost 
-
-   |image1|
-
-#. Type the command **cd c:\\labs\\class1\\postman** to navigate the Postman collection folder.
-
-#. Type the command **setup.bat**
-
-#. All Steps in the collection should succeed before moving on to the lab.  If an API call fails run the collection again by repeating the previous step.  
-
-   |image2|
+**NEED TO REWRITE**
 
 
-Lab 1.1 - Create a JWT Provider
+Section 1.1 - Create a JWT Provider
 ==================================
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
@@ -129,7 +109,7 @@ Task 4 - Create a JWT Provider
 |image10|
 
 
-Lab 1.2 - Create an API Protection Profile
+Section 1.2 - Create an API Protection Profile
 =============================================
 
 The API Protection profile is a combination of APM and AWAF features to protect any API.
@@ -203,7 +183,7 @@ Task 3 - Associate a JWT Provider
    |image17|
    
    
-   Lab 1.3 - Create the api.acme.com virtual server
+Section 1.3 - Create the api.acme.com virtual server
 ===================================================
 
 In this section, you will define which components you want to create as part of the API Protection configuration.
@@ -235,7 +215,7 @@ Task 1 - Create a virtual server
 |image20|
 |image22|
 
-Lab 1.4 - Test Course-Grained Access
+Section 1.4 - Test Course-Grained Access
 ========================================
 
 In this section, you will sample API requests to the new created api.acme.com virtual server to test functionality
@@ -404,7 +384,7 @@ Task 7 - Send a GET request to an invalid URI
 
 |image39|
 
-Lab 1.5 - Implement Fine-Grained Access Controls
+Section 1.5 - Implement Fine-Grained Access Controls
 ==================================================
 
 Up to this point any authenticated user to the API is authorized to use them. In this section we will restrict user1's ability to create users, but will still be able to modify a user's employee number.
@@ -590,8 +570,8 @@ Task 4 - Test the Fine-Grained Access Control with user2
 |image46|
 
 
-Lab 1.6 - Implement Rate Limiting
-===================================
+Section 1.6 - Implement Rate Limiting
+=======================================
 
 The API Protection Profile allows a BIG-IP administrator to throttle the amount of connections to an API through the use of Key Names.
 
@@ -766,8 +746,8 @@ Task 5 - Test Rate Limiting
    |image99|
    
    
-   Lab 1.7 - Onboard a New API
-=============================
+Section 1.7 - Onboard a New API
+==================================
 
 Organizations change. With this change, new APIs are introduced requiring modifications to the API Gateway. In this section you will learn how to add additional paths.
 

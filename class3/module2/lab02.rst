@@ -16,12 +16,6 @@ IFS are third-party intermediary services facilitating user-authentication to re
    - DISA/JITC PKE (public key enabled)
    - United States Government IPv6 Conformance Certification (USGv6)
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
-   lab*
-
 
 Section 2.1 - Priviledged User Access (PUA) Requirements
 ------------------------------------------------------
