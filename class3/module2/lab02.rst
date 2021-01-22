@@ -1,4 +1,4 @@
-Module 2 - Implement Priviledged User Access Authentication
+Lab 2: Implement Priviledged User Access Authentication
 ===========================================================
 
 The F5 Privileged User Access (PUA) solution provides an easy way to add CAC/PKI authentication or other strong authentication methods to network infrastructure and systems that do not natively support this functionality.  It does this without requiring the addition of client software or agents anywhere in the environment and allows you to fully leverage your legacy or non-compliant systems in a safe and secure manner.  It integrates directly into DoD PKI or MFA systems and may be configured to work cooperatively with existing TACACS, Active Directory, AAA servers, or a variety of third-party authentication databases.
@@ -23,7 +23,7 @@ IFS are third-party intermediary services facilitating user-authentication to re
    lab*
 
 
-Lab 2.1 - Priviledged User Access (PUA) Requirements
+Section 2.1 - Priviledged User Access (PUA) Requirements
 ------------------------------------------------------
 
 In order to deploy the F5 PUA solution, you will require the following:
@@ -56,7 +56,7 @@ The following resources will be defined for the lab environment:
 
 
 
-Lab 2.2 - Executing the PUA Script
+Section 2.2 - Executing the PUA Script
 ------------------------------------------------
 
 **Overview**
@@ -119,7 +119,7 @@ Invoking ./build_pua.sh with "-h" or "--help" will alert you to the potential op
 
 Setting the "noninteractive=true" option will perform a full unattended install if all the sample prompts above are provided and uncommented, otherwise the answers provided in pua_config.sh will be used as the defaults in a semi-interactive install method.
 
-Task - Running Installation Script
+Task 1 - Running Installation Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Login to into the BIG-IP via SSH
@@ -286,12 +286,12 @@ Task - Running Installation Script
       [admin@bigip1:Active:Standalone]
 	  
 	  
-	  Lab 2.3 - Validating the PUA Script Installation
-------------------------------------------------
+Section 2.3 - Validating the PUA Script Installation
+-------------------------------------------------------
 
 In this section, you will test the initial installation of the PUA deployment.
 
-Task - Accessing the BIG-IP via APM Webtop
+Task 1 - Accessing the BIG-IP via APM Webtop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a web browser and navigate to https://pua.acme.com
@@ -312,12 +312,12 @@ Task - Accessing the BIG-IP via APM Webtop
 
    |image13|
    
-   Lab 2.4 -Policy Review
+Section 2.4 - Policy Review
 ----------------------------------------------------
 
 In this section, you will review the initial APM policy created by the PUA Build Script
 
-Task - Review the APM Policy Created by the PUA Build Script
+Task 1 - Review the APM Policy Created by the PUA Build Script
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a web browser and log into the BIG-IP via its management address: https://10.1.1.4
@@ -338,12 +338,12 @@ Task - Review the APM Policy Created by the PUA Build Script
 
    |image23|
    
-   Lab 2.5 - Creating an APM Policy - LDAP
+Section 2.5 - Creating an APM Policy - LDAP
 ------------------------------------------------
 
 PUA requires a Directory Service to authenticate users. In this section you will build a LDAP macro to perform the authentication function.
 
-Task - Build a LDAP macro
+Task 1 - Build a LDAP macro
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. note::
 
@@ -452,12 +452,12 @@ Here is the completed macro.
    |image135|
    
    
-   Lab 2.6 - Creating an APM Policy - CAC Authentication
---------------------------------------------------------
+Section 2.6 - Creating an APM Policy - CAC Authentication
+-----------------------------------------------------------
 
 In this section, you will build a macro to request the user certificate.
 
-Task - Build CAC AUTH Macro
+Task 1 - Build CAC AUTH Macro
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the **Add New Macro** button
@@ -535,13 +535,13 @@ Task - Build CAC AUTH Macro
    |image146|
    
    
-   Lab 2.7 - Creating an APM Policy - Update Initial Access Policy
-----------------------------------------------------------------
+Section 2.7 - Creating an APM Policy - Update Initial Access Policy
+---------------------------------------------------------------------
 
 In this section, you will add the CAC Auth Macro to the initial access policy and update the variable assignments.
 
-Task - Update the Initial Access Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Update the Initial Access Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #. Click the **X** the Logon Page box to remove the Logon Page
@@ -611,13 +611,13 @@ Task - Update the Initial Access Policy
    |image152|
    
    
-   Lab 2.8 - Certificate Update
-------------------------------
+Section 2.8 - Certificate Update
+----------------------------------
 
 In this section, you will modify the SSL profile to present an internally signed certificate for the PUA webtop and select a trusted Certificate Authority to validate the user certificates.
 
-Task - Update the SSL Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Update the SSL Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click Local Traffic >> Profiles >> SSL >> Client
 
@@ -654,11 +654,11 @@ Task - Update the SSL Profile
    |image65|
    
    
-   Lab 2.9 - Adding Devices to the webtop
------------------------------------------
+Section 2.9 - Adding Devices to the webtop
+-------------------------------------------
 
-Task - Adding Device to the PUA Webtop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Adding Device to the PUA Webtop
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. click **Access >> Webtop >> Webtop Links**
 
@@ -709,10 +709,10 @@ Task - Adding Device to the PUA Webtop
    |image79|
    
    
-   Lab 2.10 - Modifying Radius Configurations
+Section 2.10 - Modifying Radius Configurations
 -----------------------------------------------
 
-Task - Modifying the Radius Server secret password
+Task 1 - Modifying the Radius Server secret password
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to **Local Traffic >> iRules >> Data Group List**
@@ -734,7 +734,7 @@ Task - Modifying the Radius Server secret password
 
    |image83|
 
-Task - Modifying the BIG-IP radius secret
+Task 2 - Modifying the BIG-IP radius secret
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. SSH into the BIG-IP and enter traffic management shell by typing **tmsh**
@@ -748,10 +748,10 @@ Task - Modifying the BIG-IP radius secret
 
    |image84|
    
-   Lab 2.11 - Verification Testing
+Section 2.11 - Verification Testing
 -------------------------------------
 
-Task - Test the updated Webtop
+Task 1 - Test the updated Webtop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Access the webtop via https://pua.acme.com
@@ -797,97 +797,97 @@ Task - Test the updated Webtop
 
 
 
-.. |image01| image:: lab002-media/image001.png
-.. |image02| image:: lab002-media/image002.png
-.. |image03| image:: lab002-media/image003.png
-.. |image10| image:: lab002-media/image010.png
-.. |image11| image:: lab002-media/image011.png
-.. |image12| image:: lab002-media/image012.png
-.. |image13| image:: lab002-media/image013.png
-.. |image20| image:: lab002-media/image020.png
-.. |image21| image:: lab002-media/image021.png
-.. |image22| image:: lab002-media/image022.png
-.. |image23| image:: lab002-media/image023.png
-.. |image30| image:: lab002-media/image030.png
-.. |image31| image:: lab002-media/image031.png
-.. |image32| image:: lab002-media/image032.png
-.. |image33| image:: lab002-media/image033.png
-.. |image34| image:: lab002-media/image034.png
-.. |image35| image:: lab002-media/image035.png
-.. |image36| image:: lab002-media/image036.png
-.. |image37| image:: lab002-media/image037.png
-.. |image38| image:: lab002-media/image038.png
-.. |image39| image:: lab002-media/image039.png
-.. |image40| image:: lab002-media/image040.png
-.. |image41| image:: lab002-media/image041.png
-.. |image42| image:: lab002-media/image042.png
-.. |image43| image:: lab002-media/image043.png
-.. |image44| image:: lab002-media/image044.png
-.. |image45| image:: lab002-media/image045.png
-.. |image46| image:: lab002-media/image046.png
-.. |image47| image:: lab002-media/image047.png
-.. |image48| image:: lab002-media/image048.png
-.. |image49| image:: lab002-media/image049.png
-.. |image50| image:: lab002-media/image050.png
-.. |image51| image:: lab002-media/image051.png
-.. |image52| image:: lab002-media/image052.png
-.. |image53| image:: lab002-media/image053.png
-.. |image54| image:: lab002-media/image054.png
-.. |image55| image:: lab002-media/image055.png
-.. |image56| image:: lab002-media/image056.png
-.. |image57| image:: lab002-media/image057.png
-.. |image58| image:: lab002-media/image058.png
-.. |image59| image:: lab002-media/image059.png
-.. |image60| image:: lab002-media/image060.png
-.. |image61| image:: lab002-media/image061.png
-.. |image62| image:: lab002-media/image062.png
-.. |image63| image:: lab002-media/image063.png
-.. |image64| image:: lab002-media/image064.png
-.. |image65| image:: lab002-media/image065.png
-.. |image66| image:: lab002-media/image066.png
-.. |image70| image:: lab002-media/image070.png
-.. |image71| image:: lab002-media/image071.png
-.. |image72| image:: lab002-media/image072.png
-.. |image73| image:: lab002-media/image073.png
-.. |image74| image:: lab002-media/image074.png
-.. |image75| image:: lab002-media/image075.png
-.. |image76| image:: lab002-media/image076.png
-.. |image77| image:: lab002-media/image077.png
-.. |image78| image:: lab002-media/image078.png
-.. |image79| image:: lab002-media/image079.png
-.. |image80| image:: lab002-media/image080.png
-.. |image81| image:: lab002-media/image081.png
-.. |image82| image:: lab002-media/image082.png
-.. |image83| image:: lab002-media/image083.png
-.. |image84| image:: lab002-media/image084.png
-.. |image90| image:: lab002-media/image090.png
-.. |image91| image:: lab002-media/image091.png
-.. |image92| image:: lab002-media/image092.png
-.. |image93| image:: lab002-media/image093.png
-.. |image94| image:: lab002-media/image094.png
-.. |image95| image:: lab002-media/image095.png
-.. |image130| image:: lab002-media/image130.png
-.. |image131| image:: lab002-media/image131.png
-.. |image132| image:: lab002-media/image132.png
-.. |image133| image:: lab002-media/image133.png
-.. |image134| image:: lab002-media/image134.png
-.. |image135| image:: lab002-media/image135.png
-.. |image136| image:: lab002-media/image136.png
-.. |image137| image:: lab002-media/image137.png
-.. |image138| image:: lab002-media/image138.png
-.. |image139| image:: lab002-media/image139.png
-.. |image140| image:: lab002-media/image140.png
-.. |image141| image:: lab002-media/image141.png
-.. |image142| image:: lab002-media/image142.png
-.. |image143| image:: lab002-media/image143.png
-.. |image144| image:: lab002-media/image144.png
-.. |image145| image:: lab002-media/image145.png
-.. |image146| image:: lab002-media/image146.png
-.. |image147| image:: lab002-media/image147.png
-.. |image150| image:: lab002-media/image150.png
-.. |image151| image:: lab002-media/image151.png
-.. |image152| image:: lab002-media/image152.png
-.. |image1130| image:: lab002-media/image1130.png
+.. |image01| image:: media/lab02/image001.png
+.. |image02| image:: media/lab02/image002.png
+.. |image03| image:: media/lab02/image003.png
+.. |image10| image:: media/lab02/image010.png
+.. |image11| image:: media/lab02/image011.png
+.. |image12| image:: media/lab02/image012.png
+.. |image13| image:: media/lab02/image013.png
+.. |image20| image:: media/lab02/image020.png
+.. |image21| image:: media/lab02/image021.png
+.. |image22| image:: media/lab02/image022.png
+.. |image23| image:: media/lab02/image023.png
+.. |image30| image:: media/lab02/image030.png
+.. |image31| image:: media/lab02/image031.png
+.. |image32| image:: media/lab02/image032.png
+.. |image33| image:: media/lab02/image033.png
+.. |image34| image:: media/lab02/image034.png
+.. |image35| image:: media/lab02/image035.png
+.. |image36| image:: media/lab02/image036.png
+.. |image37| image:: media/lab02/image037.png
+.. |image38| image:: media/lab02/image038.png
+.. |image39| image:: media/lab02/image039.png
+.. |image40| image:: media/lab02/image040.png
+.. |image41| image:: media/lab02/image041.png
+.. |image42| image:: media/lab02/image042.png
+.. |image43| image:: media/lab02/image043.png
+.. |image44| image:: media/lab02/image044.png
+.. |image45| image:: media/lab02/image045.png
+.. |image46| image:: media/lab02/image046.png
+.. |image47| image:: media/lab02/image047.png
+.. |image48| image:: media/lab02/image048.png
+.. |image49| image:: media/lab02/image049.png
+.. |image50| image:: media/lab02/image050.png
+.. |image51| image:: media/lab02/image051.png
+.. |image52| image:: media/lab02/image052.png
+.. |image53| image:: media/lab02/image053.png
+.. |image54| image:: media/lab02/image054.png
+.. |image55| image:: media/lab02/image055.png
+.. |image56| image:: media/lab02/image056.png
+.. |image57| image:: media/lab02/image057.png
+.. |image58| image:: media/lab02/image058.png
+.. |image59| image:: media/lab02/image059.png
+.. |image60| image:: media/lab02/image060.png
+.. |image61| image:: media/lab02/image061.png
+.. |image62| image:: media/lab02/image062.png
+.. |image63| image:: media/lab02/image063.png
+.. |image64| image:: media/lab02/image064.png
+.. |image65| image:: media/lab02/image065.png
+.. |image66| image:: media/lab02/image066.png
+.. |image70| image:: media/lab02/image070.png
+.. |image71| image:: media/lab02/image071.png
+.. |image72| image:: media/lab02/image072.png
+.. |image73| image:: media/lab02/image073.png
+.. |image74| image:: media/lab02/image074.png
+.. |image75| image:: media/lab02/image075.png
+.. |image76| image:: media/lab02/image076.png
+.. |image77| image:: media/lab02/image077.png
+.. |image78| image:: media/lab02/image078.png
+.. |image79| image:: media/lab02/image079.png
+.. |image80| image:: media/lab02/image080.png
+.. |image81| image:: media/lab02/image081.png
+.. |image82| image:: media/lab02/image082.png
+.. |image83| image:: media/lab02/image083.png
+.. |image84| image:: media/lab02/image084.png
+.. |image90| image:: media/lab02/image090.png
+.. |image91| image:: media/lab02/image091.png
+.. |image92| image:: media/lab02/image092.png
+.. |image93| image:: media/lab02/image093.png
+.. |image94| image:: media/lab02/image094.png
+.. |image95| image:: media/lab02/image095.png
+.. |image130| image:: media/lab02/image130.png
+.. |image131| image:: media/lab02/image131.png
+.. |image132| image:: media/lab02/image132.png
+.. |image133| image:: media/lab02/image133.png
+.. |image134| image:: media/lab02/image134.png
+.. |image135| image:: media/lab02/image135.png
+.. |image136| image:: media/lab02/image136.png
+.. |image137| image:: media/lab02/image137.png
+.. |image138| image:: media/lab02/image138.png
+.. |image139| image:: media/lab02/image139.png
+.. |image140| image:: media/lab02/image140.png
+.. |image141| image:: media/lab02/image141.png
+.. |image142| image:: media/lab02/image142.png
+.. |image143| image:: media/lab02/image143.png
+.. |image144| image:: media/lab02/image144.png
+.. |image145| image:: media/lab02/image145.png
+.. |image146| image:: media/lab02/image146.png
+.. |image147| image:: media/lab02/image147.png
+.. |image150| image:: media/lab02/image150.png
+.. |image151| image:: media/lab02/image151.png
+.. |image152| image:: media/lab02/image152.png
+.. |image1130| image:: media/lab02/image1130.png
 
 
 

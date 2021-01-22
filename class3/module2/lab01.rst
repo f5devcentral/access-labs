@@ -1,12 +1,32 @@
-Module 1 - Implement C3D with APM Enhancements
+Lab 1: Implement C3D with APM Enhancements
 ===============================================
 
 As organizations move towards MFA to secure their enterprise applications, they often struggle when implementing Single Sign-On (SSO). Implementation of MFA at the proxy layer, while allowing for Single-Sign On, often requires usage of a less secure authentication method to the backend resource due to the introduction of service accounts requiring passwords. However, if an organization choses to implement MFA directly at the application, SSO is lost.
 
 The F5 Client Certificate Constrained Delegation (C3D) feature allows the best of both worlds by allowing MFA at the proxy layer while maintaining strong security when performing SSO between the proxy and backend resource.
 
+The Ephemeral Authentication lab is a combination of multiple features included in Access Policy Manager to enhance security for Authentication schemes. The first module will cover the implementation of **Client Certificate Constrained Delegation (C3D)** features enhanced in APM. This use case is often referred to as CertSSO.  The second module covers the **Privileged User Access** solution with a specific focus on ephemeral authentication for SSH access to network devices, as well integration with code respositories.
 
-Lab 1.1 - Create Authentication objects
+This class covers the following topics related to Ephemeral Authentication:
+
+- LDAP Ephemeral Authentication
+- RADIUS Ephemeral Authentication
+- HTML5 SSH
+- C3D APM Enhancements
+
+Expected time to complete: **1 hour**
+
+
+Setup Lab Environment
+----------------------------------------
+
+**NEED TO REWRITE**
+
+
+
+
+
+Section 1.1 - Create Authentication objects
 ---------------------------------------
 
 The first step in deploying CertSSO is creating the objects required for the user to authenticate to APM.  In this lab, the user will authenticate via Active Directory and simulated MFA via RADIUS.  The user's authentication method to APM is independent of how the BIG-IP authenticates the user to the backend server for Single-Sign-On.  This allows an organization to choose an authentication scheme that matches their needs such as SAML, OAuth, or other method.
@@ -56,7 +76,7 @@ Task 2 - Create a RADIUS AAA Object
 
 #. Click **Finished**
 
-Lab 1.2 - Create an Access profile
+Section 1.2 - Create an Access profile
 -----------------------------------
 
 In this section, you will create and define the settings of the APM Access Profile.
@@ -83,7 +103,7 @@ Task 1 - Create the cert_sso Access Profile
    |image7|
    
    
-   Lab 1.3 - Create the Access Policy
+Section 1.3 - Create the Access Policy
 ------------------------------------
 
 In this section, edit the policy using the Visual Policy Editor to enable users to login via AD+MFA, then transition to CertSSO.
@@ -196,9 +216,8 @@ Task 1 - Open Visual Policy Editor
 #. Click **Apply Access Policy** located in the top left corner to commit the policy changes
 
 
-
-Lab 1.4. - Create the SSL Profiles
-------------------------------------
+Section 1.4. - Create the SSL Profiles
+----------------------------------------
 
 In this section, you will define the virtual server IP address and its SSL profile settings.
 
@@ -253,8 +272,8 @@ Task 2 - Create a Server SSL Profile
    |image29|
    
    
-   Lab 1.5 - Create a Pool
-------------------------
+Section 1.5 - Create a Pool
+-------------------------------
 
 In this section you create a pool that contains the IP address of the CentOS server hosting the website requiring mTLS.
 
@@ -276,7 +295,7 @@ Task 1 - Create the Pool
    |image31|
    
    
-   Lab 1.6 - Create the Virtual Server
+Section 1.6 - Create the Virtual Server
 ------------------------------------------------
 
 In this section you will configure a RADIUS server to enable simulated MFA capabilities.
@@ -326,7 +345,7 @@ Task 1 - Configure Virtual Server
 |image35|
 
 
-Lab 1.7 - Test CertSSO
+Section 1.7 - Test CertSSO
 ------------------------------------------------
 
 In this section, you will test access to an NGINX website requiring mTLS.
@@ -380,8 +399,8 @@ Task 1 - Access mtls.acme.com with static certificate
    |image51|
    
    
-   Lab 1.8 - Implement Dynamic Certificate Injection
---------------------------------------------------
+Section 1.8 - Implement Dynamic Certificate Injection
+--------------------------------------------------------
 
 In this section, we will use the HTTP Connector to retrieve a user's certificate from Active Directory and use it in the BIG-IP Certificate minting process.
 
@@ -572,7 +591,7 @@ Task 4 - Attach the PRP to the mTLS Virtual Server
 |image84|
 
 
-Lab 1.9 - Test Dynamic Certificate Injection
+Section 1.9 - Test Dynamic Certificate Injection
 ------------------------------------------------
 
 In this section, you will learn how the HTTP Connector can used to retrieve dynamic content for use in C3D.
@@ -630,108 +649,108 @@ Task 1 - Access mtls.acme.com with Dynamic Certificate
 
 
 
-.. |image0| image:: lab001-media/image000.png
+.. |image0| image:: media/lab01/image000.png
 	:width: 800px
-.. |image1| image:: lab001-media/image001.png
-.. |image2| image:: lab001-media/image002.png
+.. |image1| image:: media/lab01/image001.png
+.. |image2| image:: media/lab01/image002.png
 	:width: 800px
-.. |image3| image:: lab001-media/image003.png
-.. |image4| image:: lab001-media/image004.png
+.. |image3| image:: media/lab01/image003.png
+.. |image4| image:: media/lab01/image004.png
 	:width: 700px
-.. |image5| image:: lab001-media/image005.png
-.. |image6| image:: lab001-media/image006.png
+.. |image5| image:: media/lab01/image005.png
+.. |image6| image:: media/lab01/image006.png
 	:width: 800px
-.. |image7| image:: lab001-media/image007.png
-.. |image8| image:: lab001-media/image008.png
-.. |image9| image:: lab001-media/image009.png
-.. |image10| image:: lab001-media/image010.png
-.. |image11| image:: lab001-media/image011.png
-.. |image12| image:: lab001-media/image012.png
-.. |image13| image:: lab001-media/image013.png
-.. |image14| image:: lab001-media/image014.png
-.. |image15| image:: lab001-media/image015.png
+.. |image7| image:: media/lab01/image007.png
+.. |image8| image:: media/lab01/image008.png
+.. |image9| image:: media/lab01/image009.png
+.. |image10| image:: media/lab01/image010.png
+.. |image11| image:: media/lab01/image011.png
+.. |image12| image:: media/lab01/image012.png
+.. |image13| image:: media/lab01/image013.png
+.. |image14| image:: media/lab01/image014.png
+.. |image15| image:: media/lab01/image015.png
 	:width: 800px
-.. |image16| image:: lab001-media/image016.png
-.. |image17| image:: lab001-media/image017.png
-.. |image18| image:: lab001-media/image018.png
+.. |image16| image:: media/lab01/image016.png
+.. |image17| image:: media/lab01/image017.png
+.. |image18| image:: media/lab01/image018.png
 	:width: 800px
-.. |image19| image:: lab001-media/image019.png
-.. |image20| image:: lab001-media/image020.png
-.. |image21| image:: lab001-media/image021.png
-.. |image22| image:: lab001-media/image022.png
-.. |image23| image:: lab001-media/image023.png
-.. |image24| image:: lab001-media/image024.png
+.. |image19| image:: media/lab01/image019.png
+.. |image20| image:: media/lab01/image020.png
+.. |image21| image:: media/lab01/image021.png
+.. |image22| image:: media/lab01/image022.png
+.. |image23| image:: media/lab01/image023.png
+.. |image24| image:: media/lab01/image024.png
 	:width: 800px
-.. |image25| image:: lab001-media/image025.png
-.. |image26| image:: lab001-media/image026.png
+.. |image25| image:: media/lab01/image025.png
+.. |image26| image:: media/lab01/image026.png
 	:width: 800px
-.. |image27| image:: lab001-media/image027.png
-.. |image28| image:: lab001-media/image028.png
+.. |image27| image:: media/lab01/image027.png
+.. |image28| image:: media/lab01/image028.png
 	:width: 1000px
-.. |image29| image:: lab001-media/image029.png
+.. |image29| image:: media/lab01/image029.png
 	:width: 1000px
-	.. |image30| image:: lab001-media/image030.png
-.. |image31| image:: lab001-media/image031.png
+	.. |image30| image:: media/lab01/image030.png
+.. |image31| image:: media/lab01/image031.png
 	:width: 800px
-.. |image32| image:: lab001-media/image032.png
-.. |image33| image:: lab001-media/image033.png
+.. |image32| image:: media/lab01/image032.png
+.. |image33| image:: media/lab01/image033.png
 	:width: 800px
-.. |image34| image:: lab001-media/image034.png
+.. |image34| image:: media/lab01/image034.png
 	:width: 800px
-.. |image35| image:: lab001-media/image035.png
+.. |image35| image:: media/lab01/image035.png
 	:width: 800px
-.. |image36| image:: lab001-media/image036.png
-.. |image37| image:: lab001-media/image037.png
-.. |image38| image:: lab001-media/image038.png
-.. |image39| image:: lab001-media/image039.png
-.. |image40| image:: lab001-media/image040.png
-.. |image41| image:: lab001-media/image041.png
-.. |image42| image:: lab001-media/image042.png
-.. |image43| image:: lab001-media/image043.png
-.. |image44| image:: lab001-media/image044.png
+.. |image36| image:: media/lab01/image036.png
+.. |image37| image:: media/lab01/image037.png
+.. |image38| image:: media/lab01/image038.png
+.. |image39| image:: media/lab01/image039.png
+.. |image40| image:: media/lab01/image040.png
+.. |image41| image:: media/lab01/image041.png
+.. |image42| image:: media/lab01/image042.png
+.. |image43| image:: media/lab01/image043.png
+.. |image44| image:: media/lab01/image044.png
 	:width: 800px
-.. |image45| image:: lab001-media/image045.png
-.. |image48| image:: lab001-media/image048.png
-.. |image49| image:: lab001-media/image049.png
-.. |image50| image:: lab001-media/image050.png
+.. |image45| image:: media/lab01/image045.png
+.. |image48| image:: media/lab01/image048.png
+.. |image49| image:: media/lab01/image049.png
+.. |image50| image:: media/lab01/image050.png
 	:width: 800px
-.. |image51| image:: lab001-media/image051.png
-.. |image54| image:: lab001-media/image054.png
+.. |image51| image:: media/lab01/image051.png
+.. |image54| image:: media/lab01/image054.png
 	:width: 800px
-.. |image55| image:: lab001-media/image055.png
-.. |image56| image:: lab001-media/image056.png
-.. |image57| image:: lab001-media/image057.png
-.. |image58| image:: lab001-media/image058.png
-.. |image59| image:: lab001-media/image059.png
+.. |image55| image:: media/lab01/image055.png
+.. |image56| image:: media/lab01/image056.png
+.. |image57| image:: media/lab01/image057.png
+.. |image58| image:: media/lab01/image058.png
+.. |image59| image:: media/lab01/image059.png
 	:width: 800px
-.. |image60| image:: lab001-media/image060.png
+.. |image60| image:: media/lab01/image060.png
 	:width: 1000px
-.. |image61| image:: lab001-media/image061.png
-.. |image62| image:: lab001-media/image062.png
-.. |image63| image:: lab001-media/image063.png
-.. |image64| image:: lab001-media/image064.png
-.. |image65| image:: lab001-media/image065.png
-.. |image66| image:: lab001-media/image066.png
-.. |image67| image:: lab001-media/image067.png
-.. |image68| image:: lab001-media/image068.png
-.. |image69| image:: lab001-media/image069.png
-.. |image70| image:: lab001-media/image070.png
-.. |image71| image:: lab001-media/image071.png
-.. |image72| image:: lab001-media/image072.png
-.. |image73| image:: lab001-media/image073.png
-.. |image74| image:: lab001-media/image074.png
-.. |image75| image:: lab001-media/image075.png
-.. |image76| image:: lab001-media/image076.png
-.. |image77| image:: lab001-media/image077.png
-.. |image78| image:: lab001-media/image078.png
-.. |image79| image:: lab001-media/image079.png
-.. |image80| image:: lab001-media/image080.png
-.. |image81| image:: lab001-media/image081.png
-.. |image82| image:: lab001-media/image082.png
-.. |image83| image:: lab001-media/image083.png
-.. |image84| image:: lab001-media/image084.png
-.. |image85| image:: lab001-media/image085.png
-.. |image86| image:: lab001-media/image086.png
+.. |image61| image:: media/lab01/image061.png
+.. |image62| image:: media/lab01/image062.png
+.. |image63| image:: media/lab01/image063.png
+.. |image64| image:: media/lab01/image064.png
+.. |image65| image:: media/lab01/image065.png
+.. |image66| image:: media/lab01/image066.png
+.. |image67| image:: media/lab01/image067.png
+.. |image68| image:: media/lab01/image068.png
+.. |image69| image:: media/lab01/image069.png
+.. |image70| image:: media/lab01/image070.png
+.. |image71| image:: media/lab01/image071.png
+.. |image72| image:: media/lab01/image072.png
+.. |image73| image:: media/lab01/image073.png
+.. |image74| image:: media/lab01/image074.png
+.. |image75| image:: media/lab01/image075.png
+.. |image76| image:: media/lab01/image076.png
+.. |image77| image:: media/lab01/image077.png
+.. |image78| image:: media/lab01/image078.png
+.. |image79| image:: media/lab01/image079.png
+.. |image80| image:: media/lab01/image080.png
+.. |image81| image:: media/lab01/image081.png
+.. |image82| image:: media/lab01/image082.png
+.. |image83| image:: media/lab01/image083.png
+.. |image84| image:: media/lab01/image084.png
+.. |image85| image:: media/lab01/image085.png
+.. |image86| image:: media/lab01/image086.png
 
 
 

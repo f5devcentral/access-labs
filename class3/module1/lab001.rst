@@ -28,7 +28,7 @@ Lab Requirements:
 -  Estimated completion time: 25-30 minutes
 
 Lab 1 / Part 1 Tasks:
----------------------
+----------------------------
 
 TASK 1: Configure a SAML Identity Provider (IdP) via AGC 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
