@@ -465,134 +465,134 @@ Task 1 - Implement Static Parameter values
 
 
 ..
-.. |image0| image:: lab002-media/image000.png
-.. |image48| image:: lab002-media/image048.png
-.. |image49| image:: lab002-media/image049.png
-.. |image64| image:: lab002-media/image064.png
-.. |image101| image:: lab002-media/image101.png
+.. |image0| image:: media/lab02/image000.png
+.. |image48| image:: media/lab02/image048.png
+.. |image49| image:: media/lab02/image049.png
+.. |image64| image:: media/lab02/image064.png
+.. |image101| image:: media/lab02/image101.png
 	:width: 800px
-.. |image102| image:: lab002-media/image102.png
+.. |image102| image:: media/lab02/image102.png
 	:width: 800px
-.. |image103| image:: lab002-media/image103.png
-.. |image104| image:: lab002-media/image104.png
-.. |image105| image:: lab002-media/image105.png
-.. |image106| image:: lab002-media/image106.png
-.. |image107| image:: lab002-media/image107.png
-.. |image108| image:: lab002-media/image108.png
-.. |image109| image:: lab002-media/image109.png
-.. |image110| image:: lab002-media/image110.png
+.. |image103| image:: media/lab02/image103.png
+.. |image104| image:: media/lab02/image104.png
+.. |image105| image:: media/lab02/image105.png
+.. |image106| image:: media/lab02/image106.png
+.. |image107| image:: media/lab02/image107.png
+.. |image108| image:: media/lab02/image108.png
+.. |image109| image:: media/lab02/image109.png
+.. |image110| image:: media/lab02/image110.png
 	:width: 800px
-.. |image111| image:: lab002-media/image111.png
-.. |image112| image:: lab002-media/image112.png
-.. |image113| image:: lab002-media/image113.png
+.. |image111| image:: media/lab02/image111.png
+.. |image112| image:: media/lab02/image112.png
+.. |image113| image:: media/lab02/image113.png
 	:width: 1200px
-.. |image114| image:: lab002-media/image114.png
-.. |image115| image:: lab002-media/image115.png
+.. |image114| image:: media/lab02/image114.png
+.. |image115| image:: media/lab02/image115.png
 	:width: 1200px
 
-.. |image116| image:: lab002-media/image116.png
+.. |image116| image:: media/lab02/image116.png
 	:width: 400px
-.. |image117| image:: lab002-media/image117.png
+.. |image117| image:: media/lab02/image117.png
 	:width: 400px
-.. |image118| image:: lab002-media/image118.png
+.. |image118| image:: media/lab02/image118.png
 	:width: 800px
-.. |image119| image:: lab002-media/image119.png
+.. |image119| image:: media/lab02/image119.png
 	:width: 800px
-.. |image120| image:: lab002-media/image120.png
+.. |image120| image:: media/lab02/image120.png
 	:width: 800px
-.. |image121| image:: lab002-media/image121.png
+.. |image121| image:: media/lab02/image121.png
 	:width: 800px
-.. |image122| image:: lab002-media/image122.png
+.. |image122| image:: media/lab02/image122.png
 	:width: 800px
-.. |image123| image:: lab002-media/image123.png
+.. |image123| image:: media/lab02/image123.png
 	:width: 800px
-.. |image124| image:: lab002-media/image124.png
+.. |image124| image:: media/lab02/image124.png
 	:width: 800px
 
 
-..  |module2Lab1Task3-image2| image:: lab002-media/module2Lab1Task3-image2.png
+..  |module2Lab1Task3-image2| image:: media/lab02/module2Lab1Task3-image2.png
         :width: 800
-..  |module2Lab1Task3-image1| image:: lab002-media/module2Lab1Task3-image1.png
+..  |module2Lab1Task3-image1| image:: media/lab02/module2Lab1Task3-image1.png
         :width: 800
-..  |module2Lab1Task2-image5| image:: lab002-media/module2Lab1Task1-image5.png
+..  |module2Lab1Task2-image5| image:: media/lab02/module2Lab1Task1-image5.png
         :width: 400px
-..  |module2Lab1Task2-image4| image:: lab002-media/module2Lab1Task1-image4.png
+..  |module2Lab1Task2-image4| image:: media/lab02/module2Lab1Task1-image4.png
         :width: 400px
-..  |module2Lab1Task2-image3| image:: lab002-media/module2Lab1Task1-image3.png
+..  |module2Lab1Task2-image3| image:: media/lab02/module2Lab1Task1-image3.png
         :width: 400px
-..  |module2Lab1Task2-image2| image:: lab002-media/module2Lab1Task1-image2.png
+..  |module2Lab1Task2-image2| image:: media/lab02/module2Lab1Task1-image2.png
         :width: 800px
-..  |module2Lab1Task2-image1| image:: lab002-media/module2Lab1Task1-image1.png
+..  |module2Lab1Task2-image1| image:: media/lab02/module2Lab1Task1-image1.png
 
-..  |module2Lab2Task1-image1| image:: lab002-media/module2Lab2Task1-image1.png
+..  |module2Lab2Task1-image1| image:: media/lab02/module2Lab2Task1-image1.png
         :width: 800px
-..  |module2Lab2Task1-image2| image:: lab002-media/module2Lab2Task1-image2.png
+..  |module2Lab2Task1-image2| image:: media/lab02/module2Lab2Task1-image2.png
         :width: 800px
-..  |module2Lab2Task1-image3| image:: lab002-media/module2Lab2Task1-image3.png
+..  |module2Lab2Task1-image3| image:: media/lab02/module2Lab2Task1-image3.png
         :width: 800px
-..  |module2Lab2Task1-image4| image:: lab002-media/module2Lab2Task1-image4.png
+..  |module2Lab2Task1-image4| image:: media/lab02/module2Lab2Task1-image4.png
         :width: 800px
-..  |module2Lab2Task2-image1| image:: lab002-media/module2Lab2Task2-image1.png
+..  |module2Lab2Task2-image1| image:: media/lab02/module2Lab2Task2-image1.png
         :width: 800px
-..  |module2Lab2Task2-image2| image:: lab002-media/module2Lab2Task2-image2.png
+..  |module2Lab2Task2-image2| image:: media/lab02/module2Lab2Task2-image2.png
         :width: 800px
-..  |module2Lab2Task2-image3| image:: lab002-media/module2Lab2Task2-image3.png
+..  |module2Lab2Task2-image3| image:: media/lab02/module2Lab2Task2-image3.png
         :width: 800px
-..  |module2Lab2Task2-image4| image:: lab002-media/module2Lab2Task2-image4.png
+..  |module2Lab2Task2-image4| image:: media/lab02/module2Lab2Task2-image4.png
         :width: 800px
-..  |module2Lab2Task2-image5| image:: lab002-media/module2Lab2Task2-image5.png
+..  |module2Lab2Task2-image5| image:: media/lab02/module2Lab2Task2-image5.png
         :width: 800px
-..  |module2Lab2Task2-image6| image:: lab002-media/module2Lab2Task2-image6.png
+..  |module2Lab2Task2-image6| image:: media/lab02/module2Lab2Task2-image6.png
         :width: 800px
-..  |module2Lab2Task2-image7| image:: lab002-media/module2Lab2Task2-image7.png
+..  |module2Lab2Task2-image7| image:: media/lab02/module2Lab2Task2-image7.png
         :width: 800px
-..  |module2Lab2Task2-image8| image:: lab002-media/module2Lab2Task2-image8.png
+..  |module2Lab2Task2-image8| image:: media/lab02/module2Lab2Task2-image8.png
         :width: 800px
-..  |module2Lab2Task2-image9| image:: lab002-media/module2Lab2Task2-image9.png
+..  |module2Lab2Task2-image9| image:: media/lab02/module2Lab2Task2-image9.png
         :width: 800px
-..  |module2Lab2Task2-image10| image:: lab002-media/module2Lab2Task2-image10.png
+..  |module2Lab2Task2-image10| image:: media/lab02/module2Lab2Task2-image10.png
         :width: 800px
-..  |module2Lab2Task2-image11| image:: lab002-media/module2Lab2Task2-image11.png
-        :width: 800px
-
-..  |module2Lab2Task2-image12| image:: lab002-media/module2Lab2Task2-image12.png
+..  |module2Lab2Task2-image11| image:: media/lab02/module2Lab2Task2-image11.png
         :width: 800px
 
-..  |module2Lab3Task1-image18| image:: lab002-media/module2Lab3Task1-image18.png
+..  |module2Lab2Task2-image12| image:: media/lab02/module2Lab2Task2-image12.png
         :width: 800px
-..  |module2Lab3Task1-image17| image:: lab002-media/module2Lab3Task1-image17.png
+
+..  |module2Lab3Task1-image18| image:: media/lab02/module2Lab3Task1-image18.png
         :width: 800px
-..  |module2Lab3Task1-image16| image:: lab002-media/module2Lab3Task1-image16.png
+..  |module2Lab3Task1-image17| image:: media/lab02/module2Lab3Task1-image17.png
+        :width: 800px
+..  |module2Lab3Task1-image16| image:: media/lab02/module2Lab3Task1-image16.png
         :width: 400px
-..  |module2Lab3Task1-image15| image:: lab002-media/module2Lab3Task1-image15.png
+..  |module2Lab3Task1-image15| image:: media/lab02/module2Lab3Task1-image15.png
         :width: 400px
-..  |module2Lab3Task1-image14| image:: lab002-media/module2Lab3Task1-image14.png
+..  |module2Lab3Task1-image14| image:: media/lab02/module2Lab3Task1-image14.png
         :width: 400px
-..  |module2Lab3Task1-image13| image:: lab002-media/module2Lab3Task1-image13.png
+..  |module2Lab3Task1-image13| image:: media/lab02/module2Lab3Task1-image13.png
         :width: 800px
-..  |module2Lab3Task1-image12| image:: lab002-media/module2Lab3Task1-image12.png
+..  |module2Lab3Task1-image12| image:: media/lab02/module2Lab3Task1-image12.png
         :width: 800px
-..  |module2Lab3Task1-image11| image:: lab002-media/module2Lab3Task1-image11.png
+..  |module2Lab3Task1-image11| image:: media/lab02/module2Lab3Task1-image11.png
         :width: 800px
-..  |module2Lab3Task1-image10| image:: lab002-media/module2Lab3Task1-image10.png
+..  |module2Lab3Task1-image10| image:: media/lab02/module2Lab3Task1-image10.png
         :width: 800px
-..  |module2Lab3Task1-image9| image:: lab002-media/module2Lab3Task1-image9.png
+..  |module2Lab3Task1-image9| image:: media/lab02/module2Lab3Task1-image9.png
         :width: 800px
-..  |module2Lab3Task1-image8| image:: lab002-media/module2Lab3Task1-image8.png
+..  |module2Lab3Task1-image8| image:: media/lab02/module2Lab3Task1-image8.png
         :width: 100px
-..  |module2Lab3Task1-image7| image:: lab002-media/module2Lab3Task1-image7.png
+..  |module2Lab3Task1-image7| image:: media/lab02/module2Lab3Task1-image7.png
         :width: 200px
-..  |module2Lab3Task1-image6| image:: lab002-media/module2Lab3Task1-image6.png
+..  |module2Lab3Task1-image6| image:: media/lab02/module2Lab3Task1-image6.png
         :width: 800px
-..  |module2Lab3Task1-image5| image:: lab002-media/module2Lab3Task1-image5.png
+..  |module2Lab3Task1-image5| image:: media/lab02/module2Lab3Task1-image5.png
         :width: 800px
-..  |module2Lab3Task1-image4| image:: lab002-media/module2Lab3Task1-image4.png
+..  |module2Lab3Task1-image4| image:: media/lab02/module2Lab3Task1-image4.png
         :width: 400px
-..  |module2Lab3Task1-image3| image:: lab002-media/module2Lab3Task1-image3.png
+..  |module2Lab3Task1-image3| image:: media/lab02/module2Lab3Task1-image3.png
         :width: 800px
-..  |module2Lab3Task1-image2| image:: lab002-media/module2Lab3Task1-image2.png
+..  |module2Lab3Task1-image2| image:: media/lab02/module2Lab3Task1-image2.png
         :width: 100px
-..  |module2Lab3Task1-image1| image:: lab002-media/module2Lab3Task1-image1.png
+..  |module2Lab3Task1-image1| image:: media/lab02/module2Lab3Task1-image1.png
         :width: 800px
 
 

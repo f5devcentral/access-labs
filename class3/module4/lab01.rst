@@ -850,147 +850,147 @@ Task 3 - Test Access to the new path
 
 
 
-.. |image0| image:: lab001-media/image000.png
+.. |image0| image:: media/lab01/image000.png
 	:width: 800px
-.. |image1| image:: lab001-media/image001.png	
-.. |image2| image:: lab001-media/image002.png
-.. |image3| image:: lab001-media/image003.png
-.. |image4| image:: lab001-media/image004.png
-.. |image5| image:: lab001-media/image005.png
+.. |image1| image:: media/lab01/image001.png	
+.. |image2| image:: media/lab01/image002.png
+.. |image3| image:: media/lab01/image003.png
+.. |image4| image:: media/lab01/image004.png
+.. |image5| image:: media/lab01/image005.png
 	:width: 800px
-.. |image6| image:: lab001-media/image006.png
+.. |image6| image:: media/lab01/image006.png
 	:width: 800px	
-.. |image7| image:: lab001-media/image007.png
-.. |image8| image:: lab001-media/image008.png
-.. |image9| image:: lab001-media/image009.png
-.. |image10| image:: lab001-media/image010.png
-.. |image11| image:: lab001-media/image011.png
-.. |image12| image:: lab001-media/image012.png
+.. |image7| image:: media/lab01/image007.png
+.. |image8| image:: media/lab01/image008.png
+.. |image9| image:: media/lab01/image009.png
+.. |image10| image:: media/lab01/image010.png
+.. |image11| image:: media/lab01/image011.png
+.. |image12| image:: media/lab01/image012.png
 	:width: 800px	
-.. |image13| image:: lab001-media/image013.png
+.. |image13| image:: media/lab01/image013.png
 	:width: 800px	
-.. |image14| image:: lab001-media/image014.png
+.. |image14| image:: media/lab01/image014.png
 	:width: 800px	
-.. |image15| image:: lab001-media/image015.png
+.. |image15| image:: media/lab01/image015.png
 	:width: 800px	
-.. |image16| image:: lab001-media/image016.png
+.. |image16| image:: media/lab01/image016.png
 	:width: 800px	
-.. |image17| image:: lab001-media/image017.png
+.. |image17| image:: media/lab01/image017.png
 	:width: 800px
-.. |image18| image:: lab001-media/image018.png
-.. |image19| image:: lab001-media/image019.png
-.. |image20| image:: lab001-media/image020.png
-.. |image21| image:: lab001-media/image021.png
+.. |image18| image:: media/lab01/image018.png
+.. |image19| image:: media/lab01/image019.png
+.. |image20| image:: media/lab01/image020.png
+.. |image21| image:: media/lab01/image021.png
 	:width: 700px
-.. |image22| image:: lab001-media/image022.png
-.. |image23| image:: lab001-media/image023.png
-.. |image24| image:: lab001-media/image024.png
-.. |image25| image:: lab001-media/image025.png
-.. |image26| image:: lab001-media/image026.png
-.. |image27| image:: lab001-media/image027.png
+.. |image22| image:: media/lab01/image022.png
+.. |image23| image:: media/lab01/image023.png
+.. |image24| image:: media/lab01/image024.png
+.. |image25| image:: media/lab01/image025.png
+.. |image26| image:: media/lab01/image026.png
+.. |image27| image:: media/lab01/image027.png
 	:width: 600px
-.. |image28| image:: lab001-media/image028.png
-.. |image29| image:: lab001-media/image029.png
-.. |image31| image:: lab001-media/image031.png
-.. |image32| image:: lab001-media/image032.png
-.. |image33| image:: lab001-media/image033.png
+.. |image28| image:: media/lab01/image028.png
+.. |image29| image:: media/lab01/image029.png
+.. |image31| image:: media/lab01/image031.png
+.. |image32| image:: media/lab01/image032.png
+.. |image33| image:: media/lab01/image033.png
 	:width: 800px
-.. |image34| image:: lab001-media/image034.png
-.. |image35| image:: lab001-media/image035.png
-.. |image36| image:: lab001-media/image036.png
-.. |image37| image:: lab001-media/image037.png
-.. |image38| image:: lab001-media/image038.png
-.. |image39| image:: lab001-media/image039.png
-.. |image40| image:: lab001-media/image040.png
-.. |image41| image:: lab001-media/image041.png
-.. |image42| image:: lab001-media/image042.png
-.. |image43| image:: lab001-media/image043.png
-.. |image44| image:: lab001-media/image044.png
-.. |image45| image:: lab001-media/image045.png
-.. |image46| image:: lab001-media/image046.png
-.. |image47| image:: lab001-media/image047.png
-.. |image48| image:: lab001-media/image048.png
-.. |image49| image:: lab001-media/image049.png
+.. |image34| image:: media/lab01/image034.png
+.. |image35| image:: media/lab01/image035.png
+.. |image36| image:: media/lab01/image036.png
+.. |image37| image:: media/lab01/image037.png
+.. |image38| image:: media/lab01/image038.png
+.. |image39| image:: media/lab01/image039.png
+.. |image40| image:: media/lab01/image040.png
+.. |image41| image:: media/lab01/image041.png
+.. |image42| image:: media/lab01/image042.png
+.. |image43| image:: media/lab01/image043.png
+.. |image44| image:: media/lab01/image044.png
+.. |image45| image:: media/lab01/image045.png
+.. |image46| image:: media/lab01/image046.png
+.. |image47| image:: media/lab01/image047.png
+.. |image48| image:: media/lab01/image048.png
+.. |image49| image:: media/lab01/image049.png
 	:width: 800px
-.. |image50| image:: lab001-media/image050.png
-.. |image51| image:: lab001-media/image051.png
-.. |image52| image:: lab001-media/image052.png
-.. |image53| image:: lab001-media/image053.png
-.. |image54| image:: lab001-media/image054.png
-.. |image55| image:: lab001-media/image055.png
-.. |image56| image:: lab001-media/image056.png
+.. |image50| image:: media/lab01/image050.png
+.. |image51| image:: media/lab01/image051.png
+.. |image52| image:: media/lab01/image052.png
+.. |image53| image:: media/lab01/image053.png
+.. |image54| image:: media/lab01/image054.png
+.. |image55| image:: media/lab01/image055.png
+.. |image56| image:: media/lab01/image056.png
 	:width: 800px
-.. |image57| image:: lab001-media/image057.png
-.. |image58| image:: lab001-media/image058.png
-.. |image59| image:: lab001-media/image059.png
-.. |image60| image:: lab001-media/image060.png
-.. |image61| image:: lab001-media/image061.png
+.. |image57| image:: media/lab01/image057.png
+.. |image58| image:: media/lab01/image058.png
+.. |image59| image:: media/lab01/image059.png
+.. |image60| image:: media/lab01/image060.png
+.. |image61| image:: media/lab01/image061.png
 	:width: 800px
-.. |image62| image:: lab001-media/image062.png
-.. |image63| image:: lab001-media/image063.png
-.. |image64| image:: lab001-media/image064.png
-.. |image65| image:: lab001-media/image065.png
-.. |image66| image:: lab001-media/image066.png
+.. |image62| image:: media/lab01/image062.png
+.. |image63| image:: media/lab01/image063.png
+.. |image64| image:: media/lab01/image064.png
+.. |image65| image:: media/lab01/image065.png
+.. |image66| image:: media/lab01/image066.png
 	:width: 800px
-.. |image67| image:: lab001-media/image067.png
-.. |image68| image:: lab001-media/image068.png
-.. |image69| image:: lab001-media/image069.png
+.. |image67| image:: media/lab01/image067.png
+.. |image68| image:: media/lab01/image068.png
+.. |image69| image:: media/lab01/image069.png
 	:width: 800px
-.. |image70| image:: lab001-media/image070.png
+.. |image70| image:: media/lab01/image070.png
 	:width: 1000px
-.. |image71| image:: lab001-media/image071.png
-.. |image72| image:: lab001-media/image072.png
-.. |image73| image:: lab001-media/image073.png
-.. |image75| image:: lab001-media/image075.png
-.. |image77| image:: lab001-media/image077.png
-.. |image79| image:: lab001-media/image079.png
-.. |image80| image:: lab001-media/image080.png
+.. |image71| image:: media/lab01/image071.png
+.. |image72| image:: media/lab01/image072.png
+.. |image73| image:: media/lab01/image073.png
+.. |image75| image:: media/lab01/image075.png
+.. |image77| image:: media/lab01/image077.png
+.. |image79| image:: media/lab01/image079.png
+.. |image80| image:: media/lab01/image080.png
 	:width: 1200px
-.. |image81| image:: lab001-media/image081.png
+.. |image81| image:: media/lab01/image081.png
 	:width: 1000px
-.. |image82| image:: lab001-media/image082.png
+.. |image82| image:: media/lab01/image082.png
 	:width: 800px
-.. |image83| image:: lab001-media/image083.png
+.. |image83| image:: media/lab01/image083.png
 	:width: 1200px
-.. |image84| image:: lab001-media/image084.png
+.. |image84| image:: media/lab01/image084.png
 	:width: 800px
-.. |image85| image:: lab001-media/image085.png
+.. |image85| image:: media/lab01/image085.png
 	:width: 1200px
-.. |image86| image:: lab001-media/image086.png
+.. |image86| image:: media/lab01/image086.png
 	:width: 1200px
-.. |image87| image:: lab001-media/image087.png
+.. |image87| image:: media/lab01/image087.png
 	:width: 1200px
-.. |image88| image:: lab001-media/image088.png
+.. |image88| image:: media/lab01/image088.png
 	:width: 800px
-.. |image89| image:: lab001-media/image089.png
-.. |image90| image:: lab001-media/image090.png
+.. |image89| image:: media/lab01/image089.png
+.. |image90| image:: media/lab01/image090.png
 	:width: 800px
-.. |image91| image:: lab001-media/image091.png
+.. |image91| image:: media/lab01/image091.png
 	:width: 800px
-.. |image92| image:: lab001-media/image092.png
+.. |image92| image:: media/lab01/image092.png
 	:width: 800px
-.. |image93| image:: lab001-media/image093.png
+.. |image93| image:: media/lab01/image093.png
 	:width: 800px
-.. |image94| image:: lab001-media/image094.png
+.. |image94| image:: media/lab01/image094.png
 	:width: 800px
-.. |image95| image:: lab001-media/image095.png
+.. |image95| image:: media/lab01/image095.png
 	:width: 800px
-.. |image96| image:: lab001-media/image096.png
+.. |image96| image:: media/lab01/image096.png
 	:width: 800px
-.. |image97| image:: lab001-media/image097.png
+.. |image97| image:: media/lab01/image097.png
 	:width: 800px
-.. |image98| image:: lab001-media/image098.png
+.. |image98| image:: media/lab01/image098.png
 	:width: 800px
-.. |image99| image:: lab001-media/image099.png
+.. |image99| image:: media/lab01/image099.png
 	:width: 800px
-.. |image101| image:: lab001-media/image101.png
-.. |image103| image:: lab001-media/image103.png
+.. |image101| image:: media/lab01/image101.png
+.. |image103| image:: media/lab01/image103.png
 	:width: 800px
-.. |image102| image:: lab001-media/image102.png
-.. |image103| image:: lab001-media/image103.png
+.. |image102| image:: media/lab01/image102.png
+.. |image103| image:: media/lab01/image103.png
 	:width: 800px
-.. |image104| image:: lab001-media/image104.png
-.. |image105| image:: lab001-media/image105.png
+.. |image104| image:: media/lab01/image104.png
+.. |image105| image:: media/lab01/image105.png
 
 
 
