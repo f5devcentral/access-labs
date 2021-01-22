@@ -6,15 +6,14 @@ Guided Configuration supports more than a single application per Identity Aware 
 This Module also introduces the **Application Group** (skipped in the previous module) to provide different contextual access controls on parts of a website. 
 
 
-   
-   
-	Lab 2.1 - Access Guided Configuration
+
+Section 2.1 - Access Guided Configuration
 ----------------------------------------
 
 To onboard a new application to the IAP, you will first access the Guided Configuration menu.
 
-Task - Access the Zero Trust IAP guided configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Access the Zero Trust IAP guided configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, click on the **Access** tab located on the left side.
 
@@ -29,17 +28,13 @@ Task - Access the Zero Trust IAP guided configuration
    |image2|
 
 
-
-
-
-
-Lab 2.2 - User Identity
+Section 2.2 - User Identity
 ------------------------------------------------
 
 Adding an additional User Identity to IAP is just a few simple steps. 
 
-Task - Configure Certificate Authentication with OCSP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Configure Certificate Authentication with OCSP
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **User Identity** in the Ribbon
 
@@ -63,12 +58,12 @@ Task - Configure Certificate Authentication with OCSP
     |image6|
 	
 	
-	Lab 2.3 - SSO & HTTP Header
+Section 2.3 - SSO & HTTP Header
 ------------------------------------------------
 
 In this section, you will create a custom header value to pass to the web server. 
 
-Task - Create Custom Header
+Task 1 - Create Custom Header
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **SSO & HTTP Header** from the Ribbon.
@@ -91,12 +86,12 @@ Task - Create Custom Header
    |image10|
    
    
-   Lab 2.4 - Applications
+Section 2.4 - Applications
 ------------------------------------------------
 
 In this section you will define a second application with subpaths.  
 
-Task - Configure Application header.acme.com
+Task 1 - Configure Application header.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the **Applications** icon from the ribbon.
@@ -125,12 +120,12 @@ Task - Configure Application header.acme.com
    |image14|
    
    
-   Lab 2.5 - Application Groups
+Section 2.5 - Application Groups
 ------------------------------------------------
 
 In this section you will configure two Application groups to enforce different policies on parts of the header-iap.acme.com website.  
 
-Task - Create header-ad Group
+Task 1 - Create header-ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Application Groups** from the ribbon.
@@ -147,7 +142,7 @@ Task - Create header-ad Group
  
    |image17|
 
-Task - Create header-ocsp Group
+Task 2 - Create header-ocsp Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add** to create a second application group
@@ -165,13 +160,13 @@ Task - Create header-ocsp Group
 
    |image20|
    
-   Lab 2.6 - Contextual Access
+Section 2.6 - Contextual Access
 ------------------------------------------------
 
 In this section you will configure Contextual Access for the previously created Application Groups
 
 
-Task - Configure Contextual Access for header_ad Group
+Task 1 - Configure Contextual Access for header_ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Contextual Access** from the ribbon
@@ -191,7 +186,7 @@ Task - Configure Contextual Access for header_ad Group
 
    |image23|
 
-Task - Configure Contextual Access for header-ocsp Group
+Task 2 - Configure Contextual Access for header-ocsp Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add**
@@ -233,13 +228,13 @@ Task - Configure Contextual Access for header-ocsp Group
    |image27|
    
    
-   Lab 2.7 - Testing
-------------------
+Section 2.7 - Testing
+-----------------------
 
 In this section you will use user1's credentials to default website header.acme.com.  However, when you attempt to access the admin page you will be prompted for certificate based authentication.  After a successful login you will close your browser and login to default website using user2's credentials.  User2 will be denied due to not having the correct AD groups.
 
-Task - Login to header.acme.com using user1
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Login to header.acme.com using user1
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a new browser tab
 #. Access the site https://header.acme.com
@@ -264,8 +259,8 @@ Task - Login to header.acme.com using user1
 
 #. Close the browser completely.
 
-Task - Login to header.acme.com using user2
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 2 - Login to header.acme.com using user2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a new browser window.
 #. Access the site https://header.acme.com
@@ -282,8 +277,6 @@ Task - Login to header.acme.com using user2
 #. You receive a **Access Denied** page due to not having the correct group membership
 
    |image36|
-
-
 
 
 .. |image0| image:: media/lab02/image000.png
