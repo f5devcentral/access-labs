@@ -35,6 +35,11 @@ The following components have been included in your lab environment:
 - 1 x Ubuntu 16.04 LTS 
 - 1 x Centos 7
 
+UDF Blueprint
+^^^^^^^^^^^^^^^
+
+Access Labs & Solutions Version 5 
+
 Lab Components
 ^^^^^^^^^^^^^^
 
