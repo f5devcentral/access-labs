@@ -8,8 +8,9 @@ This lab documents provides foundational concepts for understanding Access Polic
 -----------------------------------------  
 .. toctree::
    :maxdepth: 1
+   :caption:15.1 Versions:
    :glob:
-   
+
    intro.rst
    module1/lab*
 
