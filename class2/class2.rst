@@ -6,9 +6,11 @@ This lab documents provides foundational concepts for understanding Access Polic
 
 201 - Zero Trust - Identity Aware Proxy
 -----------------------------------------  
+
+
 .. toctree::
    :maxdepth: 1
-   :caption:15.1 Versions:
+   :caption: Contents:
    :glob:
 
    intro.rst
