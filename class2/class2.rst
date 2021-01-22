@@ -4,15 +4,23 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-201 - Zero Trust - Identity Aware Proxy - Version 15.1
+201 - Zero Trust - Identity Aware Proxy
 --------------------------------------------------------  
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Version 15.1 Labs:
+   :glob:
 
    module1/intro.rst
    module1/lab*
 
 
-201 - Zero Trust - Identity Aware Proxy - Version 16.0
-------------------------------------------------------- 
+.. toctree::
+   :maxdepth: 1
+   :caption: Version 16.0 Labs:
+   :glob:
 
    module2/intro.rst
    module2/lab*
