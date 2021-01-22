@@ -12,33 +12,19 @@ Topics Covered
 
 Expected time to complete: **1 hour**
 
-UDF blueprint version: **44**
-
 Setup Lab Environment
 ----------------------------------------
 
-#. Click the **Command Prompt** shortcut to open the command prompt on the jumphost 
-
-   |image42|
-
-#. Type the command **cd C:\\labs\\class3\\postman** to navigate the Postman collection folder.
-
-
-#. Type the command **setup.bat**
-
-
-#. All Steps in the collection should succeed before moving on to the lab.  If an API call fails run the collection again by repeating the previous step.  
-
-   |image43|
+**NEED TO UPDATE**
 
 
 
-Lab 1.1 - Access Guided Configuration
+Section 1.1 - Access Guided Configuration
 ----------------------------------------
 
 The first step in deploying the IAP is accessing Guided Configuration
 
-Task - Access the Zero Trust IAP guided configuration
+Task 1 - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the webbrowser, click on the **Access** tab located on the left side.
@@ -65,12 +51,12 @@ Task - Access the Zero Trust IAP guided configuration
    |image4|
    
    
-   Lab 1.2 - Device Posture 
+Section 1.2 - Device Posture 
 ------------------------------------------------
 
 In this section, you will configure the IAP to perform posture assessment from client devices.  
 
-Task - Configure name of IAP Policy and enable Posture Checks
+Task 1 - Configure name of IAP Policy and enable Posture Checks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Define the configuration name **IAP_DEMO**
@@ -83,7 +69,7 @@ Task - Configure name of IAP Policy and enable Posture Checks
 
    |image5|
 
-Task - Define a firewall Posture Assessment
+Task 2 - Define a firewall Posture Assessment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Define the Posture Group Name **FW_CHECK**
@@ -95,7 +81,7 @@ Task - Define a firewall Posture Assessment
    |image6|
 
 
-Task - Verify the posture assessment 
+Task 3 - Verify the posture assessment 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. The Posture Settings box should contain **FW_CHECK**
@@ -104,12 +90,12 @@ Task - Verify the posture assessment
    |image7|
    
    
-   Lab 1.3 - Virtual Server
+Section 1.3 - Virtual Server
 ------------------------------------------------
 
 In this section, you will define the virtual server IP address and its SSL profile settings 
 
-Task - Create a virtual server
+Task 1 - Create a virtual server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Show Advanced Setting** located in the top right corner to expose the Server-Side SSL profile settings
@@ -131,12 +117,12 @@ Task - Create a virtual server
    |image10|
 
 
-Lab 1.4 - User Identity
+Section 1.4 - User Identity
 ------------------------------------------------
 
 In this section you will configure a single User Identity using Active Directory.  
 
-Task - Configure Active Directory AAA
+Task 1 - Configure Active Directory AAA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Enter **"ad"** for the name
@@ -154,13 +140,13 @@ Task - Configure Active Directory AAA
 
 
 
-Lab 1.5 - MFA
+Section 1.5 - MFA
 ------------------------------------------------
 
 In this section you will configure a RADIUS server to enable simulated MFA capabilities.
 
 
-Task - Configure a RADIUS AAA Server
+Task 1 - Configure a RADIUS AAA Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -189,12 +175,12 @@ Task - Configure a RADIUS AAA Server
    |image17|
 
 	
-	Lab 1.6 - SSO & HTTP Header
+Section 1.6 - SSO & HTTP Header
 ------------------------------------------------
 
 In this section you will configure HTTP Basic SSO.
 
-Task - Create a HTTP basic SSO object
+Task 1 - Create a HTTP basic SSO object
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -221,15 +207,12 @@ Task - Create a HTTP basic SSO object
    |image21|
 
 
-
-	
-
-Lab 1.7 - Applications
+Section 1.7 - Applications
 ------------------------------------------------
 
 In this section you will define a single application
 
-Task - Create basic.acme.com application
+Task 1 - Create basic.acme.com application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Enter the **basic.acme.com** for the application name
@@ -241,24 +224,24 @@ Task - Create basic.acme.com application
 
 
 
-Lab 1.8 - Application Groups
+Section 1.8 - Application Groups
 ------------------------------------------------
 
 Application Groups will be covered in a later section of the lab.
 
-Task - Skip Application Group Section
+Task 1 - Skip Application Group Section
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Save & Next**
 
 |image28|
 
-Lab 1.9 - Contextual Access
+Section 1.9 - Contextual Access
 ------------------------------------------------
 
 In this section you will define contextual access for the previously created application.  Context access is where all of the previously created objects are put together to provide fine-grain access control.
 
-Task - Create Contextual Access for basic.acme.com
+Task 1 - Create Contextual Access for basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -283,12 +266,12 @@ Task - Create Contextual Access for basic.acme.com
 
 
 
-Lab 1.10 - Customization
+Section 1.10 - Customization
 ------------------------------------------------
 
 The Customization section allows an administrator to define the images, colors, and messages that are presented to a user.
 
-Task - Customize the Remediation Page URL
+Task 1 - Customize the Remediation Page URL
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default **remediation Page** URL uses the hostname site **request.com**.  This should be changed to reference a real host where users can download and install the EPI updates.
@@ -308,14 +291,14 @@ The default **remediation Page** URL uses the hostname site **request.com**.  Th
 
 
 
-Lab 1.11 - Summary
+Section 1.11 - Summary
 ------------------------------------------------
 
 The **Summary** page allows you to review the configuration that is about to be deployed.  In the event a change is required anywhere in the configuration the **pencil icon** on the right side can be selected to quickly edit the appropriate section.
 
 
 
-Task - Deploy the configuration 
+Task 1 - Deploy the configuration 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Deploy**
@@ -325,12 +308,12 @@ Task - Deploy the configuration
 #. Once the deployment is complete, click **Finish**
 
 
-Lab 1.12 - Testing 
+Section 1.12 - Testing 
 ------------------------------------------------
 
 In this section you will access the application basic.acme.com and watch how the BIG-IP restricts access when a device fails it's posture assessment.
 
-Task - Access basic.acme.com
+Task 1 - Access basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE:: Posture Assessments in a Per-Request Policy use F5 Access Guard(running on clients) to perform posture assessments prior to accessing an application.  This improves the user experience since posture checks do not introduce any delay when accessing the application. This also improves security by allowing posture assessments to occur continuously throughout the life of the session.
@@ -354,7 +337,7 @@ Task - Access basic.acme.com
 
 
 
-Task - Disable Windows Firewall
+Task 2 - Disable Windows Firewall
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Right click the computer icon in the taskbar and open **Network and Sharing Center**
@@ -375,7 +358,7 @@ Task - Disable Windows Firewall
    |image39|
 
 
-Task - See Deny Page basic.acme.com 
+Task 3 - See Deny Page basic.acme.com 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the jumpbox, browse to https://basic.acme.com
@@ -389,7 +372,7 @@ Task - See Deny Page basic.acme.com
 #. Close the browser Window to ensure there is no cached data
 
 
-Task - Enable Windows Firewall
+Task 4 - Enable Windows Firewall
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Right click the computer icon in the taskbar and open **Network and Sharing Center**
