@@ -28,7 +28,7 @@ Lab Topology
 
 The following components have been included in your lab environment:
 
-- 2 x F5 BIG-IP VE (v15.1)
+- 2 x F5 BIG-IP VE 
 - 1 x Windows Jumphost- Server 2016
 - 1 x Windows 2016 Server hosting AD, CA, OCSP & DNS
 - 1 x Windows 2016 Server hosting IIS
@@ -70,7 +70,7 @@ components:
 |                        | - Internal   10.1.20.8  |                          | 
 +------------------------+-------------------------+--------------------------+      
 
-.. |image000| image:: intro-media/image000.png
+.. |image000| image:: media/000.png
    :width: 6.96097in
    :height: 4.46512in
 
