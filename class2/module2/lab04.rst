@@ -1,4 +1,4 @@
-Lab4: Explore AccessGuard(15.1)
+Lab4: Explore AccessGuard(16.0)
 ======================================================
 
 F5 Access Guard is a new set of client software tools designed to help administrators validate the security posture of incoming web connections from remote clients. F5 Access Guard allows real-time posture information to be inspected with per-request policy subroutines on BIG-IP Access Policy Manager. F5 Access Guard generates posture information asynchronously and transparently transmits it to chosen APM server endpoints using special HTTP headers
@@ -119,18 +119,18 @@ Task - View the installed Extension
    |image13|
 
 
-.. |image0| image:: lab004-media/image000.png
-.. |image1| image:: lab004-media/image001.png
-.. |image2| image:: lab004-media/image002.png
-.. |image3| image:: lab004-media/image003.png
-.. |image4| image:: lab004-media/image004.png
-.. |image5| image:: lab004-media/image005.png
-.. |image6| image:: lab004-media/image006.png
-.. |image7| image:: lab004-media/image007.png
-.. |image8| image:: lab004-media/image008.png
-.. |image9| image:: lab004-media/image009.png
-.. |image10| image:: lab004-media/image010.png
-.. |image11| image:: lab004-media/image011.png
-.. |image12| image:: lab004-media/image012.png
-.. |image13| image:: lab004-media/image013.png
+.. |image0| image:: media/lab04/image000.png
+.. |image1| image:: media/lab04/image001.png
+.. |image2| image:: media/lab04/image002.png
+.. |image3| image:: media/lab04/image003.png
+.. |image4| image:: media/lab04/image004.png
+.. |image5| image:: media/lab04/image005.png
+.. |image6| image:: media/lab04/image006.png
+.. |image7| image:: media/lab04/image007.png
+.. |image8| image:: media/lab04/image008.png
+.. |image9| image:: media/lab04/image009.png
+.. |image10| image:: media/lab04/image010.png
+.. |image11| image:: media/lab04/image011.png
+.. |image12| image:: media/lab04/image012.png
+.. |image13| image:: media/lab04/image013.png
 

@@ -1,4 +1,4 @@
-Lab2: Onboard a Second Application(15.1)
+Lab2: Onboard a Second Application(16.0)
 ======================================================
 
 Guided Configuration supports more than a single application per Identity Aware Proxy Deployment.  In this module you will learn how to modify an existing IAP deployment  to onboard new authentication methods, SSO methods, and applications. 
@@ -286,47 +286,47 @@ Task - Login to header.acme.com using user2
 
 
 
-.. |image0| image:: lab002-media/image000.png
+.. |image0| image:: media/lab02/image000.png
 	:width: 800px
-.. |image1| image:: lab002-media/image001.png
-.. |image2| image:: lab002-media/image002.png
+.. |image1| image:: media/lab02/image001.png
+.. |image2| image:: media/lab02/image002.png
 	:width: 800px
-.. |image3| image:: lab002-media/image003.png
+.. |image3| image:: media/lab02/image003.png
 	:width: 1000px
-.. |image4| image:: lab002-media/image004.png
-.. |image5| image:: lab002-media/image005.png
-.. |image6| image:: lab002-media/image006.png
-.. |image7| image:: lab002-media/image007.png
-.. |image8| image:: lab002-media/image008.png
-.. |image9| image:: lab002-media/image009.png
-.. |image10| image:: lab002-media/image010.png
-.. |image11| image:: lab002-media/image011.png
-.. |image12| image:: lab002-media/image012.png
-.. |image13| image:: lab002-media/image013.png
-.. |image14| image:: lab002-media/image014.png
-.. |image15| image:: lab002-media/image015.png
-.. |image16| image:: lab002-media/image016.png
-.. |image17| image:: lab002-media/image017.png
-.. |image18| image:: lab002-media/image018.png
-.. |image19| image:: lab002-media/image019.png
-.. |image20| image:: lab002-media/image020.png
-.. |image21| image:: lab002-media/image021.png
-.. |image22| image:: lab002-media/image022.png
-.. |image23| image:: lab002-media/image023.png
-.. |image24| image:: lab002-media/image024.png
-.. |image25| image:: lab002-media/image025.png
-.. |image26| image:: lab002-media/image026.png
-.. |image27| image:: lab002-media/image027.png
-.. |image28| image:: lab002-media/image028.png
-.. |image29| image:: lab002-media/image029.png
-.. |image30| image:: lab002-media/image030.png
-.. |image31| image:: lab002-media/image031.png
-.. |image32| image:: lab002-media/image032.png
-.. |image33| image:: lab002-media/image033.png
-.. |image34| image:: lab002-media/image034.png
-.. |image35| image:: lab002-media/image035.png
-.. |image36| image:: lab002-media/image036.png
-.. |image37| image:: lab002-media/image037.png
+.. |image4| image:: media/lab02/image004.png
+.. |image5| image:: media/lab02/image005.png
+.. |image6| image:: media/lab02/image006.png
+.. |image7| image:: media/lab02/image007.png
+.. |image8| image:: media/lab02/image008.png
+.. |image9| image:: media/lab02/image009.png
+.. |image10| image:: media/lab02/image010.png
+.. |image11| image:: media/lab02/image011.png
+.. |image12| image:: media/lab02/image012.png
+.. |image13| image:: media/lab02/image013.png
+.. |image14| image:: media/lab02/image014.png
+.. |image15| image:: media/lab02/image015.png
+.. |image16| image:: media/lab02/image016.png
+.. |image17| image:: media/lab02/image017.png
+.. |image18| image:: media/lab02/image018.png
+.. |image19| image:: media/lab02/image019.png
+.. |image20| image:: media/lab02/image020.png
+.. |image21| image:: media/lab02/image021.png
+.. |image22| image:: media/lab02/image022.png
+.. |image23| image:: media/lab02/image023.png
+.. |image24| image:: media/lab02/image024.png
+.. |image25| image:: media/lab02/image025.png
+.. |image26| image:: media/lab02/image026.png
+.. |image27| image:: media/lab02/image027.png
+.. |image28| image:: media/lab02/image028.png
+.. |image29| image:: media/lab02/image029.png
+.. |image30| image:: media/lab02/image030.png
+.. |image31| image:: media/lab02/image031.png
+.. |image32| image:: media/lab02/image032.png
+.. |image33| image:: media/lab02/image033.png
+.. |image34| image:: media/lab02/image034.png
+.. |image35| image:: media/lab02/image035.png
+.. |image36| image:: media/lab02/image036.png
+.. |image37| image:: media/lab02/image037.png
 
 
 

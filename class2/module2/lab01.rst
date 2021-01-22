@@ -1,4 +1,4 @@
-Lab1: Configure Identity Aware Proxy(15.1)
+Lab1: Configure Identity Aware Proxy(16.0)
 ===========================================
 
 The 15.1 Zero Trust Architecture shifts many of the objects that would exist in a per-session policy to the per-request policy thereby creating a more secure authentication and authorization scheme. The authenticity of each request is further enhanced through the use of F5’s Access Guard agent installed on a client.  This agent provides a PKI signed report of the posture assessment performed on the client real-time rather than the historical way plug-ins reported status. Previously, after a user connected to an application they would experience a delay in access as the agent performed the posture assessment to provide an unsigned report to the BIG-IP. 
@@ -426,46 +426,46 @@ Task - Enable Windows Firewall
 
 
 
-.. |image0| image:: lab001-media/image000.png
-.. |image1| image:: lab001-media/image001.png
-.. |image2| image:: lab001-media/image002.png
-.. |image3| image:: lab001-media/image003.png
-.. |image4| image:: lab001-media/image004.png
-.. |image5| image:: lab001-media/image005.png
-.. |image6| image:: lab001-media/image006.png
-.. |image7| image:: lab001-media/image007.png
-.. |image8| image:: lab001-media/image008.png
-.. |image9| image:: lab001-media/image009.png
-.. |image10| image:: lab001-media/image010.png
-.. |image11| image:: lab001-media/image011.png
-.. |image13| image:: lab001-media/image013.png
-.. |image14| image:: lab001-media/image014.png
-.. |image15| image:: lab001-media/image015.png
-.. |image16| image:: lab001-media/image016.png
-.. |image17| image:: lab001-media/image017.png
-.. |image18| image:: lab001-media/image018.png
-.. |image19| image:: lab001-media/image019.png
-.. |image20| image:: lab001-media/image020.png
-.. |image21| image:: lab001-media/image021.png
-.. |image22| image:: lab001-media/image022.png
-.. |image23| image:: lab001-media/image023.png
-.. |image24| image:: lab001-media/image024.png
-.. |image25| image:: lab001-media/image025.png
-.. |image28| image:: lab001-media/image028.png
-.. |image29| image:: lab001-media/image029.png
-.. |image30| image:: lab001-media/image030.png
-.. |image31| image:: lab001-media/image031.png
-.. |image32| image:: lab001-media/image032.png
-.. |image33| image:: lab001-media/image033.png
-.. |image34| image:: lab001-media/image034.png
-.. |image35| image:: lab001-media/image035.png
-.. |image36| image:: lab001-media/image036.png
-.. |image37| image:: lab001-media/image037.png
-.. |image38| image:: lab001-media/image038.png
-.. |image39| image:: lab001-media/image039.png
-.. |image40| image:: lab001-media/image040.png
-.. |image41| image:: lab001-media/image041.png
-.. |image42| image:: lab001-media/image042.png
-.. |image43| image:: lab001-media/image043.png
+.. |image0| image:: media/lab01/image000.png
+.. |image1| image:: media/lab01/image001.png
+.. |image2| image:: media/lab01/image002.png
+.. |image3| image:: media/lab01/image003.png
+.. |image4| image:: media/lab01/image004.png
+.. |image5| image:: media/lab01/image005.png
+.. |image6| image:: media/lab01/image006.png
+.. |image7| image:: media/lab01/image007.png
+.. |image8| image:: media/lab01/image008.png
+.. |image9| image:: media/lab01/image009.png
+.. |image10| image:: media/lab01/image010.png
+.. |image11| image:: media/lab01/image011.png
+.. |image13| image:: media/lab01/image013.png
+.. |image14| image:: media/lab01/image014.png
+.. |image15| image:: media/lab01/image015.png
+.. |image16| image:: media/lab01/image016.png
+.. |image17| image:: media/lab01/image017.png
+.. |image18| image:: media/lab01/image018.png
+.. |image19| image:: media/lab01/image019.png
+.. |image20| image:: media/lab01/image020.png
+.. |image21| image:: media/lab01/image021.png
+.. |image22| image:: media/lab01/image022.png
+.. |image23| image:: media/lab01/image023.png
+.. |image24| image:: media/lab01/image024.png
+.. |image25| image:: media/lab01/image025.png
+.. |image28| image:: media/lab01/image028.png
+.. |image29| image:: media/lab01/image029.png
+.. |image30| image:: media/lab01/image030.png
+.. |image31| image:: media/lab01/image031.png
+.. |image32| image:: media/lab01/image032.png
+.. |image33| image:: media/lab01/image033.png
+.. |image34| image:: media/lab01/image034.png
+.. |image35| image:: media/lab01/image035.png
+.. |image36| image:: media/lab01/image036.png
+.. |image37| image:: media/lab01/image037.png
+.. |image38| image:: media/lab01/image038.png
+.. |image39| image:: media/lab01/image039.png
+.. |image40| image:: media/lab01/image040.png
+.. |image41| image:: media/lab01/image041.png
+.. |image42| image:: media/lab01/image042.png
+.. |image43| image:: media/lab01/image043.png
 
 

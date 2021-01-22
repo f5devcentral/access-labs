@@ -1,4 +1,4 @@
-Lab3: Utilize HTTP Connector(15.1)
+Lab3: Utilize HTTP Connector(16.0)
 ======================================================
 
 HTTP Connector is a new feature released in BIG-IP APM 15.1 that allows HTTP requests to be initiated from a Per-Request Policy.  This could be used to send a request to an API to retrieve additional information to make an access control decision, or send information to update an external resource.  
@@ -232,49 +232,49 @@ Task - Access basic.acme.com
    |image34|
 
 
-.. |image0| image:: lab003-media/image000.png
-.. |image1| image:: lab003-media/image001.png
-.. |image2| image:: lab003-media/image002.png
-.. |image3| image:: lab003-media/image003.png
-.. |image4| image:: lab003-media/image004.png
-.. |image5| image:: lab003-media/image005.png
-.. |image6| image:: lab003-media/image006.png
-.. |image7| image:: lab003-media/image007.png
-.. |image8| image:: lab003-media/image008.png
-.. |image9| image:: lab003-media/image009.png
-.. |image10| image:: lab003-media/image010.png
-.. |image11| image:: lab003-media/image011.png
+.. |image0| image:: media/lab03/image000.png
+.. |image1| image:: media/lab03/image001.png
+.. |image2| image:: media/lab03/image002.png
+.. |image3| image:: media/lab03/image003.png
+.. |image4| image:: media/lab03/image004.png
+.. |image5| image:: media/lab03/image005.png
+.. |image6| image:: media/lab03/image006.png
+.. |image7| image:: media/lab03/image007.png
+.. |image8| image:: media/lab03/image008.png
+.. |image9| image:: media/lab03/image009.png
+.. |image10| image:: media/lab03/image010.png
+.. |image11| image:: media/lab03/image011.png
 
 
 
 
-.. |image12| image:: lab003-media/image012.png
+.. |image12| image:: media/lab03/image012.png
 	:width: 800px
-.. |image14| image:: lab003-media/image014.png
-.. |image15| image:: lab003-media/image015.png
+.. |image14| image:: media/lab03/image014.png
+.. |image15| image:: media/lab03/image015.png
 	:width: 1200px
-.. |image16| image:: lab003-media/image016.png
-.. |image17| image:: lab003-media/image017.png
-.. |image18| image:: lab003-media/image018.png
-.. |image19| image:: lab003-media/image019.png
-.. |image20| image:: lab003-media/image020.png
+.. |image16| image:: media/lab03/image016.png
+.. |image17| image:: media/lab03/image017.png
+.. |image18| image:: media/lab03/image018.png
+.. |image19| image:: media/lab03/image019.png
+.. |image20| image:: media/lab03/image020.png
 
 
 
-.. |image21| image:: lab003-media/image021.png
-.. |image22| image:: lab003-media/image022.png
-.. |image23| image:: lab003-media/image023.png
-.. |image24| image:: lab003-media/image024.png
-.. |image25| image:: lab003-media/image025.png
-.. |image26| image:: lab003-media/image026.png
-.. |image27| image:: lab003-media/image027.png
-.. |image28| image:: lab003-media/image028.png
-.. |image29| image:: lab003-media/image029.png
+.. |image21| image:: media/lab03/image021.png
+.. |image22| image:: media/lab03/image022.png
+.. |image23| image:: media/lab03/image023.png
+.. |image24| image:: media/lab03/image024.png
+.. |image25| image:: media/lab03/image025.png
+.. |image26| image:: media/lab03/image026.png
+.. |image27| image:: media/lab03/image027.png
+.. |image28| image:: media/lab03/image028.png
+.. |image29| image:: media/lab03/image029.png
 	:width: 1000px
-.. |image30| image:: lab003-media/image030.png
-.. |image31| image:: lab003-media/image031.png
-.. |image32| image:: lab003-media/image032.png
-.. |image33| image:: lab003-media/image033.png
-.. |image34| image:: lab003-media/image034.png
+.. |image30| image:: media/lab03/image030.png
+.. |image31| image:: media/lab03/image031.png
+.. |image32| image:: media/lab03/image032.png
+.. |image33| image:: media/lab03/image033.png
+.. |image34| image:: media/lab03/image034.png
 
 
