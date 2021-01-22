@@ -21,12 +21,12 @@ Setup Lab Environment
 
 
 Section 1.1 - Create a JWT Provider
-==================================
+---------------------------------------
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
 
 Task 1 - Create a key configuration
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..note :: Ensure you are logged into BIGIP1
 
@@ -52,7 +52,7 @@ Task 1 - Create a key configuration
 
 
 Task 2 - Create an Authorization Provider
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Navigate to Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
 
@@ -76,7 +76,7 @@ Task 2 - Create an Authorization Provider
 
 
 Task 3 - Customize the Token Configuration
----------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Navigate to Federation >> JSON Web Token >> Token Configuration. Click **Token Configuration**, not the + (Plus Symbol)
 
@@ -94,7 +94,7 @@ Task 3 - Customize the Token Configuration
 
 
 Task 4 - Create a JWT Provider
---------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Navigate to Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**
 
@@ -110,13 +110,13 @@ Task 4 - Create a JWT Provider
 
 
 Section 1.2 - Create an API Protection Profile
-=============================================
+------------------------------------------------------
 
 The API Protection profile is a combination of APM and AWAF features to protect any API.
 
 
 Task 1 - Create an API Protection Profile
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
@@ -140,7 +140,7 @@ Task 1 - Create an API Protection Profile
 
 
 Task 2 - Explore the Path Configuration
------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Note the Spec file contained four paths to various URIs
 
@@ -152,7 +152,7 @@ Task 2 - Explore the Path Configuration
 
 
 Task 3 - Associate a JWT Provider
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Access Control** from the top ribbon
 
@@ -184,13 +184,13 @@ Task 3 - Associate a JWT Provider
    
    
 Section 1.3 - Create the api.acme.com virtual server
-===================================================
+----------------------------------------------------------
 
 In this section, you will define which components you want to create as part of the API Protection configuration.
 
 
 Task 1 - Create a virtual server
-----------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. From the web browser, click on the **Local Traffic** tab located on the left side
 
@@ -216,13 +216,13 @@ Task 1 - Create a virtual server
 |image22|
 
 Section 1.4 - Test Course-Grained Access
-========================================
+-------------------------------------------
 
 In this section, you will sample API requests to the new created api.acme.com virtual server to test functionality
 
 
 Task 1 - Send a valid GET without a JWT to retrieve user1's attributes
------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. From the Jumpbox, open **Postman**
 
@@ -243,7 +243,7 @@ Task 1 - Send a valid GET without a JWT to retrieve user1's attributes
 |image26|
 
 Task 2 - Send a valid GET with JWT to retrieve user1\'s attributes
--------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Retrieve User Attributes**
 
@@ -281,7 +281,7 @@ Task 2 - Send a valid GET with JWT to retrieve user1\'s attributes
 
 
 Task 3 - Send a valid GET with JWT to set user1's employeeNumber
-------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
 
 1. Select the request **JWT-Set User Attributes**
 
@@ -307,7 +307,7 @@ Task 3 - Send a valid GET with JWT to set user1's employeeNumber
 
 
 Task 4 - Send a valid GET with JWT to create a user
------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Create User**
 
@@ -329,7 +329,7 @@ Task 4 - Send a valid GET with JWT to create a user
 
 
 Task 5 - Send invalid GET request with JWT to set a nonexistent user's attributes
-------------------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Set Invalid Attributes**
 
@@ -351,7 +351,7 @@ Task 5 - Send invalid GET request with JWT to set a nonexistent user's attribute
 
 
 Task 6 - Send a POST request to a valid URI to set User1's attributes
------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Set User Attributes**
 
@@ -368,7 +368,7 @@ Task 6 - Send a POST request to a valid URI to set User1's attributes
 |image39|
 
 Task 7 - Send a GET request to an invalid URI
------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Invalid URI**
 
@@ -385,12 +385,12 @@ Task 7 - Send a GET request to an invalid URI
 |image39|
 
 Section 1.5 - Implement Fine-Grained Access Controls
-==================================================
+-----------------------------------------------------------
 
 Up to this point any authenticated user to the API is authorized to use them. In this section we will restrict user1's ability to create users, but will still be able to modify a user's employee number.
 
 Task 1 - Retrieve Group Membership Subsession Variable
---------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note :: In order to implement fine-grained control the session variables that contain the data must be known. This first session shows you how to display the session variables and their values.
 
@@ -434,7 +434,7 @@ Task 1 - Retrieve Group Membership Subsession Variable
 
 
 Task 2 - Edit the per-request policy
---------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 1. Return to BIG-IP1's management interface in the browser and click on the **Access** tab located on the left side
@@ -521,7 +521,7 @@ Task 2 - Edit the per-request policy
 
 
 Task 3 - Test the Fine-Grained Access Control with user1
------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 1. From Postman select the request **JWT-Create User**
@@ -542,7 +542,7 @@ Task 3 - Test the Fine-Grained Access Control with user1
 
 
 Task 4 - Test the Fine-Grained Access Control with user2
------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Create User**
 
@@ -571,12 +571,12 @@ Task 4 - Test the Fine-Grained Access Control with user2
 
 
 Section 1.6 - Implement Rate Limiting
-=======================================
+----------------------------------------
 
 The API Protection Profile allows a BIG-IP administrator to throttle the amount of connections to an API through the use of Key Names.
 
 Task 1 - Test pre-rate limiting Access
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-
 
 #. From Postman, Select the request **JWT-Retrieve User Attributes**
 
@@ -606,7 +606,7 @@ Task 1 - Test pre-rate limiting Access
 
 
 Task 2 - Define the rate limiting keys
------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile.  Not the + Plus symbol.
 
@@ -670,7 +670,7 @@ Task 2 - Define the rate limiting keys
    |image80|
 
 Task 3 - Create a Rate Limiting Policy
-----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Create** in the rate limiting section
 
@@ -694,7 +694,7 @@ Task 3 - Create a Rate Limiting Policy
 
 
 Task 4 - Apply the Rate Limiting Policy
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Access Control** from the ribbon
 
@@ -730,7 +730,7 @@ Task 4 - Apply the Rate Limiting Policy
 
 
 Task 5 - Test Rate Limiting
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #. From Postman, return to Runner
@@ -747,12 +747,12 @@ Task 5 - Test Rate Limiting
    
    
 Section 1.7 - Onboard a New API
-==================================
+----------------------------------------
 
 Organizations change. With this change, new APIs are introduced requiring modifications to the API Gateway. In this section you will learn how to add additional paths.
 
 Task 1 - Verify no access to API
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. From Postman, select the request **JWT-Change User Password**
 
@@ -775,7 +775,7 @@ Task 1 - Verify no access to API
 
 
 Task 2 - Add the new API path
---------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. From the browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
 
@@ -807,7 +807,7 @@ Task 2 - Add the new API path
 
 
 Task 3 - Test Access to the new path
----------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 1. From Postman, select the request **JWT-Change User Password**

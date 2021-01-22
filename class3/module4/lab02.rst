@@ -5,13 +5,13 @@ The API protection profile provides authorization and basic WAF policy to protec
 
 
 Section 2.1 - Prepping the Lab
-==============================
+----------------------------------------
 
 By default, security events are not logged, in this lab the student will create a security logging profile with Application Security, Bot Defense and DOS Protection enabled.
 The student will also place the waf policy in trasnparent to show the difference in behavior when client traffic that is deemed malicious is and is not blocked.
 
 Task 1 - Add Vulnerable API 
-------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
 
@@ -97,7 +97,7 @@ Task 1 - Add Vulnerable API
 
 
 Task 2 - Create and assign a Security Logging Profile to the virtual
--------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ..note :: Ensure you are logged into BIGIP1
 
@@ -132,7 +132,7 @@ Task 2 - Create and assign a Security Logging Profile to the virtual
 
 
 Task 3 - Set the WAF policy to Transparent and assign it to the virtual
-----------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, click on the Security -> Application Security -> Security Policies -> Policies List. Click  **api-protection**. Scroll down and you'll notice the Enforcement Mode is set to **Blocking**. Set the Enforcement Mode to **Transparent**. Be sure to click **Save**, then **Apply Policy**.
 
@@ -146,7 +146,7 @@ Task 3 - Set the WAF policy to Transparent and assign it to the virtual
 
 
 Section 2.2 - Create and Configure a Bot Defense Profile in Transparent Mode
-==================================================================================
+----------------------------------------------------------------------------------
 
 An api's clients, unlike a typical web application, will often be non-human, maybe even exclusively.
 This leaves bot defense more difficult to configure in an api protection scenario, for instance javascript such as captcha cannot be used to proactively determine whether the client is human.
@@ -154,7 +154,7 @@ In this lab, we demonstrate some scenarios the admin may encounter and how to ad
 
 
 Task 1 - Create and assign a Bot Defense Profile
-------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note :: Ensure you are logged into BIGIP1
 
@@ -186,7 +186,7 @@ For **Bot Defense Profile** select **Enabled** and select **api.acme.com_botprof
 
 
 Task 2 - Place Bot Profile in blocking and allow appropriate clients
-----------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The bot profile was left in transparent to demonstrate the behavior, now we will configure the bot profile to 
 block bot traffic. Keep in mind that the bot profile allows for fine-grained control of categories of bots, which bot fits in those categories. We will explore this later.
@@ -258,7 +258,7 @@ block bot traffic. Keep in mind that the bot profile allows for fine-grained con
 
 
 Section 2.3 - Tweaking the WAF Policy to provide additional security
-=======================================================================
+----------------------------------------------------------------------------
 
 
 APIs are a collection of technologies just like any other application, in the lab the api is built on top of a windows server using powershell. This lab demonstrate how to tune the WAF policy to use attack signatures and meta-character enforcement to provide additional protection against malicious clients.
@@ -267,7 +267,7 @@ Meta-character enforcement allows the WAF admin to enforce which characters are 
 
 
 Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
---------------------------------------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note :: Ensure you are logged into BIGIP1
 
@@ -407,12 +407,12 @@ What if that character was a legitimate value for a parameter?
 
 
 Section 2.4 - Protect against a SSRF attack
-=============================================
+-----------------------------------------------
 
 
 
 Task 1 - Implement Static Parameter values
---------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
