@@ -1,4 +1,4 @@
-Lab 3: Access Guided Configuration Concepts
+Lab 2: Access Guided Configuration Concepts
 =============================================
 
 Objectives
@@ -76,4 +76,3 @@ Task 6: Credential Protection
 
 
 Lab 3 is now complete.
-

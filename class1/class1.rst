@@ -4,60 +4,25 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-101 - Access Introduction
----------------------------
+101 - Intro to Access Foundational Concepts
+--------------------------------------------
 .. toctree::
    :maxdepth: 1
    :glob:
-   
+
    intro.rst
    module1/lab*
-  
-102 - Access Policy Frameworks
+
+102 - Access Building Blocks
 ------------------------------
 .. toctree::
    :maxdepth: 1
    :glob:
-   
+
    intro.rst
    module2/lab*
-   
-   
-   
-103 - Client-side Authentication
------------------------------------ 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   intro.rst
-   module3/lab*
-  
 
-  
-104 - Server-side Single-Sign-On
----------------------------------- 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   intro.rst
-   module4/lab*
-   
-   
-   
 
-105 - Webtop Concepts
----------------------
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   intro.rst
-   module5/lab*
- 
+
 
    
-   
-   
-

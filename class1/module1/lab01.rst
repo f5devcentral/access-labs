@@ -1,4 +1,4 @@
-Lab 2: Provisioning & Main Menu Navigation
+Lab 1: Provisioning & Main Menu Navigation
 ===========================================
 
 Objectives
@@ -555,19 +555,28 @@ After access credentials are submitted, BIG-IP APM validates the listed methods 
 - Online Certificate Status Protocol (OCSP) and Certificate Revocation List Distribution Point (CRLDP) (for client certificates)
 - Local User Database authentication
 
-BIG-IP APM can further vet client access by inspecting the client device itself, using methods including (but not limited to):
+#. Go to **Access** --> **Authentication** --> **Active Directory**
+#. Click create
 
-- File system checks
-- System service checks
-- Registry checks
-- Browser plug-in checks
-- Antivirus software checks
-- Firewall software checks
-- Hard-disk encryption software checks
-- Patch management software checks
-- Peer-to-peer software checks
-- Hardware certificate checks
-- OS and client device ID checks
++----------------------+-----------------------------+----------------------------------+
+|General Properties    | Name                        |  Basic_policy_aaa                |
++----------------------+-----------------------------+----------------------------------+
+|Configuration         | Domain Name                 |  f5lab.local                     |
++----------------------+-----------------------------+----------------------------------+
+|                      | Server Connection           |  Use Pool                        |
++----------------------+-----------------------------+----------------------------------+
+|                      | Domain Controller Pool Name |  basic_ad_pool                   |
++----------------------+-----------------------------+----------------------------------+
+|                      | IP Address                  |  10.1.20.7                       |
++----------------------+-----------------------------+----------------------------------+
+|                      | Hostname                    |  dc1.f5lab.local                 |
++----------------------+-----------------------------+----------------------------------+
+|                      | Admin Name                  |  admin                           |
++----------------------+-----------------------------+----------------------------------+
+|                      | Admin Password              |  admin                           |
++----------------------+-----------------------------+----------------------------------+
+
+
 
 
 

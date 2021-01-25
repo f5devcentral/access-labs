@@ -1,4 +1,4 @@
-Lab 5: Visual Policy Editor Concepts
+Lab 3: Visual Policy Editor Concepts
 =============================================
 
 Objectives
@@ -69,4 +69,3 @@ Task 5: Endings
 
 
 Lab 5 is now complete.
-
