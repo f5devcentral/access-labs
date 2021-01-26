@@ -1,4 +1,4 @@
-Lab 4: Authentication Types & Frameworks
+Lab 10: Authentication Types & Frameworks
 =============================================
 
 Objectives

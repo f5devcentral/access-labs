@@ -1,4 +1,4 @@
-Lab 6: Profiles/Policies and Session/Subsession Concepts
+Lab 4: Policies and Session Concepts
 ========================================================
 
 Objectives
@@ -33,4 +33,3 @@ Task 4: What is a Subsession
 
 
 Lab 6 is now complete.
-

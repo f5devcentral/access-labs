@@ -1,4 +1,4 @@
-Lab 7: Access Logs Overview
+Lab 5: Access Logs Overview
 =============================================
 
 Objectives
@@ -54,5 +54,3 @@ Task 5:
 
 
 Lab 7 is now complete.
-
-
