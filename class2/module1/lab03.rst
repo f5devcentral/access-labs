@@ -81,7 +81,7 @@ Task 4 - Create a HTTP Connector Request
 
 #. Enter name **get-aduser-attributes**
 #. Select **demo-http-connector** from the dropdown 
-#. Enter URL **https://adapi.f5lab.local:8443/aduser/get?useridentity=%{perflow.username}**
+#. Enter URL **https://adapi.f5lab.local:8443/user/username=%{perflow.username}**
 #. Enter **GET** for the Method
 #. Select **Parse** for the Response Action
 #. Click **Save** 

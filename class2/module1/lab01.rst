@@ -63,7 +63,7 @@ Task 1 - Configure name of IAP Policy and enable Posture Checks
 
 #. Check **Enable F5 Client Posture Check**
 
-#. select **ca.f5lab.local.crt** from the CA Trust Certificate dropdown list
+#. select **ca.f5lab.local** from the CA Trust Certificate dropdown list
 
 #. Select **add** to create a posture assessment group
 
@@ -107,7 +107,7 @@ Task 1 - Create a virtual server
 #. Click the **Create New** radio button under Client SSL Profile
 #. Select **acme.com-wildcard** from the Client SSL certificate dropdown box
 #. Select **acme.com-wildcard** from the Associated Private Key dropdown box
-#. Select **ca.f5lab.local.crt** from the Trusted Certificate Authorities for Client Authentication drop down box
+#. Select **ca.f5lab.local** from the Trusted Certificate Authorities for Client Authentication drop down box
 
    |image9|
 
