@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "f638978b-c97b-4cb3-ab3b-2df585507371",
+		"_postman_id": "1c5978b5-3f3d-46c2-b1aa-806bdcea68d3",
 		"name": "Identity Aware Proxy Labs-setup",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fd2453bf-b9cd-455e-b4ef-93911e62275e",
+						"id": "aad53ac1-1d30-4399-9bdb-b6619886d9e0",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -31,7 +31,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e4978f54-7b79-4525-abf9-0446de548d4b",
+						"id": "82181783-3f58-44bf-a88a-58f208294ac8",
 						"exec": [
 							"",
 							"",
@@ -86,10 +86,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "08edbd37-6e27-40a8-9f01-34ae9a3706f5",
+						"id": "3086c363-4631-488d-9105-4b28d43a6ac0",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
 							"pm.test(\"Pool Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -158,10 +157,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8fd7d3ea-a300-4fb7-b1a1-4b5ecaafc8db",
+						"id": "3d0af2d8-7775-4663-90a6-46ecbf7b1da2",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA AD Object Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -178,14 +177,9 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "152a0617-03dc-4450-ab19-c811bc7fb0e0",
+						"id": "9857e972-28a2-46d0-8112-91d17aac3b80",
 						"exec": [
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -240,18 +234,162 @@
 			"response": []
 		},
 		{
+			"name": "bigip-import ca.f5lab.local cert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "90ed7ccf-83ed-45fe-bfc0-a702120a75c1",
+						"exec": [
+							"pm.test(\"ca.f5lab.local.crt installed\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "7606c635-ac40-41d8-ad5a-89e995c157f1",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/octet-stream"
+					},
+					{
+						"key": "Content-Range",
+						"value": "0-1263/1264",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "1264",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "-----BEGIN CERTIFICATE-----\r\nMIIDazCCAlOgAwIBAgIQJ4DA+pop3K9HGUl4CIxjbjANBgkqhkiG9w0BAQsFADBI\r\nMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxFTATBgoJkiaJk/IsZAEZFgVmNWxhYjEY\r\nMBYGA1UEAxMPZGMxLmY1bGFiLmxvY2FsMB4XDTE5MTEyMDIyMDc0NVoXDTI5MTEy\r\nMDIyMTc0NVowSDEVMBMGCgmSJomT8ixkARkWBWxvY2FsMRUwEwYKCZImiZPyLGQB\r\nGRYFZjVsYWIxGDAWBgNVBAMTD2RjMS5mNWxhYi5sb2NhbDCCASIwDQYJKoZIhvcN\r\nAQEBBQADggEPADCCAQoCggEBANOejxrkrJD12YIeEkZNjRZ9/OZwFeX+QhVi1uHL\r\niILP+4+3ZiZ/dhVGQLncDfHlJm5hSXpzMMDK+LxmjnWfBcx8xurgDyL6E80ZTnIP\r\nBbVJ6Au2IWFXM62NK/qsE+5IF0ptAYzDiWjj75njoVQygMNkdWEPxu1N+Ar7WAR4\r\n5xghN2wE7d57iCZ53RmrIeGT6equiihns5nUssoOFh/ny9oR6+yudINlozllHhMB\r\nGRDCEeGC/0mY/LF50hP6vwEbl1ub0J1SlqlvTn3rrX7dumvtjSKxfQipwbCpG8Qz\r\nGi7ZsSe78Xg7VIGtDVk0Vh4+PbHVJ6GB8pUmFpQ4vVa6sY0CAwEAAaNRME8wCwYD\r\nVR0PBAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFNhpUMHsIixtS9g6\r\ny/FyNrayg9V6MBAGCSsGAQQBgjcVAQQDAgEAMA0GCSqGSIb3DQEBCwUAA4IBAQCr\r\nEjJWFyZR3VFoIvZxUztGiWSjELJGD0vH42hONh6GrzxHadhZcQFmQsi4SmS9TUhP\r\nqyj+mUzreWziMcogqTYisSmF6h/cyAujdnLPbR//spGSOvLlV+43P57FmpQ+c+bB\r\nV8CJq3e0uvxt2h/9v5Du20fE/Zb6iPESMSjzhEoCPosozELpEqwKTzwGLsyqgLSN\r\nWW/+Ov+DGr+cE8pHsXZy8yhkbDY5wrbHMCyrRuXFXwYLpoMcUKMOWUCq+K3TSQ2A\r\nmGUtzY3KMfC7YCJj+mrCniWmvncryUpkY3hPplglevWAFQx4hslOU618gt4IpBXy\r\nLlIC0DqyAVMHJqF7WozV\r\n-----END CERTIFICATE-----\r\n"
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/shared/file-transfer/uploads/ca.f5lab.local.crt",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"file-transfer",
+						"uploads",
+						"ca.f5lab.local.crt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip-install ca.f5lab.local cert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "90cde4fc-95f3-4092-b8e8-6a38284fa297",
+						"exec": [
+							"pm.test(\"ca.f5lab.local.crt imported\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"command\":\"install\",\n\t\"name\":\"ca.f5lab.local\",\n\t\"from-local-file\":\"/var/config/rest/downloads/ca.f5lab.local.crt\"\n\t\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/tm/sys/crypto/cert",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"sys",
+						"crypto",
+						"cert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "bigip1-Create-APM AAA OCSP Responder",
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "41752848-c13f-4f95-81c6-bd1b7f5b5eb9",
+						"id": "f47b21d8-9741-459b-bd7f-5efdcec6882a",
 						"exec": [
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -259,10 +397,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "02349bb5-8259-4bb3-a1ae-bba6762aa3f7",
+						"id": "9cdb37fd-20fe-4ac8-a065-0a66b9989919",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA OCSP Responder Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -303,7 +441,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"{{APM_AAA_OCSP_NAME}}\",\r\n    \"allowCerts\": \"true\",\r\n    \"caFile\": \"/Common/ca.f5lab.local.crt\",\r\n    \"caPath\": \"/ocsp\",\r\n    \"certIdDigest\": \"sha1\",\r\n    \"chain\": \"true\",\r\n    \"checkCerts\": \"true\",\r\n    \"explicitOcsp\": \"true\",\r\n    \"ignoreAia\": \"false\",\r\n    \"intern\": \"true\",\r\n    \"locationSpecific\": \"true\",\r\n    \"nonce\": \"false\",\r\n    \"signDigest\": \"sha1\",\r\n    \"statusAge\": 0,\r\n    \"trustOther\": \"false\",\r\n    \"url\": \"http://dc1.f5lab.local\",\r\n    \"validityPeriod\": 300,\r\n    \"verify\": \"true\",\r\n    \"verifyCert\": \"true\",\r\n    \"verifySig\": \"true\"\r\n}"
+					"raw": "{\r\n    \"name\": \"{{APM_AAA_OCSP_NAME}}\",\r\n    \"allowCerts\": \"true\",\r\n    \"caFile\": \"/Common/ca.f5lab.local\",\r\n    \"caPath\": \"/ocsp\",\r\n    \"certIdDigest\": \"sha1\",\r\n    \"chain\": \"true\",\r\n    \"checkCerts\": \"true\",\r\n    \"explicitOcsp\": \"true\",\r\n    \"ignoreAia\": \"false\",\r\n    \"intern\": \"true\",\r\n    \"locationSpecific\": \"true\",\r\n    \"nonce\": \"false\",\r\n    \"signDigest\": \"sha1\",\r\n    \"statusAge\": 0,\r\n    \"trustOther\": \"false\",\r\n    \"url\": \"http://dc1.f5lab.local\",\r\n    \"validityPeriod\": 300,\r\n    \"verify\": \"true\",\r\n    \"verifyCert\": \"true\",\r\n    \"verifySig\": \"true\"\r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/",
@@ -332,13 +470,8 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "55e58253-5b27-4f43-9f39-cad630aaa092",
+						"id": "397a29e5-fd96-4367-ba02-b99bbe3b4ddc",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"",
-							"}",
-							"",
 							"",
 							"pm.test(\"AS3 is Running\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -352,13 +485,9 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "21046288-70d2-4bcc-ac1d-bcc1e43c15ca",
+						"id": "6873a38a-6f56-4020-9834-acaa9071e47c",
 						"exec": [
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -407,10 +536,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "003eace3-d476-412b-a268-7a24b3ab9671",
+						"id": "d9640bfa-c6ab-4a4b-ba65-6a4f82390686",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"DC1 Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -426,7 +555,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f875bf33-8ddb-44b0-ba12-9c1f884a4fc6",
+						"id": "21734f51-1fa2-4e65-97d5-b24935af5a2c",
 						"exec": [
 							""
 						],
@@ -487,10 +616,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9858b39b-b3ce-4fef-be15-b3ad9a8677b5",
+						"id": "4ca329c3-1e1d-4b1f-bb08-aac542f3dd90",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"bigip1 server Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -506,7 +635,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bc003c89-1b8c-444d-ae8e-44519353e5f7",
+						"id": "4ed7b4ac-3b03-487f-a7df-55d16847764f",
 						"exec": [
 							""
 						],
@@ -567,10 +696,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a692938e-69cb-47c3-8d66-e22eafe13daf",
+						"id": "ef40a215-21d9-4cba-9cff-5ef9180a27b8",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"bigip5 server Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -586,7 +715,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "06b184ab-c61e-46af-aa3f-edd30e7f2e64",
+						"id": "b1f9ac3e-ff5b-420b-83ec-88907a4e0870",
 						"exec": [
 							""
 						],
@@ -647,10 +776,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "521e6721-9882-4dc8-aa67-0e27209fe577",
+						"id": "6be2584b-2b0f-41e6-923f-891344e30c7d",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Virtual Server added to Server\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -665,7 +794,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "414a8266-2961-4432-8a0c-17a0f92c1ddb",
+						"id": "f776adf4-721f-4f1f-875e-421b31d23e81",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"iap1.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -673,11 +802,7 @@
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -739,11 +864,8 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "86edda04-2bf5-4aa3-b26a-585f1ec0e990",
+						"id": "cfabdbc8-f73e-489e-9ffb-3ec2e266c331",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -755,15 +877,9 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0c523d44-79fb-43b4-9870-d6861dbf02b7",
+						"id": "62e57dd0-46b8-4dc7-ac9b-0bebc5484c66",
 						"exec": [
-							"",
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -816,11 +932,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0c211a19-9682-4f47-8c8b-94dc21ac3b79",
+						"id": "beb9e247-2f68-4d75-90fe-1c03f38c7f14",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
+							"",
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -832,18 +946,14 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "cc8e5a6d-e8cd-442e-a5ff-4da0e64a1fb1",
+						"id": "8820ee7f-7917-4b4a-9e2c-4d961e184c2a",
 						"exec": [
 							"",
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -896,11 +1006,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "41155f75-3768-422b-9b1e-909dcaf9fc51",
+						"id": "1c7a1fdb-8be1-4666-a0dc-2be5a0eec287",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
+							"",
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -914,17 +1022,13 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ff30e977-129b-4731-8607-bf67e06a8df6",
+						"id": "8c8b703c-b80f-4447-a9f3-07473d1e27a8",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -972,48 +1076,63 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c0546fe7-e2da-4ddb-b8eb-d16b9ca63b8d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7c889e6b-b53f-4360-9298-9478696d877e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "1c7a1dd4-9e74-4c46-a483-5023bbd47543",
-			"key": "PRIOR_RESPONSE",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "05268e72-8e02-4e09-9cf1-a606c0bdb6fe",
+			"id": "b1534b6d-c407-4c13-93c0-9d820c226e63",
 			"key": "APM_AAA_AD_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "3c5cc52a-24f0-4cfc-93f3-b3826da2337f",
+			"id": "d5957eb3-4c75-43d9-bb8d-d61a0dfb24ff",
 			"key": "APM_AAA_OCSP_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "b9e7d21a-ac14-4433-9086-2c7023ee3620",
+			"id": "ae7f75c2-78d4-4947-a3a9-8be91173cc58",
+			"key": "PRIOR_RESPONSE",
+			"value": ""
+		},
+		{
+			"id": "dc1cbf60-0050-4897-8a88-6626bfdd3880",
 			"key": "APP_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "55835295-2919-4779-a54e-48878cbf03e2",
+			"id": "ccf7ea84-2b5e-43b8-9879-f46d6ad15fbc",
 			"key": "PARTITION_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "caac100c-c4f8-4394-9eac-1ad82c283dac",
+			"id": "0d2a2d2f-7caa-4afa-94a8-72835ec1824e",
 			"key": "PATH_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "d302bb1e-0fa6-4e52-a78b-8af7a25ce142",
+			"id": "164cc7a0-4b5b-4747-a8a3-439f6c861a8d",
 			"key": "VS_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	],
 	"protocolProfileBehavior": {}
