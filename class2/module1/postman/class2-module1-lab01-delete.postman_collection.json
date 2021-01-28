@@ -751,5 +751,19 @@
 				]
 			}
 		}
+	],
+	"variable": [
+		{
+			"key": "APM_AAA_AD_NAME",
+			"value": ""
+		},
+		{
+			"key": "APM_AAA_OCSP_NAME",
+			"value": ""
+		},
+		{
+			"key": "PRIOR_RESPONSE",
+			"value": ""
+		}
 	]
 }
