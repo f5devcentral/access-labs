@@ -3,7 +3,7 @@ Lab 1: Access Policy Frameworks
 
 Objectives
 ----------
-
+Understand Access Policy Frameworks
 
 
 Lab Requirements
