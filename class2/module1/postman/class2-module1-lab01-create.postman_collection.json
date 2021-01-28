@@ -6,12 +6,54 @@
 	},
 	"item": [
 		{
+			"name": "Create Desktop files",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Files Copied\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"1\",\n\"user\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/desktop",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "bigip1-Create-Test AS3 is running",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "aad53ac1-1d30-4399-9bdb-b6619886d9e0",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -31,7 +73,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "82181783-3f58-44bf-a88a-58f208294ac8",
 						"exec": [
 							"",
 							"",
@@ -86,7 +127,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3086c363-4631-488d-9105-4b28d43a6ac0",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.test(\"Pool Created\", function () {",
@@ -157,7 +197,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3d0af2d8-7775-4663-90a6-46ecbf7b1da2",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -177,7 +216,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9857e972-28a2-46d0-8112-91d17aac3b80",
 						"exec": [
 							""
 						],
@@ -239,7 +277,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "90ed7ccf-83ed-45fe-bfc0-a702120a75c1",
 						"exec": [
 							"pm.test(\"ca.f5lab.local.crt installed\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -251,7 +288,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "7606c635-ac40-41d8-ad5a-89e995c157f1",
 						"exec": [
 							""
 						],
@@ -323,7 +359,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "90cde4fc-95f3-4092-b8e8-6a38284fa297",
 						"exec": [
 							"pm.test(\"ca.f5lab.local.crt imported\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
@@ -387,7 +422,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f47b21d8-9741-459b-bd7f-5efdcec6882a",
 						"exec": [
 							""
 						],
@@ -397,7 +431,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9cdb37fd-20fe-4ac8-a065-0a66b9989919",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -470,7 +503,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "397a29e5-fd96-4367-ba02-b99bbe3b4ddc",
 						"exec": [
 							"",
 							"pm.test(\"AS3 is Running\", function () {",
@@ -485,7 +517,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6873a38a-6f56-4020-9834-acaa9071e47c",
 						"exec": [
 							""
 						],
@@ -536,7 +567,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "d9640bfa-c6ab-4a4b-ba65-6a4f82390686",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -555,7 +585,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "21734f51-1fa2-4e65-97d5-b24935af5a2c",
 						"exec": [
 							""
 						],
@@ -616,7 +645,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4ca329c3-1e1d-4b1f-bb08-aac542f3dd90",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -635,7 +663,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4ed7b4ac-3b03-487f-a7df-55d16847764f",
 						"exec": [
 							""
 						],
@@ -696,7 +723,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ef40a215-21d9-4cba-9cff-5ef9180a27b8",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -715,7 +741,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "b1f9ac3e-ff5b-420b-83ec-88907a4e0870",
 						"exec": [
 							""
 						],
@@ -776,7 +801,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6be2584b-2b0f-41e6-923f-891344e30c7d",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -794,7 +818,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f776adf4-721f-4f1f-875e-421b31d23e81",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"iap1.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -864,7 +887,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cfabdbc8-f73e-489e-9ffb-3ec2e266c331",
 						"exec": [
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
@@ -877,7 +899,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "62e57dd0-46b8-4dc7-ac9b-0bebc5484c66",
 						"exec": [
 							""
 						],
@@ -932,7 +953,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "beb9e247-2f68-4d75-90fe-1c03f38c7f14",
 						"exec": [
 							"",
 							"",
@@ -946,7 +966,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8820ee7f-7917-4b4a-9e2c-4d961e184c2a",
 						"exec": [
 							"",
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
@@ -1006,7 +1025,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1c7a1fdb-8be1-4666-a0dc-2be5a0eec287",
 						"exec": [
 							"",
 							"",
@@ -1022,7 +1040,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "8c8b703c-b80f-4447-a9f3-07473d1e27a8",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -1080,7 +1097,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c0546fe7-e2da-4ddb-b8eb-d16b9ca63b8d",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1090,7 +1106,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7c889e6b-b53f-4360-9298-9478696d877e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1100,40 +1115,32 @@
 	],
 	"variable": [
 		{
-			"id": "b1534b6d-c407-4c13-93c0-9d820c226e63",
 			"key": "APM_AAA_AD_NAME",
 			"value": ""
 		},
 		{
-			"id": "d5957eb3-4c75-43d9-bb8d-d61a0dfb24ff",
 			"key": "APM_AAA_OCSP_NAME",
 			"value": ""
 		},
 		{
-			"id": "ae7f75c2-78d4-4947-a3a9-8be91173cc58",
 			"key": "PRIOR_RESPONSE",
 			"value": ""
 		},
 		{
-			"id": "dc1cbf60-0050-4897-8a88-6626bfdd3880",
 			"key": "APP_NAME",
 			"value": ""
 		},
 		{
-			"id": "ccf7ea84-2b5e-43b8-9879-f46d6ad15fbc",
 			"key": "PARTITION_NAME",
 			"value": ""
 		},
 		{
-			"id": "0d2a2d2f-7caa-4afa-94a8-72835ec1824e",
 			"key": "PATH_NAME",
 			"value": ""
 		},
 		{
-			"id": "164cc7a0-4b5b-4747-a8a3-439f6c861a8d",
 			"key": "VS_NAME",
 			"value": ""
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

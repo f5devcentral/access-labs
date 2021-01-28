@@ -6,12 +6,54 @@
 	},
 	"item": [
 		{
+			"name": "Delete Desktop files",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Files Copied\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"1\",\n\"user\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/desktop",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "bigip5-Delete-Test AS3 is running",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "8ffb3cda-28b1-440a-99eb-c6e7cd132730",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -31,7 +73,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a4cd7b85-15df-4ade-bbb0-0353bc45ebf8",
 						"exec": [
 							"",
 							"",
@@ -87,7 +128,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "7bd726b7-f62b-4c07-9351-ea60330dd3f2",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -102,7 +142,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "bdc6ee21-d7eb-47aa-84f9-6555ea3b2d2c",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
@@ -168,7 +207,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ef4c3eb1-1fff-4a9b-8e87-1713ae6e12fb",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -183,7 +221,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a96ff712-67c4-41a0-99fa-425ac8cd2712",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
@@ -249,7 +286,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "9e205002-d419-4bd5-8e50-90614a02b566",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"iap1.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -264,7 +300,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "260ad717-c159-4165-bc3a-e60de98176bf",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
@@ -330,7 +365,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4b79ad80-30bc-4f6a-8d45-054059f366f9",
 						"exec": [
 							"setTimeout(function(){}, 2000);",
 							"",
@@ -342,7 +376,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "98847230-7bcd-4cb0-9c82-a3af4f46cfda",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -416,7 +449,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "16124c5c-6644-4da4-9c41-7db65fb3521f",
 						"exec": [
 							"",
 							"",
@@ -473,7 +505,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bb9096f2-07a6-41ef-b370-2d4772748180",
 						"exec": [
 							""
 						],
@@ -483,7 +514,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3d208862-54c5-4c4e-8965-408b1cba1e13",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -556,7 +586,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "7dc3c6ec-cc95-4f7c-a4c8-c637738d038a",
 						"exec": [
 							""
 						],
@@ -566,7 +595,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1edb4a8c-4c6b-418d-806a-8e38b78e0b67",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -638,7 +666,6 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "7280d5fb-f63d-4d1e-a5ed-3fb149b10560",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -709,7 +736,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c93a5c5d-dd0f-4f25-a895-fe631890c484",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -719,13 +745,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "7e904a16-f99a-4518-9d89-4c14047c6460",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
