@@ -193,7 +193,7 @@ Task 6 - Ensure objects were removed via GUI
 
     |image016|
 
-#.  Notice the certificate ****class4-module1-lab1-idp** was deleted
+#.  Notice the certificate **class4-module1-lab1-idp** was deleted
 
     |image027|
 
