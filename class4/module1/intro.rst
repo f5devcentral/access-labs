@@ -91,6 +91,6 @@ components:
 |                        |    - 10.1.20.18         |                          |
 +------------------------+-------------------------+--------------------------+
 
-.. |image000| image:: media/000.png
-.. |image001| image:: media/001.png
+.. |image000| image:: media/intro/000.png
+.. |image001| image:: media/intro/001.png
 

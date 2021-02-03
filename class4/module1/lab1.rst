@@ -34,9 +34,23 @@ Task 1 - Import Postman Collections
 
    |image007|
 
+#. Select the **bigip-import-cert-idp** request.
 
+#. Notice the request endpoint is **/mgmt/shared/file-transfer/uploads**.  This endpoint allows us to upload files to the /var/config/rest/downloads directory on the BIG-IP. 
 
+..note:: If you unfamiliar with Postman the information in curly braces are variables that have been defined inside the collection.  If you wish the see the variable values simply click the three dots on the collection that allow you display more options. Click Edit and then Variables.
 
+#. Click **Body** to display what will be passed in the POST request
+
+   ..note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
+
+    |image008|
+
+#. Click the blue **Send** button in the upper right corner
+
+#  Notice in the response body we see where the file is stored and its file name.  
+
+    |image009|
 
 .. |image001| image:: media/lab01/001.png
 .. |image002| image:: media/lab01/002.png
@@ -45,3 +59,5 @@ Task 1 - Import Postman Collections
 .. |image005| image:: media/lab01/005.png
 .. |image006| image:: media/lab01/006.png
 .. |image007| image:: media/lab01/007.png
+.. |image008| image:: media/lab01/008.png
+.. |image009| image:: media/lab01/009.png
