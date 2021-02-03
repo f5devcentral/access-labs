@@ -52,19 +52,19 @@ Task 2 - Import IDP Signing Certificate
 
 #. Click the blue **Send** button in the upper right corner
 
-#.  In the esponse body we see where the file is stored and its file name.  
+#.  In the response body we see where the file is stored and its file name.  
 
     |image009|
 
 #. Select the **bigip-install-cert-idp** request.
 
-#. Examine the body of this request.  This request installs the certicate we previously uploaded to the BIG-IPs crypte store.
+#. Examine the body of this request.  This request installs the certificate we previously uploaded to the BIG-IPs crypte store.
 
     |image010|
 
 #. Click the blue **Send** button in the upper right corner
 
-#. In the response body we a see certficate named **class4-module1-lab1-idp** has been installed to the crypto store.
+#. In the response body we a see certificate named **class4-module1-lab1-idp** has been installed to the crypto store.
 
     |image011|
 
@@ -74,7 +74,7 @@ Task 2 - Import IDP Signing Certificate
 Task 2 - Create an SAML IDP Connector 
 -----------------------------------------------------------------------
 
-In order to create an SP service the IDP Connector must exist first .  This is because the SP Service endpoint contains the binding information to the IDP Connector.
+In order to create an SP service the IDP Connector must exist.  This is because the SP Service endpoint contains the binding information to the IDP Connector.
 
 #. Select the **bigip-create-idp connector-azuread** request
 
@@ -86,15 +86,15 @@ In order to create an SP service the IDP Connector must exist first .  This is b
 
 #. Click the blue **Send** button in the upper right corner
 
-#. The response body contains all of the information related the connector and links to locations other endpoints that are related to this connectors configuration.
+#. The response body contains all of the information related the connector and links to other endpoints that are related to this connectors configuration.
 
     |image013|
 
 
- Task 3 - Create an SAML SP Service
+Task 3 - Create an SAML SP Service
 -----------------------------------------------------------------------   
 
-#. Select the **bigip-create-sp service-bigip
+#. Select the **bigip-create-sp service-bigip**
 
 #. Notice the request endpoint is **/mgmt/tm/apm/aaa/saml/**.
 
@@ -104,15 +104,42 @@ In order to create an SP service the IDP Connector must exist first .  This is b
 
 #. Click the blue **Send** button in the upper right corner
 
-#. The response body contains all of the information related the SP Service and links to locations other endpoints that are related to this SP Services configuration.
+#. The response body contains all of the information related the SP Service and links to other endpoints that are related to this SP Services configuration.
 
     |image015|
 
- Task 4 - Explore the BIG-IP GUI
+Task 4 - Explore configuration via the BIG-IP GUI
 -----------------------------------------------------------------------
 
 
-#. Step 1
+#. Open a browser and naviage to https://bigip1.f5lab.local
+
+#. Login to the BIG-IP GUI with the following credentials:
+    - Username: **admin**
+    - Password: **admin**
+
+#. Navigate to System>>Certificate Management>>Traffic Certificate Management>>SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+
+    |image016|
+
+#. You can see the certificate **class4-module1-lab1-idp** that was imported in Task 1 is displayed.  
+
+    |image017|
+
+#. Navigate to Access>>Federatio>>SAML Service Provider>>Local SP Service.  Click on Local SP Services and not the+ plus symbol.
+
+    |image018|
+
+#. You can see an SP service object was created with the name class4-module1-lab1-sp and successfully binded to an IDP Connector named class4-module1-lab1-idp.
+
+    |image19|
+
+Task 5 - Delete the Configuration
+----------------------------------------
+
+With imperative call objects must be deleted in the reverse order they are typically created in.  This is because objects that are currently in use cannot be deleted.  
+
+
 
 .. |image001| image:: media/lab01/001.png
 .. |image002| image:: media/lab01/002.png
