@@ -156,3 +156,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 .. |image013| image:: media/lab01/013.png
 .. |image014| image:: media/lab01/014.png
 .. |image015| image:: media/lab01/015.png
+.. |image016| image:: media/lab01/016.png
+.. |image017| image:: media/lab01/017.png
+.. |image018| image:: media/lab01/018.png
+.. |image019| image:: media/lab01/019.png
