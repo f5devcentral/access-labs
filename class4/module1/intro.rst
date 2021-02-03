@@ -7,7 +7,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumpbox.f5lab.local
 
-|image1|
+|image001|
 
 
 #. Select your RDP solution.  
@@ -39,7 +39,7 @@ Access Labs & Solutions Version 7
 Lab Topology
 ~~~~~~~~~~~~
 
-|image0|
+|image000|
 
 
 The following components have been included in your lab environment:
@@ -91,6 +91,6 @@ components:
 |                        |    - 10.1.20.18         |                          |
 +------------------------+-------------------------+--------------------------+
 
-.. |image0| image:: media/image000.png
-.. |image1| image:: media/image001.png
+.. |image000| image:: media/000.png
+.. |image001| image:: media/001.png
 
