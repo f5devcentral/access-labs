@@ -37,13 +37,27 @@ Task 1 - Import Postman Collections
 Task 2 - Explore the icontrolRest Endpoints
 -----------------------------------------------------------------------
 
-#. Expand the **student-class4-module2-lab1** collection to see the subfolders and requests.
+#. Expand the **student-class4-module2-lab1** collection to see the subfolders to see the request in the **Create Transaction** folder.
 
     |image007|
 
 #.  Click on the request **bigip-create-transaction**
 
 ..note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First you create the transation by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent requets along with the transaction ID to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the the transaction is commited in it's final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is process sucessfully or none of them are.  For APM polciese this is extremely important to ensure Policies contain all the necessary information to buid a working policy.
+
+#. Click on Body.   Notice the only thing in body are open and close curly braces
+
+    |image008|
+
+#. Click on Tests.  In Postman Tests are performed after the response from the endpoint is retreived.  This javascript parses the response body for the transId and saves it as a variable for subsequent requests.
+
+    |image009|
+
+#. Click the blue **send** button in the upper right corner.
+
+#. You will receive a 200 OK.  The response body contains the transaction ID. Also, notice that their is a default timeout value of 300 seconds for the transaction to complete.
+
+    |image010|
 
 .. |image001| image:: media/lab01/001.png
 .. |image002| image:: media/lab01/002.png
