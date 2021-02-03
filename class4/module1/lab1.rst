@@ -132,7 +132,7 @@ Task 4 - Explore configuration via the BIG-IP GUI
 
 #. You can see an SP service object was created with the name class4-module1-lab1-sp and successfully binded to an IDP Connector named class4-module1-lab1-idp.
 
-    |image19|
+    |image019|
 
 Task 5 - Delete the Configuration
 ----------------------------------------
@@ -147,15 +147,15 @@ With imperative call objects must be deleted in the reverse order they are typic
 
 #. Notice the body is empty and the endpoint we are hitting is the same endpoint we used to create the SP service plus the partition and object name.
 
-   |image020|
+    |image020|
 
- #. Click the blue **Send** button in the upper right corner. 
+#. Click the blue **Send** button in the upper right corner. 
 
- #. Notice nothing is returned in the response body but the Response code is a 200 OK.
+#. Notice nothing is returned in the response body but the Response code is a 200 OK.
 
     |image021|
 
- #. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.
+#. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.
 
     |image022|
 
@@ -195,7 +195,7 @@ Task 6 - Ensure objects were removed via GUI
 
 #.  Notice the certificate ****class4-module1-lab1-idp** was deleted
 
-    |image27|
+    |image027|
 
 #. Navigate to Access>>Federatio>>SAML Service Provider>>Local SP Service.  Click on Local SP Services and not the+ plus symbol.
 
