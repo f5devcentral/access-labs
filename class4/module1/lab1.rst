@@ -30,6 +30,8 @@ Task 1 - Import Postman Collections
 
     |image006|
 
+#. A collection called **student-class4-module1-lab1** will appear on the left side in Postman
+
 
 Task 2 - Import IDP Signing Certificate
 -----------------------------------------------------------------------
