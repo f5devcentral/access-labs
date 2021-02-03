@@ -137,7 +137,86 @@ Task 4 - Explore configuration via the BIG-IP GUI
 Task 5 - Delete the Configuration
 ----------------------------------------
 
+
+
 With imperative call objects must be deleted in the reverse order they are typically created in.  This is because objects that are currently in use cannot be deleted.  
+
+#. From Postman, inside the collection Student-class4-module1-lab1 open the subfolder **Delete Objects**
+
+#. Click **bigip-delete-sp service**
+
+#. Notice the body is empty and the endpoint we are hitting is the same endpoint we used to create the SP service plus the partition and object name.
+
+   |image020|
+
+ #. Click the blue **Send** button in the upper right corner. 
+
+ #. Notice nothing is returned in the response body but the Response code is a 200 OK.
+
+    |image021|
+
+ #. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.
+
+    |image022|
+
+#. Click **bigip-delete-idp connector**
+
+#. Click the blue **send** button in the upper right corner.
+
+    |image023|
+
+#. You will receive a response code of 200 OK.
+
+    |image024|
+
+#. Click **bigip-delete-idp cert**
+
+#. Click the blue **send** button in the upper right corner.
+
+    |image025|
+
+#. You will receive a response code of 200 OK.
+
+    |image026|
+
+
+Task 6 - Ensure objects were removed via GUI
+-----------------------------------------------
+
+#. Open a browser and naviage to https://bigip1.f5lab.local
+
+#. Login to the BIG-IP GUI with the following credentials:
+    - Username: **admin**
+    - Password: **admin**
+
+#. Navigate to System>>Certificate Management>>Traffic Certificate Management>>SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+
+    |image016|
+
+#.  Notice the certificate ****class4-module1-lab1-idp** was deleted
+
+    |image27|
+
+#. Navigate to Access>>Federatio>>SAML Service Provider>>Local SP Service.  Click on Local SP Services and not the+ plus symbol.
+
+    |image018|
+
+#. Notice the SP Service was deleted
+
+    |image028|
+
+#. Mouse over SAML Service Provider on the top of the screen and click External IdP Connectors.
+
+    |image029|
+
+#. Notice the IDP Connector was deleted.
+
+    |image030|
+
+This concludes the APM lab on created and deleting APM objects via iControlREST.
+
+
+
 
 
 
@@ -160,3 +239,14 @@ With imperative call objects must be deleted in the reverse order they are typic
 .. |image017| image:: media/lab01/017.png
 .. |image018| image:: media/lab01/018.png
 .. |image019| image:: media/lab01/019.png
+.. |image020| image:: media/lab01/020.png
+.. |image021| image:: media/lab01/021.png
+.. |image022| image:: media/lab01/022.png
+.. |image023| image:: media/lab01/023.png
+.. |image024| image:: media/lab01/024.png
+.. |image025| image:: media/lab01/025.png
+.. |image026| image:: media/lab01/026.png
+.. |image027| image:: media/lab01/027.png
+.. |image028| image:: media/lab01/028.png
+.. |image029| image:: media/lab01/029.png
+.. |image030| image:: media/lab01/030.png
