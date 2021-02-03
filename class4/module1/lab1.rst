@@ -1,7 +1,7 @@
 Lab 1: SAML Service Provider(SP)
 =====================================
 
-In this lab you will learn how to create, modify, and delete Access related objects.
+In this lab you will learn how to create and delete Access related objects.
 
 Task 1 - Import Postman Collections
 -----------------------------------------------------------------------
@@ -30,11 +30,18 @@ Task 1 - Import Postman Collections
 
     |image006|
 
+#. Expand the **student-class4-module1-lab1** collection to see the subfolders and requests.
+
+   |image007|
 
 
-.. |image001| image:: media/lab01/image001.png
-.. |image002| image:: media/lab01/image002.png
-.. |image003| image:: media/lab01/image003.png
-.. |image004| image:: media/lab01/image004.png
-.. |image005| image:: media/lab01/image005.png
-.. |image006| image:: media/lab01/image006.png
+
+
+
+.. |image001| image:: media/lab01/001.png
+.. |image002| image:: media/lab01/002.png
+.. |image003| image:: media/lab01/003.png
+.. |image004| image:: media/lab01/004.png
+.. |image005| image:: media/lab01/005.png
+.. |image006| image:: media/lab01/006.png
+.. |image007| image:: media/lab01/007.png
