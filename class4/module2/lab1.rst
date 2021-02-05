@@ -2,7 +2,9 @@ Lab 1: Create a Empty Per-Session Policy
 ==========================================
 
 
-In this lab your will learn about the API calls necessary to build an clean Access Policy as if you had clicked create from GUI.
+In this lab your will learn about the API calls necessary to build an clean Access Policy as if you had clicked create from GUI.  The Graphic below depicts the basic flow required for creating a policy via API.
+
+    |image100|
 
 Task 1 - Import Postman Collections
 -----------------------------------------------------------------------
@@ -81,7 +83,17 @@ Task 2 - Explore the icontrolRest Endpoints
 
 #. Click **bigip-create-customization group-end Deny.  This customization group request is same as all previous requests except for the name and the value of the **type** key is **logout**
 
-#. Click *bigip-create-agent-deny ending**
+#. Click *bigip-create-agent-deny ending**.  The easiest way to descibe an agent is it contains the operatinal settings for that object. For example an AD authentication agent would contain the list of AD servers to be used or with a SAMl Agent it would contain the SAML Service Provider to be used.  In the case of a ending it will contain the previously defined customization group.
+
+#. Notice the endpoint is **/mgmt/tm/apm/policy/agent/ending-deny**. Each agent type has it's own endpoint unlike customiztion groups.  
+
+    |image014|
+
+#. Click **bigip-create-policy item-Deny ending**.  A Policy-Item typically contains all the setting related to its placement in the flow such as branch rules. Since this is an ending we will not see any branch rules but see references to this policy-item after a few more steps. Additional settings of how the ending is displays in Visual Policy Editor are also specified here such as caption and color. Lastly there will always be a reference to an Agent via it's name.  You can see the name of the agent specificed is the agent we created in the previous request.
+
+    |image015|
+
+
 
 
 
@@ -115,4 +127,5 @@ Task 2 - Explore the icontrolRest Endpoints
 .. |image028| image:: media/lab01/028.png
 .. |image029| image:: media/lab01/029.png
 .. |image030| image:: media/lab01/030.png
+.. |image100| image:: media/lab01/100.png
 
