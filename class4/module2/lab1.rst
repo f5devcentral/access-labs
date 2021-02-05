@@ -69,7 +69,7 @@ Task 2 - Explore the icontrolRest Endpoints
 
     |image011|
 
-#. Cick on the body of the Customziation is done by setting the **source** key to either **/Common/modern** or **/Common/standard**. This lab uses a Postman variables that references **/Common/standard**.
+#. Cick on the body of the Customziation is done by setting the **source** key to either **/Common/modern** or **/Common/standard**. This lab uses a Postman variables that references **/Common/modern**.
 
     |image012|
 
