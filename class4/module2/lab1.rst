@@ -75,7 +75,7 @@ Task 2 - Explore the icontrolRest Endpoints
 
 #. The four remaining requests in Baseline customization Groups subfolder all look the same except the value of the key **type** is different.  If click through you will notice they all hit the same endpoint of **/mgmt/tm/apm/policy/customization-group**
 
-#. Expand the subfolder **Deny Ending**
+#. Expand the **Deny Ending** subfolder
 
     |image013|
 
@@ -92,6 +92,32 @@ Task 2 - Explore the icontrolRest Endpoints
 #. Click **bigip-create-policy item-Deny ending**.  A Policy-Item typically contains all the setting related to its placement in the flow such as branch rules. Since this is an ending we will not see any branch rules but see references to this policy-item after a few more steps. Additional settings of how the ending is displays in Visual Policy Editor are also specified here such as caption and color. Lastly there will always be a reference to an Agent via it's name.  You can see the name of the agent specificed is the agent we created in the previous request.
 
     |image015|
+
+#. Expand the **Allow Ending** subfolder
+
+    |image016|
+
+#. Notice there is only an agent and policy-item.  There is not a customization group.  That's because if the connection is allowed the user will not be see any displayed from APM.  This example of a policy item of an object that is not end user facing.
+
+#. Click **Body**.  Notice the only of the allow allow agent only contains the name and partition.
+
+    |image017|
+
+#. Click **bigip-create-policy item-allow ending**.  Then, Click **Body**.
+
+    
+
+#. The stucture of the allow ending is similiar to the previous deny ending.  Since this is an ending it doesn't contain any branch rules.  
+
+    |image018|
+
+#. Expand the **Start Item** subfolder and notice their is only a single request.  There is not an agent or customization group required for the start-item.
+
+    |image019|
+
+
+
+
 
 
 
