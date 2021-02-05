@@ -59,11 +59,11 @@ Task 2 - Explore the icontrolRest Endpoints
 
     |image010|
 
-#. Expand the Baseline Customization Groups subfolder.  There are five customization groups created anytime a APM Per-Session Policy is created and they are mandatory. A customization Group defines the look of a particualar object such as the different between the logout page prior 15.0.
+#. Expand the **Baseline Customization Groups** subfolder.  There are five customization groups created anytime a APM Per-Session Policy is created and they are mandatory. A customization Group defines the look of a particualar object such as the different between the logout page prior 15.0. Not all policy-items have a customization group.  The best way to think about it is if the object is enduser facing or not.  All enduser facing items such as logon pages, webtops, logout pages all have customization groups.  Where as something such as a Active Directory Authenticatino will not.
 
-#. **Click bigip-create-customization group-logout**
+#. Click **bigip-create-customization group-logout**
 
-#.Click on **Headers**.  Notice there is header inserted into the request call **X-F5-REST-Coordination-Id** that references a Postman variable.  That variable contains the transId stored from the previous **bigip-create-transaction** request.  All Requests inside the transaction MUST have that header except for the last request that commits the transaction
+#. Click on **Headers**.  Notice there is header inserted into the request call **X-F5-REST-Coordination-Id** that references a Postman variable.  That variable contains the transId stored from the previous **bigip-create-transaction** request.  All Requests inside the transaction MUST have that header except for the last request that commits the transaction
 
     |image011|
 
@@ -76,6 +76,12 @@ Task 2 - Explore the icontrolRest Endpoints
 #. Expand the subfolder **Deny Ending**
 
     |image013|
+
+#.  Notice that to create a single ending in the policy it takes three requests.  A good rule of thumb is going to be that for every object that you would build in manually in Visual Policy Editor that it will takes threee Requests.  First one defines the **customiztion group**, the second to define and **agent** and the third to define the **policy-item**.  
+
+#. Click **bigip-create-customization group-end Deny.  This customization group request is same as all previous requests except for the name and the value of the **type** key is **logout**
+
+#. Click *bigip-create-agent-deny ending**
 
 
 
