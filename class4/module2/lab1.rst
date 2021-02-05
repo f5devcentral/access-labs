@@ -81,7 +81,7 @@ Task 2 - Explore the icontrolRest Endpoints
 
 #.  Notice that to create a single ending in the policy it takes three requests.  A good rule of thumb is going to be that for every object that you would build in manually in Visual Policy Editor that it will takes threee Requests.  First one defines the **customiztion group**, the second to define and **agent** and the third to define the **policy-item**.  
 
-#. Click **bigip-create-customization group-end Deny.  This customization group request is same as all previous requests except for the name and the value of the **type** key is **logout**
+#. Click **bigip-create-customization group-end Deny**.  This customization group request is same as all previous requests except for the name and the value of the **type** key is **logout**
 
 #. Click *bigip-create-agent-deny ending**.  The easiest way to descibe an agent is it contains the operatinal settings for that object. For example an AD authentication agent would contain the list of AD servers to be used or with a SAMl Agent it would contain the SAML Service Provider to be used.  In the case of a ending it will contain the previously defined customization group.
 
