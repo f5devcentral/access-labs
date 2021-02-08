@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d958e8e2-2431-4080-8b02-6ddbf6de2a8a",
+		"_postman_id": "e60482ab-34ce-42e5-8f0a-451b208e96cf",
 		"name": "student-class4-module2-lab1",
 		"description": "This solution was created using template 1.10",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -13,12 +13,11 @@
 					"name": "Create Transaction",
 					"item": [
 						{
-							"name": "bigip-create transaction",
+							"name": "bigip-create-transaction",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
-										"id": "607aee2c-0e77-4d73-9921-87488345b0df",
 										"exec": [
 											"",
 											"var jsonData = JSON.parse(responseBody);",
@@ -32,7 +31,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "76d84cf2-3027-4860-be1e-cced7630e2b1",
 										"exec": [
 											""
 										],
@@ -83,9 +81,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Baseline Customization Groups",
@@ -96,7 +92,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "e4a9ed0b-7fa4-4add-bd06-d87b4d7fa060",
 										"exec": [
 											""
 										],
@@ -160,7 +155,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "05315843-3db7-4b7b-b4e5-0c87f46adb30",
 										"exec": [
 											""
 										],
@@ -224,7 +218,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "27978c81-2581-47af-a9cd-e6beef3ec6ed",
 										"exec": [
 											""
 										],
@@ -288,7 +281,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "85d219c9-a0ca-424d-b8b9-fb392040a848",
 										"exec": [
 											""
 										],
@@ -352,7 +344,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "77080820-2bd2-49c2-a44c-d32b3d065ada",
 										"exec": [
 											""
 										],
@@ -410,9 +401,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Deny Ending",
@@ -423,7 +412,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3d5bf2a7-f44a-492b-8a83-9b122281217b",
 										"exec": [
 											""
 										],
@@ -487,7 +475,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "98a4fa66-f53f-4d74-bade-29ec3937e630",
 										"exec": [
 											""
 										],
@@ -553,7 +540,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "50034a0d-e84a-4692-a058-e47260dd624a",
 										"exec": [
 											""
 										],
@@ -612,9 +598,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Allow Ending",
@@ -625,7 +609,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "475d148b-e49d-424e-a467-0f0a599a6c03",
 										"exec": [
 											""
 										],
@@ -691,7 +674,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1de0a842-ea0f-482a-893a-49e56d6745dd",
 										"exec": [
 											""
 										],
@@ -750,9 +732,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Start Item",
@@ -763,7 +743,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "84b2017b-e7b0-4395-bf61-3533261554cd",
 										"exec": [
 											""
 										],
@@ -822,9 +801,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Create Policy",
@@ -835,7 +812,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c582cd1b-43d2-4a97-b1bb-75367aaf2ec5",
 										"exec": [
 											""
 										],
@@ -894,9 +870,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Create Profile",
@@ -907,7 +881,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1fc20bf9-4ab0-4f8d-8a4c-94cc59b5f326",
 										"exec": [
 											""
 										],
@@ -946,7 +919,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp\",\r\n    \"partition\": \"Common\",\r\n    \"acceptLanguages\": [\r\n        \"en\"\r\n    ],\r\n    \"accessPolicy\": \"/Common/{{VS_NAME}}-psp\",\r\n      \"customizationGroup\": \"/Common/{{VS_NAME}}-psp_logout\",\r\n    \"epsGroup\": \"/Common/{{VS_NAME}}-psp_eps\",\r\n    \"errormapGroup\": \"/Common/{{VS_NAME}}-psp_errormap\",\r\n    \"frameworkInstallationGroup\": \"/Common/{{VS_NAME}}-psp_framework_installation\",\r\n    \"generalUiGroup\": \"/Common/{{VS_NAME}}-psp_general_ui\",\r\n    \"accessPolicyTimeout\": 300,\r\n    \"defaultLanguage\": \"en\",\r\n     \"httponlyCookie\": \"false\",\r\n    \"inactivityTimeout\": 900,\r\n    \"logoutUriTimeout\": 5,\r\n    \"maxConcurrentSessions\": 0,\r\n    \"maxConcurrentUsers\": 0,\r\n    \"maxFailureDelay\": 5,\r\n    \"maxInProgressSessions\": 128,\r\n    \"maxSessionTimeout\": 604800,\r\n    \"minFailureDelay\": 2,\r\n    \"modifiedSinceLastPolicySync\": \"false\",\r\n    \"persistentCookie\": \"false\",\r\n    \"restrictToSingleClientIp\": \"false\",\r\n    \"scope\": \"profile\",\r\n    \"secureCookie\": \"true\",\r\n    \"type\": \"all\",\r\n    \"useHttp_503OnError\": \"false\",\r\n    \"userIdentityMethod\": \"http\",\r\n    \"logSettings\": [\r\n        \"/Common/default-log-setting\"\r\n    ]\r\n\r\n}"
+									"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp\",\r\n    \"partition\": \"Common\",\r\n    \"acceptLanguages\": [\r\n        \"en\"\r\n    ],\r\n    \"accessPolicy\": \"/Common/{{VS_NAME}}-psp\",\r\n    \"customizationGroup\": \"/Common/{{VS_NAME}}-psp_logout\",\r\n    \"epsGroup\": \"/Common/{{VS_NAME}}-psp_eps\",\r\n    \"errormapGroup\": \"/Common/{{VS_NAME}}-psp_errormap\",\r\n    \"frameworkInstallationGroup\": \"/Common/{{VS_NAME}}-psp_framework_installation\",\r\n    \"generalUiGroup\": \"/Common/{{VS_NAME}}-psp_general_ui\",\r\n    \"accessPolicyTimeout\": 300,\r\n    \"defaultLanguage\": \"en\",\r\n     \"httponlyCookie\": \"false\",\r\n    \"inactivityTimeout\": 900,\r\n    \"logoutUriTimeout\": 5,\r\n    \"maxConcurrentSessions\": 0,\r\n    \"maxConcurrentUsers\": 0,\r\n    \"maxFailureDelay\": 5,\r\n    \"maxInProgressSessions\": 128,\r\n    \"maxSessionTimeout\": 604800,\r\n    \"minFailureDelay\": 2,\r\n    \"modifiedSinceLastPolicySync\": \"false\",\r\n    \"persistentCookie\": \"false\",\r\n    \"restrictToSingleClientIp\": \"false\",\r\n    \"scope\": \"profile\",\r\n    \"secureCookie\": \"true\",\r\n    \"type\": \"all\",\r\n    \"useHttp_503OnError\": \"false\",\r\n    \"userIdentityMethod\": \"http\",\r\n    \"logSettings\": [\r\n        \"/Common/default-log-setting\"\r\n    ]\r\n\r\n}"
 								},
 								"url": {
 									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/profile/access/",
@@ -966,9 +939,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Commit Transaction",
@@ -979,7 +950,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "3923e3f5-e04c-43a5-aa0a-c14d67ab1633",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -1047,9 +1017,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Apply Policy",
@@ -1060,7 +1028,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "dc9788d7-af1b-47c0-92b0-ec2ebcbd04ee",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -1125,12 +1092,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Delete Policy",
@@ -1141,7 +1105,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f1b7863c-0671-42d1-8fae-2ace4ddc57e7",
 								"exec": [
 									"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 									"\r",
@@ -1163,7 +1126,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "51303854-cdfe-465d-9d93-24f539985529",
 								"exec": [
 									""
 								],
@@ -1229,7 +1191,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "e779a8f3-a576-4acb-8dbf-8164516e07ba",
 								"exec": [
 									"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 									"\r",
@@ -1249,7 +1210,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "5fa0a55d-8d0f-4ec0-8c97-c63b920043dc",
 								"exec": [
 									""
 								],
@@ -1309,15 +1269,13 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "c5bdf4dc-ce29-4df9-98d6-bb50469af651",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1327,7 +1285,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e6310c05-dec3-482e-bd0b-2e5af99b042f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1337,25 +1294,24 @@
 	],
 	"variable": [
 		{
-			"id": "01a3e714-aeb0-41b6-a3bf-4e5193bc23ae",
 			"key": "BIGIP_MGMT",
 			"value": "10.1.1.4"
 		},
 		{
-			"id": "0df7d047-b744-4d32-8834-b6e3b9de0ad3",
 			"key": "DNS_NAME",
 			"value": "sp.acme.com"
 		},
 		{
-			"id": "0d6139d0-3e0a-43cc-9008-f2d9de150890",
 			"key": "VS_NAME",
-			"value": "class4-module1-lab2"
+			"value": "class4-module2-lab1"
 		},
 		{
-			"id": "053b818e-7b01-47b6-ba13-983911359452",
 			"key": "CUSTOM_TYPE",
 			"value": "modern"
+		},
+		{
+			"key": "TRANSID",
+			"value": ""
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
