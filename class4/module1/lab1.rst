@@ -44,11 +44,11 @@ Task 2 - Import IDP Signing Certificate
 
 #. Notice the request endpoint is **/mgmt/shared/file-transfer/uploads**.  This endpoint allows us to upload files to the /var/config/rest/downloads directory on the BIG-IP. 
 
-    ..note:: If you unfamiliar with Postman the information in curly braces are variables that have been defined inside the collection.  If you wish the see the variable values simply click the three dots on the collection that allow you display more options. Click Edit and then Variables.
+    .. note:: If you unfamiliar with Postman the information in curly braces are variables that have been defined inside the collection.  If you wish the see the variable values simply click the three dots on the collection that allow you display more options. Click Edit and then Variables.
 
 #. Click **Body** to display what will be passed in the POST request
 
-   ..note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
+   .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
 
     |image008|
 
@@ -138,8 +138,6 @@ Task 4 - Explore configuration via the BIG-IP GUI
 
 Task 5 - Delete the Configuration
 ----------------------------------------
-
-
 
 With imperative call objects must be deleted in the reverse order they are typically created in.  This is because objects that are currently in use cannot be deleted.  
 
