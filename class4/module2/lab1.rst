@@ -244,21 +244,6 @@ This concluded the lab on building an empty Access Policy
 
 
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
 .. |image001| image:: media/lab01/001.png
 .. |image002| image:: media/lab01/002.png
 .. |image003| image:: media/lab01/003.png
@@ -289,5 +274,15 @@ This concluded the lab on building an empty Access Policy
 .. |image028| image:: media/lab01/028.png
 .. |image029| image:: media/lab01/029.png
 .. |image030| image:: media/lab01/030.png
+.. |image031| image:: media/lab01/031.png
+.. |image032| image:: media/lab01/032.png
+.. |image033| image:: media/lab01/033.png
+.. |image034| image:: media/lab01/034.png
+.. |image035| image:: media/lab01/035.png
+.. |image036| image:: media/lab01/036.png
+.. |image037| image:: media/lab01/037.png
+.. |image038| image:: media/lab01/038.png
+.. |image039| image:: media/lab01/039.png
+.. |image040| image:: media/lab01/040.png
 .. |image100| image:: media/lab01/100.png
 
