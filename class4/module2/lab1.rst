@@ -126,9 +126,127 @@ Task 2 - Explore the icontrolRest Endpoints
 
 #. Click **bigip-create-policy** and then **Body**
 
-#. In order to create a policy all of the policy items used inside the policy MUST be inside the **items** JSON key array.  In this case we are only building a empty
+#. In order to create a policy all of the policy items used inside the policy MUST be inside the **items** JSON key array.  In this case we are only building a empty policy so only three items are defined.  The Start Item, Deny Terminal, and Allow Terminal.
 
     |image022|
+
+#.Expand the **Create Profile** subfolder.
+
+    |image023|
+
+#. Click **bigip-create-profile** and then **Body**.   It contains the various setting related to timers, sessions, logging.  Notice the body also contains the five baseline customization groups defined at the beginning of the collection.
+
+    |image024|
+
+#. Expand the **Commit Transaction** subfolder.
+
+    |image025|
+
+#. Click **bigip-commit-transaction** and then **Body**.
+
+#. Notice the request is sent to the endpoing **/mgmt/tm/transaction/** along with the transactionID with the Method PUT.  The body contains the key **state** with the value **VALIDATING**,  This starts the processing all the requests that contain the transationID.  After the transaction is commpleted, you will recieve a 200 OK.  If you receive another statecode one or more of the requests in the transaction could not be completed.
+
+
+    |image026|
+
+#. Expand the **Apply Policy** subfolder.
+
+    |image027|
+
+#. Click **bigip-apply Policy** and then **Body**
+
+#. The Request is sent to the endpoint **/mgmt/tm/apm/profile/access/** using the PATCH Method.  When a patch is sent to the endpoing of the profile with the JSON body **"generationAction": "incremenet" is instructed the BIG-IP that you want to Apply Policy.
+
+    |image028|
+
+
+
+Task 3 - Create your first policy using automation
+-----------------------------------------------------------------------  
+
+#.  Now that we have walked through all the components required to create a policy through automation we will use Postman Runner to create it.
+
+#.  Hover over the Collection name **student-class4-module2-lab1** with your mouse and click the **Arrow** icon.
+
+    |image029|
+
+#. Click the **Create Policy** folder
+
+    |image030|
+
+#. Click **Run** and Postman Runner will open.
+
+    |image031|
+
+#. Click Run **Run student-class...** and the API requests  will start being sent the BIG-IP.
+
+    |image032|
+
+#. The **Passed** circle will will contain only two passed even through there were more requests than two.  That is because of how Postman works.  The only items that show as either passed or failed will only be those requests that contain Test Conditions.  In the case of this example only the Commit Transaction request and the Apply Policy request contain tests.  If you don't write test conditions you would need to scroll through all the requests to see if any of them contained something other than 200 OK.
+
+    |image033|
+
+
+#. Open a browser and navigate to https://bigip1.f5lab.local
+
+#. Login to the BIG-IP GUI with the following credentials:
+    - Username: **admin**
+    - Password: **admin**
+
+#. Naviagate to Access>>Profiles/Policies>>Access Profiles (Per-Session Policies).  Do not click the plus symbol.
+
+    |image034|
+
+#. The policy you created via automation is displayed.  Click **Edit**.
+
+    |image035|
+
+#.  The policy is empty as planned.  This collection is the baseline for anything anything in APM regarless of how basic or complex the Access Policy is.
+
+    |image036|
+
+
+Task 3 - Delete the Access Profile 
+----------------------------------------------------------------------- 
+
+
+#. From Postman, Expand the **student-class4-module2-lab1 subfolder.
+
+    |image037|
+
+#.  The first thing you notice is it takes fewer requests to delete a policy than it does to create it.    In order to delete a policy you need to first delete the profile and then the policy. 
+
+#. Click **bigip-delete-profile-psp**.  To delete a profile you send a request using the DELETE method to the /mgmt/tm/apm/profile/access endpoint along with the Parition and profile name.
+
+    |image038|
+
+#. Click the blue **send** button in the upper right corner.  You will receive a 200 OK response.  This is an indication that profile was found and deleted.
+
+#. Click **bigip-delete-policy-prp.  To delete a profile you send a request using the DELETE method to the /mgmt/tm/apm/policy/access-policy endpoint along with the partition and policy name.
+
+#. Click the blue **send** button in the upper right corner.  You will receive a 200 OK response.  This is an indication that policy was found and deleted.
+
+#. Open a browser and navigate to https://bigip1.f5lab.local
+
+#. Login to the BIG-IP GUI with the following credentials:
+    - Username: **admin**
+    - Password: **admin**
+
+#. Naviagate to Access>>Profiles/Policies>>Access Profiles (Per-Session Policies).  Do not click the plus symbol.
+
+    |image034|
+
+#. The Policy has been successfully deleted.
+
+    |image040|
+
+This concluded the lab on building an empty Access Policy
+
+
+
+
+
+
 
     
 

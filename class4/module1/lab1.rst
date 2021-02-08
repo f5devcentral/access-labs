@@ -185,7 +185,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 Task 6 - Ensure objects were removed via GUI
 -----------------------------------------------
 
-#. Open a browser and naviage to https://bigip1.f5lab.local
+#. Open a browser and navigate to https://bigip1.f5lab.local
 
 #. Login to the BIG-IP GUI with the following credentials:
     - Username: **admin**
