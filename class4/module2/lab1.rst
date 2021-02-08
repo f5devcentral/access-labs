@@ -103,10 +103,8 @@ Task 2 - Explore the icontrolRest Endpoints
 
     |image017|
 
-#. Click **bigip-create-policy item-allow ending**.  Then, Click **Body**.
-
+#. Click **bigip-create-policy item-allow ending**.  Then, click **Body**.
     
-
 #. The stucture of the allow ending is similiar to the previous deny ending.  Since this is an ending it doesn't contain any branch rules.  
 
     |image018|
@@ -114,6 +112,26 @@ Task 2 - Explore the icontrolRest Endpoints
 #. Expand the **Start Item** subfolder and notice their is only a single request.  There is not an agent or customization group required for the start-item.
 
     |image019|
+
+#. Click **bigip-create-policy item-start** and then **Body**
+
+#. Notice the **Rules** key.  The Rules key defines the branch rules for a policy-item.  All Policy-tems except for terminal endpoints must be used connected inside the policy via a rule condition.  In this case, the Start policy item connects to the Deny Terminal.    Secondly,  notice the **Rules** JSON key is an array because of the brackets.  This will allow someone to define multiple branch rules using expressions.  Such as with authenticaiton having a success and failure branch.  This will be covered more in depth in future labs.
+
+
+    |image020|
+
+#. Expand the **Create Policy** subfolder
+
+    |image021|
+
+#. Click **bigip-create-policy** and then **Body**
+
+#. In order to create a policy all of the policy items used inside the policy MUST be inside the **items** JSON key array.  In this case we are only building a empty
+
+    |image022|
+
+    
+
 
 
 
