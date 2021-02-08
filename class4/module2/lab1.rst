@@ -39,13 +39,13 @@ Task 1 - Import Postman Collections
 Task 2 - Explore the icontrolRest Endpoints
 -----------------------------------------------------------------------
 
-#. Expand the **student-class4-module2-lab1** collection to see the subfolders to see the request in the **Create Transaction** folder.
+#. Expand the **student-class4-module2-lab1** collection and the **Create Policy** folder to see its subfolders.
 
     |image007|
 
-#.  Click on the request **bigip-create-transaction**
+#.  Expand the **Create Transaction** subfolder and click on the request **bigip-create-transaction**
 
-    ..note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First you create the transation by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent requets along with the transaction ID to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the the transaction is commited in it's final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is process sucessfully or none of them are.  For APM polciese this is extremely important to ensure Policies contain all the necessary information to buid a working policy.
+    .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First you create the transation by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent requets along with the transaction ID to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the the transaction is commited in it's final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is process sucessfully or none of them are.  For APM polciese this is extremely important to ensure Policies contain all the necessary information to buid a working policy.
 
 #. Click on Body.   Notice the only thing in body are open and close curly braces
 
@@ -117,7 +117,6 @@ Task 2 - Explore the icontrolRest Endpoints
 
 #. Notice the **Rules** key.  The Rules key defines the branch rules for a policy-item.  All Policy-tems except for terminal endpoints must be used connected inside the policy via a rule condition.  In this case, the Start policy item connects to the Deny Terminal.    Secondly,  notice the **Rules** JSON key is an array because of the brackets.  This will allow someone to define multiple branch rules using expressions.  Such as with authenticaiton having a success and failure branch.  This will be covered more in depth in future labs.
 
-
     |image020|
 
 #. Expand the **Create Policy** subfolder
@@ -145,7 +144,6 @@ Task 2 - Explore the icontrolRest Endpoints
 #. Click **bigip-commit-transaction** and then **Body**.
 
 #. Notice the request is sent to the endpoing **/mgmt/tm/transaction/** along with the transactionID with the Method PUT.  The body contains the key **state** with the value **VALIDATING**,  This starts the processing all the requests that contain the transationID.  After the transaction is commpleted, you will recieve a 200 OK.  If you receive another statecode one or more of the requests in the transaction could not be completed.
-
 
     |image026|
 
