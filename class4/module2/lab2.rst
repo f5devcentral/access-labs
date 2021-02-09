@@ -2,9 +2,10 @@ Lab 2: Create a SAML SP Per-Session Policy
 ==============================================
 
 
-In this lab your will learn about the API calls necessary to build an Access Policy .  The Graphic below depicts the basic flow required for creating a policy via API.
+In this lab your will learn about the API calls necessary to build an SAML SP Access Policy .  The Graphic below depicts the basic flow required for creating a policy via API.
 
     |image100|
+
 
 Task 1 - Import Postman Collections
 -----------------------------------------------------------------------
@@ -68,7 +69,7 @@ Task 2 - Create Required SAML Objects
 Task 3 - Create a SAML SP policy
 -------------------------------------------
 
-#. Expand the **student-class4-module2-lab2** collection and **Create Access Objects** folder.  These requests will import the IDP signing certificate, create a IdP Connector, and also the SP Service.  If you are unfamiliar with these requests please see lab XXXXX for more detail.
+#. Expand the **Create Policy** folder.  There are two subfolders containing the baseline policy and also the SAML SP Policy-item.  If you are unfamiliar with the requests inside of the baseline policy please review :ref:`Creating a Baseline Per-Session Policy <class4-module2-lab1>`
 
     |image013|
 

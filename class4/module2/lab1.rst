@@ -1,8 +1,8 @@
-Lab 1: Create a Empty Per-Session Policy
-==========================================
+Lab 1: Create a baseline Per-Session Policy
+===============================================
+.. _class4-module2-lab1:
 
-
-In this lab your will learn about the API calls necessary to build an clean Access Policy as if you had clicked create from GUI.  The Graphic below depicts the basic flow required for creating a policy via API.
+In this lab you will learn about the API calls necessary to build the baseline for an Access Policy as if you had clicked create from GUI.  The Graphic below depicts the basic flow required for creating a policy via API.
 
     |image100|
 
