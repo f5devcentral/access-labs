@@ -136,8 +136,9 @@ Task 4 - Explore configuration via the BIG-IP GUI
 
     |image019|
 
-Task 5 - Delete the Configuration
-----------------------------------------
+Task 5 - Deleting a SAML Service Provider(SP) Service Configuration
+------------------------------------------------------------------------
+.. _class4-module1-lab1-delete:
 
 With imperative call objects must be deleted in the reverse order they are typically created in.  This is because objects that are currently in use cannot be deleted.  
 
