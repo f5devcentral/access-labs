@@ -70,4 +70,4 @@ components:
 |                        | - Internal   10.1.20.8  |                          |
 +------------------------+-------------------------+--------------------------+
 
-.. |image000| image:: class1\media\LabDiagram.png
+.. |LabDiagram| image:: class1\media\LabDiagram.png
