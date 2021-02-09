@@ -22,8 +22,7 @@ Exercise 1 – Create a Webtop resource
    select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
    click **Finished**.
 
-	|image22|
-
+|Lab4-Image1|
 
 
 Exercise 2 – Create Webtop Item
@@ -300,3 +299,6 @@ Exercise 4 – Testing
          appear on this Webtop page.
 
          |image32|
+
+
+.. |Lab4-Image1| image:: class1\media\Lab4-Image1.png     
