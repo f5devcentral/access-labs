@@ -22,8 +22,7 @@ Exercise 1 – Create a Webtop resource
    select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
    click **Finished**.
 
-	|image22|
-
+<img src="https://clouddocs.f5.com/training/community/iam/html/_images/image396.png"
 
 
 Exercise 2 – Create Webtop Item
