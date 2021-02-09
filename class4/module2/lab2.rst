@@ -61,19 +61,45 @@ Task 2 - Create Required SAML Objects
 
     |image011|
 
-#. The **Pass** circle will display only a value of four.   
+#. The **Pass** circle will display a value 4.   
     
     |image012|
 
 
-Task 3 - Create a SAML SP policy
+Task 3 - Review the SAML SP Policy-item
 -------------------------------------------
 
-#. Expand the **Create Policy** folder.  There are two subfolders containing the baseline policy and also the SAML SP Policy-item.  If you are unfamiliar with the requests inside of the baseline policy please review :ref:`Creating a Baseline Per-Session Policy <class4-module2-lab1>`
+#. Expand the **Create Policy** folder.  There are two subfolders containing the baseline policy and also the SAML SP Policy-item.  If you are unfamiliar with the requests inside of the baseline policy please review :ref:`Creating a Baseline Per-Session Policy <class4-module2-lab1>`.
 
     |image013|
 
+#. Expand the Policy-item SAML SP subfolder
 
+    |image014|
+
+#. Click **big-ip-create-agent-saml-sp** and then **Body**.  The JSON Body specificies the SP service to be used inside the server JSON key.  
+
+
+    |image015|
+
+#. Click **bigip-create-policy item-saml-sp and then **Body**.  The JSON Body of the policy item contains a reference to the previously SAML agent along with two branch rules.  One branch rule contains an expression that if the SAML auth is 1(True) then proceed down the allow terminal.  Everything else goes down the fallback branch to the Deny Terminal.
+
+
+    |image016|
+
+Task 4 - Create a SAML SP policy
+-------------------------------------------
+
+
+#.  Expand the **Baseline Policy** subfolder.
+
+    |image017|
+
+#. We will now add the policy-item SAML SP folder to the baseline Policy folder in it's proper place.  Click  and drag the policy-item SAML SP folder inbetween the Allow Ending and Start Item folders.  The exact placement of the folder 
+
+    |image018|
+
+#.  Now the the requests 
 
 .. |image001| image:: media/lab02/001.png
 .. |image002| image:: media/lab02/002.png
