@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2c900701-2406-4275-ba03-9d02907299d1",
+		"_postman_id": "652db190-0228-45ea-89ca-a03f474bc752",
 		"name": "student-class4-module1-lab1",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -14,7 +14,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8b832471-9795-4a69-9214-2d251bc5f6c2",
 								"exec": [
 									"pm.test(\"Azure IDP Certificate imported\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -26,7 +25,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e51f2276-dc50-4856-87e5-04b2f3a917db",
 								"exec": [
 									""
 								],
@@ -100,7 +98,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5f058964-4d3b-41c1-bb40-466725e33cf9",
 								"exec": [
 									"pm.test(\"Azure IDP Certificate installed\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -173,7 +170,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "140c8dc5-4bd5-4766-a027-c1067282ba64",
 								"exec": [
 									"if (responseCode.code === 200) {\r",
 									"pm.test(\"AzureAD SAML IDP Connector created\", function () {\r",
@@ -248,7 +244,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "0534177c-fe09-48da-8a97-54c5b0cc670a",
 								"exec": [
 									""
 								],
@@ -308,8 +303,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Delete Objects",
@@ -320,7 +314,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a624d7af-d851-4f39-ad4a-6999eedc2d21",
 								"exec": [
 									"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 									"",
@@ -341,7 +334,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "921f0469-5aea-4651-ae75-e7e8c6e8058b",
 								"exec": [
 									""
 								],
@@ -407,7 +399,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "35d09398-ba31-41b1-a077-278370023456",
 								"exec": [
 									"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 									"",
@@ -429,7 +420,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e3d4b1fd-d1f1-4ace-b781-bbefb136484d",
 								"exec": [
 									""
 								],
@@ -495,17 +485,16 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a9a98178-144d-4661-8f9d-94f9efb17720",
 								"exec": [
-									"var DNS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+									"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 									"\r",
 									"if (responseCode.code === 200) {\r",
 									"\r",
-									"    pm.test(\"SAML SP Service \"+VS_NAME+\"-idp deleted\", function () {\r",
+									"    pm.test(\"IdP Signing Certificate \"+VS_NAME+\"-idp deleted\", function () {\r",
 									"        pm.response.to.have.status(200);\r",
 									"    });\r",
 									"} else {\r",
-									"    pm.test(\"SAML SP Service \"+VS_NAME+\"-idp does not exist\", function () {\r",
+									"    pm.test(\"IdP Signing Certificate \"+VS_NAME+\"-idp does not exist\", function () {\r",
 									"        pm.response.to.have.status(404);\r",
 									"    });\r",
 									"}"
@@ -572,15 +561,13 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "be834459-9b97-495e-ac8b-59294a223d9a",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -590,7 +577,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d2dd7af5-a004-4d4c-bf73-22cf55d55880",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -600,25 +586,20 @@
 	],
 	"variable": [
 		{
-			"id": "e3a540fe-2b39-4049-ba1a-a1d2ace23568",
 			"key": "BIGIP_MGMT",
 			"value": "10.1.1.4"
 		},
 		{
-			"id": "9f1aa287-996b-452a-8227-6527520d7327",
 			"key": "VS_NAME",
 			"value": "class4-module1-lab1"
 		},
 		{
-			"id": "8cf53874-64c4-4079-8bf7-20e582f9c590",
 			"key": "CUSTOM_TYPE",
 			"value": "modern"
 		},
 		{
-			"id": "56dec2db-6420-4fc5-bd35-f52809b682e0",
 			"key": "DNS_NAME",
 			"value": "sp.acme.com"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

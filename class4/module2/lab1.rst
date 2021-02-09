@@ -204,9 +204,9 @@ Task 3 - Create your first policy using automation
     |image036|
 
 
-Task 3 - Delete the Access Profile 
+Task 3 - Deleting an Access Profile 
 ----------------------------------------------------------------------- 
-
+.. _class4-module2-lab1-delete:
 
 #. From Postman, Expand the **student-class4-module2-lab1 subfolder**.
 
@@ -236,7 +236,7 @@ Task 3 - Delete the Access Profile
 
 #. The Policy has been successfully deleted.
 
-    |image040|
+    |image0|
 
 This concludes the lab on building an empty Access Policy
 

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "748e0f63-88ab-4afb-a692-9897e6ad5010",
+		"_postman_id": "def4c7fc-bdae-486a-8857-c19be75a5ae6",
 		"name": "student-class4-module2-lab2",
 		"description": "This solution was created using template 1.10",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -15,7 +15,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "21bc841a-f3a9-4823-8eb9-f1508ec950c2",
 								"exec": [
 									"pm.test(\"Azure IDP Certificate imported\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -27,7 +26,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "4479caff-2434-4521-9bb1-ff09fd75af29",
 								"exec": [
 									""
 								],
@@ -101,7 +99,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "01dac112-3d08-4320-8d73-f0b294a0276c",
 								"exec": [
 									"pm.test(\"Azure IDP Certificate installed\", function () {\r",
 									"    pm.response.to.have.status(200);\r",
@@ -174,7 +171,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "8ea7c063-7a73-4a59-a302-a15c4d6b3c52",
 								"exec": [
 									"if (responseCode.code === 200) {\r",
 									"pm.test(\"AzureAD SAML IDP Connector created\", function () {\r",
@@ -249,8 +245,16 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "d5c29d90-491d-4f9a-a332-191493c80102",
 								"exec": [
+									"if (responseCode.code === 200) {\r",
+									"pm.test(\"SAML SP Service created\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"} else \r",
+									"pm.test(\"SAML SP Service exists\", function () {\r",
+									"    pm.response.to.have.status(409);\r",
+									"});\r",
+									"\r",
 									""
 								],
 								"type": "text/javascript"
@@ -309,8 +313,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Create Policy",
@@ -327,7 +330,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "2d032b83-d84e-4c28-86b0-d7e7a1c93977",
 												"exec": [
 													"",
 													"var jsonData = JSON.parse(responseBody);",
@@ -341,7 +343,6 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "3a579704-935c-4cac-b227-3ba67358393e",
 												"exec": [
 													""
 												],
@@ -392,9 +393,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Baseline Customization Groups",
@@ -405,7 +404,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "a1181e58-9e4a-4099-ae74-10d11116284b",
 												"exec": [
 													""
 												],
@@ -469,7 +467,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "29583ca5-37e2-490c-90da-8b0825c319a4",
 												"exec": [
 													""
 												],
@@ -533,7 +530,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "da5614c8-208d-400e-9d69-10ae16d1ebff",
 												"exec": [
 													""
 												],
@@ -597,7 +593,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "e02769c0-3413-4142-a5b2-ce7091effd46",
 												"exec": [
 													""
 												],
@@ -661,7 +656,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "6447dc86-a8e2-4242-a7e6-65784065ef86",
 												"exec": [
 													""
 												],
@@ -719,9 +713,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Deny Ending",
@@ -732,7 +724,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "b722dadb-061b-453b-b94c-cff8b83b780c",
 												"exec": [
 													""
 												],
@@ -796,7 +787,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "db7ad84d-1e1a-486c-8e6c-82f7350e274b",
 												"exec": [
 													""
 												],
@@ -862,7 +852,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "d6c3d70a-4cea-46e6-9615-ec054e9d7274",
 												"exec": [
 													""
 												],
@@ -921,9 +910,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Allow Ending",
@@ -934,7 +921,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "3d89b470-1967-4a86-b0aa-6488206a33fb",
 												"exec": [
 													""
 												],
@@ -1000,7 +986,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "f9dc1b22-7e14-4754-b7f1-5f909a85a864",
 												"exec": [
 													""
 												],
@@ -1059,20 +1044,17 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
-							"name": "Start Item",
+							"name": "Policy-item SAML SP",
 							"item": [
 								{
-									"name": "bigip-create-policy item-start",
+									"name": "bigip-create-agent-saml-sp",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "fe60c30b-d3a6-44c8-ab39-cea5df750e7f",
 												"exec": [
 													""
 												],
@@ -1111,7 +1093,72 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp_ent\",\r\n    \"partition\": \"Common\",\r\n    \"caption\": \"Start\",\r\n    \"color\": 1,\r\n    \"itemType\": \"entry\",\r\n    \"loop\": \"false\",\r\n    \"rules\": [\r\n        {\r\n            \"caption\": \"fallback\",\r\n            \"nextItem\": \"/Common/{{VS_NAME}}-psp_end_deny\"\r\n\r\n        }\r\n    ]\r\n}"
+											"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp_act_saml_auth_ag\",\r\n    \"partition\": \"Common\",\r\n    \"forceAuthn\": \"use-aaa-server-setting\",\r\n    \"server\": \"/Common/{{VS_NAME}}-sp\"\r\n}"
+										},
+										"url": {
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/agent/aaa-saml/",
+											"protocol": "https",
+											"host": [
+												"{{BIGIP_MGMT}}"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"policy",
+												"agent",
+												"aaa-saml",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip-create-policy item-saml-sp",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-F5-REST-Coordination-Id",
+												"type": "text",
+												"value": "{{TRANSID}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"{{VS_NAME}}-psp_act_saml_auth\",\r\n    \"partition\": \"Common\",\r\n    \"caption\": \"SAML Auth\",\r\n    \"color\": 1,\r\n    \"itemType\": \"action\",\r\n    \"loop\": \"false\",\r\n    \"agents\": [\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_act_saml_auth_ag\",\r\n            \"partition\": \"Common\",\r\n            \"type\": \"aaa-saml\"\r\n\r\n        }\r\n    ],\r\n    \"rules\": [\r\n        {\r\n            \"caption\": \"Successful\",\r\n            \"expression\": \"expr {[mcget {session.saml.last.result}] == 1}\",\r\n            \"nextItem\": \"/Common/{{VS_NAME}}-psp_end_allow\"\r\n        },\r\n        {\r\n            \"caption\": \"fallback\",\r\n            \"nextItem\": \"/Common/{{VS_NAME}}-psp_end_deny\"\r\n        }\r\n    ]\r\n}"
 										},
 										"url": {
 											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/policy-item/",
@@ -1131,20 +1178,17 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
-							"name": "Create Policy",
+							"name": "Start Item",
 							"item": [
 								{
-									"name": "bigip-create-policy",
+									"name": "bigip-create-policy item-start",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
-												"id": "77371d84-5fe7-492b-8de2-5a00c49ef1db",
 												"exec": [
 													""
 												],
@@ -1183,7 +1227,76 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp\",\r\n    \"partition\": \"Common\",\r\n    \"defaultEnding\": \"{{VS_NAME}}-psp_end_deny\",\r\n        \"maxMacroLoopCount\": 1,\r\n    \"oneshotMacro\": \"false\",\r\n    \"startItem\": \"{{VS_NAME}}-psp_ent\",\r\n    \"type\": \"access-policy\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_end_allow\",\r\n            \"partition\": \"Common\"\r\n        },\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_end_deny\",\r\n            \"partition\": \"Common\"\r\n        },\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_ent\",\r\n            \"partition\": \"Common\"\r\n        }\r\n    ]\r\n}"
+											"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp_ent\",\r\n    \"partition\": \"Common\",\r\n    \"caption\": \"Start\",\r\n    \"color\": 1,\r\n    \"itemType\": \"entry\",\r\n    \"loop\": \"false\",\r\n    \"rules\": [\r\n        {\r\n            \"caption\": \"fallback\",\r\n            \"nextItem\": \"/Common/{{VS_NAME}}-psp_act_saml_auth\"\r\n\r\n        }\r\n    ]\r\n}"
+										},
+										"url": {
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/policy-item/",
+											"protocol": "https",
+											"host": [
+												"{{BIGIP_MGMT}}"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"policy",
+												"policy-item",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Create Policy",
+							"item": [
+								{
+									"name": "bigip-create-policy",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-F5-REST-Coordination-Id",
+												"type": "text",
+												"value": "{{TRANSID}}"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp\",\r\n    \"partition\": \"Common\",\r\n    \"defaultEnding\": \"{{VS_NAME}}-psp_end_deny\",\r\n        \"maxMacroLoopCount\": 1,\r\n    \"oneshotMacro\": \"false\",\r\n    \"startItem\": \"{{VS_NAME}}-psp_ent\",\r\n    \"type\": \"access-policy\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_act_saml_auth\",\r\n            \"partition\": \"Common\"\r\n        },\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_end_allow\",\r\n            \"partition\": \"Common\"\r\n        },\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_end_deny\",\r\n            \"partition\": \"Common\"\r\n        },\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_ent\",\r\n            \"partition\": \"Common\"\r\n        }\r\n    ]\r\n}"
 										},
 										"url": {
 											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/access-policy/",
@@ -1203,9 +1316,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Create Profile",
@@ -1216,7 +1327,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "59a29281-87c9-4239-8539-916a42edd91a",
 												"exec": [
 													""
 												],
@@ -1275,9 +1385,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Commit Transaction",
@@ -1288,7 +1396,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "c2acec28-081a-45fc-842c-2ed417fb5d51",
 												"exec": [
 													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 													"\r",
@@ -1356,9 +1463,7 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						},
 						{
 							"name": "Apply Policy",
@@ -1369,7 +1474,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "ccf0880a-eb81-41c7-8e99-c72a847a2162",
 												"exec": [
 													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 													"\r",
@@ -1434,338 +1538,453 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
-				},
-				{
-					"name": "Policy-item SAML SP",
-					"item": [
-						{
-							"name": "bigip1-create-agent-saml-sp",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "8aead8c2-11df-4e3a-a166-3f502fcd4c80",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "basic",
-									"basic": [
-										{
-											"key": "password",
-											"value": "admin",
-											"type": "string"
-										},
-										{
-											"key": "username",
-											"value": "admin",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									},
-									{
-										"key": "X-F5-REST-Coordination-Id",
-										"type": "text",
-										"value": "{{TRANSID}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-psp_act_saml_auth_ag\",\r\n    \"partition\": \"Common\",\r\n    \"forceAuthn\": \"use-aaa-server-setting\",\r\n    \"server\": \"/Common/{{VS_NAME}}-sp\"\r\n}"
-								},
-								"url": {
-									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/agent/aaa-saml/",
-									"protocol": "https",
-									"host": [
-										"{{BIGIP_MGMT}}"
-									],
-									"path": [
-										"mgmt",
-										"tm",
-										"apm",
-										"policy",
-										"agent",
-										"aaa-saml",
-										""
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "bigip1-create-policy item-saml-sp",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"id": "44c98e91-85cc-468e-8230-7cade989738a",
-										"exec": [
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"auth": {
-									"type": "basic",
-									"basic": [
-										{
-											"key": "password",
-											"value": "admin",
-											"type": "string"
-										},
-										{
-											"key": "username",
-											"value": "admin",
-											"type": "string"
-										}
-									]
-								},
-								"method": "POST",
-								"header": [
-									{
-										"key": "Content-Type",
-										"type": "text",
-										"value": "application/json"
-									},
-									{
-										"key": "X-F5-REST-Coordination-Id",
-										"type": "text",
-										"value": "{{TRANSID}}"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\r\n    \"name\": \"{{VS_NAME}}-psp_act_saml_auth\",\r\n    \"partition\": \"Common\",\r\n    \"caption\": \"SAML Auth\",\r\n    \"color\": 1,\r\n    \"itemType\": \"action\",\r\n    \"loop\": \"false\",\r\n    \"agents\": [\r\n        {\r\n            \"name\": \"{{VS_NAME}}-psp_act_saml_auth_ag\",\r\n            \"partition\": \"Common\",\r\n            \"type\": \"aaa-saml\"\r\n\r\n        }\r\n    ],\r\n    \"rules\": [\r\n        {\r\n            \"caption\": \"Successful\",\r\n            \"expression\": \"expr {[mcget {session.saml.last.result}] == 1}\",\r\n            \"nextItem\": \"/Common/{{VS_NAME}}-psp_end_allow\"\r\n        },\r\n        {\r\n            \"caption\": \"fallback\",\r\n            \"nextItem\": \"/Common/{{VS_NAME}}-psp_end_deny\"\r\n        }\r\n    ]\r\n}"
-								},
-								"url": {
-									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/policy-item/",
-									"protocol": "https",
-									"host": [
-										"{{BIGIP_MGMT}}"
-									],
-									"path": [
-										"mgmt",
-										"tm",
-										"apm",
-										"policy",
-										"policy-item",
-										""
-									]
-								}
-							},
-							"response": []
-						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
-			"name": "Delete Policy",
+			"name": "Lab Cleanup",
 			"item": [
 				{
-					"name": "bigip-delete-profile-psp",
-					"event": [
+					"name": "Delete Policy",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "809d7a22-7350-432a-aeba-fb40565bac0e",
-								"exec": [
-									"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
-									"\r",
-									"if (responseCode.code === 200) {\r",
-									"    pm.test(\"Profile \"+VS_NAME+\"-psp Deleted\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });\r",
-									"} else \r",
-									"    pm.test(\"Profile \"+VS_NAME+\"-psp Does Not Exist\", function () {\r",
-									"        pm.response.to.have.status(404);\r",
-									"    });\r",
-									"\r",
-									"setTimeout(function(){}, 2000);\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "eba3849e-1fd5-482f-9b70-43b2722d855a",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
+							"name": "bigip-delete-profile-psp",
+							"event": [
 								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+											"\r",
+											"if (responseCode.code === 200) {\r",
+											"    pm.test(\"Profile \"+VS_NAME+\"-psp Deleted\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"} else \r",
+											"    pm.test(\"Profile \"+VS_NAME+\"-psp Does Not Exist\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"\r",
+											"setTimeout(function(){}, 2000);\r",
+											""
+										],
+										"type": "text/javascript"
+									}
 								},
 								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-REST-Coordination-Id",
-								"type": "text",
-								"value": "",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/profile/access/~Common~{{VS_NAME}}-psp",
-							"protocol": "https",
-							"host": [
-								"{{BIGIP_MGMT}}"
 							],
-							"path": [
-								"mgmt",
-								"tm",
-								"apm",
-								"profile",
-								"access",
-								"~Common~{{VS_NAME}}-psp"
-							]
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-F5-REST-Coordination-Id",
+										"type": "text",
+										"value": "",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/profile/access/~Common~{{VS_NAME}}-psp",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"apm",
+										"profile",
+										"access",
+										"~Common~{{VS_NAME}}-psp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bigip-delete-policy-psp",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+											"\r",
+											"if (responseCode.code === 200) {\r",
+											"    pm.test(\"Policy \"+VS_NAME+\"-psp deleted\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"} else \r",
+											"    pm.test(\"Policy \"+VS_NAME+\"-psp does not exist\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-F5-REST-Coordination-Id",
+										"type": "text",
+										"value": "{{TRANSID}}",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/access-policy/~Common~{{VS_NAME}}-psp",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"apm",
+										"policy",
+										"access-policy",
+										"~Common~{{VS_NAME}}-psp"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				},
 				{
-					"name": "bigip-delete-policy-psp",
-					"event": [
+					"name": "Delete SAML SP",
+					"item": [
 						{
-							"listen": "test",
-							"script": {
-								"id": "b438fbe3-9d56-4640-81aa-764a6e98cf83",
-								"exec": [
-									"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
-									"\r",
-									"if (responseCode.code === 200) {\r",
-									"    pm.test(\"Policy \"+VS_NAME+\"-psp deleted\", function () {\r",
-									"        pm.response.to.have.status(200);\r",
-									"    });\r",
-									"} else \r",
-									"    pm.test(\"Policy \"+VS_NAME+\"-psp does not exist\", function () {\r",
-									"        pm.response.to.have.status(404);\r",
-									"    });\r",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"id": "58d8da2b-5fc2-481e-a562-ab6488ff7e32",
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
+							"name": "bigip-delete-sp service",
+							"event": [
 								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"",
+											"if (responseCode.code === 200) {",
+											"",
+											"    pm.test(\"SAML SP Service \"+VS_NAME+\"-sp deleted\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"} else {",
+											"    pm.test(\"SAML SP Service \"+VS_NAME+\"-sp does not exist\", function () {",
+											"        pm.response.to.have.status(404);",
+											"    });",
+											"}"
+										],
+										"type": "text/javascript"
+									}
 								},
 								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
 								}
-							]
-						},
-						"method": "DELETE",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							},
-							{
-								"key": "X-F5-REST-Coordination-Id",
-								"type": "text",
-								"value": "{{TRANSID}}",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/access-policy/~Common~{{VS_NAME}}-psp",
-							"protocol": "https",
-							"host": [
-								"{{BIGIP_MGMT}}"
 							],
-							"path": [
-								"mgmt",
-								"tm",
-								"apm",
-								"policy",
-								"access-policy",
-								"~Common~{{VS_NAME}}-psp"
-							]
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-F5-REST-Coordination-Id",
+										"type": "text",
+										"value": "{{TRANSID}}",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/aaa/saml/~Common~{{VS_NAME}}-sp",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"apm",
+										"aaa",
+										"saml",
+										"~Common~{{VS_NAME}}-sp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bigip-delete-idp connector",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"",
+											"if (responseCode.code === 200) {",
+											"",
+											"    pm.test(\"SAML IDP connector \"+VS_NAME+\"-idp deleted\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
+											"} else ",
+											"    pm.test(\"SAML IDP connector \"+VS_NAME+\"-idp does not exist\", function () {",
+											"        pm.response.to.have.status(404);",
+											"    });",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-F5-REST-Coordination-Id",
+										"type": "text",
+										"value": "{{TRANSID}}",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/aaa/saml-idp-connector/~Common~{{VS_NAME}}-idp",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"apm",
+										"aaa",
+										"saml-idp-connector",
+										"~Common~{{VS_NAME}}-idp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "bigip-delete-idp cert",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+											"\r",
+											"if (responseCode.code === 200) {\r",
+											"\r",
+											"    pm.test(\"IdP Signing Certificate \"+VS_NAME+\"-idp deleted\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"} else {\r",
+											"    pm.test(\"IdP Signing Certificate \"+VS_NAME+\"-idp does not exist\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									},
+									{
+										"key": "X-F5-REST-Coordination-Id",
+										"type": "text",
+										"value": "",
+										"disabled": true
+									},
+									{
+										"key": "Content-Range",
+										"type": "text",
+										"value": "0-1321/1322",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/sys/crypto/cert/~Common~{{VS_NAME}}-idp",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"sys",
+										"crypto",
+										"cert",
+										"~Common~{{VS_NAME}}-idp"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					]
 				}
 			],
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0bb8a347-3ad2-4412-9606-f4c23ad81b19",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1775,22 +1994,19 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c840d0ea-65e1-47d0-8def-386470e6174a",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "5cf9eecf-e64f-4adb-96ea-66586c7a6355",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1800,7 +2016,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "f19f72d1-59d0-4a79-8684-956c35a2d065",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1810,25 +2025,24 @@
 	],
 	"variable": [
 		{
-			"id": "48a07df9-9458-4a53-b1e8-bcd74fcf170b",
 			"key": "BIGIP_MGMT",
 			"value": "10.1.1.4"
 		},
 		{
-			"id": "46d47b83-7e4a-482a-b408-15f70565eede",
 			"key": "VS_NAME",
 			"value": "class4-module2-lab2"
 		},
 		{
-			"id": "76847c17-fae1-4d83-9bf9-caeb2f46f7bc",
 			"key": "DNS_NAME",
 			"value": "sp.acme.com"
 		},
 		{
-			"id": "4fb37fcb-92af-4065-8796-3728cf72cd07",
 			"key": "CUSTOM_TYPE",
 			"value": "modern"
+		},
+		{
+			"key": "TRANSID",
+			"value": ""
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
