@@ -1,6 +1,6 @@
-Lab 1: SAML Service Provider(SP)
-=====================================
-
+Lab 1: Creating a SAML Service Provider(SP)
+============================================
+.. _class4-module1-lab1:
 In this lab you will learn how to create and delete Access related objects.
 
 Task 1 - Import Postman Collections

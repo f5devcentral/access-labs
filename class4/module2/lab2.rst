@@ -39,7 +39,7 @@ Task 1 - Import Postman Collections
 Task 2 - Create Required SAML Objects
 -----------------------------------------------------------------------
 
-#. Expand the **student-class4-module2-lab2** collection and **Create Access Objects** folder.  These requests will import the IDP signing certificate, create a IdP Connector, and also the SP Service.  If you are unfamiliar with these requests please see lab XXXXX for more detail.
+#. Expand the **student-class4-module2-lab2** collection and **Create Access Objects** folder.  These requests will import the IDP signing certificate, create a IdP Connector, and also the SP Service.  If you are unfamiliar with these requests please see :ref:`Creating a SAML Service Provider(SP) Service <class4-module1-lab1>` for more detail.
 
     |image007|
 
