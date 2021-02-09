@@ -24,7 +24,7 @@ Password: **admin**
 Lab Topology
 ~~~~~~~~~~~~
 
-|image000|  
+2021-02-09-14-36-41.png
 
 The following components have been included in your lab environment:
 
