@@ -1,4 +1,4 @@
-Lab 1 - Deploy an API Protection Profile
+Lab 1: Deploy an API Protection Profile
 ===========================================
 
 An API protection profile is the primary tool that Access Policy Manager administrators use to safeguard API servers. Protection profiles define groups of related RESTful APIs used by applications. The protection profile contains a list of paths that may appear in a request. The system classifies requests and sends them to specific API servers.

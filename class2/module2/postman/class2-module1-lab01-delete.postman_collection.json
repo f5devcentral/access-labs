@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9c796034-43b2-4785-98e0-baeaeeab5dd8",
+		"_postman_id": "29ecfd55-7c5b-4ed2-8349-c309d6c9d9ca",
 		"name": "Identity Aware Proxy Labs-delete",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "cdf18d71-72a4-4b11-9832-52ece4424198",
+						"id": "8ffb3cda-28b1-440a-99eb-c6e7cd132730",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -31,7 +31,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e753a7b5-f06a-4220-825d-79a55850cff4",
+						"id": "a4cd7b85-15df-4ade-bbb0-0353bc45ebf8",
 						"exec": [
 							"",
 							"",
@@ -87,18 +87,14 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c1ea62ba-c4c6-4ecb-a704-a5da3416c77a",
+						"id": "7bd726b7-f62b-4c07-9351-ea60330dd3f2",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -106,11 +102,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4fa8f508-5c00-4462-9bc8-0255a4d42f9b",
+						"id": "bdc6ee21-d7eb-47aa-84f9-6555ea3b2d2c",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Wide IP deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -172,18 +168,14 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6b2dffb1-8413-4b22-b100-79ec7004d7f9",
+						"id": "ef4c3eb1-1fff-4a9b-8e87-1713ae6e12fb",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -191,11 +183,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e1d683f4-1d6c-4846-879e-e35494bc4540",
+						"id": "a96ff712-67c4-41a0-99fa-425ac8cd2712",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Wide IP deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -257,18 +249,14 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4132cb72-6b26-4e0a-b654-6000c8db604d",
+						"id": "9e205002-d419-4bd5-8e50-90614a02b566",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"iap1.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -276,11 +264,11 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6df391a9-1a54-43ab-9242-494917e13e53",
+						"id": "260ad717-c159-4165-bc3a-e60de98176bf",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Wide IP deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -342,15 +330,11 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "1593758f-e897-4877-be2d-273799cd5474",
+						"id": "4b79ad80-30bc-4f6a-8d45-054059f366f9",
 						"exec": [
 							"setTimeout(function(){}, 2000);",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -358,10 +342,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8cace11f-121d-4d2c-b966-96548bc51ec1",
+						"id": "98847230-7bcd-4cb0-9c82-a3af4f46cfda",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"VS deleted from server\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -432,11 +416,8 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "58ddbc2b-6c31-4aed-a2a9-6064110d5843",
+						"id": "16124c5c-6644-4da4-9c41-7db65fb3521f",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
 							"",
 							"",
 							"pm.test(\"AS3 is Running\", function () {",
@@ -492,7 +473,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "41761bb7-4b8f-4a8c-92ff-6a225672d7ce",
+						"id": "bb9096f2-07a6-41ef-b370-2d4772748180",
 						"exec": [
 							""
 						],
@@ -502,10 +483,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ac3ad88e-fdd3-4b7d-b5ec-52511b78b835",
+						"id": "3d208862-54c5-4c4e-8965-408b1cba1e13",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA OCSP Responder deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -513,11 +494,7 @@
 							"pm.test(\"APM AAA OCSP Responder does not exist\", function () {",
 							"    pm.response.to.have.status(404);",
 							"});",
-							"} else {",
-							"pm.test(\"APM AAA OCSP RESPONDER MUST BE DELETED MANUALLY\", function () {",
-							"    pm.response.to.have.status(501);",
-							"});    ",
-							"}",
+							"} ",
 							""
 						],
 						"type": "text/javascript"
@@ -553,7 +530,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://10.1.1.4/https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/{{APM_AAA_OCSP_NAME}}",
+					"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/{{APM_AAA_OCSP_NAME}}",
 					"protocol": "https",
 					"host": [
 						"10",
@@ -562,9 +539,6 @@
 						"4"
 					],
 					"path": [
-						"https:",
-						"",
-						"10.1.1.4",
 						"mgmt",
 						"tm",
 						"apm",
@@ -582,9 +556,8 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "fa367baa-d48e-4324-a02e-d15fd7801622",
+						"id": "7dc3c6ec-cc95-4f7c-a4c8-c637738d038a",
 						"exec": [
-							"",
 							""
 						],
 						"type": "text/javascript"
@@ -593,10 +566,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "79cad4b9-b277-4a6d-a1e5-7ea3ad02b296",
+						"id": "1edb4a8c-4c6b-418d-806a-8e38b78e0b67",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA AD object deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -665,10 +638,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4f690412-cdb7-43fc-821d-803bb9628b6c",
+						"id": "7280d5fb-f63d-4d1e-a5ed-3fb149b10560",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Pool Deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -732,48 +705,26 @@
 			"response": []
 		}
 	],
-	"variable": [
+	"event": [
 		{
-			"id": "1c7a1dd4-9e74-4c46-a483-5023bbd47543",
-			"key": "PRIOR_RESPONSE",
-			"value": "",
-			"type": "string"
+			"listen": "prerequest",
+			"script": {
+				"id": "c93a5c5d-dd0f-4f25-a895-fe631890c484",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"id": "05268e72-8e02-4e09-9cf1-a606c0bdb6fe",
-			"key": "APM_AAA_AD_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "3c5cc52a-24f0-4cfc-93f3-b3826da2337f",
-			"key": "APM_AAA_OCSP_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "b9e7d21a-ac14-4433-9086-2c7023ee3620",
-			"key": "APP_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "55835295-2919-4779-a54e-48878cbf03e2",
-			"key": "PARTITION_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "caac100c-c4f8-4394-9eac-1ad82c283dac",
-			"key": "PATH_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "d302bb1e-0fa6-4e52-a78b-8af7a25ce142",
-			"key": "VS_NAME",
-			"value": "",
-			"type": "string"
+			"listen": "test",
+			"script": {
+				"id": "7e904a16-f99a-4518-9d89-4c14047c6460",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
 	"protocolProfileBehavior": {}

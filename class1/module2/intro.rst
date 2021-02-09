@@ -24,7 +24,7 @@ Password: **admin**
 Lab Topology
 ~~~~~~~~~~~~
 
-|image000|  
+2021-02-09-14-36-41.png
 
 The following components have been included in your lab environment:
 
@@ -44,7 +44,7 @@ components:
 +------------------------+-------------------------+--------------------------+
 | Component              | VLAN/IP Address(es)     | Credentials              | 
 +========================+=========================+==========================+
-| jumpbox.f5lab.local    | - Management 10.1.1.10  | - user1/user1            | 
+| jumpbox.f5lab.local    | - Management 10.1.1.10  | - user/user            | 
 |                        | - External   10.1.10.10 | - user2/user2            | 
 |                        | - Internal   10.1.20.10 |                          |
 +------------------------+-------------------------+--------------------------+

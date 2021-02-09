@@ -9,7 +9,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   intro.rst
+   module1/intro.rst
    module1/lab*
 
 
@@ -19,8 +19,8 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   intro.rst
-   module1/lab*
+   module2/intro.rst
+   module2/lab*
      
    
 403 - Per-Request Policy
@@ -29,7 +29,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
    
-   intro.rst
+   module1/intro.rst
    module2/lab*
   
  
