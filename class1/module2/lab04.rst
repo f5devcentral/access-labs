@@ -301,4 +301,4 @@ Exercise 4 – Testing
          |image32|
 
 
-.. |Lab4-Image1| image:: class1\media\Lab4-Image1.png     
+.. |Lab4-Image1| image:: /class1/media/Lab4-Image1.png     
