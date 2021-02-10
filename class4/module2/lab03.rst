@@ -81,12 +81,33 @@ Task 2 - Create A Webtop Policy
 #. The Advanced Resource Assign contains a webtop and a single webtop link.  
 
     |image015|
-    
 
-Task 3 - Add a Webtop Link to an Advanced Resource Assign
+
+Task 3 - Create a Webtop Link 
 -----------------------------------------------------------------------
 
+#. Expand the **student-class4-module2-lab3** collection, **Modify Policy Folder** folder, and then the Webtop Link subfolder. 
 
+    |image016|
+
+#. Click the request **bigip-create-customization group-resource** and then **Body**.  The body of this request specifies that we will be creating a webtop link resource.  One thing to note, all webtop link resources use "/Common/standard" as the source type evern if the policy is using "/Common/Modern".
+
+    |image017|
+
+#. Click the blue **send** button in the upper right corner.  You will receive a 200 OK status code with a response body.  This is an indication that the customization group was created.
+
+    |image018|
+
+#. Click the request **bigip-create-webtop-link** and then **Body**.  The body of this request creates the webtop link Resource.  The applicationUri JSON key contains the resource destination.  The Postman Variable ((DNS3_NAME)) is set to server2.acme.com   
+
+    |image019|
+
+#. Click the blue **send** button in the upper right corner.  You will receive a 200 OK status code with a response body.  This is an indication that the webtop link resource was created.
+
+    |image020|
+
+Task 4 - Add a webtop to an Advanced Resource Assign
+-----------------------------------------------------------------------
 
 
 
