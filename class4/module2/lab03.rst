@@ -44,7 +44,7 @@ Task 2 - Create A Webtop Policy
 
     |image007|
 
-#. Click the **Create Access Objects** folder. You will see two subfolders in the folder.
+#. Click the **Create Policy** folder. You will see two subfolders in the folder.
 
     |image008|
 
@@ -108,6 +108,14 @@ Task 3 - Create a Webtop Link
 
 Task 4 - Add a webtop to an Advanced Resource Assign
 -----------------------------------------------------------------------
+
+    .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First, you create the transation by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent configuration requests that contain the transaction ID header to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the transaction is commited in the final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is process sucessfully or none of the configuration changes are made.  This is extremely important to ensure all the required information is there for building a working policy. To understand more about transactions please review XXXXXX.
+
+#.  Since this policy change only requires the addition of a single we will only review the single request.   Click **bigip-create-agent-adv resource assign** and then **Body**.
+
+#.  Notice the request method is a PATCH because the advanced resource assign agent exists.  We do not want to create the agent, but modify an existing agent.
+
+#.  
 
 
 
