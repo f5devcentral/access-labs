@@ -2,7 +2,7 @@ Lab 3: Add a Webtop link to an existing Webtop
 ==============================================
 
 
-In this lab your will learn about the API calls necessary to build an SAML SP Access Policy .  The Graphic below depicts the basic flow required for creating a policy via API.
+In this lab your will learn about the API calls necessary to modify an existing webtop by adding a new link to the Access Policy .  The Graphic below depicts the basic flow required for modifing policy via API.
 
     |image100|
 
@@ -26,7 +26,7 @@ Task 1 - Import Postman Collections
 
     |image004|
 
-#. Navigate to C:\access-labs\class4\module2\student_files, select **student-class4-module2-lab2.postman_collection.json**, and click **Open**
+#. Navigate to C:\access-labs\class4\module2\student_files, select **student-class4-module2-lab3.postman_collection.json**, and click **Open**
 
     |image005|
 
@@ -34,36 +34,31 @@ Task 1 - Import Postman Collections
 
     |image006|
 
-#. A collection called **student-class4-module1-lab2** will appear on the left side in Postman
+#. A collection called **student-class4-module1-lab3** will appear on the left side in Postman
 
 
 Task 2 - Create Required SAML Objects
 -----------------------------------------------------------------------
 
-#. Expand the **student-class4-module2-lab2** collection and **Create Access Objects** folder.  These requests will import the IDP signing certificate, create a IdP Connector, and also the SP Service.  If you are unfamiliar with these requests please review :ref:`Creating a SAML Service Provider(SP) Service <class4-module1-lab1>` for more detail.
+#.  Hover over the Collection name **student-class4-module2-lab3** with your mouse and click the **Arrow** icon.
 
     |image007|
 
-
-#.  Hover over the Collection name **student-class4-module2-lab2** with your mouse and click the **Arrow** icon.
+#. Click the **Create Access Objects** folder. You will see the four requests in the folder.
 
     |image008|
 
-#. Click the **Create Access Objects** folder. You will see the four requests in the folder.
+#.  Click the blue **Run**  button and Postman Runner will open.
 
     |image009|
 
-#.  Click the blue **Run**  button and Postman Runner will open.
+#. Click the blue button **Run student-class...** and the API requests will start being sent to the BIG-IP.
 
     |image010|
 
-#. Click the blue button **Run student-class...** and the API requests will start being sent to the BIG-IP.
-
-    |image011|
-
-#. The **Pass** circle will display a value 4.   
+#. The **Pass** circle will display a value 10.   
     
-    |image012|
+    |image011|
 
 
 Task 3 - Review the SAML SP Policy-item
