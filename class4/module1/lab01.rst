@@ -14,7 +14,7 @@ Task 1 - Import Postman Collections
 
     |image002|
 
-#. Click **Import** located on the top right of the Postman application
+#. Click **Import** located on the top left of the Postman application
 
     |image003|
 
@@ -22,7 +22,7 @@ Task 1 - Import Postman Collections
 
     |image004|
 
-#. Navigate to C:\access-labs\class4\module1\student_files, select **student-class4-module1-lab1.postman_collection.json**, and click **Open**
+#. Navigate to C:\\access-labs\\class4\\module1\\student_files, select **student-class4-module1-lab1.postman_collection.json**, and click **Open**
 
     |image005|
 
