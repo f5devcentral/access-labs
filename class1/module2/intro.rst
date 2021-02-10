@@ -71,3 +71,5 @@ components:
 +------------------------+-------------------------+--------------------------+
 
 .. |LabDiagram| image:: /class1/media/LabDiagram.png
+:width: 6.96097in
+:height: 4.46512in
