@@ -44,7 +44,7 @@ components:
 +------------------------+-------------------------+--------------------------+
 | Component              | VLAN/IP Address(es)     | Credentials              |
 +========================+=========================+==========================+
-| jumpbox.f5lab.local    | - Management 10.1.1.10  | - user/user            |
+| jumpbox.f5lab.local    | - Management 10.1.1.10  | - user/user            	|
 |                        | - External   10.1.10.10 | - user2/user2            |
 |                        | - Internal   10.1.20.10 |                          |
 +------------------------+-------------------------+--------------------------+
@@ -56,7 +56,7 @@ components:
 |                        | - External   10.1.10.5  |                          |
 |                        | - Internal   10.1.20.5  |                          |
 +------------------------+-------------------------+--------------------------+
-| dc1.f5lab.local        | - Management 10.1.1.7  | - admin/admin             |
+| dc1.f5lab.local        | - Management 10.1.1.7   | - admin/admin            |
 |                        | - Internal   10.1.20.7  |                          |
 +------------------------+-------------------------+--------------------------+
 | iis.f5lab.local        | - Management 10.1.1.6   | - admin/admin            |
