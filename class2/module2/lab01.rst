@@ -491,6 +491,8 @@ Task - Enable Windows Firewall
 .. |image23| image:: media/lab01/image023.png
 .. |image24| image:: media/lab01/image024.png
 .. |image25| image:: media/lab01/image025.png
+.. |image26| image:: media/lab01/image026.png
+.. |image27| image:: media/lab01/image027.png
 .. |image28| image:: media/lab01/image028.png
 .. |image29| image:: media/lab01/image029.png
 .. |image30| image:: media/lab01/image030.png
@@ -507,10 +509,10 @@ Task - Enable Windows Firewall
 .. |image41| image:: media/lab01/image041.png
 .. |image42| image:: media/lab01/image042.png
 .. |image43| image:: media/lab01/image043.png
-.. |image43| image:: media/lab01/image044.png
-.. |image43| image:: media/lab01/image045.png
-.. |image43| image:: media/lab01/image046.png
-.. |image43| image:: media/lab01/image047.png
-.. |image43| image:: media/lab01/image048.png
+.. |image44| image:: media/lab01/image044.png
+.. |image45| image:: media/lab01/image045.png
+.. |image46| image:: media/lab01/image046.png
+.. |image47| image:: media/lab01/image047.png
+.. |image48| image:: media/lab01/image048.png
 
 
