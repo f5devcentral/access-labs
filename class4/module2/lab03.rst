@@ -2,7 +2,7 @@ Lab 3: Add a Webtop link to an existing Webtop
 ==============================================
 
 
-In this lab your will learn about the API calls necessary to modify an existing webtop by adding a new link to the Access Policy .  The Graphic below depicts the basic flow required for modifing policy via API.
+In this lab your will learn about the API calls necessary to modify an existing webtop by adding a new link to the Access Policy .  The Graphic below depicts the basic flow required for modifing the existing policy via API.
 
     |image100|
 
