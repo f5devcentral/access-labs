@@ -111,13 +111,13 @@ Task 4 - Add a webtop to an Advanced Resource Assign
 
     .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First, you create the transation by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent configuration requests that contain the transaction ID header to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the transaction is commited in the final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is process sucessfully or none of the configuration changes are made.  This is extremely important to ensure all the required information is there for building a working policy. To understand more about transactions please review XXXXXX.
 
-#. Expand the *Modify Policy** folder.  Since this policy change only requires the addition of a single webtop link will only review the single request. Expand the **Modify Advanced Resource Assign** subfolder. 
+#. Expand the **Modify Policy** folder.  Since the only change to the policy is the addition of a single webtop link will only review that single request. Expand the **Modify Advanced Resource Assign** subfolder. 
 
     |image021|
 
 #.  Click **bigip-create-agent-adv resource assign** and then **Body**.
 
-#.  Notice the request method is a PATCH because the advanced resource assign agent exists.  We do not want to create the agent, but modify an existing agent.
+#.  The request method is a PATCH since the advanced resource assign agent exists.  We do not want to create the agent, but modify an existing agent.
 
 #. The request body is the same as the request used to create the advanced resource assign agent.  The only difference is the addition of the new webtop resource.
 
@@ -139,7 +139,7 @@ Task 4 - Add a webtop to an Advanced Resource Assign
 
     |image026|
 
-#. The **Pass** circle will display a value 10.   
+#. The **Pass** circle will display a value 2.   
     
     |image027|
 
@@ -157,11 +157,11 @@ Task 4 - Add a webtop to an Advanced Resource Assign
 
     |image013|
 
-#. Click on the **Advanced Resource Assign** Policy Item to the changes made.
+#. Click on the **Advanced Resource Assign** Policy Item to display the changes.
 
     |image014|
 
-#.  The Advance Resource Assign now has two Webtop Links.  If we wanted to remove the link we would simply send a new request using the PATCH method that didn't contain the resource inside a transaction.
+#.  The Advanced Resource Assign now has two Webtop Links.  If we wanted to remove the link we would simply send a new request using the PATCH method that didn't contain the resource inside a transaction.
 
     |image028|
 
@@ -173,7 +173,7 @@ Task 4 - Lab Cleanup
 
     |image023|
 
-#. Click the **Lab Cleanup** folder. You will see four subfolders in the folder.
+#. Click the **Lab Cleanup** folder. You will see three subfolders in the folder.
 
     |image029|
 
@@ -185,10 +185,9 @@ Task 4 - Lab Cleanup
 
     |image031|
 
-#. The **Pass** circle will display a value 10.   
+#. The **Pass** circle will display a value 7.   
     
     |image032|
-
 
 This concludes our lab on modifing a webtop via automation.
 
