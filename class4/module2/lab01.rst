@@ -2,7 +2,7 @@ Lab 1: Create a baseline Per-Session Policy
 ===============================================
 .. _class4-module2-lab1:
 
-In this lab you will learn about the API calls necessary to build the baseline for an Access Policy as if you had clicked create from GUI.  The Graphic below depicts the basic flow required for creating a policy via API.
+In this lab you will learn about the API calls necessary to build the baseline for an Access Policy as if you had clicked create from GUI.  The graphic below depicts the basic flow required for creating a policy via API.
 
     |image100|
 
@@ -47,11 +47,11 @@ Task 2 - Explore the icontrolRest Endpoints
 
     .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First, you create the transation by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent configuration requests that contain the transaction ID header to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the transaction is commited in the final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is process sucessfully or none of the configuration changes are made.  This is extremely important to ensure all the required information is there for building a working policy.
 
-#. Click on Body.   The only thing in the Body are open and close curly braces.
+#. Click on Body. The only thing in the Body are open and close curly braces.
 
     |image008|
 
-#. Click on **Tests**  In Postman, Tests are performed after the response from the endpoint is retreived.  This javascript parses the response body for the transId and saves it as a variable for use in subsequent requests.
+#. Click on **Tests** in Postman, Tests are performed after the response from the endpoint is retreived.  This javascript parses the response body for the transId and saves it as a variable for use in subsequent requests.
 
     |image009|
 

@@ -80,7 +80,7 @@ In order to create an SP service the IDP Connector must exist.  This is because 
 
 #. Select the **bigip-create-idp connector-azuread** request
 
-#.  Notice the request endpoint is **/mgmt/tm/apm/aaa/saml-idp-connector/**. 
+#. Notice the request endpoint is **/mgmt/tm/apm/aaa/saml-idp-connector/**. 
 
 #. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting in order to integrate with AzureAD.  
 
@@ -112,7 +112,6 @@ Task 3 - Create an SAML SP Service
 
 Task 4 - Explore configuration via the BIG-IP GUI
 -----------------------------------------------------------------------
-
 
 #. Open a browser and naviage to https://bigip1.f5lab.local
 

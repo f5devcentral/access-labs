@@ -2,7 +2,7 @@ Lab 2: Create a SAML SP Per-Session Policy
 ==============================================
 
 
-In this lab your will learn about the API calls necessary to build an SAML SP Access Policy .  The Graphic below depicts the basic flow required for creating a policy via API.
+In this lab your will learn about the API calls necessary to build a SAML SP Access Policy .  The graphic below depicts the basic flow required for creating a policy via API.
 
     |image100|
 
@@ -45,7 +45,7 @@ Task 2 - Create Required SAML Objects
     |image007|
 
 
-#.  Hover over the Collection name **student-class4-module2-lab2** with your mouse and click the **Arrow** icon.
+#.  Hover over the collection name **student-class4-module2-lab2** with your mouse and click the **Arrow** icon.
 
     |image008|
 

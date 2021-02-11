@@ -2,7 +2,7 @@ Lab 3: Add a Webtop link to an existing Webtop
 ==============================================
 
 
-In this lab your will learn about the API calls necessary to modify an existing webtop by adding a new link to the Access Policy .  The Graphic below depicts the basic flow required for modifing the existing policy via API.
+In this lab your will learn about the API calls necessary to modify an existing webtop by adding a new link to the Access Policy .  The graphic below depicts the basic flow required for modifying the existing policy via API.
 
     |image100|
 
@@ -40,7 +40,7 @@ Task 1 - Import Postman Collections
 Task 2 - Create A Webtop Policy
 -----------------------------------------------------------------------
 
-#.  Hover over the Collection name **student-class4-module2-lab3** with your mouse and click the **Arrow** icon.
+#.  Hover over the collection name **student-class4-module2-lab3** with your mouse and click the **Arrow** icon.
 
     |image007|
 
