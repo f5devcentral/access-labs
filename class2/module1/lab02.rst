@@ -279,6 +279,15 @@ Task 2 - Login to header.acme.com using user2
    |image36|
 
 
+
+This concludes our lab performing day two operation on an existingIdentity Aware Proxy configuration in Access Guided Configuration.
+ 
+ |image100|
+
+
+
+.. |image100| image:: media/lab01/100.png
+
 .. |image0| image:: media/lab02/image000.png
 	:width: 800px
 .. |image1| image:: media/lab02/image001.png

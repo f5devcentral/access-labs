@@ -110,6 +110,15 @@ Task 1 - View the installed Extension
    |image13|
 
 
+This concludes our lab on exploring Access Guard and the components used for generating secure posture assessments.
+ 
+ |image100|
+
+
+
+.. |image100| image:: media/lab01/100.png
+
+
 .. |image0| image:: media/lab04/image000.png
 .. |image1| image:: media/lab04/image001.png
 .. |image2| image:: media/lab04/image002.png

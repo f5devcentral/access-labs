@@ -396,8 +396,13 @@ Task 4 - Enable Windows Firewall
 
 
 
+This concludes our lab on creating an Identity Aware Proxy configuration in Access Guided Configuration.
+ 
+ |image100|
 
 
+
+.. |image100| image:: media/lab01/100.png
 .. |image0| image:: media/lab01/image000.png
 .. |image1| image:: media/lab01/image001.png
 .. |image2| image:: media/lab01/image002.png
