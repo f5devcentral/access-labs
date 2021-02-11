@@ -168,7 +168,7 @@ Task 4 - Create a SAML SP policy
     |image028|
 
 
-Task 4 - Lab Cleanup
+Task 5 - Lab Cleanup
 -------------------------------------------
 
 #.  Expand the **Lab Cleanup** subfolder and it's subfolders. There are total of five requires.  The first two requests delete the Policy, while the last three requests delete the SP Service, IdP Connector, and IdP signing certificate.  To understand these requests further review :ref:`Deleting an Access Profile <class4-module2-lab1-delete>` or :ref:`Deleting a SAML Service Provider(SP) Service Configuration <class4-module1-lab1-delete>` 
