@@ -109,8 +109,8 @@ Task - View the installed Extension
 
    |image11|
 
-#. Access the website **https://basic.acme.com**
-#. Click on the request **basic.acme.com** under the network tab.
+#. Access the website **https://ipa1.acme.com**
+#. Click on the request **ipa1.acme.com** under the network tab.
 
    |image12|
 

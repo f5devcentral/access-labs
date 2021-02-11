@@ -3,7 +3,7 @@ Lab2: Onboard a Second Application(16.0)
 
 Guided Configuration supports more than a single application per Identity Aware Proxy Deployment.  In this module you will learn how to modify an existing IAP deployment  to onboard new authentication methods, SSO methods, and applications. 
 
-This Module also introduces the **Application Group** (skipped in the previous module) to provide different contextual access controls on parts of a website. 
+This Module also introduces the **Application Group** to provide different contextual access controls on parts of a website. 
 
 
    
@@ -16,19 +16,27 @@ To onboard a new application to the IAP, you will first access the Guided Config
 Task - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the web browser, click on the **Access** tab located on the left side.
+#. From the webbrowser, click on the **Access** tab located on the left side.
 
-   |image0|
+   |image001|
 
 #. Click **Guided Configuration**
 
-   |image1|
+   |image002|
 
-#. Click **IAP_DEMO** 
+#. Click **IAP_DEMO**
 
-   |image2|
+   |image003|
 
+#. Click the **Config Properties** from the top ribbon
 
+   |image004|
+
+#. Enable **Application Groups**
+
+#. Click **Save & Next**
+
+   |image004|
 
 
 
@@ -43,11 +51,11 @@ Task - Configure Certificate Authentication with OCSP
 
 #. Click **User Identity** in the Ribbon
 
-    |image3|
+    |image005|
 
 #. Click **Add** to create a new User Identity
 
-    |image4|
+    |image006|
 
 #. Enter Name **ocsp** 
 #. Select **On-Demand Certificate Authentication** from the Authentication Type dropdown
@@ -56,11 +64,11 @@ Task - Configure Certificate Authentication with OCSP
 #. Leave **Request** selected under Choose Auth Mode
 #. Click **Save**
 
-    |image5|
+    |image007|
 
-#. Verify the **ocsp** object was created
+#. Verify the **ocsp** object was created and click **Save & Next**
 
-    |image6|
+    |image008|
 	
 	
 	Lab 2.3 - SSO & HTTP Header
@@ -71,24 +79,20 @@ In this section, you will create a custom header value to pass to the web server
 Task - Create Custom Header
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click **SSO & HTTP Header** from the Ribbon.
+#. click **Add**
 
-   |image7|
-
-#. Click **Add** to create a new header object.
-
-   |image8|
+   |image009|
 
 #. Enter Name **header_sso**
 #. Change radio button for Type to **HTTP Headers**
 #. In the **SSO Headers** section, enter **userID** in the Header Name Field
 #. Click **Save**
 
-   |image9|
+   |image010|
 
-#. Verify the **header_sso** object was created
+#. Verify the **header_sso** object was created and click **Save & Next**
 
-   |image10|
+   |image011|
    
    
    Lab 2.4 - Applications
@@ -99,13 +103,9 @@ In this section you will define a second application with subpaths.
 Task - Configure Application header.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click the **Applications** icon from the ribbon.
-
-   |image11|
-
 #. Click **Add** to create a new application
 
-   |image12|
+   |image012|
 
 #. Click **Show Advanced Setting** in the top right corner to see additional properties
 #. Enter Name **header.acme.com**
@@ -117,14 +117,15 @@ Task - Configure Application header.acme.com
 
 	.. note:: Subpaths are used in Application Groups to define contextual access on 	portions of an application (separate from the default contextual Access Policy).  	If necessary, an application can be split up into multiple Application Groups to 	meet an organization's access control needs.
 
-    |image13|
+    |image013|
 
-#. On the Applications menu, enter Auth Domain **iap1.acme.com**
-#. Verify **header.acme.com** was created.
+#. On the Applications menu, verify the Auth Domain **iap1.acme.com**
+#. Verify **header.acme.com** was created and click **Save & Next**
 
-   |image14|
-   
-   
+   |image014|
+
+
+
    Lab 2.5 - Application Groups
 ------------------------------------------------
 
@@ -133,39 +134,49 @@ In this section you will configure two Application groups to enforce different p
 Task - Create header-ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click **Application Groups** from the ribbon.
-
-   |image15|
-
-#. Check **Enable Application Groups**
+#. Click **Add**
  
-  |image16|
+  |image015|
 
 #. Enter Name **header-ad**
 #. Under Applications List, select **/** and click the arrow to move it into the Selected box
 #. Click **Save** 
  
-   |image17|
+   |image016|
+
 
 Task - Create header-ocsp Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add** to create a second application group
 
-   |image18|
+   |image017|
 
 #. Enter Name **header-ocsp**
 #. Under Applications List, select **/admin.php** and click the arrow to move it into the Selected box
 #. Click **Save** 
 
-   |image19|
+   |image018|
  
 #. Verify both applications groups have been created.
 #. Click **Save & Next**
 
-   |image20|
+   |image019|
+
+   Lab 2.6 - Webtop
+------------------------------------------------
+
+In this section you will verify that two applications are added to the **Webtop Sections**     
+
+Task - Verify applications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Ensure that both applications are listed under **Webtop Sections** and click **Save & Next**
+
+   |image020|
+
    
-   Lab 2.6 - Contextual Access
+   Lab 2.7 - Contextual Access
 ------------------------------------------------
 
 In this section you will configure Contextual Access for the previously created Application Groups
@@ -174,66 +185,86 @@ In this section you will configure Contextual Access for the previously created 
 Task - Configure Contextual Access for header_ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click **Contextual Access** from the ribbon
-
-   |image21|
 
 #. Click **Add**
 
-   |image22|
+   |image021|
 
 #. Enter Name **header-ad**
 #. Select **Application Group** from the Resource Type dropdown
 #. Select **header-ad** from the Resource dropdown
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
+#. Enter **Sales Engineering** in the Primary Authentication filter Group Name
+#. Click **Add* beside Sales Engineering
+
+   |image022|
+
+#. Enter **Product Management** in the Primary Authentication filter Group Name
+#. Click **Add* beside Product Management
 #. Click **Save**
 
-   |image23|
+   |image022-2|
 
 Task - Configure Contextual Access for header-ocsp Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add**
 
-   |image24|
+   |image023|
 
 #. Enter Name **header-ocsp**
 #. Select **Application Group** from the Resource Type dropdown
 #. Select **header-ocsp** from the Resource dropdown
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
+#. Enter **Sales Engineering** in the Primary Authentication filter Group Name
+#. Click **Add* beside Sales Engineering
+
+   |image024|
+
+#. Enter **Product Management** in the Primary Authentication filter Group Name
+#. Click **Add* beside Product Management
+#. Click **Save**
+
+   |image024-2|
+
+
+#. Click **Save**
+
+   |image024|
+
 #. Check **Enable Additional Checks**
+#. Click **Add** under Additional Checks
 
-   |image25|
-
-#. Click **Add** to add a Trigger Rule
-
-   |image26|
+   |image025|
 
 #. Enter Name **webadmin-group**
 #. Check **User Group Check**
-#. Locate the **Website Admin** group 
+#. Enter **Website Admin** in the Primary Authentication filter Group Name
+#. Click **Add** beside Website Admin
 
-   .. tip:: Try using the filter field to search
-
-#. Click **Add** under the Action column
-
-   |image28|
+   |image026|
 
 #. Select **Step Up** from the Match Action dropdown
 #. Select **ocsp** from the Step Up Authentication dropdown
 #. Click **Save**
+
+
+   |image027|
+
 #. Click **Save** again to save the Contextual Access Properties for ocsp-header-iap.acme.com
 
-   |image29|
+   |image028|
+
+
 
 #. Click **Deploy** located under the ribbon. Deployment will take a few moments.
 
-   |image27|
+   |image029|
    
    
-   Lab 2.7 - Testing
+   Lab 2.8 - Testing
 ------------------
 
 In this section you will use user1's credentials to default website header.acme.com.  However, when you attempt to access the admin page you will be prompted for certificate based authentication.  After a successful login you will close your browser and login to default website using user2's credentials.  User2 will be denied due to not having the correct AD groups.
@@ -242,25 +273,30 @@ Task - Login to header.acme.com using user1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a new browser tab
-#. Access the site https://header.acme.com
+#. Access the site https://iap1.acme.com
 #. At the logon page enter the Username: **user1** and Password: **user1**
 #. Click **Logon**
 
-   |image30|
+   |image030|
+
+#. Click the **header.acme.com** tile    
+
+   |image031|
+
 
 #. Notice the custom header **UserID** has a value of user1
 
-   |image31|
+   |image032|
 
 #. Access the **admin** portion of the website https://header.acme.com/admin.php
 #. Select the certificate **user1**
 #. Click **OK**
 
-   |image33|
+   |image033|
 
 #. You should be successfully logged into the **admin** portion of the site.
 
-   |image37|
+   |image034|
 
 #. Close the browser completely.
 
@@ -268,20 +304,25 @@ Task - Login to header.acme.com using user2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a new browser window.
-#. Access the site https://header.acme.com
+#. Access the site https://iap1.acme.com
 #. At the logon page enter the Username: **user2** and Password: **user2**
 #. Click **Logon**
 
-   |image34|
+   |image035|
+
+#. Notice the missing basic.acme tile because User2 is not a member of the required group to view the application
+#. Click the **header.acme.com** tile     
+
+   |image036|
 
 #. Notice the custom header **UserID** has a value of user2
 
-   |image35|
+   |image037|
 
 #. Access the **admin** portion of the website https://header.acme.com/admin.php
 #. You receive a **Access Denied** page due to not having the correct group membership
 
-   |image36|
+   |image038|
 
 
 
