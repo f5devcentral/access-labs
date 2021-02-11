@@ -187,10 +187,10 @@ Task 4 - Lab Cleanup
 
 #. The **Pass** circle will display a value 10.   
     
-    |image027|
+    |image032|
 
 
-    |image021|
+This concludes our lab on modifing a webtop via automation.
 
 
 
@@ -232,6 +232,5 @@ Task 4 - Lab Cleanup
 .. |image030| image:: media/lab03/030.png
 .. |image031| image:: media/lab03/031.png
 .. |image032| image:: media/lab03/032.png
-.. |image033| image:: media/lab03/033.png
 .. |image100| image:: media/lab03/100.png
 
