@@ -477,6 +477,7 @@ Task - Enable Windows Firewall
 .. |image9| image:: media/lab01/image009.png
 .. |image10| image:: media/lab01/image010.png
 .. |image11| image:: media/lab01/image011.png
+.. |image12| image:: media/lab01/image012.png
 .. |image13| image:: media/lab01/image013.png
 .. |image14| image:: media/lab01/image014.png
 .. |image15| image:: media/lab01/image015.png
