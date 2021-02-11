@@ -215,11 +215,11 @@ Task 6 - Ensure objects were removed via GUI
 
 This concludes the APM lab on created and deleting APM objects via iControlREST.
 
+    |image000|
 
 
 
-
-
+.. |image000| image:: media/lab01/000.png
 .. |image001| image:: media/lab01/001.png
 .. |image002| image:: media/lab01/002.png
 .. |image003| image:: media/lab01/003.png

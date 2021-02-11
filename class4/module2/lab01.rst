@@ -240,8 +240,11 @@ Task 3 - Deleting an Access Profile
 
 This concludes the lab on building an empty Access Policy
 
+   |image000|
 
 
+
+.. |image000| image:: media/lab01/000.png
 .. |image001| image:: media/lab01/001.png
 .. |image002| image:: media/lab01/002.png
 .. |image003| image:: media/lab01/003.png

@@ -200,11 +200,11 @@ Task 4 - Lab Cleanup
 
 This concludes the lab on creating and deleting a SAML SP Access Policy.
 
+   |image000|
 
 
 
-
-
+.. |image000| image:: media/lab02/000.png
 .. |image001| image:: media/lab02/001.png
 .. |image002| image:: media/lab02/002.png
 .. |image003| image:: media/lab02/003.png

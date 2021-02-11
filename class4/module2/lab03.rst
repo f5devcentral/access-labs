@@ -192,13 +192,11 @@ Task 4 - Lab Cleanup
 This concludes our lab on modifing a webtop via automation.
 
 
+   |image000|
 
 
 
-
-
-
-
+.. |image000| image:: media/lab03/000.png
 .. |image001| image:: media/lab03/001.png
 .. |image002| image:: media/lab03/002.png
 .. |image003| image:: media/lab03/003.png
