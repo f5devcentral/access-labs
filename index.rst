@@ -19,5 +19,6 @@ engineers, Support Engineers, and clients.
    class3/class3.rst
    class4/class4.rst
    class5/class5.rst
+   archived/archived.rst
 
 
