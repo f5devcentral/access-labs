@@ -18,18 +18,11 @@ To access your dedicated student lab environment, you will require a web browser
          - User: **f5lab\\user1**
          - Password: **user1**
 
-#. Once logged on to the jumphost, you can access BIG-IP1's GUI via Chrome using bookmarks or by typing https://10.1.1.4 
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
 
-#. Login into the BIG-IP Configuration Utility with the following credentials:
-         - User: **admin**
-         - Password: **admin**
+|image002|
 
-.. NOTE::
-	 All work for this lab will be performed exclusively from the Windows
-	 jumphost. No installation or interaction with your local system is
-	 required.
-
-
+#. Proceed to the lab guide you wish to complete.  It that will contain further instruction on setting up its respsective lab from https://portal.f5lab.local.
 
 UDF Blueprint
 ~~~~~~~~~~~~~~
@@ -93,4 +86,5 @@ components:
 
 .. |image000| image:: media/intro/000.png
 .. |image001| image:: media/intro/001.png
+.. |image001| image:: media/intro/002.png
 

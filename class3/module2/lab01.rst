@@ -20,7 +20,27 @@ Expected time to complete: **1 hour**
 Setup Lab Environment
 ----------------------------------------
 
-**NEED TO REWRITE**
+#. From the Jumpbox's browser access https://portal.f5lab.local
+
+#. Click the **Classes** tab at the top of the page.
+
+#. Scroll down the page until you see **302 Ephemeral Authentication**
+
+   |image087|
+
+#. Hover over tile **Implement C3D with APM Enchancements**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+
+   |image088|
+
+
+#. Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-solutions** repo.
+
+.. Note::  Wait 15 seconds and the screen should refresh with the automation status
+
+   |image089|
+
+
 
 
 
