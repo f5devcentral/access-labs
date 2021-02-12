@@ -14,7 +14,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
-#.  login with the following credentials:
+#. Login with the following credentials:
          - User: **f5lab\\user1**
          - Password: **user1**
 
@@ -22,7 +22,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 |image002|
 
-#. Proceed to the lab guide you wish to complete.  It that will contain further instruction on setting up its respsective lab from https://portal.f5lab.local.
+#. Proceed to the lab or solution guide you wish to complete.  It that will contain further instructions on setting up the environment further from https://portal.f5lab.local.
 
 UDF Blueprint
 ~~~~~~~~~~~~~~
@@ -86,5 +86,5 @@ components:
 
 .. |image000| image:: media/intro/000.png
 .. |image001| image:: media/intro/001.png
-.. |image001| image:: media/intro/002.png
+.. |image002| image:: media/intro/002.png
 

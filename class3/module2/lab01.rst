@@ -24,7 +24,7 @@ Setup Lab Environment
 
 #. Click the **Classes** tab at the top of the page.
 
-#. Scroll down the page until you see **302 Ephemeral Authentication**
+#. Scroll down the page until you see **302 Ephemeral Authentication** on the left
 
    |image087|
 
@@ -34,25 +34,18 @@ Setup Lab Environment
    |image088|
 
 
-#. Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-solutions** repo.
+#. The screen should refresh displaying the progress of the automation.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
 
-.. Note::  Wait 15 seconds and the screen should refresh with the automation status
+.. _access-labs: https://github.com/f5devcentral/access-labs
+
 
    |image089|
 
 
-
-
-
-
-
-Section 1.1 - Create Authentication objects
----------------------------------------
+Task 1 - Create an Active Directory AAA Object
+----------------------------------------------------
 
 The first step in deploying CertSSO is creating the objects required for the user to authenticate to APM.  In this lab, the user will authenticate via Active Directory and simulated MFA via RADIUS.  The user's authentication method to APM is independent of how the BIG-IP authenticates the user to the backend server for Single-Sign-On.  This allows an organization to choose an authentication scheme that matches their needs such as SAML, OAuth, or other method.
-
-Task 1 - Create an Active Directory AAA Object
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, click on the **Access** tab located on the left side.
 
@@ -77,7 +70,7 @@ Task 1 - Create an Active Directory AAA Object
 #. Click **Finished**
 
 Task 2 - Create a RADIUS AAA Object
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------
 
 #. From the web browser, click on the **Access** tab located on the lefthand side.
 
@@ -96,14 +89,11 @@ Task 2 - Create a RADIUS AAA Object
 
 #. Click **Finished**
 
-Section 1.2 - Create an Access profile
------------------------------------
+
+Task 3 - Create the cert_sso Access Profile
+-----------------------------------------------
 
 In this section, you will create and define the settings of the APM Access Profile.
-
-Task 1 - Create the cert_sso Access Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 #. From the web browser, click on the **Access** tab located on the left side.
 
@@ -123,13 +113,10 @@ Task 1 - Create the cert_sso Access Profile
    |image7|
    
    
-Section 1.3 - Create the Access Policy
+Task 4 - Create the Access Policy
 ------------------------------------
 
 In this section, edit the policy using the Visual Policy Editor to enable users to login via AD+MFA, then transition to CertSSO.
-
-Task 1 - Open Visual Policy Editor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. On the cert_sso profile line click **edit** under Per-Session Policy
 
@@ -207,7 +194,7 @@ Task 1 - Open Visual Policy Editor
 
    |image38|
 
-#. Locate the **F5CertSSO.f5lab.local.txt** file in the **C:\\labs\\class2\\student_files** directory. 
+#. Locate the **F5CertSSO.f5lab.local.txt** file in the **C:\\access-labs\\class3\\module2\student_files** directory. 
 
    |image39|
 
@@ -236,13 +223,8 @@ Task 1 - Open Visual Policy Editor
 #. Click **Apply Access Policy** located in the top left corner to commit the policy changes
 
 
-Section 1.4. - Create the SSL Profiles
+Task 5 - Create a Client SSL Profile
 ----------------------------------------
-
-In this section, you will define the virtual server IP address and its SSL profile settings.
-
-Task 1 - Create a Client SSL Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to **Local Traffic >> Profiles >> SSL >> Client**, then click the **+** (plus symbol) to create a new **SSL Profile**
 
@@ -269,8 +251,8 @@ Task 1 - Create a Client SSL Profile
 
 #. Click **Finished**
 
-Task 2 - Create a Server SSL Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 6 - Create a Server SSL Profile
+--------------------------------------
 
 #. Navigate to **Local Traffic >> Profiles >> SSL >> Server**, then click the **+** (plus symbol) to create a new SSL Profile
 
@@ -292,13 +274,11 @@ Task 2 - Create a Server SSL Profile
    |image29|
    
    
-Section 1.5 - Create a Pool
+Task 7 - Create the Pool
 -------------------------------
 
-In this section you create a pool that contains the IP address of the CentOS server hosting the website requiring mTLS.
 
-Task 1 - Create the Pool
-~~~~~~~~~~~~~~~~~~~~~~~~~
+In this section you create a pool that contains the IP address of the CentOS server hosting the website requiring mTLS.
 
 #. Navigate to **Local Traffic >> Pools >> Pool List**, then click the **+** (plus symbol) to create a new **Pool**
 
@@ -315,14 +295,9 @@ Task 1 - Create the Pool
    |image31|
    
    
-Section 1.6 - Create the Virtual Server
-------------------------------------------------
 
-In this section you will configure a RADIUS server to enable simulated MFA capabilities.
-
-
-Task 1 - Configure Virtual Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 8 - Create a Virtual Server
+--------------------------------------
 
 
 #. Navigate to **Local Traffic >> Virtual Servers >> Virtual Server List**, then click the **+** (plus symbol) to create a new virtual Server
@@ -365,14 +340,11 @@ Task 1 - Configure Virtual Server
 |image35|
 
 
-Section 1.7 - Test CertSSO
+Task 9 - Test CertSSO
 ------------------------------------------------
 
 In this section, you will test access to an NGINX website requiring mTLS.
 
-
-Task 1 - Access mtls.acme.com with static certificate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the jumpbox's web browser, access https://mtls.acme.com
 
@@ -419,14 +391,8 @@ Task 1 - Access mtls.acme.com with static certificate
    |image51|
    
    
-Section 1.8 - Implement Dynamic Certificate Injection
---------------------------------------------------------
-
-In this section, we will use the HTTP Connector to retrieve a user's certificate from Active Directory and use it in the BIG-IP Certificate minting process.
-
-
-Task 1 - Create an HTTP Connector Transport
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 10 - Create an HTTP Connector Transport
+------------------------------------------------
 
 #. Navigate to **Access >> Authentication >> HTTP Connector >> HTTP Connector Transport** and click the  **+** (plus symbol)
 
@@ -442,8 +408,8 @@ Task 1 - Create an HTTP Connector Transport
 
    |image55|
 
-Task 2 - Create a HTTP Connector Request
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 11 - Create a HTTP Connector Request
+------------------------------------------------
 
 #. Navigate to **Access >> Authentication >> HTTP Connector >> HTTP Connector Request** and click the  **+** (plus symbol)
 
@@ -451,7 +417,7 @@ Task 2 - Create a HTTP Connector Request
 
 #. Enter name **get-cert**
 #. Select **demo-http-connector** from the dropdown
-#. Enter URL **https://adapi.f5lab.local:8443/aduser/cert?useridentity=%{perflow.username}**
+#. Enter URL **https://adapi.f5lab.local:8443/user/cert?username=%{perflow.username}**
 #. Enter **GET** for the **Method**
 #. Select **Parse** for the **Response Action**
 #. Click **Save**
@@ -459,8 +425,8 @@ Task 2 - Create a HTTP Connector Request
    |image57|
 
 
-Task 3 - Create a Per-Request Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 12 - Create a Per-Request Policy
+------------------------------------------------
 
 #. Navigate to **Access >> Profiles/Policies >> Per-Request Policies** and click the  **+** (plus symbol)
 
@@ -593,8 +559,8 @@ Task 3 - Create a Per-Request Policy
 
 |image81|
 
-Task 4 - Attach the PRP to the mTLS Virtual Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 13 - Attach the PRP to the mTLS Virtual Server
+-------------------------------------------------------
 
 1. Navigate to **Local Traffic >> Virtual Servers**.  Click **Virtual Server List**
 
@@ -611,18 +577,10 @@ Task 4 - Attach the PRP to the mTLS Virtual Server
 |image84|
 
 
-Section 1.9 - Test Dynamic Certificate Injection
-------------------------------------------------
-
-In this section, you will learn how the HTTP Connector can used to retrieve dynamic content for use in C3D.
-
-
-Task 1 - Access mtls.acme.com with Dynamic Certificate
+Task 14 - Access mtls.acme.com with Dynamic Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser on the jumphost, access https://mtls.acme.com
-
-
 
 #. Use the following credentials:
    - Username: **user1**
@@ -668,6 +626,9 @@ Task 1 - Access mtls.acme.com with Dynamic Certificate
    |image86|
 
 
+This concludes our lab on APM C3D Enchancements 
+
+   |image90|
 
 .. |image0| image:: media/lab01/image000.png
 	:width: 800px
@@ -771,6 +732,13 @@ Task 1 - Access mtls.acme.com with Dynamic Certificate
 .. |image84| image:: media/lab01/image084.png
 .. |image85| image:: media/lab01/image085.png
 .. |image86| image:: media/lab01/image086.png
+.. |image87| image:: media/lab01/087.png
+.. |image88| image:: media/lab01/088.png
+.. |image89| image:: media/lab01/089.png
+.. |image90| image:: media/lab01/090.png
+
+
+
 
 
 
