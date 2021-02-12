@@ -1,26 +1,31 @@
 Lab 1: Implement C3D with APM Enhancements
 ===============================================
 
-As organizations move towards MFA to secure their enterprise applications, they often struggle when implementing Single Sign-On (SSO). Implementation of MFA at the proxy layer, while allowing for Single-Sign On, often requires usage of a less secure authentication method to the backend resource due to the introduction of service accounts requiring passwords. However, if an organization choses to implement MFA directly at the application, SSO is lost.
-
-The F5 Client Certificate Constrained Delegation (C3D) feature allows the best of both worlds by allowing MFA at the proxy layer while maintaining strong security when performing SSO between the proxy and backend resource.
-
-The Ephemeral Authentication lab is a combination of multiple features included in Access Policy Manager to enhance security for Authentication schemes. The first module will cover the implementation of **Client Certificate Constrained Delegation (C3D)** features enhanced in APM. This use case is often referred to as CertSSO.  The second module covers the **Privileged User Access** solution with a specific focus on ephemeral authentication for SSH access to network devices, as well integration with code respositories.
-
-This class covers the following topics related to Ephemeral Authentication:
-
-- LDAP Ephemeral Authentication
-- RADIUS Ephemeral Authentication
-- HTML5 SSH
-- C3D APM Enhancements
-
 Expected time to complete: **1 hour**
 
+Getting Started
+-----------------------
 
-Setup Lab Environment
-----------------------------------------
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
-#. From the Jumpbox's browser access https://portal.f5lab.local
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumpbox.f5lab.local
+
+|image001|
+
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+	|image002|
 
 #. Click the **Classes** tab at the top of the page.
 
@@ -34,7 +39,7 @@ Setup Lab Environment
    |image088|
 
 
-#. The screen should refresh displaying the progress of the automation.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
 
 .. _access-labs: https://github.com/f5devcentral/access-labs
 
@@ -61,7 +66,7 @@ The first step in deploying CertSSO is creating the objects required for the use
    - Domain Name: **f5lab.local**
    - Domain Controller Pool Name: **ad_pool**
    - Domain Controller IP address: **10.1.20.7**
-   - Domain Controller Hostname: **dc.f5lab.local**
+   - Domain Controller Hostname: **dc1.f5lab.local**
    - Admin name: **admin**
    - Admin Password: **admin**
 
@@ -72,9 +77,7 @@ The first step in deploying CertSSO is creating the objects required for the use
 Task 2 - Create a RADIUS AAA Object
 ---------------------------------------------
 
-#. From the web browser, click on the **Access** tab located on the lefthand side.
-
-#. Navigate to **Authentication >> RADIUS**, then click the **+** (plus symbol) to create a new AAA object
+#. Navigate to **Access>>Authentication >> RADIUS**, then click the **+** (plus symbol) to create a new AAA object
 
    |image3|
 
@@ -93,11 +96,9 @@ Task 2 - Create a RADIUS AAA Object
 Task 3 - Create the cert_sso Access Profile
 -----------------------------------------------
 
-In this section, you will create and define the settings of the APM Access Profile.
+In this section, you will create the APM Access Profile.
 
-#. From the web browser, click on the **Access** tab located on the left side.
-
-#. Navigate to **Profile/ Policies >> Access Profile(Per-Session Policies)**, then click the **+** (plus symbol) to create a new Access Profile
+#. Navigate to **Access>>Profile/ Policies >> Access Profile(Per-Session Policies)**, then click the **+** (plus symbol) to create a new Access Profile
 
    |image5|
 
@@ -194,7 +195,7 @@ In this section, edit the policy using the Visual Policy Editor to enable users 
 
    |image38|
 
-#. Locate the **F5CertSSO.f5lab.local.txt** file in the **C:\\access-labs\\class3\\module2\student_files** directory. 
+#. Locate the **F5CertSSO.f5lab.local.txt** file in the **C:\\access-labs\\class3\\module2\\student_files** directory. 
 
    |image39|
 
@@ -236,8 +237,8 @@ Task 5 - Create a Client SSL Profile
 
    |image24|
 
-#. Select **acme.com-wildcard.crt** from the **certificate** dropdown box
-#. Select **acme.com-wildcard.key** from the **key** dropdown box
+#. Select **acme.com-wildcard** from the **certificate** dropdown box
+#. Select **acme.com-wildcard** from the **key** dropdown box
 #. Click **Add**
 
    |image25|
@@ -259,9 +260,13 @@ Task 6 - Create a Server SSL Profile
    |image27|
 
 #. Enter **server_certsso** for profile name
+#. Change the Configuraiton from Basic to Advanced vai the dropdown box.
 #. **Check** the two custom boxes next to **Certificate** and **Key**
 #. Select **F5CertSSO.f5lab.local.crt** from the **certificate** dropbox box
 #. Select **F5CertSSO.f5lab.local.key** from the **key** dropdown box
+#. **Check** the custom box for **Servername**.
+#. Enter the name **mtls.acme.com**
+
 
    |image28|
 
@@ -633,7 +638,7 @@ This concludes our lab on APM C3D Enchancements
 .. |image0| image:: media/lab01/image000.png
 	:width: 800px
 .. |image1| image:: media/lab01/image001.png
-.. |image2| image:: media/lab01/image002.png
+.. |image2| image:: media/lab01/002.png
 	:width: 800px
 .. |image3| image:: media/lab01/image003.png
 .. |image4| image:: media/lab01/image004.png
@@ -662,7 +667,7 @@ This concludes our lab on APM C3D Enchancements
 .. |image23| image:: media/lab01/image023.png
 .. |image24| image:: media/lab01/image024.png
 	:width: 800px
-.. |image25| image:: media/lab01/image025.png
+.. |image25| image:: media/lab01/025.png
 .. |image26| image:: media/lab01/image026.png
 	:width: 800px
 .. |image27| image:: media/lab01/image027.png
@@ -670,7 +675,7 @@ This concludes our lab on APM C3D Enchancements
 	:width: 1000px
 .. |image29| image:: media/lab01/image029.png
 	:width: 1000px
-	.. |image30| image:: media/lab01/image030.png
+.. |image30| image:: media/lab01/image030.png
 .. |image31| image:: media/lab01/image031.png
 	:width: 800px
 .. |image32| image:: media/lab01/image032.png
@@ -683,8 +688,8 @@ This concludes our lab on APM C3D Enchancements
 .. |image36| image:: media/lab01/image036.png
 .. |image37| image:: media/lab01/image037.png
 .. |image38| image:: media/lab01/image038.png
-.. |image39| image:: media/lab01/image039.png
-.. |image40| image:: media/lab01/image040.png
+.. |image39| image:: media/lab01/039.png
+.. |image40| image:: media/lab01/040.png
 .. |image41| image:: media/lab01/image041.png
 .. |image42| image:: media/lab01/image042.png
 .. |image43| image:: media/lab01/image043.png

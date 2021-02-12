@@ -1,36 +1,27 @@
-Getting Started
----------------
-
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
-
-#. Click **DEPLOYMENT** located on the top left corner to display the environment
-
-#. Click **ACCESS** next to jumpbox.f5lab.local
-
-|image001|
+intro
+===========
 
 
-#. Select your RDP solution.  
+As organizations move towards MFA to secure their enterprise applications, they often struggle when implementing Single Sign-On (SSO). Implementation of MFA at the proxy layer, while allowing for Single-Sign On, often requires usage of a less secure authentication method to the backend resource due to the introduction of service accounts requiring passwords. However, if an organization choses to implement MFA directly at the application, SSO is lost.
 
-#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+The F5 Client Certificate Constrained Delegation (C3D) feature allows the best of both worlds by allowing MFA at the proxy layer while maintaining strong security when performing SSO between the proxy and backend resource.
 
-#. Login with the following credentials:
-         - User: **f5lab\\user1**
-         - Password: **user1**
+The Ephemeral Authentication lab is a combination of multiple features included in Access Policy Manager to enhance security for Authentication schemes. The first module will cover the implementation of **Client Certificate Constrained Delegation (C3D)** features enhanced in APM. This use case is often referred to as CertSSO.  The second module covers the **Privileged User Access** solution with a specific focus on ephemeral authentication for SSH access to network devices, as well integration with code respositories.
 
-#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+This class covers the following topics related to Ephemeral Authentication:
 
-|image002|
-
-#. Proceed to the lab or solution guide you wish to complete.  It that will contain further instructions on setting up the environment further from https://portal.f5lab.local.
+- LDAP Ephemeral Authentication
+- RADIUS Ephemeral Authentication
+- HTML5 SSH
+- C3D APM Enhancements
 
 UDF Blueprint
-~~~~~~~~~~~~~~
+----------------
 
 Access Labs & Solutions Version 5
 
 Lab Topology
-~~~~~~~~~~~~
+----------------
 
 |image000|
 
@@ -45,7 +36,7 @@ The following components have been included in your lab environment:
 - 1 x Centos 7
 
 Lab Components
-^^^^^^^^^^^^^^
+------------------
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:

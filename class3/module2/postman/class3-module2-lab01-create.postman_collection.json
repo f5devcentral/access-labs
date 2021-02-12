@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "114a4dae-f204-4b93-aa84-9d25343de154",
+		"_postman_id": "dd3c832e-4106-46c1-9d2e-6515d363143c",
 		"name": "Ephemeral Authentication Labs-setup",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,13 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3cfe740f-26a8-4cb6-bc9c-4c670b0cb271",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"",
-							"}",
-							"",
 							"",
 							"pm.test(\"AS3 is Running\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -31,7 +25,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a7d35dcb-4fe5-4e10-91eb-4bbbe97b28e4",
 						"exec": [
 							"",
 							"pm.collectionVariables.set(\"DNS_RESOLVER_NAME\", \"internal-dns-resolver\");",
@@ -85,13 +78,8 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "61ffbe65-62ec-4587-9988-33dd8306d123",
 						"exec": [
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -99,10 +87,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9a510c3d-f18a-48fa-a2e2-0a02b5037195",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"DNS Resolver Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -170,10 +157,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "3359f91e-cf7d-4390-92a8-0ba9259923ff",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Server-Side SSL Profile Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -190,14 +176,8 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e7dc6f9c-2ef5-4495-971e-9caf5b9efd10",
 						"exec": [
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -258,10 +238,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "355a6959-9134-4733-bf70-b52e0a16ce92",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"iRule Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -278,14 +257,8 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f8757d05-659e-4f09-a09e-9ceb457f8b0a",
 						"exec": [
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -345,10 +318,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "656fe5cc-907f-4d08-b06b-f3bcfb98d718",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Pool Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -417,10 +389,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c5c72ec7-fa6a-4cd1-a319-c924611e7ceb",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA LDAP Object Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -437,14 +408,8 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0a8c8540-b6f2-4744-a543-17ef37894006",
 						"exec": [
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -505,13 +470,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "15a38250-2cd3-40e6-92e6-299ec5f4f123",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"",
-							"}",
-							"",
 							"",
 							"pm.test(\"AS3 is Running\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -525,7 +484,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4f770809-750d-42b6-87df-72dbba76ac84",
 						"exec": [
 							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
 							"",
@@ -580,10 +538,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "09b033b7-98ec-458e-87b0-6238fd7ecd8f",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"DC1 Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -599,7 +556,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ee6dd9ee-ae3c-4a60-8375-424d18999bfa",
 						"exec": [
 							""
 						],
@@ -660,10 +616,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "56b159c9-0b93-49d2-936b-8aa92251b659",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"bigip1 server Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -679,7 +634,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "70e4552f-a416-4603-bb3a-a337a01070c2",
 						"exec": [
 							""
 						],
@@ -740,10 +694,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "677318df-b9fe-429a-b40a-eeefe2ad484e",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"bigip5 server Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -759,7 +712,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "888c304b-dc3e-48ff-a0b5-47f2d74e03bf",
 						"exec": [
 							""
 						],
@@ -820,10 +772,8 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e1677841-18ab-4b23-a9ed-b14b19c0457a",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
 							"pm.test(\"Virtual Server added to Server\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -838,18 +788,12 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "078de308-0adf-4949-bb6b-1057e051011c",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"mtls.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"",
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -911,12 +855,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "c2b8b62d-1e29-43de-9afe-b65db6ac12f2",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
-							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});"
@@ -927,15 +866,10 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "54a7b853-e4fa-4804-9ccd-044dab90f485",
 						"exec": [
 							"setTimeout(function(){}, 2000);",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -988,17 +922,16 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "fc7640ef-010d-4915-910e-1a105246e538",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"pm.test(\"Virtual Server added to Server\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
+							"",
+							"    pm.test(\"Virtual Server added to Server\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
 							"} else ",
-							"pm.test(\"Virtual Server Exists\", function () {",
-							"    pm.response.to.have.status(409);",
-							"});"
+							"    pm.test(\"Virtual Server Exists\", function () {",
+							"        pm.response.to.have.status(409);",
+							"    });"
 						],
 						"type": "text/javascript"
 					}
@@ -1006,17 +939,12 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "24f4bfbc-4483-4c24-809b-0f9b67271fb8",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"pua.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							"setTimeout(function(){}, 2000);"
 						],
 						"type": "text/javascript"
 					}
@@ -1078,12 +1006,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "54662522-f826-42ee-8f45-9a9efd5945b6",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
-							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -1096,15 +1019,10 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "49d25c81-0677-40b6-8b71-55414fecf549",
 						"exec": [
 							"setTimeout(function(){}, 2000);",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -1154,47 +1072,32 @@
 	],
 	"variable": [
 		{
-			"id": "ca8f6210-7a34-473c-b974-4785b3e91c7b",
 			"key": "PRIOR_RESPONSE",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "de7e99f2-1c28-4f9c-b716-f5ab16e0f93e",
 			"key": "DNS_RESOLVER_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "85bb6733-64a6-4157-935c-d0413babb490",
 			"key": "SERVER_SSL_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "cf5bad7b-1c2e-45a4-b7ca-43bc0a7a8c5c",
 			"key": "APP_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "3cd096de-9fd6-46df-8b98-594ee7051243",
 			"key": "PARTITION_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "9e7ff49f-b66e-4b5b-8a43-a846486ecdb2",
 			"key": "PATH_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "74dfd9de-9d31-4cc8-954a-46ca1cf6e125",
 			"key": "IRULE_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
