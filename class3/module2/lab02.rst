@@ -17,6 +17,51 @@ IFS are third-party intermediary services facilitating user-authentication to re
    - United States Government IPv6 Conformance Certification (USGv6)
 
 
+
+Getting Started
+-----------------------
+
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumpbox.f5lab.local
+
+   |image090|
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+	|image091|
+
+#. Click the **Classes** tab at the top of the page.
+
+#. Scroll down the page until you see **302 Ephemeral Authentication** on the left
+
+   |image087|
+
+#. Hover over tile **Implement Priviledged user Access Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+
+   |image088|
+
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
+
+.. _access-labs: https://github.com/f5devcentral/access-labs
+
+
+   |image089|
+
+
+
 Section 2.1 - Priviledged User Access (PUA) Requirements
 ------------------------------------------------------
 
@@ -47,6 +92,10 @@ The following resources will be defined for the lab environment:
 +-------------------------+------------------------------------------------------------------+-------------+
 | RADIUS\_server\_IP      | IP Address of site RADIUS server (if RADIUS bypass is used)      | 10.1.20.7   |
 +-------------------------+------------------------------------------------------------------+-------------+
+
+
+
+Expected time to complete: **1 hour**
 
 
 
@@ -641,8 +690,8 @@ Task 1 - Update the SSL Profile
 
 #. Update the Certificate Authorities
 
-   - Change the Trusted Certificate from ca. pua.lab.cer to ca.f5lab.local.crt
-   - Change the Advertised Certificate from ca. pua.lab.cer to ca.f5lab.local.crt
+   - Change the Trusted Certificate from ca. pua.lab.cer to ca.f5lab.local
+   - Change the Advertised Certificate from ca. pua.lab.cer to ca.f5lab.local
    - Click **Update**
 
    |image65|
@@ -654,7 +703,7 @@ Section 2.9 - Adding Devices to the webtop
 Task 1 - Adding Device to the PUA Webtop
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. click **Access >> Webtop >> Webtop Links**
+#. click **Access >> Webtops >> Webtop Links**
 
    |image70|
 

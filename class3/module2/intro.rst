@@ -1,5 +1,5 @@
-intro
-===========
+Lab Overview
+===============
 
 
 As organizations move towards MFA to secure their enterprise applications, they often struggle when implementing Single Sign-On (SSO). Implementation of MFA at the proxy layer, while allowing for Single-Sign On, often requires usage of a less secure authentication method to the backend resource due to the introduction of service accounts requiring passwords. However, if an organization choses to implement MFA directly at the application, SSO is lost.

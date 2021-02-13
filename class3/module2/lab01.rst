@@ -12,7 +12,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumpbox.f5lab.local
 
-   |image001|
+   |image090|
 
 #. Select your RDP solution.  
 
@@ -24,7 +24,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
 
-	|image002|
+	|image091|
 
 #. Click the **Classes** tab at the top of the page.
 
@@ -741,6 +741,8 @@ This concludes our lab on APM C3D Enchancements
 .. |image088| image:: media/lab01/088.png
 .. |image089| image:: media/lab01/089.png
 .. |image090| image:: media/lab01/090.png
+.. |image090| image:: media/lab01/091.png
+
 
 
 
