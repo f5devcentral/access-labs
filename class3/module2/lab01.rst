@@ -46,10 +46,6 @@ To access your dedicated student lab environment, you will require a web browser
    |image089|
 
 
-Section 1 - Implement CertSSO using a Template Certificate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 Task 1 - Create an Active Directory AAA Object
 ----------------------------------------------------
 
@@ -395,11 +391,8 @@ In this section, you will test access to an NGINX website requiring mTLS.
    |image051|
 
 
-Section 2 - Implement CertSSO using a dynamic Certificate
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
    
-   
-Task 1 - Create an HTTP Connector Transport
+Task 10 - Create an HTTP Connector Transport
 ------------------------------------------------
 
 #. Navigate to **Access >> Authentication >> HTTP Connector >> HTTP Connector Transport** and click the  **+** (plus symbol)
@@ -416,7 +409,7 @@ Task 1 - Create an HTTP Connector Transport
 
    |image055|
 
-Task 2 - Create a HTTP Connector Request
+Task 11 - Create a HTTP Connector Request
 ------------------------------------------------
 
 #. Navigate to **Access >> Authentication >> HTTP Connector >> HTTP Connector Request** and click the  **+** (plus symbol)
@@ -433,7 +426,7 @@ Task 2 - Create a HTTP Connector Request
    |image057|
 
 
-Task 3 - Create a Per-Request Policy
+Task 12 - Create a Per-Request Policy
 ------------------------------------------------
 
 #. Navigate to **Access >> Profiles/Policies >> Per-Request Policies** and click the  **+** (plus symbol)
@@ -567,7 +560,7 @@ Task 3 - Create a Per-Request Policy
 
    |image081|
 
-Task 4 - Attach the PRP to the mTLS Virtual Server
+Task 13 - Attach the PRP to the mTLS Virtual Server
 -------------------------------------------------------
 
 #. Navigate to **Local Traffic >> Virtual Servers**.  Click **Virtual Server List**
@@ -585,7 +578,7 @@ Task 4 - Attach the PRP to the mTLS Virtual Server
    |image084|
 
 
-Task 5 - Access mtls.acme.com with Dynamic Certificate
+Task 14 - Access mtls.acme.com with Dynamic Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser on the jumphost, access https://mtls.acme.com

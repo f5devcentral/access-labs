@@ -18,51 +18,7 @@ IFS are third-party intermediary services facilitating user-authentication to re
 
 
 
-Getting Started
------------------------
-
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
-
-#. Click **DEPLOYMENT** located on the top left corner to display the environment
-
-#. Click **ACCESS** next to jumpbox.f5lab.local
-
-   |image090|
-
-#. Select your RDP solution.  
-
-#. The RDP client on your local host establishes a RDP connection to the Jump Host.
-
-#. Login with the following credentials:
-         - User: **f5lab\\user1**
-         - Password: **user1**
-
-#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
-
-	|image091|
-
-#. Click the **Classes** tab at the top of the page.
-
-#. Scroll down the page until you see **302 Ephemeral Authentication** on the left
-
-   |image087|
-
-#. Hover over tile **Implement Priviledged user Access Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
-
-
-   |image088|
-
-
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
-
-.. _access-labs: https://github.com/f5devcentral/access-labs
-
-
-   |image089|
-
-
-
-Section 2.1 - Priviledged User Access (PUA) Requirements
+Priviledged User Access (PUA) Requirements
 ------------------------------------------------------
 
 In order to deploy the F5 PUA solution, you will require the following:
@@ -94,12 +50,49 @@ The following resources will be defined for the lab environment:
 +-------------------------+------------------------------------------------------------------+-------------+
 
 
-
 Expected time to complete: **1 hour**
 
+Task 1 - Getting Started
+-------------------------
+
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumpbox.f5lab.local
+
+   |image0200|
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+	|image201|
+
+#. Click the **Classes** tab at the top of the page.
+
+#. Scroll down the page until you see **302 Ephemeral Authentication** on the left
+
+   |image087|
+
+#. Hover over tile **Implement Priviledged user Access Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+   |image088|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
+
+.. _access-labs: https://github.com/f5devcentral/access-labs
 
 
-Section 2.2 - Executing the PUA Script
+   |image089|
+
+Task 2 - Executing the PUA Script
 ------------------------------------------------
 
 **Overview**
@@ -162,8 +155,6 @@ Invoking ./build_pua.sh with "-h" or "--help" will alert you to the potential op
 
 Setting the "noninteractive=true" option will perform a full unattended install if all the sample prompts above are provided and uncommented, otherwise the answers provided in pua_config.sh will be used as the defaults in a semi-interactive install method.
 
-Task 1 - Running Installation Script
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Login to into the BIG-IP via SSH
 
@@ -327,15 +318,12 @@ Task 1 - Running Installation Script
 
       /var/tmp/pua/build_pua-151.sh - v1.1.5-rc17 on BIG-IP v15.1.0
       [admin@bigip1:Active:Standalone]
-	  
-	  
-Section 2.3 - Validating the PUA Script Installation
--------------------------------------------------------
+
+
+Task 3 - Accessing the BIG-IP via APM Webtop
+------------------------------------------------
 
 In this section, you will test the initial installation of the PUA deployment.
-
-Task 1 - Accessing the BIG-IP via APM Webtop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open a web browser and navigate to https://pua.acme.com
 
@@ -355,13 +343,8 @@ Task 1 - Accessing the BIG-IP via APM Webtop
 
    |image13|
    
-Section 2.4 - Policy Review
-----------------------------------------------------
-
-In this section, you will review the initial APM policy created by the PUA Build Script
-
-Task 1 - Review the APM Policy Created by the PUA Build Script
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 4 - Review the APM Policy Created by the PUA Build Script
+-------------------------------------------------------------------
 
 #. Open a web browser and log into the BIG-IP via its management address: https://10.1.1.4
 
@@ -381,13 +364,12 @@ Task 1 - Review the APM Policy Created by the PUA Build Script
 
    |image23|
    
-Section 2.5 - Creating an APM Policy - LDAP
-------------------------------------------------
+
+Task 5 - Build a LDAP macro
+------------------------------
 
 PUA requires a Directory Service to authenticate users. In this section you will build a LDAP macro to perform the authentication function.
 
-Task 1 - Build a LDAP macro
-~~~~~~~~~~~~~~~~~~~~~~~~~~
 .. note::
 
    This lab makes use of APM macros to make policies easy to view and manage.
@@ -495,13 +477,12 @@ Here is the completed macro.
    |image135|
    
    
-Section 2.6 - Creating an APM Policy - CAC Authentication
------------------------------------------------------------
+
+Task 6 - Build CAC AUTH Macro
+---------------------------------
+
 
 In this section, you will build a macro to request the user certificate.
-
-Task 1 - Build CAC AUTH Macro
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the **Add New Macro** button
 
@@ -578,14 +559,11 @@ Task 1 - Build CAC AUTH Macro
    |image146|
    
    
-Section 2.7 - Creating an APM Policy - Update Initial Access Policy
----------------------------------------------------------------------
+Task 7 - Update the Initial Access Policy
+--------------------------------------------
+
 
 In this section, you will add the CAC Auth Macro to the initial access policy and update the variable assignments.
-
-Task 1 - Update the Initial Access Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 #. Click the **X** the Logon Page box to remove the Logon Page
 
@@ -653,14 +631,12 @@ Task 1 - Update the Initial Access Policy
 
    |image152|
    
-   
-Section 2.8 - Certificate Update
-----------------------------------
+
+
+Task 8 - Update the SSL Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 In this section, you will modify the SSL profile to present an internally signed certificate for the PUA webtop and select a trusted Certificate Authority to validate the user certificates.
-
-Task 1 - Update the SSL Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click Local Traffic >> Profiles >> SSL >> Client
 
@@ -697,11 +673,9 @@ Task 1 - Update the SSL Profile
    |image65|
    
    
-Section 2.9 - Adding Devices to the webtop
+Task 9 - Adding Devices to the webtop
 -------------------------------------------
 
-Task 1 - Adding Device to the PUA Webtop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. click **Access >> Webtops >> Webtop Links**
 
@@ -752,11 +726,9 @@ Task 1 - Adding Device to the PUA Webtop
    |image79|
    
    
-Section 2.10 - Modifying Radius Configurations
+Task 10 - Modifying Radius Configurations
 -----------------------------------------------
 
-Task 1 - Modifying the Radius Server secret password
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to **Local Traffic >> iRules >> Data Group List**
 
@@ -777,8 +749,6 @@ Task 1 - Modifying the Radius Server secret password
 
    |image83|
 
-Task 2 - Modifying the BIG-IP radius secret
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. SSH into the BIG-IP and enter traffic management shell by typing **tmsh**
 
@@ -791,11 +761,8 @@ Task 2 - Modifying the BIG-IP radius secret
 
    |image84|
    
-Section 2.11 - Verification Testing
+Task 11 - Verification Testing
 -------------------------------------
-
-Task 1 - Test the updated Webtop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Access the webtop via https://pua.acme.com
 
@@ -931,6 +898,11 @@ Task 1 - Test the updated Webtop
 .. |image151| image:: media/lab02/image151.png
 .. |image152| image:: media/lab02/image152.png
 .. |image1130| image:: media/lab02/image1130.png
+.. |image087| image:: media/lab02/087.png
+.. |image088| image:: media/lab02/088.png
+.. |image089| image:: media/lab02/089.png
+.. |image200| image:: media/lab02/200.png
+.. |image201| image:: media/lab02/201.png
 
 
 
