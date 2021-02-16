@@ -46,10 +46,7 @@ To access your dedicated student lab environment, you will require a web browser
    |image088|
 
 
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
-
-.. _access-labs: https://github.com/f5devcentral/access-labs
-
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
    |image089|
 
