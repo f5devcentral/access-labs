@@ -244,7 +244,7 @@ Task - Access basic.acme.com
 
 #. If you return to the sub-session variables screen in BIG-IP you will see UserAccountControl was **66050**.
 
-   |image34|
+   |image38|
 
 
 .. |image0| image:: media/lab03/image000.png
@@ -295,6 +295,7 @@ Task - Access basic.acme.com
 .. |image35| image:: media/lab03/image035.png
 .. |image36| image:: media/lab03/image036.png
 .. |image37| image:: media/lab03/image037.png
+.. |image38| image:: media/lab03/image038.png
 
 
 
