@@ -1,23 +1,47 @@
 Lab 1: Deploy an API Protection Profile
 ===========================================
 
-An API protection profile is the primary tool that Access Policy Manager administrators use to safeguard API servers. Protection profiles define groups of related RESTful APIs used by applications. The protection profile contains a list of paths that may appear in a request. The system classifies requests and sends them to specific API servers.
-
-The simplest way to create an API protection profile and establish API protection is using an OpenAPI Spec file to import the details of the APIs. If you use an OpenAPI Spec file, Access Policy Manager automatically creates the following (depending on what's included in the spec file):
-
-- API Protection Profile
-- Paths
-- API servers
-- Responses
-- Per-request policy with a Request Classification agent and a subroutine containing an OAuth scope check agent
-
-
-To enable API protection, the API Protection Profile must be associated with a virtual server. If using API Protection, the virtual server can have only one API Protection Profile associated with it. You cannot select other access profiles or per-request policies in that virtual server.
-
 Setup Lab Environment
 ----------------------------------------
 
-**NEED TO REWRITE**
+
+Task - Setup Lab Environment
+-----------------------------
+
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumpbox.f5lab.local
+
+   |image200|
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+	|image201|
+
+#. Click the **Classes** tab at the top of the page.
+
+#. Scroll down the page until you see **304 API Protection** on the left
+
+   |image202|
+
+#. Hover over tile **Implement C3D with APM Enchancements**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+   |image203|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the 'Access Labs <https://github.com/f5devcentral/access-labs>'_ repo.
+
+   |image204|
+
 
 
 Section 1.1 - Create a JWT Provider

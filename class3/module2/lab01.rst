@@ -3,8 +3,8 @@ Lab 1: Implement C3D with APM Enhancements
 
 Expected time to complete: **1 hour**
 
-Task - Setup Lab Environment
------------------------------
+Task 1 - Setup Lab Environment
+----------------------------------
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
@@ -38,7 +38,7 @@ To access your dedicated student lab environment, you will require a web browser
    |image088|
 
 
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the 'Access Labs <https://github.com/f5devcentral/access-labs>'_ repo.
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the 'Labs <https://github.com/f5devcentral/access-labs>'_ repo.
 
 
    |image089|
