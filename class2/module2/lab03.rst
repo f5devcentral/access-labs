@@ -16,29 +16,29 @@ Task - Create a DNS Resolver
 
 #. Navigate to Network >> DNS Resolvers >> DNS Resolver List. Click the  **+ (Plus symbol)** Symbol
 
-   |image001|
+   |image1|
 
 #. Enter Name **internal_resolver** and click **Finished**
 
-   |image002|
+   |image2|
 
 #. Click **internal_resolver** 
 
-   |image003|
+   |image3|
 
 #. Click the **Forward Zones** tab
 
-   |image004|
+   |image4|
 
 #. Click **Add**
 
-   |image005|
+   |image5|
 
 #. Enter **. (a Single dot)** in the **Name** field
 #. Add a Nameserver by entering Address **10.1.20.7** and click **Add**
 #. Click **Finished**
 
-   |image006|
+   |image6|
 
 
 Task - Create a ServerSide SSL Profile
@@ -46,7 +46,7 @@ Task - Create a ServerSide SSL Profile
 
 #. Navigate to Local Traffic >> Profiles >> SSL >> Server. Click the  **+ (Plus Symbol)** Symbol
 
-   |image007|
+   |image7|
 
 #. Enter Name **adapi.f5lab.local**
 #. Check **Custom** box to the right of the Certificate and Key fields to make them editable.
@@ -54,7 +54,7 @@ Task - Create a ServerSide SSL Profile
 #. Select **apiadmin.key** from the key dropdown
 #. Click **Finished** at the Bottom of the page
 
-   |image008|
+   |image8|
 
 
 Task - Create a HTTP Connector Transport
@@ -62,14 +62,14 @@ Task - Create a HTTP Connector Transport
 
 #. Navigate to Access >> Authentication >> HTTP Connector >> HTTP Connector Transport  Click the  **+ (Plus Symbol)**
 
-   |image009|
+   |image9|
 
 #. Enter the name **demo-http-connector**
 #. Select **internal_resolver** from the DNS Resolver dropdown
 #. Select **adapi.f5lab.local** from the Server SSL Profile
 #. Click **Save**
 
-   |image010|
+   |image10|
 
 
 Task - Create a HTTP Connector Request
@@ -77,7 +77,7 @@ Task - Create a HTTP Connector Request
 
 #. Navigate to Access >> Authentication >> HTTP Connector >> HTTP Connector Request.  Click the  **+ (Plus Symbol)**
 
-   |image011|
+   |image11|
 
 #. Enter name **get-aduser-attributes**
 #. Select **demo-http-connector** from the dropdown 
@@ -86,7 +86,7 @@ Task - Create a HTTP Connector Request
 #. Select **Parse** for the Response Action
 #. Click **Save** 
 
-   |image012|
+   |image12|
 
 
 
@@ -106,15 +106,15 @@ Task - Add the HTTP Connector Request
 
 #. From the web browser, click on the **Guided Configuration** 
 
-   |image013|
+   |image13|
 
 #. Click **IAP_DEMO** 
 
-   |image014|
+   |image14|
 
 #. Click on **Contextual Access**
    
-   |image015|
+   |image15|
 
 #. Click on **basic.acme.com**
 
@@ -145,7 +145,7 @@ Task - Add the HTTP Connector Request
 #. Click **Any** under Selected User Groups
 #. Click **Save**
 
-   |image020|
+   |image20|
 
 
 #. Click **Deploy**. Deployment will take a few moments
