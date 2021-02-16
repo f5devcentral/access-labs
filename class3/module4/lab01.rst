@@ -1,11 +1,7 @@
 Lab 1: Deploy an API Protection Profile
 ===========================================
 
-Setup Lab Environment
-----------------------------------------
-
-
-Task - Setup Lab Environment
+Task 1 - Setup Lab Environment
 -----------------------------
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
@@ -44,14 +40,11 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 
-Section 1.1 - Create a JWT Provider
----------------------------------------
+
+Task 2 - Create a Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
-
-
-Task 1 - Create an Authorization Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Navigate to Access >> Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
 
@@ -74,7 +67,7 @@ Task 1 - Create an Authorization Provider
 5. Click **Save**
 
 
-Task 4 - Create a JWT Provider
+Task 3 - Create a JWT Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Navigate to Access >> Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**
@@ -90,13 +83,7 @@ Task 4 - Create a JWT Provider
 |image10|
 
 
-Section 1.2 - Create an API Protection Profile
-------------------------------------------------------
-
-The API Protection profile is a combination of APM and AWAF features to protect any API.
-
-
-Task 1 - Create an API Protection Profile
+Task 4 - Create an API Protection Profile
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -120,7 +107,7 @@ Task 1 - Create an API Protection Profile
    |image12|
 
 
-Task 2 - Explore the Path Configuration
+Task 5 - Explore the Path Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Note the Spec file contained four paths to various URIs
@@ -132,7 +119,7 @@ Task 2 - Explore the Path Configuration
    |image13|
 
 
-Task 3 - Associate a JWT Provider
+Task 6 - Associate a JWT Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Access Control** from the top ribbon
@@ -164,13 +151,7 @@ Task 3 - Associate a JWT Provider
    |image17|
    
    
-Section 1.3 - Create the api.acme.com virtual server
-----------------------------------------------------------
-
-In this section, you will define which components you want to create as part of the API Protection configuration.
-
-
-Task 1 - Create a virtual server
+Task 7 - Create a virtual server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. From the web browser, click on the **Local Traffic** tab located on the left side
@@ -196,13 +177,8 @@ Task 1 - Create a virtual server
 |image20|
 |image22|
 
-Section 1.4 - Test Course-Grained Access
--------------------------------------------
 
-In this section, you will sample API requests to the new created api.acme.com virtual server to test functionality
-
-
-Task 1 - Send a valid GET without a JWT to retrieve user1's attributes
+Task 8 - Send a valid GET without a JWT to retrieve user1's attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. From the Jumpbox, open **Postman**
@@ -223,7 +199,7 @@ Task 1 - Send a valid GET without a JWT to retrieve user1's attributes
 
 |image26|
 
-Task 2 - Send a valid GET with JWT to retrieve user1\'s attributes
+Task 8 - Send a valid GET with JWT to retrieve user1\'s attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Retrieve User Attributes**
@@ -261,7 +237,7 @@ Task 2 - Send a valid GET with JWT to retrieve user1\'s attributes
 |image31|
 
 
-Task 3 - Send a valid GET with JWT to set user1's employeeNumber
+Task 9 - Send a valid GET with JWT to set user1's employeeNumber
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
 
 1. Select the request **JWT-Set User Attributes**
@@ -287,7 +263,7 @@ Task 3 - Send a valid GET with JWT to set user1's employeeNumber
 |image35|
 
 
-Task 4 - Send a valid GET with JWT to create a user
+Task 10 - Send a valid GET with JWT to create a user
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Create User**
@@ -309,7 +285,7 @@ Task 4 - Send a valid GET with JWT to create a user
 |image46|
 
 
-Task 5 - Send invalid GET request with JWT to set a nonexistent user's attributes
+Task 11 - Send invalid GET request with JWT to set a nonexistent user's attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Set Invalid Attributes**
@@ -331,7 +307,7 @@ Task 5 - Send invalid GET request with JWT to set a nonexistent user's attribute
 |image37|
 
 
-Task 6 - Send a POST request to a valid URI to set User1's attributes
+Task 12 - Send a POST request to a valid URI to set User1's attributes
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Set User Attributes**
@@ -348,7 +324,7 @@ Task 6 - Send a POST request to a valid URI to set User1's attributes
 
 |image39|
 
-Task 7 - Send a GET request to an invalid URI
+Task 13 - Send a GET request to an invalid URI
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 1. Select the request **JWT-Invalid URI**
@@ -952,12 +928,12 @@ Task 3 - Test Access to the new path
 	:width: 800px
 .. |image104| image:: media/lab01/image104.png
 .. |image105| image:: media/lab01/image105.png
-.. |image200| image:: media/lab01/image200.png
-.. |image201| image:: media/lab01/image201.png
-.. |image202| image:: media/lab01/image202.png
-.. |image203| image:: media/lab01/image203.png
-.. |image204| image:: media/lab01/image204.png
-.. |image205| image:: media/lab01/image205.png
+.. |image200| image:: media/lab01/200.png
+.. |image201| image:: media/lab01/201.png
+.. |image202| image:: media/lab01/202.png
+.. |image203| image:: media/lab01/203.png
+.. |image204| image:: media/lab01/204.png
+.. |image205| image:: media/lab01/205.png
 
 
 
