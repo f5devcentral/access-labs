@@ -63,7 +63,7 @@ components:
 |                        | - Internal   10.1.20.8  |                          | 
 +------------------------+-------------------------+--------------------------+      
 
-.. |image000| image:: media/image000.png
+.. |image000| image:: media/intro/000.png
    :width: 6.96097in
    :height: 4.46512in
 
