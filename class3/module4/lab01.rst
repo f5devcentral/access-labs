@@ -49,44 +49,19 @@ Section 1.1 - Create a JWT Provider
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
 
-Task 1 - Create a key configuration
+
+Task 1 - Create an Authorization Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-..note :: Ensure you are logged into BIGIP1
-
-1. From the web browser, click on the **Access** tab located on the left side.
-
-|image0|
-
-2. Navigate to Federation >> JSON Web Token >> Key Configuration. Click the  **+ (Plus Symbol)**
-
-|image1|
-
-3. Configure the following parameters:
-
-- Name: **api-jwt-key**
-- ID: **lab**
-- Octet: **Octet**
-- Signing Algorithm: **HS256**
-- Shared Secret: **secret**
-
-4. Click **Save**
-
-|image2|
-
-
-Task 2 - Create an Authorization Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Navigate to Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
+1. Navigate to Access >> Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
 
 |image3|
 
 2. Configure the following parameters:
 
 - Name: **api-as-provider**
-- Trusted Certificate Authorities: **ca.acme.com.crt**
-- OpenID URL: replace f5-oauth.local with **prebuilt-as.acme.com**
+- Trusted Certificate Authorities: **ca.acme.com.**
+- OpenID URL: replace f5-oauth.local with **as.acme.com**
 
 3. Click Discover
 
@@ -99,28 +74,10 @@ Task 2 - Create an Authorization Provider
 5. Click **Save**
 
 
-Task 3 - Customize the Token Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Navigate to Federation >> JSON Web Token >> Token Configuration. Click **Token Configuration**, not the + (Plus Symbol)
-
-|image6|
-
-2. Click on **auto_jwt_api-as-provider**
-
-|image7|
-
-3. Move **api-jwk-key** from Available to Allowed
-
-4. Click **Save**
-
-|image8|
-
-
 Task 4 - Create a JWT Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Navigate to Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**
+1. Navigate to Access >> Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**
 
 |image9|
 
@@ -147,7 +104,7 @@ Task 1 - Create an API Protection Profile
 
    |image11|
 
-.. note :: json file is located on the jumpbox in c:\\labs\\class1\\student_files
+.. note:: json file is located on the jumpbox in c:\\access-labs\\class3\\module4\\student_files
 
 #. Enter the following parameters:
 
@@ -184,13 +141,13 @@ Task 3 - Associate a JWT Provider
 
    |image14|
 
-#. Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access    control.  We will implement it later in the lab
+#. Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access control.  We will implement it later in the lab.
 
 #. Click the **+ (plus symbol)** next the Subroutine **OAuth Scope Check AuthZ** to expand its properties:
 
    |image15|
 
-   .. note :: The OAuth scope agent currently has a red asterisk since no provider is associated with it.
+   .. note:: The OAuth scope agent currently has a red asterisk since no provider is associated with it.
 
 #. Click **OAuth Scope**
 
@@ -995,6 +952,12 @@ Task 3 - Test Access to the new path
 	:width: 800px
 .. |image104| image:: media/lab01/image104.png
 .. |image105| image:: media/lab01/image105.png
+.. |image200| image:: media/lab01/image200.png
+.. |image201| image:: media/lab01/image201.png
+.. |image202| image:: media/lab01/image202.png
+.. |image203| image:: media/lab01/image203.png
+.. |image204| image:: media/lab01/image204.png
+.. |image205| image:: media/lab01/image205.png
 
 
 
