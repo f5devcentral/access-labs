@@ -480,5 +480,10 @@ This concludes our lab on creating an Identity Aware Proxy configuration in Acce
 .. |image41| image:: media/lab01/image041.png
 .. |image42| image:: media/lab01/image042.png
 .. |image43| image:: media/lab01/image043.png
+.. |image87| image:: media/lab01/image087.png
+.. |image88| image:: media/lab01/image088.png
+.. |image89| image:: media/lab01/image089.png
+.. |image90| image:: media/lab01/image090.png
+.. |image91| image:: media/lab01/image091.png
 
 

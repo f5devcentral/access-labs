@@ -734,7 +734,7 @@ This concludes our lab on APM C3D Enchancements
 .. |image088| image:: media/lab01/088.png
 .. |image089| image:: media/lab01/089.png
 .. |image090| image:: media/lab01/090.png
-.. |image090| image:: media/lab01/091.png
+.. |image091| image:: media/lab01/091.png
 
 
 
