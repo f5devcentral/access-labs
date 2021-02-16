@@ -265,6 +265,7 @@ Task - Access basic.acme.com
 
 .. |image12| image:: media/lab03/image012.png
 	:width: 800px
+.. |image13| image:: media/lab03/image013.png
 .. |image14| image:: media/lab03/image014.png
 .. |image15| image:: media/lab03/image015.png
 	:width: 1200px
@@ -291,5 +292,10 @@ Task - Access basic.acme.com
 .. |image32| image:: media/lab03/image032.png
 .. |image33| image:: media/lab03/image033.png
 .. |image34| image:: media/lab03/image034.png
+.. |image35| image:: media/lab03/image035.png
+.. |image36| image:: media/lab03/image036.png
+.. |image37| image:: media/lab03/image037.png
+
+
 
 
