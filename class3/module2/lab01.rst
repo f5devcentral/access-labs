@@ -3,8 +3,8 @@ Lab 1: Implement C3D with APM Enhancements
 
 Expected time to complete: **1 hour**
 
-Getting Started
------------------------
+Task - Setup Lab Environment
+-----------------------------
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
@@ -38,15 +38,13 @@ To access your dedicated student lab environment, you will require a web browser
    |image088|
 
 
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the **access-labs_** repo.
-
-.. _access-labs: https://github.com/f5devcentral/access-labs
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the 'Access Labs <https://github.com/f5devcentral/access-labs>'_ repo.
 
 
    |image089|
 
 
-Task 1 - Create an Active Directory AAA Object
+Task 2 - Create an Active Directory AAA Object
 ----------------------------------------------------
 
 The first step in deploying CertSSO is creating the objects required for the user to authenticate to APM.  In this lab, the user will authenticate via Active Directory and simulated MFA via RADIUS.  The user's authentication method to APM is independent of how the BIG-IP authenticates the user to the backend server for Single-Sign-On.  This allows an organization to choose an authentication scheme that matches their needs such as SAML, OAuth, or other method.
@@ -69,7 +67,7 @@ The first step in deploying CertSSO is creating the objects required for the use
 
 #. Click **Finished**
 
-Task 2 - Create a RADIUS AAA Object
+Task 3 - Create a RADIUS AAA Object
 ---------------------------------------------
 
 #. Navigate to **Access >> Authentication >> RADIUS**, then click the **+** (plus symbol) to create a new AAA object
@@ -88,7 +86,7 @@ Task 2 - Create a RADIUS AAA Object
 #. Click **Finished**
 
 
-Task 3 - Create the cert_sso Access Profile
+Task 4 - Create the cert_sso Access Profile
 -----------------------------------------------
 
 In this section, you will create the APM Access Profile.
@@ -109,7 +107,7 @@ In this section, you will create the APM Access Profile.
    |image007|
    
    
-Task 4 - Create the Access Policy
+Task 5 - Create the Access Policy
 ------------------------------------
 
 In this section, edit the policy using the Visual Policy Editor to enable users to login via AD+MFA, then transition to CertSSO.
@@ -219,7 +217,7 @@ In this section, edit the policy using the Visual Policy Editor to enable users 
 #. Click **Apply Access Policy** located in the top left corner to commit the policy changes
 
 
-Task 5 - Create a Client SSL Profile
+Task 6 - Create a Client SSL Profile
 ----------------------------------------
 
 #. Navigate to **Local Traffic >> Profiles >> SSL >> Client**, then click the **+** (plus symbol) to create a new **SSL Profile**
@@ -247,7 +245,7 @@ Task 5 - Create a Client SSL Profile
 
 #. Click **Finished**
 
-Task 6 - Create a Server SSL Profile
+Task 7 - Create a Server SSL Profile
 --------------------------------------
 
 #. Navigate to **Local Traffic >> Profiles >> SSL >> Server**, then click the **+** (plus symbol) to create a new SSL Profile
@@ -274,7 +272,7 @@ Task 6 - Create a Server SSL Profile
    |image029|
    
    
-Task 7 - Create the Pool
+Task 8 - Create the Pool
 -------------------------------
 
 
@@ -296,7 +294,7 @@ In this section you create a pool that contains the IP address of the CentOS ser
    
    
 
-Task 8 - Create a Virtual Server
+Task 9 - Create a Virtual Server
 --------------------------------------
 
 
@@ -340,7 +338,7 @@ Task 8 - Create a Virtual Server
 |image035|
 
 
-Task 9 - Test CertSSO
+Task 10 - Test CertSSO
 ------------------------------------------------
 
 In this section, you will test access to an NGINX website requiring mTLS.
@@ -392,7 +390,7 @@ In this section, you will test access to an NGINX website requiring mTLS.
 
 
    
-Task 10 - Create an HTTP Connector Transport
+Task 11 - Create an HTTP Connector Transport
 ------------------------------------------------
 
 #. Navigate to **Access >> Authentication >> HTTP Connector >> HTTP Connector Transport** and click the  **+** (plus symbol)
@@ -409,7 +407,7 @@ Task 10 - Create an HTTP Connector Transport
 
    |image055|
 
-Task 11 - Create a HTTP Connector Request
+Task 12 - Create a HTTP Connector Request
 ------------------------------------------------
 
 #. Navigate to **Access >> Authentication >> HTTP Connector >> HTTP Connector Request** and click the  **+** (plus symbol)
@@ -426,7 +424,7 @@ Task 11 - Create a HTTP Connector Request
    |image057|
 
 
-Task 12 - Create a Per-Request Policy
+Task 13 - Create a Per-Request Policy
 ------------------------------------------------
 
 #. Navigate to **Access >> Profiles/Policies >> Per-Request Policies** and click the  **+** (plus symbol)
@@ -560,7 +558,7 @@ Task 12 - Create a Per-Request Policy
 
    |image081|
 
-Task 13 - Attach the PRP to the mTLS Virtual Server
+Task 14 - Attach the PRP to the mTLS Virtual Server
 -------------------------------------------------------
 
 #. Navigate to **Local Traffic >> Virtual Servers**.  Click **Virtual Server List**
@@ -578,7 +576,7 @@ Task 13 - Attach the PRP to the mTLS Virtual Server
    |image084|
 
 
-Task 14 - Access mtls.acme.com with Dynamic Certificate
+Task 15 - Access mtls.acme.com with Dynamic Certificate
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser on the jumphost, access https://mtls.acme.com
