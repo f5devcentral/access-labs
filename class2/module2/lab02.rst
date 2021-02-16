@@ -18,25 +18,25 @@ Task - Access the Zero Trust IAP guided configuration
 
 #. From the webbrowser, click on the **Access** tab located on the left side.
 
-   |image001|
+   |image1|
 
 #. Click **Guided Configuration**
 
-   |image002|
+   |image2|
 
 #. Click **IAP_DEMO**
 
-   |image003|
+   |image3|
 
 #. Click the **Config Properties** from the top ribbon
 
-   |image004|
+   |image4|
 
 #. Enable **Application Groups**
 
 #. Click **Save & Next**
 
-   |image004|
+   |image4|
 
 
 
@@ -51,11 +51,11 @@ Task - Configure Certificate Authentication with OCSP
 
 #. Click **User Identity** in the Ribbon
 
-    |image005|
+    |image5|
 
 #. Click **Add** to create a new User Identity
 
-    |image006|
+    |image6|
 
 #. Enter Name **ocsp** 
 #. Select **On-Demand Certificate Authentication** from the Authentication Type dropdown
@@ -64,11 +64,11 @@ Task - Configure Certificate Authentication with OCSP
 #. Leave **Request** selected under Choose Auth Mode
 #. Click **Save**
 
-    |image007|
+    |image7|
 
 #. Verify the **ocsp** object was created and click **Save & Next**
 
-    |image008|
+    |image8|
 	
 	
 	Lab 2.3 - SSO & HTTP Header
@@ -81,18 +81,18 @@ Task - Create Custom Header
 
 #. click **Add**
 
-   |image009|
+   |image9|
 
 #. Enter Name **header_sso**
 #. Change radio button for Type to **HTTP Headers**
 #. In the **SSO Headers** section, enter **userID** in the Header Name Field
 #. Click **Save**
 
-   |image010|
+   |image10|
 
 #. Verify the **header_sso** object was created and click **Save & Next**
 
-   |image011|
+   |image11|
    
    
    Lab 2.4 - Applications
@@ -105,7 +105,7 @@ Task - Configure Application header.acme.com
 
 #. Click **Add** to create a new application
 
-   |image012|
+   |image12|
 
 #. Click **Show Advanced Setting** in the top right corner to see additional properties
 #. Enter Name **header.acme.com**
@@ -117,12 +117,12 @@ Task - Configure Application header.acme.com
 
 	.. note:: Subpaths are used in Application Groups to define contextual access on 	portions of an application (separate from the default contextual Access Policy).  	If necessary, an application can be split up into multiple Application Groups to 	meet an organization's access control needs.
 
-    |image013|
+    |image13|
 
 #. On the Applications menu, verify the Auth Domain **iap1.acme.com**
 #. Verify **header.acme.com** was created and click **Save & Next**
 
-   |image014|
+   |image14|
 
 
 
@@ -136,13 +136,13 @@ Task - Create header-ad Group
 
 #. Click **Add**
  
-  |image015|
+  |image15|
 
 #. Enter Name **header-ad**
 #. Under Applications List, select **/** and click the arrow to move it into the Selected box
 #. Click **Save** 
  
-   |image016|
+   |image16|
 
 
 Task - Create header-ocsp Group
@@ -150,18 +150,18 @@ Task - Create header-ocsp Group
 
 #. Click **Add** to create a second application group
 
-   |image017|
+   |image17|
 
 #. Enter Name **header-ocsp**
 #. Under Applications List, select **/admin.php** and click the arrow to move it into the Selected box
 #. Click **Save** 
 
-   |image018|
+   |image18|
  
 #. Verify both applications groups have been created.
 #. Click **Save & Next**
 
-   |image019|
+   |image19|
 
    Lab 2.6 - Webtop
 ------------------------------------------------
@@ -173,7 +173,7 @@ Task - Verify applications
 
 #. Ensure that both applications are listed under **Webtop Sections** and click **Save & Next**
 
-   |image020|
+   |image20|
 
    
    Lab 2.7 - Contextual Access
@@ -188,7 +188,7 @@ Task - Configure Contextual Access for header_ad Group
 
 #. Click **Add**
 
-   |image021|
+   |image21|
 
 #. Enter Name **header-ad**
 #. Select **Application Group** from the Resource Type dropdown
@@ -198,20 +198,20 @@ Task - Configure Contextual Access for header_ad Group
 #. Enter **Sales Engineering** in the Primary Authentication filter Group Name
 #. Click **Add* beside Sales Engineering
 
-   |image022|
+   |image22|
 
 #. Enter **Product Management** in the Primary Authentication filter Group Name
 #. Click **Add* beside Product Management
 #. Click **Save**
 
-   |image022-2|
+   |image22-2|
 
 Task - Configure Contextual Access for header-ocsp Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add**
 
-   |image023|
+   |image23|
 
 #. Enter Name **header-ocsp**
 #. Select **Application Group** from the Resource Type dropdown
@@ -221,47 +221,47 @@ Task - Configure Contextual Access for header-ocsp Group
 #. Enter **Sales Engineering** in the Primary Authentication filter Group Name
 #. Click **Add* beside Sales Engineering
 
-   |image024|
+   |image24|
 
 #. Enter **Product Management** in the Primary Authentication filter Group Name
 #. Click **Add* beside Product Management
 #. Click **Save**
 
-   |image024-2|
+   |image24-2|
 
 
 #. Click **Save**
 
-   |image024|
+   |image24|
 
 #. Check **Enable Additional Checks**
 #. Click **Add** under Additional Checks
 
-   |image025|
+   |image25|
 
 #. Enter Name **webadmin-group**
 #. Check **User Group Check**
 #. Enter **Website Admin** in the Primary Authentication filter Group Name
 #. Click **Add** beside Website Admin
 
-   |image026|
+   |image26|
 
 #. Select **Step Up** from the Match Action dropdown
 #. Select **ocsp** from the Step Up Authentication dropdown
 #. Click **Save**
 
 
-   |image027|
+   |image27|
 
 #. Click **Save** again to save the Contextual Access Properties for ocsp-header-iap.acme.com
 
-   |image028|
+   |image28|
 
 
 
 #. Click **Deploy** located under the ribbon. Deployment will take a few moments.
 
-   |image029|
+   |image29|
    
    
    Lab 2.8 - Testing
@@ -277,26 +277,26 @@ Task - Login to header.acme.com using user1
 #. At the logon page enter the Username: **user1** and Password: **user1**
 #. Click **Logon**
 
-   |image030|
+   |image30|
 
 #. Click the **header.acme.com** tile    
 
-   |image031|
+   |image31|
 
 
 #. Notice the custom header **UserID** has a value of user1
 
-   |image032|
+   |image32|
 
 #. Access the **admin** portion of the website https://header.acme.com/admin.php
 #. Select the certificate **user1**
 #. Click **OK**
 
-   |image033|
+   |image33|
 
 #. You should be successfully logged into the **admin** portion of the site.
 
-   |image034|
+   |image34|
 
 #. Close the browser completely.
 
@@ -308,21 +308,21 @@ Task - Login to header.acme.com using user2
 #. At the logon page enter the Username: **user2** and Password: **user2**
 #. Click **Logon**
 
-   |image035|
+   |image35|
 
 #. Notice the missing basic.acme tile because User2 is not a member of the required group to view the application
 #. Click the **header.acme.com** tile     
 
-   |image036|
+   |image36|
 
 #. Notice the custom header **UserID** has a value of user2
 
-   |image037|
+   |image37|
 
 #. Access the **admin** portion of the website https://header.acme.com/admin.php
 #. You receive a **Access Denied** page due to not having the correct group membership
 
-   |image038|
+   |image38|
 
 
 
@@ -368,6 +368,7 @@ Task - Login to header.acme.com using user2
 .. |image35| image:: media/lab02/image035.png
 .. |image36| image:: media/lab02/image036.png
 .. |image37| image:: media/lab02/image037.png
+.. |image38| image:: media/lab02/image038.png
 
 
 
