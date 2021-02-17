@@ -60,7 +60,7 @@ The cornerstone of the API protection profile is the ability to authorize users 
    - Trusted Certificate Authorities: **ca.acme.com.**
    - OpenID URL: replace f5-oauth.local with **as.acme.com**
 
-#. Click Discover
+#. Click **Discover**
 
    |image4|
 
@@ -231,9 +231,7 @@ Task 9 -  Retrieve User1\'s Attributes with a JWT
 
 #. Select the request **Request2: Retrieve User Attributes with JWT**  
 
-#. Select the **Authorization** tab  FIX PICTURE
-
-   |image43|
+#. Select the **Authorization** tab 
 
 #. Click **Get New Access Token**
 
@@ -281,7 +279,7 @@ Task 10 - Set a Valid User Attribute
 
 #. Click **Send**
 
-   ..note :: If you receive a 403 response status code, request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
+   .. note:: If you receive a 403 response status code, request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
 
 #. You receive a **200 OK** response status code with a response body that contains user1's employeeNumber **123456**
 
@@ -291,21 +289,19 @@ Task 10 - Set a Valid User Attribute
 Task 11 - Set an Nonexistent User's Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **Request 4: Update a Nonexistent User Attribute**
+#. Select the request **Request 4: Update a Nonexistent User Attribute**
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-4. The **Token** field is now populated
+#. The **Token** field is now populated
 
-5. Click **Send**
+#. Click **Send**
 
-.. note :: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name.
+   .. note:: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
 
-.. note :: you can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
-
-6. You receive a **400 Bad Request** response status code. The request successfully passed through the API Gateway, but the server failed to process the request.
+#. You receive a **2O0 OK** response status code. The request successfully passed through the API Gateway, but the server failed to process the request.
 
 |image37|
 
@@ -313,19 +309,19 @@ Task 11 - Set an Nonexistent User's Attribute
 Task 12 - Update a Valid User with PUT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **Request5: Update a Valid User Attribute with PUT**
+#. Select the request **Request5: Update a Valid User Attribute with PUT**
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-4. The **Token** field is now populated
+#. The **Token** field is now populated
 
-5. Click **Send**
+#. Click **Send**
 
-6. You receive a **403 Forbidden** response status code. This is expected because the POST Method was not specified in the API Protection Profile for the path /aduser/Set
+#. You receive a **403 Forbidden** response status code. This is expected because the PUT Method was not specified in the API Protection Profile for the path /aduser
 
-|image39|
+   |image39|
 
 
 Task 13 - Create a User
@@ -349,19 +345,19 @@ Task 13 - Create a User
 Task 14 - Request invalid endpoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **Request 7: Request Invalid Endpoint**
+#. Select the request **Request 7: Request Invalid Endpoint**
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-4. The **Token** field is now populated
+#. The **Token** field is now populated
 
-5. Click **Send**
+#. Click **Send**
 
-6. You receive a **403 Forbidden** response status code. This is expected because the path /hacker/attack was not specified in the API Protection Profile
+#. You receive a **403 Forbidden** response status code. This is expected because the path /hacker/attack was not specified in the API Protection Profile
 
-|image39|
+   |image39|
 
 
 
@@ -373,7 +369,7 @@ Up to this point any authenticated user to the API is authorized to use them. In
 Task 1 - Retrieve Group Membership Subsession Variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-   ..note :: In order to implement fine-grained control the session variables that contain the data must be known. This first session shows you how to display the session variables and their values.
+   .. note:: In order to implement fine-grained control the session variables that contain the data must be known. This first session shows you how to display the session variables and their values.
 
 
 #. From the Jumpbox desktop click on the **BIG-IP1** Putty icon
@@ -841,21 +837,21 @@ Task 3 - Test Access to the new path
 	:width: 700px
 .. |image22| image:: media/lab01/image022.png
 .. |image23| image:: media/lab01/image023.png
-.. |image24| image:: media/lab01/image024.png
+.. |image24| image:: media/lab01/024.png
 .. |image25| image:: media/lab01/image025.png
 .. |image26| image:: media/lab01/image026.png
-.. |image27| image:: media/lab01/image027.png
+.. |image27| image:: media/lab01/027.png
 	:width: 600px
 .. |image28| image:: media/lab01/image028.png
-.. |image29| image:: media/lab01/image029.png
-.. |image31| image:: media/lab01/image031.png
+.. |image29| image:: media/lab01/029.png
+.. |image31| image:: media/lab01/031.png
 .. |image32| image:: media/lab01/image032.png
 .. |image33| image:: media/lab01/image033.png
 	:width: 800px
 .. |image34| image:: media/lab01/image034.png
 .. |image35| image:: media/lab01/image035.png
 .. |image36| image:: media/lab01/image036.png
-.. |image37| image:: media/lab01/image037.png
+.. |image37| image:: media/lab01/037.png
 .. |image38| image:: media/lab01/image038.png
 .. |image39| image:: media/lab01/image039.png
 .. |image40| image:: media/lab01/image040.png
