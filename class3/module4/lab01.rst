@@ -392,7 +392,7 @@ Task 1 - Retrieve Group Membership Subsession Variable
 
    |image31|
 
-   ..Note :: Your SessionID will be different
+   .. Note:: Your SessionID will be different
 
 #. Return to the CLI and examine the logs. You will see a message about a new subsession being created. Copy the subsession ID
 

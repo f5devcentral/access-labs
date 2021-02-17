@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c039e5d6-fe77-46d5-be92-219afd668cd8",
+		"_postman_id": "72f3444e-fe86-453a-82bf-314589bb3bae",
 		"name": "class3-module4-lab01-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1608,97 +1608,6 @@
 							]
 						},
 						{
-							"name": "OAuth Profile",
-							"item": [
-								{
-									"name": "bigip-create-oauthprofile",
-									"event": [
-										{
-											"listen": "test",
-											"script": {
-												"exec": [
-													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
-													"",
-													"if (responseCode.code === 200) {",
-													"    pm.test(\"OAuth profile \"+VS_NAME+\"-oauth created\", function () {",
-													"        pm.response.to.have.status(200);",
-													"    });",
-													"} else ",
-													"    pm.test(\"OAuth Profile \"+VS_NAME+\"-oauth exists\", function () {",
-													"        pm.response.to.have.status(409);",
-													"    });",
-													""
-												],
-												"type": "text/javascript"
-											}
-										},
-										{
-											"listen": "prerequest",
-											"script": {
-												"exec": [
-													""
-												],
-												"type": "text/javascript"
-											}
-										}
-									],
-									"request": {
-										"auth": {
-											"type": "basic",
-											"basic": [
-												{
-													"key": "password",
-													"value": "admin",
-													"type": "string"
-												},
-												{
-													"key": "username",
-													"value": "admin",
-													"type": "string"
-												}
-											]
-										},
-										"method": "POST",
-										"header": [
-											{
-												"key": "Content-Type",
-												"type": "text",
-												"value": "application/json"
-											},
-											{
-												"key": "X-F5-REST-Coordination-Id",
-												"type": "text",
-												"value": "{{TRANSID}}",
-												"disabled": true
-											}
-										],
-										"body": {
-											"mode": "raw",
-											"raw": "{\n\n    \"name\": \"{{VS_NAME}}-oauth\",\n    \"partition\": \"Common\",\n    \"accessTokenLifetime\": 5,\n    \"authCodeLifetime\": 5,\n\t\n    \"authUrl\": \"/f5-oauth2/v1/authorize\",\n    \"dbInstance\": \"/Common/oauthdb\",\n    \"defaultsFrom\": \"/Common/oauth\",\n    \"generateJwtRefreshToken\": \"true\",\n    \"generateRefreshToken\": \"true\",\n    \"idTokenLifetime\": 5,\n\t\"idTokenPrimaryKey\": \"/Common/{{VS_NAME}}-jwk\",\n    \"ignoreExpiredCert\": \"false\",\n    \"issuer\": \"https://{{DNS1_NAME}}\",\n    \"jwksUrl\": \"/f5-oauth2/v1/jwks\",\n    \"jwtAccessTokenLifetime\": 120,\n    \"jwtEcSignatureFormat\": \"binary\",\n    \"jwtRefreshTokenEncSecret\": \"123456\",\n    \"jwtRefreshTokenLifetime\": 120,\n    \"jwtToken\": \"enabled\",\n    \"opaqueToken\": \"disabled\",\n    \"openidCfgUrl\": \"/f5-oauth2/v1/.well-known/openid-configuration\",\n    \"openidConnect\": \"enabled\",\n    \"perUserTokenLimit\": 255,\n    \"primaryKey\": \"/Common/{{VS_NAME}}-jwk\",\n    \"refreshTokenLifetime\": 480,\n    \"refreshTokenUsageLimit\": 64,\n    \"reuseAccessToken\": \"false\",\n    \"reuseRefreshToken\": \"false\",\n    \"subject\": \"%{session.assigned.uuid}\",\n    \"tokenIntrospectionUrl\": \"/f5-oauth2/v1/introspect\",\n    \"tokenIssuanceUrl\": \"/f5-oauth2/v1/token\",\n    \"tokenRevocationUrl\": \"/f5-oauth2/v1/revoke\",\n    \"userinfoUrl\": \"/f5-oauth2/v1/userinfo\",\n\t\"clientApps\": {\n                \n                \"propertyDescriptions\": {}\n            },\n\t\"idTokenClaims\": {\n                \n                \"propertyDescriptions\": {}\n            },\n\t\"jwtAccessTokenClaims\": {\n               \n                \"propertyDescriptions\": {}\n            },\t\t\n\t\"resourceServers\": {\n                \n                \"propertyDescriptions\": {}\n            },\n\t\"rotationKeys\": {\n               \n                \"propertyDescriptions\": {}\n            },\n    \"userinfoClaims\": {\n                \n                \"propertyDescriptions\": {}\n            }\n}\t\n"
-										},
-										"url": {
-											"raw": "https://10.1.1.4/mgmt/tm/apm/profile/oauth",
-											"protocol": "https",
-											"host": [
-												"10",
-												"1",
-												"1",
-												"4"
-											],
-											"path": [
-												"mgmt",
-												"tm",
-												"apm",
-												"profile",
-												"oauth"
-											]
-										}
-									},
-									"response": []
-								}
-							]
-						},
-						{
 							"name": "OAuth Client",
 							"item": [
 								{
@@ -1842,23 +1751,33 @@
 										}
 									},
 									"response": []
-								},
+								}
+							]
+						},
+						{
+							"name": "Oauth Claims",
+							"item": [
 								{
-									"name": "bigip-modify-OAuth Clients list",
+									"name": "bigip-create-OAuth-claim-groups",
 									"event": [
 										{
 											"listen": "test",
 											"script": {
 												"exec": [
-													" if (responseCode.code === 409)\r",
-													"    pm.test(\"OAuth Client Exists on Auth Server\", function () {\r",
-													"        pm.response.to.have.status(409);\r",
-													"    });\r",
-													"else  if (responseCode.code === 200) {\r",
-													"    pm.test(\"OAuth Client added to Auth Server\", function () {\r",
+													"if (responseCode.code === 200) {\r",
+													"    pm.test(\"OAuth Claim Named group Created\", function () {\r",
 													"        pm.response.to.have.status(200);\r",
 													"    });\r",
-													"} \r",
+													"} else if (responseCode.code === 409) {\r",
+													"    pm.test(\"OAuth Claim Named group Exists\", function () {\r",
+													"        pm.response.to.have.status(409);\r",
+													"    });\r",
+													"} else\r",
+													"    pm.test(\"OAuth Claim Named group Found\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
 													""
 												],
 												"type": "text/javascript"
@@ -1885,16 +1804,16 @@
 										"header": [
 											{
 												"key": "Content-Type",
-												"value": "application/json",
-												"type": "text"
+												"type": "text",
+												"value": "application/json"
 											}
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n   \"name\": \"postman\",\r\n   \"partition\": \"Common\"\r\n  \r\n}"
+											"raw": "{\r\n         \r\n            \"name\": \"groups\",\r\n            \"partition\": \"Common\",\r\n            \"claimName\": \"groups\",\r\n            \"claimType\": \"string\",\r\n            \"claimValue\": \"%{session.ad.last.attr.memberOf}\"\r\n            \r\n}"
 										},
 										"url": {
-											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/profile/oauth/~Common~as-oauth/client-apps",
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/oauth/oauth-claim/",
 											"protocol": "https",
 											"host": [
 												"{{BIGIP_MGMT}}"
@@ -1903,10 +1822,470 @@
 												"mgmt",
 												"tm",
 												"apm",
-												"profile",
 												"oauth",
-												"~Common~as-oauth",
-												"client-apps"
+												"oauth-claim",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip-create-OAuth-claim-client",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"    pm.test(\"OAuth Claim Named client created\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"} else if (responseCode.code === 409) {\r",
+													"    pm.test(\"OAuth Claim Named client Exists\", function () {\r",
+													"        pm.response.to.have.status(409);\r",
+													"    });\r",
+													"} else\r",
+													"    pm.test(\"OAuth Claim Named client not found\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n         \r\n    \"name\": \"client\",\r\n    \"partition\": \"Common\",\r\n    \"claimName\": \"client\",\r\n    \"claimType\": \"string\",\r\n    \"claimValue\": \"%{session.oauth.authz.client_id}\"\r\n            \r\n}"
+										},
+										"url": {
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/oauth/oauth-claim/",
+											"protocol": "https",
+											"host": [
+												"{{BIGIP_MGMT}}"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"oauth",
+												"oauth-claim",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip-create-OAuth-claim-groupid",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"    pm.test(\"OAuth Claim Named groupid Created\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"} else if (responseCode.code === 409) {\r",
+													"    pm.test(\"OAuth Claim Named groupid Exists\", function () {\r",
+													"        pm.response.to.have.status(409);\r",
+													"    });\r",
+													"} else\r",
+													"    pm.test(\"OAuth Claim Named groupid not found\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n         \r\n    \"name\": \"groupid\",\r\n    \"partition\": \"Common\",\r\n    \"claimName\": \"groupid\",\r\n    \"claimType\": \"string\",\r\n    \"claimValue\": \"%{session.ad.last.attr.title}\"\r\n            \r\n}"
+										},
+										"url": {
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/oauth/oauth-claim/",
+											"protocol": "https",
+											"host": [
+												"{{BIGIP_MGMT}}"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"oauth",
+												"oauth-claim",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip-create-OAuth-claim-org",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"    pm.test(\"OAuth Claim Named org Created\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"} else if (responseCode.code === 409) {\r",
+													"    pm.test(\"OAuth Claim Named org Exists\", function () {\r",
+													"        pm.response.to.have.status(409);\r",
+													"    });\r",
+													"} else\r",
+													"    pm.test(\"OAuth Claim Named org not found\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n         \r\n    \"name\": \"org\",\r\n    \"partition\": \"Common\",\r\n    \"claimName\": \"org\",\r\n    \"claimType\": \"string\",\r\n    \"claimValue\": \"%{session.ad.last.attr.company}\"\r\n            \r\n}"
+										},
+										"url": {
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/oauth/oauth-claim/",
+											"protocol": "https",
+											"host": [
+												"{{BIGIP_MGMT}}"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"oauth",
+												"oauth-claim",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip-create-OAuth-claim-tier",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"    pm.test(\"OAuth Claim Named tier Created\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"} else if (responseCode.code === 409) {\r",
+													"    pm.test(\"OAuth Claim Named tier Exists\", function () {\r",
+													"        pm.response.to.have.status(409);\r",
+													"    });\r",
+													"} else\r",
+													"    pm.test(\"OAuth Claim Named tier Not Found\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n         \r\n    \"name\": \"tier\",\r\n    \"partition\": \"Common\",\r\n    \"claimName\": \"tier\",\r\n    \"claimType\": \"string\",\r\n    \"claimValue\": \"%{session.ad.last.attr.department}\"\r\n            \r\n}"
+										},
+										"url": {
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/oauth/oauth-claim/",
+											"protocol": "https",
+											"host": [
+												"{{BIGIP_MGMT}}"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"oauth",
+												"oauth-claim",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip-create-OAuth-claim-user",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"    pm.test(\"OAuth Claim Named user Created\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"} else if (responseCode.code === 409) {\r",
+													"    pm.test(\"OAuth Claim Named user Exists\", function () {\r",
+													"        pm.response.to.have.status(409);\r",
+													"    });\r",
+													"} else\r",
+													"    pm.test(\"OAuthClaim Named user Not Found\", function () {\r",
+													"        pm.response.to.have.status(200);\r",
+													"    });\r",
+													"\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n         \r\n    \"name\": \"user\",\r\n    \"partition\": \"Common\",\r\n    \"claimName\": \"user\",\r\n    \"claimType\": \"string\",\r\n    \"claimValue\": \"%{session.logon.last.username}\"\r\n            \r\n}"
+										},
+										"url": {
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/oauth/oauth-claim/",
+											"protocol": "https",
+											"host": [
+												"{{BIGIP_MGMT}}"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"oauth",
+												"oauth-claim",
+												""
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "OAuth Profile",
+							"item": [
+								{
+									"name": "bigip-create-oauthprofile",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+													"",
+													"if (responseCode.code === 200) {",
+													"    pm.test(\"OAuth profile \"+VS_NAME+\"-oauth created\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"} else ",
+													"    pm.test(\"OAuth Profile \"+VS_NAME+\"-oauth exists\", function () {",
+													"        pm.response.to.have.status(409);",
+													"    });",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											},
+											{
+												"key": "X-F5-REST-Coordination-Id",
+												"type": "text",
+												"value": "{{TRANSID}}",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\n    \"name\": \"{{VS_NAME}}-oauth\",\n    \"partition\": \"Common\",\n    \"accessTokenLifetime\": 5,\n    \"authCodeLifetime\": 5,\n\t\n    \"authUrl\": \"/f5-oauth2/v1/authorize\",\n    \"dbInstance\": \"/Common/oauthdb\",\n    \"defaultsFrom\": \"/Common/oauth\",\n    \"generateJwtRefreshToken\": \"true\",\n    \"generateRefreshToken\": \"true\",\n    \"idTokenLifetime\": 5,\n\t\"idTokenPrimaryKey\": \"/Common/{{VS_NAME}}-jwk\",\n    \"ignoreExpiredCert\": \"false\",\n    \"issuer\": \"https://{{DNS1_NAME}}\",\n    \"jwksUrl\": \"/f5-oauth2/v1/jwks\",\n    \"jwtAccessTokenLifetime\": 120,\n    \"jwtEcSignatureFormat\": \"binary\",\n    \"jwtRefreshTokenEncSecret\": \"123456\",\n    \"jwtRefreshTokenLifetime\": 120,\n    \"jwtToken\": \"enabled\",\n    \"opaqueToken\": \"disabled\",\n    \"openidCfgUrl\": \"/f5-oauth2/v1/.well-known/openid-configuration\",\n    \"openidConnect\": \"enabled\",\n    \"perUserTokenLimit\": 255,\n    \"primaryKey\": \"/Common/{{VS_NAME}}-jwk\",\n    \"refreshTokenLifetime\": 480,\n    \"refreshTokenUsageLimit\": 64,\n    \"reuseAccessToken\": \"false\",\n    \"reuseRefreshToken\": \"false\",\n    \"subject\": \"%{session.assigned.uuid}\",\n    \"tokenIntrospectionUrl\": \"/f5-oauth2/v1/introspect\",\n    \"tokenIssuanceUrl\": \"/f5-oauth2/v1/token\",\n    \"tokenRevocationUrl\": \"/f5-oauth2/v1/revoke\",\n    \"userinfoUrl\": \"/f5-oauth2/v1/userinfo\",\n\t\"clientApps\": [\n                \n               \"/Common/postman\",\n    ],\n\t\"idTokenClaims\": {\n                \n               \n    },\n\t\"jwtAccessTokenClaims\": [\n             \"/Common/client\",\n             \"/Common/groupid\",\n             \"/Common/groups\",\n             \"/Common/org\",\n             \"/Common/tier\",\n             \"/Common/user\"\n\n                \n    ],\t\t\n\t\"resourceServers\": {\n                \n                \n            },\n\t\"rotationKeys\": {\n               \n                \n            },\n    \"userinfoClaims\": {\n                \n                \n            }\n}\t\n"
+										},
+										"url": {
+											"raw": "https://10.1.1.4/mgmt/tm/apm/profile/oauth",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"4"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"apm",
+												"profile",
+												"oauth"
 											]
 										}
 									},
