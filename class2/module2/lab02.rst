@@ -214,7 +214,6 @@ Task - Configure Contextual Access for header-ocsp Group
 #. Select **header_sso** from the HTTP_Header dropdown
 #. Enter **Domain Admins** in the Primary Authentication filter Group Name
 #. Click **Add** beside #. Click **Add** beside Domain Admins
-#. Click **Save**
 
    |image24|
 
