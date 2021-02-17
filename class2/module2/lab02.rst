@@ -193,16 +193,12 @@ Task - Configure Contextual Access for header_ad Group
 #. Select **header-ad** from the Resource dropdown
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
-#. Enter **Sales Engineering** in the Primary Authentication filter Group Name
-#. Click **Add** beside Sales Engineering
+#. Enter **Domain Users** in the Primary Authentication filter Group Name
+#. Click **Add** beside Domain Users
+#. Click **Save**
 
    |image22|
 
-#. Enter **Product Management** in the Primary Authentication filter Group Name
-#. Click **Add* beside Product Management
-#. Click **Save**
-
-   |image22-2|
 
 Task - Configure Contextual Access for header-ocsp Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -216,17 +212,11 @@ Task - Configure Contextual Access for header-ocsp Group
 #. Select **header-ocsp** from the Resource dropdown
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
-#. Enter **Sales Engineering** in the Primary Authentication filter Group Name
-#. Click **Add* beside Sales Engineering
-
-   |image24|
-
-#. Enter **Product Management** in the Primary Authentication filter Group Name
-#. Click **Add* beside Product Management
+#. Enter **Domain Users** in the Primary Authentication filter Group Name
+#. Click **Add** beside Domain Users
 #. Click **Save**
 
-   |image24-2|
-
+   |image24|
 
 #. Click **Save**
 
