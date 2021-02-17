@@ -2,7 +2,7 @@ Lab 1: Deploy an API Protection Profile
 ===========================================
 
 Task 1 - Setup Lab Environment
------------------------------
+--------------------------------
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
@@ -40,7 +40,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 Task 2 - Create a Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
 
@@ -66,7 +66,7 @@ The cornerstone of the API protection profile is the ability to authorize users 
 
 
 Task 3 - Create a JWT Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 #. Navigate to Access >> Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**.
 
@@ -82,7 +82,7 @@ Task 3 - Create a JWT Provider
 
 
 Task 4 - Create an API Protection Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------
 
 #. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
 
@@ -105,7 +105,7 @@ Task 4 - Create an API Protection Profile
 
 
 Task 5 - Explore the Path Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------
 
 #. Note the Spec file contained a single path of /user but it supports four different request methods.
 
@@ -115,7 +115,7 @@ Task 5 - Explore the Path Configuration
 
 
 Task 6 - Associate a JWT Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------------
 
 #. Click **Access Control** from the top ribbon
 
@@ -147,7 +147,7 @@ Task 6 - Associate a JWT Provider
    
    
 Task 7 - Create a virtual server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------
 
 #. From the web browser, click on the **Local Traffic** tab located on the left side
 
@@ -173,31 +173,63 @@ Task 7 - Create a virtual server
    |image22|
 
 
-Task 8 - Send a valid GET without a JWT to retrieve user1's attributes
+Task 8 - Import Postman Collections
+-----------------------------------------------------------------------
+
+#. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
+
+    |image106|
+
+#. Click **Yes** if prompted for "Do you want to allow this app to make changes to your device?"
+
+    |image107|
+
+#. Click **Import** located on the top left of the Postman application
+
+    |image108|
+
+#.  Click **Upload Files** 
+
+    |image109|
+
+#. Navigate to C:\\access-labs\\class3\\module4\\student_files, select **student-class3-module4-lab01.postman_collection.json**, and click **Open**
+
+    |image110|
+
+#.  Click **Import**
+
+    |image111|
+
+#. A collection called **student-class3-module4-lab01** will appear on the left side in Postman
+
+
+Task 8 - Attempt to retrieve user1\'s attributes without JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. From the Jumpbox, open **Postman**
+#. From the Jumpbox, open **Postman**
 
-|image23|
+   |image23|
 
-2. Expand the **API Protection** Collection, the **Agility 2020** Folder, and finally the **Lab API Requests subfolder**
+#. 
 
-3. Select the request **No JWT-Retrieve User Attributes**
+#. Expand the **student-class3-module4-lab01** Collection, the **Agility 2020** Folder, and finally the **Lab API Requests subfolder**
 
-|image24|
+#. Select the request **No JWT-Retrieve User Attributes**
 
-4. Click **Send**
+   |image24|
 
-|image25|
+#. Click **Send**
 
-5. You receive a **403 Forbidden** response status code since you do not have a valid JWT
+   |image25|
 
-|image26|
+#. You receive a **403 Forbidden** response status code since you do not have a valid JWT
 
-Task 8 - Send a valid GET with JWT to retrieve user1\'s attributes
+   |image26|
+
+Task 8 - Attempt to retrieve user1\'s attributes a JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **JWT-Retrieve User Attributes**
+1. Select the request **Request1: Retrieve User Attributes without JWT**
 
 2. Select the **Authorization** tab
 
@@ -922,6 +954,13 @@ Task 3 - Test Access to the new path
 	:width: 800px
 .. |image104| image:: media/lab01/image104.png
 .. |image105| image:: media/lab01/image105.png
+.. |image106| image:: media/lab01/106.png
+.. |image107| image:: media/lab01/107.png
+.. |image108| image:: media/lab01/108.png
+.. |image109| image:: media/lab01/109.png
+.. |image110| image:: media/lab01/110.png
+.. |image111| image:: media/lab01/111.png
+
 .. |image200| image:: media/lab01/200.png
 .. |image201| image:: media/lab01/201.png
 .. |image202| image:: media/lab01/202.png

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "777add62-ae1d-4b6e-8fb7-27ab6077f578",
+		"_postman_id": "c039e5d6-fe77-46d5-be92-219afd668cd8",
 		"name": "class3-module4-lab01-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1786,7 +1786,6 @@
 													"    pm.test(\"OAuth Client Exists\", function () {\r",
 													"        pm.response.to.have.status(409);\r",
 													"    });\r",
-													"    postman.setNextRequest(\"bigip-retreive-OAuth Client\");\r",
 													"} else\r",
 													"    pm.test(\"OAuth Client not found\", function () {\r",
 													"        pm.response.to.have.status(200);\r",
@@ -1859,12 +1858,8 @@
 													"    pm.test(\"OAuth Client added to Auth Server\", function () {\r",
 													"        pm.response.to.have.status(200);\r",
 													"    });\r",
-													"} else {\r",
-													"      pm.test(\"OAuth Client unable to be added to Authorization Server.   Ensure you deploy Integrated Authorization Server solution first and then redploy this solution.  Stopping automation\", function () {\r",
-													"        pm.response.to.have.status(200);\r",
-													"    });\r",
-													"    postman.setNextRequest(\"null\");\r",
-													"}"
+													"} \r",
+													""
 												],
 												"type": "text/javascript"
 											}
