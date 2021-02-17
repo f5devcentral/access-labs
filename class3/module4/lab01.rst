@@ -39,59 +39,56 @@ To access your dedicated student lab environment, you will require a web browser
    |image204|
 
 
-
-
 Task 2 - Create a Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
 
-1. Navigate to Access >> Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
+1# Navigate to Access >> Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
 
-|image3|
+   |image3|
 
-2. Configure the following parameters:
+#. Configure the following parameters:
 
-- Name: **api-as-provider**
-- Trusted Certificate Authorities: **ca.acme.com.**
-- OpenID URL: replace f5-oauth.local with **as.acme.com**
+   - Name: **api-as-provider**
+   - Trusted Certificate Authorities: **ca.acme.com.**
+   - OpenID URL: replace f5-oauth.local with **as.acme.com**
 
-3. Click Discover
+#. Click Discover
 
-|image4|
+   |image4|
 
-4. The Authentication URI, Token URI, Token Validation Scope URI, and UserInfo URI should be updated
+#. The Authentication URI, Token URI, Token Validation Scope URI, UserInfo URI and keys should be updated.
 
-|image5|
+   |image5|
 
-5. Click **Save**
+#. Click **Save**
 
 
 Task 3 - Create a JWT Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Navigate to Access >> Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**
+#. Navigate to Access >> Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**.
 
-|image9|
+   |image9|
 
-2. Enter the name: **as-jwt-provider**
+#. Enter the name: **as-jwt-provider**
 
-3. Click **Add** so api-as-provider is added to list of providers
+#. Click **Add** so api-as-provider is added to list of providers
 
-4. Click **Save**
+#. Click **Save**
 
-|image10|
+   |image10|
 
 
 Task 4 - Create an API Protection Profile
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
 #. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
 
    |image11|
 
-.. note:: json file is located on the jumpbox in c:\\access-labs\\class3\\module4\\student_files
+   .. note:: The JSON file is located on the jumpbox in c:\\access-labs\\class3\\module4\\student_files
 
 #. Enter the following parameters:
 
@@ -110,11 +107,9 @@ Task 4 - Create an API Protection Profile
 Task 5 - Explore the Path Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Note the Spec file contained four paths to various URIs
+#. Note the Spec file contained a single path of /user but it supports four different request methods.
 
-#. Each URI only supports the Method GET
-
-#. The APIs server URL is http://adapi.f5lab.local:81
+#. The API server that all requests will be sent to is http://adapi.f5lab.local:81
 
    |image13|
 
@@ -154,28 +149,28 @@ Task 6 - Associate a JWT Provider
 Task 7 - Create a virtual server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. From the web browser, click on the **Local Traffic** tab located on the left side
+#. From the web browser, click on the **Local Traffic** tab located on the left side
 
-|image18|
+   |image18|
 
-2. Navigate to Virtual Servers >> Virtual Server List.  Click the **+ (plus symbol)**
+#. Navigate to Virtual Servers >> Virtual Server List.  Click the **+ (plus symbol)**
 
-|image19|
+   |image19|
 
-3. Enter the following parameters:
+#. Enter the following parameters:
 
-- Name: **api.acme.com**
-- Destination Address/Mask: **10.1.10.102**
-- Service Port: **443**
-- HTTP Profile (Client): **http**
-- SSL Profile(Client): **acme.com**
-- Source Address Translation: **Auto Map**
-- API Protection: **api-protection**
+   - Name: **api.acme.com**
+   - Destination Address/Mask: **10.1.10.102**
+   - Service Port: **443**
+   - HTTP Profile (Client): **http**
+   - SSL Profile(Client): **acme.com**
+   - Source Address Translation: **Auto Map**
+   - API Protection: **api-protection**
 
-4. Click **Finished**
+#. Click **Finished**
 
-|image20|
-|image22|
+   |image20|
+   |image22|
 
 
 Task 8 - Send a valid GET without a JWT to retrieve user1's attributes
@@ -792,9 +787,8 @@ Task 3 - Test Access to the new path
 .. |image1| image:: media/lab01/image001.png	
 .. |image2| image:: media/lab01/image002.png
 .. |image3| image:: media/lab01/image003.png
-.. |image4| image:: media/lab01/image004.png
-.. |image5| image:: media/lab01/image005.png
-	:width: 800px
+.. |image4| image:: media/lab01/004.png
+.. |image5| image:: media/lab01/005.png
 .. |image6| image:: media/lab01/image006.png
 	:width: 800px	
 .. |image7| image:: media/lab01/image007.png
@@ -804,7 +798,7 @@ Task 3 - Test Access to the new path
 .. |image11| image:: media/lab01/image011.png
 .. |image12| image:: media/lab01/image012.png
 	:width: 800px	
-.. |image13| image:: media/lab01/image013.png
+.. |image13| image:: media/lab01/013.png
 	:width: 800px	
 .. |image14| image:: media/lab01/image014.png
 	:width: 800px	
