@@ -357,8 +357,6 @@ Task - Access basic.acme.com
 
    |image39|
 
-#.   
-
 #. Click the **basic.acme.com** tile on the webtop
 
    |image40|

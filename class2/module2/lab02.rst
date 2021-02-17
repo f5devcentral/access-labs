@@ -78,7 +78,7 @@ In this section, you will create a custom header value to pass to the web server
 Task - Create Custom Header
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. click **Add**
+#. Click **Add**
 
    |image9|
 
@@ -213,11 +213,11 @@ Task - Configure Contextual Access for header-ocsp Group
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
 #. Enter **Domain Admins** in the Primary Authentication filter Group Name
-#. Click **Add** beside #. Click **Add** beside Domain Admins
+#. Click **Add** beside Domain Admins
 
    |image24|
 
-#. Check **Enable Additional Checks**
+#. Check **Additional Checks**
 #. Click **Add** under Additional Checks
 
    |image25|
@@ -293,7 +293,7 @@ Task - Login to header.acme.com using user2
 
    |image35|
 
-#. Notice the missing basic.acme tile because User2 is not a member of the required group to view the application
+#. Notice the missing basic.acme tile. User2 is not a member of the required group to view the application
 #. Click the **header.acme.com** tile     
 
    |image36|
