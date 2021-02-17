@@ -333,6 +333,7 @@ Task - Login to header.acme.com using user2
 .. |image3| image:: media/lab02/image003.png
 	:width: 1000px
 .. |image4| image:: media/lab02/image004.png
+.. |image4-1| image:: media/lab02/image004-1.png
 .. |image5| image:: media/lab02/image005.png
 .. |image6| image:: media/lab02/image006.png
 .. |image7| image:: media/lab02/image007.png
