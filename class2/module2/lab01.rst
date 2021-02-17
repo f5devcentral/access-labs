@@ -261,7 +261,6 @@ Task - Modify the Webtop setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Set the Primary Authentication to **ad**
-#. Set the Multi Factor Authentication to **Custom Radius based Authentication**
 #. Verify **basic.acme.com** is listed under Application
 #. Click **Save & Next**
 
@@ -284,17 +283,21 @@ Task - Create Contextual Access for basic.acme.com
 #. Select **fw_check** from the Device Posture dropdown box
 #. Select **ad** from the Primary Authentication dropdown box
 #. Select **basic_sso** from the Single Sign-On dropdown box
-#. Enter **Domain Admin** in the **Filter by Group Name**
-#. Click **Add** be side the **Group Name**
+#. Enter **Domain Admin** in the Filter by Group Name
+#. Click **Add** be side the Group Name
 
    |image32|
 
 #. Check **Enable Additional Checks**
-#. For the **Default Fallback** rule, select **Step Up** from the dropdown box under **Match Action**
+#. For the Default Fallback rule, select **Step Up** from the dropdown box under **Match Action**
 #. Select **Custom Radius based Authentication (MFA)** from the Step Up Authentication box
-#. Click **Save & Next**
+#. Click **Save**
 
    |image33|
+
+#. Verify **basic.acme.com** Contextual Access
+
+   |image33-2|
 
 
 
@@ -353,6 +356,8 @@ Task - Access basic.acme.com
 #. Click **Logon**
 
    |image39|
+
+#.   
 
 #. Click the **basic.acme.com** tile on the webtop
 
@@ -484,8 +489,6 @@ Task - Enable Windows Firewall
 .. |image31| image:: media/lab01/image031.png
 .. |image32| image:: media/lab01/image032.png
 .. |image33| image:: media/lab01/image033.png
-.. |image34| image:: media/lab01/image034.png
-.. |image35| image:: media/lab01/image035.png
 .. |image36| image:: media/lab01/image036.png
 .. |image37| image:: media/lab01/image037.png
 .. |image38| image:: media/lab01/image038.png

@@ -28,15 +28,14 @@ Task - Access the Zero Trust IAP guided configuration
 
    |image3|
 
-#. Click the **Config Properties** from the top ribbon
+#. Click **Config Properties** from the top ribbon
 
    |image4|
 
 #. Enable **Application Groups**
-
 #. Click **Save & Next**
 
-   |image4|
+   |image4-1|
 
 
 
@@ -119,7 +118,6 @@ Task - Configure Application header.acme.com
 
     |image13|
 
-#. On the Applications menu, verify the Auth Domain **iap1.acme.com**
 #. Verify **header.acme.com** was created and click **Save & Next**
 
    |image14|
@@ -196,7 +194,7 @@ Task - Configure Contextual Access for header_ad Group
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
 #. Enter **Sales Engineering** in the Primary Authentication filter Group Name
-#. Click **Add* beside Sales Engineering
+#. Click **Add** beside Sales Engineering
 
    |image22|
 
@@ -353,6 +351,7 @@ Task - Login to header.acme.com using user2
 .. |image20| image:: media/lab02/image020.png
 .. |image21| image:: media/lab02/image021.png
 .. |image22| image:: media/lab02/image022.png
+.. |image22-2| image:: media/lab02/image022-2.png
 .. |image23| image:: media/lab02/image023.png
 .. |image24| image:: media/lab02/image024.png
 .. |image25| image:: media/lab02/image025.png
