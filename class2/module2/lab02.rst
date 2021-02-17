@@ -193,8 +193,8 @@ Task - Configure Contextual Access for header_ad Group
 #. Select **header-ad** from the Resource dropdown
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
-#. Enter **Domain Users** in the Primary Authentication filter Group Name
-#. Click **Add** beside Domain Users
+#. Enter **Domain Admins** in the Primary Authentication filter Group Name
+#. Click **Add** beside Domain Admins
 #. Click **Save**
 
    |image22|
@@ -212,12 +212,8 @@ Task - Configure Contextual Access for header-ocsp Group
 #. Select **header-ocsp** from the Resource dropdown
 #. Select **ad** from the Primary Authentication dropdown
 #. Select **header_sso** from the HTTP_Header dropdown
-#. Enter **Domain Users** in the Primary Authentication filter Group Name
-#. Click **Add** beside Domain Users
-#. Click **Save**
-
-   |image24|
-
+#. Enter **Domain Admin** in the Primary Authentication filter Group Name
+#. Click **Add** beside #. Click **Add** beside Domain Users
 #. Click **Save**
 
    |image24|
@@ -241,7 +237,7 @@ Task - Configure Contextual Access for header-ocsp Group
 
    |image27|
 
-#. Click **Save** again to save the Contextual Access Properties for ocsp-header-iap.acme.com
+#. Click **Save** again to save the Contextual Access Properties for ocsp-header
 
    |image28|
 
