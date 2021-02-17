@@ -17,6 +17,7 @@ To access your dedicated student lab environment, you will require a web browser
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
 #. Login with the following credentials:
+
          - User: **f5lab\\user1**
          - Password: **user1**
 
@@ -30,7 +31,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image202|
 
-#. Hover over tile **Implement C3D with APM Enchancements**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **Deploy an API Protection Profile**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image203|
 
@@ -44,7 +45,7 @@ Task 2 - Create a Provider
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
 
-1# Navigate to Access >> Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
+#. Navigate to Access >> Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
 
    |image3|
 
@@ -206,15 +207,9 @@ Task 8 - Import Postman Collections
 Task 8 - Attempt to retrieve user1\'s attributes without JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the Jumpbox, open **Postman**
+#. Expand the **student-class3-module4-lab01** Collection
 
-   |image23|
-
-#. 
-
-#. Expand the **student-class3-module4-lab01** Collection, the **Agility 2020** Folder, and finally the **Lab API Requests subfolder**
-
-#. Select the request **No JWT-Retrieve User Attributes**
+#. Select the request **Request1: Retrieve User Attributes without JWT**  FIX PICTURE
 
    |image24|
 
@@ -229,39 +224,39 @@ Task 8 - Attempt to retrieve user1\'s attributes without JWT
 Task 8 - Attempt to retrieve user1\'s attributes a JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **Request1: Retrieve User Attributes without JWT**
+#. Select the request **Request2: Retrieve User Attributes with JWT**  
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab  FIX PICTURE
 
-|image43|
+   |image43|
 
-3. Click **Get New Access Token**
+#. Click **Get New Access Token**
 
-|image44|
+   |image44|
 
-4. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified
+#. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified.  FIX PICTURE
 
-5. Click **Request Token**
+#. Click **Request Token**
 
-|image27|
+   |image27|
 
-6. Login using Username: **user1**, Password: **user1**
+#. Login using Username: **user1**, Password: **user1**
 
-|image28|
+   |image28|
 
-7. Click **Use Token** at the top.
+#. Click **Use Token** at the top.
 
-|image29|
+   |image29|
 
-8. Notice the **Access Token** field is now populated
+#. Notice the **Access Token** field is now populated
 
-|image34|
+   |image34|
 
-9. Click **Send**
+#. Click **Send**
 
-10. You receive a **200 OK** response status code with attributes for user1 in the body of the response
+#. You receive a **200 OK** response status code with attributes for user1 in the body of the response
 
-|image31|
+   |image31|
 
 
 Task 9 - Send a valid GET with JWT to set user1's employeeNumber
