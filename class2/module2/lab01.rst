@@ -14,21 +14,6 @@ Expected time to complete: **1 hour**
 
 UDF blueprint version: **44**
 
-Setup Lab Environment
-----------------------------------------
-
-#. Open Google Chrome and click **Access.PORTAL** 
-
-   |image1|
-
-#. Click the Identity Aware Proxy play button
-
-
-#. All Steps in the collection should succeed before moving on to the lab.  If an API call fails run the collection again by repeating the previous step.  
-
-   |image2|
-
-
 
 Lab 1.1 - Access Guided Configuration
 ----------------------------------------
@@ -38,7 +23,15 @@ The first step in deploying the IAP is accessing Guided Configuration
 Task - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the webbrowser, click on the **Access** tab located on the left side.
+#. Open the Chrome, and click the **bigip1** bookmark
+
+   |image1|
+
+#. Login with username **admin** and password **admin**
+
+   |image2|
+
+#. Click on the **Access** tab located on the left side
 
    |image3|
 
@@ -65,7 +58,7 @@ Task - Access the Zero Trust IAP guided configuration
    Lab 1.2 - Device Posture 
 ------------------------------------------------
 
-In this section, you will configure the IAP to perform posture assessment from client devices.  
+In this section, you will configure the IAP policy to perform posture assessment from client devices.  
 
 Task - Select the component to configure for Lab 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -84,14 +77,14 @@ Task - Select the component to configure for Lab 1
 
    |image8|
 
-Task - Configure name of IAP Policy and enable Posture Checks
+Task - Enable Posture Checks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Check **Enable F5 Client Posture Check**
 
 #. select **ca.f5lab.local.crt** from the CA Trust Certificate dropdown list
 
-#. Select **add** to create a posture assessment group
+#. Select **Add** to create a posture assessment group
 
    |image9|
 
@@ -267,9 +260,9 @@ Lab 1.8 - Webtop
 Task - Modify the Webtop setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Set the ** Primary Authentication** to **ad**
-#. Set the **Multi Factor Authentication** to 
-#. Verify **basic.acme.com** is listed under **Application**
+#. Set the Primary Authentication to **ad**
+#. Set the Multi Factor Authentication to **Custom Radius based Authentication**
+#. Verify **basic.acme.com** is listed under Application
 #. Click **Save & Next**
 
    |image30|
@@ -291,25 +284,17 @@ Task - Create Contextual Access for basic.acme.com
 #. Select **fw_check** from the Device Posture dropdown box
 #. Select **ad** from the Primary Authentication dropdown box
 #. Select **basic_sso** from the Single Sign-On dropdown box
-#. Enter **domain admin** in the **Filter by Group Name**
+#. Enter **Domain Admin** in the **Filter by Group Name**
 #. Click **Add** be side the **Group Name**
 
    |image32|
 
 #. Check **Enable Additional Checks**
-#. Click **Add** inside the **Additional Checks** box
-   
-   |image33|
-
 #. For the **Default Fallback** rule, select **Step Up** from the dropdown box under **Match Action**
-
 #. Select **Custom Radius based Authentication (MFA)** from the Step Up Authentication box
-
-   |image34|
-
 #. Click **Save & Next**
 
-   |image35|
+   |image33|
 
 
 
