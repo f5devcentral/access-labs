@@ -1,7 +1,7 @@
 Lab1: Configure Identity Aware Proxy(16.0)
 ===========================================
 
-The 15.1 Zero Trust Architecture shifts many of the objects that would exist in a per-session policy to the per-request policy thereby creating a more secure authentication and authorization scheme. The authenticity of each request is further enhanced through the use of F5’s Access Guard agent installed on a client.  This agent provides a PKI signed report of the posture assessment performed on the client real-time rather than the historical way plug-ins reported status. Previously, after a user connected to an application they would experience a delay in access as the agent performed the posture assessment to provide an unsigned report to the BIG-IP. 
+The Zero Trust Architecture shifts many of the objects that would exist in a per-session policy to the per-request policy thereby creating a more secure authentication and authorization scheme. The authenticity of each request is further enhanced through the use of F5’s Access Guard agent installed on a client.  This agent provides a PKI signed report of the posture assessment performed on the client real-time rather than the historical way plug-ins reported status. Previously, after a user connected to an application they would experience a delay in access as the agent performed the posture assessment to provide an unsigned report to the BIG-IP. 
 
 Topics Covered
 ----------------
@@ -152,7 +152,6 @@ Task - Configure Active Directory AAA
 
 #. Select the **memberOf** in the Required Attributes box 
 #. Click **Save**
-#. Click **Save & Next**
 
    |image16|
 
@@ -174,7 +173,7 @@ Task - Configure a RADIUS AAA Server
 
    |image18|
 
-#. Select **Custom Radius Based**
+#. Double click **Custom Radius Based**
 
    |image19|
 
@@ -189,7 +188,7 @@ Task - Configure a RADIUS AAA Server
 
    |image21|
 
-#. Verify Custom RADIUS based Authentication appears
+#. Verify **Custom RADIUS based Authentication** appears
 #. Click **Save & Next**
 
    |image22|
@@ -288,7 +287,7 @@ Task - Create Contextual Access for basic.acme.com
 
    |image32|
 
-#. Check **Enable Additional Checks**
+#. Check **Additional Checks**
 #. For the Default Fallback rule, select **Step Up** from the dropdown box under **Match Action**
 #. Select **Custom Radius based Authentication (MFA)** from the Step Up Authentication box
 #. Click **Save**
@@ -296,6 +295,7 @@ Task - Create Contextual Access for basic.acme.com
    |image33|
 
 #. Verify **basic.acme.com** Contextual Access
+#. Click **Save & Next**
 
    |image33-2|
 
@@ -489,6 +489,7 @@ Task - Enable Windows Firewall
 .. |image31| image:: media/lab01/image031.png
 .. |image32| image:: media/lab01/image032.png
 .. |image33| image:: media/lab01/image033.png
+.. |image33-2| image:: media/lab01/image033-2.png
 .. |image36| image:: media/lab01/image036.png
 .. |image37| image:: media/lab01/image037.png
 .. |image38| image:: media/lab01/image038.png
