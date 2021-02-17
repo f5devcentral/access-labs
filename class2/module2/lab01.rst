@@ -282,7 +282,7 @@ Task - Create Contextual Access for basic.acme.com
 #. Select **fw_check** from the Device Posture dropdown box
 #. Select **ad** from the Primary Authentication dropdown box
 #. Select **basic_sso** from the Single Sign-On dropdown box
-#. Enter **Domain Admin** in the Filter by Group Name
+#. Enter **Sales Engineering** in the Filter by Group Name
 #. Click **Add** be side the Group Name
 
    |image32|
