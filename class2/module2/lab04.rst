@@ -118,6 +118,7 @@ Task - View the installed Extension
 
    |image13|
 
+   |image100|
 
 .. |image0| image:: media/lab04/image000.png
 .. |image1| image:: media/lab04/image001.png
@@ -133,4 +134,5 @@ Task - View the installed Extension
 .. |image11| image:: media/lab04/image011.png
 .. |image12| image:: media/lab04/image012.png
 .. |image13| image:: media/lab04/image013.png
+.. |image100| image:: media/lab04/image100.png
 

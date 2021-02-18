@@ -244,6 +244,7 @@ Task - Access basic.acme.com
 
    |image38|
 
+   |image100|
 
 .. |image0| image:: media/lab03/image000.png
 .. |image1| image:: media/lab03/image001.png
@@ -294,6 +295,7 @@ Task - Access basic.acme.com
 .. |image36| image:: media/lab03/image036.png
 .. |image37| image:: media/lab03/image037.png
 .. |image38| image:: media/lab03/image038.png
+.. |image100| image:: media/lab03/image100.png
 
 
 
