@@ -276,7 +276,7 @@ Task 9 -  Retrieve User1\'s Attributes with a JWT
 Task 10 - Set a Valid User Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request 3: Update a Valid User Attribute**
+#. Select the request **Request 4: Update a Valid User Attribute**
 
 #. Select the **Authorization** tab
 
@@ -300,7 +300,7 @@ Task 10 - Set a Valid User Attribute
 Task 11 - Set an Nonexistent User's Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request 4: Update a Nonexistent User Attribute**
+#. Select the request **Request 5: Update a Nonexistent User Attribute**
 
 #. Select the **Authorization** tab
 
@@ -310,7 +310,7 @@ Task 11 - Set an Nonexistent User's Attribute
 
 #. Click **Send**
 
-   .. note:: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
+   .. note:: If you receive a 403 response status code, request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
 
 #. You receive a **2O0 OK** response status code. The request successfully passed through the API Gateway, but the server failed to process the request.
 
@@ -320,7 +320,7 @@ Task 11 - Set an Nonexistent User's Attribute
 Task 12 - Update a Valid User with PUT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request5: Update a Valid User Attribute with PUT**
+#. Select the request **Request 6: Update a Valid User's Attribute with PUT**
 
 #. Select the **Authorization** tab
 
@@ -338,7 +338,7 @@ Task 12 - Update a Valid User with PUT
 Task 13 - Create a User
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request 6: Create a User**
+#. Select the request **Request 7: Create a User**
 
 #. Select the **Authorization** tab
 
@@ -356,7 +356,7 @@ Task 13 - Create a User
 Task 14 - Request invalid endpoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request 7: Request Invalid Endpoint**
+#. Select the request **Request 8: Request Invalid Endpoint**
 
 #. Select the **Authorization** tab
 
@@ -395,7 +395,7 @@ Task 1 - Retrieve Group Membership Subsession Variable
 
    |image84|
 
-#. From Postman, Select the request **Request 2: Retrieve User Attributes with JWT**.  The Authorization field should already be populated with User1's token.
+#. From Postman, Select the request **Request 3: Retrieve User Attributes with JWT**.  The Authorization field should already be populated with User1's token.
 
 #. Click **Send**
 
@@ -424,13 +424,9 @@ Task 2 - Edit the per-request policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#. Return to BIG-IP1's management interface in the browser and click on the **Access** tab located on the left side
+#. Return to BIG-IP1's management interface and navigate to Access  >> API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
 
    |image0|
-
-#. Navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
-
-   |image48|
 
 #. Click **Edit** Under Per-Request Policy
 
@@ -447,7 +443,7 @@ Task 2 - Edit the per-request policy
  
 #. Click the **+ (Plus Symbol)** on the POST /user branch
 
-   image50|
+   |image50|
 
 #. Click the **General Purpose** tab
 
