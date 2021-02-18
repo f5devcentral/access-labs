@@ -426,8 +426,6 @@ Task 2 - Edit the per-request policy
 
 #. Return to BIG-IP1's management interface and navigate to Access  >> API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
 
-   |image0|
-
 #. Click **Edit** Under Per-Request Policy
 
    |image49|
@@ -509,8 +507,6 @@ Task 3 - Test the Fine-Grained Access Control with user1
 
 2. Select the **Authorization** Tab
 
-|image43|
-
 3. Select the previously created **User1** token from the **Available Tokens** dropdown
 
 4. The **Token** field is now populated
@@ -525,7 +521,7 @@ Task 3 - Test the Fine-Grained Access Control with user1
 Task 4 - Test the Fine-Grained Access Control with user2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **JWT-Create User**
+1. Select the request **Request 7: Create User**
 
 2. Select the **Authorization** tab
 
@@ -872,7 +868,7 @@ Task 3 - Test Access to the new path
 .. |image48| image:: media/lab01/image048.png
 .. |image49| image:: media/lab01/image049.png
 	:width: 800px
-.. |image50| image:: media/lab01/image050.png
+.. |image50| image:: media/lab01/050.png
 .. |image51| image:: media/lab01/image051.png
 .. |image52| image:: media/lab01/image052.png
 .. |image53| image:: media/lab01/image053.png
@@ -880,11 +876,11 @@ Task 3 - Test Access to the new path
 .. |image55| image:: media/lab01/image055.png
 .. |image56| image:: media/lab01/image056.png
 	:width: 800px
-.. |image57| image:: media/lab01/image057.png
+.. |image57| image:: media/lab01/057.png
 .. |image58| image:: media/lab01/image058.png
 .. |image59| image:: media/lab01/image059.png
 .. |image60| image:: media/lab01/image060.png
-.. |image61| image:: media/lab01/image061.png
+.. |image61| image:: media/lab01/061.png
 	:width: 800px
 .. |image62| image:: media/lab01/image062.png
 .. |image63| image:: media/lab01/image063.png
@@ -899,7 +895,7 @@ Task 3 - Test Access to the new path
 .. |image70| image:: media/lab01/image070.png
 	:width: 1000px
 .. |image71| image:: media/lab01/image071.png
-.. |image72| image:: media/lab01/image072.png
+.. |image72| image:: media/lab01/072.png
 .. |image73| image:: media/lab01/image073.png
 .. |image75| image:: media/lab01/image075.png
 .. |image77| image:: media/lab01/image077.png
@@ -943,7 +939,7 @@ Task 3 - Test Access to the new path
 	:width: 800px
 .. |image99| image:: media/lab01/image099.png
 	:width: 800px
-.. |image101| image:: media/lab01/image101.png
+.. |image101| image:: media/lab01/101.png
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
 .. |image102| image:: media/lab01/image102.png
