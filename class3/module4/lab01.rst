@@ -477,8 +477,6 @@ Task 2 - Edit the per-request policy
 
 	expr {[mcget {subsession.oauth.scope.last.jwt.groups}] contains "CreateUser"}
 	
-	
-
    |image55|
 
 #. Click **Save**
@@ -503,7 +501,7 @@ Task 3 - Test the Fine-Grained Access Control with user1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-1. From Postman select the request **JWT-Create User**
+1. From Postman select the request **Request 7: Create User**
 
 2. Select the **Authorization** Tab
 
@@ -723,7 +721,7 @@ Task 5 - Test Rate Limiting
    |image99|
    
    
-Section 1.7 - Onboard a New API
+Section 1.5 - Onboard a New API
 ----------------------------------------
 
 Organizations change. With this change, new APIs are introduced requiring modifications to the API Gateway. In this section you will learn how to add additional paths.
@@ -884,7 +882,7 @@ Task 3 - Test Access to the new path
 	:width: 800px
 .. |image62| image:: media/lab01/image062.png
 .. |image63| image:: media/lab01/image063.png
-.. |image64| image:: media/lab01/image064.png
+.. |image64| image:: media/lab01/064.png
 .. |image65| image:: media/lab01/image065.png
 .. |image66| image:: media/lab01/image066.png
 	:width: 800px
@@ -924,20 +922,19 @@ Task 3 - Test Access to the new path
 .. |image91| image:: media/lab01/image091.png
 	:width: 800px
 .. |image92| image:: media/lab01/092.png
-	:width: 800px
 .. |image93| image:: media/lab01/image093.png
 	:width: 800px
 .. |image94| image:: media/lab01/image094.png
 	:width: 800px
-.. |image95| image:: media/lab01/image095.png
+.. |image95| image:: media/lab01/095.png
 	:width: 800px
 .. |image96| image:: media/lab01/image096.png
 	:width: 800px
 .. |image97| image:: media/lab01/image097.png
 	:width: 800px
-.. |image98| image:: media/lab01/image098.png
+.. |image98| image:: media/lab01/098.png
 	:width: 800px
-.. |image99| image:: media/lab01/image099.png
+.. |image99| image:: media/lab01/099.png
 	:width: 800px
 .. |image101| image:: media/lab01/101.png
 .. |image103| image:: media/lab01/image103.png
