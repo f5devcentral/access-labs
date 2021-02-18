@@ -1,7 +1,7 @@
 Lab3: Utilize HTTP Connector(16.0)
 ======================================================
 
-HTTP Connector is a new feature released in BIG-IP APM 15.1 that allows HTTP requests to be initiated from a Per-Request Policy.  This could be used to send a request to an API to retrieve additional information to make an access control decision, or send information to update an external resource.  
+HTTP Connector is a feature released in BIG-IP APM 15.1 that allows HTTP requests to be initiated from a Per-Request Policy.  This could be used to send a request to an API to retrieve additional information to make an access control decision, or send information to update an external resource.  
 
   
    Lab 3.1 - Create the HTTP Connector Request
@@ -130,12 +130,10 @@ Task - Add the HTTP Connector Request
 #. Under Value (Success Expression) enter **expr {[mcget {subsession.http_connector.body.userAccountControl}] == 66048 }**
 #. Select **Step Up** from the Match Action dropdown
 #. Select **Custom Radius based Authentication (MFA)** from the Step Up Authentication field
-#. Click **Save**
 
    |image18|
 
 #. Change the **Match Action** field for the **Default Fallback** rule to **Reject**
-#. Click **Save**
 
    |image19|
 

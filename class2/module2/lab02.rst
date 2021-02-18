@@ -307,7 +307,7 @@ Task - Login to header.acme.com using user2
 
    |image38|
 
-
+   |image100|
 
 
 .. |image0| image:: media/lab02/image000.png
@@ -353,6 +353,7 @@ Task - Login to header.acme.com using user2
 .. |image36| image:: media/lab02/image036.png
 .. |image37| image:: media/lab02/image037.png
 .. |image38| image:: media/lab02/image038.png
+.. |image100| image:: media/lab02/image100.png
 
 
 
