@@ -553,7 +553,7 @@ Section 1.4 - Implement Rate Limiting
 The API Protection Profile allows a BIG-IP administrator to throttle the amount of connections to an API through the use of Key Names.
 
 Task 1 - Test pre-rate limiting Access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From Postman, Select the request **Request 3: Retrieve User Attributes with JWT**
 
@@ -561,7 +561,7 @@ Task 1 - Test pre-rate limiting Access
 
    |image88|
 
-#. Click the **arrow** located to the right of the API Protection labs collection.
+#. Click the **arrow** located to the right of the student-class3-module-lab01 collection.
 
    |image89|
 
@@ -569,11 +569,11 @@ Task 1 - Test pre-rate limiting Access
 
    |image104|
 
-#. Deselect all requests except **JWT-Retrieve User Attributes**
+#. Deselect all requests except **Request 3: Retrieve User Attributes with JWT**
 
 #. Set the iterations to **100**
 
-#. Click **Run API Protection**
+#. Click the blue **Run Student-class....** button
 
    |image105|
 
@@ -923,7 +923,7 @@ Task 3 - Test Access to the new path
 	:width: 800px
 .. |image91| image:: media/lab01/image091.png
 	:width: 800px
-.. |image92| image:: media/lab01/image092.png
+.. |image92| image:: media/lab01/092.png
 	:width: 800px
 .. |image93| image:: media/lab01/image093.png
 	:width: 800px
@@ -945,8 +945,8 @@ Task 3 - Test Access to the new path
 .. |image102| image:: media/lab01/image102.png
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
-.. |image104| image:: media/lab01/image104.png
-.. |image105| image:: media/lab01/image105.png
+.. |image104| image:: media/lab01/104.png
+.. |image105| image:: media/lab01/105.png
 .. |image106| image:: media/lab01/106.png
 .. |image107| image:: media/lab01/107.png
 .. |image108| image:: media/lab01/108.png
