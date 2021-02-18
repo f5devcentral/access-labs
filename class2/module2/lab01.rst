@@ -1,7 +1,7 @@
 Lab1: Configure Identity Aware Proxy(16.0)
 ===========================================
 
-The 15.1 Zero Trust Architecture shifts many of the objects that would exist in a per-session policy to the per-request policy thereby creating a more secure authentication and authorization scheme. The authenticity of each request is further enhanced through the use of F5’s Access Guard agent installed on a client.  This agent provides a PKI signed report of the posture assessment performed on the client real-time rather than the historical way plug-ins reported status. Previously, after a user connected to an application they would experience a delay in access as the agent performed the posture assessment to provide an unsigned report to the BIG-IP. 
+The Zero Trust Architecture shifts many of the objects that would exist in a per-session policy to the per-request policy thereby creating a more secure authentication and authorization scheme. The authenticity of each request is further enhanced through the use of F5’s Access Guard agent installed on a client.  This agent provides a PKI signed report of the posture assessment performed on the client real-time rather than the historical way plug-ins reported status. Previously, after a user connected to an application they would experience a delay in access as the agent performed the posture assessment to provide an unsigned report to the BIG-IP. 
 
 Topics Covered
 ----------------
@@ -14,24 +14,6 @@ Expected time to complete: **1 hour**
 
 UDF blueprint version: **44**
 
-Setup Lab Environment
-----------------------------------------
-
-#. Click the **Command Prompt** shortcut to open the command prompt on the jumphost 
-
-   |image42|
-
-#. Type the command **cd C:\\labs\\class3\\postman** to navigate the Postman collection folder.
-
-
-#. Type the command **setup.bat**
-
-
-#. All Steps in the collection should succeed before moving on to the lab.  If an API call fails run the collection again by repeating the previous step.  
-
-   |image43|
-
-
 
 Lab 1.1 - Access Guided Configuration
 ----------------------------------------
@@ -41,47 +23,70 @@ The first step in deploying the IAP is accessing Guided Configuration
 Task - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the webbrowser, click on the **Access** tab located on the left side.
-
-   |image0|
-
-#. Click **Guided Configuration**
+#. Open the Chrome, and click the **bigip1** bookmark
 
    |image1|
 
-#. Click **Zero Trust**
+#. Login with username **admin** and password **admin**
 
    |image2|
 
-#. Click **Identity Aware Proxy**
+#. Click on the **Access** tab located on the left side
 
    |image3|
+
+#. Click **Guided Configuration**
+
+   |image4|
+
+#. Click **Zero Trust**
+
+   |image5|
+
+#. Click **Identity Aware Proxy**
+
+   |image6|
 
 #. Click **Next**
 
 
    .. NOTE::  Review the design considerations for deploying IAP in a **Single Proxy** versus a **Multi-proxy** solution.
 
-   |image4|
+   |image7|
    
    
    Lab 1.2 - Device Posture 
 ------------------------------------------------
 
-In this section, you will configure the IAP to perform posture assessment from client devices.  
+In this section, you will configure the IAP policy to perform posture assessment from client devices.  
 
-Task - Configure name of IAP Policy and enable Posture Checks
+Task - Select the component to configure for Lab 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Define the configuration name **IAP_DEMO**
+
+#. Click **Device Posture**
+
+#. Click **Multi Factor Authentication**
+
+#. Click **Single Sign-On (SSO)& HTTP Header**
+
+#. Click ***Webtop**
+
+#. Click **Save & Next**
+
+   |image8|
+
+Task - Enable Posture Checks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Check **Enable F5 Client Posture Check**
 
 #. select **ca.f5lab.local.crt** from the CA Trust Certificate dropdown list
 
-#. Select **add** to create a posture assessment group
+#. Select **Add** to create a posture assessment group
 
-   |image5|
+   |image9|
 
 Task - Define a firewall Posture Assessment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -92,7 +97,7 @@ Task - Define a firewall Posture Assessment
 #. Enter the Domain Name **f5lab.local** 
 #. Click **Done**
 
-   |image6|
+   |image10|
 
 
 Task - Verify the posture assessment 
@@ -101,7 +106,7 @@ Task - Verify the posture assessment
 #. The Posture Settings box should contain **FW_CHECK**
 #. Click **Save & Next**
 
-   |image7|
+   |image11|
    
    
    Lab 1.3 - Virtual Server
@@ -114,21 +119,15 @@ Task - Create a virtual server
 
 #. Click **Show Advanced Setting** located in the top right corner to expose the Server-Side SSL profile settings
 #. Enter the IP address **10.1.10.100**
+#. In the **Client SSL Profile** section, move **clientssl**  profile to **Available** side
+#. Double click the **acme.com-wildcard** to move the profile to **Selected**
 
-   |image8|
-
-
-#. Click the **Create New** radio button under Client SSL Profile
-#. Select **acme.com-wildcard** from the Client SSL certificate dropdown box
-#. Select **acme.com-wildcard** from the Associated Private Key dropdown box
-#. Select **ca.f5lab.local.crt** from the Trusted Certificate Authorities for Client Authentication drop down box
-
-   |image9|
+   |image12|
 
 #. In the **Server SSL Profile** section, move the **serverssl** SSL Profile to the **Selected** side (select item and then click the right-arrow)
 #. Click **Save & Next**
 
-   |image10|
+   |image13|
 
 
 Lab 1.4 - User Identity
@@ -139,19 +138,22 @@ In this section you will configure a single User Identity using Active Directory
 Task - Configure Active Directory AAA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Click **Add**
+
+   |image14|
+
 #. Enter **"ad"** for the name
 #. Ensure the Authentication Type is **AAA**
 #. Ensure the Choose Authentication Server Type is set to **Active Directory**
 #. Select **ad-servers** from the Choose Authentication Server dropdown box
 #. Check **Active Directory Query Properties**
+
+   |image15|
+
 #. Select the **memberOf** in the Required Attributes box 
 #. Click **Save**
-#. Click **Save & Next**
 
-|image11|
-
-
-
+   |image16|
 
 
 Lab 1.5 - MFA
@@ -163,30 +165,33 @@ In this section you will configure a RADIUS server to enable simulated MFA capab
 Task - Configure a RADIUS AAA Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Click the **MFA** tab
 
-#. Check **Enable MultiFactor Authentication**
+   |image17|
 
-   |image13|
+#. Click the **Add**
 
-#. Select **Custom Radius Based**
+   |image18|
 
-   |image14|
+#. Double click **Custom Radius Based**
+
+   |image19|
 
 #. Select **Create New** from the Choose RADIUS Server dropdown
 
-   |image15|
+   |image20|
 
 #. Enter the Server Pool Name **radius_pool**
 #. Enter the Server Address **10.1.20.8**
 #. Enter the Secret **secret**
 #. Click **Save**
 
-   |image16|
+   |image21|
 
-#. Verify Custom RADIUS based Authentication appears
+#. Verify **Custom RADIUS based Authentication** appears
 #. Click **Save & Next**
 
-   |image17|
+   |image22|
 
 	
 	Lab 1.6 - SSO & HTTP Header
@@ -198,31 +203,30 @@ Task - Create a HTTP basic SSO object
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#. Check **Enable Single Sign-On(Optional)**
+#. Click **Add**
 
-   |image18|
+   |image23|
 
 #. Enter the name **basic_sso**
 #. Verify **HTTP Basic** is selected
 #. Select **Create New** from the SSO Configuration Object dropdown box
 
-   |image19|
+   |image24|
 
 #. Verify the Username Source is **session.sso.token.last.username**
 #. Verify the Password Source is **session.sso.token.last.password**
 #. Click **Save**
 
-   |image20|
+   |image25|
 
 
 #. Verify the **basic_sso** object was created
 #. click **Save & Next**
 
-   |image21|
+   |image26|
 
 
 
-	
 
 Lab 1.7 - Applications
 ------------------------------------------------
@@ -232,26 +236,34 @@ In this section you will define a single application
 Task - Create basic.acme.com application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Enter Auth Domain **iap1.acme.com** 
+#. Click **Add**
+
+   |image27|
+
 #. Enter the **basic.acme.com** for the application name
 #. Enter the **basic.acme.com** for the FQDN
 #. Enter the IP address **10.1.20.6** for the pool member
 #. Click **Save** 
 
-|image22|
+   |image28|
 
-
-
-Lab 1.8 - Application Groups
-------------------------------------------------
-
-Application Groups will be covered in a later section of the lab.
-
-Task - Skip Application Group Section
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+#. Verfiy **basic.acme.com** application was created
 #. Click **Save & Next**
 
-|image28|
+   |image29|
+
+Lab 1.8 - Webtop
+------------------------------------------------
+
+Task - Modify the Webtop setting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Set the Primary Authentication to **ad**
+#. Verify **basic.acme.com** is listed under Application
+#. Click **Save & Next**
+
+   |image30|
 
 Lab 1.9 - Contextual Access
 ------------------------------------------------
@@ -261,25 +273,31 @@ In this section you will define contextual access for the previously created app
 Task - Create Contextual Access for basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Click **Add**
+
+   |image31|
 
 #. Enter **basic.acme.com** for the contextual access name
 #. Select **basic.acme.com** from the Resource dropdown box
 #. Select **fw_check** from the Device Posture dropdown box
 #. Select **ad** from the Primary Authentication dropdown box
 #. Select **basic_sso** from the Single Sign-On dropdown box
-#. Check **Enable Additional Checks**
+#. Enter **Sales Engineering** in the Filter by Group Name
+#. Click **Add** be side the Group Name
 
-   |image23|
+   |image32|
 
-#. For the **Default Fallback** rule, select **Step Up** from the dropdown box under **Match Action**
-
+#. Check **Additional Checks**
+#. For the Default Fallback rule, select **Step Up** from the dropdown box under **Match Action**
 #. Select **Custom Radius based Authentication (MFA)** from the Step Up Authentication box
+#. Click **Save**
 
-   |image24|
+   |image33|
 
+#. Verify **basic.acme.com** Contextual Access
 #. Click **Save & Next**
 
-   |image25|
+   |image33-2|
 
 
 
@@ -295,17 +313,15 @@ The default **remediation Page** URL uses the hostname site **request.com**.  Th
 
 #. Scroll down to the Remediation Page Section
 
-   |image29|
+   |image36|
 
 #. Enter the URL **https://iap1.acme.com/epi/downloads**
 
-   |image30|
+   |image37|
 
 #. Click **Save & Next**
 
-#. On the Logon Protection menu, Click **Save & Next**
-
-
+#. On the Session Management Properties menu, Click **Save & Next**
 
 
 Lab 1.11 - Summary
@@ -320,7 +336,7 @@ Task - Deploy the configuration
 
 #. Click **Deploy**
 
-   |image31|
+   |image38|
 
 #. Once the deployment is complete, click **Finish**
 
@@ -335,20 +351,24 @@ Task - Access basic.acme.com
 
 .. NOTE:: Posture Assessments in a Per-Request Policy use F5 Access Guard(running on clients) to perform posture assessments prior to accessing an application.  This improves the user experience since posture checks do not introduce any delay when accessing the application. This also improves security by allowing posture assessments to occur continuously throughout the life of the session.
 
-#. From the jumpbox, browse to https://basic.acme.com
+#. From the jumpbox, browse to https://iap1.acme.com
 #. At the logon page enter the Username:**user1** and Password:**user1**
 #. Click **Logon**
 
-   |image33|
+   |image39|
+
+#. Click the **basic.acme.com** tile on the webtop
+
+   |image40|
 
 
-#. The RADIUS logon page, prepopulates the username:**user1**.  Enter the PIN: **123456**
+#. The RADIUS logon page, prepopulates the username:**user1**.  Enter the PIN: **123456** in the password field
 
-   |image34|
+   |image41|
 
 #. The SSO profile passes the username and password to the website for logon.
 
-   |image35|
+   |image42|
 
 #. Close the browser Window to ensure there is not cached data
 
@@ -359,32 +379,39 @@ Task - Disable Windows Firewall
 
 #. Right click the computer icon in the taskbar and open **Network and Sharing Center**
 
-   |image36|
+   |image43|
 
 #. Click **Windows Firewall**
 
-   |image37|
+   |image44|
 
 #. Click **Turn Windows Firewall on or off**
 
-   |image38|
+   |image45|
 
 #. Click the radio button **Turn off Windows Firewall** under Public Network Settings
 #. Click **Ok**
 
-   |image39|
+   |image46|
 
 
-Task - See Deny Page basic.acme.com 
+Task - See Deny Page iap1.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the jumpbox, browse to https://basic.acme.com
+#. From the jumpbox, browse to https://iap1.acme.com
+#. At the logon page enter the Username:**user1** and Password:**user1**
+#. Click **Logon**
 
-#. Refresh the screen using the F5 key until the deny page appears.
+   |image39|
+
+#. Click the **basic.acme.com** tile on the webtop
+
+   |image40|
+
 
 #. After approximately 15 seconds you will receive a deny page from the IAP stating that you have failed the network firewall check
 
-   |image40|
+   |image47|
 
 #. Close the browser Window to ensure there is no cached data
 
@@ -394,25 +421,24 @@ Task - Enable Windows Firewall
 
 #. Right click the computer icon in the taskbar and open **Network and Sharing Center**
 
-   |image36|
+   |image43|
 
 #. Click **Windows Firewall**
 
-   |image37|
+   |image44|
 
 #. Click **Turn Windows Firewall on or off**
 
-   |image38|
+   |image45|
 
 #. Click the radio button **Turn on Windows Firewall** under Public Network Settings
 #. Click **Ok**
 
-   |image41|
+   |image48|
    
-#. From the jumpbox, browse to https://basic.acme.com to sure you can connect. 
+#. From the jumpbox, connect to https://iap1.acme.com webtop, and the access the **basic.acme.com** application
 
-
-
+   |image100|
 
 
 
@@ -438,6 +464,7 @@ Task - Enable Windows Firewall
 .. |image9| image:: media/lab01/image009.png
 .. |image10| image:: media/lab01/image010.png
 .. |image11| image:: media/lab01/image011.png
+.. |image12| image:: media/lab01/image012.png
 .. |image13| image:: media/lab01/image013.png
 .. |image14| image:: media/lab01/image014.png
 .. |image15| image:: media/lab01/image015.png
@@ -451,14 +478,15 @@ Task - Enable Windows Firewall
 .. |image23| image:: media/lab01/image023.png
 .. |image24| image:: media/lab01/image024.png
 .. |image25| image:: media/lab01/image025.png
+.. |image26| image:: media/lab01/image026.png
+.. |image27| image:: media/lab01/image027.png
 .. |image28| image:: media/lab01/image028.png
 .. |image29| image:: media/lab01/image029.png
 .. |image30| image:: media/lab01/image030.png
 .. |image31| image:: media/lab01/image031.png
 .. |image32| image:: media/lab01/image032.png
 .. |image33| image:: media/lab01/image033.png
-.. |image34| image:: media/lab01/image034.png
-.. |image35| image:: media/lab01/image035.png
+.. |image33-2| image:: media/lab01/image033-2.png
 .. |image36| image:: media/lab01/image036.png
 .. |image37| image:: media/lab01/image037.png
 .. |image38| image:: media/lab01/image038.png
@@ -467,5 +495,9 @@ Task - Enable Windows Firewall
 .. |image41| image:: media/lab01/image041.png
 .. |image42| image:: media/lab01/image042.png
 .. |image43| image:: media/lab01/image043.png
-
-
+.. |image44| image:: media/lab01/image044.png
+.. |image45| image:: media/lab01/image045.png
+.. |image46| image:: media/lab01/image046.png
+.. |image47| image:: media/lab01/image047.png
+.. |image48| image:: media/lab01/image048.png
+.. |image100| image:: media/lab01/image100.png
