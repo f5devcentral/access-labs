@@ -209,18 +209,29 @@ Task 7 - Import Postman Collections
 #. A collection called **student-class3-module4-lab01** will appear on the left side in Postman
 
 
-Task 8 - Attempt to Retrieve User1\'s Attributes without JWT
+Task 8 - Retreive your OAuth clientID
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Expand the **student-class3-module4-lab01** Collection
 
-#. Select the request **Request1: Retrieve User Attributes without JWT**  FIX PICTURE
+#. Select the request **Request1: Retrieve Postman ClientID** 
 
-   |image24|
+   |image112|
 
 #. Click **Send**
 
    |image25|
+
+#. You receive a *200 OK** with a response body.  The clientID is now stored as a Postman Variable to be used in future requests.
+
+   |image113|
+
+Task 9 - Attempt to Retrieve User1\'s Attributes without JWT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Select the request **Request2: Retrieve User Attributes without JWT** 
+
+#. Click **Send**
 
 #. You receive a **403 Forbidden** response status code since you do not have a valid JWT
 
@@ -229,7 +240,7 @@ Task 8 - Attempt to Retrieve User1\'s Attributes without JWT
 Task 9 -  Retrieve User1\'s Attributes with a JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request2: Retrieve User Attributes with JWT**  
+#. Select the request **Request3: Retrieve User Attributes with JWT**  
 
 #. Select the **Authorization** tab 
 
@@ -237,7 +248,7 @@ Task 9 -  Retrieve User1\'s Attributes with a JWT
 
    |image44|
 
-#. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified.  FIX PICTURE
+#. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified.  
 
 #. Click **Request Token**
 
@@ -319,7 +330,7 @@ Task 12 - Update a Valid User with PUT
 
 #. Click **Send**
 
-#. You receive a **403 Forbidden** response status code. This is expected because the PUT Method was not specified in the API Protection Profile for the path /aduser
+#. You receive a **403 Forbidden** response status code. This is expected because the PUT Method was not specified in the API Protection Profile for the path /user
 
    |image39|
 
@@ -468,7 +479,7 @@ Task 2 - Edit the per-request policy
 
 #. Click **Finished**
 
-   ..Note :: 
+   .. Note:: 
 
 	expr {[mcget {subsession.oauth.scope.last.jwt.groups}] contains "CreateUser"}
 	
@@ -950,7 +961,7 @@ Task 3 - Test Access to the new path
 .. |image109| image:: media/lab01/109.png
 .. |image110| image:: media/lab01/110.png
 .. |image111| image:: media/lab01/111.png
-
+.. |image112| image:: media/lab01/112.png
 .. |image200| image:: media/lab01/200.png
 .. |image201| image:: media/lab01/201.png
 .. |image202| image:: media/lab01/202.png
