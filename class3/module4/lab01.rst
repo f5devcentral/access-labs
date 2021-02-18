@@ -547,7 +547,7 @@ Task 4 - Test the Fine-Grained Access Control with user2
 |image46|
 
 
-Section 1.6 - Implement Rate Limiting
+Section 1.4 - Implement Rate Limiting
 ----------------------------------------
 
 The API Protection Profile allows a BIG-IP administrator to throttle the amount of connections to an API through the use of Key Names.
@@ -555,7 +555,7 @@ The API Protection Profile allows a BIG-IP administrator to throttle the amount 
 Task 1 - Test pre-rate limiting Access
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-
 
-#. From Postman, Select the request **JWT-Retrieve User Attributes**
+#. From Postman, Select the request **Request 3: Retrieve User Attributes with JWT**
 
 #. Click **Save**, so the current token is saved as part of the API request.
 
@@ -916,9 +916,9 @@ Task 3 - Test Access to the new path
 	:width: 1200px
 .. |image87| image:: media/lab01/image087.png
 	:width: 1200px
-.. |image88| image:: media/lab01/image088.png
+.. |image88| image:: media/lab01/088.png
 	:width: 800px
-.. |image89| image:: media/lab01/image089.png
+.. |image89| image:: media/lab01/089.png
 .. |image90| image:: media/lab01/image090.png
 	:width: 800px
 .. |image91| image:: media/lab01/image091.png
