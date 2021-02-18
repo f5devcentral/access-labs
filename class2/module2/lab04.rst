@@ -6,7 +6,7 @@ F5 Access Guard is a new set of client software tools designed to help administr
 APM has included posture checking capability since its inception, and this new service improves upon this capability by allowing for instantaneous and continuous checks. Deployment of F5 Access Guard is significantly different than previous posture check implementations.
 
    
-   Lab 4.1 - XML Configuration File
+Lab 4.1 - XML Configuration File
 -----------------------------------
 
 The F5 AccessGuardServiceConfig.xml file defines the settings used by the AccessGuard Service.  This file contains settings for the signing certificate, timers, checks performed and websites posture data can be sent to.
@@ -109,8 +109,8 @@ Task - View the installed Extension
 
    |image11|
 
-#. Access the website **https://basic.acme.com**
-#. Click on the request **basic.acme.com** under the network tab.
+#. Access the website **https://ipa1.acme.com**
+#. Click on the request **ipa1.acme.com** under the network tab.
 
    |image12|
 
@@ -118,6 +118,7 @@ Task - View the installed Extension
 
    |image13|
 
+   |image100|
 
 .. |image0| image:: media/lab04/image000.png
 .. |image1| image:: media/lab04/image001.png
@@ -133,4 +134,5 @@ Task - View the installed Extension
 .. |image11| image:: media/lab04/image011.png
 .. |image12| image:: media/lab04/image012.png
 .. |image13| image:: media/lab04/image013.png
+.. |image100| image:: media/lab04/image100.png
 
