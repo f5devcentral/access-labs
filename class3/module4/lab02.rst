@@ -241,16 +241,13 @@ block bot traffic. Keep in mind that the bot profile allows for fine-grained con
 
    |module2Lab2Task2-image3| 
 
-   Why was this request not blocked?
-
-   To understand this, we must take a closer look at the Mitigation Settings.
+   .. note:: Why was this request not blocked? To understand this, we must take a closer look at the Mitigation Settings.
    
 #. Navigate to **Security -> Bot Defense -> Bot Defense Profiles -> api.acme.com_botprofile -> Bot Mitigation Settings** and examine the **Unknown** categorization, note that bots that are of category Unknown are simply rate limited.
 
    |module2Lab2Task2-image4|
 
-
-#. Go back to **Postman** once again and click on the **Arrow** next to the **student-class3-module4-02 collection to open **Runner** at the top. 
+#. Go back to **Postman** once again, click on the **Arrow** in the right corner of the collection **student-class3-module4-lab02** collection to open **Runner**.  
 
    |image007|
 
@@ -286,7 +283,7 @@ block bot traffic. Keep in mind that the bot profile allows for fine-grained con
 
 #. Click **Save**.
 
-#. Go back to Postman once again and select the request **Retrieve Phone and Mail Attributes** and click **Send** another time. Note this is done at the main Postman window, not in Runner.
+#. Go back to Postman once again and select the request **Request 1: Retrieve Attributes** and click **Send** another time. Note this is done at the main Postman window, not in Runner.
 
 
 #. Navigate to **Security -> Event Logs -> Bot Defense -> Bot Requests** and find the Trusted Bot categorized request to the /vulnerable uri as shown below
@@ -311,17 +308,11 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 
    |module2Lab3Task1-image2|
 
-
-
 #. Run the following command **curl -k "https://api.acme.com/vulnerable?Inject=|powershell%20badprogram.ps1" -v**
 
+	.. note:: Pay special attention to the double quotes ("") around the url.
 
-
-	**Pay special attention to the double quotes ("") around the url.**
-
-
-#. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. 
-Locate the parameter value **|powershell badprogram.ps1**. Click the parameter and then hover over the parameter value and additional details will describe this part of the attack.
+#. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Locate the parameter value **|powershell badprogram.ps1**. Click the parameter and then hover over the parameter value and additional details will describe this part of the attack.
 
    |module2Lab3Task1-image3|
 
@@ -332,7 +323,6 @@ Locate the parameter value **|powershell badprogram.ps1**. Click the parameter a
 #. Next hover over the **User-Agent** portion of the request.
 
    |module2Lab3Task1-image4|
-
 
 	Notice the user-agent is curl, which may be a legitimate client. Make note of this.
 
@@ -365,13 +355,13 @@ Locate the parameter value **|powershell badprogram.ps1**. Click the parameter a
 
 #. For the Attack Signature Name enter **Automated client access "curl"** and click **Apply Filter**.
 
-|module2Lab3Task1-image9|
+   |module2Lab3Task1-image9|
 
-|
 
-The result is
 
-|module2Lab3Task1-image10|
+   The result is
+
+   |module2Lab3Task1-image10|
 
 #. Select this signature and click **Disable**
 
@@ -380,11 +370,11 @@ The result is
 
 #. Click **General Settings** and scroll down to "Enforcement Mode" and change it to "Blocking." Click Save and then Apply the Policy
 
-|module2Lab3Task1-image12|
+   |module2Lab3Task1-image12|
 
 #. Once again run the following command **curl -k "https://api.acme.com/vulnerable?Inject=|powershell%20badprogram.ps1" -v**
 
-**Pay special attention to the double quotes ("") around the url.**
+   **Pay special attention to the double quotes ("") around the url.**
 
 #. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request.
 
@@ -406,7 +396,7 @@ The result is
 
 
 
- **curl -k "https://api.acme.com/vulnerable?param1=|legitimate%20value" -v**
+   **curl -k "https://api.acme.com/vulnerable?param1=|legitimate%20value" -v**
 
 #. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Notice the **|** is considered illegal. However its not blocked, the Enforcement Action is None
 
