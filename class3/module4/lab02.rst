@@ -342,7 +342,6 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 
    |module2Lab3Task1-image7|
 
-
 #. Navigate to Security -> Application Security -> Security Policies -> **Policies List**.
 
 #. Click  **api-protection** 
@@ -357,8 +356,6 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 
    |module2Lab3Task1-image9|
 
-
-
    The result is
 
    |module2Lab3Task1-image10|
@@ -366,7 +363,6 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 #. Select this signature and click **Disable**
 
    |module2Lab3Task1-image11|
-
 
 #. Click **General Settings** and scroll down to "Enforcement Mode" and change it to "Blocking." Click Save and then Apply the Policy
 
@@ -386,7 +382,6 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 
    |module2Lab3Task1-image14|
 
-
    Powershell execution via http parameters is now mitigated. If you noticed in the request, that the **|** is considered illegal.
    What if that character was a legitimate value for a parameter?
 
@@ -394,9 +389,8 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 
 #. Go back to the command prompt on the jumphost and run
 
-
-
    **curl -k "https://api.acme.com/vulnerable?param1=|legitimate%20value" -v**
+   |
 
 #. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Notice the **|** is considered illegal. However its not blocked, the Enforcement Action is None
 
@@ -411,6 +405,7 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 #. Go back to the command prompt on the jumphost and run 
 
    **curl -k "https://api.acme.com/vulnerable?param1=|legitimate%20value" -v**
+   |
 
 #. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Notice the **|** is considered illegal and is now blocked.
 
@@ -420,11 +415,11 @@ Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 Task 2 - Implement Static Parameter values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From Postman, click "Send" on the **SSRF Attack-Dummy** request.  Notice you get content from restapiexammple.com via api.acme.com/vulnerable.  This endpoint is vulnerable to Server Side Request Forgery attacks
+#. From Postman, click "Send" on the **Request 2: SSRF Attack-Google* request.  Notice you get content from restapiexammple.com via api.acme.com/vulnerable.  This endpoint is vulnerable to Server Side Request Forgery attacks
 
    |image118|
 
-#. From Postman, run **SSRF Attack-unprotected-json**. This site contains example ID and keys in JSON format.  Hackers will uses your servers as a jump off point to gain access to internal resources 
+#. From Postman, run **Request 3: SSRF Attack-unprotected-json**. This site contains example ID and keys in JSON format.  Hackers will uses your servers as a jump off point to gain access to internal resources 
 
    |image119|
 
@@ -441,7 +436,7 @@ Task 2 - Implement Static Parameter values
 #. Enter the Name **uri**
 #. Uncheck **Perform Staging**
 #. From the Parameter Value Type dropdown select **Static Content Value**
-#. Enter **http://dummy.restapiexample.com/api/v1/employees** for the New Static Value 
+#. Enter **https://www.google.com** for the New Static Value 
 #. Click **Add**
 #. Click **Create**
 
@@ -449,9 +444,9 @@ Task 2 - Implement Static Parameter values
 
 #. Click **Apply Policy**
 
-#. From Postman, run **SSRF Attack-Dummy**.  Access to Google is still allowed.
+#. From Postman, run **Request 2: SSRF Attack-Google**.  Access to Google is still allowed.
 
-#. From Post, run **SSRF Attack-unprotected-json**. This site is now blocked as intended
+#. From Post, run **Request 3: SSRF Attack-unprotected-json**. This site is now blocked as intended
 
    |image123|
 
@@ -498,9 +493,9 @@ Task 2 - Implement Static Parameter values
 	:width: 400px
 .. |image117| image:: media/lab02/image117.png
 	:width: 400px
-.. |image118| image:: media/lab02/image118.png
+.. |image118| image:: media/lab02/118.png
 	:width: 800px
-.. |image119| image:: media/lab02/image119.png
+.. |image119| image:: media/lab02/119.png
 	:width: 800px
 .. |image120| image:: media/lab02/image120.png
 	:width: 800px
