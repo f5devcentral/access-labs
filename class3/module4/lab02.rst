@@ -4,7 +4,7 @@ Lab 2: Additional Security - Bot Defense and WAF
 The API protection profile provides authorization and basic WAF policy to protect an API. This module will demonstrate how to layer on additional protections to further validate what is accessing the API and that the client is behaving within the norms of the API.
 
 
-Section 2.1 - Prepping the Lab
+Section 2.1 - Setup Lab Environment
 ----------------------------------------
 
 By default, security events are not logged, in this lab the student will create a security logging profile with Application Security, Bot Defense and DOS Protection enabled.
@@ -13,7 +13,9 @@ The student will also place the waf policy in trasnparent to show the difference
 Task 1 - Add Vulnerable API 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the web browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
+.. note:: Ensure you are logged into BIGIP1
+
+#. From the web browser, navigate to Access >> API Protection >> Profile.  Click **Profile** to modify the existing profile **api-protection** Profile (not the + Plus symbol)
 
    |image48|
 
@@ -98,8 +100,6 @@ Task 1 - Add Vulnerable API
 
 Task 2 - Create and assign a Security Logging Profile to the virtual
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-..note :: Ensure you are logged into BIGIP1
 
 #. From the web browser, click on the **Security -> Event Logs -> Logging Profile** and click **Create**.
 
@@ -467,9 +467,9 @@ Task 1 - Implement Static Parameter values
 ..
 .. |image0| image:: media/lab02/image000.png
 .. |image48| image:: media/lab02/image048.png
-.. |image49| image:: media/lab02/image049.png
+.. |image49| image:: media/lab02/049.png
 .. |image64| image:: media/lab02/image064.png
-.. |image101| image:: media/lab02/image101.png
+.. |image101| image:: media/lab02/101.png
 	:width: 800px
 .. |image102| image:: media/lab02/image102.png
 	:width: 800px
@@ -480,14 +480,13 @@ Task 1 - Implement Static Parameter values
 .. |image107| image:: media/lab02/image107.png
 .. |image108| image:: media/lab02/image108.png
 .. |image109| image:: media/lab02/image109.png
-.. |image110| image:: media/lab02/image110.png
-	:width: 800px
+.. |image110| image:: media/lab02/110.png
 .. |image111| image:: media/lab02/image111.png
 .. |image112| image:: media/lab02/image112.png
 .. |image113| image:: media/lab02/image113.png
 	:width: 1200px
 .. |image114| image:: media/lab02/image114.png
-.. |image115| image:: media/lab02/image115.png
+.. |image115| image:: media/lab02/115.png
 	:width: 1200px
 
 .. |image116| image:: media/lab02/image116.png
@@ -511,9 +510,9 @@ Task 1 - Implement Static Parameter values
 
 
 ..  |module2Lab1Task3-image2| image:: media/lab02/module2Lab1Task3-image2.png
-        :width: 800
+        :width: 800px
 ..  |module2Lab1Task3-image1| image:: media/lab02/module2Lab1Task3-image1.png
-        :width: 800
+        :width: 800pz
 ..  |module2Lab1Task2-image5| image:: media/lab02/module2Lab1Task1-image5.png
         :width: 400px
 ..  |module2Lab1Task2-image4| image:: media/lab02/module2Lab1Task1-image4.png
