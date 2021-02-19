@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "2818b3bd-93da-4822-b64c-45fa95dd58f2",
+		"_postman_id": "5eec5341-0597-4652-910d-261ed43fa18c",
 		"name": "student-class3-module4-lab02",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "Request 1: Retrieve Phone and Mail Attributes",
+			"name": "Request 1: Retrieve Attributes",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -32,12 +32,12 @@
 			"response": []
 		},
 		{
-			"name": "Request 2: SSRF Attack - Dummy",
+			"name": "Request 2: SSRF Attack - Google",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser&uri=http://dummy.restapiexample.com/api/v1/employees",
+					"raw": "https://api.acme.com/vulnerable?useridentity=hackeduser&uri=https://www.google.com",
 					"protocol": "https",
 					"host": [
 						"api",
@@ -54,7 +54,7 @@
 						},
 						{
 							"key": "uri",
-							"value": "http://dummy.restapiexample.com/api/v1/employees"
+							"value": "https://www.google.com"
 						}
 					]
 				}
