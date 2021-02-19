@@ -10,7 +10,38 @@ Section 2.1 - Setup Lab Environment
 By default, security events are not logged, in this lab the student will create a security logging profile with Application Security, Bot Defense and DOS Protection enabled.
 The student will also place the waf policy in trasnparent to show the difference in behavior when client traffic that is deemed malicious is and is not blocked.
 
-Task 1 - Add Vulnerable API 
+
+Task 1 - Import Postman Collection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
+
+    |image001|
+
+#. Click **Yes** if prompted for "Do you want to allow this app to make changes to your device?"
+
+    |image002|
+
+#. Click **Import** located on the top left of the Postman application
+
+    |image003|
+
+#.  Click **Upload Files** 
+
+    |image004|
+
+#. Navigate to C:\\access-labs\\class3\\module4\\student_files, select **student-class3-module4-lab02.postman_collection.json**, and click **Open**
+
+    |image005|
+
+#.  Click **Import**
+
+    |image006|
+
+#. A collection called **student-class3-module4-lab02** will appear on the left side in Postman
+
+
+Task 2 - Add Vulnerable API 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note:: Ensure you are logged into BIGIP1
@@ -96,9 +127,10 @@ Task 1 - Add Vulnerable API
    |image115|
 
 
+Section 2.2 - Create and Assign Profiles
+-------------------------------------------
 
-
-Task 2 - Create and assign a Security Logging Profile to the virtual
+Task 1 - Create and assign a Security Logging Profile to the virtual
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, click on the **Security -> Event Logs -> Logging Profile** and click **Create**.
@@ -131,7 +163,7 @@ Task 2 - Create and assign a Security Logging Profile to the virtual
 #. Click **Update**. The virtual will now log Application Security, DoS and Bot related events under **Security -> Event Logs** when an appropriate security profiles have been applied to the virtual.
 
 
-Task 3 - Set the WAF policy to Transparent and assign it to the virtual
+Task 2 - Set the WAF policy to Transparent and assign it to the virtual
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, click on the Security -> Application Security -> Security Policies -> Policies List. Click  **api-protection**. Scroll down and you'll notice the Enforcement Mode is set to **Blocking**. Set the Enforcement Mode to **Transparent**. Be sure to click **Save**, then **Apply Policy**.
@@ -145,18 +177,15 @@ Task 3 - Set the WAF policy to Transparent and assign it to the virtual
 #. Click **Update**.
 
 
-Section 2.2 - Create and Configure a Bot Defense Profile in Transparent Mode
-----------------------------------------------------------------------------------
+
+Task 3 - Create and assign a Bot Defense Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 An api's clients, unlike a typical web application, will often be non-human, maybe even exclusively.
 This leaves bot defense more difficult to configure in an api protection scenario, for instance javascript such as captcha cannot be used to proactively determine whether the client is human.
 In this lab, we demonstrate some scenarios the admin may encounter and how to address them.
 
-
-Task 1 - Create and assign a Bot Defense Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-.. note :: Ensure you are logged into BIGIP1
+..note :: Ensure you are logged into BIGIP1
 
 #. From the web browser, click on the **Security -> Bot Defense -> Bot Defense Profiles** and click **Create**.
 
@@ -175,6 +204,17 @@ For **Bot Defense Profile** select **Enabled** and select **api.acme.com_botprof
 
    |module2Lab2Task1-image2|
 
+
+
+
+Section 2.3 - Test Bot Protection
+-------------------------------------------
+
+
+Task 1 - Test Bot Protection in Transparent Mode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
 #. Now we will test the Bot Defense Profile to see how it affects clients. Go to **Postman** once again and select the request **Retrieve Phone and Mail Attributes** and click **Send**.
 
 #. Return to the bigip01 gui and navigate to **Security -> Event Logs -> Bot Defense -> Bot Requests** and find the request to the /vulnerable uri as shown below
@@ -182,7 +222,7 @@ For **Bot Defense Profile** select **Enabled** and select **api.acme.com_botprof
    |module2Lab2Task1-image4|
 
 
-   .. note :: The student should pay special attention to the Request Status, Mitigation Action and Bot Class. Bot Class will be one of the categories found in **Security -> Bot Defense -> Bot Defense Profiles -> api.acme.com_botprofile -> Bot Mitigation Settings** under **Mitigation Settings**.
+   ..note :: The student should pay special attention to the Request Status, Mitigation Action and Bot Class. Bot Class will be one of the categories found in **Security -> Bot Defense -> Bot Defense Profiles -> api.acme.com_botprofile -> Bot Mitigation Settings** under **Mitigation Settings**.
 
 
 Task 2 - Place Bot Profile in blocking and allow appropriate clients
@@ -257,7 +297,7 @@ block bot traffic. Keep in mind that the bot profile allows for fine-grained con
    |module2Lab2Task2-image11|
 
 
-Section 2.3 - Tweaking the WAF Policy to provide additional security
+Section 2.4 - Layer on WAF to provide additional security
 ----------------------------------------------------------------------------
 
 
@@ -269,23 +309,20 @@ Meta-character enforcement allows the WAF admin to enforce which characters are 
 Task 1 - Configure Attack Signatures and Change WAF Policy to Blocking
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note :: Ensure you are logged into BIGIP1
-
-
-1. Open a command prompt on the jumphost (a shortcut is on the desktop) 
+#. Open a command prompt on the jumphost (a shortcut is on the desktop) 
 
    |module2Lab3Task1-image2|
 
 
 
-2. Run the following command **curl -k "https://api.acme.com/vulnerable?Inject=|powershell%20badprogram.ps1" -v**
+#. Run the following command **curl -k "https://api.acme.com/vulnerable?Inject=|powershell%20badprogram.ps1" -v**
 
 
 
 	**Pay special attention to the double quotes ("") around the url.**
 
 
-3. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. 
+#. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. 
 Locate the parameter value **|powershell badprogram.ps1**. Click the parameter and then hover over the parameter value and additional details will describe this part of the attack.
 
    |module2Lab3Task1-image3|
@@ -294,7 +331,7 @@ Locate the parameter value **|powershell badprogram.ps1**. Click the parameter a
 
 	The F5 WAF highlights the part of the request it detects as malicious based on the policy's configuration. This can be very useful for learning and troubleshooting purposes.
 
-4. Next hover over the **User-Agent** portion of the request.
+#. Next hover over the **User-Agent** portion of the request.
 
    |module2Lab3Task1-image4|
 
@@ -305,32 +342,30 @@ Locate the parameter value **|powershell badprogram.ps1**. Click the parameter a
 	
 	In your environment, you must decide what is legitimate and what is illegitimate traffic, the F5 WAF can guide you via learning and help eliminate noise using Bot Defense, however to increase security beyond a basic WAF policy, understanding the application is needed.
 
-5. Click on the  **Security -> Application Security -> Policy Building -> Learning and Blocking Settings -> Attack Signatures** and click Change
+#. Click on the  **Security -> Application Security -> Policy Building -> Learning and Blocking Settings -> Attack Signatures** and click Change
 
-|module2Lab3Task1-image5|
+   |module2Lab3Task1-image5|
 
-6. Enable **Command Execution Signatures** and click **Change**
+#. Enable **Command Execution Signatures** and click **Change**
 
-|module2Lab3Task1-image6|
+   |module2Lab3Task1-image6|
 
-7. Scroll to the bottom anc click **Save**.
+#. Scroll to the bottom anc click **Save**.
 
-|module2Lab3Task1-image7|
-
-
-8. Navigate to Security -> Application Security -> Security Policies -> **Policies List**.
-
-9. Click  **api-protection** 
-
-10. Click **Attack Signatures** 
-
-11. Click the filter icon to easily locate the **Automated client access "curl"** signature.
+   |module2Lab3Task1-image7|
 
 
+#. Navigate to Security -> Application Security -> Security Policies -> **Policies List**.
 
-|module2Lab3Task1-image8| 
+#. Click  **api-protection** 
 
-12. For the Attack Signature Name enter **Automated client access "curl"** and click **Apply Filter**.
+#. Click **Attack Signatures** 
+
+#. Click the filter icon to easily locate the **Automated client access "curl"** signature.
+
+   |module2Lab3Task1-image8| 
+
+#. For the Attack Signature Name enter **Automated client access "curl"** and click **Apply Filter**.
 
 |module2Lab3Task1-image9|
 
@@ -340,132 +375,113 @@ The result is
 
 |module2Lab3Task1-image10|
 
-13. Select this signature and click **Disable**
+#. Select this signature and click **Disable**
 
-|module2Lab3Task1-image11|
+   |module2Lab3Task1-image11|
 
 
-14. Click **General Settings** and scroll down to "Enforcement Mode" and change it to "Blocking." Click Save and then Apply the Policy
+#. Click **General Settings** and scroll down to "Enforcement Mode" and change it to "Blocking." Click Save and then Apply the Policy
 
 |module2Lab3Task1-image12|
 
-15. Once again run the following command **curl -k "https://api.acme.com/vulnerable?Inject=|powershell%20badprogram.ps1" -v**
-
-
+#. Once again run the following command **curl -k "https://api.acme.com/vulnerable?Inject=|powershell%20badprogram.ps1" -v**
 
 **Pay special attention to the double quotes ("") around the url.**
 
+#. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request.
+
+   |module2Lab3Task1-image13|
+
+   Notice the enforcement action is still **None** but also notice the user-agent curl is no longer highlighted (since the signature was disabled). We changed the Policy to Blocking so why wasn't the request blocked? Hint: Click the "1" under Occurrences and you'll see the current status of the Attack Signature.
+
+#. Hover over the highlighted payload and notice that the powershell attack signature is triggered.
+
+   |module2Lab3Task1-image14|
 
 
-16. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request.
+   Powershell execution via http parameters is now mitigated. If you noticed in the request, that the **|** is considered illegal.
+   What if that character was a legitimate value for a parameter?
 
-|module2Lab3Task1-image13|
+   |module2Lab3Task1-image15|
 
-
-
-Notice the enforcement action is still **None** but also notice the user-agent curl is no longer highlighted (since the signature was disabled). We changed the Policy to Blocking so why wasn't the request blocked? Hint: Click the "1" under Occurrences and you'll see the current status of the Attack Signature.
-
-17. Hover over the highlighted payload and notice that the powershell attack signature is triggered.
-
-|module2Lab3Task1-image14|
+#. Go back to the command prompt on the jumphost and run
 
 
-Powershell execution via http parameters is now mitigated. If you noticed in the request, that the **|** is considered illegal.
-What if that character was a legitimate value for a parameter?
-
-|module2Lab3Task1-image15|
-
-
-
-18. Go back to the command prompt on the jumphost and run
-
-|
 
  **curl -k "https://api.acme.com/vulnerable?param1=|legitimate%20value" -v**
 
-19. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Notice the **|** is considered illegal. However its not blocked, the Enforcement Action is None
+#. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Notice the **|** is considered illegal. However its not blocked, the Enforcement Action is None
 
-|module2Lab3Task1-image16|
+   |module2Lab3Task1-image16|
 
-20. To see why this parameter character violation is not being blocked, but is being logged (alarmed). Navaigate to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings -> Parameters** and enable the **Block** column for the **Illegal meta character in value** under the Parameters Section
+#. To see why this parameter character violation is not being blocked, but is being logged (alarmed). Navaigate to **Security -> Application Security -> Policy Building -> Learning and Blocking Settings -> Parameters** and enable the **Block** column for the **Illegal meta character in value** under the Parameters Section
 
-|module2Lab3Task1-image17|
+   |module2Lab3Task1-image17|
 
-|
+#. Click **Save** then **Apply Policy**
 
-21. Click **Save** then **Apply Policy**
+#. Go back to the command prompt on the jumphost and run 
 
-22. Go back to the command prompt on the jumphost and run 
+   **curl -k "https://api.acme.com/vulnerable?param1=|legitimate%20value" -v**
 
-|
+#. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Notice the **|** is considered illegal and is now blocked.
 
-**curl -k "https://api.acme.com/vulnerable?param1=|legitimate%20value" -v**
-
-23. Navigate to **Security -> Event Logs -> Application -> Requests** and find this latest request. Notice the **|** is considered illegal and is now blocked.
-
-|module2Lab3Task1-image18|
+   |module2Lab3Task1-image18|
 
 
-Section 2.4 - Protect against a SSRF attack
------------------------------------------------
-
-
-
-Task 1 - Implement Static Parameter values
+Task 2 - Implement Static Parameter values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 
-1. From Postman, click "Send" on the **SSRF Attack-Dummy** request.  Notice you get content from restapiexammple.com via api.acme.com/vulnerable.  This endpoint is vulnerable to Server Side Request Forgery attacks
+#. From Postman, click "Send" on the **SSRF Attack-Dummy** request.  Notice you get content from restapiexammple.com via api.acme.com/vulnerable.  This endpoint is vulnerable to Server Side Request Forgery attacks
+
+   |image118|
+
+#. From Postman, run **SSRF Attack-unprotected-json**. This site contains example ID and keys in JSON format.  Hackers will uses your servers as a jump off point to gain access to internal resources 
+
+   |image119|
+
+#. Navigate to **Security -> Event Logs -> Application -> Requests** and find both requests.  Notice nothing appears malicious about these requests except for the destinations. 
+
+   |image120|
+
+#.  We are going to secure the the uri parameter, so it only allows access to restapiexample, but not access to the internal private data.
+
+#. Navigate to **Security -> Application Security -> Parameters -> Parameters List**.  Click the **+ Plus Symbol**
+
+   |image121|
+
+#. Enter the Name **uri**
+#. Uncheck **Perform Staging**
+#. From the Parameter Value Type dropdown select **Static Content Value**
+#. Enter **http://dummy.restapiexample.com/api/v1/employees** for the New Static Value 
+#. Click **Add**
+#. Click **Create**
+
+   |image122|
+
+#. Click **Apply Policy**
+
+#. From Postman, run **SSRF Attack-Dummy**.  Access to Google is still allowed.
+
+#. From Post, run **SSRF Attack-unprotected-json**. This site is now blocked as intended
+
+   |image123|
+
+#. Navigate to **Security -> Event Logs -> Application -> Requests** and find the latest blocked request.  The uri parameter is highlighted due to Illegal Static Parameter Value.
+
+   |image124|
 
 
-|image118|
-
-2. From Postman, run **SSRF Attack-unprotected-json**. This site contains example ID and keys in JSON format.  Hackers will uses your servers as a jump off point to gain access to internal resources 
-
-
-|image119|
-
-
-3. Navigate to **Security -> Event Logs -> Application -> Requests** and find both requests.  Notice nothing appears malicious about these requests except for the destinations. 
-
-|image120|
-
- 
-
-4.  We are going to secure the the uri parameter, so it only allows access to restapiexample, but not access to the internal private data.
+.. |image001| image:: media/lab02/001.png
+.. |image002| image:: media/lab02/002.png
+.. |image003| image:: media/lab02/003.png
+.. |image004| image:: media/lab02/004.png
+.. |image005| image:: media/lab02/005.png
+.. |image006| image:: media/lab02/006.png
 
 
-5. Navigate to **Security -> Application Security -> Parameters -> Parameters List**.  Click the **+ Plus Symbol**
-
-|image121|
-
-6. Enter the Name **uri**
-7. Uncheck **Perform Staging**
-8. From the Parameter Value Type dropdown select **Static Content Value**
-9. Enter **http://dummy.restapiexample.com/api/v1/employees** for the New Static Value 
-10. Click **Add**
-11. Click **Create**
-
-|image122|
-
-12. Click **Apply Policy**
-
-13. From Postman, run **SSRF Attack-Dummy**.  Access to Google is still allowed.
-
-14. From Post, run **SSRF Attack-unprotected-json**. This site is now blocked as intended
-
-|image123|
-
-15. Navigate to **Security -> Event Logs -> Application -> Requests** and find the latest blocked request.  The uri parameter is highlighted due to Illegal Static Parameter Value.
-
-|image124|
-
-
-
-
-..
-.. |image0| image:: media/lab02/image000.png
 .. |image48| image:: media/lab02/image048.png
 .. |image49| image:: media/lab02/049.png
 .. |image64| image:: media/lab02/image064.png
@@ -483,7 +499,7 @@ Task 1 - Implement Static Parameter values
 .. |image110| image:: media/lab02/110.png
 .. |image111| image:: media/lab02/image111.png
 .. |image112| image:: media/lab02/image112.png
-.. |image113| image:: media/lab02/image113.png
+.. |image113| image:: media/lab02/113.png
 	:width: 1200px
 .. |image114| image:: media/lab02/image114.png
 .. |image115| image:: media/lab02/115.png
@@ -512,7 +528,7 @@ Task 1 - Implement Static Parameter values
 ..  |module2Lab1Task3-image2| image:: media/lab02/module2Lab1Task3-image2.png
         :width: 800px
 ..  |module2Lab1Task3-image1| image:: media/lab02/module2Lab1Task3-image1.png
-        :width: 800pz
+        :width: 800px
 ..  |module2Lab1Task2-image5| image:: media/lab02/module2Lab1Task1-image5.png
         :width: 400px
 ..  |module2Lab1Task2-image4| image:: media/lab02/module2Lab1Task1-image4.png
