@@ -729,77 +729,58 @@ Organizations change. With this change, new APIs are introduced requiring modifi
 Task 1 - Verify no access to API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. From Postman, select the request **JWT-Change User Password**
+#. From Postman, select the request **Request 9: Create DNS Entry**
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-|image33|
+#. The **Token** field is now populated
 
-4. The **Token** field is now populated
+#. Click **Send**
 
-|image34|
-
-5. Click **Send**
-
-
-6. You receive a **403 Forbidden** response status code because the the new API has not been published at the Gateway. WARNING: If you executed this step too quickly after the prior 1.6 lab, you may still be rate limited and need to wait a minute.
-
-|image39|
+#. You receive a **403 Forbidden** response status code because the the new API has not been published at the Gateway. WARNING: If you executed this step too quickly after the prior 1.6 lab, you may still be rate limited and need to wait a minute.
 
 
 Task 2 - Add the new API path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. From the browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
+#. From the browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
 
-|image48|
+   |image48|
 
-2. Click **API-Protection**
+#. Click **api-protection**
 
-|image64|
+   |image64|
 
-3. Click **Paths**
+#. Click **Paths**
 
-|image65|
+   |image65|
 
-4. Click **Create**
+#. Click **Create**
 
-|image66|
+   |image66|
 
-5. The URI **/aduser/password**
+#. The URI **/dns**
 
-6. Select the Method **PATCH**
+#. Select the Method **POST**
 
-7. Click **Add**
+#. Click **Add**
 
-|image67|
+   |image67|
 
-8. Click **Save**
+#. Click **Save**
 
-|image68|
+   |image68|
 
 
 Task 3 - Test Access to the new path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-1. From Postman, select the request **JWT-Change User Password**
+#. From Postman, select the request **Request 9: Create DNS Entry**
 
-2. Select the **Authorization** tab
-
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
-
-|image33|
-
-4. The **Token** field is now populated
-
-|image34|
-
-5. Click **Send**
-
-6. You receive a **200 OK** that the endpoint is now published.
+#. You receive a **200 OK** that the endpoint is now published.
 
 |image102|
 
@@ -884,10 +865,10 @@ Task 3 - Test Access to the new path
 .. |image63| image:: media/lab01/image063.png
 .. |image64| image:: media/lab01/064.png
 .. |image65| image:: media/lab01/image065.png
-.. |image66| image:: media/lab01/image066.png
+.. |image66| image:: media/lab01/066.png
 	:width: 800px
-.. |image67| image:: media/lab01/image067.png
-.. |image68| image:: media/lab01/image068.png
+.. |image67| image:: media/lab01/067.png
+.. |image68| image:: media/lab01/068.png
 .. |image69| image:: media/lab01/image069.png
 	:width: 800px
 .. |image70| image:: media/lab01/image070.png
@@ -939,7 +920,7 @@ Task 3 - Test Access to the new path
 .. |image101| image:: media/lab01/101.png
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
-.. |image102| image:: media/lab01/image102.png
+.. |image102| image:: media/lab01/102.png
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
 .. |image104| image:: media/lab01/104.png
