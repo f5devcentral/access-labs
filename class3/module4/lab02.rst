@@ -185,7 +185,7 @@ An api's clients, unlike a typical web application, will often be non-human, may
 This leaves bot defense more difficult to configure in an api protection scenario, for instance javascript such as captcha cannot be used to proactively determine whether the client is human.
 In this lab, we demonstrate some scenarios the admin may encounter and how to address them.
 
-..note :: Ensure you are logged into BIGIP1
+.. note:: Ensure you are logged into BIGIP1
 
 #. From the web browser, click on the **Security -> Bot Defense -> Bot Defense Profiles** and click **Create**.
 
@@ -215,14 +215,14 @@ Task 1 - Test Bot Protection in Transparent Mode
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#. Now we will test the Bot Defense Profile to see how it affects clients. Go to **Postman** once again and select the request **Retrieve Phone and Mail Attributes** and click **Send**.
+#. Now we will test the Bot Defense Profile to see how it affects clients. Go to **Postman**, expand the collection **student-class3-module4-lab02** and select the request **Request 1: Retrieve Attributes** and click **Send**.
 
 #. Return to the bigip01 gui and navigate to **Security -> Event Logs -> Bot Defense -> Bot Requests** and find the request to the /vulnerable uri as shown below
 
    |module2Lab2Task1-image4|
 
 
-   ..note :: The student should pay special attention to the Request Status, Mitigation Action and Bot Class. Bot Class will be one of the categories found in **Security -> Bot Defense -> Bot Defense Profiles -> api.acme.com_botprofile -> Bot Mitigation Settings** under **Mitigation Settings**.
+   .. note:: The student should pay special attention to the Request Status, Mitigation Action and Bot Class. Bot Class will be one of the categories found in **Security -> Bot Defense -> Bot Defense Profiles -> api.acme.com_botprofile -> Bot Mitigation Settings** under **Mitigation Settings**.
 
 
 Task 2 - Place Bot Profile in blocking and allow appropriate clients
@@ -235,9 +235,7 @@ block bot traffic. Keep in mind that the bot profile allows for fine-grained con
 
    |module2Lab2Task2-image1| 
 
-#. Go back to **Postman** once again and select the request **Retrieve Phone and Mail Attributes** and click **Send** another time.
-
-   |module2Lab2Task2-image2|
+#. Go back to **Postman** once again and select the request **Request 1: Retrieve Attributes** and click **Send** another time.
 
 #.  Return to the bigip01 gui and navigate to **Security -> Event Logs -> Bot Defense -> Bot Requests** and find the 2nd request to the /vulnerable uri as shown below
 
@@ -247,26 +245,26 @@ block bot traffic. Keep in mind that the bot profile allows for fine-grained con
 
    To understand this, we must take a closer look at the Mitigation Settings.
    
-   
-   
-
 #. Navigate to **Security -> Bot Defense -> Bot Defense Profiles -> api.acme.com_botprofile -> Bot Mitigation Settings** and examine the **Unknown** categorization, note that bots that are of category Unknown are simply rate limited.
 
    |module2Lab2Task2-image4|
 
 
-#. Go back to **Postman** once again and click on the **Arrow** next to the API Protection Labs collection to open **Runner** at the top. 
+#. Go back to **Postman** once again and click on the **Arrow** next to the **student-class3-module4-02 collection to open **Runner** at the top. 
+
+   |image007|
 
 #. Click Run
 
-#. Configure the runner with the API Protection collection selected iterations set to 100 and the only request within the collection that should be selected is **Retrieve Phone and Mail Attributes**.
+#. Configure Runner so  **iterations** is set to **100** and the only request selected is  **Request 1: Retrieve Attributes**.
 
-   |module2Lab2Task2-image5|
+#. Click **Run student-class...**.  
 
-#. Click **Run API Protection**.  Notice all responses are 200 OKs.
+   |image008|
 
-   |module2Lab2Task2-image6|
+#. Notice all responses are 200 OKs.
 
+   |image009|
 
 #. Return to the bigip01 gui and navigate to **Security -> Event Logs -> Bot Defense -> Bot Requests** and find the Denied request to the /vulnerable uri as shown below.
 
@@ -432,8 +430,6 @@ The result is
 Task 2 - Implement Static Parameter values
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
 #. From Postman, click "Send" on the **SSRF Attack-Dummy** request.  Notice you get content from restapiexammple.com via api.acme.com/vulnerable.  This endpoint is vulnerable to Server Side Request Forgery attacks
 
    |image118|
@@ -480,6 +476,9 @@ Task 2 - Implement Static Parameter values
 .. |image004| image:: media/lab02/004.png
 .. |image005| image:: media/lab02/005.png
 .. |image006| image:: media/lab02/006.png
+.. |image007| image:: media/lab02/007.png
+.. |image008| image:: media/lab02/008.png
+.. |image009| image:: media/lab02/009.png
 
 
 .. |image48| image:: media/lab02/image048.png
