@@ -68,7 +68,7 @@ Task 2: Create a Simple Access Profile
 1. Navigate to **Access > Profiles / Policies > Access Profiles
    (Per-Session Policies)**
 
-   |image10|
+   |Lab1-Image1|
 
 2. From the Access Profiles screen, click **Create...** in the upper
    right-hand corner
@@ -76,12 +76,12 @@ Task 2: Create a Simple Access Profile
 3. In the Name field, enter **MyAccessPolicy** and for the **Profile Type**,
    select the dropdown and choose **All**
 
-   |image11|
+   |Lab1-Image2|
 
 4. Under â€œLanguage Settingsâ€, choose **English** and click the
    â€œ\ **<<**\ â€œ button to slide over to the â€œAccepted Languagesâ€ column.
 
-   |image12|
+   |Lab1-Image3|
 
 5. Click **Finished**, which will bring you back to the Access Profiles
    screen.
@@ -89,21 +89,21 @@ Task 2: Create a Simple Access Profile
 6. On the Access Profiles screen, click the **Edit** link under the
    Per-Session Policy column.
 
-   |image13|
+   |Lab1-Image4|
 
    The Visual Policy Editor (VPE) will open in a new tab.
 
 7. On the VPE page, click the â€˜\ **+**\ â€™ icon on the â€œfallbackâ€ path,
    to the right of the **Start** object.
 
-   |image14|
+   |Lab1-Image5|
 
 8. On the popup menu, choose the **Logon Page** radio button under the
    Logon tab and click **Add Item**
 
-   |image15|
+   |Lab1-Image6|
 
-   |image16|
+   |Lab1-Image7|
 
 9. Accept the defaults and click **Save**
 
@@ -114,35 +114,35 @@ via the â€œLogon Pageâ€ object.
    icon, select **AD Auth** found under the **Authentication** tab,
    and click the **Add Item** button
 
-   |image17|
+   |Lab1-Image8|
 
-   |image18|
+   |Lab1-Image9|
 
 2. Accept the default for the **Name** and in the **Server** drop-down
    menu select the AD server created above:
    **/Common/LAB\_SSO\_AD\_Server**, then click **Save**
 
-   |image19|
+   |Lab1-Image10|
 
 3. On the â€œSuccessfulâ€ branch between the **AD Auth** and **Deny**
    objects, click on the word **Deny** to change the ending
 
-   |image20|
+   |Lab1-Image11|
 
 4. Change the â€œSuccessfulâ€ branch ending to **Allow**, then click **Save**
 
-   |image21|
+   |Lab1-Image12|
 
-   |image22|
+   |Lab1-Image13|
 
 5. In the upper left-hand corner of the screen, click on the **Apply
    Access Policy** link, then close the window using the **Close**
    button in the upper right-hand. Click **Yes** when asked â€œDo you
    want to close this tab?â€
 
-   |image23|
+   |Lab1-Image14|
 
-   |image24|
+   |Lab1-Image15|
 
 Task 3: Associate Access Policy to Virtual Servers
 --------------------------------------------------
@@ -157,7 +157,7 @@ appropriate virtual server to be able to use it.
 2. Scroll down to the â€œAccess Policyâ€ section, then for the â€œAccess
    Profileâ€ dropdown, select **MyAccessPolicy**
 
-   |image25|
+   |Lab1-Image16|
 
 3. Click **Update** at the bottom of the screen
 
@@ -171,7 +171,7 @@ Now you are ready to test.
    **https://server1.acme.com**
    You will be presented with a login window
 
-   |image26|
+   |Lab1-Image17|
 
 2. Enter the following credentials and click **Logon**:
    Username: **user1**
@@ -179,7 +179,7 @@ Now you are ready to test.
 
    You will see a screen similar to the following:
 
-   |image27|
+   |Lab1-Image18|
 
 
 Task 5: Troubleshooting tips
@@ -191,14 +191,14 @@ You will see a screen similar to the following:
 
 Click on the session id for the active session. If the session is active it will show up as a green in the status.
 
-|image30|
+|Lab1-Image19|
 
 Click on the "session ID" next to the active session. Note every session has a unique session id. Associated with it.
 This can be used for troubleshooting specific authentication problem.
 
 Once you click on the session id you wll be presented with a screen that is similar to the following.
 
-|image31|
+|Lab1-Image20|
 
 Note that the screen will show all of the log messages associated with the session. This becomes useful if there is a problem authenticating users.
 
@@ -241,72 +241,63 @@ Lab 1 is now complete.
 
 
 ..
-.. |image8| image:: media/image10.png
+.. |Lab1-Image1| image:: /class1/module2/media/Lab1-Image1.png
    :width: 2.59124in
    :height: 2.90971in
-.. |image9| image:: media/image11.png
+.. |Lab1-Image2| image:: /class1/module2/media/Lab1-Image2.png
    :width: 2.49705in
    :height: 2.49047in
-.. |image10| image:: media/image12.png
+.. |Lab1-Image3| image:: /class1/module2/media/Lab1-Image3.png
    :width: 2.81496in
    :height: 2.04331in
-.. |image11| image:: media/image13.png
+.. |Lab1-Image4| image:: /class1/module2/media/Lab1-Image4.png
    :width: 3.35694in
    :height: 1.17083in
-.. |image12| image:: media/image14.png
+.. |Lab1-Image5| image:: /class1/module2/media/Lab1-Image5.png
    :width: 5.30972in
    :height: 1.96914in
-.. |image13| image:: media/image15.png
+.. |Lab1-Image6| image:: /class1/module2/media/Lab1-Image6.png
    :width: 5.30625in
    :height: 1.20139in
-.. |image14| image:: media/image16.png
+.. |Lab1-Image7| image:: /class1/module2/media/Lab1-Image7.png
    :width: 3.67708in
    :height: 1.59375in
-.. |image15| image:: media/image17.png
+.. |Lab1-Image8| image:: /class1/module2/media/Lab1-Image8.png
    :width: 5.30972in
    :height: 2.99543in
-.. |image16| image:: media/image18.png
+.. |Lab1-Image9| image:: /class1/module2/media/Lab1-Image9.png
    :width: 4.09422in
    :height: 4.25486in
-.. |image17| image:: media/image19.png
+.. |Lab1-Image10| image:: /class1/module2/media/Lab1-Image10.png
    :width: 2.75000in
    :height: 1.32500in
-.. |image18| image:: media/image20.png
+.. |Lab1-Image11| image:: /class1/module2/media/Lab1-Image11.png
    :width: 2.83858in
    :height: 4.42520in
-.. |image19| image:: media/image21.png
+.. |Lab1-Image12| image:: /class1/module2/media/Lab1-Image12.png
    :width: 5.05208in
    :height: 2.44710in
-.. |image20| image:: media/image22.png
+.. |Lab1-Image13| image:: /class1/module2/media/Lab1-Image13.png
    :width: 4.80000in
    :height: 1.40000in
-.. |image21| image:: media/image23.png
+.. |Lab1-Image14| image:: /class1/module2/media/Lab1-Image14.png
    :width: 2.17708in
    :height: 2.73681in
-.. |image22| image:: media/image24.png
+.. |Lab1-Image15| image:: /class1/module2/media/Lab1-Image15.png
    :width: 4.51887in
    :height: 1.56041in
-.. |image23| image:: media/image25.png
+.. |Lab1-Image16| image:: /class1/module2/media/Lab1-Image16.png
    :width: 2.14583in
    :height: 0.73958in
-.. |image24| image:: media/image26.png
+.. |Lab1-Image17| image:: /class1/module2/media/Lab1-Image17.png
    :width: 2.00000in
    :height: 0.67921in
-.. |image25| image:: media/image27.png
+.. |Lab1-Image18| image:: /class1/module2/media/Lab1-Image18.png
    :width: 2.40945in
    :height: 3.52362in
-.. |image26| image:: media/image28.png
+.. |Lab1-Image19| image:: /class1/module2/media/Lab1-Image19.png
    :width: 2.13489in
    :height: 1.96875in
-.. |image27| image:: media/image9.png
+.. |Lab1-Image20| image:: /class1/module2/media/Lab1-Image20.png
    :width: 5.07751in
    :height: 2.84357in
-.. |image29| image:: media/image29.png
-   :width: 18.33in
-   :height: 3.17in
-.. |image30| image:: media/image30.png
-   :width: 14.44in
-   :height: 3.0in
-.. |image31| image:: media/image31.png
-   :width: 19.641in
-   :height: 4.65in
