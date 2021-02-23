@@ -10,17 +10,104 @@ Lab Requirements
 
 -
 
-Task 2: Intro to Per-Request Policy
---------------------------------------
-The purpose of this lab is to familiarize the Student with Per Request Policies. The F5 Access Policy Manager (APM) provides two types of policies.
+Lab 2: APM Per Request Policies
+==========================================
 
-Access Policy - The access policy runs when a client initiates a session. Depending on the actions you include in the access policy, it can authenticate the user and perform group or class queries to populate session variables with data for use throughout the session.
+.. toctree::
+   :maxdepth: 1
+   :glob:
 
-Per-Request Policy - After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request. A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. One access policy and one per-request are specified within a virtual server.
+The purpose of this lab is to familiarize the Student with Per Request Policies.
+The F5 Access Policy Manager (APM) provides two types of policies.
 
-It’s important to note that APM first executes a per-session policy when a client attempts to connect to a resource. After the session starts then a per-request policy runs on each HTTP/HTTPS request. Per-Request policies can be utilized in a number of different scenarios; however, in the interest of time this lab will only demonstrate one method of leveraging Per-Request policies
+Access Policy - The access policy runs when a client initiates a session.   Depending
+on the actions you include in the access policy, it can authenticate the user
+and perform group or class queries to populate session variables with data for
+use throughout the session.
+
+Per-Request Policy - After a session starts, a per-request policy runs each time
+the client makes an HTTP or HTTPS request.  A per-request policy can include a
+subroutine, which starts a subsession.  Multiple subsessions can exist at one
+time. One access policy and one per-request are specified within a virtual server.
+
+**It's important to note that APM first executes a per-session policy when a client
+attempts to connect to a resource.   After the session starts then a per-request
+policy runs on each HTTP/HTTPS request.  Per-Request policies can be utilized in a
+number of different scenarios; however, in the interest of time this lab will only
+demonstrate one method of leveraging Per-Request policies**
+
+This lab will only focus on configuring Per-Request policies for controlling access
+to external URL categories.
 
 
+Objective:
+----------
+
+-  Gain an understanding of Per Request policies
+
+-  Gain an understanding of use for Per Request Policy
+
+
+Lab Requirements:
+-----------------
+
+-  All lab requirements will be noted in the tasks that follow
+
+Estimated completion time: 15 minutes
+
+Lab 3 Tasks:
+-----------------
+
+TASK 1: Create Per Session Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Refer to the instructions and screen shots below:
+
++----------------------------------------------------------------------------------------------+
+| 1. Login to your lab provided **Virtual Edition BIG-IP**                                     |
+|     - On your jumphost launch Chrome and click the bigip1 link from the app shortcut menu    |
+|     - Login with credentials admin/admin                                                     |
+|                                                                                              |
+| 2. Begin by selecting: **Access -> Profiles/Policies -> Per Session Policies** ->            |
+|                                                                                              |
+| 3. Click the **Create** button (far right)                                                   |
++----------------------------------------------------------------------------------------------+
+| |image001|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 4. Enter the name of the policy, profile type, and profile scope                             |
+|                                                                                              |
+|    -  **Name**: **app.acme.com-PSP**                                                         |
+|                                                                                              |
+|    -  **Profile Type**: **All**                                                              |
+|                                                                                              |
+|    -  **Profile Scope**: **Profile**                                                         |
+|                                                                                              |
+|    -  **Accept Languages**: **English (en)**                                                 |
+|                                                                                              |
+| *Note: You will need a per session policy and a per request policy but we will be*           |
+|        *leaving the per session policy blank and performing our auth in per Request*         |
++----------------------------------------------------------------------------------------------+
+| |image002|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 5. On the app.acme.com-PSP policy click **Edit**                                             |
+|                                                                                              |
+| 6. Click on the **Deny** and change the Select Ending to **Allow**                           |
+|                                                                                              |
+| 7. Click **Save**                                                                            |
+|                                                                                              |
+| 8. Click Apply policy                                                                        |
+|                                                                                              |
+|   *Note:  Nothing will be set in this policy we will simply establish a session and manage*  |
+|           *all the authentication in the Per-Request Policy*                                 |
++----------------------------------------------------------------------------------------------+
+| |image003|                                                                                   |
+|                                                                                              |
+| |image004|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
 Task 2: Radius Authentication
 --------------------------------------
