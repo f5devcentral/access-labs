@@ -215,28 +215,9 @@ Lab 1 is now complete.
 
 
 
-Task 3: Intro to Posture Assessments
--------------------------------------
-A device posture check can be used to continuously check the state of a macOS or Windows client. This feature provides asynchronous desktop client posture checking.
-Using F5 Access Guard for Mac and Windows, administrators can now include the ability to transmit up-to-date device posture information to Access Policy Manager in a cryptographically signed HTTP header.
-With a device posture check, you can check several categories of items on a client machine.
-
--Antivirus
--Endpoint State
--Firewall
--Hard Disk Encryption
--Patch Management
--Public File Sharing
--System Health Agent
-
-You can add these items in a per-request policy using subroutines only. You can configure any subroutine to be checked against the client either periodically, or on every request.
-Continuous client checks in a subroutine are supported only on macOS and Windows. Continuous client checks require that the F5 Access Guard service and browser extension be installed, and that the administrator configures the F5 Access Guard configuration file to specify the items to be checked. Refer to the F5 Access Guard Configuration documentation for more information.
 
 
-Task 4: Example Use Cases
-----------------------------
 
-Lab 1 is now complete.
 
 
 

@@ -10,12 +10,16 @@ Lab Requirements
 
 -
 
-Task 1: Active Directory Authentication
------------------------------------------
-The lab has a pre-configured test Virtual Server which will be used throughout the lab.  You will the Visual Policy Editor (VPE)
-to create and attach a simple Access Profile which performs user authentication.
+Task 2: Intro to Per-Request Policy
+--------------------------------------
+The purpose of this lab is to familiarize the Student with Per Request Policies. The F5 Access Policy Manager (APM) provides two types of policies.
 
-You can authenticate using Active Directory authentication with Access Policy Manager. We support using Kerberos-based authentication through Active Directory.
+Access Policy - The access policy runs when a client initiates a session. Depending on the actions you include in the access policy, it can authenticate the user and perform group or class queries to populate session variables with data for use throughout the session.
+
+Per-Request Policy - After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request. A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. One access policy and one per-request are specified within a virtual server.
+
+It’s important to note that APM first executes a per-session policy when a client attempts to connect to a resource. After the session starts then a per-request policy runs on each HTTP/HTTPS request. Per-Request policies can be utilized in a number of different scenarios; however, in the interest of time this lab will only demonstrate one method of leveraging Per-Request policies
+
 
 
 Task 2: Radius Authentication
@@ -37,6 +41,29 @@ The benefits of this feature include:
 Provides flexible login mechanism instead of restricting you to use only the form-based login method.
 Eliminates the need for domain users to explicitly type login information again to log in to Access Policy Manager.
 Eliminates the need for user password transmission with Kerberos method.
+
+Task 3: Intro to Posture Assessments
+-------------------------------------
+A device posture check can be used to continuously check the state of a macOS or Windows client. This feature provides asynchronous desktop client posture checking.
+Using F5 Access Guard for Mac and Windows, administrators can now include the ability to transmit up-to-date device posture information to Access Policy Manager in a cryptographically signed HTTP header.
+With a device posture check, you can check several categories of items on a client machine.
+
+-Antivirus
+-Endpoint State
+-Firewall
+-Hard Disk Encryption
+-Patch Management
+-Public File Sharing
+-System Health Agent
+
+You can add these items in a per-request policy using subroutines only. You can configure any subroutine to be checked against the client either periodically, or on every request.
+Continuous client checks in a subroutine are supported only on macOS and Windows. Continuous client checks require that the F5 Access Guard service and browser extension be installed, and that the administrator configures the F5 Access Guard configuration file to specify the items to be checked. Refer to the F5 Access Guard Configuration documentation for more information.
+
+
+Task 4: Example Use Cases
+----------------------------
+
+
 
 Task 4: MTLS
 ---------------
