@@ -40,7 +40,7 @@ server profile for our Active Directory.
 1. From the main screen, browse to **Access > Authentication > Active
    Directory**
 
-2. Click **Createâ€¦** in the upper right-hand corner
+2. Click **Create...** in the upper right-hand corner
 
 3. Configure the new server profile as follows:
 
@@ -78,8 +78,8 @@ Task 2: Create a Simple Access Profile
 
    |Lab1-Image2|
 
-4. Under â€œLanguage Settingsâ€, choose **English** and click the
-   â€œ\ **<<**\ â€œ button to slide over to the â€œAccepted Languagesâ€ column.
+4. Under "Language Settings", choose **English** and click the
+    **<<** button to slide over to the **Accepted Languages** column.
 
    |Lab1-Image3|
 
@@ -93,7 +93,7 @@ Task 2: Create a Simple Access Profile
 
    The Visual Policy Editor (VPE) will open in a new tab.
 
-7. On the VPE page, click the â€˜\ **+**\ â€™ icon on the â€œfallbackâ€ path,
+7. On the VPE page, click the **+** icon on the **fallback** path,
    to the right of the **Start** object.
 
    |Lab1-Image5|
@@ -107,10 +107,10 @@ Task 2: Create a Simple Access Profile
 
 9. Accept the defaults and click **Save**
 
-Now letâ€™s authenticate the client using the credentials to be provided
-via the â€œLogon Pageâ€ object.
+Now let's authenticate the client using the credentials to be provided
+via the **Logon Page** object.
 
-1. Between the â€œLogon Pageâ€ and â€œDenyâ€ objects, click the â€˜\ **+**\ â€™
+1. Between the **Logon Page** and **Deny** objects, click the **+**
    icon, select **AD Auth** found under the **Authentication** tab,
    and click the **Add Item** button
 
@@ -124,12 +124,12 @@ via the â€œLogon Pageâ€ object.
 
    |Lab1-Image10|
 
-3. On the â€œSuccessfulâ€ branch between the **AD Auth** and **Deny**
+3. On the **Successful** branch between the **AD Auth** and **Deny**
    objects, click on the word **Deny** to change the ending
 
    |Lab1-Image11|
 
-4. Change the â€œSuccessfulâ€ branch ending to **Allow**, then click **Save**
+4. Change the **Successful** branch ending to **Allow**, then click **Save**
 
    |Lab1-Image12|
 
@@ -137,8 +137,8 @@ via the â€œLogon Pageâ€ object.
 
 5. In the upper left-hand corner of the screen, click on the **Apply
    Access Policy** link, then close the window using the **Close**
-   button in the upper right-hand. Click **Yes** when asked â€œDo you
-   want to close this tab?â€
+   button in the upper right-hand. Click **Yes** when asked **Do you
+   want to close this tab?**
 
    |Lab1-Image14|
 
@@ -154,8 +154,8 @@ appropriate virtual server to be able to use it.
    List** and click the name of the virtual server created previously:
    **demo-vs-https**.
 
-2. Scroll down to the â€œAccess Policyâ€ section, then for the â€œAccess
-   Profileâ€ dropdown, select **MyAccessPolicy**
+2. Scroll down to the **Access Policy** section, then for the **Access
+   Profile** dropdown, select **MyAccessPolicy**
 
    |Lab1-Image16|
 
@@ -196,15 +196,15 @@ Click on the session id for the active session. If the session is active it will
 Click on the "session ID" next to the active session. Note every session has a unique session id. Associated with it.
 This can be used for troubleshooting specific authentication problem.
 
-Once you click on the session id you wll be presented with a screen that is similar to the following.
+Once you click on the session id you will be presented with a screen that is similar to the following.
 
 |Lab1-Image20|
 
 Note that the screen will show all of the log messages associated with the session. This becomes useful if there is a problem authenticating users.
 
-The default log level shows limited "informational" messages but you can enable debug logging in the event that you need to increase the verbositiy of the logging
+The default log level shows limited "informational" messages but you can enable debug logging in the event that you need to increase the verbosity of the logging
 on the APM policy. Note you should always turn off debug logging when you are finished with trouble shooting as debug level logging can
-generate a lot of messages that will fill up log files and could lead to disk issues in the event that lgging is set to logto the
+generate a lot of messages that will fill up log files and could lead to disk issues in the event that logging is set to log to the
 local Big-IP.
 
 Please review the following support article that details how to enable debug logging.
