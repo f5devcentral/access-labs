@@ -242,8 +242,6 @@ Lab 1 is now complete.
 
 ..
 .. |Lab1-Image1| image:: /class1/module2/media/Lab1-Image1.png
-   :width: 2.59124in
-   :height: 2.90971in
 .. |Lab1-Image2| image:: /class1/module2/media/Lab1-Image2.png
    :width: 2.49705in
    :height: 2.49047in
