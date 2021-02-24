@@ -1,4 +1,4 @@
-Lab 2: Client-Side Authentication
+Lab 2: Step up Authentication with Per-Request Policies
 =====================================
 
 Objectives
@@ -13,10 +13,6 @@ Lab Requirements
 Lab 2: APM Per Request Policies
 ==========================================
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-
 The purpose of this lab is to familiarize the Student with Per Request Policies.
 The F5 Access Policy Manager (APM) provides two types of policies.
 
@@ -27,7 +23,7 @@ use throughout the session.
 
 Per-Request Policy - After a session starts, a per-request policy runs each time
 the client makes an HTTP or HTTPS request.  A per-request policy can include a
-subroutine, which starts a subsession.  Multiple subsessions can exist at one
+subroutine, which starts a sub-session.  Multiple sub-sessions can exist at one
 time. One access policy and one per-request are specified within a virtual server.
 
 **It's important to note that APM first executes a per-session policy when a client
@@ -72,7 +68,7 @@ Refer to the instructions and screen shots below:
 |                                                                                              |
 | 3. Click the **Create** button (far right)                                                   |
 +----------------------------------------------------------------------------------------------+
-| |image001|                                                                                   |
+| |Lab2-Image1|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -89,7 +85,7 @@ Refer to the instructions and screen shots below:
 | *Note: You will need a per session policy and a per request policy but we will be*           |
 |        *leaving the per session policy blank and performing our auth in per Request*         |
 +----------------------------------------------------------------------------------------------+
-| |image002|                                                                                   |
+| |Lab2-Image2|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -104,9 +100,9 @@ Refer to the instructions and screen shots below:
 |   *Note:  Nothing will be set in this policy we will simply establish a session and manage*  |
 |           *all the authentication in the Per-Request Policy*                                 |
 +----------------------------------------------------------------------------------------------+
-| |image003|                                                                                   |
+| |Lab2-Image3|                                                                                   |
 |                                                                                              |
-| |image004|                                                                                   |
+| |Lab2-Image4|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 Task 2: Radius Authentication
@@ -162,3 +158,10 @@ Task 5: SAML
 
 
 Lab 2 is now complete.
+
+.. |Lab1-Image1| image:: /class1/module2/media/Lab2-Image1.png
+.. |Lab1-Image2| image:: /class1/module2/media/Lab2-Image2.png
+.. |Lab1-Image3| image:: /class1/module2/media/Lab2-Image3.png
+.. |Lab1-Image4| image:: /class1/module2/media/Lab2-Image4.png
+.. |Lab1-Image5| image:: /class1/module2/media/Lab2-Image5.png
+.. |Lab1-Image6| image:: /class1/module2/media/Lab2-Image6.png
