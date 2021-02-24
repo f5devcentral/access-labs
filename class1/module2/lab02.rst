@@ -68,7 +68,7 @@ Refer to the instructions and screen shots below:
 |                                                                                              |
 | 3. Click the **Create** button (far right)                                                   |
 +----------------------------------------------------------------------------------------------+
-| |Lab2-Image1|                                                                                   |
+| |Lab2-Image1|                                                                                |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -85,7 +85,7 @@ Refer to the instructions and screen shots below:
 | *Note: You will need a per session policy and a per request policy but we will be*           |
 |        *leaving the per session policy blank and performing our auth in per Request*         |
 +----------------------------------------------------------------------------------------------+
-| |Lab2-Image2|                                                                                   |
+| |Lab2-Image2|                                                                                |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -100,9 +100,9 @@ Refer to the instructions and screen shots below:
 |   *Note:  Nothing will be set in this policy we will simply establish a session and manage*  |
 |           *all the authentication in the Per-Request Policy*                                 |
 +----------------------------------------------------------------------------------------------+
-| |Lab2-Image3|                                                                                   |
+| |Lab2-Image3|                                                                                |
 |                                                                                              |
-| |Lab2-Image4|                                                                                   |
+| |Lab2-Image4|                                                                                |
 +----------------------------------------------------------------------------------------------+
 
 Task 2: Radius Authentication
