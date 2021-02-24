@@ -159,9 +159,9 @@ Task 5: SAML
 
 Lab 2 is now complete.
 
-.. |Lab1-Image1| image:: /class1/module2/media/Lab2-Image1.png
-.. |Lab1-Image2| image:: /class1/module2/media/Lab2-Image2.png
-.. |Lab1-Image3| image:: /class1/module2/media/Lab2-Image3.png
-.. |Lab1-Image4| image:: /class1/module2/media/Lab2-Image4.png
-.. |Lab1-Image5| image:: /class1/module2/media/Lab2-Image5.png
-.. |Lab1-Image6| image:: /class1/module2/media/Lab2-Image6.png
+.. |Lab2-Image1| image:: /class1/module2/media/Lab2-Image1.png
+.. |Lab2-Image2| image:: /class1/module2/media/Lab2-Image2.png
+.. |Lab2-Image3| image:: /class1/module2/media/Lab2-Image3.png
+.. |Lab2-Image4| image:: /class1/module2/media/Lab2-Image4.png
+.. |Lab2-Image5| image:: /class1/module2/media/Lab2-Image5.png
+.. |Lab2-Image6| image:: /class1/module2/media/Lab2-Image6.png
