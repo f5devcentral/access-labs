@@ -25,6 +25,16 @@ This lab documents provides foundational concepts for understanding Access Polic
    module2/intro.rst
    module2/lab*
 
+
+202 - Federation
+-----------------------
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   module3/intro.rst
+   module3/lab*
+
     
 
 
