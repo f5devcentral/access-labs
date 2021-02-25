@@ -1,35 +1,16 @@
-Getting Started
+Lab Overview
 ---------------
 
+The purpose of this lab is to configure and various Federation Services.
+ 
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+In Lab 1, Students will leverage Access Guided Configuration (AGC) to 
+configure the various aspects of a SAML Identity Provider (IdP), import and bind
+to a SAML Service Provider (SP) and test IdP-Initiated SAML Federation.
 
-#. Click **DEPLOYMENT** located on the top left corner to display the environment
-
-#. Click **ACCESS** next to jumpbox.f5lab.local
-
-|image001|
-
-
-#. Select your RDP solution.  
-
-#. The RDP client on your local host establishes a RDP connection to the Jump Host.
-
-#.  login with the following credentials:
-         - User: **f5lab\\user1**
-         - Password: **user1**
-
-#. Once logged on to the jumphost, you can access BIG-IP1's GUI via Chrome using bookmarks or by typing https://10.1.1.4 
-
-#. Login into the BIG-IP Configuration Utility with the following credentials:
-         - User: **admin**
-         - Password: **admin**
-
-.. NOTE::
-	 All work for this lab will be performed exclusively from the Windows
-	 jumphost. No installation or interaction with your local system is
-	 required.
-
+In Lab 2, Students will leverage Access Guided Configuration (AGC) to 
+configure the various aspects of a SAML Service Provider (SP), import and bind to
+a SAML Identity Provider (IdP) and test SP-Initiated SAML Federation.
 
 UDF Blueprint
 ~~~~~~~~~~~~~~
