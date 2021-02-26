@@ -1,5 +1,5 @@
-Lab 1: SAML Access Guided Configuration (AGC) Lab
-=================================================
+Lab 1: SAML IdP Access Guided Configuration (AGC) Lab
+======================================================
 
 The purpose of this lab is to configure and test SAML Federation Services.
 
@@ -32,7 +32,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumpbox.f5lab.local
 
-   |image090|
+   |image999|
 
 #. Select your RDP solution.  
 
@@ -44,27 +44,24 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
 
-	|image091|
 
 #. Click the **Classes** tab at the top of the page.
 
+	|image998|
+
 #. Scroll down the page until you see **201- 15.1 Zero Trust - Identity Aware Proxy** on the left
 
-   |image087|
+   |image997|
 
 #. Hover over tile **Configure Identity Aware Proxy(15.1)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image088|
+   |image996|
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-   |image089|
+   |image995|
 
-
-Lab 1 / Part 1 Tasks:
-----------------------
-
-TASK 1: Configure a SAML Identity Provider (IdP) via AGC 
+TASK 2: Configure a SAML Identity Provider (IdP) via AGC 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
@@ -113,7 +110,7 @@ TASK 1: Configure a SAML Identity Provider (IdP) via AGC
 | |image006|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 2: Configure the Identity Provider
+TASK 3: Configure the Identity Provider
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
@@ -136,7 +133,7 @@ TASK 2: Configure the Identity Provider
 | |image007|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 3: Configure the Virtual Server
+TASK 4: Configure the Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
@@ -159,7 +156,7 @@ TASK 3: Configure the Virtual Server
 | |image008|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 4: Configure Authentication
+TASK 5: Configure Authentication
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
@@ -184,7 +181,7 @@ TASK 4: Configure Authentication
 | |image009|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 5: Configure MFA
+TASK 6: Configure MFA
 ~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
@@ -306,21 +303,15 @@ TASK: 12: Testing the SAML Identity Provider (IdP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| 1. Open Firefox from the Jumphost desktop and click on the **AGC-IDP** link in the bookmark  |
+| 1. Open Firefox from the Jumphost desktop and navigate to https://idp.acme.com               |
 |                                                                                              |
-| toolbar.                                                                                     |
+| 2. Once the page loads, enter **user1** for username and **user1** for password  in the      |
+|                                                                                              |
+|    logon form and click the logon button.                                                    |
 |                                                                                              |
 | **Note:** *If you have issues, open Firefox in a New Private Window (Incognito/Safe Mode)*   |
 +----------------------------------------------------------------------------------------------+
 | |image021|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 2. Once the page loads, enter **user1** for username and **user1** for password  in the      |
-|                                                                                              |
-|    logon form and click the logon button.                                                    |
-+----------------------------------------------------------------------------------------------+
-| |image022|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -332,24 +323,59 @@ TASK: 12: Testing the SAML Identity Provider (IdP)
 +----------------------------------------------------------------------------------------------+
  
 +----------------------------------------------------------------------------------------------+
-| 4. The **Partner Application** will now open if successfully configured.  Close the Partner  |
+| 4. The **Application** will now open if successfully configured.  Close the                  |
 |                                                                                              |
 |    Application window, navigate to the **F5 Dynamic Webtop** tab/window and click **Logout**.|
 +----------------------------------------------------------------------------------------------+
 | |image024|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
+
+TASK 13: Lab CleanUp
+~~~~~~~~~~~~~~~~~~~~~~~
+
+
 +----------------------------------------------------------------------------------------------+
-| 5. This concludes Lab1.                                                                      |
+| 1. Navigate to **Access -> Guided Configuration** in the left-hand menu.                     |                                                                  |
++----------------------------------------------------------------------------------------------+
+| |image002|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 2. Click the **Undeploy** button                                                             |                                                                  |
 +----------------------------------------------------------------------------------------------+
 | |image025|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
++----------------------------------------------------------------------------------------------+
+| 3. Click **OK** when asked, "Are you sure you want to undeploy this configuration?"          |                                                                  |
++----------------------------------------------------------------------------------------------+
+| |image026|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
++----------------------------------------------------------------------------------------------+
+| 4. Click the **Delete** button once the deployment is undeployed                             |                                                                  |
++----------------------------------------------------------------------------------------------+
+| |image027|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
++----------------------------------------------------------------------------------------------+
+| 5. Click **OK** when asked, "Are you sure you want to delete this configuration?"            |                                                                  |
++----------------------------------------------------------------------------------------------+
+| |image028|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
-TASK 11: Lab CleanUp
-~~~~~~~~~~~~~~~~~~~~~~~
++----------------------------------------------------------------------------------------------+
+| 6. The Configuration section should now be empty                                             |                                                                  |
++----------------------------------------------------------------------------------------------+
+| |image029|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 7. From a browser navigate to https://portal.acme.com                                        |                                                                  |
++----------------------------------------------------------------------------------------------+
+| |image029|                                                                                   |
++----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
 | 1. This concludes Part 2 of Lab1. This concludes Lab1, feel free to review and test the      |
@@ -359,7 +385,8 @@ TASK 11: Lab CleanUp
 | |image000|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-.. |image000| image:: ./media/lab01/image001.png
+
+.. |image000| image:: ./media/lab01/000.png
    :width: 800px
 .. |image001| image:: ./media/lab01/lab1-001.png
    :width: 800px
@@ -373,7 +400,7 @@ TASK 11: Lab CleanUp
    :width: 800px
 .. |image006| image:: ./media/lab01/lab1-006.png
    :width: 800px
-.. |image007| image:: ./media/lab01/lab1-007.png
+.. |image007| image:: ./media/lab01/007.png
    :width: 800px
 .. |image008| image:: ./media/lab01/lab1-008.png
    :width: 800px
@@ -383,9 +410,9 @@ TASK 11: Lab CleanUp
    :width: 800px
 .. |image011| image:: ./media/lab01/lab1-011.png
    :width: 800px
-.. |image012| image:: ./media/lab01/lab1-012.png
+.. |image012| image:: ./media/lab01/012.png
    :width: 800px
-.. |image013| image:: ./media/lab01/lab1-013.png
+.. |image013| image:: ./media/lab01/013.png
    :width: 800px
 .. |image014| image:: ./media/lab01/lab1-014.png
    :width: 800px
@@ -395,19 +422,17 @@ TASK 11: Lab CleanUp
    :width: 800px
 .. |image017| image:: ./media/lab01/lab1-017.png
    :width: 800px
-.. |image018| image:: ./media/lab01/lab1-018.png
+.. |image018| image:: ./media/lab01/018.png
    :width: 800px
-.. |image019| image:: ./media/lab01/lab1-019.png
+.. |image019| image:: ./media/lab01/019.png
    :width: 800px
 .. |image020| image:: ./media/lab01/lab1-020.png
    :width: 800px
-.. |image021| image:: ./media/lab01/lab1-021.png
+.. |image021| image:: ./media/lab01/021.png
    :width: 800px
-.. |image022| image:: ./media/lab01/lab1-022.png
+.. |image023| image:: ./media/lab01/023.png
    :width: 800px
-.. |image023| image:: ./media/lab01/lab1-023.png
-   :width: 800px
-.. |image024| image:: ./media/lab01/lab1-024.png
+.. |image024| image:: ./media/lab01/024.png
    :width: 800px
 .. |image025| image:: ./media/lab01/lab1-025.png
    :width: 800px
