@@ -396,7 +396,7 @@ TASK 13: Lab CleanUp
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 10. The screen should refresh displaying the progress of the automation within 30 seconds.   |  
+| 11. The screen should refresh displaying the progress of the automation within 30 seconds.   |  
 | Scroll to the bottom of the automation workflow to ensure all requests succeeded.            |
 | If you you experience errors try running the automation a second time or open an issue on    | 
 | the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.                      |
@@ -407,7 +407,7 @@ TASK 13: Lab CleanUp
 
 
 +----------------------------------------------------------------------------------------------+
-| 1. This concludes Lab1.                                                                      |
+| 12. This concludes Lab1.                                                                      |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image000|                                                                                   |
