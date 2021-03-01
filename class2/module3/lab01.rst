@@ -462,15 +462,15 @@ TASK 13: Lab CleanUp
    :width: 800px
 .. |image024| image:: ./media/lab01/024.png
    :width: 800px
-.. |image025| image:: ./media/lab01/lab1-025.png
+.. |image025| image:: ./media/lab01/025.png
    :width: 800px
-.. |image026| image:: ./media/lab01/lab1-026.png
+.. |image026| image:: ./media/lab01/l026.png
    :width: 800px
-.. |image027| image:: ./media/lab01/lab1-027.png
+.. |image027| image:: ./media/lab01/027.png
    :width: 800px
-.. |image028| image:: ./media/lab01/lab1-028.png
+.. |image028| image:: ./media/lab01/028.png
    :width: 800px
-.. |image029| image:: ./media/lab01/lab1-029.png
+.. |image029| image:: ./media/lab01/029.png
    :width: 800px
 .. |image030| image:: ./media/lab01/lab1-030.png
    :width: 800px
@@ -503,14 +503,14 @@ TASK 13: Lab CleanUp
 .. |image044| image:: ./media/lab01/044.png
    :width: 800px
 
-   .. |image995| image:: ./media/lab01/995.png
+.. |image995| image:: ./media/lab01/995.png
    :width: 800px
-   .. |image996| image:: ./media/lab01/996.png
+.. |image996| image:: ./media/lab01/996.png
    :width: 800px
-   .. |image997| image:: ./media/lab01/997.png
+.. |image997| image:: ./media/lab01/997.png
    :width: 800px
-   .. |image998| image:: ./media/lab01/998.png
-   :width: 800px
-   .. |image999| image:: ./media/lab01/999.png
+.. |image998| image:: ./media/lab01/998.png
+   :width: 800px.. 
+.. |image999| image:: ./media/lab01/999.png
    :width: 800px
 
