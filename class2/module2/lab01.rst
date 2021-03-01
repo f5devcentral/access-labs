@@ -23,7 +23,7 @@ The first step in deploying the IAP is accessing Guided Configuration
 Task - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open the Chrome, and click the **bigip1** bookmark
+#. Open Chrome, and click the **bigip1** bookmark
 
    |image1|
 
@@ -55,7 +55,7 @@ Task - Access the Zero Trust IAP guided configuration
    |image7|
    
    
-   Lab 1.2 - Device Posture 
+Lab 1.2 - Device Posture
 ------------------------------------------------
 
 In this section, you will configure the IAP policy to perform posture assessment from client devices.  
@@ -71,7 +71,7 @@ Task - Select the component to configure for Lab 1
 
 #. Click **Single Sign-On (SSO)& HTTP Header**
 
-#. Click ***Webtop**
+#. Click **Webtop**
 
 #. Click **Save & Next**
 
@@ -92,8 +92,8 @@ Task - Define a firewall Posture Assessment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Define the Posture Group Name **FW_CHECK**
-#. Check the enable a **Firewall** box
-#. Check the enable a **Domain Managed Devices** box
+#. Check the **Firewall** box
+#. Check the **Domain Managed Devices** box
 #. Enter the Domain Name **f5lab.local** 
 #. Click **Done**
 
@@ -109,7 +109,7 @@ Task - Verify the posture assessment
    |image11|
    
    
-   Lab 1.3 - Virtual Server
+Lab 1.3 - Virtual Server
 ------------------------------------------------
 
 In this section, you will define the virtual server IP address and its SSL profile settings 
@@ -117,14 +117,14 @@ In this section, you will define the virtual server IP address and its SSL profi
 Task - Create a virtual server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Click **Show Advanced Setting** located in the top right corner to expose the Server-Side SSL profile settings
-#. Enter the IP address **10.1.10.100**
+#. Enable **Advanced Settings** located in the top left corner
+#. Enter the IP address **10.1.10.100** in Destination Address
 #. In the **Client SSL Profile** section, move **clientssl**  profile to **Available** side
 #. Double click the **acme.com-wildcard** to move the profile to **Selected**
 
    |image12|
 
-#. In the **Server SSL Profile** section, move the **serverssl** SSL Profile to the **Selected** side (select item and then click the right-arrow)
+#. In the **Server SSL Profile** section, double-click the **serverssl** SSL Profile to move it to the **Selected** side (or select it and then click the right-arrow to move)
 #. Click **Save & Next**
 
    |image13|
@@ -150,7 +150,7 @@ Task - Configure Active Directory AAA
 
    |image15|
 
-#. Select the **memberOf** in the Required Attributes box 
+#. Double-click **memberOf** in the Required Attributes box 
 #. Click **Save**
 
    |image16|
@@ -169,7 +169,7 @@ Task - Configure a RADIUS AAA Server
 
    |image17|
 
-#. Click the **Add**
+#. Click **Add**
 
    |image18|
 
@@ -193,8 +193,8 @@ Task - Configure a RADIUS AAA Server
 
    |image22|
 
-	
-	Lab 1.6 - SSO & HTTP Header
+
+Lab 1.6 - SSO & HTTP Header
 ------------------------------------------------
 
 In this section you will configure HTTP Basic SSO.
@@ -241,8 +241,8 @@ Task - Create basic.acme.com application
 
    |image27|
 
-#. Enter the **basic.acme.com** for the application name
-#. Enter the **basic.acme.com** for the FQDN
+#. Enter **basic.acme.com** for the application name
+#. Enter **basic.acme.com** for the FQDN
 #. Enter the IP address **10.1.20.6** for the pool member
 #. Click **Save** 
 
@@ -283,7 +283,7 @@ Task - Create Contextual Access for basic.acme.com
 #. Select **ad** from the Primary Authentication dropdown box
 #. Select **basic_sso** from the Single Sign-On dropdown box
 #. Enter **Sales Engineering** in the Filter by Group Name
-#. Click **Add** be side the Group Name
+#. Click **Add** beside the Group Name
 
    |image32|
 
@@ -436,7 +436,7 @@ Task - Enable Windows Firewall
 
    |image48|
    
-#. From the jumpbox, connect to https://iap1.acme.com webtop, and the access the **basic.acme.com** application
+#. From the jumpbox, connect to https://iap1.acme.com webtop, and then access the **basic.acme.com** application
 
    |image100|
 
