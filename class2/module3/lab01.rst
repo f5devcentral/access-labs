@@ -510,7 +510,7 @@ TASK 13: Lab CleanUp
 .. |image997| image:: ./media/lab01/997.png
    :width: 800px
 .. |image998| image:: ./media/lab01/998.png
-   :width: 800px.. 
+   :width: 800px 
 .. |image999| image:: ./media/lab01/999.png
    :width: 800px
 
