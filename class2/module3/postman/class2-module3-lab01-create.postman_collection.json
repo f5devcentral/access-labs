@@ -46,7 +46,7 @@
 									"\r",
 									"//This section is used when building two virtrual servers as part of a solutions or when a reference is needed to another solutions.  For example, if your solutions involved Federation you will need to define both the FQDNs for the both the SP and IDP.  \r",
 									"pm.collectionVariables.set(\"DNS2_NAME\", \"idp.acme.com\");\r",
-									"pm.collectionVariables.set(\"VS2_NAME\", \"idp\");\r",
+									"pm.collectionVariables.set(\"VS2_NAME\", \"idp.acme.com\");\r",
 									"pm.collectionVariables.set(\"BIGIP_ADDRESS2\", \"10.1.10.102\");\r",
 									"\r",
 									"\r",
@@ -960,7 +960,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-sso\",\r\n    \"partition\": \"Common\",\r\n    \"artifactResolutionServiceAddr\": \"any6\",\r\n    \"artifactResolutionServicePort\": 0,\r\n    \"entityId\": \"https://{{DNS2_NAME}}\",\r\n    \"identityLocation\": \"subject\",\r\n    \"idpCertificate\": \"/Common/acme.com-wildcard\",\r\n    \"locationSpecific\": \"false\",\r\n    \"signArtifactResolutionRq\": \"false\",\r\n    \"signatureType\": \"rsa-sha256\",\r\n    \"singleLogoutBinding\": \"http-post\",\r\n    \"singleLogoutResponseUri\": \"https://{{DNS2_NAME}}/saml/idp/profile/post/slr\",\r\n    \"singleLogoutUri\": \"https://{{DNS2_NAME}}/saml/idp/profile/post/sls\",\r\n    \"ssoBinding\": \"http-post\",\r\n    \"ssoUri\": \"https://{{DNS2_NAME}}/saml/idp/profile/redirectorpost/sso\",\r\n    \"wantAuthnRequestSigned\": \"false\",\r\n    \"wantDetachedSignature\": \"false\"\r\n}"
+													"raw": "{\r\n\r\n    \"name\": \"{{VS2_NAME}}-idp\",\r\n    \"partition\": \"Common\",\r\n    \"artifactResolutionServiceAddr\": \"any6\",\r\n    \"artifactResolutionServicePort\": 0,\r\n    \"entityId\": \"https://{{DNS2_NAME}}\",\r\n    \"identityLocation\": \"subject\",\r\n    \"idpCertificate\": \"/Common/acme.com-wildcard\",\r\n    \"locationSpecific\": \"false\",\r\n    \"signArtifactResolutionRq\": \"false\",\r\n    \"signatureType\": \"rsa-sha256\",\r\n    \"singleLogoutBinding\": \"http-post\",\r\n    \"singleLogoutResponseUri\": \"https://{{DNS2_NAME}}/saml/idp/profile/post/slr\",\r\n    \"singleLogoutUri\": \"https://{{DNS2_NAME}}/saml/idp/profile/post/sls\",\r\n    \"ssoBinding\": \"http-post\",\r\n    \"ssoUri\": \"https://{{DNS2_NAME}}/saml/idp/profile/redirectorpost/sso\",\r\n    \"wantAuthnRequestSigned\": \"false\",\r\n    \"wantDetachedSignature\": \"false\"\r\n}"
 												},
 												"url": {
 													"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/aaa/saml-idp-connector/",
@@ -1036,7 +1036,7 @@
 												],
 												"body": {
 													"mode": "raw",
-													"raw": "{\r\n\r\n    \"name\": \"{{DNS_NAME}}-sp\",\r\n    \"partition\": \"Common\",\r\n    \"assertionConsumerBinding\": \"http-post\",\r\n    \"authContextComparisonMethod\": \"exact\",\r\n    \"entityId\": \"https://{{DNS_NAME}}\",\r\n    \"forceAuthn\": \"false\",\r\n    \"locationSpecific\": \"false\",\r\n    \"nameIdPolicyAllowCreate\": \"true\",\r\n    \"spHost\": \"{{DNS_NAME}}\",\r\n    \"spScheme\": \"https\",\r\n    \"wantAssertionEncrypted\": \"false\",\r\n    \"wantAssertionSigned\": \"true\",\r\n    \"isAuthnRequestSigned\": \"true\",\r\n    \"spCertificate\": \"/Common/acme.com-wildcard\",\r\n    \"spSignkey\": \"/Common/acme.com-wildcard\",\r\n    \"idpConnectors\": [\r\n        {\r\n            \"name\": \"{{VS_NAME}}-sso\",\r\n            \"partition\": \"Common\"\r\n\r\n        }\r\n    ]\r\n}"
+													"raw": "{\r\n\r\n    \"name\": \"{{DNS_NAME}}-sp\",\r\n    \"partition\": \"Common\",\r\n    \"assertionConsumerBinding\": \"http-post\",\r\n    \"authContextComparisonMethod\": \"exact\",\r\n    \"entityId\": \"https://{{DNS_NAME}}\",\r\n    \"forceAuthn\": \"false\",\r\n    \"locationSpecific\": \"false\",\r\n    \"nameIdPolicyAllowCreate\": \"true\",\r\n    \"spHost\": \"{{DNS_NAME}}\",\r\n    \"spScheme\": \"https\",\r\n    \"wantAssertionEncrypted\": \"false\",\r\n    \"wantAssertionSigned\": \"true\",\r\n    \"isAuthnRequestSigned\": \"true\",\r\n    \"spCertificate\": \"/Common/acme.com-wildcard\",\r\n    \"spSignkey\": \"/Common/acme.com-wildcard\",\r\n    \"idpConnectors\": [\r\n        {\r\n            \"name\": \"{{VS2_NAME}}-idp\",\r\n            \"partition\": \"Common\"\r\n\r\n        }\r\n    ]\r\n}"
 												},
 												"url": {
 													"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/aaa/saml/",
