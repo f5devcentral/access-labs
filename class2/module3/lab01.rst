@@ -39,6 +39,7 @@ To access your dedicated student lab environment, you will require a web browser
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
 #. Login with the following credentials:
+
          - User: **f5lab\\user1**
          - Password: **user1**
 
@@ -49,11 +50,11 @@ To access your dedicated student lab environment, you will require a web browser
 
 	|image998|
 
-#. Scroll down the page until you see **201- 15.1 Zero Trust - Identity Aware Proxy** on the left
+#. Scroll down the page until you see **202 - Federation** on the left
 
    |image997|
 
-#. Hover over tile **Configure Identity Aware Proxy(15.1)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SAML IdP Access Guided Configuration(AGC) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image996|
 
