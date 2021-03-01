@@ -373,7 +373,7 @@ TASK 13: Lab CleanUp
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 7. From a browser navigate to https://portal.acme.com                                        |
+| 7. From a browser on the jumphost navigate to https://portal.acme.com                        |
 |                                                                                              |
 | 8. Click the **Classes** tab at the top of the page.                                         |
 +----------------------------------------------------------------------------------------------+
@@ -388,9 +388,9 @@ TASK 13: Lab CleanUp
 
 
 +----------------------------------------------------------------------------------------------+
-| 10. Hover over tile **SAML IdP Access Guided Configuration(AGC) Lab**. A start and stop icon |
-| should appear within the tile.  Click the **Stop ** Button to start the automation to delete |
-| any prebuilt objects                                                                         |                                                                  
+| 10. Hover over the tile **SAML IdP Access Guided Configuration(AGC) Lab**. A start and stop  |
+| icon should appear within the tile.  Click the **Stop** Button to start the automation to    |
+| delete any prebuilt objects                                                                  |                                                                  
 +----------------------------------------------------------------------------------------------+
 | |image996|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -405,9 +405,8 @@ TASK 13: Lab CleanUp
 | |image044|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-
 +----------------------------------------------------------------------------------------------+
-| 12. This concludes Lab1.                                                                      |
+| 12. This concludes Lab1.                                                                     |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image000|                                                                                   |
