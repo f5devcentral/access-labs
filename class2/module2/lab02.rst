@@ -339,7 +339,7 @@ Task 2 - Login to header.acme.com using user2
 .. |image30| image:: media/lab02/image030.png
 .. |image31| image:: media/lab02/image031.png
 .. |image32| image:: media/lab02/image032.png
-.. |image33| image:: media/lab02/image033.png
+.. |image33| image:: media/lab02/033.png
 .. |image34| image:: media/lab02/034.png
 .. |image35| image:: media/lab02/image035.png
 .. |image36| image:: media/lab02/image036.png
