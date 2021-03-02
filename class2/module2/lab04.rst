@@ -145,7 +145,7 @@ Task 2: Delete Prebuilt objects
 
 	|image91|
 
-#. Scroll down the page until you see **201- 16.0 Zero Trust - Identity Aware Proxy** on the left
+#. Scroll down the page until you see **201-v16.0 Zero Trust - Identity Aware Proxy** on the left
 
    |image87|
 
