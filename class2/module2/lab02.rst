@@ -14,7 +14,7 @@ To onboard a new application to the IAP, you will first access the Guided Config
 Task 1 - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the webbrowser, click on the **Access** tab located on the left side.
+#. From Firefox, click on the **Access** tab located on the left side.
 
    |image1|
 
@@ -102,7 +102,7 @@ Task 1 - Configure Application header.acme.com
 
    |image12|
 
-#. Click **Show Advanced Setting** in the top right corner to see additional properties
+#. Toggle **Advanced Setting** to **ON**in the top left corner to see additional properties
 #. Enter Name **header.acme.com**
 #. Enter FQDN **header.acme.com**
 #. Enter Subpath Pattern **/admin.php**
@@ -123,7 +123,7 @@ Task 1 - Configure Application header.acme.com
 Section 2.5 - Application Groups
 ------------------------------------------------
 
-In this section you will configure two Application groups to enforce different policies on parts of the header-iap.acme.com website.  
+In this section you will configure two Application groups to enforce different policies on parts of the header.acme.com website.  
 
 Task 1 - Create header-ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -247,7 +247,7 @@ In this section you will use user1's credentials to default website header.acme.
 Task 1 - Login to header.acme.com using user1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open a new browser tab
+#. Open Firefox
 #. Access the site https://iap1.acme.com
 #. At the logon page enter the Username: **user1** and Password: **user1**
 #. Click **Logon**
@@ -285,7 +285,7 @@ Task 2 - Login to header.acme.com using user2
 
    |image35|
 
-#. Notice the missing basic.acme tile. User2 is not a member of the required group to view the application
+#. Notice the missing basic.acme tile. User2 is not a member of the required group **Sales Engineering** to view the application
 #. Click the **header.acme.com** tile     
 
    |image36|
@@ -295,7 +295,7 @@ Task 2 - Login to header.acme.com using user2
    |image37|
 
 #. Access the **admin** portion of the website https://header.acme.com/admin.php
-#. You receive a **Access Denied** page due to not having the correct group membership
+#. You receive a **Access Denied** page due to not having the correct group membership **Website Admin**
 
    |image38|
 

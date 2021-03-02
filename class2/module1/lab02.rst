@@ -123,7 +123,7 @@ Task 1 - Configure Application header.acme.com
 Section 2.5 - Application Groups
 ------------------------------------------------
 
-In this section you will configure two Application groups to enforce different policies on parts of the header-iap.acme.com website.  
+In this section you will configure two Application groups to enforce different policies on parts of the header.acme.com website.  
 
 Task 1 - Create header-ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

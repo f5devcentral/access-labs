@@ -321,7 +321,7 @@ Task 1 - Create Contextual Access for basic.acme.com
 #. Select **fw_check** from the Device Posture dropdown box
 #. Select **ad** from the Primary Authentication dropdown box
 #. Select **basic_sso** from the Single Sign-On dropdown box
-#. Enter **Sales Engineering** in the Filter by Group Name
+#. Enter **Sales Engineering** in the Filter by Group Name.  This group assignment section controls the display of resources on the Webtop.  It does not control the access to the actual resource.  That will be covered in lab2.
 #. Click **Add** beside the Group Name
 
    |image32|
