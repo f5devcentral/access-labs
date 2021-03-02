@@ -1,22 +1,19 @@
-Access 303: Per Request Application Control
-===========================================
+500 Series: Troubleshooting
+======================================================
 
-Welcome
--------
+This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
-Welcome to the |classbold| lab at F5 Agility |year|
 
-|repoinfo|
-
-.. toctree::
-   :maxdepth: 2
-   :numbered:
-   :caption: Contents:
-   :glob:
+501 - GUI Tools
+---------------------------
+    
    
-   intro*
-   lab1*
-   lab2*
-   lab3*
-   close*
+502 - CLI
+------------------------------  
+
    
+503 - Third-Party Tools
+------------------------------  
+
+  
+ 
