@@ -22,7 +22,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumpbox.f5lab.local
 
-   |image090|
+   |image90|
 
 #. Select your RDP solution.  
 
@@ -34,21 +34,21 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
 
-	|image091|
+	|image91|
 
 #. Click the **Classes** tab at the top of the page.
 
 #. Scroll down the page until you see **201- 16.0 Zero Trust - Identity Aware Proxy** on the left
 
-   |image087|
+   |image87|
 
 #. Hover over tile **Configure Identity Aware Proxy(16.0)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image088|
+   |image88|
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-   |image089|
+   |image89|
 
 #. Close Chrome.
 
