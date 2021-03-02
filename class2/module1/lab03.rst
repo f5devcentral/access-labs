@@ -243,7 +243,7 @@ Task 1 - Access basic.acme.com
 .. |image8| image:: media/lab03/image008.png
 .. |image9| image:: media/lab03/image009.png
 .. |image10| image:: media/lab03/image010.png
-.. |image11| image:: media/lab03/image011.png
+.. |image11| image:: media/lab03/011.png
 
 
 

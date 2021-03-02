@@ -16,8 +16,8 @@ Task 1 - Create a DNS Resolver
 
 #. Login with the following credentials:
 
-         - User: **f5lab\\user1**
-         - Password: **user1**
+         - User: **admin**
+         - Password: **admin**
 
 #. Navigate to Network >> DNS Resolvers >> DNS Resolver List. Click the  **+ (Plus symbol)** Symbol
 
@@ -217,7 +217,7 @@ Task 1 - Access basic.acme.com
 
    |image35|
 
-#. Return to opened webtop and click the **basic.acme.com** tile.
+#. Return to webtop and click the **basic.acme.com** tile.
 
    |image36|
 
