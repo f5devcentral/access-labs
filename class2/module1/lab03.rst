@@ -93,7 +93,7 @@ Task 4 - Create a HTTP Connector Request
 Section 3.2 - Add HTTP Connector to the IAP Policy
 -----------------------------------------------------
 
-Now that the HTTP Connector Request has been defined you will add it to basic-iap.acme.com application and test.
+Now that the HTTP Connector Request has been defined you will add it to basic.acme.com application and test.
 
 Task 1 - Add the HTTP Connector Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -205,11 +205,11 @@ Task 1 - Access basic.acme.com
 
    |image30|
 
-#. Locate Disable User 2 Powershell script shortcut located on the desktop.  
+#. Locate the **DisableUser2.ps1 Powershell script located on the desktop.  
 
    |image31|
 
-#. Click the **Disable User 2** Powershell script.  A Powershell window will appear disabling the User2 account is Disabled.
+#. Right click the script and select Click the **Disable User 2** Powershell script.  A Powershell window will appear displaying User2 account is Disabled.
 
    |image32|
 
@@ -275,7 +275,7 @@ This concludes our lab on the HTTP Connector .
 	:width: 1000px
 .. |image30| image:: media/lab03/image030.png
 .. |image31| image:: media/lab03/image031.png
-.. |image32| image:: media/lab03/image032.png
+.. |image32| image:: media/lab03/032.png
 .. |image33| image:: media/lab03/image033.png
 .. |image34| image:: media/lab03/image034.png
 

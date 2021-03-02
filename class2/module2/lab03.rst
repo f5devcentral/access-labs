@@ -12,7 +12,12 @@ The HTTP Connector is made up of two parts.  The first part is called the HTTP C
 Task 1 - Create a DNS Resolver
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Return to the BIG-IP GUI
+#. Return to the BIG-IP GUI at https://bigip1.f5lab.local
+
+#. Login with the following credentials:
+
+         - User: **f5lab\\user1**
+         - Password: **user1**
 
 #. Navigate to Network >> DNS Resolvers >> DNS Resolver List. Click the  **+ (Plus symbol)** Symbol
 
@@ -92,7 +97,7 @@ Task 4 - Create a HTTP Connector Request
 Section 3.2 - Add HTTP Connector to the IAP Policy
 --------------------------------------------------
 
-Now that the HTTP Connector Request has been defined you will add it to basic-iap.acme.com application and test.
+Now that the HTTP Connector Request has been defined you will add it to basic.acme.com application and test.
 
 Task 1 - Add the HTTP Connector Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -152,15 +157,8 @@ In this section you will test how HTTP connector can influence policy changes dy
 Task 1 - Access basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the jump box open Chrome and open Developer Tools 
 
-   |image22|
-
-#. Ensure **Disable Cache** is checked
-
-   |image23|
-
-#. Access the site **https://iap1.acme.com**
+#. From the Jumphost's Firefox browser access the site **https://iap1.acme.com**
 #. Login with the Username: **user2** and Password: **user2**
 
    |image24|
@@ -177,7 +175,7 @@ Task 1 - Access basic.acme.com
 
    |image27|
 
-#. From a separate browser tab access the BIG-IP management interface https://10.1.1.4
+#. From a separate browser tab access the BIG-IP management interface https://bigip1.f5lab.local
 
 #. Navigate to Access >> Overview >> **Active Sessions**
 
@@ -209,15 +207,13 @@ Task 1 - Access basic.acme.com
 
 #. If the HTTP Connector sub-session still exists check off that specific sub-session only and click **Kill Selected Sessions**
 
-   .. NOTE:: You are doing this to speed up the process and bypass the typical timers 		associated with HTTP Connector. This will enable you to see HTTP Connector trigger 	immediately on the next HTTP request sent from the jump box.
+   .. NOTE:: You are doing this to speed up the process and bypass the typical timers associated with HTTP Connector. This will enable you to see HTTP Connector trigger immediately on the next HTTP request sent from the jumphost.
 
    |image33|
 
-#. Locate Disable User 2 Powershell script shortcut located on the desktop.  
+#. Locate DisableUser2.ps1 Powershell script located on the desktop.  
 
-   |image34|
-
-#. Click the **Disable User 2** Powershell script.  A Powershell window will appear disabling the User2 account is Disabled.
+#. Right click the script and select Click the **Disable User 2** Powershell script.  A Powershell window will appear displaying User2 account is Disabled.
 
    |image35|
 
@@ -270,7 +266,7 @@ Task 1 - Access basic.acme.com
 .. |image23| image:: media/lab03/image023.png
 .. |image24| image:: media/lab03/image024.png
 .. |image25| image:: media/lab03/image025.png
-.. |image26| image:: media/lab03/image026.png
+.. |image26| image:: media/lab03/026.png
 .. |image27| image:: media/lab03/image027.png
 .. |image28| image:: media/lab03/image028.png
 .. |image29| image:: media/lab03/image029.png
@@ -280,7 +276,7 @@ Task 1 - Access basic.acme.com
 .. |image32| image:: media/lab03/image032.png
 .. |image33| image:: media/lab03/image033.png
 .. |image34| image:: media/lab03/image034.png
-.. |image35| image:: media/lab03/image035.png
+.. |image35| image:: media/lab03/035.png
 .. |image36| image:: media/lab03/image036.png
 .. |image37| image:: media/lab03/image037.png
 .. |image38| image:: media/lab03/image038.png

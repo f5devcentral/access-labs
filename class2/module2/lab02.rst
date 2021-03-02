@@ -7,7 +7,7 @@ This Module also introduces the **Application Group** to provide different conte
    
    
 Section 2.1 - Access Guided Configuration
-----------------------------------------
+---------------------------------------------
 
 To onboard a new application to the IAP, you will first access the Guided Configuration menu.
 
@@ -267,11 +267,11 @@ Task 1 - Login to header.acme.com using user1
 #. Select the certificate **user1**
 #. Click **OK**
 
-   |image33|
+   |image34|
 
 #. You should be successfully logged into the **admin** portion of the site.
 
-   |image34|
+   |image33|
 
 #. Close the browser completely.
 
@@ -340,7 +340,7 @@ Task 2 - Login to header.acme.com using user2
 .. |image31| image:: media/lab02/image031.png
 .. |image32| image:: media/lab02/image032.png
 .. |image33| image:: media/lab02/image033.png
-.. |image34| image:: media/lab02/image034.png
+.. |image34| image:: media/lab02/034.png
 .. |image35| image:: media/lab02/image035.png
 .. |image36| image:: media/lab02/image036.png
 .. |image37| image:: media/lab02/image037.png

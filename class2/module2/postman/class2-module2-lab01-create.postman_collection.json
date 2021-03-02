@@ -11,6 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "1a50c6bb-b9cb-46d3-b9ef-0df70ef6e177",
 						"exec": [
 							"",
 							"",
@@ -20,8 +21,7 @@
 							"    pm.expect(jsonData.status).to.eql(\"Success\");",
 							"});"
 						],
-						"type": "text/javascript",
-						"id": "1a50c6bb-b9cb-46d3-b9ef-0df70ef6e177"
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -30,7 +30,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"1\",\n\"user\": \"user1\"\n}"
+					"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"2\",\n\"user\": \"user1\"\n}"
 				},
 				"url": {
 					"raw": "http://10.1.20.6:81/desktop",

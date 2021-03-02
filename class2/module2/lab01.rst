@@ -29,6 +29,7 @@ To access your dedicated student lab environment, you will require a web browser
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
 #. Login with the following credentials:
+
          - User: **f5lab\\user1**
          - Password: **user1**
 
