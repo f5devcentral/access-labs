@@ -50,6 +50,8 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image089|
 
+#. Close Chrome.
+
 
 
 Lab 1.1 - Access Guided Configuration
@@ -60,7 +62,7 @@ The first step in deploying the IAP is accessing Guided Configuration
 Task - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open Chrome, and click the **bigip1** bookmark
+#. Open Firefox, and click the **bigip1** bookmark
 
    |image1|
 
