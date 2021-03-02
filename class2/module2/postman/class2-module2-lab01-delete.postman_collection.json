@@ -1,17 +1,59 @@
 {
 	"info": {
-		"_postman_id": "9c796034-43b2-4785-98e0-baeaeeab5dd8",
+		"_postman_id": "29ecfd55-7c5b-4ed2-8349-c309d6c9d9ca",
 		"name": "Identity Aware Proxy Labs-delete",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Delete Desktop files",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Files Copied\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"1\",\n\"user\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/desktop",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "bigip5-Delete-Test AS3 is running",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "cdf18d71-72a4-4b11-9832-52ece4424198",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -31,7 +73,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e753a7b5-f06a-4220-825d-79a55850cff4",
 						"exec": [
 							"",
 							"",
@@ -87,18 +128,13 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "c1ea62ba-c4c6-4ecb-a704-a5da3416c77a",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -106,11 +142,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4fa8f508-5c00-4462-9bc8-0255a4d42f9b",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Wide IP deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -172,18 +207,13 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "6b2dffb1-8413-4b22-b100-79ec7004d7f9",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -191,11 +221,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "e1d683f4-1d6c-4846-879e-e35494bc4540",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Wide IP deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -257,18 +286,13 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "4132cb72-6b26-4e0a-b654-6000c8db604d",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"iap1.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -276,11 +300,10 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "6df391a9-1a54-43ab-9242-494917e13e53",
 						"exec": [
 							"",
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Wide IP deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -342,15 +365,10 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "1593758f-e897-4877-be2d-273799cd5474",
 						"exec": [
 							"setTimeout(function(){}, 2000);",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -358,10 +376,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8cace11f-121d-4d2c-b966-96548bc51ec1",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"VS deleted from server\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -432,11 +449,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "58ddbc2b-6c31-4aed-a2a9-6064110d5843",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
 							"",
 							"",
 							"pm.test(\"AS3 is Running\", function () {",
@@ -492,7 +505,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "41761bb7-4b8f-4a8c-92ff-6a225672d7ce",
 						"exec": [
 							""
 						],
@@ -502,22 +514,21 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ac3ad88e-fdd3-4b7d-b5ec-52511b78b835",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA OCSP Responder deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
+							"} else if (responseCode.code === 400) { ",
+							"pm.test(\"APM AAA OCSP object currently in use\", function () {",
+							"    pm.response.to.have.status(400);",
+							"}); ",
 							"} else if (responseCode.code === 404) { ",
 							"pm.test(\"APM AAA OCSP Responder does not exist\", function () {",
 							"    pm.response.to.have.status(404);",
 							"});",
-							"} else {",
-							"pm.test(\"APM AAA OCSP RESPONDER MUST BE DELETED MANUALLY\", function () {",
-							"    pm.response.to.have.status(501);",
-							"});    ",
-							"}",
+							"} ",
 							""
 						],
 						"type": "text/javascript"
@@ -553,7 +564,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "https://10.1.1.4/https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/{{APM_AAA_OCSP_NAME}}",
+					"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/{{APM_AAA_OCSP_NAME}}",
 					"protocol": "https",
 					"host": [
 						"10",
@@ -562,9 +573,6 @@
 						"4"
 					],
 					"path": [
-						"https:",
-						"",
-						"10.1.1.4",
 						"mgmt",
 						"tm",
 						"apm",
@@ -582,9 +590,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "fa367baa-d48e-4324-a02e-d15fd7801622",
 						"exec": [
-							"",
 							""
 						],
 						"type": "text/javascript"
@@ -593,14 +599,17 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "79cad4b9-b277-4a6d-a1e5-7ea3ad02b296",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA AD object deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"} else ",
+							"} else if (responseCode.code === 400) { ",
+							"pm.test(\"APM AAA ad object currently in use\", function () {",
+							"    pm.response.to.have.status(400);",
+							"}); ",
+							"} else",
 							"pm.test(\"APM AAA ad object does not exist\", function () {",
 							"    pm.response.to.have.status(404);",
 							"});",
@@ -665,16 +674,19 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "4f690412-cdb7-43fc-821d-803bb9628b6c",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Pool Deleted\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
+							"} else if (responseCode.code === 400) { ",
+							"pm.test(\"APM AAA AD Server Pool currently in use\", function () {",
+							"    pm.response.to.have.status(400);",
+							"}); ",
 							"} else ",
 							"pm.test(\"Pool Does not Exist\", function () {",
-							"    pm.response.to.have.status(409);",
+							"    pm.response.to.have.status(404);",
 							"});",
 							"",
 							""
@@ -732,49 +744,38 @@
 			"response": []
 		}
 	],
-	"variable": [
+	"event": [
 		{
-			"id": "1c7a1dd4-9e74-4c46-a483-5023bbd47543",
-			"key": "PRIOR_RESPONSE",
-			"value": "",
-			"type": "string"
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		},
 		{
-			"id": "05268e72-8e02-4e09-9cf1-a606c0bdb6fe",
-			"key": "APM_AAA_AD_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "3c5cc52a-24f0-4cfc-93f3-b3826da2337f",
-			"key": "APM_AAA_OCSP_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "b9e7d21a-ac14-4433-9086-2c7023ee3620",
-			"key": "APP_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "55835295-2919-4779-a54e-48878cbf03e2",
-			"key": "PARTITION_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "caac100c-c4f8-4394-9eac-1ad82c283dac",
-			"key": "PATH_NAME",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "d302bb1e-0fa6-4e52-a78b-8af7a25ce142",
-			"key": "VS_NAME",
-			"value": "",
-			"type": "string"
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	],
-	"protocolProfileBehavior": {}
+	"variable": [
+		{
+			"key": "APM_AAA_AD_NAME",
+			"value": ""
+		},
+		{
+			"key": "APM_AAA_OCSP_NAME",
+			"value": ""
+		},
+		{
+			"key": "PRIOR_RESPONSE",
+			"value": ""
+		}
+	]
 }
