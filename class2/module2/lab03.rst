@@ -1,16 +1,16 @@
-Lab3: Utilize HTTP Connector(16.0)
+Lab 3: Utilize HTTP Connector(16.0)
 ======================================================
 
 HTTP Connector is a feature released in BIG-IP APM 15.1 that allows HTTP requests to be initiated from a Per-Request Policy.  This could be used to send a request to an API to retrieve additional information to make an access control decision, or send information to update an external resource.  
 
   
-   Lab 3.1 - Create the HTTP Connector Request
-----------------------------------------------
+Section 3.1 - Create the HTTP Connector Request
+------------------------------------------------
 
 The HTTP Connector is made up of two parts.  The first part is called the HTTP Connector Transport and it defines settings related to SSL, DNS, timeouts, and payload sizes.  The second part is the HTTP Connector Request which contains specific details such as HTTP Method, URL, message body, and how to handle the HTTP responses.
 
-Task - Create a DNS Resolver
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Create a DNS Resolver
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Return to the BIG-IP GUI
 
@@ -41,7 +41,7 @@ Task - Create a DNS Resolver
    |image6|
 
 
-Task - Create a ServerSide SSL Profile
+Task 2 - Create a ServerSide SSL Profile
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to Local Traffic >> Profiles >> SSL >> Server. Click the  **+ (Plus Symbol)** Symbol
@@ -57,7 +57,7 @@ Task - Create a ServerSide SSL Profile
    |image8|
 
 
-Task - Create a HTTP Connector Transport
+Task 3 - Create a HTTP Connector Transport
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to Access >> Authentication >> HTTP Connector >> HTTP Connector Transport  Click the  **+ (Plus Symbol)**
@@ -72,7 +72,7 @@ Task - Create a HTTP Connector Transport
    |image10|
 
 
-Task - Create a HTTP Connector Request
+Task 4 - Create a HTTP Connector Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to Access >> Authentication >> HTTP Connector >> HTTP Connector Request.  Click the  **+ (Plus Symbol)**
@@ -89,19 +89,12 @@ Task - Create a HTTP Connector Request
    |image12|
 
 
-
-
-
-
-
-
-
-Lab 3.2 - Add HTTP Connector to the IAP Policy
+Section 3.2 - Add HTTP Connector to the IAP Policy
 --------------------------------------------------
 
 Now that the HTTP Connector Request has been defined you will add it to basic-iap.acme.com application and test.
 
-Task - Add the HTTP Connector Request
+Task 1 - Add the HTTP Connector Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, click on the **Guided Configuration** 
@@ -151,14 +144,12 @@ Task - Add the HTTP Connector Request
    |image21|
 
 
-
-
-Lab 3.3 - Testing
+Section 3.3 - Testing
 ------------------------------------------------
 
 In this section you will test how HTTP connector can influence policy changes dynamically as conditions change in the network 
 
-Task - Access basic.acme.com
+Task 1 - Access basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the jump box open Chrome and open Developer Tools 
@@ -195,7 +186,7 @@ Task - Access basic.acme.com
 #. You will see an active session for **user2**.
 #. Expand the session to see all the sub-sessions by clicking the **+ (Plus symbol)** to the left of the session ID.  
 
-   .. note :: Your session ID will not match the one displayed in the screenshot below.
+   .. note:: Your session ID will not match the one displayed in the screenshot below.
 
    |image29|
 
@@ -206,20 +197,19 @@ Task - Access basic.acme.com
 #. You will notice that HTTP Connector received multiple values back in the response and each JSON key was parsed to individual subsession variables. 
 #. userAccountControl is currently set to **66048**.  Which mean the account is enabled and the password never expires.
 
-
    |image31|
 
 #. Click **Cancel**
 
 #. Expand the session to see all the sub-sessions by clicking the **+ (Plus Symbol)** to the left of the session ID.  
 
-   .. note :: You session ID will not match the one displayed in the screenshot below.
+   .. note:: You session ID will not match the one displayed in the screenshot below.
 
    |image32|
 
 #. If the HTTP Connector sub-session still exists check off that specific sub-session only and click **Kill Selected Sessions**
 
-   .. NOTE :: You are doing this to speed up the process and bypass the typical timers 		associated with HTTP Connector. This will enable you to see HTTP Connector trigger 	immediately on the next HTTP request sent from the jump box.
+   .. NOTE:: You are doing this to speed up the process and bypass the typical timers 		associated with HTTP Connector. This will enable you to see HTTP Connector trigger 	immediately on the next HTTP request sent from the jump box.
 
    |image33|
 
@@ -236,7 +226,6 @@ Task - Access basic.acme.com
    |image36|
 
 #. Click on one of the links for the website.  You will receive a **Deny Page**.
-
 
    |image37|
 

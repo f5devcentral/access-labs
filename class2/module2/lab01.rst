@@ -1,4 +1,4 @@
-Lab1: Configure Identity Aware Proxy(16.0)
+Lab 1: Configure Identity Aware Proxy(16.0)
 ===========================================
 
 The Zero Trust Architecture shifts many of the objects that would exist in a per-session policy to the per-request policy thereby creating a more secure authentication and authorization scheme. The authenticity of each request is further enhanced through the use of F5’s Access Guard agent installed on a client.  This agent provides a PKI signed report of the posture assessment performed on the client real-time rather than the historical way plug-ins reported status. Previously, after a user connected to an application they would experience a delay in access as the agent performed the posture assessment to provide an unsigned report to the BIG-IP. 
@@ -14,7 +14,7 @@ Expected time to complete: **1 hour**
 
 
 Setup Lab Environment
-----------------------------------------
+--------------------------
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
@@ -54,13 +54,13 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 
-Lab 1.1 - Access Guided Configuration
-----------------------------------------
+Section 1.1 - Access Guided Configuration
+----------------------------------------------
 
 The first step in deploying the IAP is accessing Guided Configuration
 
-Task - Access the Zero Trust IAP guided configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task  1 - Access the Zero Trust IAP guided configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Open Firefox, and click the **bigip1** bookmark
 
@@ -94,12 +94,12 @@ Task - Access the Zero Trust IAP guided configuration
    |image7|
    
    
-Lab 1.2 - Device Posture
+Section 1.2 - Device Posture
 ------------------------------------------------
 
 In this section, you will configure the IAP policy to perform posture assessment from client devices.  
 
-Task - Select the component to configure for Lab 1
+Task 1 - Select the component to configure for Lab 1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Define the configuration name **IAP_DEMO**
@@ -116,7 +116,7 @@ Task - Select the component to configure for Lab 1
 
    |image8|
 
-Task - Enable Posture Checks
+Task  2 - Enable Posture Checks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Check **Enable F5 Client Posture Check**
@@ -127,7 +127,7 @@ Task - Enable Posture Checks
 
    |image9|
 
-Task - Define a firewall Posture Assessment
+Task 3 - Define a firewall Posture Assessment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Define the Posture Group Name **FW_CHECK**
@@ -139,7 +139,7 @@ Task - Define a firewall Posture Assessment
    |image10|
 
 
-Task - Verify the posture assessment 
+Task 4 - Verify the posture assessment 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. The Posture Settings box should contain **FW_CHECK**
@@ -148,12 +148,12 @@ Task - Verify the posture assessment
    |image11|
    
    
-Lab 1.3 - Virtual Server
+Section  1.3 - Virtual Server
 ------------------------------------------------
 
 In this section, you will define the virtual server IP address and its SSL profile settings 
 
-Task - Create a virtual server
+Task 1 - Create a virtual server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Enable **Advanced Settings** located in the top left corner
@@ -169,12 +169,12 @@ Task - Create a virtual server
    |image13|
 
 
-Lab 1.4 - User Identity
-------------------------------------------------
+Section 1.4 - User Identity
+---------------------------------
 
 In this section you will configure a single User Identity using Active Directory.  
 
-Task - Configure Active Directory AAA
+Task 1 - Configure Active Directory AAA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add**
@@ -194,14 +194,13 @@ Task - Configure Active Directory AAA
 
    |image16|
 
-
-Lab 1.5 - MFA
+Section 1.5 - MFA
 ------------------------------------------------
 
 In this section you will configure a RADIUS server to enable simulated MFA capabilities.
 
 
-Task - Configure a RADIUS AAA Server
+Task 1 - Configure a RADIUS AAA Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click the **MFA** tab
@@ -233,12 +232,12 @@ Task - Configure a RADIUS AAA Server
    |image22|
 
 
-Lab 1.6 - SSO & HTTP Header
+Section 1.6 - SSO & HTTP Header
 ------------------------------------------------
 
 In this section you will configure HTTP Basic SSO.
 
-Task - Create a HTTP basic SSO object
+Task 1 - Create a HTTP basic SSO object
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
@@ -267,12 +266,12 @@ Task - Create a HTTP basic SSO object
 
 
 
-Lab 1.7 - Applications
+Section 1.7 - Applications
 ------------------------------------------------
 
 In this section you will define a single application
 
-Task - Create basic.acme.com application
+Task 1 - Create basic.acme.com application
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Enter Auth Domain **iap1.acme.com** 
@@ -292,10 +291,10 @@ Task - Create basic.acme.com application
 
    |image29|
 
-Lab 1.8 - Webtop
-------------------------------------------------
+Section 1.8 - Webtop
+---------------------------
 
-Task - Modify the Webtop setting
+Task 1 - Modify the Webtop setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Set the Primary Authentication to **ad**
@@ -304,12 +303,12 @@ Task - Modify the Webtop setting
 
    |image30|
 
-Lab 1.9 - Contextual Access
-------------------------------------------------
+Section 1.9 - Contextual Access
+-------------------------------------
 
 In this section you will define contextual access for the previously created application.  Context access is where all of the previously created objects are put together to provide fine-grain access control.
 
-Task - Create Contextual Access for basic.acme.com
+Task 1 - Create Contextual Access for basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add**
@@ -340,13 +339,13 @@ Task - Create Contextual Access for basic.acme.com
 
 
 
-Lab 1.10 - Customization
+Section 1.10 - Customization
 ------------------------------------------------
 
 The Customization section allows an administrator to define the images, colors, and messages that are presented to a user.
 
-Task - Customize the Remediation Page URL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 1 - Customize the Remediation Page URL
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default **remediation Page** URL uses the hostname site **request.com**.  This should be changed to reference a real host where users can download and install the EPI updates.
 
@@ -363,14 +362,14 @@ The default **remediation Page** URL uses the hostname site **request.com**.  Th
 #. On the Session Management Properties menu, Click **Save & Next**
 
 
-Lab 1.11 - Summary
+Section 1.11 - Summary
 ------------------------------------------------
 
 The **Summary** page allows you to review the configuration that is about to be deployed.  In the event a change is required anywhere in the configuration the **pencil icon** on the right side can be selected to quickly edit the appropriate section.
 
 
 
-Task - Deploy the configuration 
+Task 1 - Deploy the configuration 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Deploy**
@@ -380,12 +379,12 @@ Task - Deploy the configuration
 #. Once the deployment is complete, click **Finish**
 
 
-Lab 1.12 - Testing 
+Section 1.12 - Testing 
 ------------------------------------------------
 
 In this section you will access the application basic.acme.com and watch how the BIG-IP restricts access when a device fails it's posture assessment.
 
-Task - Access basic.acme.com
+Task 1 - Access basic.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. NOTE:: Posture Assessments in a Per-Request Policy use F5 Access Guard(running on clients) to perform posture assessments prior to accessing an application.  This improves the user experience since posture checks do not introduce any delay when accessing the application. This also improves security by allowing posture assessments to occur continuously throughout the life of the session.
@@ -413,7 +412,7 @@ Task - Access basic.acme.com
 
 
 
-Task - Disable Windows Firewall
+Task 2 - Disable Windows Firewall
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Right click the computer icon in the taskbar and open **Network and Sharing Center**
@@ -434,7 +433,7 @@ Task - Disable Windows Firewall
    |image46|
 
 
-Task - See Deny Page iap1.acme.com
+Task 3 - See Deny Page iap1.acme.com
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the jumpbox, browse to https://iap1.acme.com
@@ -455,7 +454,7 @@ Task - See Deny Page iap1.acme.com
 #. Close the browser Window to ensure there is no cached data
 
 
-Task - Enable Windows Firewall
+Task 4 - Enable Windows Firewall
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Right click the computer icon in the taskbar and open **Network and Sharing Center**
@@ -478,16 +477,6 @@ Task - Enable Windows Firewall
 #. From the jumpbox, connect to https://iap1.acme.com webtop, and then access the **basic.acme.com** application
 
    |image100|
-
-
-
-
-
-
-
-
-
-
 
 
 
