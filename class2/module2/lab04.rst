@@ -104,7 +104,7 @@ TASK 1: Remove AGC Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-#. Open a browser, and navigate to bigip1.f5lab.local
+#. Open a browser, and navigate to https://bigip1.f5lab.local
 
 #. Login with username **admin** and password **admin**
 
@@ -141,9 +141,9 @@ Task 2: Delete Prebuilt objects
 
 #. From a browser on the jumphost navigate to https://portal.acme.com 
 
-	|image91|
-
 #. Click the **Classes** tab at the top of the page.
+
+	|image91|
 
 #. Scroll down the page until you see **201- 16.0 Zero Trust - Identity Aware Proxy** on the left
 
