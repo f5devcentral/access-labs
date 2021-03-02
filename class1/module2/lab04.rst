@@ -84,7 +84,7 @@ Task - Add Webtop resource to existing Access Policy
 
 
 
-Task â€“ Testing
+Task Testing
 ~~~~~~~~~~~~~~
 
 #. Open a **New Incognito** web browser to the virtual server created in the previous lab

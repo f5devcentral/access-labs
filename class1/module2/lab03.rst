@@ -108,7 +108,7 @@ A single LDAP server of 10.1.20.7 has been configured with a admin service accou
 
 |Lab3-Image11|
 
-Kerberos SSO Object¶
+Kerberos SSO Object
 - The Username Source field has been modified from the default to reference the sAMAccountName stored in session.logon.last.username
 - Kerberos Realm has been set to the Active Directory domain (realms should always be in uppercase)
 - The service account used for Kerberos Constrained Delegation (Service Account Names should be in SPN format)
@@ -116,8 +116,8 @@ Kerberos SSO Object¶
 
 |Lab3-Image12|
 
-The Policy from a user’s perspective¶
-User1¶
+The Policy from a user’s perspective
+User1
 User1 is prompted to select their certificate
 
 |Lab3-Image13|
