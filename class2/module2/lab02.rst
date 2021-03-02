@@ -299,6 +299,8 @@ Task 2 - Login to header.acme.com using user2
 
    |image38|
 
+#. This concludes lab 2.
+
    |image100|
 
 

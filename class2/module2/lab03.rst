@@ -12,7 +12,7 @@ The HTTP Connector is made up of two parts.  The first part is called the HTTP C
 Task 1 - Create a DNS Resolver
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Return to the BIG-IP GUI at https://bigip1.f5lab.local
+#. From the jumphost, return to Firefox then navigate to the BIG-IP GUI at https://bigip1.f5lab.local
 
 #. Login with the following credentials:
 
@@ -213,7 +213,7 @@ Task 1 - Access basic.acme.com
 
 #. Locate DisableUser2.ps1 Powershell script located on the desktop.  
 
-#. Right click the script and select Click the **Disable User 2** Powershell script.  A Powershell window will appear displaying User2 account is Disabled.
+#. Right click the script and select **Run with PowerShell**.  A Powershell window will appear displaying User2 account is Disabled.
 
    |image35|
 
@@ -228,6 +228,8 @@ Task 1 - Access basic.acme.com
 #. If you return to the sub-session variables screen in BIG-IP you will see UserAccountControl was **66050**.
 
    |image38|
+
+#. This concludes lab 3.
 
    |image100|
 

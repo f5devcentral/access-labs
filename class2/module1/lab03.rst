@@ -168,7 +168,7 @@ Task 1 - Access basic.acme.com
 
    |image25|
 
-#. From a separate browser tab access the BIG-IP management interface https://10.1.1.4
+#. From a separate browser tab access the BIG-IP management interface https://bigip1.f5lab.local
 
 #. Navigate to Access >> Overview >> **Active Sessions**
 
@@ -195,13 +195,13 @@ Task 1 - Access basic.acme.com
 
 #. Expand the session to see all the sub-sessions by clicking the **+ (Plus Symbol)** to the left of the session ID.  
 
-   .. note :: You session ID will not match the one displayed in the screenshot below.
+   .. note:: You session ID will not match the one displayed in the screenshot below.
 
    |image27|
 
 #. If the HTTP Connector sub-session still exists check off that specific sub-session only and click **Kill Selected Sessions**
 
-   .. NOTE :: You are doing this to speed up the process and bypass the typical timers 		associated with HTTP Connector. This will enable you to see HTTP Connector trigger 	immediately on the next HTTP request sent from the jump box.
+   .. NOTE:: You are doing this to speed up the process and bypass the typical timers associated with HTTP Connector. This will enable you to see HTTP Connector trigger immediately on the next HTTP request sent from the jumphost.
 
    |image30|
 
@@ -209,7 +209,7 @@ Task 1 - Access basic.acme.com
 
    |image31|
 
-#. Right click the script and select Click the **Disable User 2** Powershell script.  A Powershell window will appear displaying User2 account is Disabled.
+#. Right click the script and select **Run with PowerShell**.  A Powershell window will appear displaying User2 account is Disabled.
 
    |image32|
 
@@ -224,11 +224,9 @@ Task 1 - Access basic.acme.com
    |image34|
 
 
-
-
-This concludes our lab on the HTTP Connector .
+#. This concludes lab 3.
  
- |image100|
+   |image100|
 
 
 

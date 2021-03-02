@@ -428,11 +428,9 @@ Task 4 - Enable Windows Firewall
    
 #. From the jumpbox, browse to https://basic.acme.com to sure you can connect. 
 
-
-
-This concludes our lab on creating an Identity Aware Proxy configuration in Access Guided Configuration.
+#. This concludes lab 1.
  
- |image100|
+   |image100|
 
 
 

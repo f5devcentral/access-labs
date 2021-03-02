@@ -478,6 +478,9 @@ Task 4 - Enable Windows Firewall
    
 #. From the jumpbox, connect to https://iap1.acme.com webtop, and then access the **basic.acme.com** application
 
+
+#. This concludes lab 1.
+
    |image100|
 
 
