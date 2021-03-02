@@ -124,7 +124,7 @@ Task 1 - View the installed Extension
 .. |image7| image:: media/lab04/image007.png
 .. |image8| image:: media/lab04/image008.png
 .. |image9| image:: media/lab04/image009.png
-.. |image10| image:: media/lab04/010.png
+.. |image10| image:: media/lab04/image010.png
 .. |image11| image:: media/lab04/image011.png
 .. |image12| image:: media/lab04/image012.png
 .. |image13| image:: media/lab04/image013.png

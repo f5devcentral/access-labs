@@ -95,6 +95,68 @@ Task 1 - View the installed Extension
 
    |image10|
 
+
+
+Section 4.5 Lab CleanUp
+---------------------------
+
+TASK 1: Remove AGC Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+#. Open a browser, and navigate to bigip1.f5lab.local
+
+#. Login with username **admin** and password **admin**
+
+   |image17|
+
+#. Navigate to **Access -> Guided Configuration** in the left-hand menu.                                                                                      
+
+   |image11|                                                                                   
+
+#. Click the **Undeploy** button on the existing IAP_DEMO configuration                                                                                                                            
+
+   |image12|                                                                                   
+
+#. Click **OK** when asked, "Are you sure you want to undeploy this configuration?"                                                                          
+
+   |image13|                                                                                   
+
+
+#. Click the **Delete** button once the deployment is undeployed                                                                                               
+
+   |image14|                                                                                   
+
+#. Click **OK** when asked, "Are you sure you want to delete this configuration?"                                                                             
+
+   |image15|                                                                                   
+
+#. The Configuration section should now be empty                                             
+
+   |image16|   
+
+
+Task 2: Delete Prebuilt objects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~                                                                                
+
+#. From a browser on the jumphost navigate to https://portal.acme.com 
+
+	|image91|
+
+#. Click the **Classes** tab at the top of the page.
+
+#. Scroll down the page until you see **201- 16.0 Zero Trust - Identity Aware Proxy** on the left
+
+   |image87|
+
+#. Hover over tile **Configure Identity Aware Proxy(16.0)**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+
+   |image88|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image89|
+
 #. This concludes lab 4.
 
    |image100|
@@ -110,8 +172,16 @@ Task 1 - View the installed Extension
 .. |image8| image:: media/lab04/image008.png
 .. |image9| image:: media/lab04/image009.png
 .. |image10| image:: media/lab04/010.png
-.. |image11| image:: media/lab04/image011.png
-.. |image12| image:: media/lab04/image012.png
-.. |image13| image:: media/lab04/image013.png
+.. |image11| image:: media/lab04/011.png
+.. |image12| image:: media/lab04/012.png
+.. |image13| image:: media/lab04/013.png
+.. |image14| image:: media/lab04/014.png
+.. |image15| image:: media/lab04/015.png
+.. |image16| image:: media/lab04/016.png
+.. |image17| image:: media/lab04/017.png
+.. |image87| image:: media/lab04/087.png
+.. |image88| image:: media/lab04/088.png
+.. |image89| image:: media/lab04/089.png
+.. |image91| image:: media/lab04/091.png
 .. |image100| image:: media/lab04/image100.png
 
