@@ -572,7 +572,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n   \"name\": \"acme.com-wildcard\",\r\n   \"cert\": \"/Common/acme.com-wildcard\",\r\n   \"key\": \"/Common/acme.com-wildcard\"\r\n   \"clientCertCa\": \"/Common/ca.f5lab.local\",\r\n   \"caFile\": \"/Common/ca.f5lab.local\"\r\n}"
+					"raw": "{\r\n   \"name\": \"acme.com-wildcard\",\r\n   \"cert\": \"/Common/acme.com-wildcard\",\r\n   \"key\": \"/Common/acme.com-wildcard\",\r\n   \"clientCertCa\": \"/Common/ca.f5lab.local\",\r\n   \"caFile\": \"/Common/ca.f5lab.local\"\r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.4/mgmt/tm/ltm/profile/client-ssl/",
