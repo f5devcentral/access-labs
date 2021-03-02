@@ -62,9 +62,7 @@ The first step in deploying the IAP is accessing Guided Configuration
 Task  1 - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open Firefox, and click the **bigip1** bookmark
-
-   |image1|
+#. Open Firefox, and navigate to bigip1.f5lab.local
 
 #. Login with username **admin** and password **admin**
 
@@ -88,13 +86,12 @@ Task  1 - Access the Zero Trust IAP guided configuration
 
 #. Click **Next**
 
-
    .. NOTE::  Review the design considerations for deploying IAP in a **Single Proxy** versus a **Multi-proxy** solution.
 
    |image7|
    
    
-Section 1.2 - Device Posture
+Section 1.2 - General Properties
 ------------------------------------------------
 
 In this section, you will configure the IAP policy to perform posture assessment from client devices.  
@@ -116,18 +113,22 @@ Task 1 - Select the component to configure for Lab 1
 
    |image8|
 
-Task  2 - Enable Posture Checks
+
+Section 1.3 - Device Posture
+------------------------------------------------
+
+Task 1 - Enable Posture Checks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Check **Enable F5 Client Posture Check**
 
-#. select **ca.f5lab.local.crt** from the CA Trust Certificate dropdown list
+#. select **ca.f5lab.local** from the CA Trust Certificate dropdown list
 
 #. Select **Add** to create a posture assessment group
 
    |image9|
 
-Task 3 - Define a firewall Posture Assessment
+Task 2 - Define a firewall Posture Assessment
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Define the Posture Group Name **FW_CHECK**
@@ -139,7 +140,7 @@ Task 3 - Define a firewall Posture Assessment
    |image10|
 
 
-Task 4 - Verify the posture assessment 
+Task 3 - Verify the posture assessment 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. The Posture Settings box should contain **FW_CHECK**
@@ -148,7 +149,7 @@ Task 4 - Verify the posture assessment
    |image11|
    
    
-Section  1.3 - Virtual Server
+Section  1.4 - Virtual Server
 ------------------------------------------------
 
 In this section, you will define the virtual server IP address and its SSL profile settings 
@@ -169,7 +170,7 @@ Task 1 - Create a virtual server
    |image13|
 
 
-Section 1.4 - User Identity
+Section 1.5 - User Identity
 ---------------------------------
 
 In this section you will configure a single User Identity using Active Directory.  
@@ -194,7 +195,7 @@ Task 1 - Configure Active Directory AAA
 
    |image16|
 
-Section 1.5 - MFA
+Section 1.6 - MFA
 ------------------------------------------------
 
 In this section you will configure a RADIUS server to enable simulated MFA capabilities.
@@ -232,7 +233,7 @@ Task 1 - Configure a RADIUS AAA Server
    |image22|
 
 
-Section 1.6 - SSO & HTTP Header
+Section 1.7 - SSO & HTTP Header
 ------------------------------------------------
 
 In this section you will configure HTTP Basic SSO.
@@ -266,7 +267,7 @@ Task 1 - Create a HTTP basic SSO object
 
 
 
-Section 1.7 - Applications
+Section 1.8 - Applications
 ------------------------------------------------
 
 In this section you will define a single application
@@ -291,7 +292,7 @@ Task 1 - Create basic.acme.com application
 
    |image29|
 
-Section 1.8 - Webtop
+Section 1.9 - Webtop
 ---------------------------
 
 Task 1 - Modify the Webtop setting
@@ -303,7 +304,7 @@ Task 1 - Modify the Webtop setting
 
    |image30|
 
-Section 1.9 - Contextual Access
+Section 1.10 - Contextual Access
 -------------------------------------
 
 In this section you will define contextual access for the previously created application.  Context access is where all of the previously created objects are put together to provide fine-grain access control.
@@ -339,7 +340,7 @@ Task 1 - Create Contextual Access for basic.acme.com
 
 
 
-Section 1.10 - Customization
+Section 1.11 - Customization
 ------------------------------------------------
 
 The Customization section allows an administrator to define the images, colors, and messages that are presented to a user.
@@ -362,7 +363,7 @@ The default **remediation Page** URL uses the hostname site **request.com**.  Th
 #. On the Session Management Properties menu, Click **Save & Next**
 
 
-Section 1.11 - Summary
+Section 1.12 - Summary
 ------------------------------------------------
 
 The **Summary** page allows you to review the configuration that is about to be deployed.  In the event a change is required anywhere in the configuration the **pencil icon** on the right side can be selected to quickly edit the appropriate section.
@@ -379,7 +380,7 @@ Task 1 - Deploy the configuration
 #. Once the deployment is complete, click **Finish**
 
 
-Section 1.12 - Testing 
+Section 1.13 - Testing 
 ------------------------------------------------
 
 In this section you will access the application basic.acme.com and watch how the BIG-IP restricts access when a device fails it's posture assessment.
