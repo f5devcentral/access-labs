@@ -1,4 +1,4 @@
-Lab2: Onboard a Second Application(15.1)
+Lab 2: Onboard a Second Application(15.1)
 ======================================================
 
 Guided Configuration supports more than a single application per Identity Aware Proxy Deployment.  In this module you will learn how to modify an existing IAP deployment  to onboard new authentication methods, SSO methods, and applications. 
@@ -123,7 +123,7 @@ Task 1 - Configure Application header.acme.com
 Section 2.5 - Application Groups
 ------------------------------------------------
 
-In this section you will configure two Application groups to enforce different policies on parts of the header-iap.acme.com website.  
+In this section you will configure two Application groups to enforce different policies on parts of the header.acme.com website.  
 
 Task 1 - Create header-ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -278,6 +278,13 @@ Task 2 - Login to header.acme.com using user2
 
    |image36|
 
+#. This concludes lab 2. 
+ 
+   |image100|
+
+
+
+.. |image100| image:: media/lab01/100.png
 
 .. |image0| image:: media/lab02/image000.png
 	:width: 800px

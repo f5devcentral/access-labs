@@ -10,7 +10,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
 
-   intro.rst
+   module1/intro.rst
    module1/lab*
 
 102 - Access Building Blocks
@@ -19,7 +19,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    :maxdepth: 1
    :glob:
 
-   intro.rst
+   module2/intro.rst
    module2/lab*
 
 

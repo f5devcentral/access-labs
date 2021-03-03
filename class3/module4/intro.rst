@@ -1,28 +1,21 @@
-Getting Started
----------------
+Lab Overview
+================
 
-Please follow the instructions provided by the instructor to start your
-lab and access your jump host.
+An API protection profile is the primary tool that Access Policy Manager administrators use to safeguard API servers. Protection profiles define groups of related RESTful APIs used by applications. The protection profile contains a list of paths that may appear in a request. The system classifies requests and sends them to specific API servers.
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+The simplest way to create an API protection profile and establish API protection is using an OpenAPI Spec file to import the details of the APIs. If you use an OpenAPI Spec file, Access Policy Manager automatically creates the following (depending on what's included in the spec file):
 
-1. Establish an RDP connection to your Jump Host and login with the following credentials:
-User: **user1**
-Password: **user1**
+- API Protection Profile
+- Paths
+- API servers
+- Responses
+- Per-request policy with a Request Classification agent and a subroutine containing an OAuth scope check agent
 
-2. Access the BIG-IP GUI https://10.1.1.4 (you can double-click on the BIG-IP1 bookmark from Chrome).
+To enable API protection, the API Protection Profile must be associated with a virtual server. If using API Protection, the virtual server can have only one API Protection Profile associated with it. You cannot select other access profiles or per-request policies in that virtual server.
 
-3. Login into the BIG-IP Configuration Utility with the following credentials:
-User: **f5lab\admin**
-Password: **admin**
-
-.. NOTE::
-	 All work for this lab will be performed exclusively from the Windows
-	 jumphost. No installation or interaction with your local system is
-	 required.
 
 Lab Topology
-~~~~~~~~~~~~
+---------------
 
 |image000|  
 
@@ -36,7 +29,7 @@ The following components have been included in your lab environment:
 - 1 x Centos 7
 
 Lab Components
-^^^^^^^^^^^^^^
+------------------
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
@@ -70,7 +63,7 @@ components:
 |                        | - Internal   10.1.20.8  |                          | 
 +------------------------+-------------------------+--------------------------+      
 
-.. |image000| image:: media/image000.png
+.. |image000| image:: media/intro/000.png
    :width: 6.96097in
    :height: 4.46512in
 

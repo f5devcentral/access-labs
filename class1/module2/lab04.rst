@@ -1,4 +1,4 @@
-Lab 4: Webtop Overview
+Lab 2: Webtop Access Policy Build
 ============================================
 
 In this lab, we will add a Webtop resource to the Access Policy
@@ -7,295 +7,113 @@ created in the previous lab.
 Lab Requirements
 ----------------
 
-Working HTTPS Virtual Server with Access Policy Created in Lab 1 (Lab 1 successfully completed).
+  - Working HTTPS Virtual Server with Access Policy Created in Lab 1 (Lab 1 successfully completed).
 
-Task 1: Webtop Publication
-----------------------------
 
-Exercise 1 – Create a Webtop resource
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Task - Create a Webtop resource
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Expand the **Access** tab from the main menu on the left and navigate
    to **Webtops** > **Webtop Lists**.
 
-#. Click **Create** to create a new Webtop called **lab101-webtop**,
-   select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
+#. Click **Create** to create a new Webtop called **MyFullWebtop**,
+   select Type **Full** , uncheck  **Minimize To Tray** and
    click **Finished**.
 
-<img src="https://clouddocs.f5.com/training/community/iam/html/_images/image396.png">
+   |Lab4-Image1|
 
 
-Exercise 2 – Create Webtop Item
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Browse to **Access** > **Webtops >** **Webtop Link** and click the **+ (Plus Symbol)**
+Task - Create Webtop Item
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Browse to **Access** > **Webtops >** **Webtop Link** and click create.
+
 
 #. Complete the following entries.
 
-      - Name: **www.f5.com**
-      - Link Type Dropdown: **Application URI**
-      - Applicatoin URI : **https://www.f5.com**
-      - Application Caption : **www.f5.com**
+      - Name: F5Rocks
+      - Link Type Dropdown: Application URI
+      - Applicatoin URI : https://www.f5.com
+      - Application Caption : F5 Rocks.
 
-	|image23|
+   |Lab4-Image2|
+
+   |Lab4-Image3|
 
 
-Exercise 3 – Add Webtop resource to existing Access Policy
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-#. Browse to **Access > Profiles/Policies > Access Profiles
-   (Per-Session Policies)**, click on **Edit** for **lab101-psp**. A
-   new tab should open to the Visual Policy Editor for **lab101-psp**.
+Task - Add Webtop resource to existing Access Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+#. Browse to **Access** > **Profiles / Policies > Access Profiles
+   (Per-Session Policies)**, click on **Edit** for **MyAccessPolicy**. A
+   new tab should open to the Visual Policy Editor for **MyAccessPolicy**.
+
+   |Lab4-Image4|
 
 #. In between the AD Auth APM Item and the Allow APM item click the + option to add an item.
 
-	|image24|
+   |Lab4-Image5|
 
 #. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign"
    radio button. Click **Add Item**.
 
-	|image25|
+   |Lab4-Image6|
 
 #. Then Click the "Add New Entry" button.
 
-	|image26|
+   |Lab4-Image7|
 
 
-#. Under the "Expression Section" click the "Add/Delete" button
+#. Then under the "Expression Section" click the "Add/Delete" button
 
-	|image27|
+#. | Click on the **Webtop** tab, select the radio button for
+     **MyFullWebtop**. Click on the **Webop Links** tab, and select the radio button for **F5Rocks**
+     then click the **Update** button at the bottom of
+     the screen.
 
-#. Click on the **Webop Links** tab, and select the radio button for **www.f5.com**.
-
-	|image28|
-#. Click on the **Webtop** tab, select the radio button for **lab101-webtop**. Click the **Update** button at the bottom of the screen.
-
-	|image29|
-
+   |Lab4-Image8|
 
 #. Click **Save**.
 
-	|image30|
-
 #. | At the top left of the browser window, click on **Apply Access
-     Policy**, then close the tab.
+     Policy** , then close the tab.
+
+   |Lab4-Image9|
 
 
-Exercise 4 – Testing
-^^^^^^^^^^^^^^^^^^^^^
 
-#. Open a web browser to the virtual server created in the previous lab
+
+Task Testing
+~~~~~~~~~~~~~~
+
+#. Open a **New Incognito** web browser to the virtual server created in the previous lab
    by navigating to **https://server1.acme.com**. You will be presented
    with a Logon page similar to the one from the last lab.
 
 #. Enter the following credentials:
 
-	- Username: **user1**
-	- Password: **user1**
+   Username: **user1**
 
-	|image31|
+   Password: **user1**
 
 #. Click **Logon**.
 
    This will open the APM Webtop landing page that shows the resources you
-   are allowed to access. In this lab, we’ve only configured one resource:
-   **www.f5.com**, but you can add as many as you want and they will
+   are allowed to access. In this lab, we've only configured one resource:
+   **F5 Rocks**, but you can add as many as you want and they will
    appear on this Webtop page.
 
-   |image32|
-
-Task 2: Webtop Links
-----------------------
-
-Exercise 1 – Create a Webtop resource
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Expand the **Access** tab from the main menu on the left and navigate
-   to **Webtops** > **Webtop Lists**.
-
-#. Click **Create** to create a new Webtop called **lab101-webtop**,
-   select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
-   click **Finished**.
-
-   |image22|
-
-
-
-Exercise 2 – Create Webtop Item
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Browse to **Access** > **Webtops >** **Webtop Link** and click the **+ (Plus Symbol)**
-
-#. Complete the following entries.
-
-   - Name: **www.f5.com**
-   - Link Type Dropdown: **Application URI**
-   - Applicatoin URI : **https://www.f5.com**
-   - Application Caption : **www.f5.com**
-
-   	|image23|
-
-
-Exercise 3 – Add Webtop resource to existing Access Policy
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Browse to **Access > Profiles/Policies > Access Profiles
-      (Per-Session Policies)**, click on **Edit** for **lab101-psp**. A
-      new tab should open to the Visual Policy Editor for **lab101-psp**.
-
-
-#. In between the AD Auth APM Item and the Allow APM item click the + option to add an item.
-
-   	|image24|
-
-#. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign"
-      radio button. Click **Add Item**.
-
-   	|image25|
-
-#. Then Click the "Add New Entry" button.
-
-   	|image26|
-
-
-#. Under the "Expression Section" click the "Add/Delete" button
-
-   	|image27|
-
-#. Click on the **Webop Links** tab, and select the radio button for **www.f5.com**.
-
-   	|image28|
-
-#. Click on the **Webtop** tab, select the radio button for **lab101-webtop**. Click the **Update** button at the bottom of the screen.
-
-   	|image29|
-
-
-#. Click **Save**.
-
-   	|image30|
-
-#. | At the top left of the browser window, click on **Apply Access
-        Policy**, then close the tab.
-
-
-Excercise 4 – Testing
-^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Open a web browser to the virtual server created in the previous lab
-      by navigating to **https://server1.acme.com**. You will be presented
-      with a Logon page similar to the one from the last lab.
-
-#. Enter the following credentials:
-
-   	- Username: **user1**
-   	- Password: **user1**
-
-   	|image31|
-
-#. Click **Logon**.
-
-      This will open the APM Webtop landing page that shows the resources you
-      are allowed to access. In this lab, we’ve only configured one resource:
-      **www.f5.com**, but you can add as many as you want and they will
-      appear on this Webtop page.
-
-      |image32|
-
-Lab 4: Webtop Sections
------------------------
-
-Exercise 1 – Create a Webtop resource
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-#. Expand the **Access** tab from the main menu on the left and navigate
-         to **Webtops** > **Webtop Lists**.
-
-#. Click **Create** to create a new Webtop called **lab101-webtop**,
-         select Type “\ **Full**\ ”, uncheck “\ **Minmize To Tray**\ ” and
-         click **Finished**.
-
-      	|image22|
-
-
-
-Exercise 2 – Create Webtop Item
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-      #. Browse to **Access** > **Webtops >** **Webtop Link** and click the **+ (Plus Symbol)**
-
-      #. Complete the following entries.
-
-            - Name: **www.f5.com**
-            - Link Type Dropdown: **Application URI**
-            - Applicatoin URI : **https://www.f5.com**
-            - Application Caption : **www.f5.com**
-
-      	|image23|
-
-
-Exercise 3 – Add Webtop resource to existing Access Policy
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-      #. Browse to **Access > Profiles/Policies > Access Profiles
-         (Per-Session Policies)**, click on **Edit** for **lab101-psp**. A
-         new tab should open to the Visual Policy Editor for **lab101-psp**.
-
-
-      #. In between the AD Auth APM Item and the Allow APM item click the + option to add an item.
-
-      	|image24|
-
-      #. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign"
-         radio button. Click **Add Item**.
-
-      	|image25|
-
-      #. Then Click the "Add New Entry" button.
-
-      	|image26|
-
-
-      #. Under the "Expression Section" click the "Add/Delete" button
-
-      	|image27|
-
-      #. Click on the **Webop Links** tab, and select the radio button for **www.f5.com**.
-
-      	|image28|
-      #. Click on the **Webtop** tab, select the radio button for **lab101-webtop**. Click the **Update** button at the bottom of the screen.
-
-      	|image29|
-
-
-      #. Click **Save**.
-
-      	|image30|
-
-      #. | At the top left of the browser window, click on **Apply Access
-           Policy**, then close the tab.
-
-
-Exercise 4 – Testing
-^^^^^^^^^^^^^^^^^^^^^^^
-
-      #. Open a web browser to the virtual server created in the previous lab
-         by navigating to **https://server1.acme.com**. You will be presented
-         with a Logon page similar to the one from the last lab.
-
-      #. Enter the following credentials:
-
-      	- Username: **user1**
-      	- Password: **user1**
-
-      	|image31|
-
-      #. Click **Logon**.
-
-         This will open the APM Webtop landing page that shows the resources you
-         are allowed to access. In this lab, we’ve only configured one resource:
-         **www.f5.com**, but you can add as many as you want and they will
-         appear on this Webtop page.
-
-         |image32|
+   |Lab4-Image10|
+
+
+.. |Lab4-Image1| image:: /class1/module2/media/Lab4-Image1.png
+.. |Lab4-Image2| image:: /class1/module2/media/Lab4-Image2.png
+.. |Lab4-Image3| image:: /class1/module2/media/Lab4-Image3.png
+.. |Lab4-Image4| image:: /class1/module2/media/Lab4-Image4.png
+.. |Lab4-Image5| image:: /class1/module2/media/Lab4-Image5.png
+.. |Lab4-Image6| image:: /class1/module2/media/Lab4-Image6.png
+.. |Lab4-Image7| image:: /class1/module2/media/Lab4-Image7.png
+.. |Lab4-Image8| image:: /class1/module2/media/Lab4-Image8.png
+.. |Lab4-Image9| image:: /class1/module2/media/Lab4-Image9.png
+.. |Lab4-Image10| image:: /class1/module2/media/Lab4-Image10.png

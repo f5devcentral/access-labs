@@ -1,129 +1,100 @@
 Lab 1: Deploy an API Protection Profile
 ===========================================
 
-An API protection profile is the primary tool that Access Policy Manager administrators use to safeguard API servers. Protection profiles define groups of related RESTful APIs used by applications. The protection profile contains a list of paths that may appear in a request. The system classifies requests and sends them to specific API servers.
+Section 1.1 - Setup Lab Environment
+-----------------------------------
 
-The simplest way to create an API protection profile and establish API protection is using an OpenAPI Spec file to import the details of the APIs. If you use an OpenAPI Spec file, Access Policy Manager automatically creates the following (depending on what's included in the spec file):
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
-- API Protection Profile
-- Paths
-- API servers
-- Responses
-- Per-request policy with a Request Classification agent and a subroutine containing an OAuth scope check agent
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumpbox.f5lab.local
+
+   |image200|
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+	|image201|
+
+#. Click the **Classes** tab at the top of the page.
+
+#. Scroll down the page until you see **304 API Protection** on the left
+
+   |image202|
+
+#. Hover over tile **Deploy an API Protection Profile**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+   |image203|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image204|
 
 
-To enable API protection, the API Protection Profile must be associated with a virtual server. If using API Protection, the virtual server can have only one API Protection Profile associated with it. You cannot select other access profiles or per-request policies in that virtual server.
-
-Setup Lab Environment
-----------------------------------------
-
-**NEED TO REWRITE**
+Section 1.2 - Implement Course-Graing Access Control
+--------------------------------------------------------
 
 
-Section 1.1 - Create a JWT Provider
----------------------------------------
+
+Task 1 - Create a Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
 
-Task 1 - Create a key configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to Access >> Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
 
-..note :: Ensure you are logged into BIGIP1
+   |image3|
 
-1. From the web browser, click on the **Access** tab located on the left side.
+#. Configure the following parameters:
 
-|image0|
+   - Name: **api-as-provider**
+   - Trusted Certificate Authorities: **ca.acme.com.**
+   - OpenID URL: replace f5-oauth.local with **as.acme.com**
 
-2. Navigate to Federation >> JSON Web Token >> Key Configuration. Click the  **+ (Plus Symbol)**
+#. Click **Discover**
 
-|image1|
+   |image4|
 
-3. Configure the following parameters:
+#. The Authentication URI, Token URI, Token Validation Scope URI, UserInfo URI and keys should be updated.
 
-- Name: **api-jwt-key**
-- ID: **lab**
-- Octet: **Octet**
-- Signing Algorithm: **HS256**
-- Shared Secret: **secret**
+   |image5|
 
-4. Click **Save**
-
-|image2|
+#. Click **Save**
 
 
-Task 2 - Create an Authorization Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 2 - Create a JWT Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Navigate to Federation >> OAuth Client/Resource Server >> Provider. Click the **+ (Plus Symbol)**
+#. Navigate to Access >> Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**.
 
-|image3|
+   |image9|
 
-2. Configure the following parameters:
+#. Enter the name: **as-jwt-provider**
 
-- Name: **api-as-provider**
-- Trusted Certificate Authorities: **ca.acme.com.crt**
-- OpenID URL: replace f5-oauth.local with **prebuilt-as.acme.com**
+#. Click **Add** so api-as-provider is added to list of providers
 
-3. Click Discover
+#. Click **Save**
 
-|image4|
-
-4. The Authentication URI, Token URI, Token Validation Scope URI, and UserInfo URI should be updated
-
-|image5|
-
-5. Click **Save**
+   |image10|
 
 
-Task 3 - Customize the Token Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Navigate to Federation >> JSON Web Token >> Token Configuration. Click **Token Configuration**, not the + (Plus Symbol)
-
-|image6|
-
-2. Click on **auto_jwt_api-as-provider**
-
-|image7|
-
-3. Move **api-jwk-key** from Available to Allowed
-
-4. Click **Save**
-
-|image8|
-
-
-Task 4 - Create a JWT Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Navigate to Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**
-
-|image9|
-
-2. Enter the name: **as-jwt-provider**
-
-3. Click **Add** so api-as-provider is added to list of providers
-
-4. Click **Save**
-
-|image10|
-
-
-Section 1.2 - Create an API Protection Profile
-------------------------------------------------------
-
-The API Protection profile is a combination of APM and AWAF features to protect any API.
-
-
-Task 1 - Create an API Protection Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+Task 3 - Create an API Protection Profile
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
 
    |image11|
 
-.. note :: json file is located on the jumpbox in c:\\labs\\class1\\student_files
+   .. note:: The JSON file is located on the jumpbox in c:\\access-labs\\class3\\module4\\student_files
 
 #. Enter the following parameters:
 
@@ -139,20 +110,18 @@ Task 1 - Create an API Protection Profile
    |image12|
 
 
-Task 2 - Explore the Path Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 4 - Explore the Path Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Note the Spec file contained four paths to various URIs
+#. Note the Spec file contained a single path of /user but it supports four different request methods.
 
-#. Each URI only supports the Method GET
-
-#. The APIs server URL is http://adapi.f5lab.local:81
+#. The API server that all requests will be sent to is http://adapi.f5lab.local:81
 
    |image13|
 
 
-Task 3 - Associate a JWT Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 5 - Associate a JWT Provider
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Access Control** from the top ribbon
 
@@ -160,13 +129,13 @@ Task 3 - Associate a JWT Provider
 
    |image14|
 
-#. Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access    control.  We will implement it later in the lab
+#. Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access control.  We will implement it later in the lab.
 
 #. Click the **+ (plus symbol)** next the Subroutine **OAuth Scope Check AuthZ** to expand its properties:
 
    |image15|
 
-   .. note :: The OAuth scope agent currently has a red asterisk since no provider is associated with it.
+   .. note:: The OAuth scope agent currently has a red asterisk since no provider is associated with it.
 
 #. Click **OAuth Scope**
 
@@ -183,208 +152,227 @@ Task 3 - Associate a JWT Provider
    |image17|
    
    
-Section 1.3 - Create the api.acme.com virtual server
-----------------------------------------------------------
+Task 6 - Create a virtual server
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In this section, you will define which components you want to create as part of the API Protection configuration.
+#. From the web browser, click on the **Local Traffic** tab located on the left side
 
+   |image18|
 
-Task 1 - Create a virtual server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Navigate to Virtual Servers >> Virtual Server List.  Click the **+ (plus symbol)**
 
-1. From the web browser, click on the **Local Traffic** tab located on the left side
+   |image19|
 
-|image18|
+#. Enter the following parameters:
 
-2. Navigate to Virtual Servers >> Virtual Server List.  Click the **+ (plus symbol)**
+   - Name: **api.acme.com**
+   - Destination Address/Mask: **10.1.10.102**
+   - Service Port: **443**
+   - HTTP Profile (Client): **http**
+   - SSL Profile(Client): **acme.com**
+   - Source Address Translation: **Auto Map**
+   - API Protection: **api-protection**
 
-|image19|
+#. Click **Finished**
 
-3. Enter the following parameters:
+   |image20|
+   |image22|
 
-- Name: **api.acme.com**
-- Destination Address/Mask: **10.1.10.102**
-- Service Port: **443**
-- HTTP Profile (Client): **http**
-- SSL Profile(Client): **acme.com**
-- Source Address Translation: **Auto Map**
-- API Protection: **api-protection**
 
-4. Click **Finished**
+Task 7 - Import Postman Collections
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image20|
-|image22|
+#. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
 
-Section 1.4 - Test Course-Grained Access
--------------------------------------------
+    |image106|
 
-In this section, you will sample API requests to the new created api.acme.com virtual server to test functionality
+#. Click **Yes** if prompted for "Do you want to allow this app to make changes to your device?"
 
+    |image107|
 
-Task 1 - Send a valid GET without a JWT to retrieve user1's attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Click **Import** located on the top left of the Postman application
 
-1. From the Jumpbox, open **Postman**
+    |image108|
 
-|image23|
+#.  Click **Upload Files** 
 
-2. Expand the **API Protection** Collection, the **Agility 2020** Folder, and finally the **Lab API Requests subfolder**
+    |image109|
 
-3. Select the request **No JWT-Retrieve User Attributes**
+#. Navigate to C:\\access-labs\\class3\\module4\\student_files, select **student-class3-module4-lab01.postman_collection.json**, and click **Open**
 
-|image24|
+    |image110|
 
-4. Click **Send**
+#.  Click **Import**
 
-|image25|
+    |image111|
 
-5. You receive a **403 Forbidden** response status code since you do not have a valid JWT
+#. A collection called **student-class3-module4-lab01** will appear on the left side in Postman
 
-|image26|
 
-Task 2 - Send a valid GET with JWT to retrieve user1\'s attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 8 - Retreive your OAuth clientID
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **JWT-Retrieve User Attributes**
+#. Expand the **student-class3-module4-lab01** Collection
 
-2. Select the **Authorization** tab
+#. Select the request **Request1: Retrieve Postman ClientID** 
 
-|image43|
+   |image112|
 
-3. Click **Get New Access Token**
+#. Click **Send**
 
-|image44|
+   |image25|
 
-4. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified
+#. You receive a *200 OK** with a response body.  The clientID is now stored as a Postman Variable to be used in future requests.
 
-5. Click **Request Token**
+   |image113|
 
-|image27|
+Task 9 - Attempt to Retrieve User1\'s Attributes without JWT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-6. Login using Username: **user1**, Password: **user1**
+#. Select the request **Request2: Retrieve User Attributes without JWT** 
 
-|image28|
+#. Click **Send**
 
-7. Click **Use Token** at the top.
+#. You receive a **403 Forbidden** response status code since you do not have a valid JWT
 
-|image29|
+   |image26|
 
-8. Notice the **Access Token** field is now populated
+Task 9 -  Retrieve User1\'s Attributes with a JWT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-|image34|
+#. Select the request **Request3: Retrieve User Attributes with JWT**  
 
-9. Click **Send**
+#. Select the **Authorization** tab 
 
-10. You receive a **200 OK** response status code with attributes for user1 in the body of the response
+#. Click **Get New Access Token**
 
-|image31|
+   |image44|
 
+#. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified.  
 
-Task 3 - Send a valid GET with JWT to set user1's employeeNumber
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+#. Click **Request Token**
 
-1. Select the request **JWT-Set User Attributes**
+   |image27|
 
-2. Select the **Authorization** tab
+#. Login using Username: **user1**, Password: **user1**
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+   |image28|
 
-|image33|
+#. Click **Use Token** at the top.
 
-4. The **Token** field is now populated
+   |image29|
 
-|image34|
+#. Notice the **Access Token** field is now populated
 
-5. Click **Send**
+   |image34|
 
-.. note :: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name.
+#. Click **Send**
 
-.. note :: You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
+#. You receive a **200 OK** response status code with attributes for user1 in the body of the response
 
-6. You receive a **200 OK** response status code with a response body that contains user1's employeeNumber **123456**
+   |image31|
 
-|image35|
 
+Task 10 - Set a Valid User Attribute
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Task 4 - Send a valid GET with JWT to create a user
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Select the request **Request 4: Update a Valid User Attribute**
 
-1. Select the request **JWT-Create User**
+#. Select the **Authorization** tab
 
-2. Select the **Authorization** tab
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+   |image33|
 
-|image33|
+#. The **Token** field is now populated
 
+   |image34|
 
-4. Click **Send**
+#. Click **Send**
 
-.. note :: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name.
+   .. note:: If you receive a 403 response status code, request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
 
-.. note :: You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
+#. You receive a **200 OK** response status code with a response body that contains user1's employeeNumber **123456**
 
-5. You receive a **200 OK** response status code with a response body that contains Bob Smith's user attributes
-|image46|
+   |image35|
 
 
-Task 5 - Send invalid GET request with JWT to set a nonexistent user's attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 11 - Set an Nonexistent User's Attribute
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **JWT-Set Invalid Attributes**
+#. Select the request **Request 5: Update a Nonexistent User Attribute**
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-4. The **Token** field is now populated
+#. The **Token** field is now populated
 
-5. Click **Send**
+#. Click **Send**
 
-.. note :: If you receive a 403 response status code, repeat steps 10-13 to request a new token.  You can change the name of the token request prior to sending by setting the Token Name.
+   .. note:: If you receive a 403 response status code, request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
 
-.. note :: you can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.
-
-6. You receive a **400 Bad Request** response status code. The request successfully passed through the API Gateway, but the server failed to process the request.
+#. You receive a **2O0 OK** response status code. The request successfully passed through the API Gateway, but the server failed to process the request.
 
 |image37|
 
 
-Task 6 - Send a POST request to a valid URI to set User1's attributes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Task 12 - Update a Valid User with PUT
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **JWT-Set User Attributes**
+#. Select the request **Request 6: Update a Valid User's Attribute with PUT**
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-4. The **Token** field is now populated
+#. The **Token** field is now populated
 
-5. Click **Send**
+#. Click **Send**
 
-6. You receive a **403 Forbidden** response status code. This is expected because the POST Method was not specified in the API Protection Profile for the path /aduser/Set
+#. You receive a **403 Forbidden** response status code. This is expected because the PUT Method was not specified in the API Protection Profile for the path /user
 
-|image39|
+   |image39|
 
-Task 7 - Send a GET request to an invalid URI
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **JWT-Invalid URI**
+Task 13 - Create a User
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-2. Select the **Authorization** tab
+#. Select the request **Request 7: Create a User**
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the **Authorization** tab
 
-4. The **Token** field is now populated
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-5. Click **Send**
+   |image33|
 
-6. You receive a **403 Forbidden** response status code. This is expected because the path /hacker/attack was not specified in the API Protection Profile
+#. Click **Send**
 
-|image39|
+#. You receive a **200 OK** response status code with a response body that contains Bob Smith's user attributes
+   
+   |image46|
 
-Section 1.5 - Implement Fine-Grained Access Controls
+
+Task 14 - Request invalid endpoint
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Select the request **Request 8: Request Invalid Endpoint**
+
+#. Select the **Authorization** tab
+
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
+
+#. The **Token** field is now populated
+
+#. Click **Send**
+
+#. You receive a **403 Forbidden** response status code. This is expected because the path /hacker/attack was not specified in the API Protection Profile
+
+   |image39|
+
+
+
+Section 1.3 - Implement Fine-Grained Access Controls
 -----------------------------------------------------------
 
 Up to this point any authenticated user to the API is authorized to use them. In this section we will restrict user1's ability to create users, but will still be able to modify a user's employee number.
@@ -392,143 +380,130 @@ Up to this point any authenticated user to the API is authorized to use them. In
 Task 1 - Retrieve Group Membership Subsession Variable
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. note :: In order to implement fine-grained control the session variables that contain the data must be known. This first session shows you how to display the session variables and their values.
+   .. note:: In order to implement fine-grained control the session variables that contain the data must be known. This first session shows you how to display the session variables and their values.
 
 
-1. From the Jumpbox desktop click on the **BIG-IP1** Putty icon
+#. From the Jumpbox desktop click on the **BIG-IP1** Putty icon
 
-|image47|
+   |image47|
 
-2. Enter the command **sessiondump --delete all** to remove any existing APM sessions
+#. Enter the command **sessiondump --delete all** to remove any existing APM sessions
 
-|image41|
+   |image41|
 
-3. Enter the command **tailf /var/log/apm**.  Hit enter a few times to create some space on the screen
+#. Enter the command **tailf /var/log/apm**.  Hit enter a few times to create some space on the screen
 
-|image84|
+   |image84|
 
+#. From Postman, Select the request **Request 3: Retrieve User Attributes with JWT**.  The Authorization field should already be populated with User1's token.
 
-4. From Postman, Select the request **JWT-Retrieve User Attributes**.  The Authorization field should already be populated with User1's token.
+#. Click **Send**
 
-5. Click **Send**
+#. You receive a **200 OK** response status code with attributes for user1 in the body of the response
 
-6. You receive a **200 OK** response status code with attributes for user1 in the body of the response
+   |image31|
 
-|image31|
+   .. Note:: Your SessionID will be different
 
-.. Note :: Your SessionID will be different
+#. Return to the CLI and examine the logs. You will see a message about a new subsession being created. Copy the subsession ID
 
-7. Return to the CLI and examine the logs. You will see a message about a new subsession being created. Copy the subsession ID
+   |image85|
 
-|image85|
+#. Exit the logs using Ctrl+Z
 
-8. Exit the logs using Ctrl+Z
+#. Enter the command **sessiondump -subkeys <subsessionID>**
 
-9. Enter the command **sessiondump -subkeys <subsessionID>**
+   |image86|
 
-|image86|
+#.  Scroll through input until you find the session variable for **subsession.oauth.scope.last.jwt.groups**
 
-10.  Scroll through input until you find the session variable for **subsession.oauth.scope.last.jwt.groups**
-
-|image87|
+   |image87|
 
 
 Task 2 - Edit the per-request policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-1. Return to BIG-IP1's management interface in the browser and click on the **Access** tab located on the left side
+#. Return to BIG-IP1's management interface and navigate to Access  >> API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
 
-|image0|
+#. Click **Edit** Under Per-Request Policy
 
-2. Navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
+   |image49|
 
-|image48|
+#. Click the **Allow** terminal located at the end of the **POST /user** branch
 
-3. Click **Edit** Under Per-Request Policy
+   |image72|
 
-|image49|
+#. Select **Reject**
+#. Click **Save**
 
-4. Click the **Allow** terminal located at the end of the **GET /aduser/create** branch
-
-|image72|
-
-5. Select **Reject**
-6. Click **Save**
-
-|image60|
+   |image60|
  
-7. Click the **+ (Plus Symbol)** on the GET /aduser/create branch
+#. Click the **+ (Plus Symbol)** on the POST /user branch
 
-|image50|
+   |image50|
 
-8. Click the **General Purpose** tab
+#. Click the **General Purpose** tab
 
-9. Select **Empty**
+#. Select **Empty**
 
-10. Click **Add Item**
+#. Click **Add Item**
 
-|image51|
+   |image51|
 
-11. Enter the name **Claim Check**
+#. Enter the name **Claim Check**
 
-|image53|
+   |image53|
 
-12. Click the **Branch Rules** tab
+#. Click the **Branch Rules** tab
 
-13. Click the **Add Branch Rule**
+#. Click the **Add Branch Rule**
 
-|image52|
+   |image52|
 
-14. Enter Name **CreateUser**
+#. Enter Name **CreateUser**
 
-15. Click **Change**
+#. Click **Change**
 
-|image54|
+   |image54|
 
-16. Click the **Advanced** tab
+#. Click the **Advanced** tab
 
-17. Enter the string in the notes section to restrict access to only members of the **CreateUser** Group. Make sure the " characters are properly formatted after pasting. If they aren't, simply delete and re-enter them manually.  
+#. Enter the string in the notes section to restrict access to only members of the **CreateUser** Group. Make sure the " characters are properly formatted after pasting. If they aren't, simply delete and re-enter them manually.  
 
-18. Click **Finished**
+#. Click **Finished**
 
-.. Note :: 
+   .. Note:: 
 
 	expr {[mcget {subsession.oauth.scope.last.jwt.groups}] contains "CreateUser"}
 	
-	
+   |image55|
 
-|image55|
+#. Click **Save**
 
-19. Click **Save**
+   |image56|
 
-|image56|
+#. Click **Reject** on the CreateUser Branch to permit access
 
-20. Click **Reject** on the CreateUser Branch to permit access
+   |image57|
 
-|image57|
+#. Select **Allow**
 
-21. Select **Allow**
+#. Click **Save**
 
-22. Click **Save**
+   |image58|
 
-|image58|
+#. Review the Policy Flow
 
-
-23. Review the Policy Flow
-
-|image61|
-
+   |image61|
 
 Task 3 - Test the Fine-Grained Access Control with user1
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-1. From Postman select the request **JWT-Create User**
+1. From Postman select the request **Request 7: Create User**
 
 2. Select the **Authorization** Tab
-
-|image43|
 
 3. Select the previously created **User1** token from the **Available Tokens** dropdown
 
@@ -544,7 +519,7 @@ Task 3 - Test the Fine-Grained Access Control with user1
 Task 4 - Test the Fine-Grained Access Control with user2
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. Select the request **JWT-Create User**
+1. Select the request **Request 7: Create User**
 
 2. Select the **Authorization** tab
 
@@ -570,21 +545,21 @@ Task 4 - Test the Fine-Grained Access Control with user2
 |image46|
 
 
-Section 1.6 - Implement Rate Limiting
+Section 1.4 - Implement Rate Limiting
 ----------------------------------------
 
 The API Protection Profile allows a BIG-IP administrator to throttle the amount of connections to an API through the use of Key Names.
 
 Task 1 - Test pre-rate limiting Access
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From Postman, Select the request **JWT-Retrieve User Attributes**
+#. From Postman, Select the request **Request 3: Retrieve User Attributes with JWT**
 
 #. Click **Save**, so the current token is saved as part of the API request.
 
    |image88|
 
-#. Click the **arrow** located to the right of the API Protection labs collection.
+#. Click the **arrow** located to the right of the student-class3-module-lab01 collection.
 
    |image89|
 
@@ -592,11 +567,11 @@ Task 1 - Test pre-rate limiting Access
 
    |image104|
 
-#. Deselect all requests except **JWT-Retrieve User Attributes**
+#. Deselect all requests except **Request 3: Retrieve User Attributes with JWT**
 
 #. Set the iterations to **100**
 
-#. Click **Run API Protection**
+#. Click the blue **Run Student-class....** button
 
    |image105|
 
@@ -746,7 +721,7 @@ Task 5 - Test Rate Limiting
    |image99|
    
    
-Section 1.7 - Onboard a New API
+Section 1.5 - Onboard a New API
 ----------------------------------------
 
 Organizations change. With this change, new APIs are introduced requiring modifications to the API Gateway. In this section you will learn how to add additional paths.
@@ -754,77 +729,58 @@ Organizations change. With this change, new APIs are introduced requiring modifi
 Task 1 - Verify no access to API
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. From Postman, select the request **JWT-Change User Password**
+#. From Postman, select the request **Request 9: Create DNS Entry**
 
-2. Select the **Authorization** tab
+#. Select the **Authorization** tab
 
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
+#. Select the previously created **User1** token from the **Available Tokens** dropdown
 
-|image33|
+#. The **Token** field is now populated
 
-4. The **Token** field is now populated
+#. Click **Send**
 
-|image34|
-
-5. Click **Send**
-
-
-6. You receive a **403 Forbidden** response status code because the the new API has not been published at the Gateway. WARNING: If you executed this step too quickly after the prior 1.6 lab, you may still be rate limited and need to wait a minute.
-
-|image39|
+#. You receive a **403 Forbidden** response status code because the the new API has not been published at the Gateway. WARNING: If you executed this step too quickly after the prior 1.6 lab, you may still be rate limited and need to wait a minute.
 
 
 Task 2 - Add the new API path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-1. From the browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
+#. From the browser, navigate to API Protection >> Profile.  Click **Profile** to modify the previously created API protection Profile (not the + Plus symbol)
 
-|image48|
+   |image48|
 
-2. Click **API-Protection**
+#. Click **api-protection**
 
-|image64|
+   |image64|
 
-3. Click **Paths**
+#. Click **Paths**
 
-|image65|
+   |image65|
 
-4. Click **Create**
+#. Click **Create**
 
-|image66|
+   |image66|
 
-5. The URI **/aduser/password**
+#. The URI **/dns**
 
-6. Select the Method **PATCH**
+#. Select the Method **POST**
 
-7. Click **Add**
+#. Click **Add**
 
-|image67|
+   |image67|
 
-8. Click **Save**
+#. Click **Save**
 
-|image68|
+   |image68|
 
 
 Task 3 - Test Access to the new path
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-1. From Postman, select the request **JWT-Change User Password**
+#. From Postman, select the request **Request 9: Create DNS Entry**
 
-2. Select the **Authorization** tab
-
-3. Select the previously created **User1** token from the **Available Tokens** dropdown
-
-|image33|
-
-4. The **Token** field is now populated
-
-|image34|
-
-5. Click **Send**
-
-6. You receive a **200 OK** that the endpoint is now published.
+#. You receive a **200 OK** that the endpoint is now published.
 
 |image102|
 
@@ -835,9 +791,8 @@ Task 3 - Test Access to the new path
 .. |image1| image:: media/lab01/image001.png	
 .. |image2| image:: media/lab01/image002.png
 .. |image3| image:: media/lab01/image003.png
-.. |image4| image:: media/lab01/image004.png
-.. |image5| image:: media/lab01/image005.png
-	:width: 800px
+.. |image4| image:: media/lab01/004.png
+.. |image5| image:: media/lab01/005.png
 .. |image6| image:: media/lab01/image006.png
 	:width: 800px	
 .. |image7| image:: media/lab01/image007.png
@@ -847,7 +802,7 @@ Task 3 - Test Access to the new path
 .. |image11| image:: media/lab01/image011.png
 .. |image12| image:: media/lab01/image012.png
 	:width: 800px	
-.. |image13| image:: media/lab01/image013.png
+.. |image13| image:: media/lab01/013.png
 	:width: 800px	
 .. |image14| image:: media/lab01/image014.png
 	:width: 800px	
@@ -864,21 +819,21 @@ Task 3 - Test Access to the new path
 	:width: 700px
 .. |image22| image:: media/lab01/image022.png
 .. |image23| image:: media/lab01/image023.png
-.. |image24| image:: media/lab01/image024.png
+.. |image24| image:: media/lab01/024.png
 .. |image25| image:: media/lab01/image025.png
 .. |image26| image:: media/lab01/image026.png
-.. |image27| image:: media/lab01/image027.png
+.. |image27| image:: media/lab01/027.png
 	:width: 600px
 .. |image28| image:: media/lab01/image028.png
-.. |image29| image:: media/lab01/image029.png
-.. |image31| image:: media/lab01/image031.png
+.. |image29| image:: media/lab01/029.png
+.. |image31| image:: media/lab01/031.png
 .. |image32| image:: media/lab01/image032.png
 .. |image33| image:: media/lab01/image033.png
 	:width: 800px
 .. |image34| image:: media/lab01/image034.png
 .. |image35| image:: media/lab01/image035.png
 .. |image36| image:: media/lab01/image036.png
-.. |image37| image:: media/lab01/image037.png
+.. |image37| image:: media/lab01/037.png
 .. |image38| image:: media/lab01/image038.png
 .. |image39| image:: media/lab01/image039.png
 .. |image40| image:: media/lab01/image040.png
@@ -887,12 +842,12 @@ Task 3 - Test Access to the new path
 .. |image43| image:: media/lab01/image043.png
 .. |image44| image:: media/lab01/image044.png
 .. |image45| image:: media/lab01/image045.png
-.. |image46| image:: media/lab01/image046.png
+.. |image46| image:: media/lab01/046.png
 .. |image47| image:: media/lab01/image047.png
 .. |image48| image:: media/lab01/image048.png
 .. |image49| image:: media/lab01/image049.png
 	:width: 800px
-.. |image50| image:: media/lab01/image050.png
+.. |image50| image:: media/lab01/050.png
 .. |image51| image:: media/lab01/image051.png
 .. |image52| image:: media/lab01/image052.png
 .. |image53| image:: media/lab01/image053.png
@@ -900,26 +855,26 @@ Task 3 - Test Access to the new path
 .. |image55| image:: media/lab01/image055.png
 .. |image56| image:: media/lab01/image056.png
 	:width: 800px
-.. |image57| image:: media/lab01/image057.png
+.. |image57| image:: media/lab01/057.png
 .. |image58| image:: media/lab01/image058.png
 .. |image59| image:: media/lab01/image059.png
 .. |image60| image:: media/lab01/image060.png
-.. |image61| image:: media/lab01/image061.png
+.. |image61| image:: media/lab01/061.png
 	:width: 800px
 .. |image62| image:: media/lab01/image062.png
 .. |image63| image:: media/lab01/image063.png
-.. |image64| image:: media/lab01/image064.png
-.. |image65| image:: media/lab01/image065.png
-.. |image66| image:: media/lab01/image066.png
+.. |image64| image:: media/lab01/064.png
+.. |image65| image:: media/lab01/065.png
+.. |image66| image:: media/lab01/066.png
 	:width: 800px
-.. |image67| image:: media/lab01/image067.png
-.. |image68| image:: media/lab01/image068.png
+.. |image67| image:: media/lab01/067.png
+.. |image68| image:: media/lab01/068.png
 .. |image69| image:: media/lab01/image069.png
 	:width: 800px
 .. |image70| image:: media/lab01/image070.png
 	:width: 1000px
 .. |image71| image:: media/lab01/image071.png
-.. |image72| image:: media/lab01/image072.png
+.. |image72| image:: media/lab01/072.png
 .. |image73| image:: media/lab01/image073.png
 .. |image75| image:: media/lab01/image075.png
 .. |image77| image:: media/lab01/image077.png
@@ -940,37 +895,49 @@ Task 3 - Test Access to the new path
 	:width: 1200px
 .. |image87| image:: media/lab01/image087.png
 	:width: 1200px
-.. |image88| image:: media/lab01/image088.png
+.. |image88| image:: media/lab01/088.png
 	:width: 800px
-.. |image89| image:: media/lab01/image089.png
+.. |image89| image:: media/lab01/089.png
 .. |image90| image:: media/lab01/image090.png
 	:width: 800px
 .. |image91| image:: media/lab01/image091.png
 	:width: 800px
-.. |image92| image:: media/lab01/image092.png
-	:width: 800px
+.. |image92| image:: media/lab01/092.png
 .. |image93| image:: media/lab01/image093.png
 	:width: 800px
 .. |image94| image:: media/lab01/image094.png
 	:width: 800px
-.. |image95| image:: media/lab01/image095.png
+.. |image95| image:: media/lab01/095.png
 	:width: 800px
 .. |image96| image:: media/lab01/image096.png
 	:width: 800px
 .. |image97| image:: media/lab01/image097.png
 	:width: 800px
-.. |image98| image:: media/lab01/image098.png
+.. |image98| image:: media/lab01/098.png
 	:width: 800px
-.. |image99| image:: media/lab01/image099.png
+.. |image99| image:: media/lab01/099.png
 	:width: 800px
-.. |image101| image:: media/lab01/image101.png
+.. |image101| image:: media/lab01/101.png
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
-.. |image102| image:: media/lab01/image102.png
+.. |image102| image:: media/lab01/102.png
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
-.. |image104| image:: media/lab01/image104.png
-.. |image105| image:: media/lab01/image105.png
+.. |image104| image:: media/lab01/104.png
+.. |image105| image:: media/lab01/105.png
+.. |image106| image:: media/lab01/106.png
+.. |image107| image:: media/lab01/107.png
+.. |image108| image:: media/lab01/108.png
+.. |image109| image:: media/lab01/109.png
+.. |image110| image:: media/lab01/110.png
+.. |image111| image:: media/lab01/111.png
+.. |image112| image:: media/lab01/112.png
+.. |image200| image:: media/lab01/200.png
+.. |image201| image:: media/lab01/201.png
+.. |image202| image:: media/lab01/202.png
+.. |image203| image:: media/lab01/203.png
+.. |image204| image:: media/lab01/204.png
+.. |image205| image:: media/lab01/205.png
 
 
 

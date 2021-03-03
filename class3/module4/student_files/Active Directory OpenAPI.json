@@ -14,99 +14,17 @@
     "version": "1.0"
   }, 
   "paths": {
-    "/aduser/get": {
+    "/user": {
       "get": {
-        "parameters": [
-          {
-            "in": "path", 
-            "name": "n", 
-            "type": "int"
-          }
-        ], 
-        "produces": [
-          "text/html"
-        ], 
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }, 
-        "summary": "Sucess", 
-        "tags": [
-          "Status Codes"
-        ]
+      },
+	   "post": {
+      },
+	   "patch": {
+      },
+	   "delete": {
       }
-    },
-    "/aduser/set": {
-      "get": {
-        "parameters": [
-            {
-              "in": "path", 
-              "name": "n", 
-              "type": "int"
-            }
-          ], 
-          "produces": [
-            "text/html"
-          ], 
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }, 
-          "summary": "Sucess", 
-          "tags": [
-            "Status Codes"
-        ]
-      }
-    },
-    "/aduser/unlock": {
-      "get": {
-          "parameters": [
-            {
-              "in": "path", 
-              "name": "n", 
-              "type": "int"
-            }
-          ], 
-          "produces": [
-            "text/html"
-          ], 
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }, 
-          "summary": "Sucess", 
-          "tags": [
-            "Status Codes"
-        ]
-      }
-    },
-    "/aduser/create": {
-      "get": {
-          "parameters": [
-            {
-              "in": "path", 
-              "name": "n", 
-              "type": "int"
-            }
-          ], 
-          "produces": [
-            "text/html"
-          ], 
-          "responses": {
-            "200": {
-              "description": "Success"
-            }
-          }, 
-          "summary": "Sucess", 
-          "tags": [
-            "Status Codes"
-          ]
-        }
-     }
-  }, 
+    }
+  },
   "protocol": "http", 
   "schemes": [
     "http"
