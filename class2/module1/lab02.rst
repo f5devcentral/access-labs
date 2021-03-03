@@ -123,7 +123,7 @@ Task 1 - Configure Application header.acme.com
 Section 2.5 - Application Groups
 ------------------------------------------------
 
-In this section you will configure two Application groups to enforce different policies on parts of the header-iap.acme.com website.  
+In this section you will configure two Application groups to enforce different policies on parts of the header.acme.com website.  
 
 Task 1 - Create header-ad Group
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -278,11 +278,9 @@ Task 2 - Login to header.acme.com using user2
 
    |image36|
 
-
-
-This concludes our lab performing day two operation on an existingIdentity Aware Proxy configuration in Access Guided Configuration.
+#. This concludes lab 2. 
  
- |image100|
+   |image100|
 
 
 

@@ -1,17 +1,60 @@
 {
 	"info": {
-		"_postman_id": "f638978b-c97b-4cb3-ab3b-2df585507371",
-		"name": "Identity Aware Proxy Labs-setup",
+		"_postman_id": "2a9f370a-9164-465c-a018-caf01d45af14",
+		"name": "class2-module2-lab01-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Create Desktop files",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1a50c6bb-b9cb-46d3-b9ef-0df70ef6e177",
+						"exec": [
+							"",
+							"",
+							"var jsonData = pm.response.json();",
+							"pm.test(\"Files Copied\", function () {",
+							"",
+							"    pm.expect(jsonData.status).to.eql(\"Success\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"2\",\n\"user\": \"user1\"\n}"
+				},
+				"url": {
+					"raw": "http://10.1.20.6:81/desktop",
+					"protocol": "http",
+					"host": [
+						"10",
+						"1",
+						"20",
+						"6"
+					],
+					"port": "81",
+					"path": [
+						"desktop"
+					]
+				}
+			},
+			"response": []
+		},
 		{
 			"name": "bigip1-Create-Test AS3 is running",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "fd2453bf-b9cd-455e-b4ef-93911e62275e",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
@@ -25,13 +68,13 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "1bd147d1-1903-47e5-992e-461470cf35f5"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e4978f54-7b79-4525-abf9-0446de548d4b",
 						"exec": [
 							"",
 							"",
@@ -39,7 +82,8 @@
 							"pm.collectionVariables.set(\"APM_AAA_OCSP_NAME\", \"ocsp-servers\");",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "9533e4c9-24f8-4acb-8c59-76ab1307230d"
 					}
 				}
 			],
@@ -86,10 +130,8 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "08edbd37-6e27-40a8-9f01-34ae9a3706f5",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
 							"pm.test(\"Pool Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -100,7 +142,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "9b1524d0-769f-4676-8fa1-a912c091f33f"
 					}
 				}
 			],
@@ -158,10 +201,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "8fd7d3ea-a300-4fb7-b1a1-4b5ecaafc8db",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA AD Object Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -172,22 +214,18 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "ad3d9fae-62fd-48c3-81b3-98a1e1f59d7e"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "152a0617-03dc-4450-ab19-c811bc7fb0e0",
 						"exec": [
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "50c82929-5310-4d5e-bf16-dacec0b79b8b"
 					}
 				}
 			],
@@ -240,29 +278,172 @@
 			"response": []
 		},
 		{
+			"name": "bigip-import ca.f5lab.local cert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"ca.f5lab.local.crt installed\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "79377a24-7271-430d-b802-67e918318a43"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"id": "35717767-8002-4612-a829-6e0787ed23f1"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/octet-stream"
+					},
+					{
+						"key": "Content-Range",
+						"value": "0-1263/1264",
+						"type": "text"
+					},
+					{
+						"key": "Content-Length",
+						"value": "1264",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "-----BEGIN CERTIFICATE-----\r\nMIIDazCCAlOgAwIBAgIQJ4DA+pop3K9HGUl4CIxjbjANBgkqhkiG9w0BAQsFADBI\r\nMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxFTATBgoJkiaJk/IsZAEZFgVmNWxhYjEY\r\nMBYGA1UEAxMPZGMxLmY1bGFiLmxvY2FsMB4XDTE5MTEyMDIyMDc0NVoXDTI5MTEy\r\nMDIyMTc0NVowSDEVMBMGCgmSJomT8ixkARkWBWxvY2FsMRUwEwYKCZImiZPyLGQB\r\nGRYFZjVsYWIxGDAWBgNVBAMTD2RjMS5mNWxhYi5sb2NhbDCCASIwDQYJKoZIhvcN\r\nAQEBBQADggEPADCCAQoCggEBANOejxrkrJD12YIeEkZNjRZ9/OZwFeX+QhVi1uHL\r\niILP+4+3ZiZ/dhVGQLncDfHlJm5hSXpzMMDK+LxmjnWfBcx8xurgDyL6E80ZTnIP\r\nBbVJ6Au2IWFXM62NK/qsE+5IF0ptAYzDiWjj75njoVQygMNkdWEPxu1N+Ar7WAR4\r\n5xghN2wE7d57iCZ53RmrIeGT6equiihns5nUssoOFh/ny9oR6+yudINlozllHhMB\r\nGRDCEeGC/0mY/LF50hP6vwEbl1ub0J1SlqlvTn3rrX7dumvtjSKxfQipwbCpG8Qz\r\nGi7ZsSe78Xg7VIGtDVk0Vh4+PbHVJ6GB8pUmFpQ4vVa6sY0CAwEAAaNRME8wCwYD\r\nVR0PBAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFNhpUMHsIixtS9g6\r\ny/FyNrayg9V6MBAGCSsGAQQBgjcVAQQDAgEAMA0GCSqGSIb3DQEBCwUAA4IBAQCr\r\nEjJWFyZR3VFoIvZxUztGiWSjELJGD0vH42hONh6GrzxHadhZcQFmQsi4SmS9TUhP\r\nqyj+mUzreWziMcogqTYisSmF6h/cyAujdnLPbR//spGSOvLlV+43P57FmpQ+c+bB\r\nV8CJq3e0uvxt2h/9v5Du20fE/Zb6iPESMSjzhEoCPosozELpEqwKTzwGLsyqgLSN\r\nWW/+Ov+DGr+cE8pHsXZy8yhkbDY5wrbHMCyrRuXFXwYLpoMcUKMOWUCq+K3TSQ2A\r\nmGUtzY3KMfC7YCJj+mrCniWmvncryUpkY3hPplglevWAFQx4hslOU618gt4IpBXy\r\nLlIC0DqyAVMHJqF7WozV\r\n-----END CERTIFICATE-----\r\n"
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/shared/file-transfer/uploads/ca.f5lab.local.crt",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"shared",
+						"file-transfer",
+						"uploads",
+						"ca.f5lab.local.crt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip-install ca.f5lab.local cert",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"ca.f5lab.local.crt imported\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"id": "71e3bdce-4470-4c63-8cde-86ad68ec6c02"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"command\":\"install\",\n\t\"name\":\"ca.f5lab.local\",\n\t\"from-local-file\":\"/var/config/rest/downloads/ca.f5lab.local.crt\"\n\t\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/tm/sys/crypto/cert",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"sys",
+						"crypto",
+						"cert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "bigip1-Create-APM AAA OCSP Responder",
 			"event": [
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "41752848-c13f-4f95-81c6-bd1b7f5b5eb9",
 						"exec": [
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "966115d0-eebc-41a2-bf90-5543f23daf80"
 					}
 				},
 				{
 					"listen": "test",
 					"script": {
-						"id": "02349bb5-8259-4bb3-a1ae-bba6762aa3f7",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"APM AAA OCSP Responder Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -271,6 +452,94 @@
 							"    pm.response.to.have.status(409);",
 							"});",
 							"",
+							""
+						],
+						"type": "text/javascript",
+						"id": "f98bc5f7-270b-4c9b-b137-7c943bf5ea90"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{APM_AAA_OCSP_NAME}}\",\r\n    \"allowCerts\": \"true\",\r\n    \"caFile\": \"/Common/ca.f5lab.local\",\r\n    \"caPath\": \"/ocsp\",\r\n    \"certIdDigest\": \"sha1\",\r\n    \"chain\": \"true\",\r\n    \"checkCerts\": \"true\",\r\n    \"explicitOcsp\": \"true\",\r\n    \"ignoreAia\": \"false\",\r\n    \"intern\": \"true\",\r\n    \"locationSpecific\": \"true\",\r\n    \"nonce\": \"false\",\r\n    \"signDigest\": \"sha1\",\r\n    \"statusAge\": 0,\r\n    \"trustOther\": \"false\",\r\n    \"url\": \"http://dc1.f5lab.local\",\r\n    \"validityPeriod\": 300,\r\n    \"verify\": \"true\",\r\n    \"verifyCert\": \"true\",\r\n    \"verifySig\": \"true\"\r\n}"
+				},
+				"url": {
+					"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/",
+					"protocol": "https",
+					"host": [
+						"10",
+						"1",
+						"1",
+						"4"
+					],
+					"path": [
+						"mgmt",
+						"tm",
+						"apm",
+						"aaa",
+						"ocsp",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bigip-create-profile-client-ssl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b407be2a-b216-4f6f-9c6d-3ffd10580fdd",
+						"exec": [
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Client-side SSL Profile Created\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"} else ",
+							"pm.test(\"Client-Side Profile Exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							"",
+							"",
+							"setTimeout(function(){}, 1000);",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5661c4fd-3ab8-46c7-b5cc-dd5a653e0a8d",
+						"exec": [
 							""
 						],
 						"type": "text/javascript"
@@ -303,10 +572,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"name\": \"{{APM_AAA_OCSP_NAME}}\",\r\n    \"allowCerts\": \"true\",\r\n    \"caFile\": \"/Common/ca.f5lab.local.crt\",\r\n    \"caPath\": \"/ocsp\",\r\n    \"certIdDigest\": \"sha1\",\r\n    \"chain\": \"true\",\r\n    \"checkCerts\": \"true\",\r\n    \"explicitOcsp\": \"true\",\r\n    \"ignoreAia\": \"false\",\r\n    \"intern\": \"true\",\r\n    \"locationSpecific\": \"true\",\r\n    \"nonce\": \"false\",\r\n    \"signDigest\": \"sha1\",\r\n    \"statusAge\": 0,\r\n    \"trustOther\": \"false\",\r\n    \"url\": \"http://dc1.f5lab.local\",\r\n    \"validityPeriod\": 300,\r\n    \"verify\": \"true\",\r\n    \"verifyCert\": \"true\",\r\n    \"verifySig\": \"true\"\r\n}"
+					"raw": "{\r\n   \"name\": \"acme.com-wildcard\",\r\n   \"cert\": \"/Common/acme.com-wildcard\",\r\n   \"key\": \"/Common/acme.com-wildcard\",\r\n   \"clientCertCa\": \"/Common/ca.f5lab.local\",\r\n   \"caFile\": \"/Common/ca.f5lab.local\"\r\n}"
 				},
 				"url": {
-					"raw": "https://10.1.1.4/mgmt/tm/apm/aaa/ocsp/",
+					"raw": "https://10.1.1.4/mgmt/tm/ltm/profile/client-ssl/",
 					"protocol": "https",
 					"host": [
 						"10",
@@ -317,9 +586,9 @@
 					"path": [
 						"mgmt",
 						"tm",
-						"apm",
-						"aaa",
-						"ocsp",
+						"ltm",
+						"profile",
+						"client-ssl",
 						""
 					]
 				}
@@ -332,13 +601,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "55e58253-5b27-4f43-9f39-cad630aaa092",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"",
-							"}",
-							"",
 							"",
 							"pm.test(\"AS3 is Running\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -346,21 +609,18 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "b8c1ecff-f49a-4587-83f8-9ee42ce32f31"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "21046288-70d2-4bcc-ac1d-bcc1e43c15ca",
 						"exec": [
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "4a5766ff-d4f1-45f5-9c83-e2d061929d0f"
 					}
 				}
 			],
@@ -407,10 +667,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "003eace3-d476-412b-a268-7a24b3ab9671",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"DC1 Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -420,17 +679,18 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "fcb92a68-f896-456c-b6dd-e5611681ce1d"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "f875bf33-8ddb-44b0-ba12-9c1f884a4fc6",
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "56e01279-6150-4edb-8b71-a08f7a4372ce"
 					}
 				}
 			],
@@ -487,10 +747,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "9858b39b-b3ce-4fef-be15-b3ad9a8677b5",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"bigip1 server Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -500,17 +759,18 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "ea921924-f6ba-472d-ae6c-f0e678b9fa6f"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "bc003c89-1b8c-444d-ae8e-44519353e5f7",
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "337fc95e-1bc7-4cde-86ff-c550a46c8fe3"
 					}
 				}
 			],
@@ -567,10 +827,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "a692938e-69cb-47c3-8d66-e22eafe13daf",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"bigip5 server Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -580,17 +839,18 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "748ccec9-6608-4a8a-9c43-4426e7820ede"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "06b184ab-c61e-46af-aa3f-edd30e7f2e64",
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "acf354e1-9617-4d7c-816a-4dc40e70f3d9"
 					}
 				}
 			],
@@ -647,10 +907,9 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "521e6721-9882-4dc8-aa67-0e27209fe577",
 						"exec": [
 							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
+							"",
 							"pm.test(\"Virtual Server added to Server\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
@@ -659,13 +918,13 @@
 							"    pm.response.to.have.status(409);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "7258c5db-e8e7-47da-98f7-d7b8fd690e79"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "414a8266-2961-4432-8a0c-17a0f92c1ddb",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"iap1.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -673,13 +932,10 @@
 							"pm.collectionVariables.set(\"VS_NAME\", \"iap1.acme.com\");",
 							"",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "a5b8a6d7-0b6d-4136-a7d2-3e1bab3faebc"
 					}
 				}
 			],
@@ -739,33 +995,24 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "86edda04-2bf5-4aa3-b26a-585f1ec0e990",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "3225c91a-6b0c-405c-a991-43dffad4e103"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "0c523d44-79fb-43b4-9870-d6861dbf02b7",
 						"exec": [
-							"",
-							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "35e0dd7c-8dfa-4474-9dcd-277eeb87d585"
 					}
 				}
 			],
@@ -816,36 +1063,30 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "0c211a19-9682-4f47-8c8b-94dc21ac3b79",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
+							"",
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "8da9904a-38a7-4add-bc6a-b76495303992"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "cc8e5a6d-e8cd-442e-a5ff-4da0e64a1fb1",
 						"exec": [
 							"",
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "22e5690f-19f5-47a3-ab1d-d52b8fa3f741"
 					}
 				}
 			],
@@ -896,11 +1137,8 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "41155f75-3768-422b-9b1e-909dcaf9fc51",
 						"exec": [
-							"if (responseCode.code === 200) {",
-							"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );",
-							"}",
+							"",
 							"",
 							"pm.test(\"Wide IP Created\", function () {",
 							"    pm.response.to.have.status(200);",
@@ -908,25 +1146,22 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "60253018-7ada-4580-a1a3-08bbd3900de3"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "ff30e977-129b-4731-8607-bf67e06a8df6",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
 							"pm.collectionVariables.set(\"PARTITION_NAME\", \"Common\");",
 							"",
-							"var PRIOR_RESPONSE = pm.collectionVariables.get(\"PRIOR_RESPONSE\");",
-							"",
-							"if (PRIOR_RESPONSE === 'OK') {",
-							"",
-							"}"
+							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "56b33e0f-5595-4314-868e-feb62b321660"
 					}
 				}
 			],
@@ -972,48 +1207,63 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "6ddc5cd3-0376-41dd-8913-63a931be0da7"
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				],
+				"id": "f3d7dada-6353-491f-8413-2867952b2e4c"
+			}
+		}
+	],
 	"variable": [
 		{
-			"id": "1c7a1dd4-9e74-4c46-a483-5023bbd47543",
-			"key": "PRIOR_RESPONSE",
-			"value": "",
-			"type": "string"
-		},
-		{
-			"id": "05268e72-8e02-4e09-9cf1-a606c0bdb6fe",
+			"id": "c2247e8c-cdbd-43da-b728-a847ba61264e",
 			"key": "APM_AAA_AD_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "3c5cc52a-24f0-4cfc-93f3-b3826da2337f",
+			"id": "15ab9e0d-01c7-4f7e-aef5-2680bc3f29f1",
 			"key": "APM_AAA_OCSP_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "b9e7d21a-ac14-4433-9086-2c7023ee3620",
+			"id": "309265da-517b-4f7d-9995-2708d25e0560",
+			"key": "PRIOR_RESPONSE",
+			"value": ""
+		},
+		{
+			"id": "32a19799-5e25-43e0-9726-5b4ca1408516",
 			"key": "APP_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "55835295-2919-4779-a54e-48878cbf03e2",
+			"id": "b50b34d5-9cd3-4019-83da-3a0249b22b7d",
 			"key": "PARTITION_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "caac100c-c4f8-4394-9eac-1ad82c283dac",
+			"id": "544d7d2b-c396-468b-8668-3debcfd89215",
 			"key": "PATH_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		},
 		{
-			"id": "d302bb1e-0fa6-4e52-a78b-8af7a25ce142",
+			"id": "bf33c105-ae02-4039-8f13-1490e7b37242",
 			"key": "VS_NAME",
-			"value": "",
-			"type": "string"
+			"value": ""
 		}
 	],
 	"protocolProfileBehavior": {}

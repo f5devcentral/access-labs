@@ -15,9 +15,9 @@ The F5 AccessGuardServiceConfig.xml file defines the settings used by the Access
 Task 1 - Explore the configuration file setting
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-	.. note :: Additional settings can be configured in the XML file beyond this 		example.  For further information see the article **Configuring F5 AccessGuard** 	on askf5.com - https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-access-guard-config/configuring-f5-access-guard.html
+	.. note:: Additional settings can be configured in the XML file beyond this 		example.  For further information see the article **Configuring F5 AccessGuard** 	on askf5.com - https://techdocs.f5.com/en-us/bigip-15-0-0/big-ip-access-policy-manager-access-guard-config/configuring-f5-access-guard.html
 
-#. Open the 88F5 Access Guard** Config file shortcut located on the desktop by right clicking it and opening with notepad++
+#. Open the **F5 Access Guard** Config file shortcut located on the desktop by right clicking it and opening with notepad++
 
    .. note:: The file is located in the C:\\ProgramData\\F5 Networks\\F5AccessGuardService directory
 
@@ -50,7 +50,7 @@ The AccessGuard System Service performs the continuous monitoring of the system 
 Task 1 - Locate the F5 Access Guard Service
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Enter Services into the jump box's desktop search bar.
+#. Enter Services into the jumphost's desktop search bar.
 
    |image5|
 
@@ -100,8 +100,8 @@ Task 1 - View the installed Extension
 
    |image11|
 
-#. Access the website **https://basic.acme.com**
-#. Click on the request **basic.acme.com** under the network tab.
+#. Access the website **https://ipa1.acme.com**
+#. Click on the request **ipa1.acme.com** under the network tab.
 
    |image12|
 
@@ -109,16 +109,11 @@ Task 1 - View the installed Extension
 
    |image13|
 
+#. This concludes lab 4.
 
-This concludes our lab on exploring Access Guard and the components used for generating secure posture assessments.
- 
- |image100|
-
-
+   |image100|
 
 .. |image100| image:: media/lab01/100.png
-
-
 .. |image0| image:: media/lab04/image000.png
 .. |image1| image:: media/lab04/image001.png
 .. |image2| image:: media/lab04/image002.png

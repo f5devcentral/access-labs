@@ -93,7 +93,7 @@ Task 4 - Create a HTTP Connector Request
 Section 3.2 - Add HTTP Connector to the IAP Policy
 -----------------------------------------------------
 
-Now that the HTTP Connector Request has been defined you will add it to basic-iap.acme.com application and test.
+Now that the HTTP Connector Request has been defined you will add it to basic.acme.com application and test.
 
 Task 1 - Add the HTTP Connector Request
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -168,7 +168,7 @@ Task 1 - Access basic.acme.com
 
    |image25|
 
-#. From a separate browser tab access the BIG-IP management interface https://10.1.1.4
+#. From a separate browser tab access the BIG-IP management interface https://bigip1.f5lab.local
 
 #. Navigate to Access >> Overview >> **Active Sessions**
 
@@ -195,21 +195,21 @@ Task 1 - Access basic.acme.com
 
 #. Expand the session to see all the sub-sessions by clicking the **+ (Plus Symbol)** to the left of the session ID.  
 
-   .. note :: You session ID will not match the one displayed in the screenshot below.
+   .. note:: You session ID will not match the one displayed in the screenshot below.
 
    |image27|
 
 #. If the HTTP Connector sub-session still exists check off that specific sub-session only and click **Kill Selected Sessions**
 
-   .. NOTE :: You are doing this to speed up the process and bypass the typical timers 		associated with HTTP Connector. This will enable you to see HTTP Connector trigger 	immediately on the next HTTP request sent from the jump box.
+   .. NOTE:: You are doing this to speed up the process and bypass the typical timers associated with HTTP Connector. This will enable you to see HTTP Connector trigger immediately on the next HTTP request sent from the jumphost.
 
    |image30|
 
-#. Locate Disable User 2 Powershell script shortcut located on the desktop.  
+#. Locate the **DisableUser2.ps1 Powershell script located on the desktop.  
 
    |image31|
 
-#. Click the **Disable User 2** Powershell script.  A Powershell window will appear disabling the User2 account is Disabled.
+#. Right click the script and select **Run with PowerShell**.  A Powershell window will appear displaying User2 account is Disabled.
 
    |image32|
 
@@ -224,11 +224,9 @@ Task 1 - Access basic.acme.com
    |image34|
 
 
-
-
-This concludes our lab on the HTTP Connector .
+#. This concludes lab 3.
  
- |image100|
+   |image100|
 
 
 
@@ -245,7 +243,7 @@ This concludes our lab on the HTTP Connector .
 .. |image8| image:: media/lab03/image008.png
 .. |image9| image:: media/lab03/image009.png
 .. |image10| image:: media/lab03/image010.png
-.. |image11| image:: media/lab03/image011.png
+.. |image11| image:: media/lab03/011.png
 
 
 
@@ -275,7 +273,7 @@ This concludes our lab on the HTTP Connector .
 	:width: 1000px
 .. |image30| image:: media/lab03/image030.png
 .. |image31| image:: media/lab03/image031.png
-.. |image32| image:: media/lab03/image032.png
+.. |image32| image:: media/lab03/032.png
 .. |image33| image:: media/lab03/image033.png
 .. |image34| image:: media/lab03/image034.png
 
