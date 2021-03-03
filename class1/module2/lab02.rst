@@ -105,16 +105,53 @@ Refer to the instructions and screen shots below:
 | |Lab2-Image4|                                                                                |
 +----------------------------------------------------------------------------------------------+
 
-Task 2: Radius Authentication
+Task 2: Step Up Authentication with Per Request Policies
 --------------------------------------
-Access Policy Manager supports authenticating and authorizing the client against external RADIUS servers. When a client connects with the user name and password, Access Policy Manager authenticates against the external server on behalf of the client, and authorizes the client to access resources if the credentials are valid.
+Step-up authentication can be used to protect layers or parts of a web application that manage more sensitive data. It can be used to increase protection by requiring stronger authentication within an already authenticated access to the web application.
+Step-up authentication can be a part of using the portal access or web application management (reverse proxy) features of Access Policy Manager.
 
-How RADIUS works How RADIUS works
-The client requests access to network resources through Access Policy Manager.
-Access Policy Manager then issues a RADIUS Access Request message to the RADIUS server, requesting authorization to grant access.
-The RADIUS server then processes the request, and issues one of three responses to Access Policy Manager: Access Accept, Access Challenge, or Access Reject.
+In this example we're going to use a Per-Request Policy with a subroutine to authenticate user when they access a specific URI, extract information from Active Directory and submit that information as a header
 
-|Lab2-Image7|
++----------------------------------------------------------------------------------------------+
+| 5. Begin by selecting: **Access -> Profiles/Policies -> Per Request Policies** ->            |
+|                                                                                              |
+| 6. Click the **Create** button (far right)                                                   |
+|                                                                                              |
++----------------------------------------------------------------------------------------------+
+| |Lab2-Image7|                                                                                |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 3. Give the policy a name and select the Language Settings                                   |
+|                                                                                              |
+|    -  **Name**: **app.acme.com-PRP**                                                         |
+|                                                                                              |
+|    -  **Accept Languages**: **English (en)**                                                 |
++----------------------------------------------------------------------------------------------+
+| |Lab2-Image8|                                                                                |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
+| 4. On the app.acme.com-PRP policy click **Edit**                                             |
+|                                                                                              |
+| 5. Click on **Add New Subroutine**                                                           |
+|                                                                                              |
+| 6. Give it a name and Click Save                                                             |
+|                                                                                              |
+|    -  **Name**: **SAML Auth**                                                                |
+|                                                                                              |
+| 7. Click the + between In and Out                                                            |
+|                                                                                              |
+| 8. Click the **Authentication** Tab                                                          |
+|                                                                                              |
+| 9. At the bottom of the list choose **SAML Auth** and click **Add Item**                     |
+|                                                                                              |
++----------------------------------------------------------------------------------------------+
+| |image007|                                                                                   |
+|                                                                                              |
+| |image008|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
 
 
 Lab 2 is now complete.
@@ -126,3 +163,5 @@ Lab 2 is now complete.
 .. |Lab2-Image5| image:: /class1/module2/media/Lab2-Image5.png
 .. |Lab2-Image6| image:: /class1/module2/media/Lab2-Image6.png
 .. |Lab2-Image7| image:: /class1/module2/media/Lab2-Image7.png
+.. |Lab2-Image8| image:: /class1/module2/media/Lab2-Image8.png
+.. |Lab2-Image9| image:: /class1/module2/media/Lab2-Image9.png
