@@ -5,12 +5,12 @@ Objectives
 ----------
 
 The intention of this lab will be to show how to enable Access Policy Manager (APM) through resource provisioning.  Next we will explore all the components within the **Access** left menu.
-This is not a deep dive on the components but an overview of the components/features of APM.
+This is not a deep dive on the components but an overview of the components, features and concepts of APM.
 
 Lab Requirements
 ----------------
 
--  A pre existing virtual server at 10.1.10.101 or https://server1.acme.com
+-  A pre existing virtual server at IP and DNS Name
 
 Task 1: Resource Provisioning
 ---------------------------------------
@@ -49,7 +49,7 @@ Task 2: Guided Configuration
 -----------------------------
 Access Guided Configuration (AGC) provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is written in has an independent release from TMOS and requires
 updates for new configurations from time to time. To find updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are
-going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab. Lab 3 will dive a little deeper in to the use cases and when to use AGC.
+going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab. Lab 2 will dive a little deeper in to the use cases and when to use AGC.
 
 #.  Go to **Access** --> **Guided Configuration**
 #.  A set of tiles appears at top listing the areas of use cases where Guided Configuration can be used
@@ -104,6 +104,8 @@ for details on client requirements.
 +---------------+-------------+-------------+
 
 #.  Proceeding with this configuration will create a number of object as seen here.
+
+.. Note::  If you are interested in learning more on this specific solution please consider taking the Zero Trust Identity Aware Proxy class.
 
 |image18|
 
