@@ -20,7 +20,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click **ACCESS** next to jumpbox.f5lab.local
+#. Click **ACCESS** next to jumpohost.f5lab.local
 
    |image90|
 
@@ -63,7 +63,7 @@ The first step in deploying the IAP is accessing Guided Configuration
 Task  1 - Access the Zero Trust IAP guided configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Open Firefox, and navigate to bigip1.f5lab.local
+#. Open Firefox, and navigate to https://bigip1.f5lab.local
 
 #. Login with username **admin** and password **admin**
 
