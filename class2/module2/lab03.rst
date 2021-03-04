@@ -118,7 +118,7 @@ Task 1 - Add the HTTP Connector Request
 
    |image16|
 
-#. Click **Add** under Trigger Rules
+#. Click **Add** under Additional Checks
 
    |image17|
 
