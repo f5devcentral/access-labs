@@ -1,5 +1,5 @@
 Getting Started
----------------
+=====================
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
@@ -10,7 +10,7 @@ To access your dedicated student lab environment, you will require a web browser
 |image001|
 
 
-#. Select your RDP solution.  
+#. Select your RDP resolution.  
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -18,7 +18,7 @@ To access your dedicated student lab environment, you will require a web browser
          - User: **f5lab\\user1**
          - Password: **user1**
 
-#. Once logged on to the jumphost, you can access BIG-IP1's GUI via Chrome using bookmarks or by typing https://10.1.1.4 
+#. Once logged on to the jumphost, you can access BIG-IP1's GUI via Chrome using bookmarks or by typing https://bigip1.f5lab.local
 
 #. Login into the BIG-IP Configuration Utility with the following credentials:
          - User: **admin**
@@ -57,6 +57,8 @@ Lab Components
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
 
+
+
 +------------------------+-------------------------+--------------------------+
 | Component              | VLAN/IP Address(es)     | Credentials              |
 +========================+=========================+==========================+
@@ -64,15 +66,29 @@ components:
 |                        | - External   10.1.10.10 | - user2/user2            |
 |                        | - Internal   10.1.20.10 |                          |
 +------------------------+-------------------------+--------------------------+
-| BIG-IP1.f5lab.local    | - Management 10.1.1.4   | - admin/admin            |
+| bigip1.f5lab.local     | - Management 10.1.1.4   | - admin/admin            |
 |                        | - External   10.1.10.4  |                          |
 |                        | - Internal   10.1.20.4  |                          |
 +------------------------+-------------------------+--------------------------+
-| BIG-IP2.f5lab.local    | - Management 10.1.1.5   | - admin/admin            |
+| bigip2.f5lab.local    | - Management 10.1.1.5   | - admin/admin             |
 |                        | - External   10.1.10.5  |                          |
 |                        | - Internal   10.1.20.5  |                          |
 +------------------------+-------------------------+--------------------------+
-| dc.f5lab.local         | - Management 10.1.1.7   | - admin/admin            |
+| bigip5.f5lab.local     | - Management 10.1.1.11  | - admin/admin            |
+|                        | - External              |                          |
+|                        |   - 10.1.10.11          |                          |
+|                        |   - 10.1.10.99          |                          |
+|                        | - Internal              |                          |
+|                        |   - 10.1.20.11          |                          |
+|                        |   - 10.1.20.99          |                          |
++------------------------+-------------------------+--------------------------+
+| bigip6.f5lab.local     | - Management 10.1.1.7   | - admin/admin            |
+|                        | - Internal   10.1.20.7  |                          |
++------------------------+-------------------------+--------------------------+
+| dc1.f5lab.local        | - Management 10.1.1.7   | - admin/admin            |
+|                        | - Internal   10.1.20.7  |                          |
++------------------------+-------------------------+--------------------------+
+| dc1.f5lab.local        | - Management 10.1.1.7   | - admin/admin            |
 |                        | - Internal   10.1.20.7  |                          |
 +------------------------+-------------------------+--------------------------+
 | iis.f5lab.local        | - Management 10.1.1.6   | - admin/admin            |
