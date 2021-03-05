@@ -12,6 +12,8 @@ Task 1 - Import Postman Collections
 
 #. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
 
+    .. note::  Dismiss any prompts to update Postman.  
+
     |image001|
 
 #. Click **Yes** if prompted for "Do you want to allow this app to make changes to your device?"
@@ -90,7 +92,7 @@ Task 3 - Create a Webtop Link
 
     |image016|
 
-#. Click the request **bigip-create-customization group-resource** and then **Body**.  The body of this request specifies that we will be creating a webtop link resource.  One thing to note, all webtop link resources use "/Common/standard" as the source type evern if the policy is using "/Common/Modern".
+#. Click the request **bigip-create-customization group-resource** and then **Body**.  The body of this request specifies that we will be creating a webtop link resource.  One thing to note, all webtop link resources use "/Common/standard" as the source type even if the policy is using "/Common/Modern".
 
     |image017|
 

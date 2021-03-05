@@ -12,6 +12,8 @@ Task 1 - Import Postman Collections
 
 #. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
 
+    .. note::  Dismiss any prompts to update Postman.  
+
     |image001|
 
 #. Click **Yes** if prompted for "Do you want to allow this app to make changes to your device?"
@@ -101,7 +103,7 @@ Task 4 - Create a SAML SP policy
 
 #. Now the the requests are in the folder we need to modify a couple baseline requests to ensure the policy is created.
 
-#. First, we need to adjust the start item's rule to go to the SAML SP Policy item.   Open the Policy-item SAML SP folder, click on **bigip-create-policy item-start**, and then **Body**.
+#. First, we need to adjust the start item's rule to go to the SAML SP Policy item.   Open the **Start Item** folder, click on **bigip-create-policy item-start**, and then **Body**.
 
 #. Change the NextItem key value from "/Common/{{VS_NAME}}-psp_end_deny" to "/Common/{{VS_NAME}}-psp_act_saml_auth".  
 
@@ -111,9 +113,9 @@ Task 4 - Create a SAML SP policy
 
 #. Now the workflow the policy is complete. We enter the start policy-item, proceed to the SAML Auth Policy-item, and then based on success or failure of SAML authentication a user will proceed down the allow or Deny Terminal.
 
-#. Every Policy-item must be defined inside of the items list of the policy.  Expand the **Create Policy** subfolder, click on **bigip-create-policy** and then *8ody**.
+#. Every Policy-item must be defined inside of the items list of the policy.  Expand the **Create Policy** subfolder located inside the **Baseline Policy** folder, click on **bigip-create-policy** and then **Body**.
 
-#. The following JSON inside the items array infront of the allow Terminal.  The placement of policy items inside of the items array is not important to the order they used within branch rules or Visual Policy Editors.  I just like to put the unique items towards the top.
+#. Copy the below JSON inside the items array in front of the allow Terminal.  The placement of policy items inside of the items array is not important to the order they used within branch rules or Visual Policy Editors. 
         
         
         {
@@ -165,13 +167,13 @@ Task 4 - Create a SAML SP policy
 
 #. The policy was successfully deployed with the SAML Auth Policy-Item.
 
-    |image028|
+    |image034|
 
 
 Task 5 - Lab Cleanup
 -------------------------------------------
 
-#.  Expand the **Lab Cleanup** subfolder and it's subfolders. There are total of five requires.  The first two requests delete the Policy, while the last three requests delete the SP Service, IdP Connector, and IdP signing certificate.  To understand these requests further review :ref:`Deleting an Access Profile <class4-module2-lab1-delete>` or :ref:`Deleting a SAML Service Provider(SP) Service Configuration <class4-module1-lab1-delete>` 
+#.  Expand the **Lab Cleanup** subfolder and it's subfolders. There are a total of five requests.  The first two requests delete the Policy, while the last three requests delete the SP Service, IdP Connector, and IdP signing certificate.  To understand these requests further review :ref:`Deleting an Access Profile <class4-module2-lab1-delete>` or :ref:`Deleting a SAML Service Provider(SP) Service Configuration <class4-module1-lab1-delete>` 
 
     |image028|
 
@@ -238,5 +240,6 @@ This concludes the lab on creating and deleting a SAML SP Access Policy.
 .. |image031| image:: media/lab02/031.png
 .. |image032| image:: media/lab02/032.png
 .. |image033| image:: media/lab02/033.png
+.. |image034| image:: media/lab02/034.png
 .. |image100| image:: media/lab02/100.png
 
