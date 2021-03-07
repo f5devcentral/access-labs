@@ -156,5 +156,5 @@ Lab 2 is now complete.
 .. |Lab2-Image7| image:: /class1/module2/media/Lab2-Image7.png
 .. |Lab2-Image8| image:: /class1/module2/media/Lab2-Image8.png
 .. |Lab2-Image9| image:: /class1/module2/media/Lab2-Image9.png
-.. |Lab2-Image10| image:: /class1/module2/media/Lab2-Image10.png
+.. |Lab2-Image10| image:: /class1/module2/media/Lab2-Image10.PNG
 .. |Lab2-Image11| image:: /class1/module2/media/Lab2-Image11.png
