@@ -2,7 +2,8 @@ Lab 2: Webtop Access Policy Build
 ============================================
 
 In this lab, we will add a Webtop resource to the Access Policy
-created in the previous lab.
+created in the previous lab. A full webtop provides an access policy ending for an access policy branch to which you can optionally assign portal access resources, app tunnels, remote desktops, and webtop links, in addition to network access tunnels.
+Then, the full webtop provides your clients with a web page on which they can choose resources, including a network access connection to start.
 
 Lab Requirements
 ----------------
