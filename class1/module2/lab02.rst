@@ -138,9 +138,9 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 | 9. At the bottom of the list choose **AD Auth** and click **Add Item**                       |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
-| |Lab2-Image10|                                                                               |
-|                                                                                              |
 | |Lab2-Image11|                                                                               |
+|                                                                                              |
+| |Lab2-Image12|                                                                               |
 +----------------------------------------------------------------------------------------------+
 
 
@@ -156,5 +156,5 @@ Lab 2 is now complete.
 .. |Lab2-Image7| image:: /class1/module2/media/Lab2-Image7.png
 .. |Lab2-Image8| image:: /class1/module2/media/Lab2-Image8.png
 .. |Lab2-Image9| image:: /class1/module2/media/Lab2-Image9.png
-.. |Lab2-Image10| image:: /class1/module2/media/Lab2-Image10.png
 .. |Lab2-Image11| image:: /class1/module2/media/Lab2-Image11.png
+.. |Lab2-Image12| image:: /class1/module2/media/Lab2-Image12.png
