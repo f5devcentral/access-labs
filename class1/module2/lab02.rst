@@ -129,18 +129,18 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 6. Give it a name and Click Save                                                             |
 |                                                                                              |
-|    -  **Name**: **AD Auth**                                                                |
+|    -  **Name**: **AD Auth**                                                                  |
 |                                                                                              |
 | 7. Click the + between In and Out                                                            |
 |                                                                                              |
 | 8. Click the **Authentication** Tab                                                          |
 |                                                                                              |
-| 9. At the bottom of the list choose **AD Auth** and click **Add Item**                     |
+| 9. At the bottom of the list choose **AD Auth** and click **Add Item**                       |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
-| |Lab2-Image10|                                                                                   |
+| |Lab2-Image10|                                                                               |
 |                                                                                              |
-| |Lab2-Image11|                                                                                   |
+| |Lab2-Image11|                                                                               |
 +----------------------------------------------------------------------------------------------+
 
 
