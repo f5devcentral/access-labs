@@ -3,15 +3,6 @@ Lab 2: Step up Authentication with Per-Request Policies
 
 Objectives
 ----------
-In this lab we will explore adding authentication to your access policies. This authentication can come in many forms
-
-Lab Requirements
-----------------
-
--
-
-Lab 2: APM Per Request Policies
-==========================================
 
 The purpose of this lab is to familiarize the Student with Per Request Policies.
 The F5 Access Policy Manager (APM) provides two types of policies.

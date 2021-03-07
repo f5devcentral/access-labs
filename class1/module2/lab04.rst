@@ -1,4 +1,4 @@
-Lab 2: Webtop Access Policy Build
+Lab 4: Webtop Access Policy Build
 ============================================
 
 In this lab, we will add a Webtop resource to the Access Policy
