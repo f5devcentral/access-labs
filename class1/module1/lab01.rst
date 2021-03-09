@@ -383,7 +383,7 @@ the virtual servers and authentication will only be requested once.  Subsequent 
   is created. As long as you provide the URI, your users are able to access multiple backend applications from multiple domains and hosts without requiring them to
   re-enter their credentials because the user session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.
 - Authentication Domain Configuration: Set the domain acme.com
-- Authentication Domains:  To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app1.acme.com  If you have and SSO
+- Authentication Domains:  To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app2.acme.com  If you have and SSO
   method created select the SSO method from the drop down box.  This can be edited later to add an SSO method.
 
 #.  Logs
@@ -531,10 +531,6 @@ applications with different requirements.
 
 Client-side authentication involves the client (typically a user employing a browser) accessing a BIG-APM virtual server and presenting identity. This is called authentication, authorization, and accounting (AAA).
 
-Server-side authentication involves BIG-IP APM providing authentication to a server resource. This is called SSO.
-
-.. Note:: Single Sign On (SSO) will be covered in Task 6.
-
 BIG-IP APM supports industry standard authentication methods, including:
 
 - NTLM
@@ -578,6 +574,8 @@ After access credentials are submitted, BIG-IP APM validates the listed methods 
 |                      | Admin Password              |  admin                           |
 +----------------------+-----------------------------+----------------------------------+
 
+You have now created an object that can be used to facilitate Active Directory authentication in front of any application.  The application itself does not need to require authentication. If
+you were to deploy a policy with AD Auth on a Virtual Server for a web application we re
 
 
 
