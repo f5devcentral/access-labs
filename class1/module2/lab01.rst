@@ -1,4 +1,4 @@
-Lab 1: Access Policy Frameworks
+Lab 1: Building a Basic Access Policy
 =====================================
 
 Objectives
@@ -17,8 +17,6 @@ The per-session policy runs when a client initiates a session. (A per-session po
 
 Depending on the actions you include in the access policy, it can authenticate the user and perform other actions that populate session variables with data for use throughout the session.
 
-Lab 1: Building a Basic Access Policy
-=====================================
 
 Objectives
 ----------

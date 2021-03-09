@@ -23,23 +23,63 @@ Lab Requirements:
 
 -  Estimated completion time: 25-30 minutes
 
+Task 1 - Setup Lab environment
+---------------------------------
+
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumphost.f5lab.local
+
+   |image999|
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+
+#. Click the **Classes** tab at the top of the page.
+
+	|image998|
+
+#. Scroll down the page until you see **202 - Federation** on the left
+
+   |image997|
+
+#. Hover over tile **SAML IdP Access Guided Configuration(AGC) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+   |image996|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image995|
+
+
                                                                          |
 
-TASK 1: Configure a SAML Service Provider (SP) via AGC 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 2: Configure a SAML Service Provider (SP) via AGC 
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Navigate to **Access -> Guided Configuration** in the left-hand menu.                     |
 |                                                                                              |
 | 2. Once **Guided Configuration** loads, click on **Federation**.                             |
 +----------------------------------------------------------------------------------------------+
-| |image026|                                                                                   |
+| |image001|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
 | 3. In the resulting **Federation** sub-menu click, **SAML Service Provider**.                |
 +----------------------------------------------------------------------------------------------+
-| |image027|                                                                                   |
+| |image002|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -47,32 +87,32 @@ TASK 1: Configure a SAML Service Provider (SP) via AGC
 |                                                                                              |
 |    and then click the **right arrow**.                                                       |
 +----------------------------------------------------------------------------------------------+
-| |image028|                                                                                   |
+| |image003|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
 | 5. Review the **IdP-Initiated** flow and then scroll down to the bottom of the window.       |
 +----------------------------------------------------------------------------------------------+
-| |image029|                                                                                   |
+| |image004|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
 | 6. Review the configuration objects to be created and the click **Next**.                    |
 +----------------------------------------------------------------------------------------------+
-| |image030|                                                                                   |
+| |image005|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 2: Configure the Service Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 3: Configure the Service Provider
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Service Provider Properties** section, enter the following values in the fields  |
 |                                                                                              |
 |    provided:                                                                                 |
 |                                                                                              |
-|    * In the **Configuration Name** field input **agc-sp.acme.com**.                          |
+|    * In the **Configuration Name** field input **sp.acme.com**.                              |
 |                                                                                              |
-|    * In the **Entity ID** field input **https://agc-sp.acme.com**.                           |
+|    * In the **Entity ID** field input **https://sp.acme.com**.                               |
 |                                                                                              |
 | 2. In the **Security Settings** section, check the checkbox next to **Sign Authentication**  |
 |                                                                                              |
@@ -80,17 +120,17 @@ TASK 2: Configure the Service Provider
 |                                                                                              |
 | 3. In the updated **Security Settings** section, use the dropdowns to select the following:  |
 |                                                                                              |
-|    * For the **Message Signing Key** select **saml-agc-sp.acme.com**.                        |
+|    * For the **Message Signing Key** select **sp.acme.com**.                                 |
 |                                                                                              |
-|    * For the **Message Signing Certificate** select **saml-agc-sp.acme.com**.                |
+|    * For the **Message Signing Certificate** select **sp.acme.com**.                         |
 |                                                                                              |
 | 4. Click **Save & Next**.                                                                    |
 +----------------------------------------------------------------------------------------------+
-| |image031|                                                                                   |
+| |image006|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 TASK 3: Configure the Virtual Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Virtual Server Properties** section, enter the following values in the fields    |
@@ -105,15 +145,15 @@ TASK 3: Configure the Virtual Server
 |                                                                                              |
 | 2. In the **Client SSL Profile** section, use the arrows to move only the                    |
 |                                                                                              |
-|    **wildcard.acme.com** profile to the right-hand column as shown.                          |
+|    **acme.com-wildcard** profile to the right-hand column as shown.                          |
 |                                                                                              |
 | 3. Click **Save & Next**.                                                                    |
 +----------------------------------------------------------------------------------------------+
-| |image032|                                                                                   |
+| |image007|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 TASK 4: Configure External IdP Connector
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **External Identity Provider Connector Settings** section, use the first dropdown  |
@@ -132,7 +172,7 @@ TASK 4: Configure External IdP Connector
 +----------------------------------------------------------------------------------------------+
 
 TASK 5: Configure Pool
-~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Click **Show Advanced Setting** in the upper right of the **Guided Configuration**.       |
@@ -159,7 +199,7 @@ TASK 5: Configure Pool
 +----------------------------------------------------------------------------------------------+
 
 TASK 6: Configure SSO
-~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Single Sign-On Settings** section, check the **Enable Signle Sign-On** checkbox. |
@@ -182,7 +222,7 @@ TASK 6: Configure SSO
 +----------------------------------------------------------------------------------------------+
 
 TASK 7: Configure Endpoint Checks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Endpoints Checks Properties** window, click **Save & Next**.                     |
@@ -195,7 +235,7 @@ TASK 7: Configure Endpoint Checks
 +----------------------------------------------------------------------------------------------+
 
 TASK 8: Configure Session Management
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Review the Session Managment settings, in the **Timeout Settings** section then scroll to |
@@ -206,7 +246,7 @@ TASK 8: Configure Session Management
 +----------------------------------------------------------------------------------------------+
 
 TASK 9: Review the Summary and Deploy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Review the Summary, then scroll to the bottom of the window and click **Deploy**.         |
@@ -229,7 +269,7 @@ TASK 9: Review the Summary and Deploy
 +----------------------------------------------------------------------------------------------+
 
 TASK: 10: Testing the SAML Service Provider (SP)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Open Firefox from the Jumphost desktop and click on the **AGC-SP (Partner)** link in the  |
@@ -256,7 +296,7 @@ TASK: 10: Testing the SAML Service Provider (SP)
 +----------------------------------------------------------------------------------------------+
 
 TASK 11: End of Lab1
-~~~~~~~~~~~~~~~~~~~~
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. This concludes Part 2 of Lab1. This concludes Lab1, feel free to review and test the      |
@@ -266,92 +306,30 @@ TASK 11: End of Lab1
 | |image000|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-.. |image000| image:: ./media/image001.png
+
+.. |image001| image:: ./media/lab02/001.png
    :width: 800px
-.. |image001| image:: ./media/lab1-001.png
+.. |image002| image:: ./media/lab02/002.png
    :width: 800px
-.. |image002| image:: ./media/lab1-002.png
+.. |image003| image:: ./media/lab02/003.png
    :width: 800px
-.. |image003| image:: ./media/lab1-003.png
+.. |image004| image:: ./media/lab02/004.png
    :width: 800px
-.. |image004| image:: ./media/lab1-004.png
+.. |image005| image:: ./media/lab02/005.png
    :width: 800px
-.. |image005| image:: ./media/lab1-005.png
+.. |image006| image:: ./media/lab02/006.png
    :width: 800px
-.. |image006| image:: ./media/lab1-006.png
+.. |image002| image:: ./media/lab02/002.png
    :width: 800px
-.. |image007| image:: ./media/lab1-007.png
+.. |image995| image:: ./media/lab02/995.png
    :width: 800px
-.. |image008| image:: ./media/lab1-008.png
+.. |image996| image:: ./media/lab02/996.png
    :width: 800px
-.. |image009| image:: ./media/lab1-009.png
+.. |image997| image:: ./media/lab02/997.png
    :width: 800px
-.. |image010| image:: ./media/lab1-010.png
+.. |image998| image:: ./media/lab02/998.png
+   :width: 800px 
+.. |image999| image:: ./media/lab02/999.png
    :width: 800px
-.. |image011| image:: ./media/lab1-011.png
-   :width: 800px
-.. |image012| image:: ./media/lab1-012.png
-   :width: 800px
-.. |image013| image:: ./media/lab1-013.png
-   :width: 800px
-.. |image014| image:: ./media/lab1-014.png
-   :width: 800px
-.. |image015| image:: ./media/lab1-015.png
-   :width: 800px
-.. |image016| image:: ./media/lab1-016.png
-   :width: 800px
-.. |image017| image:: ./media/lab1-017.png
-   :width: 800px
-.. |image018| image:: ./media/lab1-018.png
-   :width: 800px
-.. |image019| image:: ./media/lab1-019.png
-   :width: 800px
-.. |image020| image:: ./media/lab1-020.png
-   :width: 800px
-.. |image021| image:: ./media/lab1-021.png
-   :width: 800px
-.. |image022| image:: ./media/lab1-022.png
-   :width: 800px
-.. |image023| image:: ./media/lab1-023.png
-   :width: 800px
-.. |image024| image:: ./media/lab1-024.png
-   :width: 800px
-.. |image025| image:: ./media/lab1-025.png
-   :width: 800px
-.. |image026| image:: ./media/lab1-026.png
-   :width: 800px
-.. |image027| image:: ./media/lab1-027.png
-   :width: 800px
-.. |image028| image:: ./media/lab1-028.png
-   :width: 800px
-.. |image029| image:: ./media/lab1-029.png
-   :width: 800px
-.. |image030| image:: ./media/lab1-030.png
-   :width: 800px
-.. |image031| image:: ./media/lab1-031.png
-   :width: 800px
-.. |image032| image:: ./media/lab1-032.png
-   :width: 800px
-.. |image033| image:: ./media/lab1-033.png
-   :width: 800px
-.. |image034| image:: ./media/lab1-034.png
-   :width: 800px
-.. |image035| image:: ./media/lab1-035.png
-   :width: 800px
-.. |image036| image:: ./media/lab1-036.png
-   :width: 800px
-.. |image037| image:: ./media/lab1-037.png
-   :width: 800px
-.. |image038| image:: ./media/lab1-038.png
-   :width: 800px
-.. |image039| image:: ./media/lab1-039.png
-   :width: 800px
-.. |image040| image:: ./media/lab1-040.png
-   :width: 800px
-.. |image041| image:: ./media/lab1-041.png
-   :width: 800px
-.. |image042| image:: ./media/lab1-042.png
-   :width: 800px
-.. |image043| image:: ./media/lab1-043.png
-   :width: 800px
+
 

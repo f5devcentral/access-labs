@@ -62,8 +62,8 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image995|
 
-TASK 2: Configure a SAML Identity Provider (IdP) via AGC 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 2 - Configure a SAML Identity Provider (IdP) via AGC 
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Login to your lab provided **Virtual Edition BIG-IP**  by clicking **bigip1** in the      |
@@ -111,8 +111,8 @@ TASK 2: Configure a SAML Identity Provider (IdP) via AGC
 | |image006|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 3: Configure the Identity Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 3 - Configure the Identity Provider
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Identity Provider Properties** section, enter the following values in the fields |
@@ -134,8 +134,8 @@ TASK 3: Configure the Identity Provider
 | |image007|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 4: Configure the Virtual Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 4 - Configure the Virtual Server
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Virtual Server Properties** section, enter the following values in the fields    |
@@ -157,8 +157,8 @@ TASK 4: Configure the Virtual Server
 | |image008|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 5: Configure Authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 5 - Configure Authentication
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Authentication Properties** section, use the dropdowns to select the following:  |
@@ -182,8 +182,8 @@ TASK 5: Configure Authentication
 | |image009|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 6: Configure MFA
-~~~~~~~~~~~~~~~~~~~~~
+TASK 6 - Configure MFA
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the Multi Factor Authentication winodw, click **Save & Next**.                         |
@@ -193,8 +193,8 @@ TASK 6: Configure MFA
 | |image010|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 6: Configure Applications
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 7: Configure Applications
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Application Properties** section, use the **Select method to configure your**    |
@@ -226,8 +226,8 @@ TASK 6: Configure Applications
 | |image013|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 7: Configure Endpoint Checks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 8 - Configure Endpoint Checks
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Endpoints Checks Properties** window, click **Save & Next**.                     |
@@ -239,8 +239,8 @@ TASK 7: Configure Endpoint Checks
 | |image014|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 8: Configure Customization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 9 - Configure Customization
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Review the Customization options, then scroll to the bottom of the window and click       |
@@ -253,8 +253,8 @@ TASK 8: Configure Customization
 +----------------------------------------------------------------------------------------------+
 
 
-TASK 9: Configure Logon Protection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 10 - Configure Logon Protection
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. In the **Logon Protection Properties** window, click **Save & Next**.                     |
@@ -266,8 +266,8 @@ TASK 9: Configure Logon Protection
 | |image016|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 10: Configure Session Management
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 11: Configure Session Management
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Review the Session Managment settings, in the **Timeout Settings** section then scroll to |
@@ -277,8 +277,8 @@ TASK 10: Configure Session Management
 | |image017|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK 11: Review the Summary and Deploy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 12: Review the Summary and Deploy
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Review the Summary, then scroll to the bottom of the window and click **Deploy**.         |
@@ -300,8 +300,8 @@ TASK 11: Review the Summary and Deploy
 | |image020|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
-TASK: 12: Testing the SAML Identity Provider (IdP)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK: 13: Testing the SAML Identity Provider (IdP)
+-------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
 | 1. Open Firefox from the Jumphost desktop and navigate to https://idp.acme.com               |
@@ -332,8 +332,8 @@ TASK: 12: Testing the SAML Identity Provider (IdP)
 +----------------------------------------------------------------------------------------------+
 
 
-TASK 13: Lab CleanUp
-~~~~~~~~~~~~~~~~~~~~~~~
+TASK 14: Lab CleanUp
+-------------------------------------------------------------
 
 
 +----------------------------------------------------------------------------------------------+
