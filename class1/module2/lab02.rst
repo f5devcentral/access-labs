@@ -133,16 +133,81 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 7. Click the + between In and Out                                                            |
 |                                                                                              |
-| 8. Click the **Authentication** Tab                                                          |
+| 8. Click the **Logon** Tab                                                                   |
 |                                                                                              |
-| 9. At the bottom of the list choose **AD Auth** and click **Add Item**                       |
+| 9. At the middle of the list choose **Logon Page** and click **Add Item**                    |
+|                                                                                              |
+| 10. Select **Save** at the bottom of the Logon Page dialog box                               |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |Lab2-Image10|                                                                               |
 |                                                                                              |
 | |Lab2-Image11|                                                                               |
+|                                                                                              |
+| |Lab2-Image12|                                                                               |
+|                                                                                              |
+| |Lab2-Image13                                                                                |
 +----------------------------------------------------------------------------------------------+
 
++----------------------------------------------------------------------------------------------+
+| 4. In the subroutine, between the Logon page and the green out branch click the +            |
+|                                                                                              |
+| 5. Click on **Authentication**                                                               |
+|                                                                                              |
+| 6. Select AD Auth and click **Add Item** at the bottom                                       |
+|                                                                                              |
+| 7. Give the item a name                                                                      |
+|    -  **Name**: **AD_Auth**                                                                  |
+|                                                                                              |
+| 7. Select **/Common/Lab_SSO_AD_Server** for the Server option                                |
+|                                                                                              |
+| 8. Click the **Save**                                                                        |
+|                                                                                              |
+| 9. Between **AD Auth and the Out endpoint click the + Sign                                   |
+|                                                                                              |
+| 10. Select Authentication and Select the **AD Query radio button and click **Add Item**      |
+|                                                                                              |
+| 11. Change the **Server** option to **/Common/Lab_SSO_AD_Server** and click **Save**         |
+|                                                                                              |
+| 12. Between **AD Query** and the Out endpoint click the + Sign                               |
+|                                                                                              |
+| 13. Navigate to the **Assignment** tab and select **Variable Assign** and click **Add Item** |
+|                                                                                              |
+| 14. Under Variable Assign click **Add New Entry**                                            |
+|                                                                                              |
+| 15. Next to "Empty" click the **change** links                                               |
+|                                                                                              |
+| 16. Change the drop down on the right hand side to **Session Varaible** and imput the        |
+| following value                                                                              |
+|    - **subsession.ad.last.attr.memberOf**                                                    |
+|                                                                                              |
+| 17. In the left hand box type the following then click finished and Save                     |
+|   - **session.adgroups.custom**                                                              |
+|                                                                                              |
+|                                                                                              |
+|                                                                                              |
++----------------------------------------------------------------------------------------------+
+| |Lab2-Image14|                                                                               |
+|                                                                                              |
+| |Lab2-Image15|                                                                               |
+|                                                                                              |
+| |Lab2-Image16|                                                                               |
+|                                                                                              |
+| |Lab2-Image17|                                                                               |
+|                                                                                              |
+| |Lab2-Image18|                                                                               |
+|                                                                                              |
+| |Lab2-Image19|                                                                               |
+|                                                                                              |
+| |Lab2-Image20|                                                                               |
+|                                                                                              |
+| |Lab2-Image21|                                                                               |
+|                                                                                              |
+| |Lab2-Image22|                                                                               |
+|                                                                                              |
+| |Lab2-Image23|                                                                               |
+|                                                                                              |
++----------------------------------------------------------------------------------------------+
 
 
 Lab 2 is now complete.
@@ -158,3 +223,20 @@ Lab 2 is now complete.
 .. |Lab2-Image9| image:: /class1/module2/media/Lab2-Image9.png
 .. |Lab2-Image10| image:: /class1/module2/media/Lab2-Image10.PNG
 .. |Lab2-Image11| image:: /class1/module2/media/Lab2-Image11.png
+.. |Lab2-Image12| image:: /class1/module2/media/Lab2-Image12.png
+.. |Lab2-Image13| image:: /class1/module2/media/Lab2-Image13.png
+.. |Lab2-Image14| image:: /class1/module2/media/Lab2-Image14.png
+.. |Lab2-Image15| image:: /class1/module2/media/Lab2-Image15.png
+.. |Lab2-Image16| image:: /class1/module2/media/Lab2-Image16.png
+.. |Lab2-Image17| image:: /class1/module2/media/Lab2-Image17.png
+.. |Lab2-Image18| image:: /class1/module2/media/Lab2-Image18.png
+.. |Lab2-Image19| image:: /class1/module2/media/Lab2-Image19.png
+.. |Lab2-Image20| image:: /class1/module2/media/Lab2-Image20.png
+.. |Lab2-Image21| image:: /class1/module2/media/Lab2-Image21.png
+.. |Lab2-Image22| image:: /class1/module2/media/Lab2-Image22.png
+.. |Lab2-Image23| image:: /class1/module2/media/Lab2-Image23.png
+.. |Lab2-Image24| image:: /class1/module2/media/Lab2-Image24.png
+.. |Lab2-Image25| image:: /class1/module2/media/Lab2-Image25.png
+.. |Lab2-Image26| image:: /class1/module2/media/Lab2-Image26.png
+.. |Lab2-Image27| image:: /class1/module2/media/Lab2-Image27.png
+.. |Lab2-Image28| image:: /class1/module2/media/Lab2-Image28.png
