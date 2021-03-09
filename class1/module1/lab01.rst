@@ -575,7 +575,28 @@ After access credentials are submitted, BIG-IP APM validates the listed methods 
 +----------------------+-----------------------------+----------------------------------+
 
 You have now created an object that can be used to facilitate Active Directory authentication in front of any application.  The application itself does not need to require authentication. If
-you were to deploy a policy with AD Auth on a Virtual Server for a web application we re
+you were to deploy a policy with AD Auth on a Virtual Server for a web application the policy would preset a login page, prompt for credentials, verify the credentials against this AD object
+before allowing a user to access the web application.
+
+#. Go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#. Locate the Basic_policy and click **Edit**
+#. Click the **+** symbol between Start and Deny.
+#. From the **Logon** tab select the **Logon Page** radio button
+#. Click **Add Item**
+#. Notice that you can add fields and change the names of the fields.  Click **Save**
+#. Click the **+** between **Logon Page** and Deny
+#. Click the **Authentication** tab
+#. Choose the **AD Auth** radio button and click **Add Item**
+#. Under the **Type** field click on the drop down menu and choose the newly created AAA server **Basic_policy_aaa**
+#. Click **Save**
+#. Click on the **Deny** end point and choose **Allow** then click **Save**
+#. Click **Apply Access Policy**
+
+Now you have a basic policy with AD Authentication that you can leverage for Web Pre-Authorization in front of any application.
+
+
+
+
 
 
 

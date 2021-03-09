@@ -1,4 +1,4 @@
-Lab 5: Access Logs Overview
+Lab 4: Access Logs Overview
 =============================================
 
 Objectives
