@@ -163,7 +163,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 8. Click the **Save**                                                                        |
 |                                                                                              |
-| 9. Between **AD Auth and the Out endpoint click the + Sign                                   |
+| 9. Between **AD Auth** and the Out endpoint click the + Sign                                   |
 |                                                                                              |
 | 10. Select Authentication and Select the **AD Query radio button and click **Add Item**      |
 |                                                                                              |
