@@ -145,7 +145,7 @@ TASK 3: Configure the Virtual Server
 |                                                                                              |
 | 2. In the **Client SSL Profile** section, use the arrows to move only the                    |
 |                                                                                              |
-|    **acme.com-wildcard** profile to the right-hand column as shown.                          |
+|    **wildcard.acme.com** profile to the right-hand column as shown.                          |
 |                                                                                              |
 | 3. Click **Save & Next**.                                                                    |
 +----------------------------------------------------------------------------------------------+
@@ -283,7 +283,7 @@ TASK: 10: Testing the SAML Service Provider (SP)
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 3. The **sp.acme.com Application** will now open if successfully configured.                 |
+| 3. The **sp.acme.com** application will now open if successfully configured.                 |
 +----------------------------------------------------------------------------------------------+
 | |image017|                                                                                   |
 +----------------------------------------------------------------------------------------------+
