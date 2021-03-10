@@ -463,7 +463,7 @@ TASK 14: Lab CleanUp
    :width: 800px
 .. |image025| image:: ./media/lab01/025.png
    :width: 800px
-.. |image026| image:: ./media/lab01/l026.png
+.. |image026| image:: ./media/lab01/026.png
    :width: 800px
 .. |image027| image:: ./media/lab01/027.png
    :width: 800px
