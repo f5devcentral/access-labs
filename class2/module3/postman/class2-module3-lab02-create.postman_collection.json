@@ -243,7 +243,7 @@
 											"    pm.response.to.have.status(200);\r",
 											"});\r",
 											"} else \r",
-											"pm.test(\"IDP Service Does Not Exist\", function () {\r",
+											"pm.test(\"IDP Service Exists\", function () {\r",
 											"    pm.response.to.have.status(409);\r",
 											"});\r",
 											""
@@ -1757,6 +1757,15 @@
 									"listen": "test",
 									"script": {
 										"exec": [
+											"if (responseCode.code === 200) {\r",
+											"\r",
+											"pm.test(\"Policy Created\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"} else \r",
+											"pm.test(\"Policy Exists\", function () {\r",
+											"    pm.response.to.have.status(409);\r",
+											"});\r",
 											""
 										],
 										"type": "text/javascript"
@@ -1821,8 +1830,6 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"\r",
-											"pm.collectionVariables.set('PRIOR_RESPONSE', 'OK' );\r",
 											"pm.test(\"Apply Policy Successful\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
@@ -2212,7 +2219,9 @@
 										"exec": [
 											"pm.test(\"sp.crt installed\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
-											"});"
+											"});\r",
+											"\r",
+											"setTimeout(function(){}, 1000);"
 										],
 										"type": "text/javascript"
 									}
@@ -2461,7 +2470,7 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");",
+									"var DNS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");",
 									"var jsonData = pm.response.json();",
 									"",
 									"for (var i = 0; i < jsonData.length; i++) {",

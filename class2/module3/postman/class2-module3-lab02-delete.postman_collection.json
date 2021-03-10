@@ -441,7 +441,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");",
+											"var DNS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");",
 											"",
 											"var jsonData = pm.response.json();",
 											"pm.test(\"Website \"+DNS_NAME+\" deleted\", function () {",
@@ -561,62 +561,6 @@
 										"ltm",
 										"node",
 										"10.1.20.6"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "delete-dns-record",
-							"event": [
-								{
-									"listen": "test",
-									"script": {
-										"exec": [
-											"   var jsonData = pm.response.json();",
-											"\t",
-											"    if (jsonData.status === \"nonexistent\") {",
-											"        pm.test(\"nonexistent\", function () {",
-											"        pm.expect(jsonData.status).to.eql(\"nonexistent\");",
-											"        });",
-											"    } else {",
-											"",
-											"        ",
-											"        pm.test(\"Success\", function () {",
-											"        pm.expect(jsonData[1].status).to.eql(\"Success\");",
-											"        });",
-											"    }",
-											""
-										],
-										"type": "text/javascript"
-									}
-								}
-							],
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Content-Type",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"body": {
-									"mode": "raw",
-									"raw": "{\n\"record_type\":\"a\",\n\"fqdn\":\"{{DNS_NAME}}\",\n\"computer_ip\":\"10.1.20.6\" \n}"
-								},
-								"url": {
-									"raw": "http://10.1.20.6:81/dns",
-									"protocol": "http",
-									"host": [
-										"10",
-										"1",
-										"20",
-										"6"
-									],
-									"port": "81",
-									"path": [
-										"dns"
 									]
 								}
 							},
