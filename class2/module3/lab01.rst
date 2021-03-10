@@ -392,7 +392,7 @@ TASK 14: Lab CleanUp
 | icon should appear within the tile.  Click the **Stop** Button to start the automation to    |
 | delete any prebuilt objects                                                                  |                                                                  
 +----------------------------------------------------------------------------------------------+
-| |image996|                                                                                   |
+| |image045|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -501,7 +501,8 @@ TASK 14: Lab CleanUp
    :width: 800px
 .. |image044| image:: ./media/lab01/044.png
    :width: 800px
-
+.. |image045| image:: ./media/lab01/045.png
+   :width: 800px
 .. |image995| image:: ./media/lab01/995.png
    :width: 800px
 .. |image996| image:: ./media/lab01/996.png
