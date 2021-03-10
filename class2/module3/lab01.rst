@@ -209,7 +209,7 @@ TASK 7: Configure Applications
 +----------------------------------------------------------------------------------------------+
 | 2. In the updated **Application Properties** window, click the **Choose File** button, browse|
 |                                                                                              |
-|    the **Jumphost** desktop and select the **sp_acme_com_metadata.xml** file.                |
+|    the **Jumphost** desktop and select the **sp_acme_com.xml** file.                         |
 |                                                                                              |
 | 3. For the **Application Name**, input **sp.acme.com**                                       |
 |                                                                                              |
