@@ -373,7 +373,7 @@ TASK 14: Lab CleanUp
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 7. From a browser on the jumphost navigate to https://portal.acme.com                        |
+| 7. From a browser on the jumphost navigate to https://portal.f5lab.local                     |
 |                                                                                              |
 | 8. Click the **Classes** tab at the top of the page.                                         |
 +----------------------------------------------------------------------------------------------+
