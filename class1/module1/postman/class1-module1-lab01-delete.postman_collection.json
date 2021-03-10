@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "1c0ee7d7-e8c8-4b31-8bd8-5b97c7466dcf",
-		"name": "class1-module1-lab1-delete",
+		"_postman_id": "ccfa407f-9c6f-4d29-9269-02ad83d4e682",
+		"name": "class1-module1-lab01-delete",
 		"description": "This solution was created using template 1.10",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -15,7 +15,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5b791706-bea4-4473-88c1-119ab296b89d",
 								"exec": [
 									"pm.test(\"Setting Parameters\", function () {",
 									"    pm.response.to.have.status(200);",
@@ -30,7 +29,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "e46bc9cd-eb88-4bc6-bb3f-52b5c08ad533",
 								"exec": [
 									"//Define the number of virtual servers in this solution\r",
 									"pm.collectionVariables.set(\"VIPS\", \"1\");\r",
@@ -90,8 +88,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Start-Loop Datacenters",
@@ -102,7 +99,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f6f8ad69-f801-4fd0-ab3d-cc5e75e20b1b",
 								"exec": [
 									""
 								],
@@ -112,7 +108,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "0398ae60-c5e0-4fc9-bad6-3d5bbfe19019",
 								"exec": [
 									"var DC_COUNTER = pm.collectionVariables.get(\"DC_COUNTER\");\r",
 									"var DC2_APM = pm.environment.get(\"DC2_APM\");\r",
@@ -174,7 +169,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "50c93981-e0ed-478f-a4fa-2e88f6a24e4b",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -184,15 +178,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "47f0ffdf-ef2d-4b04-96e0-c539d9f3ddcc",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "External DNS",
@@ -206,7 +198,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2a055912-e898-4844-8f3e-61cb4cb5eba8",
 										"exec": [
 											"var DC2_APM = pm.environment.get(\"DC2_APM\");",
 											"var DC_COUNTER = pm.collectionVariables.get(\"DC_COUNTER\");",
@@ -225,7 +216,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "68e916da-9fdf-4c8b-9722-8ef9cae74866",
 										"exec": [
 											""
 										],
@@ -270,9 +260,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Delete WideIP",
@@ -283,7 +271,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e141ebdb-b868-4e7a-acab-89e9ba1aaa88",
 										"exec": [
 											""
 										],
@@ -293,7 +280,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cae0bebe-daeb-4d7b-ad88-347a0c674411",
 										"exec": [
 											"var DNS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");",
 											"",
@@ -355,9 +341,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Delete Virtuals Server Address 1 from BIG-IP Server",
@@ -368,7 +352,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5aaeb4e6-7fab-473b-8115-eb05045c06de",
 										"exec": [
 											""
 										],
@@ -378,7 +361,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "16911cf3-5971-4432-87cf-d5b396e79fd1",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
 											"var jsonData = JSON.parse(responseBody);",
@@ -472,7 +454,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a353f6ad-477c-42ca-bdd0-e0bae0919a34",
 										"exec": [
 											"var ADDR = pm.collectionVariables.get(\"BIGIP_ADDRESS1\");",
 											"",
@@ -532,7 +513,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fce6e29d-de53-404b-9f79-3e95a921cfeb",
 										"exec": [
 											""
 										],
@@ -542,7 +522,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "42132e48-3ee5-41f5-ad05-bfad89af0e3c",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
 											"",
@@ -612,12 +591,9 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Start Loop - Imperative Calls",
@@ -628,7 +604,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "a51c457b-b52d-4798-87b0-9139c6cebab2",
 								"exec": [
 									"var VS_COUNTER = pm.collectionVariables.get(\"VS_COUNTER\");\r",
 									"var DNS_COUNTER = pm.collectionVariables.get(\"DNS_COUNTER\");\r",
@@ -652,7 +627,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "eab5bf0b-1301-4862-b375-ce7e4f955270",
 								"exec": [
 									""
 								],
@@ -699,7 +673,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "e7613d3b-d2a7-4861-9018-38f6713f053c",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -709,15 +682,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ed06d907-6b03-49d4-a468-2861e9a34c96",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "IControlRest -Virtual Servers",
@@ -728,7 +699,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "ade96f2f-7b8d-4416-84e4-9f6751761df5",
 								"exec": [
 									""
 								],
@@ -738,7 +708,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "4132ec6e-5c69-447f-8eab-72feafd77bce",
 								"exec": [
 									"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
 									"",
@@ -805,7 +774,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "f65c3cf1-fd75-429b-99e2-3a71b56b813d",
 								"exec": [
 									""
 								],
@@ -815,7 +783,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5ce3d37e-0ab0-483b-969f-1d86256b8332",
 								"exec": [
 									"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
 									"",
@@ -876,8 +843,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "PSP",
@@ -891,7 +857,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c5c82cb5-73fe-4efc-8e3f-eeade792436b",
 										"exec": [
 											"//The NUMBER SPECIFICED BELOW CONTROL WHICH VIRTUAL THE OBJECTS WILL BE CONFIGURED FOR.  THE DEFAULT IS 1.\r",
 											"var VS = 1;\r",
@@ -927,7 +892,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "c69fe637-261f-4267-91b3-b91030ffdab3",
 										"exec": [
 											""
 										],
@@ -974,7 +938,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "13c87562-0dae-4382-9872-c852b8cf6a15",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -984,16 +947,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "17099c19-a52f-4665-9fc0-091a0d8259c6",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Profile/Policy",
@@ -1004,7 +964,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "607e0ad1-45cb-4134-b3b9-0a6c2ca0d657",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -1026,7 +985,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "f14f284e-0047-4ccc-917a-a13e97ca7cf4",
 										"exec": [
 											""
 										],
@@ -1092,7 +1050,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "13763e86-2644-49d1-b993-2c6ab3cc8cb6",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -1112,7 +1069,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "94628c55-4dc3-4f1b-a7b8-6e2049c1ddeb",
 										"exec": [
 											""
 										],
@@ -1172,9 +1128,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "End PSP",
@@ -1185,7 +1139,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "23c29913-04bd-461b-8076-5c88ca168471",
 										"exec": [
 											""
 										],
@@ -1195,7 +1148,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "915f024b-a40e-4c2d-bdf2-5e91fc725ed9",
 										"exec": [
 											""
 										],
@@ -1242,7 +1194,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "da4c6937-f31d-4671-8d81-a59490ac2c48",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1252,19 +1203,15 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "1c895ab2-883f-49ea-833c-de452b75d73d",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "PRP",
@@ -1278,7 +1225,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9b90d7c0-3127-40c6-a218-47c8d06a2209",
 										"exec": [
 											"//The NUMBER SPECIFICED BELOW CONTROL WHICH VIRTUAL THE OBJECTS WILL BE CONFIGURED FOR.  THE DEFAULT IS 1.\r",
 											"var VS = 1;\r",
@@ -1312,7 +1258,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a9b1a9c3-239a-4c0e-926d-edbc2e282840",
 										"exec": [
 											""
 										],
@@ -1359,7 +1304,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "8ae8f74e-6ea0-49bd-ba03-89aec3ee717a",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1369,16 +1313,13 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "aa18dcd6-eae3-415c-bc17-6e7bbd7419d1",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Policy",
@@ -1389,7 +1330,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f93267fd-2bfd-41f9-8f9b-38d7634bd3f5",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -1409,7 +1349,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9e227253-afcd-4f84-b4f3-c27d368fa4df",
 										"exec": [
 											""
 										],
@@ -1469,9 +1408,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "End PSP",
@@ -1482,7 +1419,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "4381b232-b998-446a-9fb5-c3f97d17a04d",
 										"exec": [
 											""
 										],
@@ -1492,7 +1428,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "02c6d3c3-b6f1-4ad2-99ce-866e18a6c79f",
 										"exec": [
 											""
 										],
@@ -1539,7 +1474,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "78f277e6-78c1-44df-98e6-ba7b399d428a",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -1549,19 +1483,15 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f5ec9c58-be9e-44fa-b283-cc90a47c6c8f",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "APM Objects",
@@ -1575,7 +1505,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "14855bae-6a79-49af-811e-01afcf77df5f",
 										"exec": [
 											"//The NUMBER SPECIFICED BELOW CONTROL WHICH VIRTUAL THE OBJECTS WILL BE CONFIGURED FOR.  THE DEFAULT IS 1.\r",
 											"var VS = 1;\r",
@@ -1609,7 +1538,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "43999c71-c04f-4c0e-a04c-f3eeefce2813",
 										"exec": [
 											""
 										],
@@ -1651,9 +1579,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Connectivity Profile",
@@ -1664,7 +1590,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "09c12258-d769-4542-8852-15055805b274",
 										"exec": [
 											""
 										],
@@ -1674,7 +1599,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "68f3456e-6312-43ba-834b-424c451e6af3",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -1746,7 +1670,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "8437658c-0311-4ded-936b-0f5159503542",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -1768,7 +1691,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "322b9c4d-22e5-4642-9e71-3ed489e3182b",
 										"exec": [
 											""
 										],
@@ -1828,9 +1750,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "AAA AD Servers",
@@ -1841,7 +1761,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f99466d5-3983-4917-a0a5-cfb75d463710",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -1862,7 +1781,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "74412707-900a-451e-ab9d-403ebf458d64",
 										"exec": [
 											""
 										],
@@ -1922,7 +1840,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d9849e6c-cfec-4335-b45e-8fbb6f22e4da",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -1992,7 +1909,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3aea1874-b71e-42a5-a714-5fbdb19439a2",
 										"exec": [
 											""
 										],
@@ -2002,7 +1918,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "57b17778-8f82-48e9-baed-127b7b1e910c",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"    pm.test(\"Node 10.1.20.7 deleted\", function () {",
@@ -2069,9 +1984,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "AAA LDAP Servers",
@@ -2082,7 +1995,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "81ddede1-1157-458d-a5d3-9d7e309bd04c",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2103,7 +2015,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7eff82c1-35f0-4cbf-ac43-7c93b76ce9b8",
 										"exec": [
 											""
 										],
@@ -2163,7 +2074,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "d09c8b45-b91c-48b4-9031-48de970669c4",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2233,7 +2143,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "049169f2-6e92-4a79-892a-f57f28d3e877",
 										"exec": [
 											""
 										],
@@ -2243,7 +2152,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "81d8dfa8-78e2-40f3-b89b-a4b5b9ce48e9",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"    pm.test(\"Node 10.1.20.7 deleted\", function () {",
@@ -2310,9 +2218,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "AAA RADIUS Servers",
@@ -2323,7 +2229,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "23399502-b9c4-4048-ba28-45f287ce9397",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2344,7 +2249,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d9b0edc6-1a38-40c6-a540-e2a625560be3",
 										"exec": [
 											""
 										],
@@ -2404,7 +2308,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b0f5af4f-ebc4-4e7f-8091-4889d6c4d8e3",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2474,7 +2377,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "723a09e6-938e-4c38-8068-667946e2dbb0",
 										"exec": [
 											""
 										],
@@ -2484,7 +2386,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "da662e46-d709-426d-bd97-ddac5668c750",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"    pm.test(\"Node 10.1.20.7 deleted\", function () {",
@@ -2551,9 +2452,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "OCSP Responders",
@@ -2564,7 +2463,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "bc88e5db-e963-4b2b-a9b4-8e2e26b8d720",
 										"exec": [
 											""
 										],
@@ -2574,7 +2472,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7fed7119-a4f3-4739-b7e6-4c89b1a90626",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2639,9 +2536,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Webtop",
@@ -2652,7 +2547,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "6538674f-04fa-4847-8b13-b72c0ea56955",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2673,7 +2567,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a2039f95-204c-4937-99d6-491649cfa492",
 										"exec": [
 											""
 										],
@@ -2727,9 +2620,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Network Access Resource",
@@ -2740,7 +2631,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a0f25645-a85a-4577-897f-0d763b86978e",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2761,7 +2651,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7547d4fb-3803-4c3b-9092-8489c9c0c4f9",
 										"exec": [
 											""
 										],
@@ -2821,7 +2710,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f6deb9db-9f3a-4b9c-82a0-28ebfbdb0bef",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2842,7 +2730,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d6a0afe5-085b-4977-966e-ae5df73ab653",
 										"exec": [
 											""
 										],
@@ -2896,9 +2783,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Webtop Section",
@@ -2909,7 +2794,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ec212897-9977-444f-accf-77eb05f315db",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -2930,7 +2814,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "193270af-3ad1-4f2c-8f6a-ee0b775e8ff4",
 										"exec": [
 											""
 										],
@@ -2984,9 +2867,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Portal Resource",
@@ -2997,7 +2878,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "16d67832-52d8-480f-b9a7-d63c3c26abbf",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -3062,9 +2942,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "RDP Resource",
@@ -3075,7 +2953,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b3bdc247-5b6d-4d1f-89d5-e1e00d24e566",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -3141,9 +3018,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "BIGIP SP",
@@ -3154,7 +3029,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "56348957-6728-48dd-ac23-b00f928a1d57",
 										"exec": [
 											"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");",
 											"",
@@ -3175,7 +3049,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "1e9cbcff-811d-4134-8596-d347d20ce9ef",
 										"exec": [
 											""
 										],
@@ -3241,7 +3114,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "87f9927f-68e5-4768-b762-9882985c0d16",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -3263,7 +3135,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "33ba35f1-1028-4f5d-9f75-2b6ebff05499",
 										"exec": [
 											""
 										],
@@ -3329,7 +3200,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "bc5fa387-1ce0-4edd-a93c-8cc7db43194c",
 										"exec": [
 											"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");\r",
 											"\r",
@@ -3406,9 +3276,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "BIGIP IDP",
@@ -3419,7 +3287,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "dfc0c69f-02bb-403d-bd92-0672cd158d0a",
 										"exec": [
 											""
 										],
@@ -3429,7 +3296,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "78aaebd5-ce06-4461-b692-24df7fb8a9ef",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
@@ -3499,7 +3365,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "3f70f4bf-343f-4c87-8654-218d9f361880",
 										"exec": [
 											""
 										],
@@ -3509,7 +3374,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "ea49f3de-5fa6-4cb1-a307-73f1f705e02d",
 										"exec": [
 											"var DNS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");\r",
 											"\r",
@@ -3573,9 +3437,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Kerberos SSO",
@@ -3586,7 +3448,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "fd215e8a-ad48-4c30-9866-a352f42c1854",
 										"exec": [
 											""
 										],
@@ -3596,7 +3457,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "40c748ba-1e79-49fb-8ca6-d602931790a8",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -3661,9 +3521,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Webtop Links",
@@ -3674,7 +3532,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "835d8e94-4b57-48bb-92c4-744a2aa94e7a",
 										"exec": [
 											""
 										],
@@ -3684,7 +3541,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7ff86b28-c673-4a55-a4df-0460356968b0",
 										"exec": [
 											"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");",
 											"",
@@ -3749,9 +3605,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "OAuth Profile",
@@ -3762,7 +3616,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "e9e952f2-2bb3-43f8-832b-b8bbdffaee5d",
 										"exec": [
 											""
 										],
@@ -3772,7 +3625,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "65e444b4-3699-43f9-a69e-4200f87adae9",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -3837,9 +3689,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "OAuth Client",
@@ -3850,7 +3700,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "491b7e72-3b03-4c51-8912-f431ec0284f3",
 										"exec": [
 											"if (responseCode.code === 200) {\r",
 											"    pm.test(\"Client Deleted\", function () {\r",
@@ -3913,9 +3762,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "JWT",
@@ -3926,7 +3773,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b8227a0e-fcab-450c-b9d9-ab7161e851f3",
 										"exec": [
 											""
 										],
@@ -3936,7 +3782,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "43a42147-9c54-41c6-82db-ab754578c46c",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -4001,9 +3846,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "JWK",
@@ -4017,7 +3860,6 @@
 										{
 											"listen": "prerequest",
 											"script": {
-												"id": "f47de239-897f-4d8e-b179-f7125f6941d5",
 												"exec": [
 													""
 												],
@@ -4027,7 +3869,6 @@
 										{
 											"listen": "test",
 											"script": {
-												"id": "e37b3f40-bbae-41e3-9ca2-0ed04258130c",
 												"exec": [
 													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 													"",
@@ -4092,13 +3933,9 @@
 									},
 									"response": []
 								}
-							],
-							"protocolProfileBehavior": {},
-							"_postman_isSubFolder": true
+							]
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "VDI profile",
@@ -4109,7 +3946,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "93f1be3e-181b-4d63-a2db-96f8a412223d",
 										"exec": [
 											""
 										],
@@ -4119,7 +3955,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "7667824b-22f0-402a-bc23-0fc329625df5",
 										"exec": [
 											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -4184,9 +4019,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "End APM Objects",
@@ -4197,7 +4030,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "1b472374-d0cc-4a9c-ba41-a741c31a9579",
 										"exec": [
 											""
 										],
@@ -4207,7 +4039,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "377019fd-d44a-4bb5-b252-e7b3031a5c19",
 										"exec": [
 											""
 										],
@@ -4254,7 +4085,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "5867933a-52dc-4e93-b0e1-23934c828099",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -4264,19 +4094,15 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "fdb00f40-0c30-46ff-beb2-398cd4bc9067",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "LTM Objects",
@@ -4290,7 +4116,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "5b7fd7db-6211-4291-b127-9e2d41fea639",
 										"exec": [
 											"//The NUMBER SPECIFICED BELOW CONTROL WHICH VIRTUAL THE OBJECTS WILL BE CONFIGURED FOR.  THE DEFAULT IS 1.\r",
 											"var VS = 1;\r",
@@ -4322,7 +4147,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b4fea67b-798e-423e-a98c-472cc48e5033",
 										"exec": [
 											""
 										],
@@ -4364,9 +4188,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "pool",
@@ -4377,7 +4199,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "c5363729-fb0a-46e2-a33c-598510212a9b",
 										"exec": [
 											"var PARTITION_NAME = pm.collectionVariables.get(\"PARTITION_NAME\");\r",
 											"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");\r",
@@ -4408,7 +4229,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "40cae33d-f1b3-4400-8f2a-2094cd405403",
 										"exec": [
 											""
 										],
@@ -4458,7 +4278,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "549c8e74-c2b6-470d-8815-fbba3cc3c9de",
 										"exec": [
 											"var PARTITION_NAME = pm.collectionVariables.get(\"PARTITION_NAME\");\r",
 											"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");\r",
@@ -4482,7 +4301,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "882e5a73-280b-482b-8b03-243ad6623179",
 										"exec": [
 											""
 										],
@@ -4532,7 +4350,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "a553d3bd-a406-4ef6-8bf2-44554bd6a985",
 										"exec": [
 											""
 										],
@@ -4542,7 +4359,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "cef72621-43af-4638-8de3-4a68bf0252a3",
 										"exec": [
 											" var DNS_COUNTER = pm.collectionVariables.get(\"DNS_COUNTER\");",
 											" var ADDR = pm.collectionVariables.get(\"IIS_ADDRESS\"+DNS_COUNTER)",
@@ -4612,9 +4428,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "ClientSide SSL Profile",
@@ -4625,7 +4439,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "5230579a-643f-4579-b1c0-de6370a6f743",
 										"exec": [
 											""
 										],
@@ -4635,7 +4448,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "a13ecb03-7143-4cee-9464-e9ae5e9dbd2a",
 										"exec": [
 											" var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -4701,9 +4513,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "HTTP Profile",
@@ -4714,7 +4524,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "b2b7d130-1115-439b-aafe-2bc1efc2df38",
 										"exec": [
 											""
 										],
@@ -4724,7 +4533,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "968aac54-ef26-42b1-8990-d7f89530c954",
 										"exec": [
 											" var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -4790,9 +4598,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "DNS Resolver",
@@ -4803,7 +4609,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "63d534d0-7f82-4efe-b7b7-edd2c740261d",
 										"exec": [
 											""
 										],
@@ -4813,7 +4618,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "264d65bf-6831-4b13-9ac8-ee2469c6e682",
 										"exec": [
 											" var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
@@ -4878,9 +4682,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "End LTM Objects",
@@ -4891,7 +4693,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "9ed70633-0596-4e8e-8373-9244fe3b1bd3",
 										"exec": [
 											""
 										],
@@ -4901,7 +4702,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "dec9d5b2-55ff-454e-8aa7-c9b85a3a8860",
 										"exec": [
 											""
 										],
@@ -4948,7 +4748,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "84848ff6-8cc7-42f7-ad93-f9424c566312",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -4958,19 +4757,15 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "5680586e-272c-43a0-882a-97f7ef9900eb",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Websites",
@@ -4984,7 +4779,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "0cfb2544-2986-40c7-90be-a609ebe47eb9",
 										"exec": [
 											"//The NUMBER SPECIFICED BELOW CONTROL WHICH VIRTUAL THE OBJECTS WILL BE CONFIGURED FOR.  THE DEFAULT IS 1.\r",
 											"var VS = 1;\r",
@@ -5018,7 +4812,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "d04c2e1b-facf-4845-9be9-0f388b73e0a9",
 										"exec": [
 											""
 										],
@@ -5060,9 +4853,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "Website-10.1.20.6",
@@ -5073,7 +4864,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "f03a28f4-24c6-42d1-9875-50d35cbec988",
 										"exec": [
 											"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");",
 											"",
@@ -5126,7 +4916,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "7ece04d8-0a03-40d8-b045-c13ea1838956",
 										"exec": [
 											""
 										],
@@ -5136,7 +4925,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "b2a66615-d34b-4b43-a556-095cd6c0686b",
 										"exec": [
 											"if (responseCode.code === 200) {",
 											"    pm.test(\"Node 10.1.20.6 deleted\", function () {",
@@ -5208,7 +4996,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "2ab5ce85-7d7d-425d-9cc3-bc23ddb44176",
 										"exec": [
 											"   var jsonData = pm.response.json();",
 											"\t",
@@ -5259,9 +5046,7 @@
 							},
 							"response": []
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				},
 				{
 					"name": "End website",
@@ -5272,7 +5057,6 @@
 								{
 									"listen": "test",
 									"script": {
-										"id": "fe21e06f-1b6d-4730-a82a-a8d917997ce4",
 										"exec": [
 											""
 										],
@@ -5282,7 +5066,6 @@
 								{
 									"listen": "prerequest",
 									"script": {
-										"id": "9ea39e66-a85d-49c2-b3ae-804512ac7b8b",
 										"exec": [
 											""
 										],
@@ -5329,7 +5112,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "709bf9b5-a01b-41ca-9fae-6290d214ad46",
 								"type": "text/javascript",
 								"exec": [
 									""
@@ -5339,19 +5121,15 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "f4720383-4671-47c6-8cd2-8fda11922505",
 								"type": "text/javascript",
 								"exec": [
 									""
 								]
 							}
 						}
-					],
-					"protocolProfileBehavior": {},
-					"_postman_isSubFolder": true
+					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "End Loop - Imperative Calls",
@@ -5362,7 +5140,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "be2ce40e-5df4-476e-a73b-dee971cd3a83",
 								"exec": [
 									"var VIPS = pm.collectionVariables.get(\"VIPS\");",
 									"var VS_COUNTER = pm.collectionVariables.get(\"VS_COUNTER\")",
@@ -5393,7 +5170,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "19183bea-4649-414e-9d16-065768b74361",
 								"exec": [
 									""
 								],
@@ -5440,7 +5216,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "7f303005-013a-4dc0-ba52-3c68824cb4c2",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -5450,15 +5225,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "782da0fb-c45c-494d-b3e5-cad573f5f9af",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "End Loop Datacenters",
@@ -5469,7 +5242,6 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "725ab27d-da0d-4918-887d-b438aedfc72c",
 								"exec": [
 									"var DC2_APM = pm.environment.get(\"DC2_APM\");",
 									"var DC_COUNTER = pm.collectionVariables.get(\"DC_COUNTER\");",
@@ -5503,7 +5275,6 @@
 						{
 							"listen": "prerequest",
 							"script": {
-								"id": "bfb91a61-e70b-4086-942a-65fd88268086",
 								"exec": [
 									""
 								],
@@ -5545,15 +5316,13 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9b720081-4718-4a5c-8681-2f656b2cedaf",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -5563,7 +5332,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a9c57d06-b3a7-4f2d-8523-b84aa84dceb1",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -5573,75 +5341,60 @@
 	],
 	"variable": [
 		{
-			"id": "5bc5ff91-ade8-4034-afe9-16c5436f2fae",
 			"key": "DNS1_NAME",
 			"value": ""
 		},
 		{
-			"id": "e3d34052-d4d4-4bdd-810f-607280038d1a",
 			"key": "DNS2_NAME",
 			"value": ""
 		},
 		{
-			"id": "f1471417-863d-4958-8a24-72b9020e6c85",
 			"key": "PARTITION_NAME",
 			"value": ""
 		},
 		{
-			"id": "11f25b1b-39b5-4e2d-9507-8d824e6829c7",
 			"key": "PATH_NAME",
 			"value": ""
 		},
 		{
-			"id": "2dc9d580-ecc1-494a-b28f-01871fad564e",
 			"key": "VIPS",
 			"value": ""
 		},
 		{
-			"id": "8c963ef3-52c2-4555-81ab-ef805651f049",
 			"key": "VS1_NAME",
 			"value": ""
 		},
 		{
-			"id": "7f76e2fe-d1d5-4ecc-807b-974e76bdaf2a",
 			"key": "VS2_NAME",
 			"value": ""
 		},
 		{
-			"id": "6d4dddf8-0789-4a68-947b-5f8839c1f068",
 			"key": "BIGIP_MGMT",
 			"value": ""
 		},
 		{
-			"id": "b6d1e72a-eba7-4484-be44-bab9cbdf6e6e",
 			"key": "BIGIP_SCOPE",
 			"value": ""
 		},
 		{
-			"id": "07368471-d443-4837-bf22-dee296147697",
 			"key": "DC_COUNTER",
 			"value": ""
 		},
 		{
-			"id": "5f8c3889-e8c3-432b-8269-016a754ab26b",
 			"key": "DNS_COUNTER",
 			"value": ""
 		},
 		{
-			"id": "36de5d93-198c-4b5a-b508-00a8ee22d7b0",
 			"key": "DNS_NAME",
 			"value": ""
 		},
 		{
-			"id": "de08ddf2-624b-424f-a2c5-9f9ff6a9ba9d",
 			"key": "VS_COUNTER",
 			"value": ""
 		},
 		{
-			"id": "f7b052a3-e06f-4e7f-87d3-11bcbd96600d",
 			"key": "VS_NAME",
 			"value": ""
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

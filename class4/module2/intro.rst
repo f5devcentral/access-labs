@@ -44,12 +44,15 @@ Lab Topology
 
 The following components have been included in your lab environment:
 
-- 2 x F5 BIG-IP VE (v16.0)
-- 1 x Windows Jumphost- Server 2016
-- 1 x Windows 2016 Server hosting AD, CA, OCSP & DNS
-- 1 x Windows 2016 Server hosting IIS
-- 1 x Ubuntu 16.04 LTS 
-- 1 x Centos 7
+
+.. Note:: BIG-IP2  and BIG-IP6 are offline by default.  Only boot these BIG-IPs when the lab specifies to do so.
+
+
+- 4 x F5 BIG-IP VE (v16.0)
+- 1 x Windows Server 2016 - jumphost.f5lab.local
+- 1 x Windows 2016 Server - dc1.f5lab.local (AD, CA, OCSP & internal DNS) 
+- 1 x Windows 2016 Server - iis.f5lab.local
+- 1 x Centos 7 - web.f5lab.local
 
 Lab Components
 ^^^^^^^^^^^^^^
