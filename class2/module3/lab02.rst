@@ -370,6 +370,8 @@ TASK 11: Lab CleanUp
 +----------------------------------------------------------------------------------------------+
 
 
+.. |image000| image:: ./media/lab02/000.png
+   :width: 800px
 .. |image001| image:: ./media/lab02/001.png
    :width: 800px
 .. |image002| image:: ./media/lab02/002.png

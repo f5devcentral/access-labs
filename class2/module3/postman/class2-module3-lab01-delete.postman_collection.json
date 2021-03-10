@@ -2390,9 +2390,16 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"idp.acme.com cert deleted\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
+											"\r",
+											"if (responseCode.code === 200) {\r",
+											"    pm.test(\"idp.acme.com cert deleted\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"} else if (responseCode.code === 404) { \r",
+											"    pm.test(\"idp.acme.com cert does not exist\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"} "
 										],
 										"type": "text/javascript"
 									}
@@ -2456,9 +2463,16 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"idp.acme.com key deleted\", function () {\r",
-											"    pm.response.to.have.status(200);\r",
-											"});"
+											"\r",
+											"if (responseCode.code === 200) {\r",
+											"    pm.test(\"sp.acme.com key deleted\", function () {\r",
+											"        pm.response.to.have.status(200);\r",
+											"    });\r",
+											"} else if (responseCode.code === 404) { \r",
+											"    pm.test(\"sp.acme.com key does not exist\", function () {\r",
+											"        pm.response.to.have.status(404);\r",
+											"    });\r",
+											"} "
 										],
 										"type": "text/javascript"
 									}
