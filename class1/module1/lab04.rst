@@ -1,35 +1,56 @@
-Lab 4: Policies and Session Concepts
-========================================================
+Lab 4: Access Logs Overview
+=============================================
 
 Objectives
 ----------
 
-This lab will cover the concepts of sessions and subsessions in Access Policy Manager
+This lab will cover the basic overview of Access Logs.
 
 Lab Requirements
 ----------------
 
 -  A pre existing virtual server at 10.1.10.101 or https://server1.acme.com
 
-Task 1: What is a Per Session Policy
+Task 1: Active Sessions
 ---------------------------------------
 
+#. Refresh Rate
+#. Total Active sessions
+#. Search
+#. Examine Session
+#. Kill Selected sessions
 
 
-Task 2: What is a Per Request Policy
+
+Task 2: Access Reports
 --------------------------------------
 
+#. Report Parameters
+#. Session ID
+    - Log messages
+#. View Session Variables
+#. Build in Reports
 
 
-Task 3: What is a Session
---------------------------
+Task 3: Log Settings
+--------------------------------------------------
+
+#. General information
+#. Access System Logs
+#. URL Request Logs
+#. Access Profiles
+#. SSO Objects
+
+
+Task 4: Dashboard
+------------------
 
 
 
-Task 4: What is a Subsession
------------------------------
+Task 5:
+----------------------------
 
 
 
 
-Lab 6 is now complete.
+Lab 7 is now complete.
