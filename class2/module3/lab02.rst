@@ -420,7 +420,7 @@ TASK 11: Lab CleanUp
    :width: 800px
 .. |image024| image:: ./media/lab02/024.png
    :width: 800px
-.. |image025| image:: ./media/lab02/024.png
+.. |image025| image:: ./media/lab02/025.png
    :width: 800px
 
 .. |image995| image:: ./media/lab02/995.png
