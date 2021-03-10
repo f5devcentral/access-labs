@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "3d332ca5-2dc7-4d6d-9ed6-6e0a92c83012",
+		"_postman_id": "e2734067-1525-4de0-8e46-e9ab36a50ed9",
 		"name": "class2-module3-lab01-delete",
 		"description": "This solution was created using template 1.8",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -2314,15 +2314,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											" var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
-											"",
 											"",
 											"if (responseCode.code === 200) {",
-											"    pm.test(\"Client-side SSL profile \"+VS_NAME+\"-client deleted\", function () {",
+											"    pm.test(\"Client-side SSL profile wilcard.acme.com deleted\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"} else if (responseCode.code === 404) { ",
-											"    pm.test(\"Client-side SSL profile \"+VS_NAME+\"-client does not exist\", function () {",
+											"    pm.test(\"Client-side SSL profile wildcard.acme.com does not exist\", function () {",
 											"        pm.response.to.have.status(404);",
 											"    });",
 											"} ",
@@ -2386,13 +2384,13 @@
 					"name": "Certificate",
 					"item": [
 						{
-							"name": "bigip-install idp.acme.com cert",
+							"name": "bigip-delete-cert-idp.acme.com",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"ca.f5lab.local.crt imported\", function () {\r",
+											"pm.test(\"idp.acme.com cert deleted\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
@@ -2452,13 +2450,13 @@
 					"name": "Key",
 					"item": [
 						{
-							"name": "bigip-install idp.acme.com key",
+							"name": "bigip-delete-key-idp.acme.com",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"ca.f5lab.local.crt imported\", function () {\r",
+											"pm.test(\"idp.acme.com key deleted\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],

@@ -209,7 +209,7 @@ TASK 7: Configure Applications
 +----------------------------------------------------------------------------------------------+
 | 2. In the updated **Application Properties** window, click the **Choose File** button, browse|
 |                                                                                              |
-|    the **Jumphost** desktop and select the **sp_acme_com_metadata.xml** file.                |
+|    the **Jumphost** desktop and select the **sp_acme_com.xml** file.                         |
 |                                                                                              |
 | 3. For the **Application Name**, input **sp.acme.com**                                       |
 |                                                                                              |
@@ -373,7 +373,7 @@ TASK 14: Lab CleanUp
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 7. From a browser on the jumphost navigate to https://portal.acme.com                        |
+| 7. From a browser on the jumphost navigate to https://portal.f5lab.local                     |
 |                                                                                              |
 | 8. Click the **Classes** tab at the top of the page.                                         |
 +----------------------------------------------------------------------------------------------+
@@ -392,7 +392,7 @@ TASK 14: Lab CleanUp
 | icon should appear within the tile.  Click the **Stop** Button to start the automation to    |
 | delete any prebuilt objects                                                                  |                                                                  
 +----------------------------------------------------------------------------------------------+
-| |image996|                                                                                   |
+| |image045|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -463,7 +463,7 @@ TASK 14: Lab CleanUp
    :width: 800px
 .. |image025| image:: ./media/lab01/025.png
    :width: 800px
-.. |image026| image:: ./media/lab01/l026.png
+.. |image026| image:: ./media/lab01/026.png
    :width: 800px
 .. |image027| image:: ./media/lab01/027.png
    :width: 800px
@@ -501,7 +501,8 @@ TASK 14: Lab CleanUp
    :width: 800px
 .. |image044| image:: ./media/lab01/044.png
    :width: 800px
-
+.. |image045| image:: ./media/lab01/045.png
+   :width: 800px
 .. |image995| image:: ./media/lab01/995.png
    :width: 800px
 .. |image996| image:: ./media/lab01/996.png
