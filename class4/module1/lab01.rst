@@ -3,10 +3,16 @@ Lab 1: Creating a SAML Service Provider(SP)
 .. _class4-module1-lab1:
 In this lab you will learn how to create and delete Access related objects.
 
+
+
+
+
 Task 1 - Import Postman Collections
 -----------------------------------------------------------------------
 
 #. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
+
+     .. note::  Dismiss any prompts to update Postman.  
 
     |image001|
 
@@ -119,7 +125,7 @@ Task 4 - Explore configuration via the BIG-IP GUI
     - Username: **admin**
     - Password: **admin**
 
-#. Navigate to System>>Certificate Management>>Traffic Certificate Management>>SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
 
     |image016|
 
@@ -127,7 +133,7 @@ Task 4 - Explore configuration via the BIG-IP GUI
 
     |image017|
 
-#. Navigate to Access>>Federatio>>SAML Service Provider>>Local SP Service.  Click on Local SP Services and not the+ plus symbol.
+#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on Local SP Services and not the + (plus symbol).
 
     |image018|
 
@@ -189,7 +195,7 @@ Task 6 - Ensure objects were removed via GUI
     - Username: **admin**
     - Password: **admin**
 
-#. Navigate to System>>Certificate Management>>Traffic Certificate Management>>SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
 
     |image016|
 
@@ -197,7 +203,7 @@ Task 6 - Ensure objects were removed via GUI
 
     |image027|
 
-#. Navigate to Access>>Federatio>>SAML Service Provider>>Local SP Service.  Click on Local SP Services and not the+ plus symbol.
+#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on Local SP Services and not the+ plus symbol.
 
     |image018|
 

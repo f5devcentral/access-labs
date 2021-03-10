@@ -243,6 +243,7 @@ Task 4 - Deleting an Access Profile
 
 This concludes the lab on building an empty Access Policy
 
+
    |image000|
 
 
