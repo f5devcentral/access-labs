@@ -1,11 +1,59 @@
 {
 	"info": {
-		"_postman_id": "858e0354-d96a-4888-bc39-c4346e17e3b2",
+		"_postman_id": "26ad521e-8d20-4812-9d59-b79036096cf7",
 		"name": "class2-module3-lab01-create",
 		"description": "This solution was created using template 1.8",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Desktop Files",
+			"item": [
+				{
+					"name": "Create Desktop files",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.test(\"Files Copied\", function () {",
+									"",
+									"    pm.expect(jsonData.status).to.eql(\"Success\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"3\",\n\"user\": \"user1\"\n}"
+						},
+						"url": {
+							"raw": "http://10.1.20.6:81/desktop",
+							"protocol": "http",
+							"host": [
+								"10",
+								"1",
+								"20",
+								"6"
+							],
+							"port": "81",
+							"path": [
+								"desktop"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Set Collection Parameters",
 			"item": [

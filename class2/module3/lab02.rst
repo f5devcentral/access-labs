@@ -54,7 +54,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image997|
 
-#. Hover over tile **SAML IdP Access Guided Configuration(AGC) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SAML SP Access Guided Configuration(AGC) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image996|
 

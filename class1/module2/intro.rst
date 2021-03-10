@@ -24,7 +24,7 @@ Password: **admin**
 Lab Topology
 ~~~~~~~~~~~~
 
-|LabDiagram|
+|image000|
 
 The following components have been included in your lab environment:
 
@@ -70,4 +70,4 @@ components:
 |                        | - Internal   10.1.20.8  |                          |
 +------------------------+-------------------------+--------------------------+
 
-.. |LabDiagram| image:: /class1/media/LabDiagram.png
+.. |image000| image:: media/image000.png

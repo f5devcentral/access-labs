@@ -1,10 +1,58 @@
 {
 	"info": {
-		"_postman_id": "b0b82e65-e8c2-40a7-8f79-bd926a695f8b",
+		"_postman_id": "594c9af0-24eb-4b6f-bf08-1e4c3abbbfe5",
 		"name": "class2-module3-lab02-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
+		{
+			"name": "Desktop Files",
+			"item": [
+				{
+					"name": "Create Desktop files",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"",
+									"",
+									"var jsonData = pm.response.json();",
+									"pm.test(\"Files Copied\", function () {",
+									"",
+									"    pm.expect(jsonData.status).to.eql(\"Success\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"3\",\n\"user\": \"user1\"\n}"
+						},
+						"url": {
+							"raw": "http://10.1.20.6:81/desktop",
+							"protocol": "http",
+							"host": [
+								"10",
+								"1",
+								"20",
+								"6"
+							],
+							"port": "81",
+							"path": [
+								"desktop"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "Set  Parameters",
 			"item": [
@@ -41,6 +89,8 @@
 									"pm.collectionVariables.set(\"PATH_NAME\", \"lab02\");\r",
 									"pm.collectionVariables.set(\"PARTITION_NAME\", \"class2-module3\");\r",
 									"pm.collectionVariables.set(\"DNS2_NAME\", \"sp.acme.com\");\r",
+									"pm.collectionVariables.set(\"VS2_NAME\", \"sp\");\r",
+									"pm.collectionVariables.set(\"BIGIP_ADDRESS2\", \"10.1.10.103\");\r",
 									"pm.collectionVariables.set(\"CUSTOM_TYPE\", \"modern\");\r",
 									"\r",
 									"var COUNTER = pm.collectionVariables.get(\"COUNTER\");\r",
@@ -1890,454 +1940,6 @@
 						}
 					},
 					"response": []
-				},
-				{
-					"name": "bigip5-Test AS3 is running",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"",
-									"pm.test(\"AS3 is running\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://10.1.1.11/mgmt/shared/appsvcs/info",
-							"protocol": "https",
-							"host": [
-								"10",
-								"1",
-								"1",
-								"11"
-							],
-							"path": [
-								"mgmt",
-								"shared",
-								"appsvcs",
-								"info"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "bigip5-Create-DC1",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"if (responseCode.code === 200) {",
-									"",
-									"pm.test(\"DC1 Created\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"} else ",
-									"pm.test(\"DC1 Exists\", function () {",
-									"    pm.response.to.have.status(409);",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\"name\":\"DC1\"\n}"
-						},
-						"url": {
-							"raw": "https://10.1.1.11/mgmt/tm/gtm/datacenter",
-							"protocol": "https",
-							"host": [
-								"10",
-								"1",
-								"1",
-								"11"
-							],
-							"path": [
-								"mgmt",
-								"tm",
-								"gtm",
-								"datacenter"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "bigip5-Create-bigip1 server",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"if (responseCode.code === 200) {",
-									"",
-									"pm.test(\"bigip1 server Created\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"} else ",
-									"pm.test(\"bigip1 server Exists\", function () {",
-									"    pm.response.to.have.status(409);",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"type": "text",
-								"value": "application/json"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n            \"name\": \"bigip1.f5lab.local\",\r\n            \"datacenter\": \"/Common/DC1\",\r\n            \"enabled\": true,\r\n            \"exposeRouteDomains\": \"no\",\r\n            \"iqAllowPath\": \"yes\",\r\n            \"iqAllowServiceCheck\": \"yes\",\r\n            \"iqAllowSnmp\": \"yes\",\r\n            \"limitCpuUsage\": 0,\r\n            \"limitCpuUsageStatus\": \"disabled\",\r\n            \"limitMaxBps\": 0,\r\n            \"limitMaxBpsStatus\": \"disabled\",\r\n            \"limitMaxConnections\": 0,\r\n            \"limitMaxConnectionsStatus\": \"disabled\",\r\n            \"limitMaxPps\": 0,\r\n            \"limitMaxPpsStatus\": \"disabled\",\r\n            \"limitMemAvail\": 0,\r\n            \"limitMemAvailStatus\": \"disabled\",\r\n            \"linkDiscovery\": \"disabled\",\r\n            \"monitor\": \"/Common/bigip\",\r\n  \r\n            \"product\": \"bigip\",\r\n            \"virtualServerDiscovery\": \"disabled\",\r\n            \"addresses\": [\r\n                {\r\n                    \"name\": \"10.1.10.4\",\r\n                    \"deviceName\": \"bigip1.f5lab.local\",\r\n                    \"translation\": \"none\"\r\n                }\r\n            ]\r\n\r\n        }\r\n"
-						},
-						"url": {
-							"raw": "https://10.1.1.11/mgmt/tm/gtm/server",
-							"protocol": "https",
-							"host": [
-								"10",
-								"1",
-								"1",
-								"11"
-							],
-							"path": [
-								"mgmt",
-								"tm",
-								"gtm",
-								"server"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "bigip5-Create-bigip5 server",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"if (responseCode.code === 200) {",
-									"",
-									"pm.test(\"bigip5 server Created\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"} else ",
-									"pm.test(\"bigip5 server Exists\", function () {",
-									"    pm.response.to.have.status(409);",
-									"});",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n            \"name\": \"bigip5.f5lab.local\",\r\n            \"datacenter\": \"/Common/DC1\",\r\n            \"enabled\": true,\r\n            \"exposeRouteDomains\": \"no\",\r\n            \"iqAllowPath\": \"yes\",\r\n            \"iqAllowServiceCheck\": \"yes\",\r\n            \"iqAllowSnmp\": \"yes\",\r\n            \"limitCpuUsage\": 0,\r\n            \"limitCpuUsageStatus\": \"disabled\",\r\n            \"limitMaxBps\": 0,\r\n            \"limitMaxBpsStatus\": \"disabled\",\r\n            \"limitMaxConnections\": 0,\r\n            \"limitMaxConnectionsStatus\": \"disabled\",\r\n            \"limitMaxPps\": 0,\r\n            \"limitMaxPpsStatus\": \"disabled\",\r\n            \"limitMemAvail\": 0,\r\n            \"limitMemAvailStatus\": \"disabled\",\r\n            \"linkDiscovery\": \"disabled\",\r\n            \"monitor\": \"/Common/bigip\",\r\n  \r\n            \"product\": \"bigip\",\r\n            \"virtualServerDiscovery\": \"disabled\",\r\n            \"addresses\": [\r\n                {\r\n                    \"name\": \"10.1.10.11\",\r\n                    \"deviceName\": \"bigip5.f5lab.local\",\r\n                    \"translation\": \"none\"\r\n                }\r\n            ]\r\n\r\n        }\r\n"
-						},
-						"url": {
-							"raw": "https://10.1.1.11/mgmt/tm/gtm/server",
-							"protocol": "https",
-							"host": [
-								"10",
-								"1",
-								"1",
-								"11"
-							],
-							"path": [
-								"mgmt",
-								"tm",
-								"gtm",
-								"server"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "bigip5-Add bigip1 application VS to Server",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"if (responseCode.code === 200) {",
-									"",
-									"pm.test(\"Virtual Server added to Server\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"} else ",
-									"pm.test(\"Virtual Server Exists\", function () {",
-									"    pm.response.to.have.status(409);",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"setTimeout(function(){}, 2000);",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n\"name\": \"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\",\r\n\"destination\": \"{{BIGIP_ADDRESS1}}:443\"\r\n}"
-						},
-						"url": {
-							"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/",
-							"protocol": "https",
-							"host": [
-								"10",
-								"1",
-								"1",
-								"11"
-							],
-							"path": [
-								"mgmt",
-								"tm",
-								"gtm",
-								"server",
-								"~Common~bigip1.f5lab.local",
-								"virtual-servers",
-								""
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "bigip5-Create WideIP using AS3",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"",
-									"pm.test(\"Wide IP Created\", function () {",
-									"    pm.response.to.have.status(200);",
-									"});",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									"setTimeout(function(){}, 5000);",
-									"",
-									""
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "password",
-									"value": "admin",
-									"type": "string"
-								},
-								{
-									"key": "username",
-									"value": "admin",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{PARTITION_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS1_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS1_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS1_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
-						},
-						"url": {
-							"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
-							"protocol": "https",
-							"host": [
-								"10",
-								"1",
-								"1",
-								"11"
-							],
-							"path": [
-								"mgmt",
-								"shared",
-								"appsvcs",
-								"declare"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
@@ -2626,6 +2228,663 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Client-Side SSL Profile-default-acme wildcard",
+					"item": [
+						{
+							"name": "bigip-create-profile-client-ssl",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"if (responseCode.code === 200) {",
+											"",
+											"pm.test(\"Client-side SSL Profile Created\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"} else ",
+											"pm.test(\"Client-Side Profile Exists\", function () {",
+											"    pm.response.to.have.status(409);",
+											"});",
+											"",
+											"",
+											"",
+											"setTimeout(function(){}, 1000);",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"name\": \"wildcard.acme.com\",\r\n   \"cert\": \"/Common/acme.com-wildcard\",\r\n   \"key\": \"/Common/acme.com-wildcard\"\r\n}"
+								},
+								"url": {
+									"raw": "https://10.1.1.4/mgmt/tm/ltm/profile/client-ssl/",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"1",
+										"4"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"ltm",
+										"profile",
+										"client-ssl",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "External DNS",
+			"item": [
+				{
+					"name": "Two applications",
+					"item": [
+						{
+							"name": "Create DC1 External DNS Configuration",
+							"item": [
+								{
+									"name": "bigip5-Test AS3 is running",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var DC2_APM = pm.environment.get(\"DC2_APM\");",
+													"var DC_COUNTER = pm.collectionVariables.get(\"DC_COUNTER\");",
+													"",
+													"if (DC2_APM === 'true' && DC_COUNTER === '2') {",
+													"    postman.setNextRequest(\"end-dns-dc1\");",
+													"    pm.test(\"Proceeding to DC2 DNS Configuration\", function () {",
+													"        pm.response.to.have.status(200);",
+													"    });",
+													"",
+													"} else {",
+													"",
+													"  ",
+													"}",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "https://10.1.1.11/mgmt/shared/appsvcs/info",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"11"
+											],
+											"path": [
+												"mgmt",
+												"shared",
+												"appsvcs",
+												"info"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip5-Create-DC1",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"if (responseCode.code === 200) {",
+													"",
+													"pm.test(\"DC1 Created\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"} else ",
+													"pm.test(\"DC1 Exists\", function () {",
+													"    pm.response.to.have.status(409);",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n\"name\":\"DC1\"\n}"
+										},
+										"url": {
+											"raw": "https://10.1.1.11/mgmt/tm/gtm/datacenter",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"11"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"gtm",
+												"datacenter"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip5-Create-bigip1 server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"if (responseCode.code === 200) {",
+													"",
+													"pm.test(\"bigip1 server Created\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"} else ",
+													"pm.test(\"bigip1 server Exists\", function () {",
+													"    pm.response.to.have.status(409);",
+													"});",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n            \"name\": \"bigip1.f5lab.local\",\r\n            \"datacenter\": \"/Common/DC1\",\r\n            \"enabled\": true,\r\n            \"exposeRouteDomains\": \"no\",\r\n            \"iqAllowPath\": \"yes\",\r\n            \"iqAllowServiceCheck\": \"yes\",\r\n            \"iqAllowSnmp\": \"yes\",\r\n            \"limitCpuUsage\": 0,\r\n            \"limitCpuUsageStatus\": \"disabled\",\r\n            \"limitMaxBps\": 0,\r\n            \"limitMaxBpsStatus\": \"disabled\",\r\n            \"limitMaxConnections\": 0,\r\n            \"limitMaxConnectionsStatus\": \"disabled\",\r\n            \"limitMaxPps\": 0,\r\n            \"limitMaxPpsStatus\": \"disabled\",\r\n            \"limitMemAvail\": 0,\r\n            \"limitMemAvailStatus\": \"disabled\",\r\n            \"linkDiscovery\": \"disabled\",\r\n            \"monitor\": \"/Common/bigip\",\r\n  \r\n            \"product\": \"bigip\",\r\n            \"virtualServerDiscovery\": \"disabled\",\r\n            \"addresses\": [\r\n                {\r\n                    \"name\": \"10.1.10.4\",\r\n                    \"deviceName\": \"bigip1.f5lab.local\",\r\n                    \"translation\": \"none\"\r\n                }\r\n            ]\r\n\r\n        }\r\n"
+										},
+										"url": {
+											"raw": "https://10.1.1.11/mgmt/tm/gtm/server",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"11"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"gtm",
+												"server"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip5-Create-bigip5 server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"if (responseCode.code === 200) {",
+													"",
+													"pm.test(\"bigip5 server Created\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"} else ",
+													"pm.test(\"bigip5 server Exists\", function () {",
+													"    pm.response.to.have.status(409);",
+													"});",
+													"",
+													"setTimeout(function(){}, 2000);"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n            \"name\": \"bigip5.f5lab.local\",\r\n            \"datacenter\": \"/Common/DC1\",\r\n            \"enabled\": true,\r\n            \"exposeRouteDomains\": \"no\",\r\n            \"iqAllowPath\": \"yes\",\r\n            \"iqAllowServiceCheck\": \"yes\",\r\n            \"iqAllowSnmp\": \"yes\",\r\n            \"limitCpuUsage\": 0,\r\n            \"limitCpuUsageStatus\": \"disabled\",\r\n            \"limitMaxBps\": 0,\r\n            \"limitMaxBpsStatus\": \"disabled\",\r\n            \"limitMaxConnections\": 0,\r\n            \"limitMaxConnectionsStatus\": \"disabled\",\r\n            \"limitMaxPps\": 0,\r\n            \"limitMaxPpsStatus\": \"disabled\",\r\n            \"limitMemAvail\": 0,\r\n            \"limitMemAvailStatus\": \"disabled\",\r\n            \"linkDiscovery\": \"disabled\",\r\n            \"monitor\": \"/Common/bigip\",\r\n  \r\n            \"product\": \"bigip\",\r\n            \"virtualServerDiscovery\": \"disabled\",\r\n            \"addresses\": [\r\n                {\r\n                    \"name\": \"10.1.10.11\",\r\n                    \"deviceName\": \"bigip5.f5lab.local\",\r\n                    \"translation\": \"none\"\r\n                }\r\n            ]\r\n\r\n        }\r\n"
+										},
+										"url": {
+											"raw": "https://10.1.1.11/mgmt/tm/gtm/server",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"11"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"gtm",
+												"server"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip5-Add application VS to bigip server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
+													"var ADDR = pm.collectionVariables.get(\"BIGIP_ADDRESS1\")",
+													"",
+													"if (responseCode.code === 200) {",
+													"",
+													"pm.test(\"Virtual Server \"+VS_NAME+\" with IP Address \"+ADDR+\" added to Server bigip1.f5lab.local\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"} else ",
+													"pm.test(\"Virtual Server \"+VS_NAME+\" exists on server bigip1.f5lab.local\", function () {",
+													"    pm.response.to.have.status(409);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"name\": \"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\",\r\n\"destination\": \"{{BIGIP_ADDRESS1}}:443\"\r\n}"
+										},
+										"url": {
+											"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"11"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"gtm",
+												"server",
+												"~Common~bigip1.f5lab.local",
+												"virtual-servers",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip5-Add application VS  to bigip server",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");",
+													"var ADDR = pm.collectionVariables.get(\"BIGIP_ADDRESS1\")",
+													"",
+													"if (responseCode.code === 200) {",
+													"",
+													"pm.test(\"Virtual Server \"+VS_NAME+\" with IP Address \"+ADDR+\" added to Server bigip1.f5lab.local\", function () {",
+													"    pm.response.to.have.status(200);",
+													"});",
+													"} else ",
+													"pm.test(\"Virtual Server \"+VS_NAME+\" exists on server bigip1.f5lab.local\", function () {",
+													"    pm.response.to.have.status(409);",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"type": "text",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n\"name\": \"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS2_NAME}}\",\r\n\"destination\": \"{{BIGIP_ADDRESS2}}:443\"\r\n}"
+										},
+										"url": {
+											"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"11"
+											],
+											"path": [
+												"mgmt",
+												"tm",
+												"gtm",
+												"server",
+												"~Common~bigip1.f5lab.local",
+												"virtual-servers",
+												""
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "bigip5-Create WideIP using AS3",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var DNS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");\r",
+													"\r",
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"\r",
+													"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"}\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										},
+										{
+											"listen": "prerequest",
+											"script": {
+												"exec": [
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
+									"request": {
+										"auth": {
+											"type": "basic",
+											"basic": [
+												{
+													"key": "password",
+													"value": "admin",
+													"type": "string"
+												},
+												{
+													"key": "username",
+													"value": "admin",
+													"type": "string"
+												}
+											]
+										},
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{PARTITION_NAME}}-gslb\": {\r\n        \"class\": \"Tenant\",\r\n        \"{{VS1_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS1_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS1_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS1_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        },\r\n         \"{{VS2_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS2_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS2_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS2_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS2_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+										},
+										"url": {
+											"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
+											"protocol": "https",
+											"host": [
+												"10",
+												"1",
+												"1",
+												"11"
+											],
+											"path": [
+												"mgmt",
+												"shared",
+												"appsvcs",
+												"declare"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						}
+					]
 				}
 			]
 		}
@@ -2701,6 +2960,10 @@
 		},
 		{
 			"key": "BIGIP_ADDRESS1",
+			"value": ""
+		},
+		{
+			"key": "BIGIP_ADDRESS2",
 			"value": ""
 		}
 	]
