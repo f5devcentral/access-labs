@@ -381,8 +381,29 @@ TASK 11: Lab CleanUp
    :width: 800px
 .. |image006| image:: ./media/lab02/006.png
    :width: 800px
-.. |image002| image:: ./media/lab02/002.png
+.. |image007| image:: ./media/lab02/007.png
    :width: 800px
+.. |image008| image:: ./media/lab02/008.png
+   :width: 800px
+.. |image009| image:: ./media/lab02/009.png
+   :width: 800px
+.. |image010| image:: ./media/lab02/010.png
+   :width: 800px
+.. |image011| image:: ./media/lab02/011.png
+   :width: 800px
+.. |image012| image:: ./media/lab02/012.png
+   :width: 800px
+.. |image013| image:: ./media/lab02/013.png
+   :width: 800px
+.. |image014| image:: ./media/lab02/014.png
+   :width: 800px
+.. |image015| image:: ./media/lab02/015.png
+   :width: 800px
+.. |image016| image:: ./media/lab02/016.png
+   :width: 800px
+.. |image017| image:: ./media/lab02/017.png
+   :width: 800px
+
 .. |image995| image:: ./media/lab02/995.png
    :width: 800px
 .. |image996| image:: ./media/lab02/996.png
