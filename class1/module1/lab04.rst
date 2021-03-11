@@ -21,7 +21,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumpohost.f5lab.local
 
-   |image90|
+   |image001|
 
 #. Select your RDP solution.  
 
@@ -34,25 +34,25 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
 
-	|image91|
+	|image002|
 
 #. Click the **Classes** tab at the top of the page.
 
 #. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
 
-   |image87|
+   |image003|
 
 #. Hover over tile **Access Logs Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image88|
+   |image004|
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-   |image89|
+   |image005|
 
 
 
-Task 1: Active Sessions
+Task 2 -  Active Sessions
 ---------------------------------------
 
 #. Refresh Rate
@@ -91,10 +91,15 @@ Task 4: Dashboard
 
 
 
-Task 5:
-----------------------------
+Task 5 - Lab CleanUp
+------------------------
+
+#. This concludes lab 4.
+
+   |image000|
 
 
 
-
-Lab 7 is now complete.
+.. |image000| image:: ./media/lab04/000.png
+.. |image001| image:: ./media/lab04/001.png
+.. |image002| image:: ./media/lab04/002.png
