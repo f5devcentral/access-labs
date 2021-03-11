@@ -122,7 +122,7 @@ Task 2 -  Active Sessions
 
     |image020|
 
-#.  The **Session ID** is a unique hex value for tracking a user throughout the life of their connection.  The sessionID is derived from the last 8 digits of the MRHSession cookie passed to the client.  
+#.  The **Session ID** is a unique hex value for tracking a user throughout the life of their connection.  The sessionID is derived from the last 8 digits of the MRHSession cookie passed to the client.  If you click the session ID it will open a session report.  Session reports will be covered in Task 3
 
     |image021|
 
@@ -171,7 +171,7 @@ Task 2 -  Active Sessions
     |image031|
 
 
-Task 2: Access Reports
+Task 3: Access Reports
 --------------------------------------
 
 
@@ -199,7 +199,7 @@ Access Reports allow an administrator to quickly locate current and historical s
     |image036|
 
 
-Task 3: Log Settings
+Task 4: Log Settings
 --------------------------------------------------
 
 In Task 2, you learned how to view access reports.  In this Task you will learn how to modify the existing logging profile.  This is sometimes necessary when more detailed logging informaiton is needed due to Organizational requirements or when troubleshooting an issue.
@@ -224,18 +224,51 @@ In Task 2, you learned how to view access reports.  In this Task you will learn 
 
     .. note::  The Publisher defines where log messages are sent.  By default they are logged local to /var/log/apm.   To learn more about Log publishers and how to configure external logging read Tech Article on `High-Speed Logging <https://techdocs.f5.com/en-us/bip-upd-16-0-0-u2/external-monitoring-of-big-ip-systems-implementations/configuring-remote-high-speed-logging.html>`_
 
+    |image040|
 
+#. Click **URL Request Logs**
 
-https://support.f5.com/csp/article/K24826763
+    |image041|
 
+#. Click **Access Profiles**
 
-#. General information
-#. Access System Logs
-#. URL Request Logs
-#. Access Profiles
-#. SSO Objects
+    |image042|
 
+#. Click **SSO Objects**
+#. Click **OK**
 
+    |image043|
+
+#. Navigate to Access >> Overview >> Active Sessions.  Kill any existing sessions.  
+
+    |image011|
+
+#. Open a new tab in browser and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and be presented a logon page.  
+
+    |image006|
+
+#. At the logon page enter the Username:**user1** and Password:**user1**
+#. Click **Logon**
+    
+    |image007|
+
+#.  You will be be presented the following website if the logon was successful.
+
+    |image008|
+
+#. Return to the BIG-IP GUI and navigate to Access >> Overview >> Active Sessions.   
+
+    |image011| 
+
+#. Click the **session ID** to open its Session Report
+
+    |image044|
+
+#. Notice a more detailed session report is provided beyond the six lines displayed with only **Notice** logging enabled.
+
+    |image045|
+
+.. note:: to learn more about logging levels see https://support.f5.com/csp/article/K24826763
 
 
 Task 4 - Lab CleanUp
@@ -287,3 +320,10 @@ Task 4 - Lab CleanUp
 .. |image036| image:: ./media/lab04/036.png
 .. |image037| image:: ./media/lab04/037.png
 .. |image038| image:: ./media/lab04/038.png
+.. |image039| image:: ./media/lab04/039.png
+.. |image040| image:: ./media/lab04/040.png
+.. |image041| image:: ./media/lab04/041.png
+.. |image042| image:: ./media/lab04/042.png
+.. |image043| image:: ./media/lab04/043.png
+.. |image044| image:: ./media/lab04/044.png
+.. |image045| image:: ./media/lab04/045.png
