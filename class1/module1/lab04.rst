@@ -118,25 +118,90 @@ Task 2 -  Active Sessions
 
     |image018|
 
-#. Only 1 Active Session should appear on the screen.
+#. Only **1** Active Session should appear on the screen.
 
     |image019|
 
 
-#. Search
+#.  Clicking the **+ (plus symbol)** next to the session ID expands the session to display an subsessions associated with the primary session.  Subsessions are created when using a Per-Request Policy that contains a subroutine.  Subesssions have their own variables, settings, and timers seperate from the primary session.
 
+    |image020|
 
+#.  The **Session ID** is a unique hex value for tracking a user throughout the life of their connection.  The sessionID is derived from the last 8 digits of the MRHSession cookie passed to the client.  
 
+    |image021|
+
+#. Click **Variables** to open a new window that displays all the session variables currently associated with the session. A session variable contains a number or string that represents a specific piece of information. This information is organized in a hierarchical arrangement and is stored as the user's session data.
+
+    |image022|
+
+#. Each variable contains a piece of information that APM gathered during the life of the sesson.  This information can come from various sources such as traffic flow, device Information or sser Information.  Variables can be created, modified, or deleted throughout the life of a session.  Once a variable is defined it can used as condition for access control decisions. Click **Cancel** to return to the Active Session Screen.
+
+    |image023|
+
+    |image024|
+
+#. The Username displayed references the username stored in the session variable session.logon.last.username.
+
+    |image025|
+
+#. The client IP displayed references the IP Address stored in the session variable session.user.clientip
+
+    |image026|
+
+#. The Virtual Server displayed references the initial virtual server the policy was evaluated on for that session. 
+
+    |image027|
+
+#. The Start Time for a session is when the intial request was made and the session ID assigned. 
+
+    |image028|
+
+#. The experition time's initial value is be based on the **Inactivity Timeout** defined on the Access Profile.  The default is 15 minutes and can be modified.  The Inactivity Timeout setting controls how long (in seconds) a client can keep a live session without sending traffic.
+
+    |image029|
+
+#. Session Type the type of resources assigned in the session
+
+    - n/a: Session completion still pending
+    - network_access: A webtop with a network access resource (VPN)
+    - web_application: A virtual server with APM profile and a rewrite profile (APM doing L7 reverse proxy)
+    - full: A webtop, that can have multiple type of resources: Web Resources,Reverse Proxy, VDI Resources, SSH Resources, and  network access resource (VPN)
+    - ltm_apm: A virtual server with an APM profile.  No rewrite profile or webtop attached.
+
+    |image030|
+
+#. Profile Name shows the Access profile used in the evaluation of the session.
+
+    |image031|
 
 
 Task 2: Access Reports
 --------------------------------------
 
-#. Report Parameters
-#. Session ID
-    - Log messages
-#. View Session Variables
-#. Build in Reports
+
+Access Reports allow an administrator to quickly locate current and historical session information.
+
+
+#. Navigate to Access >> Overview >> Access Reports.  
+
+    |image032|
+
+#. When running a report you can specify the timeframe and then click **Run Report**
+
+    |image033|
+
+#. All current and historical sessions are displayed.  You can see **user1** currently has an Active Session. 
+
+    |image34|
+
+#. Click on user1's session ID to open a session details report.  
+
+    |image035|
+
+#.  A session details report displays every every step of policy evaluation from the start item to the End Termanial. You can see in line 3 that username **user1** was collected. Then in line 4 the username and password were authenticated against Active Directory and down the **Allow** End branch.  This makes troubleshooting access control descisions easy beccause every step is logged and it can be easily seen where the failure is and potential reasons why it happened.  
+
+    |image036|
 
 
 Task 3: Log Settings
