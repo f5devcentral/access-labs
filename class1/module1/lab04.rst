@@ -57,7 +57,6 @@ Task 2 -  Active Sessions
 
 #. Open a new tab in browser and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and be presented a logon page.  
 
-
     |image006|
 
 #. At the logon page enter the Username:**user1** and Password:**user1**
@@ -69,12 +68,9 @@ Task 2 -  Active Sessions
 
     |image008|
 
-
 #. Now that you have fully authenticated session open another tab and navigate to https://bigip1.f5lab.local
 
-
     |image009|
-
 
 #. Login with username **admin** and password **admin**
 
@@ -121,7 +117,6 @@ Task 2 -  Active Sessions
 #. Only **1** Active Session should appear on the screen.
 
     |image019|
-
 
 #.  Clicking the **+ (plus symbol)** next to the session ID expands the session to display an subsessions associated with the primary session.  Subsessions are created when using a Per-Request Policy that contains a subroutine.  Subesssions have their own variables, settings, and timers seperate from the primary session.
 
@@ -207,8 +202,25 @@ Access Reports allow an administrator to quickly locate current and historical s
 Task 3: Log Settings
 --------------------------------------------------
 
+In Task 2, you learned how to view access reports.  In this Task you will learn how to modify the existing logging profile.  This is sometimes necessary when more detailed logging informaiton is needed due to Organizational requirements or when troubleshooting an issue.
+
+
+#. Navigate to Access >> Overview >> Event Logs >> Settings.
+
+    |image037|
+
+#. On the screen you see single logging profile names **default-log-setting**.  All Access Policies created will always be associated with this Logging profile.  It's important to understand that if you have multiple policies all sharing the same logging profile that when changes are made it impacts all the profiles associated with it.  In many cases it is best practice to create a new logging profile when settings are going to be modified from the defaults and associated with the Access Profile that requires a different in logging capabilities.
+#. Click the **checkmark box** next to default-log-settings
+#. Click **Edit**
+   
+    |image038|
+
 
 https://support.f5.com/csp/article/K24826763
+
+
+https://techdocs.f5.com/en-us/bip-upd-16-0-0-u2/external-monitoring-of-big-ip-systems-implementations/configuring-remote-high-speed-logging.html
+
 
 #. General information
 #. Access System Logs
@@ -228,6 +240,7 @@ Task 5 - Lab CleanUp
 #. This concludes lab 4.
 
    |image000|
+
 
 
 
@@ -268,3 +281,4 @@ Task 5 - Lab CleanUp
 .. |image034| image:: ./media/lab04/034.png
 .. |image035| image:: ./media/lab04/035.png
 .. |image036| image:: ./media/lab04/036.png
+.. |image037| image:: ./media/lab04/037.png
