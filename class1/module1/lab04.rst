@@ -188,7 +188,7 @@ Access Reports allow an administrator to quickly locate current and historical s
 
 #. All current and historical sessions are displayed.  You can see **user1** currently has an Active Session. 
 
-    |image34|
+    |image034|
 
 #. Click on user1's session ID to open a session details report.  
 
@@ -215,11 +215,18 @@ In Task 2, you learned how to view access reports.  In this Task you will learn 
    
     |image038|
 
+#. The **General Information** has two options for enabling or disabling Access System logging and URL Request Logs.  
+
+    |image039|
+
+#. Click **Access System Logs**
+#. Select **Debug** from the Access Policy Dropdown
+
+    .. note::  The Publisher defines where log messages are sent.  By default they are logged local to /var/log/apm.   To learn more about Log publishers and how to configure external logging read Tech Article on `High-Speed Logging <https://techdocs.f5.com/en-us/bip-upd-16-0-0-u2/external-monitoring-of-big-ip-systems-implementations/configuring-remote-high-speed-logging.html>`_
+
+
 
 https://support.f5.com/csp/article/K24826763
-
-
-https://techdocs.f5.com/en-us/bip-upd-16-0-0-u2/external-monitoring-of-big-ip-systems-implementations/configuring-remote-high-speed-logging.html
 
 
 #. General information
@@ -229,12 +236,9 @@ https://techdocs.f5.com/en-us/bip-upd-16-0-0-u2/external-monitoring-of-big-ip-sy
 #. SSO Objects
 
 
-Task 4: Dashboard
-------------------
 
 
-
-Task 5 - Lab CleanUp
+Task 4 - Lab CleanUp
 ------------------------
 
 #. This concludes lab 4.
@@ -282,3 +286,4 @@ Task 5 - Lab CleanUp
 .. |image035| image:: ./media/lab04/035.png
 .. |image036| image:: ./media/lab04/036.png
 .. |image037| image:: ./media/lab04/037.png
+.. |image038| image:: ./media/lab04/038.png
