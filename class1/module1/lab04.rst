@@ -55,6 +55,78 @@ To access your dedicated student lab environment, you will require a web browser
 Task 2 -  Active Sessions
 ---------------------------------------
 
+#. Open a new tab in browser and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and be presented a logon page.  
+
+
+    |image006|
+
+#. At the logon page enter the Username:**user1** and Password:**user1**
+#. Click **Logon**
+    
+    |image007|
+
+#.  You will be be presented the following website if the logon was successful.
+
+    |image008|
+
+
+#. Now that you have fully authenticated session open another tab and navigate to https://bigip1.f5lab.local
+
+
+    |image009|
+
+
+#. Login with username **admin** and password **admin**
+
+    |image010|
+
+#. Navigate to Access >> Overview >> Active Sessions.  
+
+    |image011|
+
+#. This **Active Sessions** page provides instance feedback on which users have successfully authenticated to APM along with their associated session information.  
+
+    |image012|
+
+#.  The Auto Refresh timer is disabled by default.  Various timers settings can be applied to auto update the Active session page.  Select 10 seconds is selected it will immediately begin counting down.  Alternativily the Refresh button and be clicked to immediatily update the table.
+
+    |image013|
+
+#. Active Session Count displays the number of completed and inactive sessions.  Notice the session count is currently **1**.
+
+    |image014|
+
+#. Open a new **ingognito** browser tab and navigate to https://server1.acme.com.  Do this will create a new session. Once presented a logon page, **DO NOT** logon and simply close the ingognito browser window.  
+
+    |image015|
+
+#. Return to the BIG-IP active session screen. If autorefresh is still enabled the next time it refreshes a new session will appear.  **Stop** the autorefresh.  
+
+#. Notice the Active Session Count is now **2**
+
+#. Notice the Status of the new session is a blue square rather than a green circle.  A green circle means The entire access policy has been completed from beginnning to end.  A blue circle means the session is not complete and is still in process.
+
+    |image016|
+
+#. **Check** the empty square next to the new session with a blue square.
+
+#.  Click **Kill Selected Session**
+
+    |image017|
+
+#. A second screen will appear asking you to confirm you want to delete the session.  Click **Delete**
+
+    |image018|
+
+#. Only 1 Active Session should appear on the screen.
+
+    |image019|
+
+
+
+
+
+
 #. Refresh Rate
 #. Total Active sessions
 #. Search
@@ -103,3 +175,20 @@ Task 5 - Lab CleanUp
 .. |image000| image:: ./media/lab04/000.png
 .. |image001| image:: ./media/lab04/001.png
 .. |image002| image:: ./media/lab04/002.png
+.. |image003| image:: ./media/lab04/003.png
+.. |image004| image:: ./media/lab04/004.png
+.. |image005| image:: ./media/lab04/005.png
+.. |image006| image:: ./media/lab04/006.png
+.. |image007| image:: ./media/lab04/007.png
+.. |image008| image:: ./media/lab04/008.png
+.. |image009| image:: ./media/lab04/009.png
+.. |image010| image:: ./media/lab04/010.png
+.. |image011| image:: ./media/lab04/011.png
+.. |image012| image:: ./media/lab04/012.png
+.. |image013| image:: ./media/lab04/013.png
+.. |image014| image:: ./media/lab04/014.png
+.. |image015| image:: ./media/lab04/015.png
+.. |image016| image:: ./media/lab04/016.png
+.. |image017| image:: ./media/lab04/017.png
+.. |image018| image:: ./media/lab04/018.png
+.. |image019| image:: ./media/lab04/019.png
