@@ -123,15 +123,9 @@ Task 2 -  Active Sessions
     |image019|
 
 
-
-
-
-
-#. Refresh Rate
-#. Total Active sessions
 #. Search
-#. Examine Session
-#. Kill Selected sessions
+
+
 
 
 
