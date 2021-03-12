@@ -1,71 +1,56 @@
-Lab 3: Visual Policy Editor Concepts
+Lab 4: Access Logs Overview
 =============================================
 
 Objectives
 ----------
 
-This lab will cover basic concepts of the Visual Policy Editor.
+This lab will cover the basic overview of Access Logs.
 
 Lab Requirements
 ----------------
 
 -  A pre existing virtual server at 10.1.10.101 or https://server1.acme.com
 
-Task 1: Start
---------------
+Task 1: Active Sessions
+---------------------------------------
+
+#. Refresh Rate
+#. Total Active sessions
+#. Search
+#. Examine Session
+#. Kill Selected sessions
 
 
 
-Task 2: Branches
------------------
+Task 2: Access Reports
+--------------------------------------
+
+#. Report Parameters
+#. Session ID
+    - Log messages
+#. View Session Variables
+#. Build in Reports
 
 
-
-Task 3: Building Blocks
+Task 3: Log Settings
 --------------------------------------------------
 
-#. Logon
-#. Authentication
-#. Assignment
-#. Endpoint Security (Server-Side)
-#. Endpoint Security (Client-Side)
-#. General Purpose
-
-Task 4: Macros
----------------
-
-#. Why use macros?  And When?
-
-#. Templates
-    - AD auth and resources
-    - AD auth and resources and password change
-    - AD auth query and resources
-    - AD query auth OTP by email and resources
-    - AD auth query OTP by HTTP and resources
-    - Support for Microsoft Exchange
-    - AD auth and LocalDB lockout
-    - LDAP auth and resources
-    - LDAP auth query and resources
-    - RADIUS and resources
-    - SecurID and resources
-    - Windows AntiVirus and Firewall
-    - Client Classification and Prelogon checks
-    - License Check and logging
-    - BIG-IP as SAML Service Provider
+#. General information
+#. Access System Logs
+#. URL Request Logs
+#. Access Profiles
+#. SSO Objects
 
 
-Task 5: Endings
+Task 4: Dashboard
+------------------
+
+
+
+Task 5:
 ----------------------------
 
-#. Edit Endings
-    - Allow
-    - Redirect
-    - Deny
-      - Customization
-#. Endings in Macro vs Endings in Policy
-#. Setting Default Endings
 
 
 
-
-Lab 5 is now complete.
+Lab 7 is now complete.
