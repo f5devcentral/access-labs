@@ -1,4 +1,4 @@
-Lab 4: Access Logs Overview
+Lab 4 - Access Logs Overview
 =============================================
 
 Access Policy Manager (APM) provides a default-log-setting. When you create an access profile, the default-log-setting is automatically assigned to it. The default-log-setting can be retained, removed, or replaced for the access profile. The default-log-setting is applied to user sessions only when it is assigned to an access profile.
