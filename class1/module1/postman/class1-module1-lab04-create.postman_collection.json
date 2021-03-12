@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "efab8ca8-0e60-4310-8cde-0b9d67992f12",
+		"_postman_id": "16c6221b-d0e3-4733-acb5-c50602378277",
 		"name": "class1-module1-lab04-create",
 		"description": "This solution was created using template 1.10",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -2967,6 +2967,27 @@
 							"item": [
 								{
 									"name": "create-virtual-server-redirect",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"\r",
+													"pm.test(\"Application \"+VS_NAME+\"-redirect created\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"} else \r",
+													"pm.test(\"Application \"+VS_NAME+\"-redirect exists\", function () {\r",
+													"    pm.response.to.have.status(409);\r",
+													"});"
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"auth": {
 											"type": "basic",
@@ -3019,6 +3040,29 @@
 							"item": [
 								{
 									"name": "create-virtual-server-https",
+									"event": [
+										{
+											"listen": "test",
+											"script": {
+												"exec": [
+													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+													"\r",
+													"if (responseCode.code === 200) {\r",
+													"\r",
+													"pm.test(\"Application \"+VS_NAME+\"-https created\", function () {\r",
+													"    pm.response.to.have.status(200);\r",
+													"});\r",
+													"} else \r",
+													"pm.test(\"Application \"+VS_NAME+\"-https exists\", function () {\r",
+													"    pm.response.to.have.status(409);\r",
+													"});\r",
+													"\r",
+													""
+												],
+												"type": "text/javascript"
+											}
+										}
+									],
 									"request": {
 										"auth": {
 											"type": "basic",
@@ -4419,88 +4463,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "BIGIP_ADDRESS1",
-			"value": ""
-		},
-		{
-			"key": "CHAIN_NAME_1",
-			"value": ""
-		},
-		{
-			"key": "CONFLICT1_NAME",
-			"value": ""
-		},
-		{
-			"key": "CUSTOM_TYPE",
-			"value": ""
-		},
-		{
-			"key": "DNS1_NAME",
-			"value": ""
-		},
-		{
-			"key": "DNS2_NAME",
-			"value": ""
-		},
-		{
-			"key": "PARTITION_NAME",
-			"value": ""
-		},
-		{
-			"key": "PATH_NAME",
-			"value": ""
-		},
-		{
-			"key": "SERVICE_NAME_1",
-			"value": ""
-		},
-		{
-			"key": "VIPS",
-			"value": ""
-		},
-		{
-			"key": "VS1_NAME",
-			"value": ""
-		},
-		{
-			"key": "VS2_NAME",
-			"value": ""
-		},
-		{
-			"key": "BIGIP_MGMT",
-			"value": ""
-		},
-		{
-			"key": "BIGIP_SCOPE",
-			"value": ""
-		},
-		{
-			"key": "DC_COUNTER",
-			"value": ""
-		},
-		{
-			"key": "DNS_COUNTER",
-			"value": ""
-		},
-		{
-			"key": "DNS_NAME",
-			"value": ""
-		},
-		{
-			"key": "VS_COUNTER",
-			"value": ""
-		},
-		{
-			"key": "VS_NAME",
-			"value": ""
-		},
-		{
-			"key": "TRANSID",
-			"value": ""
 		}
 	]
 }
