@@ -128,3 +128,11 @@ Lab CleanUp
 
    |image000|
 
+.. |image000| image:: ./media/lab02/000.png
+.. |image001| image:: ./media/lab02/001.png
+.. |image002| image:: ./media/lab02/002.png
+.. |image003| image:: ./media/lab02/003.png
+.. |image004| image:: ./media/lab02/004.png
+.. |image005| image:: ./media/lab02/005.png
+.. |image998| image:: ./media/lab02/998.png
+.. |image999| image:: ./media/lab02/999.png

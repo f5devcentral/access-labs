@@ -1,61 +1,9 @@
-<<<<<<< HEAD
-Lab 3 - Visual Policy Editor Concepts
-=============================================
-
-This lab will cover basic concepts of the Visual Policy Editor.
-=======
 Lab 3 - Access Logs Overview
 =============================================
 
 Access Policy Manager (APM) provides a default-log-setting. When you create an access profile, the default-log-setting is automatically assigned to it. The default-log-setting can be retained, removed, or replaced for the access profile. The default-log-setting is applied to user sessions only when it is assigned to an access profile.
 
 Regardless of whether it is assigned to an access profile, the default-log-setting applies to APM processes that run outside of a user session. Specifically, on a BIG-IP system with an SWG subscription, the default-log-setting applies to URL database updates
->>>>>>> 09c20d8ca32588a8279f52cb4e01f30d7e33cb54
-
-
-<<<<<<< HEAD
-Task 1 - Setup Lab Environment
------------------------------------
-
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
-
-#. Click **DEPLOYMENT** located on the top left corner to display the environment
-
-#. Click **ACCESS** next to jumpohost.f5lab.local
-
-   |image001|
-
-#. Select your RDP solution.  
-
-#. The RDP client on your local host establishes a RDP connection to the Jump Host.
-
-#. Login with the following credentials:
-
-         - User: **f5lab\\user1**
-         - Password: **user1**
-
-#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
-
-#. Click the **Classes** tab at the top of the page.
-
-	|image002|
-
-
-#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
-
-   |image003|
-
-#. Hover over tile **Access Logs Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
-
-   |image004|
-
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
-
-   |image005|
-=======
-A working configuration from Lab 1 or deploying the lab environment via the **Task 1: Setup Lab Enviroment** below
-
->>>>>>> 09c20d8ca32588a8279f52cb4e01f30d7e33cb54
 
 
 Task 1 - Setup Lab Environment
@@ -69,7 +17,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image001|
 
-#. Select your RDP solution.
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -343,54 +291,53 @@ Task 5 - Lab CleanUp
 
    |image000|
 
-testing
 
 
-.. |image000| image:: ./media/lab04/000.png
-.. |image001| image:: ./media/lab04/001.png
-.. |image002| image:: ./media/lab04/002.png
-.. |image003| image:: ./media/lab04/003.png
-.. |image004| image:: ./media/lab04/004.png
-.. |image005| image:: ./media/lab04/005.png
-.. |image006| image:: ./media/lab04/006.png
-.. |image007| image:: ./media/lab04/007.png
-.. |image008| image:: ./media/lab04/008.png
-.. |image009| image:: ./media/lab04/009.png
-.. |image010| image:: ./media/lab04/010.png
-.. |image011| image:: ./media/lab04/011.png
-.. |image012| image:: ./media/lab04/012.png
-.. |image013| image:: ./media/lab04/013.png
-.. |image014| image:: ./media/lab04/014.png
-.. |image015| image:: ./media/lab04/015.png
-.. |image016| image:: ./media/lab04/016.png
-.. |image017| image:: ./media/lab04/017.png
-.. |image018| image:: ./media/lab04/018.png
-.. |image019| image:: ./media/lab04/019.png
-.. |image020| image:: ./media/lab04/020.png
-.. |image021| image:: ./media/lab04/021.png
-.. |image022| image:: ./media/lab04/022.png
-.. |image023| image:: ./media/lab04/023.png
-.. |image024| image:: ./media/lab04/024.png
-.. |image025| image:: ./media/lab04/025.png
-.. |image026| image:: ./media/lab04/026.png
-.. |image027| image:: ./media/lab04/027.png
-.. |image028| image:: ./media/lab04/028.png
-.. |image029| image:: ./media/lab04/029.png
-.. |image030| image:: ./media/lab04/030.png
-.. |image031| image:: ./media/lab04/031.png
-.. |image032| image:: ./media/lab04/032.png
-.. |image033| image:: ./media/lab04/033.png
-.. |image034| image:: ./media/lab04/034.png
-.. |image035| image:: ./media/lab04/035.png
-.. |image036| image:: ./media/lab04/036.png
-.. |image037| image:: ./media/lab04/037.png
-.. |image038| image:: ./media/lab04/038.png
-.. |image039| image:: ./media/lab04/039.png
-.. |image040| image:: ./media/lab04/040.png
-.. |image041| image:: ./media/lab04/041.png
-.. |image042| image:: ./media/lab04/042.png
-.. |image043| image:: ./media/lab04/043.png
-.. |image044| image:: ./media/lab04/044.png
-.. |image045| image:: ./media/lab04/045.png
-.. |image998| image:: ./media/lab04/998.png
-.. |image999| image:: ./media/lab04/999.png
+.. |image000| image:: ./media/lab03/000.png
+.. |image001| image:: ./media/lab03/001.png
+.. |image002| image:: ./media/lab03/002.png
+.. |image003| image:: ./media/lab03/003.png
+.. |image004| image:: ./media/lab03/004.png
+.. |image005| image:: ./media/lab03/005.png
+.. |image006| image:: ./media/lab03/006.png
+.. |image007| image:: ./media/lab03/007.png
+.. |image008| image:: ./media/lab03/008.png
+.. |image009| image:: ./media/lab03/009.png
+.. |image010| image:: ./media/lab03/010.png
+.. |image011| image:: ./media/lab03/011.png
+.. |image012| image:: ./media/lab03/012.png
+.. |image013| image:: ./media/lab03/013.png
+.. |image014| image:: ./media/lab03/014.png
+.. |image015| image:: ./media/lab03/015.png
+.. |image016| image:: ./media/lab03/016.png
+.. |image017| image:: ./media/lab03/017.png
+.. |image018| image:: ./media/lab03/018.png
+.. |image019| image:: ./media/lab03/019.png
+.. |image020| image:: ./media/lab03/020.png
+.. |image021| image:: ./media/lab03/021.png
+.. |image022| image:: ./media/lab03/022.png
+.. |image023| image:: ./media/lab03/023.png
+.. |image024| image:: ./media/lab03/024.png
+.. |image025| image:: ./media/lab03/025.png
+.. |image026| image:: ./media/lab03/026.png
+.. |image027| image:: ./media/lab03/027.png
+.. |image028| image:: ./media/lab03/028.png
+.. |image029| image:: ./media/lab03/029.png
+.. |image030| image:: ./media/lab03/030.png
+.. |image031| image:: ./media/lab03/031.png
+.. |image032| image:: ./media/lab03/032.png
+.. |image033| image:: ./media/lab03/033.png
+.. |image034| image:: ./media/lab03/034.png
+.. |image035| image:: ./media/lab03/035.png
+.. |image036| image:: ./media/lab03/036.png
+.. |image037| image:: ./media/lab03/037.png
+.. |image038| image:: ./media/lab03/038.png
+.. |image039| image:: ./media/lab03/039.png
+.. |image040| image:: ./media/lab03/040.png
+.. |image041| image:: ./media/lab03/041.png
+.. |image042| image:: ./media/lab03/042.png
+.. |image043| image:: ./media/lab03/043.png
+.. |image044| image:: ./media/lab03/044.png
+.. |image045| image:: ./media/lab03/045.png
+.. |image998| image:: ./media/lab03/998.png
+.. |image999| image:: ./media/lab03/999.png
