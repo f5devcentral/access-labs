@@ -1,78 +1,163 @@
-Lab 2: Access Guided Configuration Concepts
+Lab 2: Visual Policy Editor Concepts
 =============================================
 
 Objectives
 ----------
 
-General overview of concepts and use cases for Access Guided Configuration.
+This lab will cover basic concepts of the Visual Policy Editor.
 
-Lab Requirements
-----------------
+Lab 3 - Visual Policy Editor Concepts
+=============================================
 
-
-
-Task 1: Updating Access Guided Configuration
----------------------------------------------
-
-#. https://downloads.f5.com/esd/product.jsp?sw=BIG-IP&pro=Guided_Configuration
-#.  Click on **Access** --> **Guided Configuration** from the left Menu
-#.  In the upper right corner you will find the version.
-
-|image4|
-
-#.  Click on Upgrade Guided configuration
-#.  Choose File
-#.  Navigate to blah and chose f5-iappslx-agc-usecase-pack-7.0-0.0.1481.tar.gz
-#.  Click Upload and Install
-
-|image5|
-
-#.  Click Continue
-
-Task 2: Use Case Federation
---------------------------------------
-
-#. API Authorization with OAuth
-    When to use it
-#. F5 as OAuth Client and Resource Server
-    When to use it
-#. OAuth Authorization Server
-    When to use it
-#. SAML Identity Provider for Applications
-    When to use it
-#. SAML Service Provider
-    When to use it
+This lab will cover basic concepts of the Visual Policy Editor.
 
 
-Task 3: Zero Trust
--------------------
+Task 1 - Setup Lab Environment
+-----------------------------------
 
-#. When to use it
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumpohost.f5lab.local
+
+   |image001|
+
+#. Select your RDP solution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+#. Click the **Classes** tab at the top of the page.
+
+	|image002|
 
 
-Task 4: Microsoft Integration
------------------------------
+#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
 
-#. ADFS Proxy
-    Advantages
-#. Exchange Proxy
-    Advantages
+   |image003|
+
+#. Hover over tile **Access Logs Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+   |image004|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image005|
 
 
-Task 5: API Protection
+
+Task 2: Branches
+-----------------
+
+
+
+Task 3: Building Blocks
+--------------------------------------------------
+
+#. Logon
+#. Authentication
+#. Assignment
+#. Endpoint Security (Server-Side)
+#. Endpoint Security (Client-Side)
+#. General Purpose
+
+Task 4: Macros
+---------------
+
+#. Why use macros?  And When?
+
+#. Templates
+    - AD auth and resources
+    - AD auth and resources and password change
+    - AD auth query and resources
+    - AD query auth OTP by email and resources
+    - AD auth query OTP by HTTP and resources
+    - Support for Microsoft Exchange
+    - AD auth and LocalDB lockout
+    - LDAP auth and resources
+    - LDAP auth query and resources
+    - RADIUS and resources
+    - SecurID and resources
+    - Windows AntiVirus and Firewall
+    - Client Classification and Prelogon checks
+    - License Check and logging
+    - BIG-IP as SAML Service Provider
+
+
+Task 5: Endings
 ----------------------------
 
-#. API Protection Proxy
-    When to use it
+#. Edit Endings
+    - Allow
+    - Redirect
+    - Deny
+      - Customization
+#. Endings in Macro vs Endings in Policy
+#. Setting Default Endings
 
 
 
-Task 6: Credential Protection
-------------------------------
 
-#. Logon Protection
-    When to use it
+Lab 5 is now complete.
 
 
+Task 2: Branches
+-----------------
 
-Lab 3 is now complete.
+
+
+Task 3: Building Blocks
+--------------------------------------------------
+
+#. Logon
+#. Authentication
+#. Assignment
+#. Endpoint Security (Server-Side)
+#. Endpoint Security (Client-Side)
+#. General Purpose
+
+Task 4: Macros
+---------------
+
+#. Why use macros?  And When?
+
+#. Templates
+    - AD auth and resources
+    - AD auth and resources and password change
+    - AD auth query and resources
+    - AD query auth OTP by email and resources
+    - AD auth query OTP by HTTP and resources
+    - Support for Microsoft Exchange
+    - AD auth and LocalDB lockout
+    - LDAP auth and resources
+    - LDAP auth query and resources
+    - RADIUS and resources
+    - SecurID and resources
+    - Windows AntiVirus and Firewall
+    - Client Classification and Prelogon checks
+    - License Check and logging
+    - BIG-IP as SAML Service Provider
+
+
+Task 5: Endings
+----------------------------
+
+#. Edit Endings
+    - Allow
+    - Redirect
+    - Deny
+      - Customization
+#. Endings in Macro vs Endings in Policy
+#. Setting Default Endings
+
+
+
+
+Lab 5 is now complete.
