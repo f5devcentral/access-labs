@@ -172,7 +172,7 @@ Task 2 -  Active Sessions
     |image031|
 
 
-Task 3: Access Reports
+Task 3 - Access Reports
 --------------------------------------
 
 
@@ -200,7 +200,7 @@ Access Reports allow an administrator to quickly locate current and historical s
     |image036|
 
 
-Task 4: Log Settings
+Task 4 - Log Settings
 --------------------------------------------------
 
 In Task 2, you learned how to view access reports.  In this Task you will learn how to modify the existing logging profile.  This is sometimes necessary when more detailed logging informaiton is needed due to Organizational requirements or when troubleshooting an issue.
@@ -272,7 +272,7 @@ In Task 2, you learned how to view access reports.  In this Task you will learn 
 .. note:: to learn more about logging levels see https://support.f5.com/csp/article/K24826763
 
 
-Task 4 - Lab CleanUp
+Task 5 - Lab CleanUp
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local 
