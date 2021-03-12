@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "26ad521e-8d20-4812-9d59-b79036096cf7",
+		"_postman_id": "40155004-b492-4fd0-9765-99e3e0975d3b",
 		"name": "class2-module3-lab01-create",
 		"description": "This solution was created using template 1.8",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -24,7 +24,8 @@
 									"    pm.expect(jsonData.status).to.eql(\"Success\");",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "b829612c-7bd4-4bab-a4b7-01cf93a72daa"
 							}
 						}
 					],
@@ -52,7 +53,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Set Collection Parameters",
@@ -71,7 +73,8 @@
 									"",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "788bdd4b-898d-4709-b678-1b1921c129bc"
 							}
 						},
 						{
@@ -104,7 +107,8 @@
 									"\r",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "f4d4940f-7690-4d20-a03c-7cfc723aa11d"
 							}
 						}
 					],
@@ -145,7 +149,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "sp.acme.com",
@@ -190,7 +195,8 @@
 											"}",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "fc7b7b41-23c5-462c-b40f-af93149cea89"
 									}
 								},
 								{
@@ -199,7 +205,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "f8ef304e-6ae9-4873-8f53-7fadbbbc8f20"
 									}
 								}
 							],
@@ -241,7 +248,9 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Start-loop-Datacenters",
@@ -260,7 +269,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "ebb07a38-8884-4628-8f93-68ee5ead7975"
 									}
 								},
 								{
@@ -284,7 +294,8 @@
 											"}\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "66dfb4c0-89ca-42f6-87c9-855c984d8603"
 									}
 								}
 							],
@@ -330,7 +341,8 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "e48c9840-7365-4649-b42f-6d12702915bd"
 							}
 						},
 						{
@@ -339,10 +351,13 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "bb8e8896-5dd0-4bca-979e-827dac4b0704"
 							}
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Start Loop - Imperative Calls",
@@ -373,7 +388,8 @@
 											"\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "b6c9cf65-64a9-4ff0-bbc8-9e1f6f65d23f"
 									}
 								},
 								{
@@ -382,7 +398,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "325072e7-e5ee-4087-b65f-600b82f2729a"
 									}
 								}
 							],
@@ -428,7 +445,8 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "c0932cb3-52c6-4de8-af2c-85a7ececf09e"
 							}
 						},
 						{
@@ -437,10 +455,13 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "cf276cb0-fc1a-45a3-8373-7decfd74129d"
 							}
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Websites",
@@ -479,7 +500,8 @@
 													"    postman.setNextRequest(\"end-website-\"+VS);\r",
 													"}"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "7a7db708-a90b-45b5-afdd-4d6631a80974"
 											}
 										},
 										{
@@ -488,7 +510,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "a4da8d94-9df3-4578-84e0-71a319e9e9b2"
 											}
 										}
 									],
@@ -534,7 +557,8 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "b69dbc8c-0f3f-4882-b3d5-81c5df9c2c60"
 									}
 								},
 								{
@@ -543,10 +567,13 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "d4c36d23-d779-45ab-95a9-4e38c05d5315"
 									}
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						},
 						{
 							"name": "Create Website address 10.1.20.6",
@@ -560,7 +587,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "968640d7-65e6-408b-9bcd-a7ff0d12a1e5"
 											}
 										},
 										{
@@ -597,7 +625,8 @@
 													"}",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "f75913f6-e156-4742-b31e-6ec063d97bad"
 											}
 										}
 									],
@@ -667,7 +696,8 @@
 													"}",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "9e24f2a5-ec6a-46c0-b9e2-69e0e4e2b641"
 											}
 										}
 									],
@@ -710,7 +740,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "cac97c1f-aba3-4139-a674-494b20575279"
 											}
 										},
 										{
@@ -719,7 +750,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "afb7e72c-2d74-4b23-9237-caad2f926772"
 											}
 										}
 									],
@@ -765,7 +797,8 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "f56226f5-4a14-428b-ae41-beb33fadb367"
 									}
 								},
 								{
@@ -774,10 +807,13 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "276f0c27-aa21-49ed-add1-0b57da4476cc"
 									}
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						},
 						{
 							"name": "End Website",
@@ -791,7 +827,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "cea0b455-3e93-4dc6-85af-bb1ea8a4adb0"
 											}
 										},
 										{
@@ -800,7 +837,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "1c28d50c-10a4-4de3-9b7f-64bd046b6c70"
 											}
 										}
 									],
@@ -846,7 +884,8 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "9b80a7b7-9e50-4091-8adf-82a4bc9ea6d5"
 									}
 								},
 								{
@@ -855,12 +894,17 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "fce780e5-f805-4f28-a7ea-50c621574ddf"
 									}
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "APM Objects",
@@ -901,7 +945,8 @@
 													"    postman.setNextRequest(\"end-apm-\"+VS);\r",
 													"}"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "799d5b54-5862-4957-a770-8805b8772f35"
 											}
 										},
 										{
@@ -910,7 +955,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "d6910181-f45b-4087-9716-f6d30c004615"
 											}
 										}
 									],
@@ -948,7 +994,9 @@
 									},
 									"response": []
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						},
 						{
 							"name": "BIGIP SAML SP",
@@ -972,7 +1020,8 @@
 															"        pm.response.to.have.status(409);\r",
 															"    });"
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "f5086fdd-8899-4198-af0d-9910877270ee"
 													}
 												}
 											],
@@ -1048,7 +1097,8 @@
 															"    });\r",
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "5e88bd72-5156-4877-9541-a2ff2e7fc841"
 													}
 												}
 											],
@@ -1104,9 +1154,13 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						},
 						{
 							"name": "End APM Objects",
@@ -1120,7 +1174,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "383446ed-b894-470c-b3db-e53e36e08ba8"
 											}
 										},
 										{
@@ -1129,7 +1184,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "928fef17-e8a4-40c1-bdf0-05404f7e4229"
 											}
 										}
 									],
@@ -1175,7 +1231,8 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "ea26ebb3-9f80-4951-b644-a2254bd473f9"
 									}
 								},
 								{
@@ -1184,12 +1241,17 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "ff549499-9de7-4d3c-b2fe-649631a6e25a"
 									}
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "PSP",
@@ -1230,7 +1292,8 @@
 													"    postman.setNextRequest(\"end-psp-\"+VS);\r",
 													"}"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "34448dd3-ba83-4ad6-8357-b719ff9828fc"
 											}
 										},
 										{
@@ -1239,7 +1302,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "cb1b3a97-8c7e-4508-b503-624ac97f9568"
 											}
 										}
 									],
@@ -1285,7 +1349,8 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "c6eba06d-c086-4925-bcda-12b33f4c45e8"
 									}
 								},
 								{
@@ -1294,10 +1359,13 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "42de58e6-6650-4284-8774-8c6c3cb45718"
 									}
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						},
 						{
 							"name": "Baseline Policy",
@@ -1318,7 +1386,8 @@
 															"",
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "aab82aa4-ea7f-4de8-9dba-e86add25fa50"
 													}
 												},
 												{
@@ -1327,7 +1396,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "7223500e-27b1-4b90-97e5-cc253321876f"
 													}
 												}
 											],
@@ -1374,7 +1444,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Baseline Customization Groups",
@@ -1388,7 +1460,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "480b9406-d675-4a3d-83c4-4b2ef5a290d1"
 													}
 												}
 											],
@@ -1451,7 +1524,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "325cb040-825c-4c44-a4ac-c091262a4358"
 													}
 												}
 											],
@@ -1514,7 +1588,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "c101a9c6-8960-420d-887c-e54935a70978"
 													}
 												}
 											],
@@ -1577,7 +1652,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "038515f0-05f4-4fef-97fa-ec40b828ddba"
 													}
 												}
 											],
@@ -1640,7 +1716,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "4ede8d90-b1d1-4c65-8c64-57a055d4ef52"
 													}
 												}
 											],
@@ -1694,7 +1771,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Deny Ending",
@@ -1708,7 +1787,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "62ddbd50-bfda-4190-8204-0b1ece26090b"
 													}
 												}
 											],
@@ -1771,7 +1851,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "c5330545-b8cd-4a07-96a8-773b93efc28f"
 													}
 												}
 											],
@@ -1836,7 +1917,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "b87cc561-e2bb-43b5-b69c-d62c36b7fe0d"
 													}
 												}
 											],
@@ -1891,7 +1973,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Allow Ending",
@@ -1905,7 +1989,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "4aa37882-4f2b-4b52-9a9e-a75a04e43dc7"
 													}
 												}
 											],
@@ -1970,7 +2055,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "82af06d7-d596-419a-abb3-846c84ffeca7"
 													}
 												}
 											],
@@ -2025,7 +2111,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Policy-item AAA SAML",
@@ -2039,7 +2127,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "65a728e9-adb7-49ad-a3b0-0d52effadd0e"
 													}
 												}
 											],
@@ -2104,7 +2193,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "3ce6ddad-ace4-422a-b332-d90ea44b8be2"
 													}
 												}
 											],
@@ -2159,7 +2249,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Start Item",
@@ -2173,7 +2265,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "8b4dd09d-988d-4425-b681-b40ec56c182d"
 													}
 												}
 											],
@@ -2228,7 +2321,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Create Policy",
@@ -2242,7 +2337,8 @@
 														"exec": [
 															""
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "7245d73f-95d5-4ece-a8d7-b7a32f3d3fbb"
 													}
 												}
 											],
@@ -2297,7 +2393,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Create Profile",
@@ -2314,7 +2412,8 @@
 																"exec": [
 																	""
 																],
-																"type": "text/javascript"
+																"type": "text/javascript",
+																"id": "7420177f-a35c-4da4-9255-1084de454e2e"
 															}
 														}
 													],
@@ -2369,9 +2468,13 @@
 													},
 													"response": []
 												}
-											]
+											],
+											"protocolProfileBehavior": {},
+											"_postman_isSubFolder": true
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Commit Transaction",
@@ -2394,7 +2497,8 @@
 															"    pm.response.to.have.status(200);\r",
 															"});"
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "d37ca49c-5951-4619-824b-60b54c754e89"
 													}
 												}
 											],
@@ -2449,7 +2553,9 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								},
 								{
 									"name": "Apply Policy",
@@ -2468,7 +2574,8 @@
 															"    pm.response.to.have.status(200);\r",
 															"});"
 														],
-														"type": "text/javascript"
+														"type": "text/javascript",
+														"id": "2d1b4e96-e8a5-43f8-b018-3f70c5b3577c"
 													}
 												}
 											],
@@ -2524,9 +2631,13 @@
 											},
 											"response": []
 										}
-									]
+									],
+									"protocolProfileBehavior": {},
+									"_postman_isSubFolder": true
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						},
 						{
 							"name": "End PSP",
@@ -2540,7 +2651,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "27c1a40a-ff5f-4d51-b285-7e4eec89478a"
 											}
 										},
 										{
@@ -2549,7 +2661,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "334f2772-36f7-4e03-a6dd-b2c950db6f55"
 											}
 										}
 									],
@@ -2595,7 +2708,8 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "57033bd4-6b68-48fc-a0ee-de29e33c5fc1"
 									}
 								},
 								{
@@ -2604,12 +2718,17 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "18588fbe-a90d-4d5b-9318-d1729bcaec41"
 									}
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "End Loop - Imperative Calls",
@@ -2650,7 +2769,8 @@
 											"",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "d81d960b-dc4f-412f-8703-f97beaefe7c9"
 									}
 								},
 								{
@@ -2659,7 +2779,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "a4766a66-c2bd-4f26-9880-90149c93c86e"
 									}
 								}
 							],
@@ -2705,7 +2826,8 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "efe4b7bc-5e66-4413-b7d7-a65246efb095"
 							}
 						},
 						{
@@ -2714,10 +2836,13 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "5c05cceb-9926-43ab-b348-cba8398dfafa"
 							}
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Applications",
@@ -2739,7 +2864,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "7471b438-ec0c-46a1-af2d-37bf16f2d7b8"
 											}
 										},
 										{
@@ -2748,7 +2874,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "98d6f8ee-3ebc-4de5-8f41-806bfc39154e"
 											}
 										}
 									],
@@ -2804,7 +2931,8 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "9e839f0d-9927-4ccd-9528-370b3da0074d"
 									}
 								},
 								{
@@ -2813,12 +2941,17 @@
 										"type": "text/javascript",
 										"exec": [
 											""
-										]
+										],
+										"id": "effac930-dbb9-44d1-800f-b7930677bf69"
 									}
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "End loop Datacenters",
@@ -2855,7 +2988,8 @@
 											"}",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "15168f2f-fff9-4e04-84ff-74eddbcddc0b"
 									}
 								},
 								{
@@ -2864,7 +2998,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "39305d6a-661e-4807-94ee-a8853f7adb39"
 									}
 								}
 							],
@@ -2910,7 +3045,8 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "f9b87422-2408-4e8c-8b63-5b31c42bf8c8"
 							}
 						},
 						{
@@ -2919,12 +3055,16 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "f610e379-dbff-4e20-8361-752536254612"
 							}
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "idp.acme.com",
@@ -2950,7 +3090,8 @@
 											"",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "7f86e03d-4820-43ce-b89b-fb9a46f6297c"
 									}
 								}
 							],
@@ -3022,7 +3163,8 @@
 											"setTimeout(function(){}, 1000);",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "120270b7-e475-448b-9d50-9cf430e49a67"
 									}
 								},
 								{
@@ -3031,7 +3173,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "a595a0de-ab5c-4033-b3dd-15b6669c26ab"
 									}
 								}
 							],
@@ -3083,7 +3226,9 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Client-Side SSL Profile-default-acme wildcard",
@@ -3111,7 +3256,8 @@
 											"",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "d9356ae7-a674-4fec-b585-c36bd763c804"
 									}
 								},
 								{
@@ -3120,7 +3266,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "c62c5450-0e69-49b4-b2bd-1749b6b4e8c5"
 									}
 								}
 							],
@@ -3173,7 +3320,9 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "idp.acme.com- cert and key",
@@ -3189,7 +3338,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "3a1bde1f-769a-4b3c-8912-cae6b546004f"
 									}
 								},
 								{
@@ -3198,7 +3348,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "1c23a5fc-927a-49c8-86b6-920325217c03"
 									}
 								}
 							],
@@ -3268,7 +3419,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "233aa19e-c30a-4706-a20d-effbf22f973d"
 									}
 								}
 							],
@@ -3328,7 +3480,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "e059e633-2862-427c-8674-0a802f04d3bf"
 									}
 								},
 								{
@@ -3337,7 +3490,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "f8406080-fd9f-403a-8e47-fcd05dce0d21"
 									}
 								}
 							],
@@ -3407,7 +3561,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "ecac4462-abdc-4140-8bde-fc46d3c2ef7b"
 									}
 								}
 							],
@@ -3456,9 +3611,12 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "External DNS",
@@ -3467,7 +3625,7 @@
 					"name": "Two applications",
 					"item": [
 						{
-							"name": "Create DC1 External DNS Configuration for SIngle App",
+							"name": "Create DC1 External DNS Configuration",
 							"item": [
 								{
 									"name": "bigip5-Test AS3 is running",
@@ -3491,7 +3649,8 @@
 													"}",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "277f8fa7-ef37-4330-afcd-6fd3892d980e"
 											}
 										},
 										{
@@ -3500,7 +3659,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "afd830a0-d208-4803-9b8b-eb2d6a79dd28"
 											}
 										}
 									],
@@ -3559,7 +3719,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "e4f0742f-52c9-4865-adc6-af8de6aedb14"
 											}
 										},
 										{
@@ -3568,7 +3729,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "76607f78-e792-4e0a-b6f0-1cc6b2f14a0d"
 											}
 										}
 									],
@@ -3637,7 +3799,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "a3d13c7d-2920-420d-937d-aeca4d070f92"
 											}
 										},
 										{
@@ -3646,7 +3809,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "3ac31dbb-e6fa-40a4-9b1a-bf3ecba97509"
 											}
 										}
 									],
@@ -3716,7 +3880,8 @@
 													"",
 													"setTimeout(function(){}, 2000);"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "1b96e3db-a9a4-4b46-8243-846e5e4e05b8"
 											}
 										},
 										{
@@ -3725,7 +3890,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "36a5df1b-a724-4fe0-9ad8-9c0e6abdb255"
 											}
 										}
 									],
@@ -3796,7 +3962,8 @@
 													"    pm.response.to.have.status(409);",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "6c327a03-2a1b-4599-98d0-a6f836e1270d"
 											}
 										},
 										{
@@ -3805,7 +3972,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "c8f5c9ae-37c8-43fe-b16a-24d5174f4a5d"
 											}
 										}
 									],
@@ -3879,7 +4047,8 @@
 													"    pm.response.to.have.status(409);",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "cad872af-4c2b-4fc7-bd89-f67cea6b036f"
 											}
 										},
 										{
@@ -3888,7 +4057,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "4e136949-17d4-4233-ae3b-35931b212cb5"
 											}
 										}
 									],
@@ -3948,6 +4118,7 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "72b5a6bf-8185-4cd9-b1c2-7c939cb27990",
 												"exec": [
 													"var DNS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");\r",
 													"\r",
@@ -3957,8 +4128,10 @@
 													"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
-													"}\r",
-													"\r",
+													"} else \r",
+													"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {\r",
+													"    pm.response.to.have.status(409);\r",
+													"});\r",
 													""
 												],
 												"type": "text/javascript"
@@ -3967,6 +4140,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
+												"id": "9157a327-23d7-4fdf-85ed-066866e3edfa",
 												"exec": [
 													""
 												],
@@ -4000,7 +4174,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{PARTITION_NAME}}-gslb\": {\r\n        \"class\": \"Tenant\",\r\n        \"{{VS1_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS1_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS1_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS1_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        },\r\n         \"{{VS2_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS2_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS2_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS2_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS2_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+											"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{PARTITION_NAME}}-gslb\": {\r\n        \"class\": \"Tenant\",\r\n        \"{{VS1_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS1_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                 \"lastResortPool\": {\"use\": \"{{VS1_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS1_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS1_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        },\r\n         \"{{VS2_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS2_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{VS2_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS2_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS2_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS2_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 										},
 										"url": {
 											"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -4021,11 +4195,16 @@
 									},
 									"response": []
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -4035,7 +4214,8 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "f89f9efd-e5b0-4bf7-a5a5-1ae8362db129"
 			}
 		},
 		{
@@ -4044,94 +4224,117 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "71fbb507-95f3-4b69-ac9a-4618b1254e3a"
 			}
 		}
 	],
 	"variable": [
 		{
+			"id": "122cb5c7-66f0-44e1-bd62-554f4dcca96b",
 			"key": "CONFLICT1_NAME",
 			"value": ""
 		},
 		{
+			"id": "315012b7-b6f7-4a43-95ac-0a67f85fc3e3",
 			"key": "CUSTOM_TYPE",
 			"value": ""
 		},
 		{
+			"id": "e2bf340a-a3f0-48f3-8e83-2be723f92a02",
 			"key": "DNS1_NAME",
 			"value": ""
 		},
 		{
+			"id": "7059fb6c-6e51-4ed0-9ed3-3bd37d153894",
 			"key": "DNS2_NAME",
 			"value": ""
 		},
 		{
+			"id": "6ef46d04-223b-41a0-a012-e002df829bb8",
 			"key": "PARTITION_NAME",
 			"value": ""
 		},
 		{
+			"id": "715006df-627e-44a3-b7bd-5f73447e6bf9",
 			"key": "PATH_NAME",
 			"value": ""
 		},
 		{
+			"id": "5cc9c1b4-3048-4669-a1c7-fc4a9fa5f258",
 			"key": "VIPS",
 			"value": ""
 		},
 		{
+			"id": "896c1c9c-0027-48db-9d40-3cae567497e0",
 			"key": "VS1_NAME",
 			"value": ""
 		},
 		{
+			"id": "ec3b02c4-2791-4c32-a5b8-e40e26b8edea",
 			"key": "VS2_NAME",
 			"value": ""
 		},
 		{
+			"id": "e55d5ee9-b3e2-46cb-8031-b2fcaf47af58",
 			"key": "BIGIP_MGMT",
 			"value": ""
 		},
 		{
+			"id": "b8084649-d079-4e1e-9284-5f8a668949ad",
 			"key": "BIGIP_SCOPE",
 			"value": ""
 		},
 		{
+			"id": "0b92e8e8-279e-41bd-b6c5-13bc178d0f82",
 			"key": "DC_COUNTER",
 			"value": ""
 		},
 		{
+			"id": "4ea3bcbe-3a00-4fea-ae18-6c964667f398",
 			"key": "DNS_COUNTER",
 			"value": ""
 		},
 		{
+			"id": "b35c1bab-a3a3-45e6-8fde-a412dda3ca2c",
 			"key": "DNS_NAME",
 			"value": ""
 		},
 		{
+			"id": "d88a2214-bf4d-4c15-8e97-fb0641bd303f",
 			"key": "VS_COUNTER",
 			"value": ""
 		},
 		{
+			"id": "fd9a3705-2aea-4da8-8fe2-ed70462a30a2",
 			"key": "VS_NAME",
 			"value": ""
 		},
 		{
+			"id": "a7793551-c8ca-463c-883a-8a2360d78126",
 			"key": "IIS_ADDRESS",
 			"value": ""
 		},
 		{
+			"id": "3201d629-20f9-4b0c-81a1-6068d52dc789",
 			"key": "IIS_ADDRESS1",
 			"value": ""
 		},
 		{
+			"id": "a91b37b0-dc60-4f56-9e2d-390afded9195",
 			"key": "TRANSID",
 			"value": ""
 		},
 		{
+			"id": "d659b231-a8e0-4929-a7e4-b3bd3713db35",
 			"key": "BIGIP_ADDRESS1",
 			"value": ""
 		},
 		{
+			"id": "6e9fc9a2-6245-4d2d-8591-9bbe5c6129dc",
 			"key": "BIGIP_ADDRESS2",
 			"value": ""
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

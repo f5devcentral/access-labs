@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "594c9af0-24eb-4b6f-bf08-1e4c3abbbfe5",
+		"_postman_id": "16e904c8-e80b-4584-aa26-4ae44ccb538a",
 		"name": "class2-module3-lab02-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -23,7 +23,8 @@
 									"    pm.expect(jsonData.status).to.eql(\"Success\");",
 									"});"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "571d251b-ccd1-43ab-9085-6f57fbcb1f28"
 							}
 						}
 					],
@@ -51,7 +52,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Set  Parameters",
@@ -76,7 +78,8 @@
 									"",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "ca8e296d-f558-46bf-9bc8-5c231a9ce673"
 							}
 						},
 						{
@@ -107,7 +110,8 @@
 									"\r",
 									"}"
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "6bfa52fe-2a5b-4b19-b136-339893896fce"
 							}
 						}
 					],
@@ -145,7 +149,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "idp.acme.com",
@@ -162,7 +167,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "d45aaed9-88b3-425a-ace7-941a921645f3"
 									}
 								},
 								{
@@ -180,7 +186,8 @@
 											"});\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "83a565bd-a2e9-4d26-a2ee-dd5e5308d0d6"
 									}
 								}
 							],
@@ -248,7 +255,8 @@
 											"});\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "8220f094-3a7d-4e0a-9924-f38c4f918a07"
 									}
 								}
 							],
@@ -312,7 +320,8 @@
 											"",
 											"}"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "fb531e5e-5800-422a-a576-354bf5131071"
 									}
 								},
 								{
@@ -329,7 +338,8 @@
 											"    pm.response.to.have.status(409);",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "1fc74c00-6853-4871-8b76-c4404f2367ab"
 									}
 								}
 							],
@@ -396,7 +406,8 @@
 											"",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "e4becfad-5ea3-4bbb-a9f0-2a3423fabfb4"
 									}
 								}
 							],
@@ -470,7 +481,8 @@
 											"",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "b6b4923d-c241-4095-ac93-d88f9663a72c"
 									}
 								},
 								{
@@ -479,7 +491,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "21c3a85b-21da-4975-bd06-55afaf8f05f4"
 									}
 								}
 							],
@@ -547,7 +560,8 @@
 											"",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "850851ef-2646-46f2-8e96-f75141f36291"
 									}
 								},
 								{
@@ -556,7 +570,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "1a916ae5-1148-428d-aeae-2c808411312d"
 									}
 								}
 							],
@@ -612,7 +627,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "49c7c90b-19be-47f5-9f71-24adf01a4cf5"
 									}
 								}
 							],
@@ -675,7 +691,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "f5420f70-66ce-44b7-ac08-df821521f284"
 									}
 								}
 							],
@@ -738,7 +755,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "fc9df939-ab58-4ab9-ab34-c36e8162b81d"
 									}
 								}
 							],
@@ -801,7 +819,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "28783785-4156-4b92-b45d-9fb313a75f56"
 									}
 								}
 							],
@@ -864,7 +883,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "faa48a57-ac93-465f-827e-98580eeded3a"
 									}
 								}
 							],
@@ -927,7 +947,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "99d74185-31e5-48b0-be6c-7171707207b3"
 									}
 								}
 							],
@@ -990,7 +1011,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "880d2bf9-5da9-4988-b80f-8dd40ef47e14"
 									}
 								}
 							],
@@ -1053,7 +1075,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "30360419-a274-4ab5-a07c-05593c62b969"
 									}
 								}
 							],
@@ -1118,7 +1141,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "0c66d4b0-b58e-41c2-8542-823363eb6289"
 									}
 								}
 							],
@@ -1183,7 +1207,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "194482ec-c304-4b9e-917e-f8def6170738"
 									}
 								}
 							],
@@ -1247,7 +1272,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "5af91f71-8433-4e30-94aa-74d44944e9e6"
 									}
 								}
 							],
@@ -1311,7 +1337,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "0bb57f40-af0f-43ce-9ab1-1cb9c6e68aa8"
 									}
 								}
 							],
@@ -1375,7 +1402,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "c21a4b91-276b-48d4-8e76-2600efa4f00d"
 									}
 								}
 							],
@@ -1439,7 +1467,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "75cb9943-6f81-4dab-ba65-c2d5c51a692d"
 									}
 								}
 							],
@@ -1503,7 +1532,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "6889b9cf-cc80-4459-b6e1-970e9f71b1e9"
 									}
 								}
 							],
@@ -1567,7 +1597,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "010837ce-3a78-45d7-95bb-64710e3cd93f"
 									}
 								}
 							],
@@ -1631,7 +1662,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "9493c562-6f30-47c3-93e8-359c6efa9622"
 									}
 								}
 							],
@@ -1695,7 +1727,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "8411913c-8528-462a-bb14-bec197cad2cd"
 									}
 								}
 							],
@@ -1768,7 +1801,8 @@
 											"});\r",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "fafdd7cc-822f-4378-bd5f-0a18bbfa161b"
 									}
 								}
 							],
@@ -1834,7 +1868,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "7738f3bf-abc3-44e7-bf00-a71b5425cd62"
 									}
 								}
 							],
@@ -1898,7 +1933,8 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "efede342-c060-4acd-bddb-ea0aa8654569"
 							}
 						},
 						{
@@ -1907,10 +1943,13 @@
 								"type": "text/javascript",
 								"exec": [
 									""
-								]
+								],
+								"id": "8b90df6a-1b3a-4c02-9c6e-4878c728bc10"
 							}
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "bigip-Create Application using AS3",
@@ -1927,7 +1966,8 @@
 									"",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "ff205993-756c-4729-b978-94101b29b063"
 							}
 						},
 						{
@@ -1936,7 +1976,8 @@
 								"exec": [
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "1cc8956e-4dc2-43e1-944e-f213c5f040c6"
 							}
 						}
 					],
@@ -1984,7 +2025,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "sp.acme.com",
@@ -2003,7 +2045,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "76627e6b-e511-43ff-a6a5-f124d907731a"
 									}
 								},
 								{
@@ -2012,7 +2055,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "ac0ec6ef-1c1c-4faf-b84b-6cb5aefbb72f"
 									}
 								}
 							],
@@ -2082,7 +2126,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "3f848cf6-b386-4525-8c1a-22c39e3fdf90"
 									}
 								}
 							],
@@ -2142,7 +2187,8 @@
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "f18d78d1-655a-4127-a01d-981777bc96b3"
 									}
 								},
 								{
@@ -2151,7 +2197,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "0b64ea39-3908-4b17-b787-82b6671ab8b7"
 									}
 								}
 							],
@@ -2223,7 +2270,8 @@
 											"\r",
 											"setTimeout(function(){}, 1000);"
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "a0ddf132-6bd5-4178-ac03-d58e61a29c1c"
 									}
 								}
 							],
@@ -2272,7 +2320,9 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
 					"name": "Client-Side SSL Profile-default-acme wildcard",
@@ -2300,7 +2350,8 @@
 											"",
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "4e985447-be1b-45e4-bb11-355cde7f45c7"
 									}
 								},
 								{
@@ -2309,7 +2360,8 @@
 										"exec": [
 											""
 										],
-										"type": "text/javascript"
+										"type": "text/javascript",
+										"id": "1c7cf2b9-4cec-4260-b539-c70374d723f3"
 									}
 								}
 							],
@@ -2362,9 +2414,12 @@
 							},
 							"response": []
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "Website",
@@ -2378,7 +2433,8 @@
 								"exec": [
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "41debf81-0be6-4e21-a957-d7d0870f9b5f"
 							}
 						},
 						{
@@ -2415,7 +2471,8 @@
 									"}",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "05368a6b-7a86-4d91-8835-0a0aa760c825"
 							}
 						}
 					],
@@ -2485,7 +2542,8 @@
 									"}",
 									""
 								],
-								"type": "text/javascript"
+								"type": "text/javascript",
+								"id": "32a2c80e-fc44-4859-a4eb-01b5f8e422fb"
 							}
 						}
 					],
@@ -2519,7 +2577,8 @@
 					},
 					"response": []
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		},
 		{
 			"name": "External DNS",
@@ -2552,7 +2611,8 @@
 													"}",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "98a6c985-c696-4c7c-8910-c645cc122cd7"
 											}
 										},
 										{
@@ -2561,7 +2621,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "6f588e22-744b-4057-ac54-b0b4bed03d2f"
 											}
 										}
 									],
@@ -2620,7 +2681,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "269375ca-adb5-408d-ba0d-31f589ecbbbc"
 											}
 										},
 										{
@@ -2629,7 +2691,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "543ada92-81b8-4306-a440-94a29d31770a"
 											}
 										}
 									],
@@ -2698,7 +2761,8 @@
 													"});",
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "d7f862d0-d1f4-44d7-9f22-035b48423582"
 											}
 										},
 										{
@@ -2707,7 +2771,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "1d19f483-cbd0-43a4-bd85-d969f28e4d85"
 											}
 										}
 									],
@@ -2777,7 +2842,8 @@
 													"",
 													"setTimeout(function(){}, 2000);"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "d99580dc-a2f6-4976-8df1-104697e45d90"
 											}
 										},
 										{
@@ -2786,7 +2852,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "f83a45f3-4ae3-4004-ac2f-6f06d113c3d6"
 											}
 										}
 									],
@@ -2857,7 +2924,8 @@
 													"    pm.response.to.have.status(409);",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "1e3ce311-d47a-47c1-9d55-a4ec37456460"
 											}
 										},
 										{
@@ -2866,7 +2934,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "9c0c346c-4a33-4745-acf2-9e271b1f9b0a"
 											}
 										}
 									],
@@ -2940,7 +3009,8 @@
 													"    pm.response.to.have.status(409);",
 													"});"
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "9046c083-890a-40dc-a71c-949d65e5de09"
 											}
 										},
 										{
@@ -2949,7 +3019,8 @@
 												"exec": [
 													""
 												],
-												"type": "text/javascript"
+												"type": "text/javascript",
+												"id": "e05c2f18-9043-46bd-b485-11fd29950f01"
 											}
 										}
 									],
@@ -3009,6 +3080,7 @@
 										{
 											"listen": "test",
 											"script": {
+												"id": "68684553-4567-46a9-8467-660bddff3c99",
 												"exec": [
 													"var DNS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");\r",
 													"\r",
@@ -3018,8 +3090,10 @@
 													"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {\r",
 													"    pm.response.to.have.status(200);\r",
 													"});\r",
-													"}\r",
-													"\r",
+													"} else \r",
+													"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {\r",
+													"    pm.response.to.have.status(409);\r",
+													"});\r",
 													""
 												],
 												"type": "text/javascript"
@@ -3028,6 +3102,7 @@
 										{
 											"listen": "prerequest",
 											"script": {
+												"id": "1b78ae95-3b9b-4d2d-a2b1-86b9fadd81c7",
 												"exec": [
 													""
 												],
@@ -3061,7 +3136,7 @@
 										],
 										"body": {
 											"mode": "raw",
-											"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{PARTITION_NAME}}-gslb\": {\r\n        \"class\": \"Tenant\",\r\n        \"{{VS1_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS1_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS1_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS1_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        },\r\n         \"{{VS2_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS2_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS2_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS2_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS2_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+											"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{PARTITION_NAME}}-gslb\": {\r\n        \"class\": \"Tenant\",\r\n        \"{{VS1_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS1_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{VS1_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS1_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS1_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS1_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        },\r\n         \"{{VS2_NAME}}\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{DNS2_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{VS2_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{VS2_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{VS2_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS2_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 										},
 										"url": {
 											"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -3082,11 +3157,16 @@
 									},
 									"response": []
 								}
-							]
+							],
+							"protocolProfileBehavior": {},
+							"_postman_isSubFolder": true
 						}
-					]
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
-			]
+			],
+			"protocolProfileBehavior": {}
 		}
 	],
 	"event": [
@@ -3096,7 +3176,8 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "bc0398c9-e91b-44d1-802b-1e0da5e6cb6d"
 			}
 		},
 		{
@@ -3105,74 +3186,92 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "f808c59b-ea19-41c0-bd6d-f8404b77219b"
 			}
 		}
 	],
 	"variable": [
 		{
+			"id": "a5dbba46-53c4-44a7-8ea7-7758c60735ef",
 			"key": "BIGIP_MGMT",
 			"value": ""
 		},
 		{
+			"id": "e0e04475-8615-45f9-9d8a-911c26c9b24b",
 			"key": "BIGIP_SCOPE",
 			"value": ""
 		},
 		{
+			"id": "d334f12a-cf74-4168-b1bc-92171c0324e9",
 			"key": "COUNTER",
 			"value": ""
 		},
 		{
+			"id": "a0451359-8533-4d8b-b26d-3d1a2273b212",
 			"key": "CUSTOM_TYPE",
 			"value": ""
 		},
 		{
+			"id": "f95f3c5a-6175-4e04-931b-0c7634d8d133",
 			"key": "DNS1_NAME",
 			"value": ""
 		},
 		{
+			"id": "d3500fe5-74c0-4dbf-b719-dea6ed95801a",
 			"key": "DNS2_NAME",
 			"value": ""
 		},
 		{
+			"id": "93053cef-1efb-44b2-b5bb-3ea2e85eac3b",
 			"key": "PARTITION_NAME",
 			"value": ""
 		},
 		{
+			"id": "bf833fbb-eaa4-43c2-993b-9c9b038fe4c7",
 			"key": "PATH_NAME",
 			"value": ""
 		},
 		{
+			"id": "67b4b88c-2f99-4eab-a858-559574805069",
 			"key": "VS1_NAME",
 			"value": ""
 		},
 		{
+			"id": "a2a99d6b-dc6f-489e-a1e5-18e572baaa8c",
 			"key": "PRIOR_RESPONSE",
 			"value": ""
 		},
 		{
+			"id": "524ebb2f-b2ea-4472-b2c5-f3be12c1cb32",
 			"key": "VS2_NAME",
 			"value": ""
 		},
 		{
+			"id": "ee0976c5-002b-474c-93cd-038a26d8ca7a",
 			"key": "TRANSID",
 			"value": ""
 		},
 		{
+			"id": "e8c15316-8698-4e3d-aeed-99e05df36356",
 			"key": "BIGIP_ADDRESS1",
 			"value": ""
 		},
 		{
+			"id": "f91d5eef-4d71-4d81-a5c6-7c1e5d8b4399",
 			"key": "BIGIP_ADDRESS2",
 			"value": ""
 		},
 		{
+			"id": "5f5e93e1-4577-47c2-a3c0-8cdba7bdff5e",
 			"key": "IIS_ADDRESS",
 			"value": ""
 		},
 		{
+			"id": "a87091da-bb95-42e1-b2f1-b687edd3984c",
 			"key": "IIS_ADDRESSundefined",
 			"value": ""
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }
