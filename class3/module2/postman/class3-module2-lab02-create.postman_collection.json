@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "7cf37ee6-50f1-47e2-b5e3-1659e1f89d59",
+		"_postman_id": "0e802ad8-6648-48a2-8cca-b51369926340",
 		"name": "class3-module2-lab02-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -19,7 +19,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "6ba2ad5c-8759-41e7-af44-c0fb8a7188c2"
 					}
 				},
 				{
@@ -31,7 +32,8 @@
 							"pm.collectionVariables.set(\"SERVER_SSL_NAME\", \"apiadmin-serverssl\");",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "9729dadd-79ff-4a83-85bf-26b3037c9537"
 					}
 				}
 			],
@@ -91,7 +93,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "1bfac6e3-ded5-4ec7-86ce-17c7f894244a"
 					}
 				}
 			],
@@ -162,7 +165,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "11858ae0-a146-4a9e-9567-6877c3775fe2"
 					}
 				},
 				{
@@ -171,7 +175,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "bf290c7a-8752-4dd8-993c-7f05baa30880"
 					}
 				}
 			],
@@ -238,7 +243,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "eaf73016-7ac7-419b-bf02-ca2a0eca62f8"
 					}
 				},
 				{
@@ -251,7 +257,8 @@
 							"",
 							"}"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "07e79bce-a38c-4046-b61f-33b4410423ae"
 					}
 				}
 			],
@@ -310,7 +317,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "e5e301d9-c706-4292-b672-2e1fe4fb2046"
 					}
 				},
 				{
@@ -319,7 +327,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "5a431fb3-80a3-4f3f-94bd-8d0b1febf18a"
 					}
 				}
 			],
@@ -388,7 +397,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "1196c9ae-3a33-47c2-842c-a12aab4ce9f3"
 					}
 				},
 				{
@@ -397,7 +407,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "c4727a66-1a92-4437-b85f-1cc3015c9384"
 					}
 				}
 			],
@@ -466,7 +477,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "01667e1f-941b-4a51-b678-e28897a22238"
 					}
 				},
 				{
@@ -475,7 +487,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "3b4b6107-e035-48a1-85f8-b7857c9e9757"
 					}
 				}
 			],
@@ -543,7 +556,8 @@
 							"        pm.response.to.have.status(409);",
 							"    });"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "637c3777-c409-45fe-a637-735bb111a448"
 					}
 				},
 				{
@@ -556,7 +570,8 @@
 							"",
 							"setTimeout(function(){}, 2000);"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "709404e5-ae7e-4edd-8999-0835534d4932"
 					}
 				}
 			],
@@ -616,11 +631,20 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "67aa6f67-0328-432d-aa38-161bb1b5e95f",
 						"exec": [
-							"pm.test(\"Wide IP Created\", function () {",
+							"var DNS_NAME = pm.collectionVariables.get(\"APP_NAME\");",
+							"",
+							"",
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"",
+							"} else ",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
 							""
 						],
 						"type": "text/javascript"
@@ -629,6 +653,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "a8fd464b-83f0-430c-8372-7dcfb347f225",
 						"exec": [
 							"setTimeout(function(){}, 2000);",
 							"",
@@ -655,10 +680,16 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{APP_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{APP_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{APP_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -682,32 +713,40 @@
 	],
 	"variable": [
 		{
+			"id": "8d6b8cd5-cb06-41af-955f-4c351e13b05f",
 			"key": "PRIOR_RESPONSE",
 			"value": ""
 		},
 		{
+			"id": "60bc5c31-2b03-4cbb-af4a-7cfe5ef97dfb",
 			"key": "DNS_RESOLVER_NAME",
 			"value": ""
 		},
 		{
+			"id": "0d39d424-791f-467e-bd87-6763a99b7aca",
 			"key": "SERVER_SSL_NAME",
 			"value": ""
 		},
 		{
+			"id": "10cf85cf-82be-409b-bd7c-e1183ebedb9b",
 			"key": "APP_NAME",
 			"value": ""
 		},
 		{
+			"id": "b77203a5-6bf9-4e77-b05a-1fc694cbd280",
 			"key": "PARTITION_NAME",
 			"value": ""
 		},
 		{
+			"id": "af1dab39-028d-4120-8cf6-779cf3d8e28f",
 			"key": "PATH_NAME",
 			"value": ""
 		},
 		{
+			"id": "cfd4140f-427f-4c58-b319-f997535a9195",
 			"key": "IRULE_NAME",
 			"value": ""
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

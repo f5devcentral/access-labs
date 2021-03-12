@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "1c5978b5-3f3d-46c2-b1aa-806bdcea68d3",
-		"name": "Identity Aware Proxy Labs-setup",
+		"_postman_id": "e3fae5d9-f04e-495e-9ee2-cd1c30b8b3b9",
+		"name": "class2-module1-lab01-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -20,7 +20,8 @@
 							"    pm.expect(jsonData.status).to.eql(\"Success\");",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "5b124ba8-3b91-4342-aedf-5e9e513dcb49"
 					}
 				}
 			],
@@ -67,7 +68,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "6439baad-fd9f-441c-8d46-1545ebfbd78c"
 					}
 				},
 				{
@@ -80,7 +82,8 @@
 							"pm.collectionVariables.set(\"APM_AAA_OCSP_NAME\", \"ocsp-servers\");",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "8be5dfde-e889-48ca-aec9-7492df42c53d"
 					}
 				}
 			],
@@ -139,7 +142,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "6ee291f2-edad-4f93-b96c-ab4c27211c42"
 					}
 				}
 			],
@@ -210,7 +214,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "de24ae02-8129-4b8f-935d-399721c79fcd"
 					}
 				},
 				{
@@ -219,7 +224,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "15b4d373-e67d-47e4-acff-9d939445a5d0"
 					}
 				}
 			],
@@ -282,7 +288,8 @@
 							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "f2bef747-200c-44e1-8857-8502595bf569"
 					}
 				},
 				{
@@ -291,7 +298,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "ce945df8-b3c7-444d-b5ef-d2485b95e39e"
 					}
 				}
 			],
@@ -364,7 +372,8 @@
 							"    pm.response.to.have.status(200);\r",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "1cd6d011-3c13-4372-bb41-512bd4ed0e0a"
 					}
 				}
 			],
@@ -425,7 +434,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "a1e9ff8a-c204-4c76-bd8e-800be185250d"
 					}
 				},
 				{
@@ -444,7 +454,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "e9e74761-e105-4bfd-a08b-41873c58a1ed"
 					}
 				}
 			],
@@ -511,7 +522,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "bca8e6a7-78b8-4655-a57b-1dffed92375f"
 					}
 				},
 				{
@@ -520,7 +532,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "405fce6e-1b75-4cec-aae4-85dc2aa50fca"
 					}
 				}
 			],
@@ -579,7 +592,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "10a33f25-683b-44c3-97d8-b27fd321c0f2"
 					}
 				},
 				{
@@ -588,7 +602,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "ec357acb-c901-438e-b6ab-c5e120aadc12"
 					}
 				}
 			],
@@ -657,7 +672,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "a7ff1999-1bd6-4244-8aff-aa478803b3d1"
 					}
 				},
 				{
@@ -666,7 +682,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "d0cb78a6-2b96-4c90-b72d-ed8a2a0e7410"
 					}
 				}
 			],
@@ -735,7 +752,8 @@
 							"});",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "a31fc0e2-0308-4986-b325-5aa509223da6"
 					}
 				},
 				{
@@ -744,7 +762,8 @@
 						"exec": [
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "818ce2a5-7e60-45db-9e12-b3294150634b"
 					}
 				}
 			],
@@ -812,7 +831,8 @@
 							"    pm.response.to.have.status(409);",
 							"});"
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "ae4c14dc-246d-4eef-82ff-de2d8c346d37"
 					}
 				},
 				{
@@ -827,7 +847,8 @@
 							"",
 							""
 						],
-						"type": "text/javascript"
+						"type": "text/javascript",
+						"id": "051a0c20-58ab-4cf9-bf49-92634745282e"
 					}
 				}
 			],
@@ -887,11 +908,22 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "32588445-6559-46f2-b813-fc6e4c54ed1d",
 						"exec": [
+							"var DNS_NAME = pm.collectionVariables.get(\"APP_NAME\");",
 							"",
-							"pm.test(\"Wide IP Created\", function () {",
+							"",
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});"
+							"});",
+							"} else ",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -899,6 +931,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "5eb7793a-1af1-45db-bb8f-cab643a7f5b6",
 						"exec": [
 							""
 						],
@@ -923,10 +956,16 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{APP_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -953,12 +992,22 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "b9be50c8-2fdd-49a4-b9b7-cc8b644b3ff3",
 						"exec": [
+							"var DNS_NAME = pm.collectionVariables.get(\"APP_NAME\");",
 							"",
 							"",
-							"pm.test(\"Wide IP Created\", function () {",
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});"
+							"});",
+							"} else ",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							"",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -966,6 +1015,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "7e122f8f-c6a5-4b57-a879-f02554f8275f",
 						"exec": [
 							"",
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
@@ -995,10 +1045,16 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{APP_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -1025,11 +1081,19 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "7734c95b-1edd-4f31-af9d-342539e1843a",
 						"exec": [
+							"var DNS_NAME = pm.collectionVariables.get(\"APP_NAME\");",
 							"",
 							"",
-							"pm.test(\"Wide IP Created\", function () {",
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {",
 							"    pm.response.to.have.status(200);",
+							"});",
+							"} else ",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {",
+							"    pm.response.to.have.status(409);",
 							"});",
 							"",
 							""
@@ -1040,6 +1104,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "f561614e-77a3-490d-9d3b-7549d91eba53",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -1068,10 +1133,16 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{APP_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -1100,7 +1171,8 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "b67c3dc8-c9f3-4dcb-a848-1eb72224834f"
 			}
 		},
 		{
@@ -1109,38 +1181,47 @@
 				"type": "text/javascript",
 				"exec": [
 					""
-				]
+				],
+				"id": "9e27db3f-2a17-49d5-bc00-8918fb73f2eb"
 			}
 		}
 	],
 	"variable": [
 		{
+			"id": "28f8a686-a3a9-44ea-b0be-a4648c32f9c4",
 			"key": "APM_AAA_AD_NAME",
 			"value": ""
 		},
 		{
+			"id": "4d3c0586-efc4-4723-bd2b-53fd2524df54",
 			"key": "APM_AAA_OCSP_NAME",
 			"value": ""
 		},
 		{
+			"id": "9e1e9a7c-3bc0-4bb4-9604-b7f01b58eecf",
 			"key": "PRIOR_RESPONSE",
 			"value": ""
 		},
 		{
+			"id": "7ed53338-b0e9-429f-b9a0-457c1ab51f20",
 			"key": "APP_NAME",
 			"value": ""
 		},
 		{
+			"id": "48a94dfb-a51d-4512-845e-906be71935d7",
 			"key": "PARTITION_NAME",
 			"value": ""
 		},
 		{
+			"id": "ddbf1502-ac4f-48fe-a453-2be297e3ee61",
 			"key": "PATH_NAME",
 			"value": ""
 		},
 		{
+			"id": "1546a201-c5fc-43b1-afea-2e2aa4dd9067",
 			"key": "VS_NAME",
 			"value": ""
 		}
-	]
+	],
+	"protocolProfileBehavior": {}
 }

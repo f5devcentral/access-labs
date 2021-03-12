@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2a9f370a-9164-465c-a018-caf01d45af14",
+		"_postman_id": "7a079d60-f04f-49bd-a542-12a05c13250c",
 		"name": "class2-module2-lab01-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -11,7 +11,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "1a50c6bb-b9cb-46d3-b9ef-0df70ef6e177",
+						"id": "b447b272-6d40-4232-b7fa-14ded3113f56",
 						"exec": [
 							"",
 							"",
@@ -69,7 +69,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "1bd147d1-1903-47e5-992e-461470cf35f5"
+						"id": "39b095cb-304e-4a84-904c-e33a32a78646"
 					}
 				},
 				{
@@ -83,7 +83,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "9533e4c9-24f8-4acb-8c59-76ab1307230d"
+						"id": "9657667a-b175-4fe3-8847-0e2866d39abd"
 					}
 				}
 			],
@@ -143,7 +143,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "9b1524d0-769f-4676-8fa1-a912c091f33f"
+						"id": "93331242-9dbc-4620-90b7-04b5ef13d4f7"
 					}
 				}
 			],
@@ -215,7 +215,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "ad3d9fae-62fd-48c3-81b3-98a1e1f59d7e"
+						"id": "51c7a097-aded-45ce-820e-204b7b7c4d69"
 					}
 				},
 				{
@@ -225,7 +225,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "50c82929-5310-4d5e-bf16-dacec0b79b8b"
+						"id": "49f05546-e55c-487f-a748-721d7544de3f"
 					}
 				}
 			],
@@ -289,7 +289,7 @@
 							"});"
 						],
 						"type": "text/javascript",
-						"id": "79377a24-7271-430d-b802-67e918318a43"
+						"id": "674b4e83-6be7-45d4-8657-58cd699a97db"
 					}
 				},
 				{
@@ -299,7 +299,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "35717767-8002-4612-a829-6e0787ed23f1"
+						"id": "82d8e7a5-d936-4241-8281-61a6a4bb789a"
 					}
 				}
 			],
@@ -373,7 +373,7 @@
 							"});"
 						],
 						"type": "text/javascript",
-						"id": "71e3bdce-4470-4c63-8cde-86ad68ec6c02"
+						"id": "c4646bed-350e-49b8-924b-9a72ff66c8d2"
 					}
 				}
 			],
@@ -435,7 +435,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "966115d0-eebc-41a2-bf90-5543f23daf80"
+						"id": "107a1c08-5d48-4919-b5f5-3df72c5d3d90"
 					}
 				},
 				{
@@ -455,7 +455,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "f98bc5f7-270b-4c9b-b137-7c943bf5ea90"
+						"id": "ea8e06be-da4b-4e5e-9485-e21c2ef55a85"
 					}
 				}
 			],
@@ -514,7 +514,7 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "b407be2a-b216-4f6f-9c6d-3ffd10580fdd",
+						"id": "c055fa28-573f-46e8-a641-9fc6c858671a",
 						"exec": [
 							"if (responseCode.code === 200) {",
 							"",
@@ -538,7 +538,7 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "5661c4fd-3ab8-46c7-b5cc-dd5a653e0a8d",
+						"id": "f610006b-f34b-4cb0-be37-ad4a0d227d80",
 						"exec": [
 							""
 						],
@@ -610,7 +610,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "b8c1ecff-f49a-4587-83f8-9ee42ce32f31"
+						"id": "fc07de7e-4c2f-455d-b5ef-bc495c878c48"
 					}
 				},
 				{
@@ -620,7 +620,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "4a5766ff-d4f1-45f5-9c83-e2d061929d0f"
+						"id": "a5066d92-f3bd-4245-8b02-ac39491d9406"
 					}
 				}
 			],
@@ -680,7 +680,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "fcb92a68-f896-456c-b6dd-e5611681ce1d"
+						"id": "6b322c88-def7-417c-84bb-6e923a11d309"
 					}
 				},
 				{
@@ -690,7 +690,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "56e01279-6150-4edb-8b71-a08f7a4372ce"
+						"id": "631e2cc4-f213-499b-b08b-09832c30dcbd"
 					}
 				}
 			],
@@ -760,7 +760,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "ea921924-f6ba-472d-ae6c-f0e678b9fa6f"
+						"id": "9237fe42-9b18-4acd-81c4-638488ee5881"
 					}
 				},
 				{
@@ -770,7 +770,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "337fc95e-1bc7-4cde-86ff-c550a46c8fe3"
+						"id": "0ad48f6f-1809-4d62-ac21-08c76213a4b8"
 					}
 				}
 			],
@@ -840,7 +840,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "748ccec9-6608-4a8a-9c43-4426e7820ede"
+						"id": "f4a609b5-2d7a-4e77-b011-b1c40721f0ac"
 					}
 				},
 				{
@@ -850,7 +850,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "acf354e1-9617-4d7c-816a-4dc40e70f3d9"
+						"id": "b0c6bf5c-c458-44db-9d5b-fedfe3d641d2"
 					}
 				}
 			],
@@ -919,7 +919,7 @@
 							"});"
 						],
 						"type": "text/javascript",
-						"id": "7258c5db-e8e7-47da-98f7-d7b8fd690e79"
+						"id": "d14c2247-244a-4396-a7b0-ae9466e095b0"
 					}
 				},
 				{
@@ -935,7 +935,7 @@
 							""
 						],
 						"type": "text/javascript",
-						"id": "a5b8a6d7-0b6d-4136-a7d2-3e1bab3faebc"
+						"id": "592159fc-4254-4e6d-aedf-b832d0544575"
 					}
 				}
 			],
@@ -995,24 +995,33 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "c00ad18c-839a-44b9-9a87-5275a9f58780",
 						"exec": [
+							"var DNS_NAME = pm.collectionVariables.get(\"APP_NAME\");",
 							"",
-							"pm.test(\"Wide IP Created\", function () {",
+							"",
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});"
+							"});",
+							"} else ",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							""
 						],
-						"type": "text/javascript",
-						"id": "3225c91a-6b0c-405c-a991-43dffad4e103"
+						"type": "text/javascript"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "f4853085-454e-4926-929c-25bb2ea3cd48",
 						"exec": [
 							""
 						],
-						"type": "text/javascript",
-						"id": "35e0dd7c-8dfa-4474-9dcd-277eeb87d585"
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -1033,10 +1042,16 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{APP_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -1063,20 +1078,29 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "4d18b822-a7ac-481b-bb2e-f4cb9a55260a",
 						"exec": [
+							"var DNS_NAME = pm.collectionVariables.get(\"APP_NAME\");",
 							"",
 							"",
-							"pm.test(\"Wide IP Created\", function () {",
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {",
 							"    pm.response.to.have.status(200);",
-							"});"
+							"});",
+							"} else ",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
+							""
 						],
-						"type": "text/javascript",
-						"id": "8da9904a-38a7-4add-bc6a-b76495303992"
+						"type": "text/javascript"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "e3089f98-2cd0-4692-8a51-ff4b3f8a6277",
 						"exec": [
 							"",
 							"pm.collectionVariables.set(\"APP_NAME\", \"basic.acme.com\");",
@@ -1085,8 +1109,7 @@
 							"",
 							""
 						],
-						"type": "text/javascript",
-						"id": "22e5690f-19f5-47a3-ab1d-d52b8fa3f741"
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -1107,10 +1130,16 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{APP_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -1137,22 +1166,29 @@
 				{
 					"listen": "test",
 					"script": {
+						"id": "9a4a14fc-8d26-480b-84c5-1a272afc4c91",
 						"exec": [
+							"var DNS_NAME = pm.collectionVariables.get(\"APP_NAME\");",
 							"",
 							"",
-							"pm.test(\"Wide IP Created\", function () {",
+							"if (responseCode.code === 200) {",
+							"",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" Created\", function () {",
 							"    pm.response.to.have.status(200);",
 							"});",
-							"",
+							"} else ",
+							"pm.test(\"Wide IP \"+DNS_NAME+\" exists\", function () {",
+							"    pm.response.to.have.status(409);",
+							"});",
 							""
 						],
-						"type": "text/javascript",
-						"id": "60253018-7ada-4580-a1a3-08bbd3900de3"
+						"type": "text/javascript"
 					}
 				},
 				{
 					"listen": "prerequest",
 					"script": {
+						"id": "69f76bab-a8eb-475a-8e57-74ba58a46959",
 						"exec": [
 							"pm.collectionVariables.set(\"APP_NAME\", \"header.acme.com\");",
 							"pm.collectionVariables.set(\"PATH_NAME\", \"Application\");",
@@ -1160,8 +1196,7 @@
 							"",
 							""
 						],
-						"type": "text/javascript",
-						"id": "56b33e0f-5595-4314-868e-feb62b321660"
+						"type": "text/javascript"
 					}
 				}
 			],
@@ -1182,10 +1217,16 @@
 					]
 				},
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
+					"raw": "{\r\n \"class\": \"ADC\",\r\n    \"schemaVersion\": \"3.6.0\",\r\n    \"id\": \"GSLB_Sample\",\r\n    \"{{APP_NAME}}\": {\r\n        \"class\": \"Tenant\",\r\n        \"Application\": {\r\n            \"class\": \"Application\",\r\n            \"template\": \"generic\",\r\n            \"testDomain\": {\r\n                \"class\": \"GSLB_Domain\",\r\n                \"domainName\": \"{{APP_NAME}}\",\r\n                \"resourceRecordType\": \"A\",\r\n                \"poolLbMode\": \"ratio\",\r\n                \"lastResortPool\": {\"use\": \"{{APP_NAME}}-pool\"},\r\n                \"lastResortPoolType\": \"A\",\r\n                \"pools\": [\r\n                              { \"use\": \"{{APP_NAME}}-pool\" }\r\n                ]\r\n            },\r\n            \"{{APP_NAME}}-pool\": {\r\n               \"class\": \"GSLB_Pool\",\r\n                \"enabled\": true,\r\n                \"lbModeAlternate\": \"ratio\",\r\n                \"lbModeFallback\": \"ratio\",\r\n                \"manualResumeEnabled\": false,\r\n                \"verifyMemberEnabled\": true,\r\n                \"members\": [\r\n                \t{\r\n                \t\"ratio\":10,\r\n                \t\"server\": {\r\n                \t\t\"bigip\": \"/Common/bigip1.f5lab.local\"\r\n                \t\t},\r\n                \t\t\"virtualServer\":\"/{{PARTITION_NAME}}/{{PATH_NAME}}/{{VS_NAME}}\"\r\n                \t}\r\n                ],\r\n                \"resourceRecordType\": \"A\"\r\n            }\r\n        }\r\n    }\r\n \r\n}"
 				},
 				"url": {
 					"raw": "https://10.1.1.11/mgmt/shared/appsvcs/declare",
@@ -1215,7 +1256,7 @@
 				"exec": [
 					""
 				],
-				"id": "6ddc5cd3-0376-41dd-8913-63a931be0da7"
+				"id": "1210cd66-1cd8-467e-bd3e-72d76dee2834"
 			}
 		},
 		{
@@ -1225,7 +1266,7 @@
 				"exec": [
 					""
 				],
-				"id": "f3d7dada-6353-491f-8413-2867952b2e4c"
+				"id": "0b9cd1f5-0dc5-4af9-95e0-33c7caf9667e"
 			}
 		}
 	],
