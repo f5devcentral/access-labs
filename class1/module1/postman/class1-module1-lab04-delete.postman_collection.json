@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "33ba9a1a-0d0d-4311-b5ef-3f10690e3d4f",
+		"_postman_id": "15d75c11-0f0b-4921-823d-c5d328571efe",
 		"name": "class1-module1-lab04-delete",
 		"description": "This solution was created using template 1.10",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -1546,6 +1546,73 @@
 					]
 				},
 				{
+					"name": "Reset Default Log Profile Settings",
+					"item": [
+						{
+							"name": "bigip-modify-log profile",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"",
+											"pm.test(\"APM default-log-setting reset to default\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"default-log-setting\",\r\n    \"partition\": \"Common\",\r\n    \"access\": [\r\n        {\r\n            \"name\": \"general-log\",\r\n            \"enabled\": \"true\",\r\n            \"logLevel\": {\r\n                \"accessControl\": \"notice\",\r\n                \"accessPerRequest\": \"notice\",\r\n                \"adfsProxy\": \"notice\",\r\n                \"apiProtection\": \"notice\",\r\n                \"apmAcl\": \"notice\",\r\n                \"eca\": \"notice\",\r\n                \"endpointManagementSystem\": \"notice\",\r\n                \"ftp\": \"err\",\r\n                \"htconnector\": \"notice\",\r\n                \"imap\": \"err\",\r\n                \"oauth\": \"debug\",\r\n                \"paa\": \"notice\",\r\n                \"pop3\": \"err\",\r\n                \"smtps\": \"err\",\r\n                \"sslOrchestrator\": \"err\",\r\n                \"sso\": \"notice\",\r\n                \"swg\": \"notice\",\r\n                \"vdi\": \"notice\",\r\n                \"webssh\": \"notice\"\r\n            },\r\n            \"publisher\": \"/Common/sys-db-access-publisher\",\r\n            \"type\": \"access\"\r\n        }\r\n    ],\r\n    \"urlFilters\": [\r\n        {\r\n            \"name\": \"urlf\",\r\n            \"enabled\": \"true\",\r\n            \"filter\": {\r\n                \"logAllowedUrl\": \"false\",\r\n                \"logBlockedUrl\": \"true\",\r\n                \"logConfimedUrl\": \"true\"\r\n            },\r\n            \"publisher\": \"/Common/local-db-publisher\"\r\n\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/log-setting/~Common~default-log-setting",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"apm",
+										"log-setting",
+										"~Common~default-log-setting"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "End APM Objects",
 					"item": [
 						{
@@ -1804,7 +1871,7 @@
 									"script": {
 										"exec": [
 											"var PARTITION_NAME = pm.collectionVariables.get(\"PARTITION_NAME\");\r",
-											"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");\r",
+											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
 											"\r",
 											"\r",
 											"if (responseCode.code === 200) {\r",
@@ -2328,96 +2395,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "BIGIP_ADDRESS1",
-			"value": ""
-		},
-		{
-			"key": "CHAIN_NAME_1",
-			"value": ""
-		},
-		{
-			"key": "CONFLICT1_NAME",
-			"value": ""
-		},
-		{
-			"key": "CUSTOM_TYPE",
-			"value": ""
-		},
-		{
-			"key": "DNS1_NAME",
-			"value": ""
-		},
-		{
-			"key": "DNS2_NAME",
-			"value": ""
-		},
-		{
-			"key": "PARTITION_NAME",
-			"value": ""
-		},
-		{
-			"key": "PATH_NAME",
-			"value": ""
-		},
-		{
-			"key": "SERVICE_NAME_1",
-			"value": ""
-		},
-		{
-			"key": "VIPS",
-			"value": ""
-		},
-		{
-			"key": "VS1_NAME",
-			"value": ""
-		},
-		{
-			"key": "VS2_NAME",
-			"value": ""
-		},
-		{
-			"key": "BIGIP_MGMT",
-			"value": ""
-		},
-		{
-			"key": "BIGIP_SCOPE",
-			"value": ""
-		},
-		{
-			"key": "DC_COUNTER",
-			"value": ""
-		},
-		{
-			"key": "DNS_DEST",
-			"value": ""
-		},
-		{
-			"key": "DNS_COUNTER",
-			"value": ""
-		},
-		{
-			"key": "DNS_NAME",
-			"value": ""
-		},
-		{
-			"key": "VS_COUNTER",
-			"value": ""
-		},
-		{
-			"key": "VS_NAME",
-			"value": ""
-		},
-		{
-			"key": "IIS_ADDRESS",
-			"value": ""
-		},
-		{
-			"key": "IIS_ADDRESS1",
-			"value": ""
 		}
 	]
 }
