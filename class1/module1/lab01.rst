@@ -594,16 +594,9 @@ before allowing a user to access the web application.
 
 Now you have a basic policy with AD Authentication that you can leverage for Web Pre-Authorization in front of any application.
 
-
-
-
-
-
-
-
-
 Task 6: Single Sign-On
 ----------------------------
+
 
 
 Task 7: Federation

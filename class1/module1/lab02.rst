@@ -1,4 +1,4 @@
-Lab 3: Visual Policy Editor Concepts
+Lab 2: Visual Policy Editor Concepts
 =============================================
 
 Objectives
