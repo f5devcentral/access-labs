@@ -1,18 +1,8 @@
-Lab 2: Visual Policy Editor Concepts
-=============================================
-
-Objectives
-----------
-
-This lab will cover basic concepts of the Visual Policy Editor.
-
-Lab 3 - Visual Policy Editor Concepts
-=============================================
-
-This lab will cover basic concepts of the Visual Policy Editor.
+Lab 2: Access Profile  & Visual Policy Editor Overview
+========================================================
 
 
-Task 1 - Setup Lab Environment
+Setup Lab Environment
 -----------------------------------
 
 To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
@@ -43,7 +33,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **Access Logs Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **Visual Policy Editor(VPE) Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -52,14 +42,22 @@ To access your dedicated student lab environment, you will require a web browser
    |image005|
 
 
-
-Task 2: Branches
------------------
-
+Section 1 - The Access Profile
+------------------------------
 
 
-Task 3: Building Blocks
---------------------------------------------------
+
+
+Section 2 - Visual Policy Editor(VPE)
+----------------------------------------
+
+
+Task 2.1 - Branches
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Task 2.2 - Building Blocks
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Logon
 #. Authentication
@@ -68,8 +66,8 @@ Task 3: Building Blocks
 #. Endpoint Security (Client-Side)
 #. General Purpose
 
-Task 4: Macros
----------------
+Task 2.3 - Macros
+~~~~~~~~~~~~~~~~~~~
 
 #. Why use macros?  And When?
 
@@ -91,8 +89,8 @@ Task 4: Macros
     - BIG-IP as SAML Service Provider
 
 
-Task 5: Endings
-----------------------------
+Task 2.5: Endings
+~~~~~~~~~~~~~~~~~~~
 
 #. Edit Endings
     - Allow
@@ -105,59 +103,28 @@ Task 5: Endings
 
 
 
-Lab 5 is now complete.
+Lab CleanUp
+------------------------
 
+#. From a browser on the jumphost navigate to https://portal.f5lab.local
 
-Task 2: Branches
------------------
+#. Click the **Classes** tab at the top of the page.
 
+    |image002|
 
+#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
 
-Task 3: Building Blocks
---------------------------------------------------
+   |image003|
 
-#. Logon
-#. Authentication
-#. Assignment
-#. Endpoint Security (Server-Side)
-#. Endpoint Security (Client-Side)
-#. General Purpose
+#. Hover over tile **Access Logs Overview**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-Task 4: Macros
----------------
+   |image998|
 
-#. Why use macros?  And When?
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-#. Templates
-    - AD auth and resources
-    - AD auth and resources and password change
-    - AD auth query and resources
-    - AD query auth OTP by email and resources
-    - AD auth query OTP by HTTP and resources
-    - Support for Microsoft Exchange
-    - AD auth and LocalDB lockout
-    - LDAP auth and resources
-    - LDAP auth query and resources
-    - RADIUS and resources
-    - SecurID and resources
-    - Windows AntiVirus and Firewall
-    - Client Classification and Prelogon checks
-    - License Check and logging
-    - BIG-IP as SAML Service Provider
+   |image999|
 
+#. This concludes the lab.
 
-Task 5: Endings
-----------------------------
+   |image000|
 
-#. Edit Endings
-    - Allow
-    - Redirect
-    - Deny
-      - Customization
-#. Endings in Macro vs Endings in Policy
-#. Setting Default Endings
-
-
-
-
-Lab 5 is now complete.
