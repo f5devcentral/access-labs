@@ -8,7 +8,7 @@ Regardless of whether it is assigned to an access profile, the default-log-setti
 Lab Requirements
 ----------------
 
-A working configuration from Lab 1 or deploying the lab environment via Task 1: Setup Lab Enviroment below  
+A working configuration from Lab 1 or deploying the lab environment via the **Task 1: Setup Lab Enviroment** below  
 
 
 
