@@ -161,53 +161,184 @@ Section 1 - The Access Profile
 
  .. note::  This page will display any objects used that are used within the policy, but built outside of Visual Policy.  
 
-#. Click **Edit Access Policy for Profile "server1-psp"**
+#. Click **Edit Access Policy for Profile "server1-psp"** to open Visual Policy Editor(VPE) in a new tab.
 
     |image013|
-
-
-
 
 
 Section 2 - Visual Policy Editor(VPE)
 ----------------------------------------
 
+Visual Policy Editor is used for configuration of Access Policies in APM.  Using an access policy, you can define a sequence of checks to enforce the required level of security on a users system, before the user is granted access to servers, applications, and other resources on your network.
+
+The policy below presents a user with a logon page to collect credentials.  Once the credentials are collected they are validated against Active Directory. If the credentials are valid the connection to the server is allowed, if they are invalid access is denied.
+
+    |image014|
+
+Let's explore the components that make up Visual Policy Editor workflows.
+
+
 
 Task 2.1 - Branches
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A branch rule evaluates the result of an access policy action, findings about a client system, or other access policy item. The outcome of the evaluation of a branch rule grants or denies access, or continues on to the next action. The order of branch rules in an access policy determines the flow of action.
+
+Some actions such as Logon Pages only have a single default branch, while other actions such as authentication will have a minimum of two branches.  
+
+When a creating a policy from scratch there will only be a single branch connecting the **Start** item to the **Deny** Terminal as depicted below.
+
+
+#. Click on the **AD Auth** action to explore its configuration.
+
+    |image015|
+
+#.  Actions will have atleast two tabs.  One contains the settings for that action, while the second one contains the Branch Rules. Click **Branch Rules**.
+
+    |image016|
+
+#.  The AD Auth action has two branch rules. In order to proceed down the Succesful branch **Active Directory Auth has Passed** must be true.  If not the user will proceed down the fallback branch. Click **change** to take a deeper look at the Expression.
+
+    |image017|
+
+#. Expressions can be modified under the **Simple** or **Advanced** Tabs.  The Simple tab allows you create expression using boolean logic.  If something is added to the AND experssion both conditions must be true.  While if something is add the OR condition either condition must be true.  Click **Advanced**. 
+
+    |image018|
+
+#.  The **Advanced** tab allows direct modifation of the expression using TCL.  You can now see that AD Auth action evaluates the session variable session.ad.last.authresult to determine if the value is a 1(true).
+#.  Click **Cancel** because we do not want to modify anything in the AD Auth action.  
+    
+    |image019|
+
 
 
 Task 2.2 - Building Blocks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Logon
-#. Authentication
-#. Assignment
-#. Endpoint Security (Server-Side)
-#. Endpoint Security (Client-Side)
-#. General Purpose
+APM includes a number of pre-defined actions. You can see the available actions in the visual policy editor when you click the Add Item button , which is activated by positioning the cursor along the actions rule branch. The Add Item popup screen opens as a floating popup screen on top of the visual policy editor.
+
+#. Click the **+ (Plus Symbol) on the Successful of the AD Auth Action.
+
+    |image020|
+
+The Actions selection screen has a default set of six tabs.  Each tab contains a collection of prefined actions related to that tab.
+
+#. The **Logon** tab contains various ways of collections user credentials.
+
+    |image021|
+
+#. Click the Authentication Tab.  It contains actions that either validate credentials or interact with directory servers in some way.
+
+    |image022|
+    |image023|
+
+#.  Click the **Assigment** tab.  It determines the associatation between resources and users.  Secoondly this is where mechanisms such as ACLs orbandwidth controls are chosen.
+
+    |image024|
+
+
+#. Click the Endpoint Security (Server-side) tab.  These endpoint checks do not require anything to be installed on the client. 
+
+    |image025|
+
+#. Click the Endpoint Security (Client-side) tab.  These endpoints checks require software to be installed on the client.  Either the Edge Client is using VPN or F5 Helper Agent if performing posture via a webbrowser.  It's important to know the initial installation requires administrative privildges on th client machine.  In this enviorment the software is already installed on the jumphost.
+
+    |image026|
+
+
+#. Click the **General Purpose** tab. We are now going to add a new action to the policy. 
+#. Click **Message Box*
+#. Click **Add Item**
+
+    |image027|
+
+#. Enter the text **Learning APM** in the Title Section.  
+#. Click **Save**
+    
+    |image028|
+
+#.  We have successfully added our first new action to this policy.  Now After the user credentials are successfully validated against Active Directory the user will see a message box with the text "Learning APM".  
+#.  Also notice a new set of text has appeared in the top left corner of the policy.  When you see **Apply Access Policy** in the left corner it means a policy has changes that have been saved but yet to be commited.  It is important to understand that changes made to a per-session policy do not impact existing sessions. we will leave it that way for now as we have more changes to make.
+   
+    |image029|
 
 Task 2.3 - Macros
 ~~~~~~~~~~~~~~~~~~~
 
-#. Why use macros?  And When?
+A macro is a collection of actions that you can configure to provide common access policy functions. You can create a macro for any action or series of actions in an access policy. You can also create macros that contain macrocalls to other macros (nested macros).
+After you create a macro, you place it in the access policy by adding an item called a macrocall to your policy. A macrocall is an action that performs the functions defined in a macro. In the visual policy editor, a macrocall appears in an access policy, or in a macro definition, as a single rectangular item, surrounded by a double line, with one or more outgoing macro terminal branches, called terminals.
+
+In this task we are going to create a Macro that detects the client operating system.  If the system is Windows it proceed to a Firewall check.  If the system is anything but Windows the client will proceed down the **Fail** branch.
+
+    |image030|
+
+#. Click **Add New Macro**.  
+
+    |image031|
+
+#. Enter the name for the macro **Posture Assessments**
+#. Click Save
+
+    |image032|
+
+#.  The empty Macro name now Appears under the policy and can be edited just like the main Per-session Policy.
+#.  Expand the Macro by clicking the plus symbol
+
+    |image033|
+
+#.  By default a Macro only has a single terminal.  We know upfront that we intent to have a pass/fail condition so it is best create our additional terminal upfront.
+#.  Click **Edit Terminals**
+
+    |image034|
+
+#. Click **Add Terminal**
+
+    |image035|
+
+#. Change the default terminal text to **Pass*. This is the terminal using the color green 
+#. Change the new terminal text to **Fail**.  
+#. Toggle the Terminal Endpoints order so the **Fail** Terminal is on the **bottom**.
+
+    |image036|
+
+#. Click **Set Default**
+#. Change the default to **Fail**
+#. Click **Save**
+
+    |image037|
+
+#. Click the **+(Plus Symbol) inside of the Macro's fallback branch.
+
+    |image038|
+
+#. Click the **Endpoint Security (Server-Side)** tab
+#. Select **Client OS**
+#. Click **Add Item**
+
+    |image039|
+
+#. Click **Save**
+
+    |image040|
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
 
 #. Templates
-    - AD auth and resources
-    - AD auth and resources and password change
-    - AD auth query and resources
-    - AD query auth OTP by email and resources
-    - AD auth query OTP by HTTP and resources
-    - Support for Microsoft Exchange
-    - AD auth and LocalDB lockout
-    - LDAP auth and resources
-    - LDAP auth query and resources
-    - RADIUS and resources
-    - SecurID and resources
-    - Windows AntiVirus and Firewall
-    - Client Classification and Prelogon checks
-    - License Check and logging
-    - BIG-IP as SAML Service Provider
+
+#. Terminals
+  
 
 
 Task 2.5: Endings
@@ -220,6 +351,10 @@ Task 2.5: Endings
       - Customization
 #. Endings in Macro vs Endings in Policy
 #. Setting Default Endings
+
+
+Task 2.6 Testing
+~~~~~~~~~~~~~~~~~~
 
 
 
