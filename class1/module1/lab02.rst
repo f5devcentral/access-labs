@@ -1,4 +1,4 @@
-Lab 2: Access Profile  & Visual Policy Editor Overview
+Lab 2: Intro to Per-Session Policies
 ========================================================
 
 
@@ -43,7 +43,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 Section 1 - The Access Profile
-------------------------------
+--------------------------------
 
 #. From a browser navigate to https://bigip1.f5lab.local
 
