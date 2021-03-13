@@ -321,42 +321,118 @@ In this task we are going to create a Macro that detects the client operating sy
 
     |image040|
 
-    
+#. We able to only allow Windows hosts to connect.  Click **Pass** on  the Windows RT branch.
 
+    |image041|
 
+#. Select **Fail**
+#. Click **Save**
 
+    |image042|
 
+#. Click the **Fail** Terminal on the Windows branch.
 
+    |image043|
 
+#. Select **Pass**
+#. Click **Save**
 
+    |image044|
 
+#. Click the **+(Plus Symbol) inside of the Windows branch.
 
+    |image045|
 
+#. Click the **Endpoint Security (Client-side) tab.
+#. Select **Firewall**
+#. Click **Add Item**
 
+    |image046|
 
+#. Leave the defaults.  Click **Save**
 
-#. Templates
+    |image047|
 
-#. Terminals
-  
+#. Now add your completed Macro to the Policy by clicking the **+(Plus Symbol) between the the Start Item and Logon Page action.
+
+    |image048|
+
+#. A new tab has appeared now that a Macro has been configured.  Click the **Macros** tab
+#. Select **Posture Assessments**
+#. Click **Add Item**
+
+    |image049|
 
 
 Task 2.5: Endings
 ~~~~~~~~~~~~~~~~~~~
 
-#. Edit Endings
-    - Allow
-    - Redirect
-    - Deny
-      - Customization
-#. Endings in Macro vs Endings in Policy
-#. Setting Default Endings
+Endings allow an administrtor to customize APM's reponsse by introducing redirects rather than generic Allow or Deny action.   We will explore added a redirect to our policy to see it's behavior during testing.
+
+#. Click **Edit Endings**
+
+    |image050|
+
+#. Click **Add Ending**
+
+    |image051|
+
+#. Select the **Redirect** radio button
+#. Enter the URL **https://www.f5.com**
+#. Update the color #16 Violet
+#. Enter the Name **Redirect** for the Redirect Terminal
+#. Click **Save**
+
+    |image052|
+
+#. Select the **Deny** Terminal off the AD Auth Action fallback branch
+
+    |image053|
+
+#. Select the **Redirect** Terminal
+#. Click **Save**
+
+    |image054|
+
+#.  We now a have completed Policy.  Click **Apply Access Policy** in the top left.
+
+    |image055|
 
 
 Task 2.6 Testing
 ~~~~~~~~~~~~~~~~~~
 
+#. Open a new tab in browser and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and the first thing that happens in our policy is the Windows and Firewall Check.  You can see these are being performed as the agent software is being triggered when the screen states **Awaiting Connection...** and then transitions to **Checking for security software**. 
 
+    |image056|
+
+    |image057|
+
+#. After posture assement has been successful performed the logon screen will appear.
+
+    |image058|
+
+#. we are going to first test if the redirect works by failing Active Directory Authentication.  Enter the username: test and password:test and attempt to logon.  Repeat this step two more times because the AD auth agent by default requires three failed logon attempts before sending the user down the fallback branch.
+
+    |image059|
+
+#.  One authentication has been failed 3 times you are directed to https://www.f5.com as expected.
+
+    |image060|
+
+#.  The session has been closed by the redirect Action.  Navigate back to https://server1.acme.com
+#.  At the logon page enter the Username:**user1** and Password:**user1**
+#.  Click **Logon**
+
+    |image061|
+
+#.  After successfull authentication you are presented the Message box with the text **learning APM**.  Click **Continue**.
+
+    |image062|
+
+#. User1 has successfully authenticated through the policy and now granted access to their resource.  
+
+    |image063|
 
 
 Lab CleanUp
@@ -372,7 +448,7 @@ Lab CleanUp
 
    |image003|
 
-#. Hover over tile **Access Logs Overview**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **Visual Policy Editor(VPE) Overview**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
    |image998|
 
@@ -390,5 +466,63 @@ Lab CleanUp
 .. |image003| image:: ./media/lab02/003.png
 .. |image004| image:: ./media/lab02/004.png
 .. |image005| image:: ./media/lab02/005.png
+.. |image006| image:: ./media/lab02/006.png
+.. |image007| image:: ./media/lab02/007.png
+.. |image008| image:: ./media/lab02/008.png
+.. |image009| image:: ./media/lab02/009.png
+.. |image010| image:: ./media/lab02/010.png
+.. |image011| image:: ./media/lab02/011.png
+.. |image012| image:: ./media/lab02/012.png
+.. |image013| image:: ./media/lab02/013.png
+.. |image014| image:: ./media/lab02/014.png
+.. |image015| image:: ./media/lab02/015.png
+.. |image016| image:: ./media/lab02/016.png
+.. |image017| image:: ./media/lab02/017.png
+.. |image018| image:: ./media/lab02/018.png
+.. |image019| image:: ./media/lab02/019.png
+.. |image020| image:: ./media/lab02/020.png
+.. |image021| image:: ./media/lab02/021.png
+.. |image022| image:: ./media/lab02/022.png
+.. |image023| image:: ./media/lab02/023.png
+.. |image024| image:: ./media/lab02/024.png
+.. |image025| image:: ./media/lab02/025.png
+.. |image026| image:: ./media/lab02/026.png
+.. |image027| image:: ./media/lab02/027.png
+.. |image028| image:: ./media/lab02/028.png
+.. |image029| image:: ./media/lab02/029.png
+.. |image030| image:: ./media/lab02/030.png
+.. |image031| image:: ./media/lab02/031.png
+.. |image032| image:: ./media/lab02/032.png
+.. |image033| image:: ./media/lab02/033.png
+.. |image034| image:: ./media/lab02/034.png
+.. |image035| image:: ./media/lab02/035.png
+.. |image036| image:: ./media/lab02/036.png
+.. |image037| image:: ./media/lab02/037.png
+.. |image038| image:: ./media/lab02/038.png
+.. |image039| image:: ./media/lab02/039.png
+.. |image040| image:: ./media/lab02/040.png
+.. |image041| image:: ./media/lab02/041.png
+.. |image042| image:: ./media/lab02/042.png
+.. |image043| image:: ./media/lab02/043.png
+.. |image044| image:: ./media/lab02/044.png
+.. |image045| image:: ./media/lab02/045.png
+.. |image046| image:: ./media/lab02/046.png
+.. |image047| image:: ./media/lab02/047.png
+.. |image048| image:: ./media/lab02/048.png
+.. |image049| image:: ./media/lab02/049.png
+.. |image050| image:: ./media/lab02/050.png
+.. |image051| image:: ./media/lab02/051.png
+.. |image052| image:: ./media/lab02/052.png
+.. |image053| image:: ./media/lab02/053.png
+.. |image054| image:: ./media/lab02/054.png
+.. |image055| image:: ./media/lab02/055.png
+.. |image056| image:: ./media/lab02/056.png
+.. |image057| image:: ./media/lab02/057.png
+.. |image058| image:: ./media/lab02/058.png
+.. |image059| image:: ./media/lab02/059.png
+.. |image060| image:: ./media/lab02/060.png
+.. |image061| image:: ./media/lab02/061.png
+.. |image062| image:: ./media/lab02/062.png
+.. |image063| image:: ./media/lab02/063.png
 .. |image998| image:: ./media/lab02/998.png
 .. |image999| image:: ./media/lab02/999.png
