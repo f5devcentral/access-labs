@@ -137,7 +137,7 @@ Section 1 - The Access Profile
     | SSO Configuration       | Predefined SSO          | SSO configurations contain settings to configure single sign-on with an access profile. Select the SSO             |
     |                         | Configuration           | configuration from the list that you want applied to your domain.                                                  |
     |                         |                         |                                                                                                                    |                                                                                      
-+-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
+    +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 
 #. Click **Multiple Domains**.  Notice additional fields now appear on the screen.
@@ -159,7 +159,7 @@ Section 1 - The Access Profile
 
 #. Click **Access Policy**
 
- .. note::  This page will display any objects used that are used within the policy, but built outside of Visual Policy.  
+    .. note::  Object builts outside visual policy editor, but used within the policy are displayed here.  
 
 #. Click **Edit Access Policy for Profile "server1-psp"** to open Visual Policy Editor(VPE) in a new tab.
 
