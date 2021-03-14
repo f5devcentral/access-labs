@@ -12,7 +12,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumphostf5lab.local
 
-|image001|
+|image101|
 
 
 #. Select your RDP resolution.  
@@ -273,3 +273,4 @@ This concludes the APM lab on created and deleting APM objects via iControlREST.
 .. |image028| image:: media/lab01/028.png
 .. |image029| image:: media/lab01/029.png
 .. |image030| image:: media/lab01/030.png
+.. |image101| image:: media/lab01/101.png

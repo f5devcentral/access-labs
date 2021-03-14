@@ -15,7 +15,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumphostf5lab.local
 
-|image001|
+|image101|
 
 
 #. Select your RDP resolution.  
@@ -254,4 +254,5 @@ This concludes our lab on modifying a webtop via automation.
 .. |image031| image:: media/lab03/031.png
 .. |image032| image:: media/lab03/032.png
 .. |image100| image:: media/lab03/100.png
+.. |image101| image:: media/lab03/101.png
 

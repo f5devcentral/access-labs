@@ -16,7 +16,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumphostf5lab.local
 
-|image001|
+|image101|
 
 
 #. Select your RDP resolution.  
@@ -263,4 +263,5 @@ This concludes the lab on creating and deleting a SAML SP Access Policy.
 .. |image033| image:: media/lab02/033.png
 .. |image034| image:: media/lab02/034.png
 .. |image100| image:: media/lab02/100.png
+.. |image101| image:: media/lab02/101.png
 

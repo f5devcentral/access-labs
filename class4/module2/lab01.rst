@@ -17,7 +17,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumphostf5lab.local
 
-|image001|
+|image101|
 
 
 #. Select your RDP resolution.  
@@ -313,4 +313,5 @@ This concludes the lab on building an empty Access Policy
 .. |image039| image:: media/lab01/039.png
 .. |image040| image:: media/lab01/040.png
 .. |image100| image:: media/lab01/100.png
+.. |image101| image:: media/lab01/101.png
 
