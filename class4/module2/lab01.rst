@@ -6,6 +6,29 @@ In this lab you will learn about the API calls necessary to build the baseline f
 
     |image100|
 
+
+
+Access Lab Environment
+-------------------------
+
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumphostf5lab.local
+
+|image001|
+
+
+#. Select your RDP resolution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#.  login with the following credentials:
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+
 Task 1 - Import Postman Collections
 -----------------------------------------------------------------------
 

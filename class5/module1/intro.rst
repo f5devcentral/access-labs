@@ -1,5 +1,6 @@
 Environment Overview
-=====================
+======================
+
 
 
 UDF Blueprint
@@ -8,7 +9,7 @@ UDF Blueprint
 Access Labs & Solutions (Version 16.0)
 
 Lab Topology
----------------
+-----------------
 
 |image000|
 
@@ -26,11 +27,10 @@ The following components have been included in your lab environment:
 - 1 x Centos 7 - web.f5lab.local
 
 Lab Components
-----------------
+--------------------
 
 The following table lists VLANS, IP Addresses and Credentials for all
 components:
-
 
 
 +------------------------+-------------------------+--------------------------+
@@ -118,4 +118,6 @@ components:
 
 .. |image000| image:: media/intro/000.png
 .. |image001| image:: media/intro/001.png
+
+
 
