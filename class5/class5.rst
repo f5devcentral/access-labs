@@ -32,5 +32,24 @@ Authentication issues that you could experience.
 503 - Third-Party Tools
 ------------------------------  
 
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   module3/intro.rst
+   module3/lab*
+
+504 - Scenario Troubleshooting
+---------------------------------  
+
+.. toctree::
+   :maxdepth: 1
+   :glob:
+   
+   module4/intro.rst
+   module4/lab*
+
+
+
   
  
