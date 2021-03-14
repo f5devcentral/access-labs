@@ -127,9 +127,15 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 5. Click on **Add New Subroutine**                                                           |
 |                                                                                              |
+
++----------------------------------------------------------------------------------------------+
+| |Lab2-Image10|                                                                               |
+|                                                                                              |
 | 6. Give it a name and Click Save                                                             |
 |                                                                                              |
 |    -  **Name**: **AD_Subroutine**                                                            |
+|                                                                                              |                                                                                           |
+| |Lab2-Image11|                                                                               |
 |                                                                                              |
 | 7. Click the + between In and Out                                                            |
 |                                                                                              |
@@ -139,30 +145,36 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 10. Select **Save** at the bottom of the Logon Page dialog box                               |
 |                                                                                              |
-+----------------------------------------------------------------------------------------------+
-| |Lab2-Image10|                                                                               |
-|                                                                                              |
-| |Lab2-Image11|                                                                               |
 |                                                                                              |
 | |Lab2-Image12|                                                                               |
 |                                                                                              |
-| |Lab2-Image13                                                                                |
+| |Lab2-Image13|                                                                               |
 +----------------------------------------------------------------------------------------------+
 
+Task 3: Configure Step Up Authentication with Per Request Policies
+--------------------------------------
+
 +----------------------------------------------------------------------------------------------+
-| 4. In the subroutine, between the Logon page and the green out branch click the +            |
+| 4. In the subroutine, between the Logon page and the green out branch click the + sign and   |
+|   select the **Logon Tab** and click the **Logon Page** radio button                         |
+|   |Lab2-Image14|                                                                             |
+|   |Lab2-Image15|                                                                             |
 |                                                                                              |
+|   |Lab2-Image16|                                                                             |                                                                                           |
 | 5. Click on **Authentication**                                                               |
 |                                                                                              |
+|   |Lab2-Image17|                                                                             |
+|                                                                                              |
 | 6. Select AD Auth and click **Add Item** at the bottom                                       |
+|   |Lab2-Image18|                                                                             |
 |                                                                                              |
 | 7. Give the item a name                                                                      |
 |    -  **Name**: **AD_Auth**                                                                  |
 |                                                                                              |
-| 7. Select **/Common/Lab_SSO_AD_Server** for the Server option                                |
+| 8. Select **/Common/Lab_SSO_AD_Server** for the Server option                                |
 |                                                                                              |
 | 8. Click the **Save**                                                                        |
-|                                                                                              |
+|    |Lab2-Image19|                                                                            |
 | 9. Between **AD Auth** and the Out endpoint click the + Sign                                 |
 |                                                                                              |
 | 10. Select Authentication and Select the **AD Query radio button and click **Add Item**      |
@@ -187,18 +199,6 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
-| |Lab2-Image14|                                                                               |
-|                                                                                              |
-| |Lab2-Image15|                                                                               |
-|                                                                                              |
-| |Lab2-Image16|                                                                               |
-|                                                                                              |
-| |Lab2-Image17|                                                                               |
-|                                                                                              |
-| |Lab2-Image18|                                                                               |
-|                                                                                              |
-| |Lab2-Image19|                                                                               |
-|                                                                                              |
 | |Lab2-Image20|                                                                               |
 |                                                                                              |
 | |Lab2-Image21|                                                                               |
