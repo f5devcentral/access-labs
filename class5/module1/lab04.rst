@@ -1,5 +1,5 @@
- Server-Side(SSO) Kerberos 
- =============================
+Server-Side(SSO) Kerberos 
+=============================
 
 APM server side (SSO) Kerberos involves a non-domain (external) client and an APM VIP. The APM VIP contains a Kerberos SSO profile that will request a Kerberos ticket to the target resource on the client’s behalf (S4U2Self and S4U2Proxy). In the following example screenshots, the target resource is an IIS server in the ECHO domain, which is a child domain of CHARLIE.COM. For this lab, all communications will be direct to the ECHO domain, so no cross-domain authentication is necessary. Please follow the steps below to create this environment:
 #.	Ensure that time is correct between the domain controller, client, and BIG-IP.
