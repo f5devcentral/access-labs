@@ -207,6 +207,33 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | |Lab2-Image23|                                                                               |
 |                                                                                              |
+| |Lab2-Image24|                                                                               |
+|                                                                                              |
+| |Lab2-Image25|                                                                               |
+|                                                                                              |
+| |Lab2-Image26|                                                                               |
+|                                                                                              |
+| |Lab2-Image27|                                                                               |
+|                                                                                              |
+| |Lab2-Image28|                                                                               |
+|                                                                                              |
+| |Lab2-Image29|                                                                               |
+|                                                                                              |
+| |Lab2-Image30|                                                                               |
+|                                                                                              |
+| |Lab2-Image31|                                                                               |
+|                                                                                              |
+| |Lab2-Image32|                                                                               |
+|                                                                                              |
+| |Lab2-Image33|                                                                               |
+|                                                                                              |
+| |Lab2-Image34|                                                                               |
+|                                                                                              |
+| |Lab2-Image35|                                                                               |
+|                                                                                              |
+| |Lab2-Image36|                                                                               |
+|                                                                                              |
+| |Lab2-Image37|                                                                               |
 +----------------------------------------------------------------------------------------------+
 
 
@@ -240,3 +267,12 @@ Lab 2 is now complete.
 .. |Lab2-Image26| image:: /class1/module2/media/Lab2-Image26.png
 .. |Lab2-Image27| image:: /class1/module2/media/Lab2-Image27.png
 .. |Lab2-Image28| image:: /class1/module2/media/Lab2-Image28.png
+.. |Lab2-Image29| image:: /class1/module2/media/Lab2-Image29.png
+.. |Lab2-Image30| image:: /class1/module2/media/Lab2-Image30.png
+.. |Lab2-Image31| image:: /class1/module2/media/Lab2-Image31.png
+.. |Lab2-Image32| image:: /class1/module2/media/Lab2-Image32.png
+.. |Lab2-Image33| image:: /class1/module2/media/Lab2-Image33.png
+.. |Lab2-Image34| image:: /class1/module2/media/Lab2-Image34.png
+.. |Lab2-Image35| image:: /class1/module2/media/Lab2-Image35.png
+.. |Lab2-Image36| image:: /class1/module2/media/Lab2-Image36.png
+.. |Lab2-Image37| image:: /class1/module2/media/Lab2-Image37.png
