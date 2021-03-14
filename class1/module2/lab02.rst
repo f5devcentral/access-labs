@@ -127,7 +127,6 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 5. Click on **Add New Subroutine**                                                           |
 |                                                                                              |
-
 +----------------------------------------------------------------------------------------------+
 | |Lab2-Image10|                                                                               |
 |                                                                                              |
