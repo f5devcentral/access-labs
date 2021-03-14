@@ -151,9 +151,6 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 | |Lab2-Image13|                                                                               |
 +----------------------------------------------------------------------------------------------+
 
-Task 3: Configure Step Up Authentication with Per Request Policies
---------------------------------------
-
 +----------------------------------------------------------------------------------------------+
 | 4. In the subroutine, between the Logon page and the green out branch click the + sign and   |
 |   select the **Logon Tab** and click the **Logon Page** radio button                         |
