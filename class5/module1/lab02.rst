@@ -1,4 +1,4 @@
- Working with Session Variables
+Working with Session Variables
 ==================================
 
 This section will provide some guidance on how to both retrieve and set
