@@ -17,7 +17,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumphostf5lab.local
 
-|image101|
+    |image101|
 
 
 #. Select your RDP resolution.  
