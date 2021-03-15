@@ -453,6 +453,120 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
       .. Important:: We will not be configuring this function in this lab.  These are all examples.  For more information on `SSO/Auth Domains <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/single-sign-on-and-multi-domain-support.html>`_
 
+#.  From the top menu bar click on **Logs**
+#.  The log profile we created earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
+#.  Click Update.
+
+    That concludes the review of the Per Session policy.
+
+    .. Note:: A per session profile is required (even if it is blank) to be deployed with a per request policy
+
+**Per Request policies**
+
+#.  From the left menu navigate to **Access** --> **Profiles/Policies** --> **Per Request Policies**
+
+      APM executes per-session policies when a client attempts to connect to the enterprise. After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request. Because of this behavior, a per-request policy is particularly useful in the context of a Secure Web Gateway or Zero Trust scenario, where the client requires re-verification on every request, or changes based on gating criteria.
+
+      A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You can use nearly all of the same agents in per-request policies that you can use in per-session policies. However, most of the agents (including authentication agents) have to be used in a subroutine in per-request policies.
+
+#. Click **Create**
+
+      +----------------------+---------------------------+----------------------------------+
+      |General Properties    | Name                      |  Basic_prp_policy                |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Type              |  All                             |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Incomplete Action         |  Deny                            |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Customization Type        |  Modern                          |
+      +----------------------+---------------------------+----------------------------------+
+      |Language Settings     | Accepted Languages        |  English                         |
+      +----------------------+---------------------------+----------------------------------+
+
+#. Click **Edit**
+
+      A per request policy creation will work the same way as a per session policy allowing you to add various items to the main policy and create macros. In addition a per request policy can also contain subroutines.
+
+      .. Note:: A per-request policy subroutine is a collection of actions. What distinguishes a subroutine from other collections of actions (such as macros), is that a subroutine starts a subsession that, for its duration, controls user access to specified resources. If a subroutine has an established subsession, subroutine execution is skipped. A subroutine is therefore useful for cases that require user interaction (such as a confirmation dialog or a step-up authentication), since it allows skipping that interaction in a subsequent access.
+      You cannot use subroutines in macros within per-request policies.
+      Subroutine properties specify subsession timeout values, maximum macro loop count, and gating criteria. You can reauthenticate, check for changes on the client, or take other actions based on timeouts or gating criteria.
+
+      .. Note:: A subsession starts when a subroutine runs and continues until reaching the maximum lifetime specified in the subroutine properties, or until the session terminates. A subsession populates subsession variables that are available for the duration of the subsession. Subsession variables and events that occur during a subsession are logged. Multiple subsessions can exist at the same time. The maximum number of subsessions allowed varies across platforms. The total number of subsessions is limited by the session limits in APM (128 * max sessions). Creating a subsession does not count against the license limit.
+
+#. If you click on the plus between Start and Allow a new box will appear and you can explore the various components that can be added.  At this time we will leave the policy blank and return to populate it in later tasks.
+
+**Policy Sync**
+
+#. Click on **Access** --> **Profiles/Policies** --> **Policy sync**
+
+      BIG-IP APM Policy Sync maintains access policies on multiple BIG-IP APM devices while adjusting appropriate settings for objects that are specific to device locations, such as network addresses. You can synchronize policies from one BIG-IP APM device to another BIG-IP APM device, or to multiple devices in a device group.
+
+      A sync-only device group configured for automatic and full sync is required to synchronize access policies between multiple devices.
+
+      .. Important:: USE WITH CAUTION.  This is an advanced feature and you should consult with your F5 Account team or Professional Services before implementing this configuration.
+
+      .. Note:: In BIG-IP 13.1.0, a maximum of either BIG-IP APM systems are supported in a sync-only group type.
+
+**Customization**
+
+#. Click on **Access** --> **Profiles/Policies** --> **Customization**
+
+      What are customization and localization?
+
+      Customization and localization are ways to change the text and the language that users see, and to change the appearance of the user interface that Access Policy Manager presents to client users. Customization provides numerous settings that let you adapt the interface to your particular operation. Localization allows you to use different languages in different countries.
+
+      About the Customization tool
+
+      The Customization tool is part of Access Policy Manager (APM). With the Customization tool, you can personalize screen messages and prompts, change screen layouts, colors, and images, and customize error messages and other messages using specific languages and text for policies and profiles developed in APM. You can customize settings in the Basic Customization view (fewer settings) or change the view to General Customization (many settings). In the General Customization view, you can use the Customization tool in the BIG-IP admin console, or click Popout to open it in a separate browser window. In either view, you can click Preview to see what an object (such as Logon page or Deny Ending Page) will look like.
+
+      After you personalize settings, remember to click the **Save** icon to apply your changes.
+
+#. About basic, general, and advanced customization
+
+      The Customization tool provides three views that you can use to customize the interface. The General Customization view provides the greatest number of options
+      and is where most of the customization takes place.
+
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | View                 | Description                                                                                                        |
+      +======================+====================================================================================================================+
+      | Quick Start/Basic    |Basic customization provides a limited set of options intended for quick modification of the objects that are       |
+      | Customization        |commonly displayed to users. This is the default customization view. Use this to configure basic look and feel      |
+      |                      |for pages, and common text labels and captions for resources on the webtop. Different options exist depending on    |
+      |                      |the Customization Type selected when the policy was created.                                                        |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | General              |This view provides a tree structure containing all the configuration elements, and more detailed options to         |
+      | Customization        |customize objects, such as:                                                                                         |
+      |                      |                                                                                                                    |
+      |                      |- The size, color, and placement of forms and screens.                                                              |
+      |                      |- The look and feel of objects with more opportunities to replace images.                                           |
+      |                      |- Text on the screen, including headers and footers.                                                                |
+      |                      |- Messages, including installation and error messages.                                                              |
+      |                      |                                                                                                                    |
+      |                      |Any text or image that you can customize using the visual policy editor, can also be adjusted using the general     |
+      |                      |customization UI. Different options exist depending on the Customization Type selected when the policy was created, |
+      |                      |and which elements were added to the access or per-request policy.                                                  |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Advanced             |Advanced customization provides direct access to PHP, Cascading Style Sheets (CSS), JavaScript, and HTML files that |
+      | Customization        |you can edit to control the display and function of web and client pages in Access Policy Manager.                  |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+
+      .. Note:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
+
+#. Under **Available Profiles** choose the /Common/Basic_policy
+#. Select Language:  **English**
+#. Let's upload a new image.  Click **Upload New Image**
+#. Choose an image from the selection and click **Open**
+#. Pick a Background color
+#. Pick a Header Background color
+#. Change the footer Text
+#. Click on the **Preview** button
+#. Choose **Access Profiles** --> **/Common/Basic_policy** --> **Access Policy** --> **Ending pages** -- **Deny**
+
+      Bonus Answer:  Why don't we see logon pages?
+
+      .. Hint::  What is in the policy so far?
+
+
 
 Lab 2 is now complete.
 
