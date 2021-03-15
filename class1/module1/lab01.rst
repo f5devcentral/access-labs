@@ -1099,3 +1099,17 @@ Lab 2 is now complete.
 .. |adpool| image:: /class1/module1/media/lab01/adpool.png
 .. |basicpolicy| image:: /class1/module1/media/lab01/basicpolicy.png
 .. |samlidp| image:: /class1/module1/media/lab01/samlidp.png
+
+.. |image001| image:: /class1/module1/media/lab01/001.png
+.. |image002| image:: /class1/module1/media/lab01/002.png
+.. |image003| image:: /class1/module1/media/lab01/003.png
+.. |image004| image:: /class1/module1/media/lab01/004.png
+.. |image005| image:: /class1/module1/media/lab01/005.png
+.. |image006| image:: /class1/module1/media/lab01/006.png
+.. |image007| image:: /class1/module1/media/lab01/007.png
+.. |image008| image:: /class1/module1/media/lab01/008.png
+.. |image009| image:: /class1/module1/media/lab01/009.png
+.. |image010| image:: /class1/module1/media/lab01/010.png
+.. |image011| image:: /class1/module1/media/lab01/011.png
+.. |image012| image:: /class1/module1/media/lab01/012.png
+.. |image013| image:: /class1/module1/media/lab01/013.png
