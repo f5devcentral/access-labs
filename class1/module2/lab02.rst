@@ -133,10 +133,10 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 |    -  **Name**: **AD_Subroutine**                                                            |
 |                                                                                              |
-| |Lab2-Image11|                                                                               |
 | |Lab2-Image13|                                                                               |
+| |Lab2-Image11|                                                                               |
 |                                                                                              |
-| 7. Click the + between In and Out                                                            |
+| 7. Click the + between In and Out In the subroutine                                          |
 |                                                                                              |
 | 8. Click the **Logon** Tab                                                                   |
 |                                                                                              |
@@ -144,13 +144,6 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 10. Select **Save** at the bottom of the Logon Page dialog box                               |
 |                                                                                              |
-|                                                                                              |
-| |Lab2-Image12|                                                                               |
-|                                                                                              |
-|                                                                                              |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
 | 4. In the subroutine, between the Logon page and the green out branch click the + sign and   |
 |   select the **Logon Tab** and click the **Logon Page** radio button                         |
 |   |Lab2-Image14|                                                                             |
