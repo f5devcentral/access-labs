@@ -164,7 +164,7 @@ going to explore the menu and take a look at a few options. We will not be deplo
 
 #.  Proceeding with this configuration will create a number of object as seen here.
 
-    .. Note::  If you are interested in learning more on this specific solution please consider taking the Zero Trust Identity Aware Proxy class.
+      .. Note::  If you are interested in learning more on this specific solution please consider taking the Zero Trust Identity Aware Proxy class.
 
       |image18|
 
@@ -227,7 +227,8 @@ The Overview menu is where an administrator can view active sessions, previous s
 #.  Click the back button on the browser to return to the Active Sessions.
 #.  Click on the Session ID
 
-      .. Note:: The Session ID will also be displayed to the user should they have an issue with logging in.  An error message will display and their session ID will be given
+      .. Note:: The Session ID will also be displayed to the user should they have an issue with logging in.  An error message will display and their session ID will be given.  You can simulate this by editing the access policy **server1-psp** later on in the lab.
+
         |sessionid|
 
 #.  The Session ID will take you to the first set of reporting **Access Report**
@@ -237,68 +238,72 @@ The Overview menu is where an administrator can view active sessions, previous s
       - Where did it flow?
       - Was the user successful?
 
-#.  Return to the first screen by using the back button in the browser
+#.  Return to the first screen by clicking on **Active Sessions** from the menu bar above
+
+      |activesessions|
+
 #.  In **Active Sessions** click on the check box next to the session and select the **Kill Selected Sessions** button.  This will terminate the users session and make them login again.
-#.  Click on **Access Reports**
+
+      |killsession|
+
+#.  Click **Delete**
+#.  Click on **Access Reports** from the menu bar above
 #.  You will be prompted to enter a time period to run the report
 
-|image22|
+      |image22|
 
-.. Note:: This is how you can view past sessions.  Pick a time frame and run a report.
+      .. Note:: This is how you can view past sessions.  Pick a time frame and run a report.
 
-#.  There are two other reporting functions in this screen, **OAuth Report** and **SWG Reports** which will be covered in more detail in later labs
+#.  There are two other reporting functions in this screen, **OAuth Report** and **SWG Reports**.  We will not cover these reports in this lab.
 #.  The last section is Event Logs.
 
-.. Note:: URL Request Logs is part of SWG functionality and will be covered later
+    .. Note:: URL Request Logs is part of SWG functionality and will not be covered in this lab
 
-#.  Click on **Event Logs** and choose **Settings**
-#.  This is where you can create logging profiles for access policies.  From here you can specify what information to collect and to what detail.
+#.  From the top menu bar Click on the drop down next to **Event Logs** and choose **Log Settings**. This is where you can create logging profiles for access policies.  From here you can specify what information to collect and to what detail.
 #.  Click the **Create** button
 #.  We will create a new APM Log profile
 
-+----------------------+---------------------------+----------------------------------+
-|General Information   | Name                      |  Basic_Log_profile               |
-+----------------------+---------------------------+----------------------------------+
-|                      | Enable Access System Logs |  Check box                       |
-+----------------------+---------------------------+----------------------------------+
-|Access System Logs    | Publisher                 |  /Common/sys-db-access-publisher |
-+----------------------+---------------------------+----------------------------------+
-|                      | Access Policy             |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | ACL                       |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | Secure Web Gateway        |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | OAuth                     |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | VDI                       |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | ADFS Proxy                |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | Per-Request Policy        |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | SSO                       |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | ECA                       |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | PingAccess Profile        |  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|                      | Endpoint Management System|  Notice                          |
-+----------------------+---------------------------+----------------------------------+
-|Access Profile        | Selected                  |  Blah                            |
-+----------------------+---------------------------+----------------------------------+
+      +----------------------+---------------------------+----------------------------------+
+      |General Information   | Name                      |  Basic_Log_profile               |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Enable Access System Logs |  Check box                       |
+      +----------------------+---------------------------+----------------------------------+
+      |Access System Logs    | Publisher                 |  /Common/sys-db-access-publisher |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Access Policy             |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | ACL                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Secure Web Gateway        |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | OAuth                     |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | VDI                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | ADFS Proxy                |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Per-Request Policy        |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | SSO                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | ECA                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | PingAccess Profile        |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Endpoint Management System|  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |Access Profile        | Selected                  |  server1-psp                     |
+      +----------------------+---------------------------+----------------------------------+
 
-.. Note:: Within the Access System Logs section of the log profile is where you can change the logging for various portions of the APM Policies.  The one you will use most will be to move Access Policy
-from Notice to Debug and/or Pre-Request Policy from Notice to Debug.  As you can see you can pick and choose what level of notifications you want in your logs.  This will impact what you see in
-Access Reports for a session and what appears in /var/log/apm.
+      .. Note:: Within the Access System Logs section of the log profile is where you can change the logging for various portions of the APM Policies.  The one you will use most will be to move Access Policy from Notice to Debug and/or Pre-Request Policy from Notice to Debug.  As you can see you can pick and choose what level of notifications you want in your logs.  This will impact what you see in Access Reports for a session and what appears in /var/log/apm.
 
 #.  From the left menu go to **Access** --> **Overview** --> **Dashboard**
 
-|image23|
+      |image23|
 
 #.  The Dashboard can give you a quick synopsis on Access Session, Network Access Session, Portal Access and Access control Lists.
 
-.. Note:: For more reporting on APM stats look to BIG-IQ or exporting logs to 3rd party SIEMs and create your own dashboard.
+      .. Note:: For more reporting on APM stats look to BIG-IQ or exporting logs to 3rd party SIEMs and create your own dashboard.
 
 
 Task 4: Profile/Policies
@@ -1082,6 +1087,8 @@ Lab 2 is now complete.
 .. |image23| image:: /class1/module1/media/lab01/image23.png
 .. |image25| image:: /class1/module1/media/lab01/image25.png
 .. |sessionid| image:: /class1/module1/media/lab01/sessionid.png
+.. |activesessions| image:: /class1/module1/media/lab01/activesessions.png
+.. |killsession| image:: /class1/module1/media/lab01/killsession.png
 
 .. |image001| image:: /class1/module1/media/lab01/001.png
 .. |image002| image:: /class1/module1/media/lab01/002.png
