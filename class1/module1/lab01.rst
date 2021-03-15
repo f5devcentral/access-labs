@@ -192,13 +192,13 @@ going to explore the menu and take a look at a few options. We will not be deplo
 #.  Click on the API Protection Proxy configuration
 #.  The topology for API protection describes the configuration for this option. This configuration provides authentication pieces for your API.
 
-      |image19|
+      |image20|
 
       .. Note:: For more complete API protection combine APM with F5 Web Application Firewall for the most robust solution.
 
 #.  The objects created with this configuration:
 
-      |image20|
+      |image21|
 
 Task 3: Overview
 -----------------
