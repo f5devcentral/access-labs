@@ -699,7 +699,7 @@ BIG-IP APM supports industry standard authentication methods, including:
 #. Click on **Assignment** and choose **SSO Credential Mapping** -->  **Add Item** -->  **Save**
 #. Click **Apply Policy**
 #. Open an incognito window and try go to https://server2.acme.com
-#. You should have been prompted to login.  Close the Window
+#. You should have been prompted with a windows login.  Close the Window
 #. Go to **Local Traffic** --> **Virtual Servers** and open server2-https
 #. Scroll to *Access Policy** and click the drop down next to **Access Profile**.  Choose server1-psp
 #. Scroll down click **Update**
