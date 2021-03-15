@@ -77,15 +77,15 @@ limitation of 10 Access and Concurrent user session.
       |               |the modules that are licensed on the unit.                                             |
       +---------------+---------------------------------------------------------------------------------------+
 
-      |image1|
+      |image01|
 
       .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
 
 #. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This
 will not require a reboot but will take approximately 1 to 5 minutes to complete.
 
-      |image2|
-      |image3|
+      |image02|
+      |image03|
 
       .. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
 
@@ -98,7 +98,7 @@ going to explore the menu and take a look at a few options. We will not be deplo
 #.  Go to **Access** --> **Guided Configuration**
 #.  A set of tiles appears at top listing the areas of use cases where Guided Configuration can be used
 
-      |image6|
+      |image06|
 
 #.  Click on the Federation Tile.
 #.  Under this tile are several Identity Federation use cases available.  Each use case has an accompanying guide to walk you through the configuration.  This is not designed for already deployed
@@ -109,15 +109,15 @@ be maintained within this menu.
 
 #.  Here you will find there are couple topologies.  SAML SP Initiated and SAML IdP Initiated.
 
-      |image7|
+      |image07|
 
 #. If there are any required configuration pieces missing to complete guided configuration they will appear in the right pane
 
-      |image8|
+      |image08|
 
 #. Below the topologies you will find all the components that will be configured using the guided configured
 
-      |image9|
+      |image09|
 
 #.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
 
@@ -1046,13 +1046,13 @@ Lab 2 is now complete.
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
 .. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
 .. |issues| image:: /class1/module1/media/lab01/setup/issues.png
-.. |image1| image:: /class1/module1/media/lab01/image01.png
-.. |image2| image:: /class1/module1/media/lab01/image02.png
-.. |image3| image:: /class1/module1/media/lab01/image03.png
-.. |image6| image:: /class1/module1/media/lab01/image6.png
-.. |image7| image:: /class1/module1/media/lab01/image7.png
-.. |image8| image:: /class1/module1/media/lab01/image8.png
-.. |image9| image:: /class1/module1/media/lab01/image9.png
+.. |image01| image:: /class1/module1/media/lab01/image01.png
+.. |image02| image:: /class1/module1/media/lab01/image02.png
+.. |image03| image:: /class1/module1/media/lab01/image03.png
+.. |image06| image:: /class1/module1/media/lab01/image6.png
+.. |image07| image:: /class1/module1/media/lab01/image7.png
+.. |image08| image:: /class1/module1/media/lab01/image8.png
+.. |image09| image:: /class1/module1/media/lab01/image9.png
 .. |image10| image:: /class1/module1/media/lab01/image10.png
 .. |image11| image:: /class1/module1/media/lab01/iamge11.png
 .. |image12| image:: /class1/module1/media/lab01/image12.png
