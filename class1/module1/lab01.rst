@@ -465,8 +465,7 @@ on methods and endpoint checks.  To being we have to create an Access Profile.  
 
       .. Important:: We will not be configuring this function in this lab.  These are all examples.  For more information on `SSO/Auth Domains <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/single-sign-on-and-multi-domain-support.html>`_
 
-#.  Logs
-
+#.  From the top menu bar click on **Logs**
 #.  The log profile we created earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
 #.  Click Update.
 
@@ -474,96 +473,97 @@ That concludes the review of the Per Session policy.
 
 .. Note:: A per session profile is required (even if it is blank) to be deployed with a per request policy
 
+**Per Request policies**
+
 #.  From the left menu navigate to **Access** --> **Profiles/Policies** --> **Per Request Policies**
 
-APM executes per-session policies when a client attempts to connect to the enterprise. After a session starts, a per-request policy runs each time the client
-makes an HTTP or HTTPS request. Because of this behavior, a per-request policy is particularly useful in the context of a Secure Web Gateway or Zero Trust
-scenario, where the client requires re-verification on every request, or changes based on gating criteria.
+      APM executes per-session policies when a client attempts to connect to the enterprise. After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request. Because of this behavior, a per-request policy is particularly useful in the context of a Secure Web Gateway or Zero Trust scenario, where the client requires re-verification on every request, or changes based on gating criteria.
 
-A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You can use nearly all of the same agents
-in per-request policies that you can use in per-session policies. However, most of the agents (including authentication agents) have to be used in a subroutine
-in per-request policies.
+      A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You can use nearly all of the same agents in per-request policies that you can use in per-session policies. However, most of the agents (including authentication agents) have to be used in a subroutine in per-request policies.
 
 #. Click **Create**
 
-+----------------------+---------------------------+----------------------------------+
-|General Properties    | Name                      |  Basic_prp_policy                |
-+----------------------+---------------------------+----------------------------------+
-|                      | Profile Type              |  All                             |
-+----------------------+---------------------------+----------------------------------+
-|                      | Incomplete Action         |  Deny                            |
-+----------------------+---------------------------+----------------------------------+
-|                      | Customization Type        |  Modern                          |
-+----------------------+---------------------------+----------------------------------+
-|Language Settings     | Accepted Languages        |  English                         |
-+----------------------+---------------------------+----------------------------------+
+      +----------------------+---------------------------+----------------------------------+
+      |General Properties    | Name                      |  Basic_prp_policy                |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Type              |  All                             |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Incomplete Action         |  Deny                            |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Customization Type        |  Modern                          |
+      +----------------------+---------------------------+----------------------------------+
+      |Language Settings     | Accepted Languages        |  English                         |
+      +----------------------+---------------------------+----------------------------------+
 
 #. Click **Edit**
 
-A per request policy creation will work the same way as a per session policy allowing you to create various box, subroutines and macros.  If you click on the plus between
-Start and Allow a new box will appear and you can explore the various components that can be added.  At this time we will leave the policy blank and return to populate it
-in later tasks.
+      A per request policy creation will work the same way as a per session policy allowing you to add various items to the main policy and create macros. In addition a per request policy can also contain subroutines.
 
-#. Policy sync
+      .. Note:: A per-request policy subroutine is a collection of actions. What distinguishes a subroutine from other collections of actions (such as macros), is that a subroutine starts a subsession that, for its duration, controls user access to specified resources. If a subroutine has an established subsession, subroutine execution is skipped. A subroutine is therefore useful for cases that require user interaction (such as a confirmation dialog or a step-up authentication), since it allows skipping that interaction in a subsequent access.
+      You cannot use subroutines in macros within per-request policies.
+      Subroutine properties specify subsession timeout values, maximum macro loop count, and gating criteria. You can reauthenticate, check for changes on the client, or take other actions based on timeouts or gating criteria.
 
-BIG-IP APM Policy Sync maintains access policies on multiple BIG-IP APM devices while adjusting appropriate settings for objects that are specific to device locations,
-such as network addresses. You can synchronize policies from one BIG-IP APM device to another BIG-IP APM device, or to multiple devices in a device group.
+      .. Note:: A subsession starts when a subroutine runs and continues until reaching the maximum lifetime specified in the subroutine properties, or until the session terminates. A subsession populates subsession variables that are available for the duration of the subsession. Subsession variables and events that occur during a subsession are logged. Multiple subsessions can exist at the same time. The maximum number of subsessions allowed varies across platforms. The total number of subsessions is limited by the session limits in APM (128 * max sessions). Creating a subsession does not count against the license limit.
 
-A sync-only device group configured for automatic and full sync is required to synchronize access policies between multiple devices.
+#. If you click on the plus between Start and Allow a new box will appear and you can explore the various components that can be added.  At this time we will leave the policy blank and return to populate it in later tasks.
 
-.. Important:: USE WITH CAUTION.  This is an advanced feature and you should consult with your F5 Account team or Professional Services before implementing this configuration.
+**Policy Sync**
 
-.. Note:: In BIG-IP 13.1.0, a maximum of either BIG-IP APM systems are supported in a sync-only group type.
+#. Click on **Access** --> **Profiles/Policies** --> **Policy sync**
 
-#. What are customization and localization?
+      BIG-IP APM Policy Sync maintains access policies on multiple BIG-IP APM devices while adjusting appropriate settings for objects that are specific to device locations, such as network addresses. You can synchronize policies from one BIG-IP APM device to another BIG-IP APM device, or to multiple devices in a device group.
 
-Customization and localization are ways to change the text and the language that users see, and to change the appearance of the user interface that Access Policy Manager
-presents to client users. Customization provides numerous settings that let you adapt the interface to your particular operation. Localization allows you to use different
-languages in different countries.
+      A sync-only device group configured for automatic and full sync is required to synchronize access policies between multiple devices.
 
-#. About the Customization tool
+      .. Important:: USE WITH CAUTION.  This is an advanced feature and you should consult with your F5 Account team or Professional Services before implementing this configuration.
 
-The Customization tool is part of Access Policy Manager (APM). With the Customization tool, you can personalize screen messages and prompts, change screen layouts,
-colors, and images, and customize error messages and other messages using specific languages and text for policies and profiles developed in APM.
+      .. Note:: In BIG-IP 13.1.0, a maximum of either BIG-IP APM systems are supported in a sync-only group type.
 
-You can customize settings in the Basic Customization view (fewer settings) or change the view to General Customization (many settings). In the General Customization
-view, you can use the Customization tool in the BIG-IP admin console, or click Popout to open it in a separate browser window. In either view, you can click Preview
-to see what an object (such as Logon page or Deny Ending Page) will look like.
+**Customization**
 
-After you personalize settings, remember to click the **Save** icon to apply your changes.
+#. Click on **Access** --> **Profiles/Policies** --> **Customization**
+
+      What are customization and localization?
+
+      Customization and localization are ways to change the text and the language that users see, and to change the appearance of the user interface that Access Policy Manager presents to client users. Customization provides numerous settings that let you adapt the interface to your particular operation. Localization allows you to use different languages in different countries.
+
+      About the Customization tool
+
+      The Customization tool is part of Access Policy Manager (APM). With the Customization tool, you can personalize screen messages and prompts, change screen layouts, colors, and images, and customize error messages and other messages using specific languages and text for policies and profiles developed in APM. You can customize settings in the Basic Customization view (fewer settings) or change the view to General Customization (many settings). In the General Customization view, you can use the Customization tool in the BIG-IP admin console, or click Popout to open it in a separate browser window. In either view, you can click Preview to see what an object (such as Logon page or Deny Ending Page) will look like.
+
+      After you personalize settings, remember to click the **Save** icon to apply your changes.
 
 #. About basic, general, and advanced customization
 
-The Customization tool provides three views that you can use to customize the interface. The General Customization view provides the greatest number of options
-and is where most of the customization takes place.
+      The Customization tool provides three views that you can use to customize the interface. The General Customization view provides the greatest number of options
+      and is where most of the customization takes place.
 
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
-| View                 | Description                                                                                                        |
-+======================+====================================================================================================================+
-| Basic                |Basic customization provides a limited set of options intended for quick modification of the objects that are       |
-| Customization        |commonly displayed to users. This is the default customization view. Use this to configure basic look and feel      |
-|                      |for pages, and common text labels and captions for resources on the webtop. Different options exist depending on    |
-|                      |the Customization Type selected when the policy was created.                                                        |
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
-| General              |This view provides a tree structure containing all the configuration elements, and more detailed options to         |
-| Customization        |customize objects, such as:                                                                                         |
-|                      |                                                                                                                    |
-|                      |- The size, color, and placement of forms and screens.                                                              |
-|                      |- The look and feel of objects with more opportunities to replace images.                                           |
-|                      |- Text on the screen, including headers and footers.                                                                |
-|                      |- Messages, including installation and error messages.                                                              |
-|                      |                                                                                                                    |
-|                      |Any text or image that you can customize using the visual policy editor, can also be adjusted using the general     |
-|                      |customization UI. Different options exist depending on the Customization Type selected when the policy was created, |
-|                      |and which elements were added to the access or per-request policy.                                                  |
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
-| Advanced             |Advanced customization provides direct access to PHP, Cascading Style Sheets (CSS), JavaScript, and HTML files that |
-| Customization        |you can edit to control the display and function of web and client pages in Access Policy Manager.                  |
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | View                 | Description                                                                                                        |
+      +======================+====================================================================================================================+
+      | Quick Start/Basic    |Basic customization provides a limited set of options intended for quick modification of the objects that are       |
+      | Customization        |commonly displayed to users. This is the default customization view. Use this to configure basic look and feel      |
+      |                      |for pages, and common text labels and captions for resources on the webtop. Different options exist depending on    |
+      |                      |the Customization Type selected when the policy was created.                                                        |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | General              |This view provides a tree structure containing all the configuration elements, and more detailed options to         |
+      | Customization        |customize objects, such as:                                                                                         |
+      |                      |                                                                                                                    |
+      |                      |- The size, color, and placement of forms and screens.                                                              |
+      |                      |- The look and feel of objects with more opportunities to replace images.                                           |
+      |                      |- Text on the screen, including headers and footers.                                                                |
+      |                      |- Messages, including installation and error messages.                                                              |
+      |                      |                                                                                                                    |
+      |                      |Any text or image that you can customize using the visual policy editor, can also be adjusted using the general     |
+      |                      |customization UI. Different options exist depending on the Customization Type selected when the policy was created, |
+      |                      |and which elements were added to the access or per-request policy.                                                  |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Advanced             |Advanced customization provides direct access to PHP, Cascading Style Sheets (CSS), JavaScript, and HTML files that |
+      | Customization        |you can edit to control the display and function of web and client pages in Access Policy Manager.                  |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
 
-.. Note:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
+      .. Note:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
 
-#. Click on --> **Access** --> **Profiles/Policies** --> **Customization**
 #. Under **Available Profiles** choose the /Common/Basic_policy
 #. Select Language:  **English**
 #. Let's upload a new image.  Click **Upload New Image**
@@ -574,88 +574,80 @@ and is where most of the customization takes place.
 #. Click on the **Preview** button
 #. Choose **Access Profiles** --> **/Common/Basic_policy** --> **Access Policy** --> **Ending pages** -- **Deny**
 
-Bonus Answer:  Why don't we see logon pages?
+      Bonus Answer:  Why don't we see logon pages?
 
-.. Hint::  What is in the policy so far?
+      .. Hint::  What is in the policy so far?
 
 
 Task 5: Authentication
 ----------------------------
 
-BIG-IP APM serves as an authentication gateway or proxy. As an authentication proxy, BIG-IP APM provides separate client-side and server-side authentication. Client-side
-authentication occurs between the client and BIG-IP APM. Server-side authentication occurs between BIG-IP APM and servers.
+BIG-IP APM serves as an authentication gateway or proxy. As an authentication proxy, BIG-IP APM provides separate client-side and server-side authentication. Client-side authentication occurs between the client and BIG-IP APM. Server-side authentication occurs between BIG-IP APM and servers.
 
-Loose coupling between the client-side and server-side layers allows for a rich set of identity transformation services. Combined with a Visual Policy Editor and an expansive
-set of access iRules functionality, BIG-IP APM provides flexible and dynamic identity and access, based on a variety of contexts and conditions.
+Loose coupling between the client-side and server-side layers allows for a rich set of identity transformation services. Combined with a Visual Policy Editor and an expansive set of access iRules functionality, BIG-IP APM provides flexible and dynamic identity and access, based on a variety of contexts and conditions.
 
-For example, a client accessing Microsoft SharePoint through BIG-IP APM in a corporate environment may silently authenticate to BIG-IP APM with NT LAN Manager (NTLM) or Kerberos
-credentials. On leaving that environment, or on using a different non-sanctioned device, the client may be required to go through another potentially stronger authentication,
-such as a smart card or other client certificate, RSA SecurID, or one-time passcode. You can require additional device vetting such as file, folder, and registry checks and
-antivirus and firewall software validation.
+For example, a client accessing Microsoft SharePoint through BIG-IP APM in a corporate environment may silently authenticate to BIG-IP APM with NT LAN Manager (NTLM) or Kerberos credentials. On leaving that environment, or on using a different non-sanctioned device, the client may be required to go through another potentially stronger authentication, such as a smart card or other client certificate, RSA SecurID, or one-time passcode. You can require additional device vetting such as file, folder, and registry checks and antivirus and firewall software validation.
 
-A BIG-IP APM authentication and SSO features access and identity security posture can automatically change depending on environmental factors, such as who or where the user is,
-what resource the user is accessing, or when or with what method the user is attempting to gain access.
+A BIG-IP APM authentication and SSO features access and identity security posture can automatically change depending on environmental factors, such as who or where the user is, what resource the user is accessing, or when or with what method the user is attempting to gain access.
 
-Data centers and Cloud deployments often face the challenge of offering multiple applications with different authentication requirements. You can deploy BIG-IP APM to consolidate
-and enforce all client-side authentication into a single process. BIG-IP APM can also perform identity transformation on the server side to authenticate to server services using
-the best-supported methods. This can reduce operational costs since applications remain in the most-supported and documented configurations. Common examples of identity
-transformation are client-side public key infrastructure (PKI) certificate to server-side Kerberos and client-side HTTP form to server-side HTTP Basic.
+Data centers and Cloud deployments often face the challenge of offering multiple applications with different authentication requirements. You can deploy BIG-IP APM to consolidate and enforce all client-side authentication into a single process. BIG-IP APM can also perform identity transformation on the server side to authenticate to server services using the best-supported methods. This can reduce operational costs since applications remain in the most-supported and documented configurations. Common examples of identity transformation are client-side public key infrastructure (PKI) certificate to server-side Kerberos and client-side HTTP form to server-side HTTP Basic.
 
-The following figure shows BIG-IP APM acting as an authentication gateway. Information received during pre-authentication is transformed to authenticate to multiple enterprise
-applications with different requirements.
+The following figure shows BIG-IP APM acting as an authentication gateway. Information received during pre-authentication is transformed to authenticate to multiple enterprise applications with different requirements.
 
 |image25|
 
 #. Client-side authentication
 
-Client-side authentication involves the client (typically a user employing a browser) accessing a BIG-APM virtual server and presenting identity. This is called authentication, authorization, and accounting (AAA).
+      Client-side authentication involves the client (typically a user employing a browser) accessing a BIG-APM virtual server and presenting identity. This is called authentication, authorization, and accounting (AAA).
 
-BIG-IP APM supports industry standard authentication methods, including:
+      BIG-IP APM supports industry standard authentication methods, including:
 
-- NTLM
-- Kerberos
-- Security Assertion Markup Language (SAML)
-- Client certificate
-- RSA SecurID
-- One-time passcode
-- HTTP Basic
-- HTTP Form
-- OAuth 2.0
-- OpenId Connect
+      - NTLM
+      - Kerberos
+      - Security Assertion Markup Language (SAML)
+      - Client certificate
+      - RSA SecurID
+      - One-time passcode
+      - HTTP Basic
+      - HTTP Form
+      - OAuth 2.0
+      - OpenId Connect
 
-After access credentials are submitted, BIG-IP APM validates the listed methods with industry-standard mechanisms, including:
+      After access credentials are submitted, BIG-IP APM validates the listed methods with industry-standard mechanisms, including:
 
-- Active Directory authentication and query
-- LDAP and LDAPS authentication and query
-- Remote Authentication Dial-in User Service (RADIUS)
-- Terminal Access Controller Access Control System (TACACS)
-- Online Certificate Status Protocol (OCSP) and Certificate Revocation List Distribution Point (CRLDP) (for client certificates)
-- Local User Database authentication
+      - Active Directory authentication and query
+      - LDAP and LDAPS authentication and query
+      - Remote Authentication Dial-in User Service (RADIUS)
+      - Terminal Access Controller Access Control System (TACACS)
+      - Online Certificate Status Protocol (OCSP) and Certificate Revocation List Distribution Point (CRLDP) (for client certificates)
+      - Local User Database authentication
 
 #. Go to **Access** --> **Authentication** --> **Active Directory**
-#. Click create
+#. Click on server1-ad-servers and review the settings.  You can choose to use go direct or use a pool of AD servers.
 
-+----------------------+-----------------------------+----------------------------------+
-|General Properties    | Name                        |  Basic_policy_aaa                |
-+----------------------+-----------------------------+----------------------------------+
-|Configuration         | Domain Name                 |  f5lab.local                     |
-+----------------------+-----------------------------+----------------------------------+
-|                      | Server Connection           |  Use Pool                        |
-+----------------------+-----------------------------+----------------------------------+
-|                      | Domain Controller Pool Name |  basic_ad_pool                   |
-+----------------------+-----------------------------+----------------------------------+
-|                      | IP Address                  |  10.1.20.7                       |
-+----------------------+-----------------------------+----------------------------------+
-|                      | Hostname                    |  dc1.f5lab.local                 |
-+----------------------+-----------------------------+----------------------------------+
-|                      | Admin Name                  |  admin                           |
-+----------------------+-----------------------------+----------------------------------+
-|                      | Admin Password              |  admin                           |
-+----------------------+-----------------------------+----------------------------------+
+      +----------------------+-----------------------------+----------------------------------+
+      |General Properties    | Name                        |  server1-ad-servers              |
+      +----------------------+-----------------------------+----------------------------------+
+      |Configuration         | Domain Name                 |  f5lab.local                     |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Server Connection           |  Use Pool                        |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Domain Controller Pool Name |  /Common/server1-ad-pool         |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | IP Address                  |  10.1.20.7                       |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Hostname                    |  dc1.f5lab.local                 |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Admin Name                  |  admin                           |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Admin Password              |  admin                           |
+      +----------------------+-----------------------------+----------------------------------+
 
-You have now created an object that can be used to facilitate Active Directory authentication in front of any application.  The application itself does not need to require authentication. If
-you were to deploy a policy with AD Auth on a Virtual Server for a web application the policy would preset a login page, prompt for credentials, verify the credentials against this AD object
-before allowing a user to access the web application.
+      .. Note:: If you choose to use a pool you can create the pool as you create the AD object.  Go back and click create to see what this looks like.
+
+      |adpool|
+
+      You have now created an object that can be used to facilitate Active Directory authentication in front of any application.  The application itself does not need to require authentication. If you were to deploy a policy with AD Auth on a Virtual Server for a web application the policy would preset a login page, prompt for credentials, verify the credentials against this AD object before allowing a user to access the web application.
 
 #. Go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
 #. Locate the Basic_policy and click **Edit**
@@ -671,7 +663,15 @@ before allowing a user to access the web application.
 #. Click on the **Deny** end point and choose **Allow** then click **Save**
 #. Click **Apply Access Policy**
 
-Now you have a basic policy with AD Authentication that you can leverage for Web Pre-Authorization in front of any application.
+      |basicpolicy|
+
+      Now you have a basic policy with AD Authentication that you can leverage for Web Pre-Authorization in front of any application.
+
+#. Go to **Local Traffic** --> **Virtual Servers**
+#. Locate server1-https and click on it
+#. Scroll down to the Access Policy section.  Next to **Access Profile** click the drop and replace server1-psp with your Basic_policy
+#. Scroll down to the bottom and click **Update**
+#. In a new browser tab go to http://server1.acme.com and Login
 
 Task 6: Single Sign-On
 ----------------------------
@@ -679,74 +679,91 @@ Client side and server side are loosely coupled in the authentication proxy. Bec
 
 BIG-IP APM supports industry standard authentication methods, including:
 
-    NTLM
-    Kerberos
-    HTTP Basic
-    HTTP Form
-    Security Assertion Markup Language (SAML)
+    - NTLM
+    - Kerberos
+    - HTTP Basic
+    - HTTP Form
+    - Security Assertion Markup Language (SAML)
 
-Note: Client-side authentication methods outnumber server-side methods. This is because BIG-IP APM does not transmit client certificate, RSA SecurID, or one-time passcodes to the server on the client’s behalf.
+.. Note:: Client-side authentication methods outnumber server-side methods. This is because BIG-IP APM does not transmit client certificate, RSA SecurID, or one-time passcodes to the server on the client’s behalf.
 
-For more information on BIG-IP APM server-side authentication, refer to BIG-IP Access Policy Manager: Authentication and Single Sign-On.
+#.  Go to **Access** --> **Single Sign-On** --> **HTTP Basic**
+#.  Click **Create**
 
-Note: For information about how to locate F5 product manuals, refer to K98133564: Tips for searching AskF5 and finding product documentation
+        +----------------------+-----------------------------+----------------------------------+
+        |General Properties    | Name                        |  Basic_http_sso                  |
+        +----------------------+-----------------------------+----------------------------------+
+        |Credential Source     | Username Source             |  session.sso.token.last.username |
+        +----------------------+-----------------------------+----------------------------------+
+        |                      | Password Source             |  session.sso.token.last.password |                        |
+        +----------------------+-----------------------------+----------------------------------+
+        |SSO Method Conversion | Username Conversion         |  unchecked                       |
+        +----------------------+-----------------------------+----------------------------------+
 
+        .. Note::  Username conversion can be enabled if you want domain\username or username@domain to convert to just username.
+
+#. Click **Finished**
+#. Click on **Access** --> *Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#. Locate your server1-psp profile and click on the name
+#. Click on **SSO/Auth Domains**
+#. Under SSO Configuration click the drop down and select **Basic_http_sso** click update
+#. From the top menu bar click **Access Policy** and click **Edit Access Policy for Profile "server1-psp"** link
+#. Click the **+** between **AD Auth** and **Allow**
+#. Click on **Assignment** and choose **SSO Credential Mapping** -->  **Add Item** -->  **Save**
+#. Click **Apply Policy**
+#. Open an incognito window and try go to https://server2.acme.com
+#. You should have been prompted to login.  Close the Window
+#. Go to **Local Traffic** --> **Virtual Servers** and open server2-https
+#. Scroll to *Access Policy** and click the drop down next to **Access Profile**.  Choose server1-psp
+#. Scroll down click **Update**
+#. Open a new incognito tab.  Go to https://server2.acme.com
+#. Login **user1** and **user1**
+#. Now you should have been signed in to the backend server with Single Sign On.
 
 Task 7: Federation
 ----------------------------
 
-Authentication and authorization
+**Authentication and authorization**
 
-Most organizations require users to verify their identity (authenticate). Additionally, most organizations control (authorize) the resources each user can access and the actions they can take when
-using their applications (services), based on their identity.
+Most organizations require users to verify their identity (authenticate). Additionally, most organizations control (authorize) the resources each user can access and the actions they can take when using their applications (services), based on their identity.
 
-Identity providers and service providers
+**Identity providers and service providers**
 
-Federation is an agreement between organizations to trust user authentication and/or authorization from one organization (identity provider (IdP)) to access services from the other organizations
-in the group (service providers (SPs)). In this model, one organization can be both the IdP and an SP or simply an SP.
+Federation is an agreement between organizations to trust user authentication and/or authorization from one organization (identity provider (IdP)) to access services from the other organizations in the group (service providers (SPs)). In this model, one organization can be both the IdP and an SP or simply an SP.
 
-Federation provides many benefits to organizations and users, including single sign-on (SSO), which enables users to avoid logging in to each SP. For more information about BIG-IP APM and SSO, refer
-to Authentication and SSO.
+Federation provides many benefits to organizations and users, including single sign-on (SSO), which enables users to avoid logging in to each SP.
 
-Standard web security protocols
+**Standard web security protocols**
 
 To manage and map identities across geographies, SPs, and services, federation relies on common standards and protocols.
 
-SAML 2.0
+**SAML 2.0**
 
-Security Assertion Markup Language (SAML) 2.0 is an open standard for exchanging authentication and authorization data between SPs. SAML 2.0 is an XML-based language that shares messages containing
-user information (assertions) while protecting their identity, thereby enabling a trusted relationship between SPs to perform services. SAML 2.0 relies on Simple Object Access Protocol (SOAP) to make
-web service calls.
+Security Assertion Markup Language (SAML) 2.0 is an open standard for exchanging authentication and authorization data between SPs. SAML 2.0 is an XML-based language that shares messages containing user information (assertions) while protecting their identity, thereby enabling a trusted relationship between SPs to perform services. SAML 2.0 relies on Simple Object Access Protocol (SOAP) to make web service calls.
 
-Faster and easier
+**Faster and easier**
 
-However, in recent years, representational state transfer (REST) has gained popularity as a light-weight alternative to SOAP that makes web service calls more quickly. Developers combine REST with
-JSON to transmit user data, instead of XML, because it is easier to implement and contains small, compact messages. This combination is the basis for OAuth 2.0 and OpenID Connect.
+However, in recent years, representational state transfer (REST) has gained popularity as a light-weight alternative to SOAP that makes web service calls more quickly. Developers combine REST with JSON to transmit user data, instead of XML, because it is easier to implement and contains small, compact messages. This combination is the basis for OAuth 2.0 and OpenID Connect.
 
-OAuth 2.0
+**OAuth 2.0**
 
-OAuth 2.0 is an open standard for exchanging authorization data—but not authentication data—between SPs. It is a set of defined process flows for accessing resources on behalf of the user (delegated
-authorization).
+OAuth 2.0 is an open standard for exchanging authorization data—but not authentication data—between SPs. It is a set of defined process flows for accessing resources on behalf of the user (delegated authorization).
 
-In this model, the user (resource owner) has a resource hosted by one SP (on a resource server) that they want to make available to another SP (client), such as importing a list of contacts. The
-resource server must authorize the client’s access (using an authorization server) on behalf of the user. The resource owner does not sign in to the client, which requires authentication; however,
-the resource owner may be prompted to give consent to authorize the client’s access. For more information about BIG-IP APM and OAuth 2.0, refer to OAuth authorization.
+In this model, the user (resource owner) has a resource hosted by one SP (on a resource server) that they want to make available to another SP (client), such as importing a list of contacts. The resource server must authorize the client’s access (using an authorization server) on behalf of the user. The resource owner does not sign in to the client, which requires authentication; however, the resource owner may be prompted to give consent to authorize the client’s access. For more information about BIG-IP APM and OAuth 2.0, refer to OAuth authorization.
 
-OpenId Connect
+**OpenId Connect**
 
-OpenId Connect is an open standard for exchanging authentication data—but not authorization data—between SPs. OpenId Connect uses OAuth 2.0 and adds additional steps over its process flows to
-perform authentication. In short, when an authorization server is enabled for OpenId Connect, it provides an ID token in addition to an access token.
+OpenId Connect is an open standard for exchanging authentication data—but not authorization data—between SPs. OpenId Connect uses OAuth 2.0 and adds additional steps over its process flows to perform authentication. In short, when an authorization server is enabled for OpenId Connect, it provides an ID token in addition to an access token.
 
-In this model, users use their account from one SP to sign in to another, such as using a Google or Facebook account to sign in to another website. The SP owning the account is the IdP with the
-authorization server and the other SP is the client.
+In this model, users use their account from one SP to sign in to another, such as using a Google or Facebook account to sign in to another website. The SP owning the account is the IdP with the authorization server and the other SP is the client.
 
-BIG-IP APM federation with SAML
+**BIG-IP APM federation with SAML**
 
 BIG-IP APM supports SAML 2.0 and can act as the IdP for popular SPs, such as Microsoft Office 365 and Salesforce. The system supports both IdP- and SP-initiated identity federation deployments.
 
 IdP-initiated federation with BIG-IP APM
 
-Figure 3.1 IdP-initiated SAML
+    |samlidp|
 
     The user logs in to the BIG-IP APM IdP and the system directs them to the BIG-IP APM webtop.
     The user selects the SP they want, such as Salesforce.
@@ -1064,51 +1081,3 @@ Webtop sections can contain up to 300 ordered references to APM resources and ar
 
 
 Lab 2 is now complete.
-
-.. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
-.. |accessportal| image:: /class1/module1/media/lab01/setup/accessportal.png
-.. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
-.. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
-.. |issues| image:: /class1/module1/media/lab01/setup/issues.png
-.. |image4| image:: /class1/module1/media/lab01/image4.png
-.. |image5| image:: /class1/module1/media/lab01/image5.png
-.. |image01| image:: /class1/module1/media/lab01/image01.png
-.. |image02| image:: /class1/module1/media/lab01/image02.png
-.. |image03| image:: /class1/module1/media/lab01/image03.png
-.. |image06| image:: /class1/module1/media/lab01/image6.png
-.. |image07| image:: /class1/module1/media/lab01/image7.png
-.. |image08| image:: /class1/module1/media/lab01/image8.png
-.. |image09| image:: /class1/module1/media/lab01/image9.png
-.. |image10| image:: /class1/module1/media/lab01/image10.png
-.. |image11| image:: /class1/module1/media/lab01/iamge11.png
-.. |image12| image:: /class1/module1/media/lab01/image12.png
-.. |image13| image:: /class1/module1/media/lab01/image13.png
-.. |image14| image:: /class1/module1/media/lab01/image14.png
-.. |image15| image:: /class1/module1/media/lab01/image15.png
-.. |image16| image:: /class1/module1/media/lab01/image16.png
-.. |image17| image:: /class1/module1/media/lab01/image17.png
-.. |image18| image:: /class1/module1/media/lab01/image18.png
-.. |image19| image:: /class1/module1/media/lab01/image19.png
-.. |image20| image:: /class1/module1/media/lab01/image20.png
-.. |image21| image:: /class1/module1/media/lab01/image21.png
-.. |image22| image:: /class1/module1/media/lab01/image22.png
-.. |image23| image:: /class1/module1/media/lab01/image23.png
-.. |image25| image:: /class1/module1/media/lab01/image25.png
-.. |sessionid| image:: /class1/module1/media/lab01/sessionid.png
-.. |activesessions| image:: /class1/module1/media/lab01/activesessions.png
-.. |killsession| image:: /class1/module1/media/lab01/killsession.png
-.. |multidomain| image:: /class1/module1/media/lab01/multidomain.png
-
-.. |image001| image:: /class1/module1/media/lab01/001.png
-.. |image002| image:: /class1/module1/media/lab01/002.png
-.. |image003| image:: /class1/module1/media/lab01/003.png
-.. |image004| image:: /class1/module1/media/lab01/004.png
-.. |image005| image:: /class1/module1/media/lab01/005.png
-.. |image006| image:: /class1/module1/media/lab01/006.png
-.. |image007| image:: /class1/module1/media/lab01/007.png
-.. |image008| image:: /class1/module1/media/lab01/008.png
-.. |image009| image:: /class1/module1/media/lab01/009.png
-.. |image010| image:: /class1/module1/media/lab01/010.png
-.. |image011| image:: /class1/module1/media/lab01/011.png
-.. |image012| image:: /class1/module1/media/lab01/012.png
-.. |image013| image:: /class1/module1/media/lab01/013.png
