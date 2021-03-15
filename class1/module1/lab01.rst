@@ -92,7 +92,24 @@ Task 2: Guided Configuration
 -----------------------------
 Access Guided Configuration (AGC) provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is written in has an independent release from TMOS and requires
 updates for new configurations from time to time. To find updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are
-going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab. Lab 2 will dive a little deeper in to the use cases and when to use AGC.
+going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab.
+
+.. Important::  This lab has already been updated with the latest **Access Guided Configuration** updates.  The following steps can be used on your own appliances.
+
+#. https://downloads.f5.com/esd/product.jsp?sw=BIG-IP&pro=Guided_Configuration
+#. Click on **Access** --> **Guided Configuration** from the left Menu
+#. In the upper right corner you will find the version.
+
+    |image4|
+
+#. Click on Upgrade Guided configuration
+#. Choose File
+#. Navigate to blah and chose f5-iappslx-agc-usecase-pack-7.0-0.0.1481.tar.gz
+#. Click Upload and Install
+
+  |image5|
+
+#.  Click Continue
 
 #.  Go to **Access** --> **Guided Configuration**
 #.  A set of tiles appears at top listing the areas of use cases where Guided Configuration can be used
@@ -1039,6 +1056,8 @@ Lab 2 is now complete.
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
 .. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
 .. |issues| image:: /class1/module1/media/lab01/setup/issues.png
+.. |image4| image:: /class1/module1/media/lab01/image4.png
+.. |image5| image:: /class1/module1/media/lab01/image5.png
 .. |image01| image:: /class1/module1/media/lab01/image01.png
 .. |image02| image:: /class1/module1/media/lab01/image02.png
 .. |image03| image:: /class1/module1/media/lab01/image03.png
