@@ -995,28 +995,28 @@ Webtop sections can contain up to 300 ordered references to APM resources and ar
 
 Lab 2 is now complete.
 
-.. |image1| image:: /class1/media/media/lab01/image01.png
-.. |image2| image:: /class1/media/media/lab01/image02.png
-.. |image3| image:: /class1/media/media/lab01/image03.png
-.. |image6| image:: /class1/media/media/lab01/image6.png
-.. |image7| image:: /class1/media/media/lab01/image7.png
-.. |image8| image:: /class1/media/media/lab01/image8.png
-.. |image9| image:: /class1/media/media/lab01/image9.png
-.. |image10| image:: /class1/media/media/lab01/image10.png
-.. |image11| image:: /class1/media/media/lab01/iamge11.png
-.. |image12| image:: /class1/media/media/lab01/image12.png
-.. |image13| image:: /class1/media/media/lab01/image13.png
-.. |image14| image:: /class1/media/media/lab01/image14.png
-.. |image15| image:: /class1/media/media/lab01/image15.png
-.. |image16| image:: /class1/media/media/lab01/image16.png
-.. |image17| image:: /class1/media/media/lab01/image17.png
-.. |image18| image:: /class1/media/media/lab01/image18.png
-.. |image19| image:: /class1/media/media/lab01/image19.png
-.. |image20| image:: /class1/media/media/lab01/image20.png
-.. |image21| image:: /class1/media/media/lab01/image21.png
-.. |image22| image:: /class1/media/media/lab01/image22.png
-.. |image23| image:: /class1/media/media/lab01/image23.png
-.. |image25| image:: /class1/media/media/lab01/image25.png
+.. |image1| image:: /class1/module1/media/lab01/image01.png
+.. |image2| image:: /class1/module1/media/lab01/image02.png
+.. |image3| image:: /class1/module1/media/lab01/image03.png
+.. |image6| image:: /class1/module1/media/lab01/image6.png
+.. |image7| image:: /class1/module1/media/lab01/image7.png
+.. |image8| image:: /class1/module1/media/lab01/image8.png
+.. |image9| image:: /class1/module1/media/lab01/image9.png
+.. |image10| image:: /class1/module1/media/lab01/image10.png
+.. |image11| image:: /class1/module1/media/lab01/iamge11.png
+.. |image12| image:: /class1/module1/media/lab01/image12.png
+.. |image13| image:: /class1/module1/media/lab01/image13.png
+.. |image14| image:: /class1/module1/media/lab01/image14.png
+.. |image15| image:: /class1/module1/media/lab01/image15.png
+.. |image16| image:: /class1/module1/media/lab01/image16.png
+.. |image17| image:: /class1/module1/media/lab01/image17.png
+.. |image18| image:: /class1/module1/media/lab01/image18.png
+.. |image19| image:: /class1/module1/media/lab01/image19.png
+.. |image20| image:: /class1/module1/media/lab01/image20.png
+.. |image21| image:: /class1/module1/media/lab01/image21.png
+.. |image22| image:: /class1/module1/media/lab01/image22.png
+.. |image23| image:: /class1/module1/media/lab01/image23.png
+.. |image25| image:: /class1/module1/media/lab01/image25.png
 .. |sessionid| image:: /class1/module1/media/lab01/sessionid.png
 
 .. |image001| image:: /class1/module1/media/lab01/001.png
