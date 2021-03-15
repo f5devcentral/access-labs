@@ -750,7 +750,7 @@ Run Automation for Solution 1.
 
 Policy Walk-Through
 
-|image1|
+|image001|
 
 #.  A user enters their credentials into the logon page agent.
     - Those credentials are collected, stored as the default system session variables of session.logon.last.username and session.logon.last.password.
@@ -764,16 +764,16 @@ Policy Agent Configuration
 
 The Logon Page contains only the default setting
 
-|image2|
+|image002|
 
 The AD Auth agent defines the AAA AD Servers that a user will be authenticated against.  All Setting are the default.
 
-|image3|
+|image003|
 
 
 The Advanced Resource Assign agent grants a user access to the assigned resources.
 
-|image4|
+|image004|
 
 
 Supporting APM Objects
@@ -782,27 +782,27 @@ Network Access Resource
 
 The Properties page contains the Caption name **VPN**.  This is the name displayed to a user.
 
-|image5|
+|image005|
 
 
 - The Network Settings tab assigns the **lease pool** of ip addresses that will be used for the VPN.
 - Split Tunneling is configured to permit only the **10.1.20.0/24** subnet range inside the VPN.
 
-|image6|
+|image006|
 
 
 Lease Pool
 
 A single address of **10.1.20.254** is assigned inside the lease pool.
 
-|image7|
+|image007|
 
 
 Webtop Sections
 
 A single section is configured to display a custom name.
 
-|image8|
+|image008|
 
 
 Webtop
@@ -810,7 +810,7 @@ Webtop
 - A Full Webtop was defined with modified default settings.
 - The Minimize to Tray box is **checked** to ensure the Webtop is not displayed when a user connects to the VPN.
 
-|image9|
+|image009|
 
 The Policy from a user's perspective
 
@@ -820,19 +820,19 @@ The Policy from a user's perspective
    - Username: user1
    - Password: user1
 
-|image10|
+|image010|
 
 #. Once authenticated the user is presented a Webtop with a single VPN icon.
 
-|image11|
+|image011|
 
 #. Assuming the VPN has already been installed the user is notified that the client is attempting to start
 
-|image12|
+|image012|
 
 #. A popup opens displaying the status of the VPN connection.  The status will eventually become **Connected**
 
-|image13|
+|image013|
 
 
 
@@ -1018,16 +1018,17 @@ Lab 2 is now complete.
 .. |image23| image:: /class1/media/media/lab01/image23.png
 .. |image25| image:: /class1/media/media/lab01/image25.png
 .. |sessionid| image:: /class1/module1/media/lab01/sessionid.png
-.. |image1| image:: /class1/module1/media/lab01/001.png
-.. |image2| image:: /class1/module1/media/lab01/002.png
-.. |image3| image:: /class1/module1/media/lab01/003.png
-.. |image4| image:: /class1/module1/media/lab01/004.png
-.. |image5| image:: /class1/module1/media/lab01/005.png
-.. |image6| image:: /class1/module1/media/lab01/006.png
-.. |image7| image:: /class1/module1/media/lab01/007.png
-.. |image8| image:: /class1/module1/media/lab01/008.png
-.. |image9| image:: /class1/module1/media/lab01/009.png
-.. |image10| image:: /class1/module1/media/lab01/010.png
-.. |image11| image:: /class1/module1/media/lab01/011.png
-.. |image12| image:: /class1/module1/media/lab01/012.png
-.. |image13| image:: /class1/module1/media/lab01/013.png
+
+.. |image001| image:: /class1/module1/media/lab01/001.png
+.. |image002| image:: /class1/module1/media/lab01/002.png
+.. |image003| image:: /class1/module1/media/lab01/003.png
+.. |image004| image:: /class1/module1/media/lab01/004.png
+.. |image005| image:: /class1/module1/media/lab01/005.png
+.. |image006| image:: /class1/module1/media/lab01/006.png
+.. |image007| image:: /class1/module1/media/lab01/007.png
+.. |image008| image:: /class1/module1/media/lab01/008.png
+.. |image009| image:: /class1/module1/media/lab01/009.png
+.. |image010| image:: /class1/module1/media/lab01/010.png
+.. |image011| image:: /class1/module1/media/lab01/011.png
+.. |image012| image:: /class1/module1/media/lab01/012.png
+.. |image013| image:: /class1/module1/media/lab01/013.png
