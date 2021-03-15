@@ -444,7 +444,7 @@ on methods and endpoint checks.  To being we have to create an Access Profile.  
 
 #.  Multiple domains
 
-      If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of the virtual servers and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login. The caveat is that all Virtual Servers must share this same policy.
+      If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of the virtual servers associated and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login. The caveat is that all Virtual Servers must share this same policy.
 
       +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
       | Primary Authentication URI             |Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where |
@@ -452,13 +452,18 @@ on methods and endpoint checks.  To being we have to create an Access Profile.  
       |                                        |applications from multiple domains and hosts without requiring them to re-enter their credentials because the user  |
       |                                        |session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.     |
       +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Authentication Domain Configuration    |An example domain would be acme.com                                                                                 |
+      | Primary Cookie Options                 |Secure (see above for cookie explanation)                                                                           |
       +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Authentication Domains                 |To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app2.acme.com |
-      |                                        |If you have and SSO method created select the SSO method from the drop down box.  This can be edited later to add an|
-      |                                        |SSO method.                                                                                                         |
+      | Cookie                                 |Example:  **Domain**  acme.com                                                                                      |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Cookie Options                         |Seucre (see above for cookie explanation)                                                                           |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | SSO Configuration                      |You can set the SSO method for the domain or you can set individual SSO methods per host                            |
       +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
 
+      |multidomain|
+
+      .. Important:: We will not be configuring this function in this lab.  These are all examples.  For more information on `SSO/Auth Domains <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/single-sign-on-and-multi-domain-support.html>`_
 
 #.  Logs
 
@@ -1092,6 +1097,7 @@ Lab 2 is now complete.
 .. |sessionid| image:: /class1/module1/media/lab01/sessionid.png
 .. |activesessions| image:: /class1/module1/media/lab01/activesessions.png
 .. |killsession| image:: /class1/module1/media/lab01/killsession.png
+.. |multidomain| image:: /class1/module1/media/lab01/multidomain.png
 
 .. |image001| image:: /class1/module1/media/lab01/001.png
 .. |image002| image:: /class1/module1/media/lab01/002.png
