@@ -321,6 +321,13 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       |Language Settings     | Accepted Languages        |  English                         |
       +----------------------+---------------------------+----------------------------------+
 
+      .. Note:: Customization Type is a newer setting that changes the look and feel of login pages.  For the traditional look you can **Standard**
+
+#.  Click **Finished**
+#.  Now we have a basic profile.  There were a number of other settings to modify and use in the profile.  For now we will focus just on the basics.
+#.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
+#.  There are two ways to edit the Policy piece of the profile.
+
 
 
 Lab 2 is now complete.
