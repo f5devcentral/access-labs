@@ -134,6 +134,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |    -  **Name**: **AD_Subroutine**                                                            |
 |                                                                                              |
 | |Lab2-Image11|                                                                               |
+| |Lab2-Image13|                                                                               |
 |                                                                                              |
 | 7. Click the + between In and Out                                                            |
 |                                                                                              |
@@ -146,7 +147,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | |Lab2-Image12|                                                                               |
 |                                                                                              |
-| |Lab2-Image13|                                                                               |
+|                                                                                              |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -155,7 +156,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |   |Lab2-Image14|                                                                             |
 |   |Lab2-Image15|                                                                             |
 |                                                                                              |
-|   |Lab2-Image16|                                                                             |                                                                                         
+|   |Lab2-Image16|                                                                             |
 | 5. Click on **Authentication**                                                               |
 |                                                                                              |
 |   |Lab2-Image17|                                                                             |
