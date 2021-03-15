@@ -53,7 +53,6 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 
-
 Lab 2 is now complete.
 
 .. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
@@ -61,3 +60,6 @@ Lab 2 is now complete.
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
 .. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
 .. |issues| image:: /class1/module1/media/lab01/setup/issues.png
+.. |image01| image:: /class1/module1/media/lab01/image01.png
+.. |image02| image:: /class1/module1/media/lab01/image02.png
+.. |image03| image:: /class1/module1/media/lab01/image03.png
