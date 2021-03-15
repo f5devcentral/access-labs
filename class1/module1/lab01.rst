@@ -51,6 +51,41 @@ To access your dedicated student lab environment, you will require a web browser
 
    |issues|
 
+   Task 1: Resource Provisioning
+   ---------------------------------------
+   Access Policy Manager (APM) is a module available for use on the BIG-IP platform (Hardware and Virtual).  Unlike other modules, APM can be provisioned with
+   limited functionality on any BIG-IP platform without a specific license (`see F5 KB15854 <https://support.f5.com/csp/article/K15854>`__).  APM is licensed based on the number of Access Sessions
+   and Concurrent Users Sessions (`see APM Operations Guide <https://support.f5.com/csp/article/K72971039>`__). You can provision APM limited and immediately start using all the functions of APM with a
+   limitation of 10 Access and Concurrent user session.
+
+   #. Log in to bigip1.f5lab.local with administrative credentials provided
+   #. On the left menu navigate to **System** --> **Resource Provisioning**
+   #. Click box and on the drop down next to the module and choose **Nominal**
+
+         .. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
+
+         +---------------+---------------------------------------------------------------------------------------+
+         |Dedicated      |Specifies that all resources are dedicated to the module you are provisioning. For all |
+         |               |other modules, the level option must be set to none.                                   |
+         +---------------+---------------------------------------------------------------------------------------+
+         |Minimum        |Specifies that you want to provision the minimum amount of  resources for the module   |
+         |               |you are provisioning.                                                                  |
+         +---------------+---------------------------------------------------------------------------------------+
+         |Nominal        |Specifies that you want to share all of the available resources equally among all of   |
+         |               |the modules that are licensed on the unit.                                             |
+         +---------------+---------------------------------------------------------------------------------------+
+
+         |image01|
+
+         .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
+
+   #. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This will not require a reboot but will take approximately 1 to 5 minutes to complete.
+
+         |image02|
+         |image03|
+
+         .. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
+
 
 Lab 2 is now complete.
 
@@ -59,3 +94,6 @@ Lab 2 is now complete.
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
 .. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
 .. |issues| image:: /class1/module1/media/lab01/setup/issues.png
+.. |image01| image:: /class1/module1/media/lab01/image01.png
+.. |image02| image:: /class1/module1/media/lab01/image02.png
+.. |image03| image:: /class1/module1/media/lab01/image03.png
