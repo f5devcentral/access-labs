@@ -365,6 +365,25 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
     .. Note:: If you are unsure of the settings you need at profile creation you can see that you can return to the profile and make adjustments.
 
+#.  Still in the profile click on **SSO/Auth Domain** at the top
+
+      BIG-IP APM offers a number of Single Sign On (SSO) options.  The SSO/Auth Domain tab in a Per Session Profile is where you will select what SSO method to use for your application. In Task 6 we will cover the objects that need to be created in order to associate that SSO method to a policy.  At this time the drop down for the SSO Configuration will have a pre-built sso object we will use later.
+
+#.  What is Domain Mode?
+
+      Access Policy Manager (APM) provides a method to enable users to use a single login or session across multiple virtual servers in separate domains. Users can access back-end applications through multiple domains or through multiple hosts within a single domain, eliminating additional credential requests when they go through those multiple domains. With multi-domain support, you have the option of applying different SSO methods across different domains.
+
+      .. Note:: When thinking Domain do not confuse this with Active Directory domain.  In this context domain refers to the DNS domain.  Example, app1.f5demo.com and app2.f5dmeo.com are in the f5demo.com DNS domain.
+
+      .. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP system and share the same access profile. All virtual servers must include all of the profiles that the access profile requires (for example, VDI, rewrite, server SSL, connectivity, and so on).
+
+      APM provides the following benefits when using multi-domain support with SSO.
+
+      - Users can sign out from all domains at once.
+      - Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
+      - Administrators can configure different cookie settings (Secure, Host/Domain and Persistent) for different domains, and for different hosts within same domain
+      - Administrators can set up multiple SSO configurations to sign users in to multiple back-end applications for a single APM® session
+
 
 
 Lab 2 is now complete.
