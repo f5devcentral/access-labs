@@ -64,7 +64,7 @@ limitation of 10 Access and Concurrent user session.
 #. On the left menu navigate to **System** --> **Resource Provisioning**
 #. Click box and on the drop down next to the module and choose **Nominal**
 
-      .. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
+.. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
 
       +---------------+---------------------------------------------------------------------------------------+
       |Dedicated      |Specifies that all resources are dedicated to the module you are provisioning. For all |
@@ -79,7 +79,7 @@ limitation of 10 Access and Concurrent user session.
 
       |image01|
 
-      .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
+.. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
 
 #. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This
 will not require a reboot but will take approximately 1 to 5 minutes to complete.
@@ -87,7 +87,7 @@ will not require a reboot but will take approximately 1 to 5 minutes to complete
       |image02|
       |image03|
 
-      .. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
+.. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
 
 Task 2: Guided Configuration
 -----------------------------
