@@ -100,14 +100,14 @@ going to explore the menu and take a look at a few options. We will not be deplo
 #. Click on **Access** --> **Guided Configuration** from the left Menu
 #. In the upper right corner you will find the version.
 
-    |image4|
+      |image4|
 
 #. Click on Upgrade Guided configuration
 #. Choose File
-#. Navigate to blah and chose f5-iappslx-agc-usecase-pack-7.0-0.0.1481.tar.gz
+#. Navigate to the location you have saved the latest download and chose the tar.gz package
 #. Click Upload and Install
 
-  |image5|
+      |image5|
 
 #.  Click Continue
 
@@ -134,6 +134,8 @@ going to explore the menu and take a look at a few options. We will not be deplo
 #.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
 #.  Click on the Guide Configuration bread crumb at the top of the screen to return to the main menu.
 #.  Zero Trust is the next tile. Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or outside of the network.
+
+      **About Identity Aware proxy**
 
       The easiest way to create policies to support zero trust security is to use the Zero Trust-Identity Aware Proxy template in Access Guided Configuration. The template takes you through the
       steps needed to create an Identity Aware Proxy. Access Policy Manager (APM) acts as the Identity Aware Proxy helping to simplify client access to both multi-cloud and on-premise web applications,
@@ -217,24 +219,23 @@ The Overview menu is where an administrator can view active sessions, previous s
 #.  Click on the View under Variables
 #.  This gives us all the information collected on the current session
 
-  - Can you find the user logged in?
-  - What is the client platform
-  - Client Type?
-  - Access Profile?
+      - Can you find the user logged in?
+      - What is the client platform
+      - Client Type?
+      - Access Profile?
 
 #.  Click the back button on the browser to return to the Active Sessions.
 #.  Click on the Session ID
 
-  .. Note:: The Session ID will also be displayed to the user should they have an issue with logging in.  An error message will display and their session ID will be given
-    |sessionid|
+      .. Note:: The Session ID will also be displayed to the user should they have an issue with logging in.  An error message will display and their session ID will be given
+        |sessionid|
 
 #.  The Session ID will take you to the first set of reporting **Access Report**
-#.  This section will give you details on the session.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in
-in more detail later).
+#.  This section will give you details on the session.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in in more detail later).
 
-- Can you find the first **Following Rule** log message?
-- Where did it flow?
-- Was the user successful?
+      - Can you find the first **Following Rule** log message?
+      - Where did it flow?
+      - Was the user successful?
 
 #.  Return to the first screen by using the back button in the browser
 #.  In **Active Sessions** click on the check box next to the session and select the **Kill Selected Sessions** button.  This will terminate the users session and make them login again.
