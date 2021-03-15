@@ -163,7 +163,9 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 | 8. Select **/Common/Lab_SSO_AD_Server** for the Server option                                |
 |                                                                                              |
 | 8. Click the **Save**                                                                        |
+|                                                                                              |
 |    |Lab2-Image19|                                                                            |
+|                                                                                              |
 | 9. Between **AD Auth** and the Out endpoint click the + Sign                                 |
 |                                                                                              |
 | 10. Select Authentication and Select the **AD Query radio button and click **Add Item**      |
@@ -176,6 +178,8 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 14. Under Variable Assign click **Add New Entry**                                            |
 |                                                                                              |
+|        |Lab2-Image20|                                                                        |
+|                                                                                              |
 | 15. Next to "Empty" click the **change** links                                               |
 |                                                                                              |
 | 16. Change the drop down on the right hand side to **Session Varaible** and imput the        |
@@ -186,34 +190,33 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |   - **session.adgroups.custom**                                                              |
 |                                                                                              |
 |                                                                                              |
-|                                                                                              |
-+----------------------------------------------------------------------------------------------+
-| |Lab2-Image20|                                                                               |
-|                                                                                              |
 | |Lab2-Image21|                                                                               |
 |                                                                                              |
 | |Lab2-Image22|                                                                               |
-|                                                                                              |
+|      19. Click the + sign between Start and Allow directly under the Per Request Policy      |
 | |Lab2-Image23|                                                                               |
-|                                                                                              |
+|      20. Select the **Classification** tab and click the **URL Branching Radio Button        |
 | |Lab2-Image24|                                                                               |
-|                                                                                              |
+|       21. Click the **change** hyperlink                                                     |
 | |Lab2-Image25|                                                                               |
-|                                                                                              |
+|       22. Change the value **domain.com** to **app.acme.com/apps/app1/** and click finished  |
 | |Lab2-Image26|                                                                               |
 |                                                                                              |
 | |Lab2-Image27|                                                                               |
-|                                                                                              |
+|        23. Change the name from **Allow** to **/apps/app1/**                                 |
 | |Lab2-Image28|                                                                               |
-|                                                                                              |
+|        24. Click the + sign after the URL Branching Box you just added and select the        |
+|             General Purpose tab and click the **HTTP Headers** radio Button                  |
 | |Lab2-Image29|                                                                               |
-|                                                                                              |
+|         24. Click **Add new entry**                                                          |
 | |Lab2-Image30|                                                                               |
-|                                                                                              |
+|         25. Type **AD_Groups** for header name and **%{session.adgroups.custom}** for        |
+|              **Header Value** and click Save                                                 |
 | |Lab2-Image31|                                                                               |
-|                                                                                              |
+|        26. Your Per-Request Policy should now look like this                                 |
 | |Lab2-Image32|                                                                               |
-|                                                                                              |
+|        27. Navigate back to Local Traffic -> Virtual Servers and select your VIP, under the
+            Access policy section of your VIP bind your Per-Session and Per Request policies   |
 | |Lab2-Image33|                                                                               |
 |                                                                                              |
 | |Lab2-Image34|                                                                               |
