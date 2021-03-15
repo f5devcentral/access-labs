@@ -49,7 +49,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-   |image005|
+   |issues|
 
 
 
@@ -1044,6 +1044,8 @@ Lab 2 is now complete.
 .. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
 .. |accessportal| image:: /class1/module1/media/lab01/setup/accessportal.png
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
+.. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
+.. |issues| image:: /class1/module1/media/lab01/setup/issues.png
 .. |image1| image:: /class1/module1/media/lab01/image01.png
 .. |image2| image:: /class1/module1/media/lab01/image02.png
 .. |image3| image:: /class1/module1/media/lab01/image03.png
