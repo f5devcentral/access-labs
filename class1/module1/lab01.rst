@@ -350,7 +350,20 @@ Profiles and Policies are where we begin to learn about what makes APM function.
     | Click the **Edit** link                                                           |
     +-----------------------------------------------------------------------------------+
 
+#.  Close the VPE (we will visit the VPE and policy in more detail later)
+#.  Return to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#.  Click on the **Basic_policy** and explore the settings for the Profile.
 
+    +----------------------+------------------------------------------------------------------------------------+
+    | Settings             | Here you can manage settings for the profile. You may want to change timeouts, max |
+    |                      | sessions and login attempts. These are settings specifically for this profile.     |
+    +----------------------+------------------------------------------------------------------------------------+
+    | Configurations       | These are more advanced options and covered in other labs                          |
+    +----------------------+------------------------------------------------------------------------------------+
+    | Language Settings    | You have to set this at creation.                                                  |
+    +----------------------+------------------------------------------------------------------------------------+
+
+    .. Note:: If you are unsure of the settings you need at profile creation you can see that you can return to the profile and make adjustments.
 
 
 
