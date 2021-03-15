@@ -757,6 +757,9 @@ IdP-initiated federation with BIG-IP APM
     The system retrieves any required attributes from the user data store to pass on to the SP.
     The system uses the browser to direct the request to the SP, along with the SAML assertion and any required attributes.
 
+#. Run Solution 4 and Solution 5 (add in the automation up front Need to create SAML resource then add in Advanced Resource assign with webtop and SAML resource)
+#. 
+
 SP-initiated federation with BIG-IP APM
 
 Figure 3.2 SP-initiated SAML
