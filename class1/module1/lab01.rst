@@ -424,6 +424,35 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       |                      |  cookie attribute must be set.                                                                                     |
       +----------------------+--------------------------------------------------------------------------------------------------------------------+
 
+#.  SSO Configuration
+
+      This drop down is where you will find all the SSO objects that you have configured on this BIG-IP appliance. If you want to enable an SSO method for an application first you must configuration the SSO object and then select in this section of the policy.
+
+      .. Note:: Task 6 will review SSO methods and configuration.
+
+#.  Multiple domains
+
+      If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of the virtual servers associated and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login. The caveat is that all Virtual Servers must share this same policy.
+
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Primary Authentication URI             |Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where |
+      |                                        |the user session is created. As long as you provide the URI, your users are able to access multiple backend         |
+      |                                        |applications from multiple domains and hosts without requiring them to re-enter their credentials because the user  |
+      |                                        |session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.     |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Primary Cookie Options                 |Secure (see above for cookie explanation)                                                                           |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Cookie                                 |Example:  **Domain**  acme.com                                                                                      |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Cookie Options                         |Seucre (see above for cookie explanation)                                                                           |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | SSO Configuration                      |You can set the SSO method for the domain or you can set individual SSO methods per host                            |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
+      |multidomain|
+
+      .. Important:: We will not be configuring this function in this lab.  These are all examples.  For more information on `SSO/Auth Domains <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/single-sign-on-and-multi-domain-support.html>`_
+
 
 Lab 2 is now complete.
 
