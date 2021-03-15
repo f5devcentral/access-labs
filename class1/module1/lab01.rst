@@ -309,7 +309,9 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
 #.  Click on the Create button on the far right
 
-
+      +----------------------+---------------------------+----------------------------------+
+      |General Properties    | Name                      |  Basic_policy                    |
+      +----------------------+---------------------------+----------------------------------+
 
 
 
