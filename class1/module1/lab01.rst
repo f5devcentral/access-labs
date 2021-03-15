@@ -64,7 +64,7 @@ limitation of 10 Access and Concurrent user session.
 #. On the left menu navigate to **System** --> **Resource Provisioning**
 #. Click box and on the drop down next to the module and choose **Nominal**
 
-.. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
+      .. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
 
       +---------------+---------------------------------------------------------------------------------------+
       |Dedicated      |Specifies that all resources are dedicated to the module you are provisioning. For all |
@@ -79,15 +79,14 @@ limitation of 10 Access and Concurrent user session.
 
       |image01|
 
-.. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
+      .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
 
-#. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This
-will not require a reboot but will take approximately 1 to 5 minutes to complete.
+#. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This will not require a reboot but will take approximately 1 to 5 minutes to complete.
 
       |image02|
       |image03|
 
-.. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
+      .. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
 
 Task 2: Guided Configuration
 -----------------------------
@@ -101,12 +100,8 @@ going to explore the menu and take a look at a few options. We will not be deplo
       |image06|
 
 #.  Click on the Federation Tile.
-#.  Under this tile are several Identity Federation use cases available.  Each use case has an accompanying guide to walk you through the configuration.  This is not designed for already deployed
-applications but used for new deployments.  All the components needed to create the configuration will be deployed on the BIG-IP through this guide.  Editing and configuring of the solution will
-be maintained within this menu.
-
+#.  Under this tile are several Identity Federation use cases available.  Each use case has an accompanying guide to walk you through the configuration.  This is not designed for already deployed applications but used for new deployments.  All the components needed to create the configuration will be deployed on the BIG-IP through this guide.  Editing and configuring of the solution will be maintained within this menu.
 #.  Click on **SAML Service Provider**
-
 #.  Here you will find there are couple topologies.  SAML SP Initiated and SAML IdP Initiated.
 
       |image07|
@@ -120,10 +115,8 @@ be maintained within this menu.
       |image09|
 
 #.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
-
 #.  Click on the Guide Configuration bread crumb at the top of the screen to return to the main menu.
-#.  Zero Trust is the next tile. Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or
-outside of the network.
+#.  Zero Trust is the next tile. Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or outside of the network.
 
       The easiest way to create policies to support zero trust security is to use the Zero Trust-Identity Aware Proxy template in Access Guided Configuration. The template takes you through the
       steps needed to create an Identity Aware Proxy. Access Policy Manager (APM) acts as the Identity Aware Proxy helping to simplify client access to both multi-cloud and on-premise web applications,
@@ -152,7 +145,7 @@ outside of the network.
 
 #.  Proceeding with this configuration will create a number of object as seen here.
 
-      .. Note::  If you are interested in learning more on this specific solution please consider taking the Zero Trust Identity Aware Proxy class.
+    .. Note::  If you are interested in learning more on this specific solution please consider taking the Zero Trust Identity Aware Proxy class.
 
       |image18|
 
