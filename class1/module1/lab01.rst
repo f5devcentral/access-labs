@@ -59,6 +59,21 @@ Access Policy Manager (APM) is a module available for use on the BIG-IP platform
 #. On the left menu navigate to **System** --> **Resource Provisioning**
 #. Click box and on the drop down next to the module and choose **Nominal**
 
+      .. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
+      +---------------+---------------------------------------------------------------------------------------+
+      |Dedicated      |Specifies that all resources are dedicated to the module you are provisioning. For all |
+      |               |other modules, the level option must be set to none.                                   |
+      +---------------+---------------------------------------------------------------------------------------+
+      |Minimum        |Specifies that you want to provision the minimum amount of  resources for the module   |
+      |               |you are provisioning.                                                                  |
+      +---------------+---------------------------------------------------------------------------------------+
+      |Nominal        |Specifies that you want to share all of the available resources equally among all of   |
+      |               |the modules that are licensed on the unit.                                             |
+      +---------------+---------------------------------------------------------------------------------------+
+
+      |image01|
+
+      .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
 
 Lab 2 is now complete.
 
