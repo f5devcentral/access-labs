@@ -297,6 +297,32 @@ The Overview menu is where an administrator can view active sessions, previous s
 
       .. Note:: For more reporting on APM stats look to BIG-IQ or exporting logs to 3rd party SIEMs and create your own dashboard.
 
+Task 4: Profile/Policies
+------------------------
+Profiles and Policies are where we begin to learn about what makes APM function.  In order for APM functions to be added to a Virtual server we need to create Access Profiles and Policies.  These entities take all the components we will look at below and put them in a logical flow through the Visual Policy Editor (VPE). These entities are things like login pages, authentication, single sign on methods and endpoint checks.  To being we have to create an Access Profile.  Within that profile we create a per session policy.  When that is completed we attach that profile to a Virtual Server.
+
+.. Note::  You can associate one Access Profile (which includes a per-session policy) and one per-request policy per virtual server.
+
+#.  From the left menu go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+
+      The per-session policy runs when a client initiates a session. (A per-session policy is also known as an access policy.) Depending on the actions you include in the access policy, it can authenticate the user and perform other actions that populate session variables with data for use throughout the session.
+
+#.  Click on the Create button on the far right
+
+      +----------------------+---------------------------+----------------------------------+
+      |General Properties    | Name                      |  Basic_policy                    |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Type              |  All                             |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Scope             |  Profile                         |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Customization Type        |  Modern                          |
+      +----------------------|---------------------------|----------------------------------+
+      |Language Settings     | Accepted Languages        |  English                         |
+      +----------------------+---------------------------+----------------------------------+
+
+      .. Note:: Customization Type is a newer setting that changes the look and feel of login pages.  For the traditional look you can **Standard**
+
 
 
 
