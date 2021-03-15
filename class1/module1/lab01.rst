@@ -307,6 +307,20 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
       The per-session policy runs when a client initiates a session. (A per-session policy is also known as an access policy.) Depending on the actions you include in the access policy, it can authenticate the user and perform other actions that populate session variables with data for use throughout the session.
 
+#.  Click on the Create button on the far right
+
+      +----------------------+---------------------------+----------------------------------+
+      |General Properties    | Name                      |  Basic_policy                    |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Type              |  All                             |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Scope             |  Profile                         |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Customization Type        |  Modern                          |
+      +----------------------|---------------------------|----------------------------------+
+      |Language Settings     | Accepted Languages        |  English                         |
+      +----------------------+---------------------------+----------------------------------+
+
 
 
 
