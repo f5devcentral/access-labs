@@ -75,6 +75,13 @@ Access Policy Manager (APM) is a module available for use on the BIG-IP platform
 
       .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
 
+#. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This will not require a reboot but will take approximately 1 to 5 minutes to complete.
+
+      |image02|
+      |image03|
+
+      .. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
+
 Lab 2 is now complete.
 
 .. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
