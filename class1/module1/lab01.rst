@@ -82,6 +82,117 @@ Access Policy Manager (APM) is a module available for use on the BIG-IP platform
 
       .. Note::  Resource Provisioning is not a synced item between HA pairs.  You will need to provision the module on all devices in the cluster.
 
+Task 2: Guided Configuration
+-----------------------------
+Access Guided Configuration (AGC) provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is written in has an independent release from TMOS and requires updates for new configurations from time to time. To find updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab.
+
+.. Important::  This lab has already been updated with the latest **Access Guided Configuration** updates.  The following steps can be used on your own appliances.
+
+#. https://downloads.f5.com/esd/product.jsp?sw=BIG-IP&pro=Guided_Configuration
+#. Click on **Access** --> **Guided Configuration** from the left Menu
+#. In the upper right corner you will find the version.
+
+      |image4|
+
+#. Click on Upgrade Guided configuration
+#. Choose File
+#. Navigate to the location you have saved the latest download and chose the tar.gz package
+#. Click Upload and Install
+
+      |image5|
+
+#.  Click Continue
+
+#.  Go to **Access** --> **Guided Configuration**
+#.  A set of tiles appears at top listing the areas of use cases where Guided Configuration can be used
+
+      |image06|
+
+#.  Click on the Federation Tile.
+#.  Under this tile are several Identity Federation use cases available.  Each use case has an accompanying guide to walk you through the configuration.  This is not designed for already deployed applications but used for new deployments.  All the components needed to create the configuration will be deployed on the BIG-IP through this guide.  Editing and configuring of the solution will be maintained within this menu.
+#.  Click on **SAML Service Provider**
+#.  Here you will find there are couple topologies.  SAML SP Initiated and SAML IdP Initiated.
+
+      |image07|
+
+#. If there are any required configuration pieces missing to complete guided configuration they will appear in the right pane
+
+      |image08|
+
+#. Below the topologies you will find all the components that will be configured using the guided configured
+
+      |image09|
+
+#.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
+#.  Click on the Guide Configuration bread crumb at the top of the screen to return to the main menu.
+#.  Zero Trust is the next tile. Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or outside of the network.
+
+      **About Identity Aware proxy**
+
+      The easiest way to create policies to support zero trust security is to use the Zero Trust-Identity Aware Proxy template in Access Guided Configuration. The template takes you through the
+      steps needed to create an Identity Aware Proxy. Access Policy Manager (APM) acts as the Identity Aware Proxy helping to simplify client access to both multi-cloud and on-premise web applications,
+      and securely manage access from client devices.
+
+      On APM, you can develop per-request policies with subroutines that perform different levels of authentication, federated identity management, SSO (single sign on), and MFA (multi-factor
+      authentication) depending on the requirements. Subroutines perform continuous checking based on a specified duration or gating criteria. Policies can be as complex or as simple as you need
+      them to be to provide seamless yet secure access to resources. Refer to Implementing Zero Trust with Per-Request Policies for many examples of per-request policies that implement different
+      aspects of zero trust.
+
+      For additional security, device posture checking provides instantaneous device posture information. The system can continuously check clients to be sure, for example, that their antivirus,
+      firewall, and patches meet company requirements, ensuring that the device maintains trust at all times.
+
+      On the client side, F5 Access Guard allows real-time posture information to be inspected with per-request policy subroutines. F5 Access Guard generates posture information asynchronously,
+      and transparently transmits it to chosen APM server endpoints using special HTTP headers. Refer to BIG-IP Access Policy Manager: Configuring F5 Access Guard
+      for details on client requirements.
+
+#.  Click on the Identity Aware Proxy configuration option
+#.  There are two topologies available:
+
+      +---------------+-------------+-------------+
+      |Single Proxy   | |image13|   |  |image17|  |
+      +---------------+-------------+-------------+
+      |Multi-Proxy    | |image14|   |  |image16|  |
+      +---------------+-------------+-------------+
+
+#.  Proceeding with this configuration will create a number of object as seen here.
+
+      .. Note::  If you are interested in learning more on this specific solution please consider taking the Zero Trust Identity Aware Proxy class.
+
+      |image18|
+
+      .. Note:: Webtop is available as of version 16.0
+
+#.  Return to the main screen by clicking the Guided Configuration bread crumb
+#.  Click on the Microsoft Integration tile
+#.  There are three options available:
+
+      +-----------------------+-------------------------------------------------------------------------------------------------------+
+      |ADFS Proxy             |This is the Web Application Proxy (WAP) replacement use case where BIG-IP can replace the ADFS Windows |
+      |                       |Servers in the DMZ and serve as the secure WAP platform between your external users and the internal   |
+      |                       |ADFS infrastructure.                                                                                   |
+      +-----------------------+-------------------------------------------------------------------------------------------------------+
+      |Azure AD Application   |This allows integration of Azure AD in to various web applications connecting through without need of  |
+      |                       |application changes.                                                                                   |
+      +-----------------------+-------------------------------------------------------------------------------------------------------+
+      |Exchange Proxy         |This guided configuration replaces the need to run the iApps for Exchange.                             |
+      |                       |                                                                                                       |
+      +-----------------------+-------------------------------------------------------------------------------------------------------+
+
+      |image19|
+
+#.  Click on the API Protection tile
+#.  Click on the API Protection Proxy configuration
+#.  The topology for API protection describes the configuration for this option. This configuration provides authentication pieces for your API.
+
+      |image20|
+
+      .. Note:: For more complete API protection combine APM with F5 Web Application Firewall for the most robust solution.
+
+#.  The objects created with this configuration:
+
+      |image21|
+
+
 Lab 2 is now complete.
 
 .. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
@@ -92,3 +203,17 @@ Lab 2 is now complete.
 .. |image01| image:: /class1/module1/media/lab01/image01.png
 .. |image02| image:: /class1/module1/media/lab01/image02.png
 .. |image03| image:: /class1/module1/media/lab01/image03.png
+.. |image4| image:: /class1/module1/media/lab01/image4.png
+.. |image5| image:: /class1/module1/media/lab01/image5.png
+.. |image06| image:: /class1/module1/media/lab01/image6.png
+.. |image07| image:: /class1/module1/media/lab01/image7.png
+.. |image08| image:: /class1/module1/media/lab01/image8.png
+.. |image09| image:: /class1/module1/media/lab01/image9.png
+.. |image13| image:: /class1/module1/media/lab01/image13.png
+.. |image14| image:: /class1/module1/media/lab01/image14.png
+.. |image16| image:: /class1/module1/media/lab01/image16.png
+.. |image17| image:: /class1/module1/media/lab01/image17.png
+.. |image18| image:: /class1/module1/media/lab01/image18.png
+.. |image19| image:: /class1/module1/media/lab01/image19.png
+.. |image20| image:: /class1/module1/media/lab01/image20.png
+.. |image21| image:: /class1/module1/media/lab01/image21.png
