@@ -566,6 +566,99 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
       .. Hint::  What is in the policy so far?
 
+Task 5: Authentication
+----------------------------
+
+BIG-IP APM serves as an authentication gateway or proxy. As an authentication proxy, BIG-IP APM provides separate client-side and server-side authentication. Client-side authentication occurs between the client and BIG-IP APM. Server-side authentication occurs between BIG-IP APM and servers.
+
+Loose coupling between the client-side and server-side layers allows for a rich set of identity transformation services. Combined with a Visual Policy Editor and an expansive set of access iRules functionality, BIG-IP APM provides flexible and dynamic identity and access, based on a variety of contexts and conditions.
+
+For example, a client accessing Microsoft SharePoint through BIG-IP APM in a corporate environment may silently authenticate to BIG-IP APM with NT LAN Manager (NTLM) or Kerberos credentials. On leaving that environment, or on using a different non-sanctioned device, the client may be required to go through another potentially stronger authentication, such as a smart card or other client certificate, RSA SecurID, or one-time passcode. You can require additional device vetting such as file, folder, and registry checks and antivirus and firewall software validation.
+
+A BIG-IP APM authentication and SSO features access and identity security posture can automatically change depending on environmental factors, such as who or where the user is, what resource the user is accessing, or when or with what method the user is attempting to gain access.
+
+Data centers and Cloud deployments often face the challenge of offering multiple applications with different authentication requirements. You can deploy BIG-IP APM to consolidate and enforce all client-side authentication into a single process. BIG-IP APM can also perform identity transformation on the server side to authenticate to server services using the best-supported methods. This can reduce operational costs since applications remain in the most-supported and documented configurations. Common examples of identity transformation are client-side public key infrastructure (PKI) certificate to server-side Kerberos and client-side HTTP form to server-side HTTP Basic.
+
+The following figure shows BIG-IP APM acting as an authentication gateway. Information received during pre-authentication is transformed to authenticate to multiple enterprise applications with different requirements.
+
+|image25|
+
+#. Client-side authentication
+
+      Client-side authentication involves the client (typically a user employing a browser) accessing a BIG-APM virtual server and presenting identity. This is called authentication, authorization, and accounting (AAA).
+
+      BIG-IP APM supports industry standard authentication methods, including:
+
+      - NTLM
+      - Kerberos
+      - Security Assertion Markup Language (SAML)
+      - Client certificate
+      - RSA SecurID
+      - One-time passcode
+      - HTTP Basic
+      - HTTP Form
+      - OAuth 2.0
+      - OpenId Connect
+
+      After access credentials are submitted, BIG-IP APM validates the listed methods with industry-standard mechanisms, including:
+
+      - Active Directory authentication and query
+      - LDAP and LDAPS authentication and query
+      - Remote Authentication Dial-in User Service (RADIUS)
+      - Terminal Access Controller Access Control System (TACACS)
+      - Online Certificate Status Protocol (OCSP) and Certificate Revocation List Distribution Point (CRLDP) (for client certificates)
+      - Local User Database authentication
+
+#. Go to **Access** --> **Authentication** --> **Active Directory**
+#. Click on server1-ad-servers and review the settings.  You can choose to use go direct or use a pool of AD servers.
+
+      +----------------------+-----------------------------+----------------------------------+
+      |General Properties    | Name                        |  server1-ad-servers              |
+      +----------------------+-----------------------------+----------------------------------+
+      |Configuration         | Domain Name                 |  f5lab.local                     |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Server Connection           |  Use Pool                        |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Domain Controller Pool Name |  /Common/server1-ad-pool         |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | IP Address                  |  10.1.20.7                       |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Hostname                    |  dc1.f5lab.local                 |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Admin Name                  |  admin                           |
+      +----------------------+-----------------------------+----------------------------------+
+      |                      | Admin Password              |  admin                           |
+      +----------------------+-----------------------------+----------------------------------+
+
+      .. Note:: If you choose to use a pool you can create the pool as you create the AD object.  Go back and click create to see what this looks like.
+
+      |adpool|
+
+      You have now created an object that can be used to facilitate Active Directory authentication in front of any application.  The application itself does not need to require authentication. If you were to deploy a policy with AD Auth on a Virtual Server for a web application the policy would preset a login page, prompt for credentials, verify the credentials against this AD object before allowing a user to access the web application.
+
+#. Go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#. Locate the Basic_policy and click **Edit**
+#. Click the **+** symbol between Start and Deny.
+#. From the **Logon** tab select the **Logon Page** radio button
+#. Click **Add Item**
+#. Notice that you can add fields and change the names of the fields.  Click **Save**
+#. Click the **+** between **Logon Page** and Deny
+#. Click the **Authentication** tab
+#. Choose the **AD Auth** radio button and click **Add Item**
+#. Under the **Type** field click on the drop down menu and choose the newly created AAA server **Basic_policy_aaa**
+#. Click **Save**
+#. Click on the **Deny** end point and choose **Allow** then click **Save**
+#. Click **Apply Access Policy**
+
+      |basicpolicy|
+
+      Now you have a basic policy with AD Authentication that you can leverage for Web Pre-Authorization in front of any application.
+
+#. Go to **Local Traffic** --> **Virtual Servers**
+#. Locate server1-https and click on it
+#. Scroll down to the Access Policy section.  Next to **Access Profile** click the drop and replace server1-psp with your Basic_policy
+#. Scroll down to the bottom and click **Update**
+#. In a new browser tab go to http://server1.acme.com and Login
 
 
 Lab 2 is now complete.
@@ -598,3 +691,6 @@ Lab 2 is now complete.
 .. |image22| image:: /class1/module1/media/lab01/image22.png
 .. |image23| image:: /class1/module1/media/lab01/image23.png
 .. |multidomain| image:: /class1/module1/media/lab01/multidomain.png
+.. |image25| image:: /class1/module1/media/lab01/image25.png
+.. |adpool| image:: /class1/module1/media/lab01/adpool.png
+.. |basicpolicy| image:: /class1/module1/media/lab01/basicpolicy.png
