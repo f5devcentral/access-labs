@@ -660,6 +660,53 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
 #. Scroll down to the bottom and click **Update**
 #. In a new browser tab go to http://server1.acme.com and Login
 
+Task 6: Single Sign-On
+----------------------------
+Client side and server side are loosely coupled in the authentication proxy. Because of this, BIG-IP APM can transform client-side identity values of one type can into server-side identity values of another type. You configure SSO within an SSO profile, which is applied to an access profile. The system triggers SSO at the end of successful access policy evaluation and on subsequent client-side requests.
+
+BIG-IP APM supports industry standard authentication methods, including:
+
+    - NTLM
+    - Kerberos
+    - HTTP Basic
+    - HTTP Form
+    - Security Assertion Markup Language (SAML)
+
+    .. Note:: Client-side authentication methods outnumber server-side methods. This is because BIG-IP APM does not transmit client certificate, RSA SecurID, or one-time passcodes to the server on the client’s behalf.
+
+#.  Go to **Access** --> **Single Sign-On** --> **HTTP Basic**
+#.  Click **Create**
+
+        +----------------------+-----------------------------+----------------------------------+
+        |General Properties    | Name                        |  Basic_http_sso                  |
+        +----------------------+-----------------------------+----------------------------------+
+        |Credential Source     | Username Source             |  session.sso.token.last.username |
+        +----------------------+-----------------------------+----------------------------------+
+        |                      | Password Source             |  session.sso.token.last.password |                        |
+        +----------------------+-----------------------------+----------------------------------+
+        |SSO Method Conversion | Username Conversion         |  unchecked                       |
+        +----------------------+-----------------------------+----------------------------------+
+
+        .. Note::  Username conversion can be enabled if you want domain\username or username@domain to convert to just username.
+
+#. Click **Finished**
+#. Click on **Access** --> *Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#. Locate your server1-psp profile and click on the name
+#. Click on **SSO/Auth Domains**
+#. Under SSO Configuration click the drop down and select **Basic_http_sso** click update
+#. From the top menu bar click **Access Policy** and click **Edit Access Policy for Profile "server1-psp"** link
+#. Click the **+** between **AD Auth** and **Allow**
+#. Click on **Assignment** and choose **SSO Credential Mapping** -->  **Add Item** -->  **Save**
+#. Click **Apply Policy**
+#. Open an incognito window and try go to https://server2.acme.com
+#. You should have been prompted to login.  Close the Window
+#. Go to **Local Traffic** --> **Virtual Servers** and open server2-https
+#. Scroll to *Access Policy** and click the drop down next to **Access Profile**.  Choose server1-psp
+#. Scroll down click **Update**
+#. Open a new incognito tab.  Go to https://server2.acme.com
+#. Login **user1** and **user1**
+#. Now you should have been signed in to the backend server with Single Sign On.
+
 
 Lab 2 is now complete.
 
