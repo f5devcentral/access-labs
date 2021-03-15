@@ -55,6 +55,11 @@ Task 1: Resource Provisioning
 ---------------------------------------
 Access Policy Manager (APM) is a module available for use on the BIG-IP platform (Hardware and Virtual).  Unlike other modules, APM can be provisioned with limited functionality on any BIG-IP platform without a specific license (`see F5 KB15854 <https://support.f5.com/csp/article/K15854>`__).  APM is licensed based on the number of Access Sessions and Concurrent Users Sessions (`see APM Operations Guide <https://support.f5.com/csp/article/K72971039>`__). You can provision APM limited and immediately start using all the functions of APM with a limitation of 10 Access and Concurrent user session.
 
+#. Log in to bigip1.f5lab.local with administrative credentials provided
+#. On the left menu navigate to **System** --> **Resource Provisioning**
+#. Click box and on the drop down next to the module and choose **Nominal**
+
+
 Lab 2 is now complete.
 
 .. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
