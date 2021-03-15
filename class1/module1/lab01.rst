@@ -407,55 +407,58 @@ on methods and endpoint checks.  To being we have to create an Access Profile.  
 
 #.  What is a Domain Cookie?
 
-By default, BIG-IP APM requires authentication for each access profile.  This can easily be changed by adding the domain cookie. For this section you will add
-the domain for your application. For example, if you have two applications app1.f5demo.com and app2.f5demo.com you would enter the domain f5demo.com for your
-domain cookie. Now your users can access each application and will only be prompted for authentication once.
+      By default, BIG-IP APM requires authentication for each access profile.  This can easily be changed by adding the domain cookie. For this section you will add the domain for your application. For example, if you have two applications app1.f5demo.com and app2.f5demo.com you would enter the domain f5demo.com for your domain cookie. Now your users can access each application and will only be prompted for authentication once.
 
 #.  Cookie Options
 
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
-| secure               |If the BIG-IP APM virtual server is configured with a Client SSL profile, select **Secure** (default setting) when  |
-|                      |configuring the BIG-IP APM SSO/Auth Domain cookie settings.                                                         |
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
-| Persistent           |Session cookie persistence functions only on BIG-IP LTM and APM deployments. For BIG-IP APM  deployments with       |
-|                      |connectivity resources (such as Network Access, Portal Access, etc.), you cannot set BIG-IP APM cookies as          |
-|                      |**Persistent**. This is by design, as session cookie persistence can present a security risk. For some deployments  |
-|                      |of the BIG-IP APM system, as with Microsoft SharePoint, cookie persistence may be required. When you select cookie  |
-|                      |persistence, persistence is hard coded at 60 seconds.                                                               |
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
-| HTTP Only            |For BIG-IP APM deployments with connectivity resources (such as Network Access, Portal Access, etc.), do not set    |
-|                      |BIG-IP APM cookies with the **HTTP Only** flag.                                                                     |
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
-| Samesite             |New in version 16.x APM now has the option to enable Samesite attribute for session cookies. This attribute         |
-|                      |enforces samesite usage and prevents the cookies from being included with cross-site requests. It can have one of   |
-|                      |these values:                                                                                                       |
-|                      |                                                                                                                    |
-|                      |- Strict: Only include the cookie with requests originating from the same site as the cookie                        |
-|                      |- Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP   |
-|                      |  method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user |
-|                      |  navigates to the URL from an external site, such as by following a link.                                          |
-|                      |- None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure   |
-|                      |  cookie attribute must be set.                                                                                     |
-+----------------------+--------------------------------------------------------------------------------------------------------------------+
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | secure               |If the BIG-IP APM virtual server is configured with a Client SSL profile, select **Secure** (default setting) when  |
+      |                      |configuring the BIG-IP APM SSO/Auth Domain cookie settings.                                                         |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Persistent           |Session cookie persistence functions only on BIG-IP LTM and APM deployments. For BIG-IP APM  deployments with       |
+      |                      |connectivity resources (such as Network Access, Portal Access, etc.), you cannot set BIG-IP APM cookies as          |
+      |                      |**Persistent**. This is by design, as session cookie persistence can present a security risk. For some deployments  |
+      |                      |of the BIG-IP APM system, as with Microsoft SharePoint, cookie persistence may be required. When you select cookie  |
+      |                      |persistence, persistence is hard coded at 60 seconds.                                                               |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | HTTP Only            |For BIG-IP APM deployments with connectivity resources (such as Network Access, Portal Access, etc.), do not set    |
+      |                      |BIG-IP APM cookies with the **HTTP Only** flag.                                                                     |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Samesite             |New in version 16.x APM now has the option to enable Samesite attribute for session cookies. This attribute         |
+      |                      |enforces samesite usage and prevents the cookies from being included with cross-site requests. It can have one of   |
+      |                      |these values:                                                                                                       |
+      |                      |                                                                                                                    |
+      |                      |- Strict: Only include the cookie with requests originating from the same site as the cookie                        |
+      |                      |- Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP   |
+      |                      |  method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user |
+      |                      |  navigates to the URL from an external site, such as by following a link.                                          |
+      |                      |- None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure   |
+      |                      |  cookie attribute must be set.                                                                                     |
+      +----------------------+--------------------------------------------------------------------------------------------------------------------+
 
 #.  SSO Configuration
 
-This drop down is where you will find all the SSO objects that you have configured on this BIG-IP appliance. If you want to enable an SSO method for an application
-first you must configuration the SSO object and then select in this section of the policy.
+      This drop down is where you will find all the SSO objects that you have configured on this BIG-IP appliance. If you want to enable an SSO method for an application first you must configuration the SSO object and then select in this section of the policy.
 
-.. Note:: Task 6 will review SSO methods and configuration.
+      .. Note:: Task 6 will review SSO methods and configuration.
 
 #.  Multiple domains
 
-If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of
-the virtual servers and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login.
+      If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of the virtual servers and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login. The caveat is that all Virtual Servers must share this same policy.
 
-- Primary Authentication URI:  Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where the user session
-  is created. As long as you provide the URI, your users are able to access multiple backend applications from multiple domains and hosts without requiring them to
-  re-enter their credentials because the user session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.
-- Authentication Domain Configuration: Set the domain acme.com
-- Authentication Domains:  To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app2.acme.com  If you have and SSO
-  method created select the SSO method from the drop down box.  This can be edited later to add an SSO method.
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Primary Authentication URI             |Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where |
+      |                                        |the user session is created. As long as you provide the URI, your users are able to access multiple backend         |
+      |                                        |applications from multiple domains and hosts without requiring them to re-enter their credentials because the user  |
+      |                                        |session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.     |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Authentication Domain Configuration    |An example domain would be acme.com                                                                                 |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+      | Authentication Domains                 |To add the applications click on **Add** at the far right and enter the host. Example, app1.acme.com, app2.acme.com |
+      |                                        |If you have and SSO method created select the SSO method from the drop down box.  This can be edited later to add an|
+      |                                        |SSO method.                                                                                                         |
+      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
+
 
 #.  Logs
 
