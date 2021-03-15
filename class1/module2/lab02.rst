@@ -215,8 +215,8 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 | |Lab2-Image31|                                                                               |
 |        26. Your Per-Request Policy should now look like this                                 |
 | |Lab2-Image32|                                                                               |
-|        27. Navigate back to Local Traffic -> Virtual Servers and select your VIP, under the
-            Access policy section of your VIP bind your Per-Session and Per Request policies   |
+|        27. Navigate back to Local Traffic -> Virtual Servers and select your VIP, under the  |
+|            Access policy section of your VIP bind your Per-Session and Per Request policies  |
 | |Lab2-Image33|                                                                               |
 |                                                                                              |
 | |Lab2-Image34|                                                                               |
