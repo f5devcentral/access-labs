@@ -192,6 +192,112 @@ Access Guided Configuration (AGC) provides an easy way to create BIG-IP configur
 
       |image21|
 
+Task 3: Overview
+-----------------
+The Overview menu is where an administrator can view active sessions, previous sessions, and view various reports.
+
+#.  Click on **Access** --> **Overview** from the left menu
+#.  Here are Active Sessions.  When users login to applications using APM policies the sessions will appear in this pane.
+#.  Open another tab and login to the application:  https://server1.acme.com
+
+      +---------------+-------------+
+      |username       | user1       |
+      +---------------+-------------+
+      |password       | user1       |
+      +---------------+-------------+
+
+#.  Return to the BIG-IP tab and view the active session
+#.  A new session will appear in the Total Active Sessions.  From this pane you can see the session ID, variables collected, Client IP, Virtual Server in use, session type and any profiles in use
+#.  Click on the View under Variables
+#.  This gives us all the information collected on the current session
+
+      - Can you find the user logged in?
+      - What is the client platform
+      - Client Type?
+      - Access Profile?
+
+#.  Click the back button on the browser to return to the Active Sessions.
+#.  Click on the Session ID
+
+      .. Note:: The Session ID will also be displayed to the user should they have an issue with logging in.  An error message will display and their session ID will be given.  You can simulate this by editing the access policy **server1-psp** later on in the lab.
+
+        |sessionid|
+
+#.  The Session ID will take you to the first set of reporting **Access Report**
+#.  This section will give you details on the session.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in in more detail later).
+
+      - Can you find the first **Following Rule** log message?
+      - Where did it flow?
+      - Was the user successful?
+
+#.  Return to the first screen by clicking on **Active Sessions** from the menu bar above
+
+      |activesessions|
+
+#.  In **Active Sessions** click on the check box next to the session and select the **Kill Selected Sessions** button.  This will terminate the users session and make them login again.
+
+      |killsession|
+
+#.  Click **Delete**
+#.  Click on **Access Reports** from the menu bar above
+#.  You will be prompted to enter a time period to run the report
+
+      |image22|
+
+      .. Note:: This is how you can view past sessions.  Pick a time frame and run a report.
+
+#.  There are two other reporting functions in this screen, **OAuth Report** and **SWG Reports**.  We will not cover these reports in this lab.
+#.  The last section is Event Logs.
+
+    .. Note:: URL Request Logs is part of SWG functionality and will not be covered in this lab
+
+#.  From the top menu bar Click on the drop down next to **Event Logs** and choose **Log Settings**. This is where you can create logging profiles for access policies.  From here you can specify what information to collect and to what detail.
+#.  Click the **Create** button
+#.  We will create a new APM Log profile
+
+      +----------------------+---------------------------+----------------------------------+
+      |General Information   | Name                      |  Basic_Log_profile               |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Enable Access System Logs |  Check box                       |
+      +----------------------+---------------------------+----------------------------------+
+      |Access System Logs    | Publisher                 |  /Common/sys-db-access-publisher |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Access Policy             |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | ACL                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Secure Web Gateway        |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | OAuth                     |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | VDI                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | ADFS Proxy                |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Per-Request Policy        |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | SSO                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | ECA                       |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | PingAccess Profile        |  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Endpoint Management System|  Notice                          |
+      +----------------------+---------------------------+----------------------------------+
+      |Access Profile        | Selected                  |  server1-psp                     |
+      +----------------------+---------------------------+----------------------------------+
+
+      .. Note:: Within the Access System Logs section of the log profile is where you can change the logging for various portions of the APM Policies.  The one you will use most will be to move Access Policy from Notice to Debug and/or Pre-Request Policy from Notice to Debug.  As you can see you can pick and choose what level of notifications you want in your logs.  This will impact what you see in Access Reports for a session and what appears in /var/log/apm.
+
+#.  From the left menu go to **Access** --> **Overview** --> **Dashboard**
+
+      |image23|
+
+#.  The Dashboard can give you a quick synopsis on Access Session, Network Access Session, Portal Access and Access control Lists.
+
+      .. Note:: For more reporting on APM stats look to BIG-IQ or exporting logs to 3rd party SIEMs and create your own dashboard.
+
+
 
 Lab 2 is now complete.
 
@@ -217,3 +323,8 @@ Lab 2 is now complete.
 .. |image19| image:: /class1/module1/media/lab01/image19.png
 .. |image20| image:: /class1/module1/media/lab01/image20.png
 .. |image21| image:: /class1/module1/media/lab01/image21.png
+.. |sessionid| image:: /class1/module1/media/lab01/sessionid.png
+.. |activesessions| image:: /class1/module1/media/lab01/activesessions.png
+.. |killsession| image:: /class1/module1/media/lab01/killsession.png
+.. |image22| image:: /class1/module1/media/lab01/image22.png
+.. |image23| image:: /class1/module1/media/lab01/image23.png
