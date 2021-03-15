@@ -328,6 +328,30 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
 #.  There are two ways to edit the Policy piece of the profile.
 
+    First way
+
+    +----------------------------------------------------------------------------+
+    | Click on the profile                                                       |
+    +----------------------------------------------------------------------------+
+    | Click on **Access Policy** from the top menu bar                           |
+    +----------------------------------------------------------------------------+
+    | Click on the link to **Edit Access Policy for Profile "Basic_policy"**     |
+    +----------------------------------------------------------------------------+
+    | This will take you to the Visual Policy Editor (VPE)                       |
+    +----------------------------------------------------------------------------+
+
+    Second way
+
+    +-----------------------------------------------------------------------------------+
+    | Locate the **Basic_policy** in the Profile list and follow the line to the right. |
+    +-----------------------------------------------------------------------------------+
+    | Middle of the line there will be an **Edit** link                                 |
+    +-----------------------------------------------------------------------------------+
+    | Click the **Edit** link                                                           |
+    +-----------------------------------------------------------------------------------+
+
+
+
 
 
 Lab 2 is now complete.
