@@ -712,113 +712,117 @@ Task 7: Federation
 
 **Authentication and authorization**
 
-Most organizations require users to verify their identity (authenticate). Additionally, most organizations control (authorize) the resources each user can access and the actions they can take when using their applications (services), based on their identity.
+    Most organizations require users to verify their identity (authenticate). Additionally, most organizations control (authorize) the resources each user can access and the actions they can take when using their applications (services), based on their identity.
 
 **Identity providers and service providers**
 
-Federation is an agreement between organizations to trust user authentication and/or authorization from one organization (identity provider (IdP)) to access services from the other organizations in the group (service providers (SPs)). In this model, one organization can be both the IdP and an SP or simply an SP.
+    Federation is an agreement between organizations to trust user authentication and/or authorization from one organization (identity provider (IdP)) to access services from the other organizations in the group (service providers (SPs)). In this model, one organization can be both the IdP and an SP or simply an SP.
 
-Federation provides many benefits to organizations and users, including single sign-on (SSO), which enables users to avoid logging in to each SP.
+    Federation provides many benefits to organizations and users, including single sign-on (SSO), which enables users to avoid logging in to each SP.
 
 **Standard web security protocols**
 
-To manage and map identities across geographies, SPs, and services, federation relies on common standards and protocols.
+    To manage and map identities across geographies, SPs, and services, federation relies on common standards and protocols.
 
 **SAML 2.0**
 
-Security Assertion Markup Language (SAML) 2.0 is an open standard for exchanging authentication and authorization data between SPs. SAML 2.0 is an XML-based language that shares messages containing user information (assertions) while protecting their identity, thereby enabling a trusted relationship between SPs to perform services. SAML 2.0 relies on Simple Object Access Protocol (SOAP) to make web service calls.
+    Security Assertion Markup Language (SAML) 2.0 is an open standard for exchanging authentication and authorization data between SPs. SAML 2.0 is an XML-based language that shares messages containing user information (assertions) while protecting their identity, thereby enabling a trusted relationship between SPs to perform services. SAML 2.0 relies on Simple Object Access Protocol (SOAP) to make web service calls.
 
 **Faster and easier**
 
-However, in recent years, representational state transfer (REST) has gained popularity as a light-weight alternative to SOAP that makes web service calls more quickly. Developers combine REST with JSON to transmit user data, instead of XML, because it is easier to implement and contains small, compact messages. This combination is the basis for OAuth 2.0 and OpenID Connect.
+    However, in recent years, representational state transfer (REST) has gained popularity as a light-weight alternative to SOAP that makes web service calls more quickly. Developers combine REST with JSON to transmit user data, instead of XML, because it is easier to implement and contains small, compact messages. This combination is the basis for OAuth 2.0 and OpenID Connect.
 
 **OAuth 2.0**
 
-OAuth 2.0 is an open standard for exchanging authorization data—but not authentication data—between SPs. It is a set of defined process flows for accessing resources on behalf of the user (delegated authorization).
+    OAuth 2.0 is an open standard for exchanging authorization data—but not authentication data—between SPs. It is a set of defined process flows for accessing resources on behalf of the user (delegated authorization).
 
-In this model, the user (resource owner) has a resource hosted by one SP (on a resource server) that they want to make available to another SP (client), such as importing a list of contacts. The resource server must authorize the client’s access (using an authorization server) on behalf of the user. The resource owner does not sign in to the client, which requires authentication; however, the resource owner may be prompted to give consent to authorize the client’s access. For more information about BIG-IP APM and OAuth 2.0, refer to OAuth authorization.
+    In this model, the user (resource owner) has a resource hosted by one SP (on a resource server) that they want to make available to another SP (client), such as importing a list of contacts. The resource server must authorize the client’s access (using an authorization server) on behalf of the user. The resource owner does not sign in to the client, which requires authentication; however, the resource owner may be prompted to give consent to authorize the client’s access. For more information about BIG-IP APM and OAuth 2.0, refer to OAuth authorization.
 
 **OpenId Connect**
 
-OpenId Connect is an open standard for exchanging authentication data—but not authorization data—between SPs. OpenId Connect uses OAuth 2.0 and adds additional steps over its process flows to perform authentication. In short, when an authorization server is enabled for OpenId Connect, it provides an ID token in addition to an access token.
+    OpenId Connect is an open standard for exchanging authentication data—but not authorization data—between SPs. OpenId Connect uses OAuth 2.0 and adds additional steps over its process flows to perform authentication. In short, when an authorization server is enabled for OpenId Connect, it provides an ID token in addition to an access token.
 
-In this model, users use their account from one SP to sign in to another, such as using a Google or Facebook account to sign in to another website. The SP owning the account is the IdP with the authorization server and the other SP is the client.
+    In this model, users use their account from one SP to sign in to another, such as using a Google or Facebook account to sign in to another website. The SP owning the account is the IdP with the authorization server and the other SP is the client.
 
 **BIG-IP APM federation with SAML**
 
-BIG-IP APM supports SAML 2.0 and can act as the IdP for popular SPs, such as Microsoft Office 365 and Salesforce. The system supports both IdP- and SP-initiated identity federation deployments.
+    BIG-IP APM supports SAML 2.0 and can act as the IdP for popular SPs, such as Microsoft Office 365 and Salesforce. The system supports both IdP- and SP-initiated identity federation deployments.
 
-IdP-initiated federation with BIG-IP APM
+    IdP-initiated federation with BIG-IP APM
 
-    |samlidp|
+        |samlidp|
 
-    The user logs in to the BIG-IP APM IdP and the system directs them to the BIG-IP APM webtop.
-    The user selects the SP they want, such as Salesforce.
-    The system retrieves any required attributes from the user data store to pass on to the SP.
-    The system uses the browser to direct the request to the SP, along with the SAML assertion and any required attributes.
+        - The user logs in to the BIG-IP APM IdP and the system directs them to the BIG-IP APM webtop.
+        - The user selects the SP they want, such as Salesforce.
+        - The system retrieves any required attributes from the user data store to pass on to the SP.
+        - The system uses the browser to direct the request to the SP, along with the SAML assertion and any required attributes.
+
 
 #. Run Solution 4 and Solution 5 (add in the automation up front Need to create SAML resource then add in Advanced Resource assign with webtop and SAML resource)
-#. 
+#. Steps to login to idp.acme.com and execute sp.acme.com
+#. Look at Policy
 
 SP-initiated federation with BIG-IP APM
 
-Figure 3.2 SP-initiated SAML
+      |samlsp|
 
-    The user logs in to the SP, such as Salesforce.
-    The SP uses the browser to redirect the user back to the BIG-IP APM IdP.
-    The BIG-IP APM IdP prompts the user to log in.
-    The system retrieves any required attributes from the user data store to pass on to the SP.
-    The system uses the browser to send the SAML assertion and any required attributes to the SP.
+      - The user logs in to the SP, such as Salesforce.
+      - The SP uses the browser to redirect the user back to the BIG-IP APM IdP.
+      - The BIG-IP APM IdP prompts the user to log in.
+      - The system retrieves any required attributes from the user data store to pass on to the SP.
+      - The system uses the browser to send the SAML assertion and any required attributes to the SP.
 
-Using a custom SP portal instead of the BIG-IP APM webtop for federation
+#. Tasks login to sp.acme.com
+#. Look at Policy
 
-Some enterprises do not want to use the built-in BIG-IP APM webtop as the portal to their SPs. Instead, they want to create their own, customized, external portal. For more information about the
-webtop, refer to Webtop.
+**Using a custom SP portal instead of the BIG-IP APM webtop for federation**
 
-As of BIG-IP APM 14.0, you can use a custom, external portal when you can use SAML inline SSO for federation. You must meet the following conditions:
+      Some enterprises do not want to use the built-in BIG-IP APM webtop as the portal to their SPs. Instead, they want to create their own, customized, external portal. For more information about the
+      webtop, refer to Webtop.
 
-    Federation is SP-initiated. That is, when a user visits an SP, the BIG-IP APM acts as the IdP.
-    You have an existing per-session policy.
-    Users visit the SP using the BIG-IP in BIG-IP LTM + BIG-IP APM mode.
+      As of BIG-IP APM 14.0, you can use a custom, external portal when you can use SAML inline SSO for federation. You must meet the following conditions:
 
-Using SAML inline SSO
+          - Federation is SP-initiated. That is, when a user visits an SP, the BIG-IP APM acts as the IdP.
+          - You have an existing per-session policy.
+          - Users visit the SP using the BIG-IP in BIG-IP LTM + BIG-IP APM mode.
 
-When you use SAML inline SSO, when BIG-IP APM receives an SP authentication request, it generates a SAML assertion on-the-fly to automatically sign in the user. The BIG-IP APM IdP is chained so
-that it accepts an assertion from another SAML IdP to create the session. The system constructs session data using the same method.
+**Using SAML inline SSO**
 
-How it works
+      When you use SAML inline SSO, when BIG-IP APM receives an SP authentication request, it generates a SAML assertion on-the-fly to automatically sign in the user. The BIG-IP APM IdP is chained so
+      that it accepts an assertion from another SAML IdP to create the session. The system constructs session data using the same method.
 
-    You put an internal SP behind the virtual address for the IdP.
-    You configure the internal SP server in a typical BIG-IP LTM pool on the virtual server. An SP that is load balanced by the BIG-IP can be either a SAML-enabled application or a third-party
-    SAML SP.
-    When the client transmits an authentication request to the BIG-IP APM IdP, the system generates assertions for the application.
+      How it works
 
-Figure 3.3 SAML inline SSO
+          - You put an internal SP behind the virtual address for the IdP.
+          - You configure the internal SP server in a typical BIG-IP LTM pool on the virtual server. An SP that is load balanced by the BIG-IP can be either a SAML-enabled application or a third-party SAML SP.
+          - When the client transmits an authentication request to the BIG-IP APM IdP, the system generates assertions for the application.
 
-Figure 3.4 SAML inline SSO request flow
 
-    The user attempts to access a resource and BIG-IP APM starts access policy evaluation.
-    The system authenticates the user.
-    The user resends the original request.
-    The BIG-IP system load balances the request to a pool member associated with the virtual server.
-    When the user doesn’t have a valid session, the internal SP or SAML-enabled application generates an authentication request and redirects the user to the IdP.
-    The system forwards the application response to the user, the browser evaluates it, and it results in an authentication request.
-    The user submits the authentication request back to the BIG-IP virtual server.
-    The BIG-IP APM IdP validates the request and, when successful, generates an assertion.
-    The system modifies the client’s HTTP request and releases it to the internal SP.
-    The internal SP receives and validates the assertion for the BIG-IP system.
-    The SP either provides access to the application or provides an error to the user, depending on the result of validation.
 
-For more information about using SAML inline SSO, refer to K06743491: Overview of BIG-IP APM SAML inline SSO.
+      |inlinesaml|
 
-Using SAML inline SSO with multiple unique host names
+         - The user attempts to access a resource and BIG-IP APM starts access policy evaluation.
+         - The system authenticates the user.
+         - The user resends the original request.
+         - The BIG-IP system load balances the request to a pool member associated with the virtual server.
+         - When the user doesn’t have a valid session, the internal SP or SAML-enabled application generates an authentication request and redirects the user to the IdP.
+         - The system forwards the application response to the user, the browser evaluates it, and it results in an authentication request.
+         - The user submits the authentication request back to the BIG-IP virtual server.
+         - The BIG-IP APM IdP validates the request and, when successful, generates an assertion.
+         - The system modifies the client’s HTTP request and releases it to the internal SP.
+         - The internal SP receives and validates the assertion for the BIG-IP system.
+         - The SP either provides access to the application or provides an error to the user, depending on the result of validation.
 
-Typically, you identify, load balance, and secure an SP by giving it a unique virtual address and host name, such as salesforce.f5.com. However, when you have multiple SPs with unique host names
-that you want to locate behind a single BIG-IP IdP, you don’t have to configure multiple BIG-IPs to act as IdP for each SP. That approach quickly becomes overly complex.
+         .. Note:: For more information about using SAML inline SSO, refer to K06743491: Overview of BIG-IP APM SAML inline SSO.
 
-Instead, you can share a single access profile across all virtual addresses participating in SAML inline SSO. In this model, there is a main authentication virtual server that performs authentication
-and generates SAML assertions when requested. The SPs on other virtual servers use the same access profile. For more information, refer to the SP-initiated multi-domain inline SAML SSO section in
-K06743491: Overview of BIG-IP APM SAML inline SSO.
+**Using SAML inline SSO with multiple unique host names**
+
+      Typically, you identify, load balance, and secure an SP by giving it a unique virtual address and host name, such as salesforce.f5.com. However, when you have multiple SPs with unique host names
+      that you want to locate behind a single BIG-IP IdP, you don’t have to configure multiple BIG-IPs to act as IdP for each SP. That approach quickly becomes overly complex.
+
+      Instead, you can share a single access profile across all virtual addresses participating in SAML inline SSO. In this model, there is a main authentication virtual server that performs authentication
+      and generates SAML assertions when requested. The SPs on other virtual servers use the same access profile. For more information, refer to the SP-initiated multi-domain inline SAML SSO section in
+      K06743491: Overview of BIG-IP APM SAML inline SSO.
 
 
 Task 8: Connectivity/VPN
