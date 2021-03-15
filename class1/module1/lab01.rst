@@ -316,93 +316,93 @@ on methods and endpoint checks.  To being we have to create an Access Profile.  
 
 #.  From the left menu go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
 
-The per-session policy runs when a client initiates a session. (A per-session policy is also known as an access policy.) Depending on the actions you include in the access policy, it can authenticate
-the user and perform other actions that populate session variables with data for use throughout the session.
+      The per-session policy runs when a client initiates a session. (A per-session policy is also known as an access policy.) Depending on the actions you include in the access policy, it can authenticate the user and perform other actions that populate session variables with data for use throughout the session.
 
 #.  Click on the Create button on the far right
 
-+----------------------+---------------------------+----------------------------------+
-|General Properties    | Name                      |  Basic_policy                    |
-+----------------------+---------------------------+----------------------------------+
-|                      | Profile Type              |  All                             |
-+----------------------+---------------------------+----------------------------------+
-|                      | Profile Scope             |  Profile                         |
-+----------------------+---------------------------+----------------------------------+
-|Language Settings     | Accepted Languages        |  English                         |
-+----------------------+---------------------------+----------------------------------+
+      +----------------------+---------------------------+----------------------------------+
+      |General Properties    | Name                      |  Basic_policy                    |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Type              |  All                             |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Profile Scope             |  Profile                         |
+      +----------------------+---------------------------+----------------------------------+
+      |                      | Customization Type        |  Modern                          |
+      +----------------------|---------------------------|----------------------------------+
+      |Language Settings     | Accepted Languages        |  English                         |
+      +----------------------+---------------------------+----------------------------------+
 
+      .. Note:: Customization Type is a newer setting that changes the look and feel of login pages.  For the traditional look you can **Standard**
+
+#.  Click **Finished**
 #.  Now we have a basic profile.  There were a number of other settings to modify and use in the profile.  For now we will focus just on the basics.
 #.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
 #.  There are two ways to edit the Policy piece of the profile.
-    First way
 
-    +----------------------------------------------------------------------------+
-    | Click on the profile                                                       |
-    +----------------------------------------------------------------------------+
-    | Click on **Access Policy**                                                 |
-    +----------------------------------------------------------------------------+
-    | Click on the link to **Edit Access Policy for Profile "Basic_policy"**     |
-    +----------------------------------------------------------------------------+
-    | This will take you to the Visual Policy Editor (VPE)                       |
-    +----------------------------------------------------------------------------+
+      First way
 
-    Second way
+      +----------------------------------------------------------------------------+
+      | Click on the profile                                                       |
+      +----------------------------------------------------------------------------+
+      | Click on **Access Policy** from the top menu bar                           |
+      +----------------------------------------------------------------------------+
+      | Click on the link to **Edit Access Policy for Profile "Basic_policy"**     |
+      +----------------------------------------------------------------------------+
+      | This will take you to the Visual Policy Editor (VPE)                       |
+      +----------------------------------------------------------------------------+
 
-    +-----------------------------------------------------------------------------------+
-    | Locate the **Basic_policy** in the Profile list and follow the line to the right. |
-    +-----------------------------------------------------------------------------------+
-    | Middle of the line there will be an **Edit** link                                 |
-    +-----------------------------------------------------------------------------------+
-    | Click the **Edit** link                                                           |
-    +-----------------------------------------------------------------------------------+
+      Second way
 
-#.  Close the VPE (we will visit the VPE and policy in more detail later)  Click on the **Basic_policy** and explore the settings for the Profile.
+      +-----------------------------------------------------------------------------------+
+      | Locate the **Basic_policy** in the Profile list and follow the line to the right. |
+      +-----------------------------------------------------------------------------------+
+      | Middle of the line there will be an **Edit** link                                 |
+      +-----------------------------------------------------------------------------------+
+      | Click the **Edit** link                                                           |
+      +-----------------------------------------------------------------------------------+
 
-    +----------------------+------------------------------------------------------------------------------------+
-    | Settings             | Here you can manage settings for the profile. You may want to change timeouts, max |
-    |                      | sessions and login attempts. These are settings specifically for this profile.     |
-    +----------------------+------------------------------------------------------------------------------------+
-    | Configurations       | For various use cases this section may need configuration.                         |
-    +----------------------+------------------------------------------------------------------------------------+
-    | Language Settings    | You set these at creation.                                                         |
-    +----------------------+------------------------------------------------------------------------------------+
+#.  Close the VPE (we will visit the VPE and policy in more detail later)
+#.  Return to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#.  Click on the **Basic_policy** and explore the settings for the Profile.
 
-.. Note:: If you are unsure of the settings you need at profile creation you can see that you can return to the profile and make adjustments.
+      +----------------------+------------------------------------------------------------------------------------+
+      | Settings             | Here you can manage settings for the profile. You may want to change timeouts, max |
+      |                      | sessions and login attempts. These are settings specifically for this profile.     |
+      +----------------------+------------------------------------------------------------------------------------+
+      | Configurations       | These are more advanced options and covered in other labs                          |
+      +----------------------+------------------------------------------------------------------------------------+
+      | Language Settings    | You have to set this at creation.                                                  |
+      +----------------------+------------------------------------------------------------------------------------+
+
+      .. Note:: If you are unsure of the settings you need at profile creation you can see that you can return to the profile and make adjustments.
 
 #.  Still in the profile click on **SSO/Auth Domain** at the top
 
-BIG-IP APM offers a number of Single Sign On (SSO) options.  The SSO/Auth Domain tab in a Per Session Profile is where you will select what SSO method to use for your application.
-In Task 6 we will cover the objects that need to be created in order to associate that SSO method to a policy.  At this time the drop down for the SSO Configuration will be
-blank.
+      BIG-IP APM offers a number of Single Sign On (SSO) options.  The SSO/Auth Domain tab in a Per Session Profile is where you will select what SSO method to use for your application. In Task 6 we will cover the objects that need to be created in order to associate that SSO method to a policy.  At this time the drop down for the SSO Configuration will have a pre-built sso object we will use later.
 
 #.  What is Domain Mode?
 
-Access Policy Manager (APM) provides a method to enable users to use a single login or session across multiple virtual servers in separate
-domains. Users can access back-end applications through multiple domains or through multiple hosts within a single domain, eliminating additional
-credential requests when they go through those multiple domains. With multi-domain support, you have the option of applying different SSO methods
-across different domains.
+      Access Policy Manager (APM) provides a method to enable users to use a single login or session across multiple virtual servers in separate domains. Users can access back-end applications through multiple domains or through multiple hosts within a single domain, eliminating additional credential requests when they go through those multiple domains. With multi-domain support, you have the option of applying different SSO methods across different domains.
 
-.. Note:: When thinking Domain do not confuse this with Active Directory domain.  In this context domain refers to the DNS domain.  Example, app1.f5demo.com and app2.f5dmeo.com
-are in the f5demo.com DNS domain.
+      .. Note:: When thinking Domain do not confuse this with Active Directory domain.  In this context domain refers to the DNS domain.  Example, app1.f5demo.com and app2.f5dmeo.com are in the f5demo.com DNS domain.
 
-.. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP system and share the same access profile. All virtual
-servers must include all of the profiles that the access profile requires (for example, VDI, rewrite, server SSL, connectivity, and so on).
+      .. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP system and share the same access profile. All virtual servers must include all of the profiles that the access profile requires (for example, VDI, rewrite, server SSL, connectivity, and so on).
 
-APM provides the following benefits when using multi-domain support with SSO.
+      APM provides the following benefits when using multi-domain support with SSO.
 
-- Users can sign out from all domains at once.
-- Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
-- Administrators can configure different cookie settings (Secure, Host/Domain and Persistent) for different domains, and for different hosts within same domain
-- Administrators can set up multiple SSO configurations to sign users in to multiple back-end applications for a single APM® session
+      - Users can sign out from all domains at once.
+      - Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
+      - Administrators can configure different cookie settings (Secure, Host/Domain and Persistent) for different domains, and for different hosts within same domain
+      - Administrators can set up multiple SSO configurations to sign users in to multiple back-end applications for a single APM® session
 
 
 #.  What are the options?
 
-+----------------------+-----------------------------------------------------------------------------------------+
-| Single Domain        | Choose this option for a single domain with a single sign on method                     |
-+----------------------+-----------------------------------------------------------------------------------------+
-| Multiple Domains     | This option allows for one policy and multiple SSO methods to multiple Virtual Servers  |
-+----------------------+-----------------------------------------------------------------------------------------+
+      +----------------------+-----------------------------------------------------------------------------------------+
+      | Single Domain        | Choose this option for a single domain with a single sign on method                     |
+      +----------------------+-----------------------------------------------------------------------------------------+
+      | Multiple Domains     | This option allows for one policy and multiple SSO methods to multiple Virtual Servers  |
+      +----------------------+-----------------------------------------------------------------------------------------+
 
 
 #.  What is a Domain Cookie?
