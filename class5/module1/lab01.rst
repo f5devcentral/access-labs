@@ -44,13 +44,19 @@ To access your dedicated student lab environment, you will require a web browser
 
 Task 2 - 
 --------------
-Now that we have reviewed/refreshed our memory on VPE conventions lets
-edit our policy we were previously working on to add some more actions.
-This section we show a great tool for troubleshooting a policy that may
-have been reaching an ENDING DENY and closing the APM session too
-rapidly for proper inspection during the troubleshooting phase.
 
-**STEP 1**
+The message box is a great tool for troubleshooting a policy that may have been reaching an ENDING DENY and closing the APM session too rapidly for proper inspection during the troubleshooting phase.
+
+#. Open a new browser tab and then navigate to https://server1.acme.com.  
+
+#. You instantly receive an access denied message.  Rather than going through logs to debug the issue you are going to use the Message box 
+
+
+session.check_software.last.fw.item_1.vendor_name
+
+session.check_software.last.fw.item_1.name
+
+
 
 |image71|
 
