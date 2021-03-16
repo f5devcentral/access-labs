@@ -403,7 +403,7 @@ Endings allow an administrtor to customize APM's reponsse by introducing redirec
 Task 2.6 Testing
 ~~~~~~~~~~~~~~~~~~
 
-#. Open a new tab in browser and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and the first thing that happens in our policy is the Windows and Firewall Check.  You can see these are being performed as the agent software is being triggered when the screen states **Awaiting Connection...** and then transitions to **Checking for security software**. 
+#. Open a new browser tab and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and the first thing that happens in our policy is the Windows and Firewall Check.  You can see these are being performed as the agent software is being triggered when the screen states **Awaiting Connection...** and then transitions to **Checking for security software**. 
 
     |image056|
 
