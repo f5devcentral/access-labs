@@ -7,10 +7,6 @@ Objectives
 The intention of this lab will be to show how to enable Access Policy Manager (APM) through resource provisioning.  Next we will explore all the components within the **Access** left menu.
 This is not a deep dive on the components but an overview of the components, features and concepts of APM.
 
-Lab Requirements
-----------------
-
--  A pre existing virtual server at IP and DNS Name
 
 Setup Lab Environment
 -----------------------------------
@@ -55,6 +51,8 @@ Task 1: Resource Provisioning
 ---------------------------------------
 Access Policy Manager (APM) is a module available for use on the BIG-IP platform (Hardware and Virtual).  Unlike other modules, APM can be provisioned with limited functionality on any BIG-IP platform without a specific license (`see F5 KB15854 <https://support.f5.com/csp/article/K15854>`__).  APM is licensed based on the number of Access Sessions and Concurrent Users Sessions (`see APM Operations Guide <https://support.f5.com/csp/article/K72971039>`__). You can provision APM limited and immediately start using all the functions of APM with a limitation of 10 Access and Concurrent user session.
 
+      .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
+
 #. Log in to bigip1.f5lab.local with administrative credentials provided
 #. On the left menu navigate to **System** --> **Resource Provisioning**
 #. Click box and on the drop down next to the module and choose **Nominal**
@@ -73,7 +71,6 @@ Access Policy Manager (APM) is a module available for use on the BIG-IP platform
 
       |image01|
 
-      .. Important::  APM has already been provisioned for this lab.  The next step would be completed if you are provisioning on your own BIG-IP.
 
 #. Before you click on Submit note that this operation will halt operations while the module provisions.  Do not do this on an active unit processing traffic unless you are in an outage window. This will not require a reboot but will take approximately 1 to 5 minutes to complete.
 
@@ -85,23 +82,6 @@ Access Policy Manager (APM) is a module available for use on the BIG-IP platform
 Task 2: Guided Configuration
 -----------------------------
 Access Guided Configuration (AGC) provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is written in has an independent release from TMOS and requires updates for new configurations from time to time. To find updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab.
-
-.. Important::  This lab has already been updated with the latest **Access Guided Configuration** updates.  The following steps can be used on your own appliances.
-
-#. https://downloads.f5.com/esd/product.jsp?sw=BIG-IP&pro=Guided_Configuration
-#. Click on **Access** --> **Guided Configuration** from the left Menu
-#. In the upper right corner you will find the version.
-
-      |image4|
-
-#. Click on Upgrade Guided configuration
-#. Choose File
-#. Navigate to the location you have saved the latest download and chose the tar.gz package
-#. Click Upload and Install
-
-      |image5|
-
-#.  Click Continue
 
 #.  Go to **Access** --> **Guided Configuration**
 #.  A set of tiles appears at top listing the areas of use cases where Guided Configuration can be used
@@ -162,84 +142,23 @@ Access Guided Configuration (AGC) provides an easy way to create BIG-IP configur
 
       .. Note:: Webtop is available as of version 16.0
 
-#.  Return to the main screen by clicking the Guided Configuration bread crumb
-#.  Click on the Microsoft Integration tile
-#.  There are three options available:
 
-      +-----------------------+-------------------------------------------------------------------------------------------------------+
-      |ADFS Proxy             |This is the Web Application Proxy (WAP) replacement use case where BIG-IP can replace the ADFS Windows |
-      |                       |Servers in the DMZ and serve as the secure WAP platform between your external users and the internal   |
-      |                       |ADFS infrastructure.                                                                                   |
-      +-----------------------+-------------------------------------------------------------------------------------------------------+
-      |Azure AD Application   |This allows integration of Azure AD in to various web applications connecting through without need of  |
-      |                       |application changes.                                                                                   |
-      +-----------------------+-------------------------------------------------------------------------------------------------------+
-      |Exchange Proxy         |This guided configuration replaces the need to run the iApps for Exchange.                             |
-      |                       |                                                                                                       |
-      +-----------------------+-------------------------------------------------------------------------------------------------------+
-
-      |image19|
-
-#.  Click on the API Protection tile
-#.  Click on the API Protection Proxy configuration
-#.  The topology for API protection describes the configuration for this option. This configuration provides authentication pieces for your API.
-
-      |image20|
-
-      .. Note:: For more complete API protection combine APM with F5 Web Application Firewall for the most robust solution.
-
-#.  The objects created with this configuration:
-
-      |image21|
 
 Task 3: Overview
 -----------------
 The Overview menu is where an administrator can view active sessions, previous sessions, and view various reports.
 
 #.  Click on **Access** --> **Overview** from the left menu
-#.  Here are Active Sessions.  When users login to applications using APM policies the sessions will appear in this pane.
-#.  Open another tab and login to the application:  https://server1.acme.com
-
-      +---------------+-------------+
-      |username       | user1       |
-      +---------------+-------------+
-      |password       | user1       |
-      +---------------+-------------+
-
-#.  Return to the BIG-IP tab and view the active session
-#.  A new session will appear in the Total Active Sessions.  From this pane you can see the session ID, variables collected, Client IP, Virtual Server in use, session type and any profiles in use
-#.  Click on the View under Variables
-#.  This gives us all the information collected on the current session
-
-      - Can you find the user logged in?
-      - What is the client platform
-      - Client Type?
-      - Access Profile?
-
-#.  Click the back button on the browser to return to the Active Sessions.
-#.  Click on the Session ID
-
-      .. Note:: The Session ID will also be displayed to the user should they have an issue with logging in.  An error message will display and their session ID will be given.  You can simulate this by editing the access policy **server1-psp** later on in the lab.
-
-        |sessionid|
-
-#.  The Session ID will take you to the first set of reporting **Access Report**
-#.  This section will give you details on the session.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in in more detail later).
-
-      - Can you find the first **Following Rule** log message?
-      - Where did it flow?
-      - Was the user successful?
-
-#.  Return to the first screen by clicking on **Active Sessions** from the menu bar above
+#.  Here is where we would see Active Sessions.  When users login to applications using APM policies the sessions will appear in this pane.
 
       |activesessions|
 
-#.  In **Active Sessions** click on the check box next to the session and select the **Kill Selected Sessions** button.  This will terminate the users session and make them login again.
+#.  This is also where you will be able to kill sessions.  For more on logging see Lab 3
 
       |killsession|
 
-#.  Click **Delete**
-#.  Click on **Access Reports** from the menu bar above
+#.  Click on **Access** --> **Access Report**
+#.  This section will give you details on the all sessions active and inactive.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in in more detail later).
 #.  You will be prompted to enter a time period to run the report
 
       |image22|
@@ -256,7 +175,7 @@ The Overview menu is where an administrator can view active sessions, previous s
 #.  We will create a new APM Log profile
 
       +----------------------+---------------------------+----------------------------------+
-      |General Information   | Name                      |  Basic_Log_profile               |
+      |General Information   | Name                      |  basic_Log_profile               |
       +----------------------+---------------------------+----------------------------------+
       |                      | Enable Access System Logs |  Check box                       |
       +----------------------+---------------------------+----------------------------------+
@@ -284,7 +203,7 @@ The Overview menu is where an administrator can view active sessions, previous s
       +----------------------+---------------------------+----------------------------------+
       |                      | Endpoint Management System|  Notice                          |
       +----------------------+---------------------------+----------------------------------+
-      |Access Profile        | Selected                  |  server1-psp                     |
+      |Access Profile        | Selected                  |  (leave this blank for now)      |
       +----------------------+---------------------------+----------------------------------+
 
       .. Note:: Within the Access System Logs section of the log profile is where you can change the logging for various portions of the APM Policies.  The one you will use most will be to move Access Policy from Notice to Debug and/or Pre-Request Policy from Notice to Debug.  As you can see you can pick and choose what level of notifications you want in your logs.  This will impact what you see in Access Reports for a session and what appears in /var/log/apm.
@@ -294,6 +213,8 @@ The Overview menu is where an administrator can view active sessions, previous s
       |image23|
 
 #.  The Dashboard can give you a quick synopsis on Access Session, Network Access Session, Portal Access and Access control Lists.
+
+      |Dashboard|
 
       .. Note:: For more reporting on APM stats look to BIG-IQ or exporting logs to 3rd party SIEMs and create your own dashboard.
 
@@ -310,7 +231,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #.  Click on the Create button on the far right
 
       +----------------------+---------------------------+----------------------------------+
-      |General Properties    | Name                      |  Basic_policy                    |
+      |General Properties    | Name                      | server1-psp                      |
       +----------------------+---------------------------+----------------------------------+
       |                      | Profile Type              |  All                             |
       +----------------------+---------------------------+----------------------------------+
@@ -325,7 +246,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
 #.  Click **Finished**
 #.  Now we have a basic profile.  There were a number of other settings to modify and use in the profile.  For now we will focus just on the basics.
-#.  From the **Access Profiles (Per-Session Policies)** section locate the **Basic_policy**
+#.  From the **Access Profiles (Per-Session Policies)** section locate the **server1-psp**
 #.  There are two ways to edit the Policy piece of the profile.
 
     First way
@@ -335,7 +256,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
     +----------------------------------------------------------------------------+
     | Click on **Access Policy** from the top menu bar                           |
     +----------------------------------------------------------------------------+
-    | Click on the link to **Edit Access Policy for Profile "Basic_policy"**     |
+    | Click on the link to **Edit Access Policy for Profile "server1-psp"**      |
     +----------------------------------------------------------------------------+
     | This will take you to the Visual Policy Editor (VPE)                       |
     +----------------------------------------------------------------------------+
@@ -343,7 +264,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
     Second way
 
     +-----------------------------------------------------------------------------------+
-    | Locate the **Basic_policy** in the Profile list and follow the line to the right. |
+    | Locate the **server1-psp** in the Profile list and follow the line to the right.  |
     +-----------------------------------------------------------------------------------+
     | Middle of the line there will be an **Edit** link                                 |
     +-----------------------------------------------------------------------------------+
@@ -352,7 +273,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
 #.  Close the VPE (we will visit the VPE and policy in more detail later)
 #.  Return to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
-#.  Click on the **Basic_policy** and explore the settings for the Profile.
+#.  Click on the **server1-psp** and explore the settings for the Profile.
 
     +----------------------+------------------------------------------------------------------------------------+
     | Settings             | Here you can manage settings for the profile. You may want to change timeouts, max |
@@ -369,92 +290,10 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
       BIG-IP APM offers a number of Single Sign On (SSO) options.  The SSO/Auth Domain tab in a Per Session Profile is where you will select what SSO method to use for your application. In Task 6 we will cover the objects that need to be created in order to associate that SSO method to a policy.  At this time the drop down for the SSO Configuration will have a pre-built sso object we will use later.
 
-#.  What is Domain Mode?
-
-      Access Policy Manager (APM) provides a method to enable users to use a single login or session across multiple virtual servers in separate domains. Users can access back-end applications through multiple domains or through multiple hosts within a single domain, eliminating additional credential requests when they go through those multiple domains. With multi-domain support, you have the option of applying different SSO methods across different domains.
-
-      .. Note:: When thinking Domain do not confuse this with Active Directory domain.  In this context domain refers to the DNS domain.  Example, app1.f5demo.com and app2.f5dmeo.com are in the f5demo.com DNS domain.
-
-      .. Important:: To enable multi-domain support, all virtual servers must be on a single BIG-IP system and share the same access profile. All virtual servers must include all of the profiles that the access profile requires (for example, VDI, rewrite, server SSL, connectivity, and so on).
-
-      APM provides the following benefits when using multi-domain support with SSO.
-
-      - Users can sign out from all domains at once.
-      - Users can move from one domain to another seamlessly. This eliminates the need re-run the access policy, and thus maintains the established session for the user.
-      - Administrators can configure different cookie settings (Secure, Host/Domain and Persistent) for different domains, and for different hosts within same domain
-      - Administrators can set up multiple SSO configurations to sign users in to multiple back-end applications for a single APM® session
-
-#.  What are the options?
-
-      +----------------------+-----------------------------------------------------------------------------------------+
-      | Single Domain        | Choose this option for a single domain with a single sign on method                     |
-      +----------------------+-----------------------------------------------------------------------------------------+
-      | Multiple Domains     | This option allows for one policy and multiple SSO methods to multiple Virtual Servers  |
-      +----------------------+-----------------------------------------------------------------------------------------+
-
-
-#.  What is a Domain Cookie?
-
-      By default, BIG-IP APM requires authentication for each access profile.  This can easily be changed by adding the domain cookie. For this section you will add the domain for your application. For example, if you have two applications app1.f5demo.com and app2.f5demo.com you would enter the domain f5demo.com for your domain cookie. Now your users can access each application and will only be prompted for authentication once.
-
-#.  Cookie Options
-
-      +----------------------+--------------------------------------------------------------------------------------------------------------------+
-      | secure               |If the BIG-IP APM virtual server is configured with a Client SSL profile, select **Secure** (default setting) when  |
-      |                      |configuring the BIG-IP APM SSO/Auth Domain cookie settings.                                                         |
-      +----------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Persistent           |Session cookie persistence functions only on BIG-IP LTM and APM deployments. For BIG-IP APM  deployments with       |
-      |                      |connectivity resources (such as Network Access, Portal Access, etc.), you cannot set BIG-IP APM cookies as          |
-      |                      |**Persistent**. This is by design, as session cookie persistence can present a security risk. For some deployments  |
-      |                      |of the BIG-IP APM system, as with Microsoft SharePoint, cookie persistence may be required. When you select cookie  |
-      |                      |persistence, persistence is hard coded at 60 seconds.                                                               |
-      +----------------------+--------------------------------------------------------------------------------------------------------------------+
-      | HTTP Only            |For BIG-IP APM deployments with connectivity resources (such as Network Access, Portal Access, etc.), do not set    |
-      |                      |BIG-IP APM cookies with the **HTTP Only** flag.                                                                     |
-      +----------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Samesite             |New in version 16.x APM now has the option to enable Samesite attribute for session cookies. This attribute         |
-      |                      |enforces samesite usage and prevents the cookies from being included with cross-site requests. It can have one of   |
-      |                      |these values:                                                                                                       |
-      |                      |                                                                                                                    |
-      |                      |- Strict: Only include the cookie with requests originating from the same site as the cookie                        |
-      |                      |- Lax:  Include the cookie with same-site requests and with top-level cross-site navigations that use a safe HTTP   |
-      |                      |  method. The cookie is not sent with cross-site sub-requests such as calls to load images, but is sent when a user |
-      |                      |  navigates to the URL from an external site, such as by following a link.                                          |
-      |                      |- None: Do not enforce the same-site origin. If selected, requests must follow the HTTPS protocol, and the Secure   |
-      |                      |  cookie attribute must be set.                                                                                     |
-      +----------------------+--------------------------------------------------------------------------------------------------------------------+
-
-#.  SSO Configuration
-
-      This drop down is where you will find all the SSO objects that you have configured on this BIG-IP appliance. If you want to enable an SSO method for an application first you must configuration the SSO object and then select in this section of the policy.
-
-      .. Note:: Task 6 will review SSO methods and configuration.
-
-#.  Multiple domains
-
-      If you return to the radio buttons and select Multiple Domains new options will appear.  When this configuration is complete a user will be able to connect to any of the virtual servers associated and authentication will only be requested once.  Subsequent connections in the domain group should not prompt for additional login. The caveat is that all Virtual Servers must share this same policy.
-
-      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Primary Authentication URI             |Specifies the address of your primary authentication URI. An example would be https://login.acme.com. This is where |
-      |                                        |the user session is created. As long as you provide the URI, your users are able to access multiple backend         |
-      |                                        |applications from multiple domains and hosts without requiring them to re-enter their credentials because the user  |
-      |                                        |session is stored on the primary domain. This is a required field if you selected Multiple Domains domain mode.     |
-      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Primary Cookie Options                 |Secure (see above for cookie explanation)                                                                           |
-      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Cookie                                 |Example:  **Domain**  acme.com                                                                                      |
-      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-      | Cookie Options                         |Seucre (see above for cookie explanation)                                                                           |
-      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-      | SSO Configuration                      |You can set the SSO method for the domain or you can set individual SSO methods per host                            |
-      +----------------------------------------+--------------------------------------------------------------------------------------------------------------------+
-
-      |multidomain|
-
-      .. Important:: We will not be configuring this function in this lab.  These are all examples.  For more information on `SSO/Auth Domains <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/single-sign-on-and-multi-domain-support.html>`_
+      .. Note::  We will not discuss Multi-Domain in this lab but you can find more information in the Appendix
 
 #.  From the top menu bar click on **Logs**
-#.  The log profile we created earlier is now listed here.  The Default log profile is attached but we can remove that and add the **Basic_log_profile**
+#.  The log profile we created earlier is now listed here.  The Default log profile is attached but we can remove that and add the **basic_log_profile**
 #.  Click Update.
 
     That concludes the review of the Per Session policy.
@@ -472,7 +311,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #. Click **Create**
 
       +----------------------+---------------------------+----------------------------------+
-      |General Properties    | Name                      |  Basic_prp_policy                |
+      |General Properties    | Name                      |  server1_prp_policy              |
       +----------------------+---------------------------+----------------------------------+
       |                      | Profile Type              |  All                             |
       +----------------------+---------------------------+----------------------------------+
@@ -552,7 +391,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
       .. Note:: See the `APM Customization guide <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`__ for further details on customization
 
-#. Under **Available Profiles** choose the /Common/Basic_policy
+#. Under **Available Profiles** choose the /Common/server1-psp
 #. Select Language:  **English**
 #. Let's upload a new image.  Click **Upload New Image**
 #. Choose an image from the selection and click **Open**
@@ -560,7 +399,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #. Pick a Header Background color
 #. Change the footer Text
 #. Click on the **Preview** button
-#. Choose **Access Profiles** --> **/Common/Basic_policy** --> **Access Policy** --> **Ending pages** -- **Deny**
+#. Choose **Access Profiles** --> **/Common/server1-psp** --> **Access Policy** --> **Ending pages** -- **Deny**
 
       Bonus Answer:  Why don't we see logon pages?
 
@@ -637,7 +476,7 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
       You have now created an object that can be used to facilitate Active Directory authentication in front of any application.  The application itself does not need to require authentication. If you were to deploy a policy with AD Auth on a Virtual Server for a web application the policy would preset a login page, prompt for credentials, verify the credentials against this AD object before allowing a user to access the web application.
 
 #. Go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
-#. Locate the Basic_policy and click **Edit**
+#. Locate the server1-psp and click **Edit**
 #. Click the **+** symbol between Start and Deny.
 #. From the **Logon** tab select the **Logon Page** radio button
 #. Click **Add Item**
@@ -645,7 +484,7 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
 #. Click the **+** between **Logon Page** and Deny
 #. Click the **Authentication** tab
 #. Choose the **AD Auth** radio button and click **Add Item**
-#. Under the **Type** field click on the drop down menu and choose the newly created AAA server **Basic_policy_aaa**
+#. Under the **Type** field click on the drop down menu and choose the newly created AAA server **server1-psp_aaa**
 #. Click **Save**
 #. Click on the **Deny** end point and choose **Allow** then click **Save**
 #. Click **Apply Access Policy**
@@ -656,7 +495,7 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
 
 #. Go to **Local Traffic** --> **Virtual Servers**
 #. Locate server1-https and click on it
-#. Scroll down to the Access Policy section.  Next to **Access Profile** click the drop and replace server1-psp with your Basic_policy
+#. Scroll down to the Access Policy section.  Next to **Access Profile** click the drop and replace server1-psp with your server1-psp
 #. Scroll down to the bottom and click **Update**
 #. In a new browser tab go to http://server1.acme.com and Login
 
@@ -777,8 +616,7 @@ SP-initiated federation with BIG-IP APM
 
 **Using a custom SP portal instead of the BIG-IP APM webtop for federation**
 
-      Some enterprises do not want to use the built-in BIG-IP APM webtop as the portal to their SPs. Instead, they want to create their own, customized, external portal. For more information about the
-      webtop, refer to Webtop.
+      Some enterprises do not want to use the built-in BIG-IP APM webtop as the portal to their SPs. Instead, they want to create their own, customized, external portal. For more information about the webtop, refer to Webtop.
 
       As of BIG-IP APM 14.0, you can use a custom, external portal when you can use SAML inline SSO for federation. You must meet the following conditions:
 
@@ -829,9 +667,9 @@ Task 8: Connectivity/VPN
 ----------------------------
 Run Automation for Solution 1.
 
-Policy Walk-Through
+**Policy Walk-Through**
 
-|image001|
+      |image001|
 
 #.  A user enters their credentials into the logon page agent.
     - Those credentials are collected, stored as the default system session variables of session.logon.last.username and session.logon.last.password.
@@ -841,23 +679,23 @@ Policy Walk-Through
 #.  The user is granted access via the Allow Terminal
 #.  If unsuccessful, the user proceeds down the fallback branch and denied access via the Deny Terminal
 
-Policy Agent Configuration
+**Policy Agent Configuration**
 
 The Logon Page contains only the default setting
 
-|image002|
+      |image002|
 
 The AD Auth agent defines the AAA AD Servers that a user will be authenticated against.  All Setting are the default.
 
-|image003|
+      |image003|
 
 
 The Advanced Resource Assign agent grants a user access to the assigned resources.
 
-|image004|
+      |image004|
 
 
-Supporting APM Objects
+**Supporting APM Objects**
 
 Network Access Resource
 
@@ -1079,6 +917,7 @@ Lab 2 is now complete.
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
 .. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
 .. |issues| image:: /class1/module1/media/lab01/setup/issues.png
+.. |Dashboard| image:: /class1/module1/media/lab01/setup/Dashboard.png
 .. |image01| image:: /class1/module1/media/lab01/image01.png
 .. |image02| image:: /class1/module1/media/lab01/image02.png
 .. |image03| image:: /class1/module1/media/lab01/image03.png
