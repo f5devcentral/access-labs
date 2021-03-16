@@ -195,7 +195,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 | |Lab2-Image22|                                                                               |
 |      19. Click the + sign between Start and Allow directly under the Per Request Policy      |
 | |Lab2-Image23|                                                                               |
-|      20. Select the **Classification** tab and click the **URL Branching Radio Button        |
+|      20. Select the **Classification** tab and click the **URL Branching Radio Button**      |
 | |Lab2-Image24|                                                                               |
 |       21. Click the **change** hyperlink                                                     |
 | |Lab2-Image25|                                                                               |
