@@ -27,7 +27,7 @@ to create and attach a simple Access Profile which performs user authentication.
 Lab Requirements
 ----------------
 
--  A pre existing virtual server at 10.1.10.101 or https://server1.acme.com
+-  A pre existing virtual server at 10.1.10.101 or https://app.acme.com
 
 Task 1: Define an Authentication Server
 ---------------------------------------
