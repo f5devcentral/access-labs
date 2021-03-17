@@ -33,7 +33,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **Visual Policy Editor(VPE) Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **Intro to Per-Session Policies**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -449,7 +449,7 @@ Lab CleanUp
 
    |image003|
 
-#. Hover over tile **Visual Policy Editor(VPE) Overview**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **Into to Per-Session Policies**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
    |image998|
 
