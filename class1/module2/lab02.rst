@@ -205,6 +205,9 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 | |Lab2-Image27|                                                                               |
 |        23. Change the name from **Allow** to **/apps/app1/**                                 |
 | |Lab2-Image28|                                                                               |
+|        25. Click the + sign after the **/apps/app1/** branch you just added and select the   |
+|           subroutines tab and click the **AD_Subroutine** radio button and click **Add Item  |
+| |Lab2-Image34|                                                                               |
 |        24. Click the + sign after the URL Branching Box you just added and select the        |
 |             General Purpose tab and click the **HTTP Headers** radio Button                  |
 | |Lab2-Image29|                                                                               |
