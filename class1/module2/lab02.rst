@@ -277,3 +277,4 @@ Lab 2 is now complete.
 .. |Lab2-Image36| image:: /class1/module2/media/Lab2-Image36.png
 .. |Lab2-Image37| image:: /class1/module2/media/Lab2-Image37.png
 .. |Lab2-Image38| image:: /class1/module2/media/Lab2-Image38.png
+.. |Lab2-Image39| image:: /class1/module2/media/Lab2-Image39.png
