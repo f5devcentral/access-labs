@@ -175,7 +175,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 | 11. Change the **Server** option to **/Common/Lab_SSO_AD_Server** and click **Save**         |
 |                                                                                              |
 | 12. Between **AD Query** and the Out endpoint click the + Sign                               |
-|                                                                                              |
+|     |Lab2-Image39|                                                                           |
 | 13. Navigate to the **Assignment** tab and select **Variable Assign** and click **Add Item** |
 |                                                                                              |
 | 14. Under Variable Assign click **Add New Entry**                                            |
