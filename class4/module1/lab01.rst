@@ -3,8 +3,26 @@ Lab 1: Creating a SAML Service Provider(SP)
 .. _class4-module1-lab1:
 In this lab you will learn how to create and delete Access related objects.
 
+Access Lab Environment
+-------------------------
+
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumphostf5lab.local
+
+    |image101|
 
 
+#. Select your RDP resolution.  
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#.  login with the following credentials:
+
+         - User: **f5lab\\user1**
+         - Password: **user1**
 
 
 Task 1 - Import Postman Collections
@@ -256,3 +274,4 @@ This concludes the APM lab on created and deleting APM objects via iControlREST.
 .. |image028| image:: media/lab01/028.png
 .. |image029| image:: media/lab01/029.png
 .. |image030| image:: media/lab01/030.png
+.. |image101| image:: media/lab01/101.png
