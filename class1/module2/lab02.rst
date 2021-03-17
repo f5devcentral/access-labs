@@ -168,6 +168,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |    |Lab2-Image19|                                                                            |
 |                                                                                              |
 | 9. Between **AD Auth** and the Out endpoint click the + Sign                                 |
+|    |Lab2-Image38|                                                                            |
 |                                                                                              |
 | 10. Select Authentication and Select the **AD Query** radio button and click **Add Item**    |
 |                                                                                              |
@@ -275,3 +276,4 @@ Lab 2 is now complete.
 .. |Lab2-Image35| image:: /class1/module2/media/Lab2-Image35.png
 .. |Lab2-Image36| image:: /class1/module2/media/Lab2-Image36.png
 .. |Lab2-Image37| image:: /class1/module2/media/Lab2-Image37.png
+.. |Lab2-Image38| image:: /class1/module2/media/Lab2-Image38.png
