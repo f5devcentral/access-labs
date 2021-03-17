@@ -206,7 +206,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |        23. Change the name from **Allow** to **/apps/app1/**                                 |
 | |Lab2-Image28|                                                                               |
 |        25. Click the + sign after the **/apps/app1/** branch you just added and select the   |
-|           subroutines tab and click the **AD_Subroutine** radio button and click **Add Item  |
+|           subroutines tab and click the **AD_Subroutine** radio button and click **Add Item**|
 | |Lab2-Image34|                                                                               |
 |        24. Click the + sign after the URL Branching Box you just added and select the        |
 |             General Purpose tab and click the **HTTP Headers** radio Button                  |
@@ -221,14 +221,15 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |        27. Navigate back to Local Traffic -> Virtual Servers and select your VIP, under the  |
 |            Access policy section of your VIP bind your Per-Session and Per Request policies  |
 | |Lab2-Image33|                                                                               |
-|                                                                                              |
-| |Lab2-Image34|                                                                               |
-|                                                                                              |
+|        28. In a browser on your jumphost access https://apps.acme.com you should see the     |
+|            webpage listed below, click the Application1 link                                 |
 | |Lab2-Image35|                                                                               |
-|                                                                                              |
+|        29. Authenticate with the **user1** username and **user1** password                   |
 | |Lab2-Image36|                                                                               |
-|                                                                                              |
+|        30. Notice the **Ad-Groups** header which contains the extracted AD group information |
+|            submitted to the application as a HTTP Header                                     |
 | |Lab2-Image37|                                                                               |
+| This is the end of Lab2                                                                      |
 +----------------------------------------------------------------------------------------------+
 
 
