@@ -209,7 +209,7 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |       30. Change the name from **Allow** to **/apps/app1/**                                  |
 | |Lab2-Image28|                                                                               |
 |       31. Click the + sign after the **/apps/app1/** branch you just added and select the    |
-|          subroutines tab and click the **AD_Subroutine** radio button and click **Add Item** |
+|          subroutines tab and click the **AD_Subroutine** radio button and click Add Item     |
 |                                                                                              |
 | |Lab2-Image34|                                                                               |
 |       32. Click the + sign after the URL Branching Box you just added and select the         |
