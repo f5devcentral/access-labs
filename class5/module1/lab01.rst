@@ -12,7 +12,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image001|
 
-#. Select your RDP solution.  
+#. Select your RDP resolution.  
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -28,11 +28,11 @@ To access your dedicated student lab environment, you will require a web browser
 	|image002|
 
 
-#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
+#. Scroll down the page until you see **501 GUI Tools** on the left
 
    |image003|
 
-#. Hover over tile **Visual Policy Editor(VPE) Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **The Message Box**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -238,3 +238,30 @@ next folder last. then finally the Variable Name of Username.
 
 We will use some session variables in the next lab to GET and SET
 information for the users session.
+
+
+
+Lab CleanUp
+------------------------
+
+#. From a browser on the jumphost navigate to https://portal.f5lab.local
+
+#. Click the **Classes** tab at the top of the page.
+
+    |image002|
+
+#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
+
+   |image003|
+
+#. Hover over tile **The Message Box**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+
+   |image998|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image999|
+
+#. This concludes the lab.
+
+   |image000|
