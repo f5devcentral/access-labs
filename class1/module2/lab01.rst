@@ -35,7 +35,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Scroll down the page until you see **102 Access Building Blocks** on the left
 
-   |101intro|
+   |102intro|
 
 #. Hover over tile **APM GUI Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
@@ -312,3 +312,4 @@ Lab 1 is now complete.
    :height: 2.84357in
 .. |accessjh| image:: /class1/module2/media/accessjh.png
 .. |accessportal| image:: /class1/module2/media/accessportal.png
+.. |102intro| image:: /class1/module2/media/102intro.png
