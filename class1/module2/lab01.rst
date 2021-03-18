@@ -33,7 +33,7 @@ To access your dedicated student lab environment, you will require a web browser
 	|accessportal|
 
 
-#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
+#. Scroll down the page until you see **102 Access Building Blocks** on the left
 
    |101intro|
 
@@ -311,3 +311,4 @@ Lab 1 is now complete.
    :width: 5.07751in
    :height: 2.84357in
 .. |accessjs| image:: /class1/module2/media/accessjh.png
+.. |accessportal| image:: /class1/module2/media/accessportal.png
