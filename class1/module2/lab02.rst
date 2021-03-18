@@ -234,6 +234,9 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |            submitted to the application as a HTTP Header                                     |
 | |Lab2-Image37|                                                                               |
 |                                                                                              |
+|     What we have demonstrated here is the application of step-up authentication to a portion |
+|     of the webpage, from there we extracted information from Active Directory to submit to   |
+|     the application in the form of an HTTP Headers                                           |
 +----------------------------------------------------------------------------------------------+
 
 
