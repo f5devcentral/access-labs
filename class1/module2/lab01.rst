@@ -37,7 +37,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |102intro|
 
-#. Hover over tile **APM GUI Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **Building a Basic Acces Policy**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |guioverview|
 
