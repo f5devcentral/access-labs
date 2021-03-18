@@ -10,7 +10,7 @@ The F5 Access Policy Manager (APM) provides two types of policies.
 **Access Policy** - The access policy runs when a client initiates a session. Depending
 on the actions you include in the access policy, it can authenticate the user
 and perform group or class queries to populate session variables with data for
-use throughout the session.
+use throughout the session. We created one of these in the prior lab
 
 **Per-Request Policy** - After a session starts, a per-request policy runs each time
 the client makes an HTTP or HTTPS request.  A per-request policy can include a
@@ -55,7 +55,7 @@ Refer to the instructions and screen shots below:
 |                                                                                              |
 | 2. Begin by selecting: **Access -> Profiles/Policies -> Per Session Policies** ->            |
 |                                                                                              |
-| 3. Click the **Create** button (far right)                                                   |
+| 3. Click the + Sign next to **Access Profiles (Per-Session Policies)**                       |
 +----------------------------------------------------------------------------------------------+
 | |Lab2-Image1|                                                                                |
 +----------------------------------------------------------------------------------------------+
@@ -71,8 +71,8 @@ Refer to the instructions and screen shots below:
 |                                                                                              |
 |    -  **Accept Languages**: **English (en)**                                                 |
 |                                                                                              |
-| **Note: You will need a per session policy and a per request policy but we will be           |
-|         leaving the per session policy blank and performing our auth in per Request**        |
+| Note: You will need a per session policy and a per request policy but we will be             |
+|         leaving the per session policy blank and performing our auth in per Request          |
 +----------------------------------------------------------------------------------------------+
 | |Lab2-Image2|                                                                                |
 +----------------------------------------------------------------------------------------------+
@@ -102,9 +102,9 @@ Step-up authentication can be a part of using the portal access or web applicati
 In this example we're going to use a Per-Request Policy with a subroutine to authenticate user when they access a specific URI, extract information from Active Directory and submit that information as a header
 
 +----------------------------------------------------------------------------------------------+
-| 5. Begin by selecting: **Access -> Profiles/Policies -> Per Request Policies** ->            |
+| 1. Begin by selecting: **Access -> Profiles/Policies -> Per Request Policies** ->            |
 |                                                                                              |
-| 6. Click the **Create** button (far right)                                                   |
+| 2. Click the **Create** button (far right)                                                   |
 |                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |Lab2-Image7|                                                                                |
@@ -142,98 +142,101 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 |                                                                                              |
 | 10. Select **Save** at the bottom of the Logon Page dialog box                               |
 |                                                                                              |
-| 4. In the subroutine, between the Logon page and the green out branch click the + sign and   |
+| 11. In the subroutine, between the Logon page and the green out branch click the + sign and  |
 |    select the **Logon Tab** and click the **Logon Page** radio button                        |
 |                                                                                              |
 |   |Lab2-Image14|                                                                             |
 |   |Lab2-Image15|                                                                             |
 |                                                                                              |
 |   |Lab2-Image16|                                                                             |
-| 5. Click the + sign between Logon Page and Out and select the **Authentication** tab and     |
+| 12. Click the + sign between Logon Page and Out and select the **Authentication** tab and    |
 |    click the **AD Auth** radio Button                                                        |
 |                                                                                              |
 |   |Lab2-Image17|                                                                             |
 |                                                                                              |
-| 6. Select AD Auth and click **Add Item** at the bottom                                       |
+| 13. Select AD Auth and click **Add Item** at the bottom                                      |
 |   |Lab2-Image18|                                                                             |
 |                                                                                              |
-| 7. Give the item a name                                                                      |
+| 14. Give the item a name                                                                     |
 |    -  **Name**: **AD_Auth**                                                                  |
 |                                                                                              |
-| 8. Select **/Common/Lab_SSO_AD_Server** for the Server option                                |
+| 15. Select **/Common/Lab_SSO_AD_Server** for the Server option                               |
 |             Note: The Lab_SSO_AD_Server object was created in Lab 1                          |
 |                                                                                              |
-| 8. Click the **Save**                                                                        |
+| 16. Click the **Save**                                                                       |
 |                                                                                              |
 |    |Lab2-Image19|                                                                            |
 |                                                                                              |
-| 9. Between **AD Auth** and the Out endpoint click the + Sign                                 |
+| 17. Between **AD Auth** and the Out endpoint click the + Sign                                |
 |    |Lab2-Image38|                                                                            |
 |                                                                                              |
-| 10. Select Authentication and Select the **AD Query** radio button and click **Add Item**    |
+| 18. Select Authentication and Select the **AD Query** radio button and click **Add Item**    |
 |                                                                                              |
-| 11. Change the **Server** option to **/Common/Lab_SSO_AD_Server** and click **Save**         |
+| 19. Change the **Server** option to **/Common/Lab_SSO_AD_Server** and click **Save**         |
 |                                                                                              |
-| 12. Between **AD Query** and the Out endpoint click the + Sign                               |
+| 20. Between **AD Query** and the Out endpoint click the + Sign                               |
 |     |Lab2-Image39|                                                                           |
-| 13. Navigate to the **Assignment** tab and select **Variable Assign** and click **Add Item** |
+| 21. Navigate to the **Assignment** tab and select **Variable Assign** and click **Add Item** |
 |                                                                                              |
-| 14. Under Variable Assign click **Add New Entry**                                            |
+| 22. Under Variable Assign click **Add New Entry**                                            |
 |                                                                                              |
 |        |Lab2-Image20|                                                                        |
 |                                                                                              |
-| 15. Next to "Empty" click the **change** links                                               |
+| 23. Next to "Empty" click the **change** links                                               |
 |                                                                                              |
-| 16. Change the drop down on the right hand side to **Session Varaible** and imput the        |
+| 24. Change the drop down on the right hand side to **Session Varaible** and imput the        |
 | following value                                                                              |
 |    - **subsession.ad.last.attr.memberOf**                                                    |
 |                                                                                              |
-| 17. In the left hand box type the following then click finished and Save                     |
+| 25. In the left hand box type the following then click finished and Save                     |
 |   - **session.adgroups.custom**                                                              |
 |                                                                                              |
 |                                                                                              |
 | |Lab2-Image21|                                                                               |
 |                                                                                              |
 | |Lab2-Image22|                                                                               |
-|      19. Click the + sign between Start and Allow directly under the Per Request Policy at   |
+|       26. Click the + sign between Start and Allow directly under the Per Request Policy at  |
 |          the top of the page                                                                 |
 | |Lab2-Image23|                                                                               |
-|      20. Select the **Classification** tab and click the **URL Branching Radio Button**      |
+|       27. Select the **Classification** tab and click the **URL Branching Radio Button**     |
 | |Lab2-Image24|                                                                               |
-|       21. Click the **change** hyperlink                                                     |
+|       28. Click the **change** hyperlink                                                     |
 | |Lab2-Image25|                                                                               |
-|       22. Change the value **domain.com** to **app.acme.com/apps/app1/** and click finished  |
+|       29. Change the value **domain.com** to **app.acme.com/apps/app1/** and click finished  |
 | |Lab2-Image26|                                                                               |
 |                                                                                              |
 | |Lab2-Image27|                                                                               |
-|        23. Change the name from **Allow** to **/apps/app1/**                                 |
+|       30. Change the name from **Allow** to **/apps/app1/**                                  |
 | |Lab2-Image28|                                                                               |
-|        25. Click the + sign after the **/apps/app1/** branch you just added and select the   |
-|           subroutines tab and click the **AD_Subroutine** radio button and click **Add Item**|
+|       31. Click the + sign after the **/apps/app1/** branch you just added and select the    |
+|          subroutines tab and click the **AD_Subroutine** radio button and click Add Item     |
 |                                                                                              |
 | |Lab2-Image34|                                                                               |
-|        24. Click the + sign after the URL Branching Box you just added and select the        |
+|       32. Click the + sign after the URL Branching Box you just added and select the         |
 |             General Purpose tab and click the **HTTP Headers** radio Button                  |
 | |Lab2-Image29|                                                                               |
-|         24. Click **Add new entry**                                                          |
+|       33. Click **Add new entry**                                                            |
 | |Lab2-Image30|                                                                               |
-|         25. Type **AD_Groups** for header name and **%{session.adgroups.custom}** for        |
+|       34. Type **AD_Groups** for header name and **%{session.adgroups.custom}** for          |
 |              **Header Value** and click Save                                                 |
 | |Lab2-Image31|                                                                               |
-|        26. Your Per-Request Policy should now look like this                                 |
+|       35. Your Per-Request Policy should now look like this                                  |
 | |Lab2-Image32|                                                                               |
-|        27. Navigate back to Local Traffic -> Virtual Servers and select your VIP, under the  |
+|       36. Navigate back to Local Traffic -> Virtual Servers and select your VIP, under the   |
 |            Access policy section of your VIP bind your Per-Session and Per Request policies  |
 | |Lab2-Image33|                                                                               |
-|        28. In a browser on your jumphost access https://apps.acme.com you should see the     |
+|       37. In a browser on your jumphost access https://apps.acme.com you should see the      |
 |            webpage listed below, click the Application1 link                                 |
 | |Lab2-Image35|                                                                               |
-|        29. Authenticate with the **user1** username and **user1** password                   |
+|       38. Authenticate with the **user1** username and **user1** password                    |
 | |Lab2-Image36|                                                                               |
-|        30. Notice the **Ad-Groups** header which contains the extracted AD group information |
+|       39. Notice the **Ad-Groups** header which contains the extracted AD group information  |
 |            submitted to the application as a HTTP Header                                     |
 | |Lab2-Image37|                                                                               |
 |                                                                                              |
+|     What we have demonstrated here is the application of step-up authentication to a portion |
+|     of the webpage, from there we extracted information from Active Directory to submit to   |
+|     the application in the form of an HTTP Headers                                           |
 +----------------------------------------------------------------------------------------------+
 
 
