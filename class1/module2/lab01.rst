@@ -310,5 +310,5 @@ Lab 1 is now complete.
 .. |Lab1-Image20| image:: /class1/module2/media/Lab1-Image20.png
    :width: 5.07751in
    :height: 2.84357in
-.. |accessjs| image:: /class1/module2/media/accessjh.png
+.. |accessjh| image:: /class1/module2/media/accessjh.png
 .. |accessportal| image:: /class1/module2/media/accessportal.png
