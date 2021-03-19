@@ -116,6 +116,6 @@ components:
 +------------------------+-------------------------+--------------------------+
 
 .. |image000| image:: media/intro/000.png
-.. |image001| image:: media/intro/001.png
+
 
 
