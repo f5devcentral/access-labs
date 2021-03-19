@@ -12,7 +12,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image001|
 
-#. Select your RDP solution.  
+#. Select your RDP resolution.  
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -28,11 +28,11 @@ To access your dedicated student lab environment, you will require a web browser
 	|image002|
 
 
-#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
+#. Scroll down the page until you see **501 GUI Tools** on the left
 
    |image003|
 
-#. Hover over tile **Visual Policy Editor(VPE) Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **The Message Box**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -42,199 +42,366 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 
-Task 2 - 
---------------
+Task 2 -  Create a failed connection
+-----------------------------------------
 
 The message box is a great tool for troubleshooting a policy that may have been reaching an ENDING DENY and closing the APM session too rapidly for proper inspection during the troubleshooting phase.
 
-#. Open a new browser tab and then navigate to https://server1.acme.com.  
+#. From the jumphost open new browser tab. Then navigate to https://server1.acme.com.  
 
-#. You instantly receive an access denied message.  Rather than going through logs to debug the issue you are going to use the Message box 
+#. You instantly receive an access denied message.  Let's go look at the reports to see why we failed the pollicy.
 
+   |image006|
 
-session.check_software.last.fw.item_1.vendor_name
+#. From the jumphost browser navigate to https://bigip1.f5lab.local
 
-session.check_software.last.fw.item_1.name
+#. Login with username **admin** and password **admin**
 
+    |image007|
 
+#. Navigate to Access >> Overview >> Access Reports.
 
-|image71|
+   |image008|
 
-1. Navigate to Access  Access Profiles  Profiles/Policies -> Access
-   Profiles (Per-Sessions Policies). Click Edit next to
-   **Agility-Lab-Access-Profile** to open the Visual Policy Editor
-   (VPE).
+#. Click **Run Report**
 
-|image72|
+   |image009|
 
-2. After the Logon Page object, on the fallback branch, click the **+**
-   symbol to open the Actions window.
+#. Click on the **Session ID** that matches your failed attempt.
 
-|image73|
+   |image010|
 
-3. Click on the **General** **Purpose** tab and then click the radio
-   button next to **Message Box** and click the **ADD ITEM** button at
-   the bottom of the page.
+#. You can a client with the ip address **10.1.10.10*** failed the firewall posture assessment. At this point the session variables have been deleted because all session variable are cleared after a session has been terminated.  So that leaves two choices.  Investiage further into the logs or find a way to keep the session alive long enough to investiagat the variables real time.  For this lab we are going to choose the latter by pausing the sessioon.
 
-|image74|
+   |image011|
 
-4. Click the **SAVE** button on the next window
+Task 3 - Create the Test Branch
+----------------------------------
 
-|image75|
+#. Navigate to Access >> Profiles/Policies >> Access Profiles (Per-Session Policies).
 
-5. Now client the ending Deny.
+   |image012|
 
-|image76|
+#.  Click **Edit** to open Visual Policy Editor(VPE)
 
-6. In the pop-up window change it to Allow and click the **SAVE**
-   button.
+   |image013|
 
-|image77|
 
-7. Then click the Apply Access Policy link at the top left.
+#.  If you exam the Policy you can the follow workflow is where the failure is happening:
 
-**TEST 1**
+   |image014|
 
-|image78|
+   A. Client enters **IP Subnet Match** action and proceeds down the **fallback** branch.
+   B. The client enters the **Production Policy** Macro
+   C. Inside the Macro the Client Enters the **Posture Assessment** Macro
+   D. Inside the **Posture Asseessments** Macro the client enters the **Client OS** action.
+   E. The client enters the **Firewall** Check action.
+   F. The client fails the check and proceeds down the **failback** branch
+   G. The client exits the **Posture Assessments** Macro down the **fallback** branch
+   H. The client exists the **Production Policy** Macro to the **Deny** Terminal
 
-1. Return to the browser or tab you are using for access to
-   **https://10.128.10.100**. Restart a new session if necessary.
+#.  The first step in troubleshooting this user would be seperating this user from all other production users on the system.  This can be done by entering the user's IP address in the **IP Subnet Match** action.  Click the **IP Subnet Match** action
 
-  -  Username: **student**
+   |image015|
 
-  -  Password: **password**
+#. Click **Branch Rules**
+#. Click **Change**
 
-|image79|
+   |image016|
 
-2. Did we receive an error this time after the logon page?
+#. Change the IP Subnet is value to the client address **10.1.10.10/32**
+#. Click **Finished**
 
-3. Did the Message Box display?
+   |image017|
 
-|image80|
+#. Change the name to **Test Branch 10.1.10.10**.  
+#. Click **Save**
 
-4. Keep the message box display there and move to the other browser to
-   review the Manage Sessions menu.
+   |image018|
 
-5. Does the Manage Sessions menu show the Username this time?
+#.  Next time the client attempts to connec they will sent down the test branch mataching their IP address.  This can safely be done in production since the branch ends in a **Deny**.
 
-6. Is the Status showing a Blue Square or Green Circle? Why?
+   |image019|
 
-|image81|
 
-7. Click the session ID to review the details for any new messages.
+Task 4 - Create Message boxes
+--------------------------------
 
-8. If things worked correctly you should see a message in the details
-   stating, “Session deleted due to user inactivity or errors”
+In this task you will create two Message Box Macros.  One for the success branch and a second for a failure branch.  Having the Mssage Box in a Macro allows you to customize the messages but still use them in muliple locations.  Also when you are done using them you simply remove them from the flow of policy but they can still exist in the overpolicy for the next time you need them.
 
-|image82|
 
-9. If you look back at the other browser window you should notice a
-   Session Expired/Timeout message is being displayed.
+#. Click **Add New Macro**
 
-**STEP 2**
+   |image020|
 
-|image83|
+#. Enter the Name **Success Box**
+#. Click **Save**
 
-1. Navigate back to Access  Profiles/Policies  Access Profiles
-   (Per-Session Policies). Click on **Agility-Lab-Access-Profile**
+   |image21|
 
-|image84|
+#. Expand the Macro
+#. Click the **+ (Plus Symbol) on the fallback branch.
 
-2. Access Policy Timeout from 30 seconds back to **300** seconds by
-   removing the check from the custom column.
+   |image022|
 
-3. Click the **UPDATE** button at the bottom of the page.
+#. Click the **General Purpose** tab.
+#. Select **Message Box**
+#. Click **Add Item**
 
-|image85|
+   |image023|
 
-4. Click Apply Access Policy link at the top left of the page.
+#. Enter the Title **Success**
+#. Enter the Description below
 
-|image86|
+   .. code-block:: irule
 
-5. Finalize the update by confirming the box is checked next to the
-   profile and clicking **APPLY ACESS POLICY**
+      <br>Firewall Vendor: %{session.check_software.last.fw.item_1.vendor_name}
+      <br>Firewall Name: %{session.check_software.last.fw.item_1.name}
+      <br>Firewall Version: %{session.check_software.last.fw.item_1.version}
 
-**TEST 2**
+# Click **Save**
 
-|image87|
+   |image024|
 
-1. Now go back and restart the user session and logon.
+#. Click **Add New Macro**
 
-|image88|
+   |image020|
 
-2. **Do NOT** click the message box link “Click here to continue”
+#. Enter the Name **Failure Box**
+#. Click **Save**
 
-3. Leave the message box message displayed for the time.
+   |image25|
 
-|image89|
+#. Expand the Macro
+#. Click the **+ (Plus Symbol) on the fallback branch.
 
-4. Go to the other browser/tab and open the Manage Sessions menu.
+   |image026|
 
-5. Your session should be there but the Status icon should still be a Blue Square.
+#. Click the **General Purpose** tab.
+#. Select **Message Box**
+#. Click **Add Item**
 
-6. Click on your Session ID
+   |image023|
 
-|image90|
+#. Enter the Title **Failure**
+#. Enter the Description below
 
-7. Click Built-in Reports
+   .. code-block:: irule
 
-|image91|
+      <br>Firewall Vendor: %{session.check_software.last.fw.item_1.vendor_name}
+      <br>Firewall Name: %{session.check_software.last.fw.item_1.name}
+      <br>Firewall Version: %{session.check_software.last.fw.item_1.version}
 
-8. Click on All Sessions report, then choose Run Report on the pop-up menu.
+#. Click **Save**
 
-|image92|
+   |image027|
 
-9. Click the Session Variables for your current session.
 
-|image93|
 
-10. Do you now have Session Variables being displayed for this session? If so why?
+Task 5 - Add the Test condition
+---------------------------------
 
-|image94|
+In this section we will now add the condition we want to test against and use our message boxes to "pause" the session and provide us instant feedback
 
-11. Click the All Sessions tab and look at the column labeled Active. Does it show a Y or N in the column?
+#. Click the **+ (Plus Symbol)** on the test branch 
 
-Note that session variables will only be displayed for Active sessions.
-Since you placed a message box in the VPE to pause policy execution the
-session is seen as active. This provides you the ability to now review
-Session Variables that APM has collected up to this point in the
-policies execution.
+   |image028|
 
-|image95|
+#. Click the **Macros** tab
+#. Select **Posture Assessments**
+#. Select **Add Item**
 
-12. Now in the user browser click the link in the Message Box.
 
-If it timed out then restart and this time click through the message box
-link.
+   |image029|
 
-|image96|
+#. Click the **+ (Plus Symbol)** on the Pass branch 
 
-13. Now review the Active Sessions menu and note what icon is shown in the status column. Green Circle finally? Success!!
+   |image030|
 
-|image97|
+#. Click the **Macros** tab
+#. Select **Success Box**
+#. Select **Add Item**
 
-14. If you now click the Session ID you will see that the Policy has reached an ending Allow thus the Access Policy Result is now showing we have been granted LTM+APM\_Mode access.
 
-|image98|
+   |image031|
 
-15. Now open the All Sessions report once more to review the Session Variables collected.
+#. Click the **+ (Plus Symbol)** on the Pass branch 
 
-|image99|
+   |image032|
 
-16. Click the logon folder in the Session Variables page that opens for your session.
+#. Click the **Macros** tab
+#. Select **Failure Box**
+#. Select **Add Item**
 
-|image100|
 
-17. Click the folder icon named *last* to expand its contents.
+   |image033|
 
-Notice on the left column labeled Variable Name above and to the right
-the next column is Variable Value and the third column is Variable ID.
-If you look at the Variable Name of username you will see to the right
-its value is recorded as student as you entered it in the logon page.
-The next column displays APM’s matching session Variable ID for this
-information. You will see that the naming convention follows the session
-hierarchy starting with session. then the first folder logon. then the
-next folder last. then finally the Variable Name of Username.
+#. Click **Apply Access Policy**
 
-We will use some session variables in the next lab to GET and SET
-information for the users session.
+   |image034|
+
+
+Task 6 - Test failure
+-----------------------
+
+#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.  
+
+#. Rather than the instant deny, your presented a message box with the following information.  This has now "paused" the session for you to look at the session variables.  Do **NOT** click Continue
+
+   |image036|
+
+#. Return the BIG-IP GUI and navigate to Access >> Overview >> Active session.
+
+   |image037|
+
+#. There is a current active session that has yet to be completed.  Click **Variables**
+
+   |image038|
+
+#. Since the session has not yet been denied the BIG-IP and you have access to all the session variables.
+
+   |image039|
+
+
+Task 7 - Fix the policy
+--------------------------
+
+Now that we have the information about the clients Firewall settings we can return the policy to determine what is difference between the policy and what we are detecting on the client.
+
+
+#. Navigate to Access >> Profiles/Policies >> Access Profiles (Per-Session Policies).
+
+   |image012|
+
+#.  Click **Edit** to open Visual Policy Editor(VPE)
+
+   |image013|
+
+#. Expand the **Posture Assessments** Macro
+#. Click **Firewall**
+
+   |image040|
+
+#. The Platform, Vendor ID, Product ID all match what was stored in the session variables.  However, if you look closely at the Version number you notice a digit is missing.  The version the Firewall Action is 10.0.1433.0.  The was return a version of 10.0.14393.0 in the message box or when we looked directly at the session varibles.  Let's make a configuration change to our Firewall action and see if it fixes the problem.  Type the number **10.0.14393.0** into the version field  
+#. Click **Save**
+
+   |image041|
+
+#. Click Apply Policy 
+
+   |image042|
+
+Task 8 - Test our fix
+--------------------------
+
+When testing you should now receive the  Successful Message Box.
+
+#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.  
+
+#. You have successfully diagnosed the problem.
+
+   |image043|
+
+Task 9 - Cleanup the Test Branch
+-----------------------------------
+
+While we successfully diagnose the problem we haven't actually fixed the problem for the user.  The client machine still goes down the test branch.  We must now revert our configuration in the test branch and all the user to test again.
+
+#. Navigate to Access >> Profiles/Policies >> Access Profiles (Per-Session Policies).
+
+   |image012|
+
+#.  Click **Edit** to open Visual Policy Editor(VPE)
+
+   |image013|
+
+#. Click the **X** in the top right corner of the Posture Assessments Macro. 
+
+   |image044|
+
+#. Verify the Connect Previous Node is set to **Pass**
+#. Click **Delete**
+
+   |image045|
+
+#. Click the **X** in the top right corner of the Success Box Macro.
+
+   |image046|
+
+#. Verify the Connect Previous Node is set to **Out**
+#. Click **Delete**
+
+   |image047|
+
+
+#. Click the **IP Subnet match** action.  **NOT** the X
+
+   |image048|
+
+#. Click **Branch Rules**
+#. Click **change**
+
+   |image049|
+
+#. Change the IP address back to the original value of **127.0.0.1/32**
+#. Click **Finished**
+
+   |image050|
+
+#. Change the Name back to the original value of **Test Branch 127.0.0.1**
+#. Click **Save**
+
+
+   |image051|
+
+#. Click **Apply Access Policy**
+
+   |image052|
+
+#.  The configuration has now been reversed.  It's important to note that while we delected the Message Boxes from the current policy workslow the Marcros are still there the next time we need them.
+
+   |image053|
+
+
+Task 10 - Validate user1 is working
+--------------------------------------
+
+#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.  
+
+#.  Rather than being denied you are presented a logon page.  
+
+#.  At the logon page enter the Username:**user1** and Password:**user1**
+
+#.  Click **Logon**
+
+   |image054|
+
+#. You are presented the webpage below.  Congratualations you fixed the user's problem and they are working again.
+
+   |image055|
+
+
+Task 11 - Lab CleanUp
+------------------------
+
+#. From a browser on the jumphost navigate to https://portal.f5lab.local
+
+#. Click the **Classes** tab at the top of the page.
+
+    |image002|
+
+#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
+
+   |image003|
+
+#. Hover over tile **The Message Box**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+
+   |image998|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image999|
+
+#. This concludes the lab.
+
+   |image000|
