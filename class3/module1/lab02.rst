@@ -1,653 +1,484 @@
-Lab 3: OAuth and AzureAD Lab
-============================
+Lab 2: SAML Identity Provider (IdP) Lab
+=======================================
 
-The purpose of this lab is to familiarize students with using APM in
-conjunction with Microsoft AzureAD. In the lab, Microsoft AzureAD is
-leveraged as an OAuth Authorization Server (AS) while BIG-IP, through
-the APM configuration is leveraged as an OAuth Client/Resource Server. 
-Students will configure various OAuth/OpenID aspects to log in to APM
-front-ended application.
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+The purpose of this lab is to configure and test a SAML Identity Provider.
+Students will configure the various aspect of a SAML Identity Provider, import
+and bind to a SAML Service Provider and test IdP-Initiated SAML Federation.
 
 Objective:
-----------
 
--  Gain additional understanding of F5 OAuth features & functionality
+-  Gain an understanding of SAML Identity Provider(IdP) configurations and
+   its component parts
 
--  Deploy a standard configuration using F5 APM and Microsoft AzureAD    
+-  Gain an understanding of the access flow for IdP-Initiated SAML
 
 Lab Requirements:
------------------
 
--  All lab requirements will be noted in the tasks that follow
+-  All Lab requirements will be noted in the tasks that follow
 
--  Estimated completion time: 25 minutes
+Estimated completion time: 25 minutes
 
-Lab 3 Tasks:
-------------
-
-TASK 1: Create/Review New Application Registration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+----------------------------------------------------------------------------------------------+
-| **Note:** *The following Task 1 steps are to be "REVIEWED". Setting up a free Azure*         |
-|                                                                                              |
-| *developer account requires multiple steps (like the entry of billing information) which*    |
-|                                                                                              |
-| *are beyond the need and scope of this lab given the available time.  As such, the AzureAD*  |
-|                                                                                              |
-| *environment has been pre-configured for the lab exercises that follow.*                     |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 1. Log into the Microsoft Azure Dashboard and click  **Azure Active Directory** in the left  |
-|                                                                                              |
-|    navigation menu.                                                                          |
-+----------------------------------------------------------------------------------------------+
-| |image034|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 2. Click on **App Registration** on the resulting menu and then **New Registration** in the  |
-|                                                                                              |
-|    horizontal menu.                                                                          |
-+----------------------------------------------------------------------------------------------+
-| |image035|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 3. In the pop-up window for **Register an application**, enter the following values          |
-|                                                                                              |
-|    * **Name:** **app.acme.com**                                                              |
-|                                                                                              |
-|    * **Supported account types:** **Accounts in this organizational directory only** (radio) |
-|                                                                                              |
-|    * **Redirect URI:** **https://app.acme.com/oauth/client/redirect**                        |
-|                                                                                              |
-| 4. Click **Register**.                                                                       |
-+----------------------------------------------------------------------------------------------+
-| |image036|                                                                                   |
-+----------------------------------------------------------------------------------------------+
- 
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 5. In the resulting **app.acme.com** Registered App window, note & copy the **Application**  |
-|                                                                                              |
-|    **(client) ID** and **Directory (tenant) ID** as these will be used later in the setup.   |
-+----------------------------------------------------------------------------------------------+
-| |image037|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 6. Click **Certificates & Secrets** in the left navigation window and then click **New**     |
-|                                                                                              |
-|    **client secret** in the **Client Secrets** section.                                      |
-+----------------------------------------------------------------------------------------------+
-| |image038|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 7. In the **Add a client secret** pop-up window, enter the following values                  |
-|                                                                                              |
-| -  **Description:** **app.acme.com-secret**                                                  |
-|                                                                                              |
-| -  **Expires:** **In 2 Years**                                                               |
-|                                                                                              |
-| 8. Click **Add**.                                                                            |
-+----------------------------------------------------------------------------------------------+
-| |image039|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 9. In the resulting window, note and copy the **Client Secret** in the **Client secrets**    |
-|                                                                                              |
-|    section of the window. This will be used later in the APM portion of the setup.           |
-+----------------------------------------------------------------------------------------------+
-| |image040|                                                                                   |
-+----------------------------------------------------------------------------------------------+
- 
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 10. In the left navigation menu select **API permissions**. In the updated panel note the    |
-|                                                                                              |
-|     assigned permissions.  These can be altered/expanded as needed based on needs.           |
-+----------------------------------------------------------------------------------------------+
-| |image041|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| **[REVIEW ONLY]**                                                                            |
-|                                                                                              |
-| 11. In the left navigation window, click **Manifest**.                                       |
-|                                                                                              |
-| 12. In the **Manifest** panel, edit the **groupMembershipClaims** line (line 12) from        |
-|                                                                                              |
-|     **null** to **“All”** (note quotes are required).                                        |
-|                                                                                              |
-| 13. Click **Save**.                                                                          |
-|                                                                                              |
-| **Note:** *You can also update groupMembershipClaims to be "SecurityGroup".*                 |
-+----------------------------------------------------------------------------------------------+
-| |image042|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-TASK 2: Create OAuth Token Request
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+----------------------------------------------------------------------------------------------+
-| 1. Create the **OAuth Request** by navigating to **Access** -> **Federation** ->             |
-|                                                                                              |
-|    **OAuth Client/Resource Server** -> **Request**.                                          |
-+----------------------------------------------------------------------------------------------+
-| |image001|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 2. Find the **AzureADTokenRequestByAuthzCode** row and click the **Copy** link.              |
-|                                                                                              |
-|    **Note:** *This should be the 6th row down.*                                              |
-+----------------------------------------------------------------------------------------------+
-| |image002|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 3. In the resulting **Copy Request** window, input **AzureADTokenRequest_ACME** for the      |
-|                                                                                              |
-|    **New Request Name** and then click the **Copy** button.                                  |
-+----------------------------------------------------------------------------------------------+
-| |image003|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 4. In the resulting **AzureADTokenRequest_ACME** window, click the                           |
-|                                                                                              |
-|    **custom | resource | <Enter_resource_name_here>** row in the **Request Parameters**      |
-|                                                                                              |
-|    section under **Request Settings** and then clieck the **Edit** button.                   |
-|                                                                                              |
-| 5. The edited row will now populate the **Parameter Type**, **Parameter Name** and           |
-|                                                                                              |
-|    **Parameter Value** fields.                                                               |
-|                                                                                              |
-| 6. Ensure the following values are in the indicated fields:                                  |
-|                                                                                              |
-|    * **Parameter Type:** **custom**                                                          |
-|                                                                                              |
-|    * **Parameter Name:** **resource**                                                        |
-|                                                                                              |
-|    * **Parameter Value:** **dd4bc4c7-2e90-41c9-9c41-b7eab5ab68b7**                           |
-+----------------------------------------------------------------------------------------------+
-| |image004|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 7. Once the value a verified correct, click the **Add** button which will move the values    |
-|                                                                                              |
-|    back to the **Request Parameters** section.                                               |
-|                                                                                              |
-| 8. Scroll to the bootom of the window and click the **Update** button.                       |
-+----------------------------------------------------------------------------------------------+
-| |image005|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-TASK 3: Create OAuth Token Refresh Request
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+----------------------------------------------------------------------------------------------+
-| 1. Return to the **OAuth Client/Resouce Server Request** list by navigating to **Access**    |
-|                                                                                              |
-|    -> **Federation** -> **OAuth Client/Resource Server** -> **Request**.                     |
-|                                                                                              |
-| **Note:** *You may still be at this window if you did not navigate away.*                    |
-+----------------------------------------------------------------------------------------------+
-| |image001|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 2. Find the **AzureADTokenRefreshRequest** row and click the **Copy** link.                  |
-|                                                                                              |
-|    **Note:** *This should be the 5th row down.*                                              |
-+----------------------------------------------------------------------------------------------+
-| |image006|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 3. In the resulting **Copy Request** window, input **AzureADTokenRefreshRequest_ACME** for   |
-|                                                                                              |
-|    the **New Request Name** and then click the **Copy** button.                              |
-+----------------------------------------------------------------------------------------------+
-| |image007|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 4. In the resulting **AzureADTokenRefreshRequest_ACME** window, click the                    |
-|                                                                                              |
-|    **custom | resource | <Enter_resource_name_here>** row in the **Request Parameters**      |
-|                                                                                              |
-|    section under **Request Settings** and then clieck the **Edit** button.                   |
-|                                                                                              |
-| 5. The edited row will now populate the **Parameter Type**, **Parameter Name** and           |
-|                                                                                              |
-|    **Parameter Value** fields.                                                               |
-|                                                                                              |
-| 6. Ensure the following values are in the indicated fields:                                  |
-|                                                                                              |
-|    * **Parameter Type:** **custom**                                                          |
-|                                                                                              |
-|    * **Parameter Name:** **resource**                                                        |
-|                                                                                              |
-|    * **Parameter Value:** **dd4bc4c7-2e90-41c9-9c41-b7eab5ab68b7**                           |
-+----------------------------------------------------------------------------------------------+
-| |image008|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 7. Once the value a verified correct, click the **Add** button which will move the values    |
-|                                                                                              |
-|    back to the **Request Parameters** section.                                               |
-|                                                                                              |
-| 8. Scroll to the bootom of the window and click the **Update** button.                       |
-+----------------------------------------------------------------------------------------------+
-| |image009|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 9. In the **OAuth Client/Resouce Server Request** list both the newly created requests       |
-|                                                                                              |
-|    should now be listed. **AzureADTokenRequest_ACME** & **AzureADTokenRefreshRequest_ACME**. |
-+----------------------------------------------------------------------------------------------+
-| |image010|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-TASK 4: Create OAuth Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+----------------------------------------------------------------------------------------------+
-| 1. Create the **OAuth Provider** by navigating to **Access** -> **Federation** ->            |
-|                                                                                              |
-|    **OAuth Client/Resource Server** -> **Provider** and clicking **Create**.                 |
-+----------------------------------------------------------------------------------------------+
-| |image011|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 2. In the resulting window, input the following values to create the Provider:               |
-|                                                                                              |
-| -  **Name**: **azure\_AD\_provider**                                                         |
-|                                                                                              |
-| -  **Type**: **AzureAD**  (select from dropdown)                                             |
-|                                                                                              |
-| -  **OpenID URI:** (replace **\_tennantID\_** with the following tenantID                    |
-|                                                                                              |
-|    **f5agilitydemogmail.onmicrosoft.com** )                                                  |
-|                                                                                              |
-| Resulting URI should be as follows:                                                          |
-|                                                                                              |
-| https://login.windows.net/f5agilitydemogmail.onmicrosoft.com/.well-known/openid-configuration|
-|                                                                                              |
-| 3. Click **Discover**.                                                                       |
-|                                                                                              |
-| 4. Scroll to the bottom of the window and then click **Save**.                               |
-|                                                                                              |
-| **Note:** *If using another account you can find you TenantID by navigating to the "Azure*   |
-|                                                                                              |
-| *Portal" and clicking "Azure Active Directory". The tenant ID is the "default directory"*    |
-|                                                                                              |
-| *The full name of the TenantID will be your "TenantID.onmicrosoft.com".*                     |
-+----------------------------------------------------------------------------------------------+
-| |image012|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 9. In the **OAuth Client/Resouce Server Provider** list the newly created provider should    |
-|                                                                                              |
-|    now be listed **azure_AD_provider**.                                                      |
-+----------------------------------------------------------------------------------------------+
-| |image013|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-TASK 5: Create OAuth Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+----------------------------------------------------------------------------------------------+
-| 1. Create the **OAuth Server (Client)** by navigating to **Access** -> **Federation** ->     |
-|                                                                                              |
-|    **OAuth Client/Resource Server** -> **OAuth Server** and clicking the **+ (Plus Symbol)** |
-|                                                                                              |
-| **Note:** *If you miss clicking the plus sign, simply click the create button on the right.* |
-+----------------------------------------------------------------------------------------------+
-| |image014|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 2. In the resulting window, input the following values to create the Server:                 |
-|                                                                                              |
-| -  **Name:** **azure\_AD\_Server**                                                           |
-|                                                                                              |
-| -  **Mode:** **Client** (Select from dropdown)                                               |
-|                                                                                              |
-| -  **Type:** **AzureAD** (Select from dropdown)                                              |
-|                                                                                              |
-| -  **OAuth Provider:** **azure\_AD\_provider** (Select from dropdown)                        |
-|                                                                                              |
-| -  **DNS Resolver:** **prebuilt\_dns\_resolver** (Select from dropdown)                      |
-|                                                                                              |
-| -  **Client ID:** **dd4bc4c7-2e90-41c9-9c41-b7eab5ab68b7**                                   |
-|                                                                                              |
-| -  **Client Secret:** **:RbLK?50]:aVZvomaZ6IC61_j/D=tXet**                                   |
-|                                                                                              |
-| -  **Client’s Server SSL Profile Name:** **serverssl** (Select from dropdown)                |
-|                                                                                              |
-| 3. Click **Finished**.                                                                       |
-+----------------------------------------------------------------------------------------------+
-| |image015|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-+----------------------------------------------------------------------------------------------+
-| 9. In the **OAuth Client/Resouce Server - OAuth Server** list the newly created provider     |
-|                                                                                              |
-|    should now be listed. **azure_AD_server**.                                                |
-+----------------------------------------------------------------------------------------------+
-| |image016|                                                                                   |
-+----------------------------------------------------------------------------------------------+
-
-TASK 6: Setup F5 Per Session Policy (Access Policy) 
+TASK 1 ‑ Configure the SAML Identity Provider (IdP)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+----------------------------------------------------------------------------------------------+
-| 1. Edit the existing **azure_oauth** Per Session Policy by navigating to **Access** ->       |
-|                                                                                              |
-|    **Profile/Policies** -> **Access Profiles (Per Session Policies)**.                       |
-|                                                                                              |
-| 2. Locate the **azure_oauth** policy row (should be 4th row) and click the **Edit** link.    |
-+----------------------------------------------------------------------------------------------+
-| |image017|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+IdP Service
+-----------
 
-+----------------------------------------------------------------------------------------------+
-| 3. In the resulting Visual Policy Editor window for the **azure_oauth** policy, click the    |
-|                                                                                              |
-|    **+ (Plus Symbol)** on the **fallback** branch between **Start** and **Allow**.           |
-+----------------------------------------------------------------------------------------------+
-| |image018|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. Begin by selecting: **Access ‑> Federation ‑> SAML Identity Provider
+   ‑> Local IdP Services**
 
-+----------------------------------------------------------------------------------------------+
-| 4. In the resulting pop-up window, click the **Authentication** tab and then click the radio |
-|                                                                                              |
-|    button for **OAuth Client**.                                                              |
-|                                                                                              |
-| 5. Scroll to the bottom of the window and click **Add Item**.                                |
-+----------------------------------------------------------------------------------------------+
-| |image019|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. Click the **Create** button (far right)
 
-+----------------------------------------------------------------------------------------------+
-| 6. In the **OAuth\_Client** window enter the following values as shown:                      |
-|                                                                                              |
-| -  **Server:** **/Common/azure\_AD\_server** (Select from dropdown)                          |
-|                                                                                              |
-| -  **Grant Type:** **Authorization code** (Select from dropdown)                             |
-|                                                                                              |
-| -  **OpenID Connect:** **Enabled** (Select from dropdown)                                    |
-|                                                                                              |
-| -  **OpenID Connect Flow Type:** **Authorization code** (Select from dropdown)               |
-|                                                                                              |
-| -  **Authentication Redirect Request:** **/Common/AzureADAuthRedirectRequest**  (dropdown)   |
-|                                                                                              |
-| -  **Token Request:** **/Common/AzureADTokenRequest_ACME**                                   |
-|                                                                                              |
-| -  **Refresh Token Request:** **/Common/AzureADTokenRefreshRequest_ACME** (dropdown)         |
-|                                                                                              |
-| -  **OpenID Connect UserInfo Request:** **None** (Select from dropdown)                      |
-|                                                                                              |
-| -  **Redirection URI:** **https://%{session.server.network.name}/oauth/client/redirect**     |
-|                                                                                              |
-| 10. Click **Save**.                                                                          |
-+----------------------------------------------------------------------------------------------+
-| |image020|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   |image26|
 
-+----------------------------------------------------------------------------------------------+
-| 11. In the Visual Policy Editor window for the **azure_oauth** policy, click the             |
-|                                                                                              |
-|     **+ (Plus Symbol)** on the **Successful** branch following the **OAuth Client** action.  |
-|                                                                                              |
-| 12. In the resulting pop-up window, click the **Assignment** tab and then click the radio    |
-|                                                                                              |
-|     button for **Variable Assign**.                                                          |
-|                                                                                              |
-| 13. Scroll to the bottom of the window and click **Add Item**.                               |
-+----------------------------------------------------------------------------------------------+
-| |image021|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. In the **Create New SAML IdP Service** dialog box, click **General Settngs**
+   in the left navigation pane and key in the following:
 
-+----------------------------------------------------------------------------------------------+
-| 14. In the **Variable Assign** window click the **Add new entry** button.                    |
-+----------------------------------------------------------------------------------------------+
-| |image022|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   +-------------------+--------------------------------+
+   | IdP Service Name: | ``idp.f5demo.com‑app``         |
+   +-------------------+--------------------------------+
+   | IdP Entity ID:    | ``https://idp.f5demo.com/app`` |
+   +-------------------+--------------------------------+
 
-+----------------------------------------------------------------------------------------------+
-| 15. In the resulting window click the, input **session.logon.last.username** into the left   |
-|                                                                                              |
-|     pane.                                                                                    |
-|                                                                                              |
-| 16. For the right pane, use the top dropdown to select **Session Variable**.                 |
-|                                                                                              |
-| 17. In the **Session Variable** field presented input the following variable value:          |
-|                                                                                              |
-|     **session.oauth.client.last.id_token.upn**.                                              |
-|                                                                                              |
-| 18. Click the **Finished** button.                                                           |
-+----------------------------------------------------------------------------------------------+
-| |image023|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   |image27|
 
-+----------------------------------------------------------------------------------------------+
-| 19. In the resulting window, review the Assignment expression and click the **Save** button. |
-+----------------------------------------------------------------------------------------------+
-| |image024|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   .. NOTE:: The yellow box on "Host" will disappear when the Entity ID is
+      entered
 
-+----------------------------------------------------------------------------------------------+
-| 20. Click on the **Apply Access Policy** link in the top left-hand corner.                   |
-+----------------------------------------------------------------------------------------------+
-| |image025|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. In the **Create New SAML IdP Service** dialog box, click **Assertion
+   Settings** in the left navigation pane and key in the following:
 
-TASK 7: Testing the OAuth Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   +--------------------------+------------------------------------------------+
+   | Assertion Subject Type:  | ``Persistent Identifier`` (drop down)          |
+   +--------------------------+------------------------------------------------+
+   | Assertion Subject Value: | ``%{session.logon.last.username}`` (drop down) |
+   +--------------------------+------------------------------------------------+
 
-+----------------------------------------------------------------------------------------------+
-| 1. Open Firefox from the Jumphost desktop and click on the **app.acme.com** link in the      |
-|                                                                                              |
-|    bookmark toolbar.                                                                         |
-+----------------------------------------------------------------------------------------------+
-| |image026|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   |image28|
 
-+----------------------------------------------------------------------------------------------+
-| 2. Once redeirected to **https://login.microsoftonline.com** sign in with                    |
-|                                                                                              |
-|    **demouser@f5agilitydemogmail.onmicrosoft.com**, and then click **Next**                  |
-+----------------------------------------------------------------------------------------------+
-| |image027|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. In the **Create New SAML IdP Service** dialog box, click
+   **SAML Attributes** in the left navigation pane and click the
+   **Add** button as shown
 
-+----------------------------------------------------------------------------------------------+
-| 3. In the updated browser window, input **F5!2020!** and click **Sign in**.                  |
-+----------------------------------------------------------------------------------------------+
-| |image028|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. In the **Name** field in the resulting pop-up window, enter the
+   following: ``emailaddress``
 
-+----------------------------------------------------------------------------------------------+
-| 4. In the updated browser window, check the checkbox for **Don't show this again** and click |
-|                                                                                              |
-|    the **Yes** button.                                                                       |
-+----------------------------------------------------------------------------------------------+
-| |image029|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. Under **Attribute Values**, click the **Add** button
 
-+----------------------------------------------------------------------------------------------+
-| 5. The browser window should now update, and return successfully the application portal for  |
-|                                                                                              |
-|    **https://app.acme.com**.                                                                 |
-+----------------------------------------------------------------------------------------------+
-| |image030|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. In the **Values** line, enter the following: ``%{session.ad.last.attr.mail}``
 
-TASK 8: Review OAuth Session 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Click the **Update** button
 
-+----------------------------------------------------------------------------------------------+
-| 1. Navigate to **Access -> Overview -> Active Sessions** on **bigip1**                       |
-|                                                                                              |
-| 2. Click on the **View** link for the currently active session row.                          |
-|                                                                                              |
-| **Note:** *If mutiple sessions are present, delete all sessions and restart testing.*        |
-+----------------------------------------------------------------------------------------------+
-| |image031|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+#. Click the **OK** button
 
-+----------------------------------------------------------------------------------------------+
-| 3. In the resulting **Session Variable** window, review all the available **oauth.client**   |
-|                                                                                              |
-|    variables resulting from the access just performed.                                       |
-+----------------------------------------------------------------------------------------------+
-| |image032|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   |image29|
 
-TASK 9: Review OAuth Reports 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   |br|
 
-+----------------------------------------------------------------------------------------------+
-| 1. Navigate to **Access -> Overview -> OAuth Reports -> Client/Resource Server** on          |
-|                                                                                              |
-|    **bigip1**.                                                                               |
-|                                                                                              |
-| 2. Review and hover over the available reports.                                              |
-+----------------------------------------------------------------------------------------------+
-| |image033|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   |image30|
 
-TASK 10: End of Lab3
-~~~~~~~~~~~~~~~~~~~~
+#. In the **Create New SAML IdP Service** dialog box, click
+   **Security Settings** in the left navigation pane and key in
+   the following:
 
-+----------------------------------------------------------------------------------------------+
-| 1. This concludes Lab3, feel free to review and test the configuration.                      |
-+----------------------------------------------------------------------------------------------+
-| |image000|                                                                                   |
-+----------------------------------------------------------------------------------------------+
+   +----------------------+----------------------------------+
+   | Signing Key:         | ``/Common/SAML.key`` (drop down) |
+   +----------------------+----------------------------------+
+   | Signing Certificate: | ``/Common/SAML.crt`` (drop down) |
+   +-----------------------+---------------------------------+
 
-.. |image000| image:: media/image001.png
-   :width: 800px
-.. |image001| image:: media/lab3-001.png
-   :width: 800px
-.. |image002| image:: media/lab3-002.png
-   :width: 800px
-.. |image003| image:: media/lab3-003.png
-   :width: 800px
-.. |image004| image:: media/lab3-004.png
-   :width: 800px
-.. |image005| image:: media/lab3-005.png
-   :width: 800px
-.. |image006| image:: media/lab3-006.png
-   :width: 800px
-.. |image007| image:: media/lab3-007.png
-   :width: 800px
-.. |image008| image:: media/lab3-008.png
-   :width: 800px
-.. |image009| image:: media/lab3-009.png
-   :width: 800px
-.. |image010| image:: media/lab3-010.png
-   :width: 800px
-.. |image011| image:: media/lab3-011.png
-   :width: 800px
-.. |image012| image:: media/lab3-012.png
-   :width: 800px
-.. |image013| image:: media/lab3-013.png
-   :width: 800px
-.. |image014| image:: media/lab3-014.png
-   :width: 800px
-.. |image015| image:: media/lab3-015.png
-   :width: 800px
-.. |image016| image:: media/lab3-016.png
-   :width: 800px
-.. |image017| image:: media/lab3-017.png
-   :width: 800px
-.. |image018| image:: media/lab3-018.png
-   :width: 800px
-.. |image019| image:: media/lab3-019.png
-   :width: 800px
-.. |image020| image:: media/lab3-020.png
-   :width: 800px
-.. |image021| image:: media/lab3-021.png
-   :width: 800px
-.. |image022| image:: media/lab3-022.png
-   :width: 800px
-.. |image023| image:: media/lab3-023.png
-   :width: 800px
-.. |image024| image:: media/lab3-024.png
-   :width: 800px
-.. |image025| image:: media/lab3-025.png
-   :width: 800px
-.. |image026| image:: media/lab3-026.png
-   :width: 800px
-.. |image027| image:: media/lab3-027.png
-   :width: 800px
-.. |image028| image:: media/lab3-028.png
-   :width: 800px
-.. |image029| image:: media/lab3-029.png
-   :width: 800px
-.. |image030| image:: media/lab3-030.png
-   :width: 800px
-.. |image031| image:: media/lab3-031.png
-   :width: 800px
-.. |image032| image:: media/lab3-032.png
-   :width: 800px
-.. |image033| image:: media/lab3-033.png
-   :width: 800px
-.. |image034| image:: media/lab3-034.png
-   :width: 800px
-.. |image035| image:: media/lab3-035.png
-   :width: 800px
-.. |image036| image:: media/lab3-036.png
-   :width: 800px
-.. |image037| image:: media/lab3-037.png
-   :width: 800px
-.. |image038| image:: media/lab3-038.png
-   :width: 800px
-.. |image039| image:: media/lab3-039.png
-   :width: 800px
-.. |image040| image:: media/lab3-040.png
-   :width: 800px
-.. |image041| image:: media/lab3-041.png
-   :width: 800px
-.. |image042| image:: media/lab3-042.png
-   :width: 800px
-.. |image043| image:: media/lab3-043.png
-   :width: 800px
-.. |image044| image:: media/lab3-044.png
-   :width: 800px
-.. |image045| image:: media/lab3-045.png
-   :width: 800px
-.. |image046| image:: media/lab3-046.png
-   :width: 800px
-.. |image047| image:: media/lab3-047.png
-   :width: 800px
+   .. NOTE:: The certificate and key were previously imported
 
+#. Click **OK** to complete the creation of the IdP service
 
+   |image31|
+
+SP Connector
+------------
+
+#. Click on **External SP Connectors** (under the **SAML Identity Provider**
+   tab) in the horizontal navigation menu
+
+#. Click specifically on the **Down Arrow** next to the **Create** button
+   (far right)
+
+#. Select **From Metadata** from the drop down menu
+
+   |image32|
+
+#. In the **Create New SAML Service Provider** dialogue box, click **Browse**
+   and select the *app.partner.com_metadata.xml* file from the Desktop of
+   your jump host
+
+#. In the **Service Provider Name** field, enter the following:
+   ``app.partner.com``
+
+#. Click **OK** on the dialog box
+
+   |image33|
+
+   .. NOTE:: The app.partner.com_metadata.xml file was created previously.
+      Oftentimes SP providers will have a metadata file representing their
+      SP service. This can be imported to save object creation time as has
+      been done in this lab.
+
+#. Click on **Local IdP Services** (under the **SAML Identity Provider** tab)
+   in the horizontal navigation menu
+#. Select the **Checkbox** next to the previously created ``idp.f5demo.com``
+   and click the **Bind/Unbind SP Connectors** button at the bottom of the GUI
+
+   |image34|
+
+#. In the **Edit SAML SP's that use this IdP** dialog, select the
+   ``/Common/app.partner.com`` SAML SP Connection Name created previously
+
+#. Click the **OK** button at the bottom of the dialog box
+
+   |image35|
+
+#. Under the **Access ‑> Federation ‑> SAML Identity Provider ‑>
+   Local IdP Services** menu you should now see the following (as shown):
+
+   +---------------------+------------------------+
+   | Name:               | ``idp.f5demo.com-app`` |
+   +---------------------+------------------------+
+   | SAML SP Connectors: | ``app.partner.com``    |
+   +---------------------+------------------------+
+
+   |image36|
+
+TASK 2 ‑ Create SAML Resource, Webtop, and SAML IdP Access Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+SAML Resource
+-------------
+
+#. Begin by selecting **Access ‑> Federation ‑> SAML Resources**
+
+#. Click the **Create** button (far right)
+
+#. In the **New SAML Resource** window, enter the following values:
+
+   +--------------------+------------------------+
+   | Name:              | ``partner‑app``        |
+   +--------------------+------------------------+
+   | SSO Configuration: | ``idp.f5demo.com‑app`` |
+   +--------------------+------------------------+
+   | Caption:           | ``Partner App``        |
+   +--------------------+------------------------+
+
+#. Click **Finished** at the bottom of the configuration window
+
+   |image37|
+
+   |br|
+
+   |image38|
+
+Webtop
+------
+
+#. Select **Access ‑> Webtops ‑> Webtop List**
+
+#. Click the **Create** button (far right)
+
+   |image39|
+
+#. In the resulting window, enter the following values:
+
+   +-------+----------------------+
+   | Name: | ``full_webtop``      |
+   +-------+----------------------+
+   | Type: | ``Full`` (drop down) |
+   +-------+----------------------+
+
+#. Click **Finished** at the bottom of the GUI
+
+   |image40|
+
+SAML IdP Access Policy
+----------------------
+
+#. Select **Access ‑> Profiles/Policies ‑> Access Profiles
+   (Per-Session Policies)**
+
+#. Click the **Create** button (far right)
+
+   |image41|
+
+#. In the **New Profile** window, enter the following information:
+
+   +----------------+---------------------------+
+   | Name:          | ``idp.f5demo.com‑policy`` |
+   +----------------+---------------------------+
+   | Profile Type:  | ``All`` (drop down)       |
+   +----------------+---------------------------+
+   | Profile Scope: | ``Profile`` (default)     |
+   +----------------+---------------------------+
+
+#. Scroll to the bottom of the **New Profile** window to the
+   **Language Settings** section
+
+#. Select *English* from the **Factory Built‑in Languages** menu on the
+   right and click the **Double Arrow (<<)**, then click the **Finished**
+   button.
+
+#. The **Default Language** should be automatically set
+
+   |image42|
+
+#. From the **Access ‑> Profiles/Policies ‑> Access Profiles
+   (Per-Session Policies) screen**, click the **Edit** link on the previously
+   created ``idp.f5demo.com‑policy`` line
+
+   |image43|
+
+#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
+   click the **Plus (+) Sign** between **Start** and **Deny**
+
+   |image44|
+
+#. In the pop-up dialog box, select the **Logon** tab and then select the
+   **Radio** next to **Logon Page**, and click the **Add Item** button
+
+#. Click **Save** in the resulting Logon Page dialog box
+
+   |image45|
+
+#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
+   click the **Plus (+) Sign** between **Logon Page** and **Deny**
+
+   |image46|
+
+#. In the pop-up dialog box, select the **Authentication** tab and then
+   select the **Radio** next to **AD Auth**, and click the **Add Item** button
+
+   |image47|
+
+#. In the resulting **AD Auth** pop-up window, select ``/Common/f5demo_ad``
+   from the **Server** drop down menu
+
+#. Click **Save** at the bottom of the window
+
+   |image48|
+
+#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
+   click the **Plus (+) Sign** on the successful branch between **AD Auth**
+   and **Deny**
+
+   |image49|
+
+#. In the pop-up dialog box, select the **Authentication** tab and then
+   select the **Radio** next to **AD Query**, and click the **Add Item** button
+
+   |image50|
+
+#. In the resulting **AD Query** pop-up window, select ``/Common/f5demo_ad``
+   from the **Server** drop down menu
+
+   |image51|
+
+#. In the **AD Query** pop‑up window, select the **Branch Rules** tab
+
+#. Change the **Name** of the branch to *Successful*.
+
+#. Click the **Change** link next to the **Expression**
+
+   |image52|
+
+#. In the resulting pop-up window, delete the existing expression by
+   clicking the **X** as shown
+
+   |image53|
+
+#. Create a new **Simple** expression by clicking the **Add Expression** button
+
+   |image54|
+
+#. In the resulting menu, select the following from the drop down menus:
+
+   +------------+---------------------+
+   | Agent Sel: | ``AD Query``        |
+   +------------+---------------------+
+   | Condition: | ``AD Query Passed`` |
+   +------------+---------------------+
+
+#. Click the **Add Expression** Button
+
+   |image55|
+
+#. Click the **Finished** button to complete the expression
+
+   |image56|
+
+   |br|
+
+   |image57|
+
+#. Click the **Save** button to complete the **AD Query**
+
+#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
+   click the **Plus (+) Sign** on the successful branch between **AD Query** and **Deny**
+
+   |image58|
+
+#. In the pop-up dialog box, select the **Assignment** tab and then select
+   the **Radio** next to **Advanced Resource Assign**, and click the
+   **Add Item** button
+
+   |image59|
+
+#. In the resulting **Advanced Resource Assign** pop-up window, click the
+   **Add New Entry** button
+
+#. In the new Resource Assignment entry, click the **Add/Delete** link
+
+   |image60|
+
+#. In the resulting pop-up window, click the **SAML** tab, and select the
+   **Checkbox** next to ``/Common/partner-app``
+
+   |image61|
+
+#. Click the **Webtop** tab, and select the **Checkbox** next to
+   ``/Common/full_webtop``
+
+   |image62|
+
+#. Click the **Update** button at the bottom of the window to complete
+   the Resource Assignment entry
+
+#. Click the **Save** button at the bottom of the
+   **Advanced Resource Assign** window
+
+#. In the **Visual Policy Editor**, select the **Deny** ending on the
+   fallback branch following **Advanced Resource Assign**
+
+   |image63|
+
+#. In the **Select Ending** dialog box, selet the **Allow** radio button
+   and then click **Save**
+
+   |image64|
+
+#. In the **Visual Policy Editor**, click **Apply Access Policy** (top left),
+   and close the **Visual Policy Editor**
+
+   |image65|
+
+TASK 3 - Create the IdP Virtual Server and Apply the IdP Access Policy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Begin by selecting **Local Traffic ‑> Virtual Servers**
+
+#. Click the **Create** button (far right)
+
+   |image66|
+
+#. In the **New Virtual Server** window, enter the following information:
+
+   +---------------------------+------------------------------+
+   | General Properties                                       |
+   +===========================+==============================+
+   | Name:                     | ``idp.f5demo.com``           |
+   +---------------------------+------------------------------+
+   | Destination Address/Mask: | ``10.1.10.110``              |
+   +---------------------------+------------------------------+
+   | Service Port:             | ``443``                      |
+   +---------------------------+------------------------------+
+
+   +---------------------------+------------------------------+
+   | Configuration                                            |
+   +===========================+==============================+
+   | HTTP Profile:             | ``http`` (drop down)         |
+   +---------------------------+------------------------------+
+   | SSL Profile (Client)      | ``idp.f5demo.com‑clientssl`` |
+   +---------------------------+------------------------------+
+
+   +-----------------+---------------------------+
+   | Access Policy                               |
+   +=================+===========================+
+   | Access Profile: | ``idp.f5demo.com‑policy`` |
+   +-----------------+---------------------------+
+
+   |image67|
+
+   |br|
+
+   |image68|
+
+#. Scroll to the bottom of the configuration window and click **Finished**
+
+TASK 4 - Test the SAML IdP
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Using your browser from the jump host, navigate to the SAML IdP you just
+   configured at ``https://idp.f5demo.com`` (or click the provided bookmark)
+
+   |image69|
+
+#. Log in to the IdP. Were you successfully authenticated? Did you see the
+   webtop with the SP application?
+
+   .. NOTE:: Use the credentials provided in the Authentication section at
+      the beginning of this guide (user/Agility1)
+
+#. Click on the Partner App icon. Were you successfully authenticated
+   (via SAML) to the SP?
+
+#. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
+
+#. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
+
+.. |br| raw:: html
+
+   <br />
+
+.. |image26| image:: /_static/class1/image28.png
+.. |image27| image:: /_static/class1/image29.png
+.. |image28| image:: /_static/class1/image30.png
+.. |image29| image:: /_static/class1/image31.png
+.. |image30| image:: /_static/class1/image32.png
+.. |image31| image:: /_static/class1/image33.png
+.. |image32| image:: /_static/class1/image34.png
+.. |image33| image:: /_static/class1/image35.png
+.. |image34| image:: /_static/class1/image36.png
+.. |image35| image:: /_static/class1/image37.png
+.. |image36| image:: /_static/class1/image38.png
+.. |image37| image:: /_static/class1/image39.png
+.. |image38| image:: /_static/class1/image40.png
+.. |image39| image:: /_static/class1/image41.png
+.. |image40| image:: /_static/class1/image42.png
+.. |image41| image:: /_static/class1/image10.png
+.. |image42| image:: /_static/class1/image43.png
+.. |image43| image:: /_static/class1/image44.png
+.. |image44| image:: /_static/class1/image45.png
+.. |image45| image:: /_static/class1/image46.png
+.. |image46| image:: /_static/class1/image47.png
+.. |image47| image:: /_static/class1/image48.png
+.. |image48| image:: /_static/class1/image49.png
+.. |image49| image:: /_static/class1/image50.png
+.. |image50| image:: /_static/class1/image51.png
+.. |image51| image:: /_static/class1/image52.png
+.. |image52| image:: /_static/class1/image53.png
+.. |image53| image:: /_static/class1/image54.png
+.. |image54| image:: /_static/class1/image55.png
+.. |image55| image:: /_static/class1/image56.png
+.. |image56| image:: /_static/class1/image57.png
+.. |image57| image:: /_static/class1/image58.png
+.. |image58| image:: /_static/class1/image59.png
+.. |image59| image:: /_static/class1/image60.png
+.. |image60| image:: /_static/class1/image61.png
+.. |image61| image:: /_static/class1/image62.png
+.. |image62| image:: /_static/class1/image63.png
+.. |image63| image:: /_static/class1/image64.png
+.. |image64| image:: /_static/class1/image65.png
+.. |image65| image:: /_static/class1/image66.png
+.. |image66| image:: /_static/class1/image23.png
+.. |image67| image:: /_static/class1/image67.png
+.. |image68| image:: /_static/class1/image68.png
+.. |image69| image:: /_static/class1/image69.png
