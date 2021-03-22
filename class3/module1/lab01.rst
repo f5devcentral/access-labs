@@ -81,6 +81,13 @@ SP Service
    | Entity ID: | ``https://sp.acme.com``    |
    +------------+----------------------------+
 
+#. Click **Security Settings**
+#. Click **Sign Authentication Request**
+#. From the Message Signing Private Key dropdown  select **/Common/sp.acme.com** 
+#. From the Message Signing Certificate dropdown select **/Common/sp.acme.com**
+
+    |image035|
+
 #. Click **OK** on the dialogue box
 
    |image029|
@@ -186,7 +193,7 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 
    |image011|
 
-#. In the Visual Policy Editor window for ``/Common/app.f5demo.com‑policy``,
+#. In the Visual Policy Editor window for ``/Common/sp.acme.com-psp``,
    click the **Plus (+) Sign** between **Start** and **Deny**
 
    |image012|
@@ -198,14 +205,14 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 
    |image013|
 
-#. In the **SAML Auth** configuration window, select ``/Common/app.f5demo.com``
+#. In the **SAML Auth** configuration window, select ``/Common/sp.acme.com``
    from the **AAA Server** drop down menu
 
 #. Click the **Save** button at the bottom of the window
 
    |image014|
 
-#. In the **Visual Policy Editor** window for ``/Common/app.f5demo.com‑policy``,
+#. In the **Visual Policy Editor** window for ``/Common/sp.acme.com‑psp``,
    click the **Plus (+) Sign** on the **Successful** branch following
    **SAML Auth**
 
@@ -221,7 +228,11 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 #. In the **Variable Assign** configuration window, click the
    **Add New Entry** button
 
+    |image017|
+
 #. Under the new **Assignment** row, click the **Change** link
+
+    |image018|
 
 #. In the pop‑up window, configure the following:
 
@@ -245,34 +256,35 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 
 #. Click the **Finished** button at the bottom of the configuration window
 
+    |image019|
+
+
 #. Click the **Save** button at the bottom of the **Variable Assign**
    dialog window
 
-   |image017|
+   |image020|
 
 #. In the **Visual Policy Editor** select the **Deny** ending along the
    **fallback** branch following the **Variable Assign**
 
-   |image018|
+   |image021|
 
 #. From the **Select Ending** dialog box, select the **Allow** button and
    then click **Save**
 
-   |image019|
+   |image022|
 
 #. In the **Visual Policy Editor** click **Apply Access Policy** (top left)
    and close the **Visual Policy Editor**
 
-   |image020|
+   |image023|
 
 TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 ----------------------------------------------------------------------
 
-#. Begin by selecting **Local Traffic -> Virtual Servers**
+#. Begin by selecting **Local Traffic >> Virtual Servers >> **+ (Plus Symbol)**
 
-#. Click the **Create** button (far right)
-
-   |image021|
+   |image024|
 
 #. In the **New Virtual Server** window, key in the following as shown:
 
@@ -281,10 +293,13 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
    +===========================+============================+
    | Name:                     | ``sp.acme.com``            |
    +---------------------------+----------------------------+
-   | Destination Address/Mask: | ``10.1.10.100``            |
+   | Destination Address/Mask: | ``10.1.10.103``            |
    +---------------------------+----------------------------+
    | Service Port:             | ``443``                    |
    +---------------------------+----------------------------+
+
+    |image025|
+
 
    +---------------------------+------------------------------+
    | Configuration                                            |
@@ -293,6 +308,11 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
    +---------------------------+------------------------------+
    | SSL Profile (Client)      | ``wilcard.acme.com``         |
    +---------------------------+------------------------------+
+   | Source Address Translation| ``auto Map``                 |
+   +---------------------------+------------------------------+
+
+    |image026|
+
 
    +-----------------+---------------------------+
    | Access Policy                               |
@@ -300,20 +320,19 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
    | Access Profile: | ``sp.acme.com-psp``       |
    +-----------------+---------------------------+
 
-#. Scroll to the bottom of the configuration window and click **Finished**
+    |image027|
 
-   |image022|
+   +-----------------+---------------------------+
+   | Access Policy                               |
+   +=================+===========================+
+   | Default Pool | ``sp-pool``                  |
+   +-----------------+---------------------------+
 
-   |br|
+#. Click **Finished**
 
-   |image023|
+    |image028|
 
-   |br|
 
-   |image024|
-
-   .. NOTE:: The iRule is being added in order to simulate an application
-      server to validate successful access.
 
 TASK 4 ‑ Test the SAML SP
 ------------------------------
@@ -399,3 +418,4 @@ Lab Clean Up
 .. |image032| image:: ./media/lab01/032.png
 .. |image033| image:: ./media/lab01/033.png
 .. |image034| image:: ./media/lab01/034.png
+.. |image035| image:: ./media/lab01/035.png
