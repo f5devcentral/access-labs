@@ -609,7 +609,7 @@ Task 7: Federation
 
       .. Note::  If you look at the AAA server under Active directory you will find the idp-ad-server object.  We are leveraging Active Directory as the credential verification but BIG-IP is acting as a SAML Identity Provider.  BIB-IP will verify the credentials against Active Directory and create a SAML Assertion for the user requesting access.  That assertion can then be used by the SAML Service Provider to provide access to the SAML SP resource.
 
-        |samlidpaaa|
+      |samlidpaaa|
 
 #. Click **Advanced Resource Assign**. Examine the settings
 
@@ -737,7 +737,7 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 **The Policy from a user's perspective**
 
 
-#. The connects to https://solution1.acme.com with the following credentials
+#. The connects to https://vpn.acme.com with the following credentials
 
       +------------+-----------+
       | Username:  | user1     |
@@ -801,6 +801,8 @@ Lab 1 is now complete.
 .. |policyattach| image:: /class1/module1/media/lab01/policyattach.png
 .. |basicpolicy| image:: /class1/module1/media/lab01/basicpolicy.png
 .. |samlidp| image:: /class1/module1/media/lab01/samlidp.png
+.. |samlidplogin| image:: /class1/module1/media/lab01/samlidplogin.png
+.. |webtopsaml| image:: /class1/module1/media/lab01/webtopsaml.png
 .. |spacme| image:: /class1/module1/media/lab01/spacme.png
 .. |idppsp| image:: /class1/module1/media/lab01/idppsp.png
 .. |idpadauth| image:: /class1/module1/media/lab01/idpadauth.png
