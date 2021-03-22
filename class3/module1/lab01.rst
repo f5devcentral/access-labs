@@ -126,8 +126,13 @@ IdP Connector
 
 #. In the **Edit SAML IdP's that use this SP** dialogue box, click the
     **Add New Row** button
+
+    |image033|
+
 #. In the added row, click the **Down Arrow** under **SAML IdP Connectors** and
    select the **/Common/idp.acme.com** SAML IdP Connector previously created
+
+   |image034|
 
 #. Click the **Update** button and the **OK** button at the bottom of the
    dialog box
@@ -165,20 +170,19 @@ TASK 2 ‑ Configure the SAML SP Access Policy
    | Profile Scope: | ``Profile`` (default)     |
    +----------------+---------------------------+
 
+   |image009|
+
+
 #. Scroll to the bottom of the **New Profile** window to the
    **Language Settings**
 #. Select *English* from the **Factory Built‑in Languages** on the right,
    and click the **Double Arrow (<<)**, then click the **Finished** button.
 
-   |image009|
-
-   |br|
-
    |image010|
 
 #. From the **Access ‑> Profiles/Policies ‑> Access Profiles
    (Per‑Session Policies)** screen, click the **Edit** link on the previously
-   created ``app.f5demo.com‑policy`` line
+   created ``sp.acme.com-psp`` line
 
    |image011|
 
