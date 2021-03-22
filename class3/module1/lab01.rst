@@ -330,7 +330,7 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 
 #. Click **Finished**
 
-    |image028|
+    |image036|
 
 
 
