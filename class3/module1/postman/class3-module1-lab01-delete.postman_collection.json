@@ -1789,7 +1789,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");",
+											"var DNS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
 											"",
@@ -1874,7 +1874,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"var VS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
 											"",

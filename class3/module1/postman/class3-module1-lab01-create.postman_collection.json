@@ -2580,7 +2580,7 @@
 									"script": {
 										"exec": [
 											"",
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
 											"    pm.test(VS_NAME+\"-pool created\", function () {",
