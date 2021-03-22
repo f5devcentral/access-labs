@@ -325,7 +325,7 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
    +-----------------+---------------------------+
    | Access Policy                               |
    +=================+===========================+
-   | Default Pool | ``sp-pool``                  |
+   | Default Pool    | ``sp-pool``               |
    +-----------------+---------------------------+
 
 #. Click **Finished**
@@ -339,7 +339,7 @@ TASK 4 ‑ Test the SAML SP
 
 #. Using your browser from the jump host, navigate to ``https://sp.acme.com``
 
-#. You are redirect to https://idp.acme.com
+#. You are redirect to ``https://idp.acme.com``
 
 #. Log in to the IdP with the credentials: username:user1 password:user1
 
@@ -415,3 +415,6 @@ Lab Clean Up
 .. |image033| image:: ./media/lab01/033.png
 .. |image034| image:: ./media/lab01/034.png
 .. |image035| image:: ./media/lab01/035.png
+.. |image036| image:: ./media/lab01/036.png
+.. |image037| image:: ./media/lab01/037.png
+.. |image038| image:: ./media/lab01/038.png
