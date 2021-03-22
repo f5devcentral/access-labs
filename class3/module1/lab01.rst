@@ -418,3 +418,5 @@ Lab Clean Up
 .. |image036| image:: ./media/lab01/036.png
 .. |image037| image:: ./media/lab01/037.png
 .. |image038| image:: ./media/lab01/038.png
+.. |image998| image:: ./media/lab01/998.png
+.. |image999| image:: ./media/lab01/999.png

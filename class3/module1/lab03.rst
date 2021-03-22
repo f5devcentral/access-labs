@@ -68,7 +68,7 @@ TASK 1 – Modify the SAML Identity Provider (IdP) Access Policy
 
 #. Using the existing Access Policy from Lab 2, navigate to **Access ‑>
    Profiles/Policies ‑> Access Profiles (Per-Session Policies)**, and click
-   the **Edit** link next to the previously created *idp.f5demo.com-policy*
+   the **Edit** link next to the previously created *idp.acme.com-psp*
 
    |image70|
 
