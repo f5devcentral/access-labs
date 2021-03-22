@@ -337,25 +337,21 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 TASK 4 ‑ Test the SAML SP
 ------------------------------
 
-#. Using your browser from the jump host, navigate to the SAML SP you just
-   configured at ``https://sp.acme.com`` (or click the provided bookmark)
+#. Using your browser from the jump host, navigate to ``https://sp.acme.com``
 
-   |image025|
+#. You are redirect to https://idp.acme.com
 
-#. Did you successfuly redirect to the IdP?
+#. Log in to the IdP with the credentials: username:user1 password:user1
 
-#. Log in to the IdP. Were you successfully authenticated?
+   |image037|
 
-   .. NOTE:: Use the credentials provided in the Authentication section at
-      the beginning of this guide (user/Agility1)
+#. You are redirected back to sp.acme.com and successfully logged on.
 
-#. After successful authentication, were you returned to the SAML SP?
-
-#. Were you successfully authenticated to the app in the SAML SP?
+    |image038|
 
 #. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
 
-#. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
+
 
 Lab Clean Up
 ------------------------
