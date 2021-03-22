@@ -780,7 +780,7 @@ Task 8: Lab Clean Up
 #. Locate the **APM GUI Overview** Tile and click on the **Stop** button
 
       +---------------+-------------+
-      | |guioverview| | |guitop|    |
+      | |guioverview| | |guistop|   |
       +---------------+-------------+
 
 
