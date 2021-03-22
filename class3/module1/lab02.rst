@@ -1,9 +1,6 @@
 Lab 2: SAML Identity Provider (IdP) Lab
 =======================================
 
-.. toctree::
-   :maxdepth: 1
-   :glob:
 
 The purpose of this lab is to configure and test a SAML Identity Provider.
 Students will configure the various aspect of a SAML Identity Provider, import
@@ -34,7 +31,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image001|
 
-#. Select your RDP solution.
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -54,7 +51,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SAML Identity Provider (IdP)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -65,10 +62,10 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 TASK 1 ‑ Configure the SAML Identity Provider (IdP)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------------------------------
 
 IdP Service
------------
+~~~~~~~~~~~~~~~~
 
 #. Begin by selecting: **Access ‑> Federation ‑> SAML Identity Provider
    ‑> Local IdP Services**
@@ -81,9 +78,9 @@ IdP Service
    in the left navigation pane and key in the following:
 
    +-------------------+--------------------------------+
-   | IdP Service Name: | ``idp.f5demo.com‑app``         |
+   | IdP Service Name: | ``idp.acme.com`                |
    +-------------------+--------------------------------+
-   | IdP Entity ID:    | ``https://idp.f5demo.com/app`` |
+   | IdP Entity ID:    | ``https://idp.acme.com``       |
    +-------------------+--------------------------------+
 
    |image27|
@@ -128,9 +125,9 @@ IdP Service
    the following:
 
    +----------------------+----------------------------------+
-   | Signing Key:         | ``/Common/SAML.key`` (drop down) |
+   | Signing Key:         | ``/Common/idp.key`` (drop down)  |
    +----------------------+----------------------------------+
-   | Signing Certificate: | ``/Common/SAML.crt`` (drop down) |
+   | Signing Certificate: | ``/Common/idp.crt`` (drop down)  |
    +-----------------------+---------------------------------+
 
    .. NOTE:: The certificate and key were previously imported
@@ -140,7 +137,7 @@ IdP Service
    |image31|
 
 SP Connector
-------------
+~~~~~~~~~~~~~~~~~
 
 #. Click on **External SP Connectors** (under the **SAML Identity Provider**
    tab) in the horizontal navigation menu
@@ -153,30 +150,30 @@ SP Connector
    |image32|
 
 #. In the **Create New SAML Service Provider** dialogue box, click **Browse**
-   and select the *app.partner.com_metadata.xml* file from the Desktop of
+   and select the *sp_acme_com.xml* file from the Desktop of
    your jump host
 
 #. In the **Service Provider Name** field, enter the following:
-   ``app.partner.com``
+   ``sp.acme.com``
 
 #. Click **OK** on the dialog box
 
    |image33|
 
-   .. NOTE:: The app.partner.com_metadata.xml file was created previously.
+   .. NOTE:: The sp_acme_com.xml file was created previously.
       Oftentimes SP providers will have a metadata file representing their
       SP service. This can be imported to save object creation time as has
       been done in this lab.
 
 #. Click on **Local IdP Services** (under the **SAML Identity Provider** tab)
    in the horizontal navigation menu
-#. Select the **Checkbox** next to the previously created ``idp.f5demo.com``
+#. Select the **Checkbox** next to the previously created ``idp.acme.com``
    and click the **Bind/Unbind SP Connectors** button at the bottom of the GUI
 
    |image34|
 
 #. In the **Edit SAML SP's that use this IdP** dialog, select the
-   ``/Common/app.partner.com`` SAML SP Connection Name created previously
+   ``/Common/sp.acme.com`` SAML SP Connection Name created previously
 
 #. Click the **OK** button at the bottom of the dialog box
 
@@ -186,18 +183,15 @@ SP Connector
    Local IdP Services** menu you should now see the following (as shown):
 
    +---------------------+------------------------+
-   | Name:               | ``idp.f5demo.com-app`` |
+   | Name:               | ``idp.acme.com``       |
    +---------------------+------------------------+
-   | SAML SP Connectors: | ``app.partner.com``    |
+   | SAML SP Connectors: | ``sp.acme.com``        |
    +---------------------+------------------------+
 
    |image36|
 
-TASK 2 ‑ Create SAML Resource, Webtop, and SAML IdP Access Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-SAML Resource
--------------
+TASK 2 - Create a SAML Resource
+-------------------------------------
 
 #. Begin by selecting **Access ‑> Federation ‑> SAML Resources**
 
@@ -206,11 +200,11 @@ SAML Resource
 #. In the **New SAML Resource** window, enter the following values:
 
    +--------------------+------------------------+
-   | Name:              | ``partner‑app``        |
+   | Name:              | ``sp.acme.com``        |
    +--------------------+------------------------+
-   | SSO Configuration: | ``idp.f5demo.com‑app`` |
+   | SSO Configuration: | ``idp.acmem.com``      |
    +--------------------+------------------------+
-   | Caption:           | ``Partner App``        |
+   | Caption:           | ``sp.acme.com``        |
    +--------------------+------------------------+
 
 #. Click **Finished** at the bottom of the configuration window
@@ -221,8 +215,8 @@ SAML Resource
 
    |image38|
 
-Webtop
-------
+Task 3 - Create a Webtop
+-------------------------------
 
 #. Select **Access ‑> Webtops ‑> Webtop List**
 
@@ -242,8 +236,8 @@ Webtop
 
    |image40|
 
-SAML IdP Access Policy
-----------------------
+Task 4 - Create a SAML IdP Access Policy
+---------------------------------------------
 
 #. Select **Access ‑> Profiles/Policies ‑> Access Profiles
    (Per-Session Policies)**
@@ -255,7 +249,7 @@ SAML IdP Access Policy
 #. In the **New Profile** window, enter the following information:
 
    +----------------+---------------------------+
-   | Name:          | ``idp.f5demo.com‑policy`` |
+   | Name:          | ``idp.acme.com‑psp``      |
    +----------------+---------------------------+
    | Profile Type:  | ``All`` (drop down)       |
    +----------------+---------------------------+
@@ -275,12 +269,11 @@ SAML IdP Access Policy
 
 #. From the **Access ‑> Profiles/Policies ‑> Access Profiles
    (Per-Session Policies) screen**, click the **Edit** link on the previously
-   created ``idp.f5demo.com‑policy`` line
+   created ``idp.acme.com-psp`` line
 
    |image43|
 
-#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
-   click the **Plus (+) Sign** between **Start** and **Deny**
+#. Click the **Plus (+) Sign** between **Start** and **Deny**
 
    |image44|
 
@@ -291,8 +284,7 @@ SAML IdP Access Policy
 
    |image45|
 
-#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
-   click the **Plus (+) Sign** between **Logon Page** and **Deny**
+#. Click the **Plus (+) Sign** between **Logon Page** and **Deny**
 
    |image46|
 
@@ -301,15 +293,14 @@ SAML IdP Access Policy
 
    |image47|
 
-#. In the resulting **AD Auth** pop-up window, select ``/Common/f5demo_ad``
+#. In the resulting **AD Auth** pop-up window, select ``/Common/f5lab.local``
    from the **Server** drop down menu
 
 #. Click **Save** at the bottom of the window
 
    |image48|
 
-#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
-   click the **Plus (+) Sign** on the successful branch between **AD Auth**
+#. Click the **Plus (+) Sign** on the successful branch between **AD Auth**
    and **Deny**
 
    |image49|
@@ -319,7 +310,7 @@ SAML IdP Access Policy
 
    |image50|
 
-#. In the resulting **AD Query** pop-up window, select ``/Common/f5demo_ad``
+#. In the resulting **AD Query** pop-up window, select ``/Common/f5lab.local``
    from the **Server** drop down menu
 
    |image51|
@@ -363,8 +354,7 @@ SAML IdP Access Policy
 
 #. Click the **Save** button to complete the **AD Query**
 
-#. In the **Visual Policy Editor** window for ``/Common/idp.f5demo.com‑policy``,
-   click the **Plus (+) Sign** on the successful branch between **AD Query** and **Deny**
+#. Click the **Plus (+) Sign** on the successful branch between **AD Query** and **Deny**
 
    |image58|
 
@@ -382,7 +372,7 @@ SAML IdP Access Policy
    |image60|
 
 #. In the resulting pop-up window, click the **SAML** tab, and select the
-   **Checkbox** next to ``/Common/partner-app``
+   **Checkbox** next to ``/Common/sp.acme.com``
 
    |image61|
 
@@ -412,8 +402,9 @@ SAML IdP Access Policy
 
    |image65|
 
-TASK 3 - Create the IdP Virtual Server and Apply the IdP Access Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 6 - Create the IdP Virtual Server
+----------------------------------------
+
 
 #. Begin by selecting **Local Traffic ‑> Virtual Servers**
 
@@ -426,9 +417,9 @@ TASK 3 - Create the IdP Virtual Server and Apply the IdP Access Policy
    +---------------------------+------------------------------+
    | General Properties                                       |
    +===========================+==============================+
-   | Name:                     | ``idp.f5demo.com``           |
+   | Name:                     | ``idp.acme.com``             |
    +---------------------------+------------------------------+
-   | Destination Address/Mask: | ``10.1.10.110``              |
+   | Destination Address/Mask: | ``10.1.10.102``              |
    +---------------------------+------------------------------+
    | Service Port:             | ``443``                      |
    +---------------------------+------------------------------+
@@ -438,13 +429,13 @@ TASK 3 - Create the IdP Virtual Server and Apply the IdP Access Policy
    +===========================+==============================+
    | HTTP Profile:             | ``http`` (drop down)         |
    +---------------------------+------------------------------+
-   | SSL Profile (Client)      | ``idp.f5demo.com‑clientssl`` |
+   | SSL Profile (Client)      | ``wildcard.acme.com``        |
    +---------------------------+------------------------------+
 
    +-----------------+---------------------------+
    | Access Policy                               |
    +=================+===========================+
-   | Access Profile: | ``idp.f5demo.com‑policy`` |
+   | Access Profile: | ``idp.acme.com-psp``      |
    +-----------------+---------------------------+
 
    |image67|
@@ -455,19 +446,18 @@ TASK 3 - Create the IdP Virtual Server and Apply the IdP Access Policy
 
 #. Scroll to the bottom of the configuration window and click **Finished**
 
-TASK 4 - Test the SAML IdP
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 7 - Test the SAML IdP
+-------------------------------
 
 #. Using your browser from the jump host, navigate to the SAML IdP you just
-   configured at ``https://idp.f5demo.com`` (or click the provided bookmark)
+   configured at ``https://idp.acme.com`` (or click the provided bookmark)
 
    |image69|
 
-#. Log in to the IdP. Were you successfully authenticated? Did you see the
+#. Log in to the IdP.   Were you successfully authenticated? Did you see the
    webtop with the SP application?
 
-   .. NOTE:: Use the credentials provided in the Authentication section at
-      the beginning of this guide (user/Agility1)
+ 
 
 #. Click on the Partner App icon. Were you successfully authenticated
    (via SAML) to the SP?
@@ -475,10 +465,6 @@ TASK 4 - Test the SAML IdP
 #. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
 
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
-
-.. |br| raw:: html
-
-   <br />
 
 
 Lab Clean Up
@@ -507,47 +493,42 @@ Lab Clean Up
    |image000|
 
 
-.. |image26| image:: /_static/class1/image28.png
-.. |image27| image:: /_static/class1/image29.png
-.. |image28| image:: /_static/class1/image30.png
-.. |image29| image:: /_static/class1/image31.png
-.. |image30| image:: /_static/class1/image32.png
-.. |image31| image:: /_static/class1/image33.png
-.. |image32| image:: /_static/class1/image34.png
-.. |image33| image:: /_static/class1/image35.png
-.. |image34| image:: /_static/class1/image36.png
-.. |image35| image:: /_static/class1/image37.png
-.. |image36| image:: /_static/class1/image38.png
-.. |image37| image:: /_static/class1/image39.png
-.. |image38| image:: /_static/class1/image40.png
-.. |image39| image:: /_static/class1/image41.png
-.. |image40| image:: /_static/class1/image42.png
-.. |image41| image:: /_static/class1/image10.png
-.. |image42| image:: /_static/class1/image43.png
-.. |image43| image:: /_static/class1/image44.png
-.. |image44| image:: /_static/class1/image45.png
-.. |image45| image:: /_static/class1/image46.png
-.. |image46| image:: /_static/class1/image47.png
-.. |image47| image:: /_static/class1/image48.png
-.. |image48| image:: /_static/class1/image49.png
-.. |image49| image:: /_static/class1/image50.png
-.. |image50| image:: /_static/class1/image51.png
-.. |image51| image:: /_static/class1/image52.png
-.. |image52| image:: /_static/class1/image53.png
-.. |image53| image:: /_static/class1/image54.png
-.. |image54| image:: /_static/class1/image55.png
-.. |image55| image:: /_static/class1/image56.png
-.. |image56| image:: /_static/class1/image57.png
-.. |image57| image:: /_static/class1/image58.png
-.. |image58| image:: /_static/class1/image59.png
-.. |image59| image:: /_static/class1/image60.png
-.. |image60| image:: /_static/class1/image61.png
-.. |image61| image:: /_static/class1/image62.png
-.. |image62| image:: /_static/class1/image63.png
-.. |image63| image:: /_static/class1/image64.png
-.. |image64| image:: /_static/class1/image65.png
-.. |image65| image:: /_static/class1/image66.png
-.. |image66| image:: /_static/class1/image23.png
-.. |image67| image:: /_static/class1/image67.png
-.. |image68| image:: /_static/class1/image68.png
-.. |image69| image:: /_static/class1/image69.png
+.. |image000| image:: ./media/lab02/000.png
+.. |image001| image:: ./media/lab02/001.png
+.. |image002| image:: ./media/lab02/002.png
+.. |image003| image:: ./media/lab02/003.png
+.. |image004| image:: ./media/lab02/004.png
+.. |image005| image:: ./media/lab02/005.png
+.. |image006| image:: ./media/lab02/006.png
+.. |image007| image:: ./media/lab02/007.png
+.. |image008| image:: ./media/lab02/008.png
+.. |image009| image:: ./media/lab02/009.png
+.. |image010| image:: ./media/lab02/010.png
+.. |image011| image:: ./media/lab02/011.png
+.. |image012| image:: ./media/lab02/012.png
+.. |image013| image:: ./media/lab02/013.png
+.. |image014| image:: ./media/lab02/014.png
+.. |image015| image:: ./media/lab02/015.png
+.. |image016| image:: ./media/lab02/016.png
+.. |image017| image:: ./media/lab02/017.png
+.. |image018| image:: ./media/lab02/018.png
+.. |image019| image:: ./media/lab02/019.png
+.. |image020| image:: ./media/lab02/020.png
+.. |image021| image:: ./media/lab02/021.png
+.. |image022| image:: ./media/lab02/022.png
+.. |image023| image:: ./media/lab02/023.png
+.. |image024| image:: ./media/lab02/024.png
+.. |image025| image:: ./media/lab02/025.png
+.. |image026| image:: ./media/lab02/026.png
+.. |image027| image:: ./media/lab02/027.png
+.. |image028| image:: ./media/lab02/028.png
+.. |image029| image:: ./media/lab02/029.png
+.. |image030| image:: ./media/lab02/030.png
+.. |image031| image:: ./media/lab02/031.png
+.. |image032| image:: ./media/lab02/032.png
+.. |image033| image:: ./media/lab02/033.png
+.. |image034| image:: ./media/lab02/034.png
+.. |image035| image:: ./media/lab02/035.png
+.. |image036| image:: ./media/lab02/036.png
+.. |image037| image:: ./media/lab02/037.png
+.. |image038| image:: ./media/lab02/038.png
