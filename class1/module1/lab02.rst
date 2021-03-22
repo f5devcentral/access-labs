@@ -13,7 +13,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image001|
 
-#. Select your RDP solution.  
+#. Select your RDP resolution.  
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 

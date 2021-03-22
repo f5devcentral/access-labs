@@ -46,7 +46,6 @@ To access your dedicated student lab environment, you will require a web browser
 
 	|image002|
 
-
 #. Scroll down the page until you see **301 SAML Federation** on the left
 
    |image003|
@@ -77,9 +76,9 @@ SP Service
    in the left navigation pane and key in the following as shown:
 
    +------------+----------------------------+
-   | Name:      | ``app.f5demo.com``         |
+   | Name:      | ``sp.acme.com``            |
    +------------+----------------------------+
-   | Entity ID: | ``https://app.f5demo.com`` |
+   | Entity ID: | ``https://sp.acme.com``    |
    +------------+----------------------------+
 
 #. Click **OK** on the dialogue box
@@ -103,16 +102,16 @@ IdP Connector
    |image030|
 
 #. In the **Create New SAML IdP Connector** dialogue box, click **Browse**
-   and select the **idp.partner.com‑app_metadata.xml** file from the Desktop
+   and select the **idp_acme_com.xml** file from the Desktop
    of your jump host.
 
-#. In the **Identity Provider Name** field enter *idp.partner.com*:
+#. In the **Identity Provider Name** field enter *idp.acme.com*:
 
 #. Click **OK** on the dialog box
 
    |image031|
 
-   .. NOTE:: The idp.partner.com-app_metadata.xml was created previously.
+   .. NOTE:: The idp_acme_com.xml was created previously.
       Oftentimes, IdP providers will have a metadata file representing their IdP
       service.  This can be imported to save object creation time as it has been
       done in this lab
@@ -120,7 +119,7 @@ IdP Connector
 #. Click on the **Local SP Services** from the **SAML Service Providers** tab
    in the horizontal navigation menu
 
-#. Click the **checkbox** next to the previously created *app.f5demo.com* and
+#. Click the **checkbox** next to the previously created *sp.acme.com* and
    click **Bind/Unbind IdP Connectors** at the bottom of the GUI
 
    |image032|
@@ -128,7 +127,7 @@ IdP Connector
 #. In the **Edit SAML IdP's that use this SP** dialogue box, click the
     **Add New Row** button
 #. In the added row, click the **Down Arrow** under **SAML IdP Connectors** and
-   select the */Common/idp.partner/com* SAML IdP Connector previously created
+   select the **/Common/idp.acme.com** SAML IdP Connector previously created
 
 #. Click the **Update** button and the **OK** button at the bottom of the
    dialog box
@@ -139,9 +138,9 @@ IdP Connector
    Local SP Services** menu you should now see the following (as shown):
 
    +----------------------+---------------------+
-   | Name:                | ``app.f5demo.com``  |
+   | Name:                | ``sp.acme.com``     |
    +----------------------+---------------------+
-   | SAML IdP Connectors: | ``idp.partner.com`` |
+   | SAML IdP Connectors: | ``idp.acme.com``    |
    +----------------------+---------------------+
 
    |image007|
@@ -159,7 +158,7 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 #. In the **New Profile** window, key in the following:
 
    +----------------+---------------------------+
-   | Name:          | ``app.f5demo.com‑policy`` |
+   | Name:          | ``sp.acme.com‑psp``       |
    +----------------+---------------------------+
    | Profile Type:  | ``All`` (from drop down)  |
    +----------------+---------------------------+
@@ -276,7 +275,7 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
    +---------------------------+----------------------------+
    | General Properties                                     |
    +===========================+============================+
-   | Name:                     | ``app.f5demo.com``         |
+   | Name:                     | ``sp.acme.com``            |
    +---------------------------+----------------------------+
    | Destination Address/Mask: | ``10.1.10.100``            |
    +---------------------------+----------------------------+
@@ -288,20 +287,14 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
    +===========================+==============================+
    | HTTP Profile:             | ``http`` (drop down)         |
    +---------------------------+------------------------------+
-   | SSL Profile (Client)      | ``app.f5demo.com‑clientssl`` |
+   | SSL Profile (Client)      | ``wilcard.acme.com``         |
    +---------------------------+------------------------------+
 
    +-----------------+---------------------------+
    | Access Policy                               |
    +=================+===========================+
-   | Access Profile: | ``app.f5demo.com‑policy`` |
+   | Access Profile: | ``sp.acme.com-psp``       |
    +-----------------+---------------------------+
-
-   +---------+-----------------------+
-   | Resources                       |
-   +=========+=======================+
-   | iRules: | ``application‑irule`` |
-   +---------+-----------------------+
 
 #. Scroll to the bottom of the configuration window and click **Finished**
 
@@ -322,7 +315,7 @@ TASK 4 ‑ Test the SAML SP
 ------------------------------
 
 #. Using your browser from the jump host, navigate to the SAML SP you just
-   configured at ``https://app.f5demo.com`` (or click the provided bookmark)
+   configured at ``https://sp.acme.com`` (or click the provided bookmark)
 
    |image025|
 
