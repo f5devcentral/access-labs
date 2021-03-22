@@ -71,7 +71,7 @@ SP Service
 #. Begin by selecting: **Access -> Federation -> SAML Service Provider -> Local SP Services**
 #. Click the **Create** button (far right)
 
-   |image006|
+   |image028|
 
 #. In the **Create New SAML SP Service** dialog box click **General Settings**
    in the left navigation pane and key in the following as shown:
@@ -84,7 +84,7 @@ SP Service
 
 #. Click **OK** on the dialogue box
 
-   |image007|
+   |image029|
 
    .. NOTE:: The yellow box on Host will disappear when the Entity ID is entered.
 
@@ -100,7 +100,7 @@ IdP Connector
 
 #. Select **From Metadata** from the drop down menu
 
-   |image003|
+   |image030|
 
 #. In the **Create New SAML IdP Connector** dialogue box, click **Browse**
    and select the **idp.partner.com‑app_metadata.xml** file from the Desktop
@@ -110,7 +110,7 @@ IdP Connector
 
 #. Click **OK** on the dialog box
 
-   |image004|
+   |image031|
 
    .. NOTE:: The idp.partner.com-app_metadata.xml was created previously.
       Oftentimes, IdP providers will have a metadata file representing their IdP
@@ -123,7 +123,7 @@ IdP Connector
 #. Click the **checkbox** next to the previously created *app.f5demo.com* and
    click **Bind/Unbind IdP Connectors** at the bottom of the GUI
 
-   |image005|
+   |image032|
 
 #. In the **Edit SAML IdP's that use this SP** dialogue box, click the
     **Add New Row** button
@@ -399,4 +399,4 @@ Lab Clean Up
 .. |image029| image:: ./media/lab01/029.png
 .. |image030| image:: ./media/lab01/030.png
 .. |image031| image:: ./media/lab01/031.png
-.. |image031| image:: ./media/lab01/032.png
+.. |image032| image:: ./media/lab01/032.png
