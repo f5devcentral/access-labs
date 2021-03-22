@@ -1,9 +1,5 @@
-Lab 3: Kerberos to SAML Lab
-===========================
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
+Lab 3: Client-side Kerberos SAML IdP
+========================================
 
 The purpose of this lab is to deploy and test a Kerberos to SAML
 configuration. Students will modify a previous built Access Policy and
