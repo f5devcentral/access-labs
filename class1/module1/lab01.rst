@@ -41,9 +41,16 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Hover over tile **APM GUI Overview**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |guioverview|
 
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+   +---------------+-------------+
+   | |guioverview| | |guiflyout| |
+   +---------------+-------------+
+
+#. After the click it may take up to 30 seconds before you see processing
+
+   |process|
+
+#. Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
    |issues|
 
@@ -514,14 +521,14 @@ BIG-IP APM supports industry standard authentication methods, including:
     .. Note:: Client-side authentication methods outnumber server-side methods. This is because BIG-IP APM does not transmit client certificate, RSA SecurID, or one-time passcodes to the server on the client’s behalf.
 
 #.  Go to **Access** --> **Single Sign-On** --> **HTTP Basic**
-#.  Click **basic_http_sso**
+#.  Click **basic_sso**
 
         +----------------------+-----------------------------+----------------------------------+
-        |General Properties    | Name                        |  basic_http_sso                  |
+        |General Properties    | Name                        |  basic_sso                       |
         +----------------------+-----------------------------+----------------------------------+
         |Credential Source     | Username Source             |  session.sso.token.last.username |
         +----------------------+-----------------------------+----------------------------------+
-        |                      | Password Source             |  session.sso.token.last.password |                        |
+        |                      | Password Source             |  session.sso.token.last.password |
         +----------------------+-----------------------------+----------------------------------+
         |SSO Method Conversion | Username Conversion         |  unchecked                       |
         +----------------------+-----------------------------+----------------------------------+
@@ -531,15 +538,24 @@ BIG-IP APM supports industry standard authentication methods, including:
 #. Click on **Access** --> *Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
 #. Locate the basic-psp profile and click on the name
 #. Click on **SSO/Auth Domains**
-#. Under SSO Configuration click the drop down and select **basic_http_sso** click update
+#. Under SSO Configuration notice **basic_sso** is selected
 #. From the top menu bar click **Access Policy** and click **Edit Access Policy for Profile "basic-psp"** link
-#. Click the **+** between **AD Auth** and **Allow**
-#. Click on **Assignment** and choose **SSO Credential Mapping** -->  **Add Item** -->  **Save**
-#. Click **Apply Policy**
+
+      |basicpsp|
+
+#. Click on **SSO Credential Mapping**
+
+      |ssocredmap|
+
+      .. Note:: You can modify these options based on the variables collected in the user's session.  In this case we accept the defaults.
+
 #. Open an incognito window and try go to https://basic.acme.com
 #. You should have been prompted with a windows login.  Close the Window
-#. Go to **Local Traffic** --> **Virtual Servers** and open server2-https
+#. Go to **Local Traffic** --> **Virtual Servers** and open basic-https
 #. Scroll to *Access Policy** and click the drop down next to **Access Profile**.  Choose basic-psp
+
+      |policyattach|
+
 #. Scroll down click **Update**
 #. Open a new incognito tab.  Go to https://basic.acme.com
 #. Login **user1** and **user1**
@@ -552,21 +568,65 @@ Task 7: Federation
 
     BIG-IP APM supports SAML 2.0 and can act as the IdP for popular SPs, such as Microsoft Office 365 and Salesforce. The system supports both IdP- and SP-initiated identity federation deployments.
 
-IdP-initiated federation with BIG-IP APM
+**IdP-initiated federation with BIG-IP APM**
 
-        |samlidp|
+      |samlidp|
 
-        - The user logs in to the BIG-IP APM IdP and the system directs them to the BIG-IP APM webtop.
-        - The user selects the SP they want, such as Salesforce.
-        - The system retrieves any required attributes from the user data store to pass on to the SP.
-        - The system uses the browser to direct the request to the SP, along with the SAML assertion and any required attributes.
+      - The user logs in to the BIG-IP APM IdP and the system directs them to the BIG-IP APM webtop.
+      - The user selects the SP they want, such as Salesforce.
+      - The system retrieves any required attributes from the user data store to pass on to the SP.
+      - The system uses the browser to direct the request to the SP, along with the SAML assertion and any required attributes.
 
 
-#. Run Solution 4 and Solution 5 (add in the automation up front Need to create SAML resource then add in Advanced Resource assign with webtop and SAML resource)
-#. Steps to login to idp.acme.com and execute sp.acme.com
-#. Look at Policy
+#. In a new tab go to https://idp.acme.com
+#. Login to the SAML IdP
 
-SP-initiated federation with BIG-IP APM
+      +------------+-----------+
+      | Username:  | user1     |
+      +------------+-----------+
+      | Password:  | user1     |
+      +------------+-----------+
+
+      |samlidplogin|
+
+
+#. You are logged in to a webtop where a SAML SP object resides.  Click on the SAML Resource sp.acme.com
+
+      |webtopsaml|
+
+#. Since you authenticated through the SAML IdP you will not be prompted for authentication again and are connected to the SAML SP resource.
+
+      |spacme|
+
+#. Return to bigip1.f5lab.local.  From the left menu click **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#. Locate the policy **idp-psp** and click on **Edit**
+
+      |idppsp|
+
+#. Click *AD Auth** object within the Policy.  Examine the settings
+
+      |idpadauth|
+
+      .. Note::  If you look at the AAA server under Active directory you will find the idp-ad-server object.  We are leveraging Active Directory as the credential verification but BIG-IP is acting as a SAML Identity Provider.  BIB-IP will verify the credentials against Active Directory and create a SAML Assertion for the user requesting access.  That assertion can then be used by the SAML Service Provider to provide access to the SAML SP resource.
+
+      |samlidpaaa|
+
+#. Click **Advanced Resource Assign**. Examine the settings
+
+      |samladvres|
+
+      .. Note::  You can click on the Add/Delete button and add other SAML Resources (if available).  We will cover more on Webtop in the Access 102 lab.
+
+#. Return to the BIG-IP click on **Access** --> **Federation** --> **SAML Identity Provider**
+
+      |samlidpobj|
+      |samlbindexp|
+
+      In order for the BIG-IP to be configured as a SAML IdP you must define the Identity provider and bind it with a SAML Service Provider.  This object contains the settings required to configure BIG-IP as a SAML SP.  For more information on SAML and uses with BIG-IP consider taking the Federation lab.
+
+      .. Note::  You can export the Metadate of the SAML IdP in this menu by clicking the SAML IdP and clicking the Export Metadata button.  With will output an XML file that you can use to upload in to a SAML Service Provider with all the IdP setting particular to this IdP.
+
+**SP-initiated federation with BIG-IP APM**
 
       |samlsp|
 
@@ -576,13 +636,39 @@ SP-initiated federation with BIG-IP APM
       - The system retrieves any required attributes from the user data store to pass on to the SP.
       - The system uses the browser to send the SAML assertion and any required attributes to the SP.
 
-#. Tasks login to sp.acme.com
-#. Look at Policy
+#. Open a new incognito window and go to https://sp.acme.com
+#. Notice that you get redirected to https://idp.acme.com for authentication
+
+      |spinitiated|
+
+      +------------+-----------+
+      | Username:  | user1     |
+      +------------+-----------+
+      | Password:  | user1     |
+      +------------+-----------+
+
+#. Once logged in you arrive at https://sp.acme.com
+
+      |spacme|
+
+#. Return to the BIG-IP.  From the left menu navigate to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#. Locate the sp-psp profile and cick **Edit**
+
+      |sppsp|
+
+      SAML Auth
+
+      |samlspauth|
+
+#. Return to the BIG-IP and navigate to **Access** --> **Federation** --> **SAML Service Provider**
+
+      |samlspobj|
+
+      The SAML SP object contains information about the SAML SP object and the binding to the SAML Identity Provider.  You can see on the screen that we have a Service Provider object defined and it is bound to a SAML Identity Provider.  The configuration of these objects is covered in more detail in the Access Federation labs.
 
 
 Task 8: Connectivity/VPN
 ----------------------------
-Run Automation for Solution 1.
 
 **Policy Walk-Through**
 
@@ -651,10 +737,13 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 **The Policy from a user's perspective**
 
 
-#. The connects to https://solution1.acme.com with the following credentials
+#. The connects to https://vpn.acme.com with the following credentials
 
-         - Username: user1
-         - Password: user1
+      +------------+-----------+
+      | Username:  | user1     |
+      +------------+-----------+
+      | Password:  | user1     |
+      +------------+-----------+
 
       |image010|
 
@@ -670,15 +759,16 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
       |image013|
 
+.. Information:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
 
-.. Note:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
-
-Lab 2 is now complete.
+Lab 1 is now complete.
 
 .. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
 .. |accessportal| image:: /class1/module1/media/lab01/setup/accessportal.png
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
 .. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
+.. |guiflyout| image:: /class1/module1/media/lab01/setup/guiflyout.png
+.. |process| image:: /class1/module1/media/lab01/setup/process.png
 .. |issues| image:: /class1/module1/media/lab01/setup/issues.png
 .. |Dashboard| image:: /class1/module1/media/lab01/setup/Dashboard.png
 .. |image01| image:: /class1/module1/media/lab01/image01.png
@@ -706,9 +796,25 @@ Lab 2 is now complete.
 .. |multidomain| image:: /class1/module1/media/lab01/multidomain.png
 .. |image25| image:: /class1/module1/media/lab01/image25.png
 .. |adpool| image:: /class1/module1/media/lab01/adpool.png
+.. |basicpsp| image:: /class1/module1/media/lab01/basicpsp.png
+.. |ssocredmap| image:: /class1/module1/media/lab01/ssocredmap.png
+.. |policyattach| image:: /class1/module1/media/lab01/policyattach.png
 .. |basicpolicy| image:: /class1/module1/media/lab01/basicpolicy.png
 .. |samlidp| image:: /class1/module1/media/lab01/samlidp.png
-
+.. |samlidplogin| image:: /class1/module1/media/lab01/samlidplogin.png
+.. |webtopsaml| image:: /class1/module1/media/lab01/webtopsaml.png
+.. |spacme| image:: /class1/module1/media/lab01/spacme.png
+.. |idppsp| image:: /class1/module1/media/lab01/idppsp.png
+.. |idpadauth| image:: /class1/module1/media/lab01/idpadauth.png
+.. |samlidpaaa| image:: /class1/module1/media/lab01/samlidpaaa.png
+.. |samladvres| image:: /class1/module1/media/lab01/samladvres.png
+.. |samlidpobj| image:: /class1/module1/media/lab01/samlidpobj.png
+.. |samlbindexp| image:: /class1/module1/media/lab01/samlbindexp.png
+.. |samlsp| image:: /class1/module1/media/lab01/samlsp.png
+.. |spinitiated| image:: /class1/module1/media/lab01/spinitiated.png
+.. |sppsp| image:: /class1/module1/media/lab01/spsp.png
+.. |samlspauth| image:: /class1/module1/media/lab01/samlspauth.png
+.. |samlspobj| image:: /class1/module1/media/lab01/samlspobj.png
 .. |image001| image:: /class1/module1/media/lab01/001.png
 .. |image002| image:: /class1/module1/media/lab01/002.png
 .. |image003| image:: /class1/module1/media/lab01/003.png
