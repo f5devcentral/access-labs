@@ -521,14 +521,14 @@ BIG-IP APM supports industry standard authentication methods, including:
     .. Note:: Client-side authentication methods outnumber server-side methods. This is because BIG-IP APM does not transmit client certificate, RSA SecurID, or one-time passcodes to the server on the client’s behalf.
 
 #.  Go to **Access** --> **Single Sign-On** --> **HTTP Basic**
-#.  Click **basic_http_sso**
+#.  Click **basic_sso**
 
         +----------------------+-----------------------------+----------------------------------+
-        |General Properties    | Name                        |  basic_http_sso                  |
+        |General Properties    | Name                        |  basic_sso                       |
         +----------------------+-----------------------------+----------------------------------+
         |Credential Source     | Username Source             |  session.sso.token.last.username |
         +----------------------+-----------------------------+----------------------------------+
-        |                      | Password Source             |  session.sso.token.last.password |                        |
+        |                      | Password Source             |  session.sso.token.last.password |
         +----------------------+-----------------------------+----------------------------------+
         |SSO Method Conversion | Username Conversion         |  unchecked                       |
         +----------------------+-----------------------------+----------------------------------+
@@ -538,15 +538,24 @@ BIG-IP APM supports industry standard authentication methods, including:
 #. Click on **Access** --> *Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
 #. Locate the basic-psp profile and click on the name
 #. Click on **SSO/Auth Domains**
-#. Under SSO Configuration click the drop down and select **basic_http_sso** click update
+#. Under SSO Configuration notice **basic_sso** is selected
 #. From the top menu bar click **Access Policy** and click **Edit Access Policy for Profile "basic-psp"** link
-#. Click the **+** between **AD Auth** and **Allow**
-#. Click on **Assignment** and choose **SSO Credential Mapping** -->  **Add Item** -->  **Save**
-#. Click **Apply Policy**
+
+      |basicpsp|
+
+#. Click on **SSO Credential Mapping**
+
+      |ssocredmap|
+
+      .. Note:: You can modify these options based on the variables collected in the user's session.  In this case we accept the defaults.
+
 #. Open an incognito window and try go to https://basic.acme.com
 #. You should have been prompted with a windows login.  Close the Window
-#. Go to **Local Traffic** --> **Virtual Servers** and open server2-https
+#. Go to **Local Traffic** --> **Virtual Servers** and open basic-https
 #. Scroll to *Access Policy** and click the drop down next to **Access Profile**.  Choose basic-psp
+
+      |policyattach|
+
 #. Scroll down click **Update**
 #. Open a new incognito tab.  Go to https://basic.acme.com
 #. Login **user1** and **user1**
@@ -787,6 +796,9 @@ Lab 1 is now complete.
 .. |multidomain| image:: /class1/module1/media/lab01/multidomain.png
 .. |image25| image:: /class1/module1/media/lab01/image25.png
 .. |adpool| image:: /class1/module1/media/lab01/adpool.png
+.. |basicpsp| image:: /class1/module1/media/lab01/basicpsp.png
+.. |ssocredmap| image:: /class1/module1/media/lab01/ssocredmap.png
+.. |policyattach| image:: /class1/module1/media/lab01/policyattach.png
 .. |basicpolicy| image:: /class1/module1/media/lab01/basicpolicy.png
 .. |samlidp| image:: /class1/module1/media/lab01/samlidp.png
 .. |spacme| image:: /class1/module1/media/lab01/spacme.png
