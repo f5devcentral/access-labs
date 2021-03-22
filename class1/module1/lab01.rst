@@ -783,6 +783,12 @@ Task 8: Lab Clean Up
       | |guioverview| | |guistop|   |
       +---------------+-------------+
 
+#. Wait about 30 seconds for the processing to begin
+
+      |process|
+
+#. This process will take up to 30 seconds.  Scroll to the bottom of the script and verify no issues.
+
 
 Lab 1 is now complete.
 
