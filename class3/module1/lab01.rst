@@ -29,7 +29,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click **ACCESS** next to jumpohost.f5lab.local
 
-   |accessjh|
+   |image001|
 
 #. Select your RDP solution.
 
@@ -44,20 +44,20 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Click the **Classes** tab at the top of the page.
 
-	|accessportal|
+	|image002|
 
 
 #. Scroll down the page until you see **301 SAML Federation** on the left
 
-   |101intro|
+   |image003|
 
 #. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |guioverview|
+   |image004|
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-   |issues|
+   |image005|
 
 
 
@@ -71,7 +71,7 @@ SP Service
 #. Begin by selecting: **Access -> Federation -> SAML Service Provider -> Local SP Services**
 #. Click the **Create** button (far right)
 
-   |image1|
+   |image006|
 
 #. In the **Create New SAML SP Service** dialog box click **General Settings**
    in the left navigation pane and key in the following as shown:
@@ -84,7 +84,7 @@ SP Service
 
 #. Click **OK** on the dialogue box
 
-   |image2|
+   |image007|
 
    .. NOTE:: The yellow box on Host will disappear when the Entity ID is entered.
 
@@ -100,7 +100,7 @@ IdP Connector
 
 #. Select **From Metadata** from the drop down menu
 
-   |image3|
+   |image003|
 
 #. In the **Create New SAML IdP Connector** dialogue box, click **Browse**
    and select the **idp.partner.com‑app_metadata.xml** file from the Desktop
@@ -110,7 +110,7 @@ IdP Connector
 
 #. Click **OK** on the dialog box
 
-   |image4|
+   |image004|
 
    .. NOTE:: The idp.partner.com-app_metadata.xml was created previously.
       Oftentimes, IdP providers will have a metadata file representing their IdP
@@ -123,7 +123,7 @@ IdP Connector
 #. Click the **checkbox** next to the previously created *app.f5demo.com* and
    click **Bind/Unbind IdP Connectors** at the bottom of the GUI
 
-   |image5|
+   |image005|
 
 #. In the **Edit SAML IdP's that use this SP** dialogue box, click the
     **Add New Row** button
@@ -133,7 +133,7 @@ IdP Connector
 #. Click the **Update** button and the **OK** button at the bottom of the
    dialog box
 
-   |image6|
+   |image006|
 
 #. Under the **Access ‑> Federation ‑> SAML Service Provider ‑>
    Local SP Services** menu you should now see the following (as shown):
@@ -144,7 +144,7 @@ IdP Connector
    | SAML IdP Connectors: | ``idp.partner.com`` |
    +----------------------+---------------------+
 
-   |image7|
+   |image007|
 
 TASK 2 ‑ Configure the SAML SP Access Policy
 ----------------------------------------------------
@@ -154,7 +154,7 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 
 #. Click the **Create** button (far right)
 
-   |image8|
+   |image008|
 
 #. In the **New Profile** window, key in the following:
 
@@ -171,49 +171,49 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 #. Select *English* from the **Factory Built‑in Languages** on the right,
    and click the **Double Arrow (<<)**, then click the **Finished** button.
 
-   |image9|
+   |image009|
 
    |br|
 
-   |image10|
+   |image010|
 
 #. From the **Access ‑> Profiles/Policies ‑> Access Profiles
    (Per‑Session Policies)** screen, click the **Edit** link on the previously
    created ``app.f5demo.com‑policy`` line
 
-   |image11|
+   |image011|
 
 #. In the Visual Policy Editor window for ``/Common/app.f5demo.com‑policy``,
    click the **Plus (+) Sign** between **Start** and **Deny**
 
-   |image12|
+   |image012|
 
 #. In the pop‑up dialog box, select the **Authentication** tab and then click
    the **Radio Button** next to **SAML Auth**
 
 #. Once selected, click the **Add Item** button
 
-   |image13|
+   |image013|
 
 #. In the **SAML Auth** configuration window, select ``/Common/app.f5demo.com``
    from the **AAA Server** drop down menu
 
 #. Click the **Save** button at the bottom of the window
 
-   |image14|
+   |image014|
 
 #. In the **Visual Policy Editor** window for ``/Common/app.f5demo.com‑policy``,
    click the **Plus (+) Sign** on the **Successful** branch following
    **SAML Auth**
 
-   |image15|
+   |image015|
 
 #. In the pop-up dialog box, select the **Assignment** tab, and then click
    the **Radio Button** next to **Variable Assign**
 
 #. Once selected, click the **Add Item** buton
 
-   |image16|
+   |image016|
 
 #. In the **Variable Assign** configuration window, click the
    **Add New Entry** button
@@ -245,22 +245,22 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 #. Click the **Save** button at the bottom of the **Variable Assign**
    dialog window
 
-   |image17|
+   |image017|
 
 #. In the **Visual Policy Editor** select the **Deny** ending along the
    **fallback** branch following the **Variable Assign**
 
-   |image18|
+   |image018|
 
 #. From the **Select Ending** dialog box, select the **Allow** button and
    then click **Save**
 
-   |image19|
+   |image019|
 
 #. In the **Visual Policy Editor** click **Apply Access Policy** (top left)
    and close the **Visual Policy Editor**
 
-   |image20|
+   |image020|
 
 TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 ----------------------------------------------------------------------
@@ -269,7 +269,7 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 
 #. Click the **Create** button (far right)
 
-   |image21|
+   |image021|
 
 #. In the **New Virtual Server** window, key in the following as shown:
 
@@ -305,15 +305,15 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 
 #. Scroll to the bottom of the configuration window and click **Finished**
 
-   |image22|
+   |image022|
 
    |br|
 
-   |image23|
+   |image023|
 
    |br|
 
-   |image24|
+   |image024|
 
    .. NOTE:: The iRule is being added in order to simulate an application
       server to validate successful access.
@@ -324,7 +324,7 @@ TASK 4 ‑ Test the SAML SP
 #. Using your browser from the jump host, navigate to the SAML SP you just
    configured at ``https://app.f5demo.com`` (or click the provided bookmark)
 
-   |image25|
+   |image025|
 
 #. Did you successfuly redirect to the IdP?
 
