@@ -702,6 +702,9 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
 **Network Access Resource**
 
+#. Navigate to **Access** --> **Connectivity/VPN** --> **Network Access Lists**
+#. Click the **vpn** Network Access Profile
+
       The Properties page contains the Caption name **VPN**.  This is the name displayed to a user.
 
             |image005|
@@ -715,6 +718,9 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
 **Lease Pool**
 
+#. Navigate to **Access** --> **Connectivity/VPN** --> **Network Access Lists** --> **IPV4 Lease Pools**
+#. Click **vpn-vpn_pool** lease pool object
+
       A single address of **10.1.20.254** is assigned inside the lease pool.
 
             |image007|
@@ -722,12 +728,18 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
 **Webtop Sections**
 
+#. Navigate to **Access** --> **Webtops** --> **Webtop Sections**
+#. Click on **vpn-network_access**
+
       A single section is configured to display a custom name.
 
       |image008|
 
 
-      Webtop
+**Webtop Lists**
+
+#. Navigate to **Access** --> **Webtops** --> **Webtop Lists**
+#. Click on **vpn-webtop**
 
       - A Full Webtop was defined with modified default settings.
       - The Minimize to Tray box is **checked** to ensure the Webtop is not displayed when a user connects to the VPN.
@@ -761,13 +773,33 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
 .. Information:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
 
+Task 8: Lab Clean Up
+----------------------------
+
+#. Open a new tab and click on the Access: PORTAL bookmark then select **CLASSES**
+#. Locate the **APM GUI Overview** Tile and click on the **Stop** button
+
+      +---------------+-------------+
+      | |guioverview| | |guistop|   |
+      +---------------+-------------+
+
+#. Wait about 30 seconds for the processing to begin
+
+      |process|
+
+#. This process will take up to 30 seconds.  Scroll to the bottom of the script and verify no issues.
+
+
 Lab 1 is now complete.
+
+
 
 .. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
 .. |accessportal| image:: /class1/module1/media/lab01/setup/accessportal.png
 .. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
 .. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
 .. |guiflyout| image:: /class1/module1/media/lab01/setup/guiflyout.png
+.. |guistop| image:: /class1/module1/media/lab01/setup/guistop.png
 .. |process| image:: /class1/module1/media/lab01/setup/process.png
 .. |issues| image:: /class1/module1/media/lab01/setup/issues.png
 .. |Dashboard| image:: /class1/module1/media/lab01/setup/Dashboard.png
