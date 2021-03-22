@@ -4,8 +4,8 @@
 This lab documents provides foundational concepts for understanding Access Policy Manager's (APM) common features.
 
 
-301 - Identity and Access Federation
----------------------------
+301 - SAML Federation
+----------------------------------------
 .. toctree::
    :maxdepth: 1
    :glob:
