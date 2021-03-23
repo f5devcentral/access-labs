@@ -196,9 +196,9 @@ TASK 2 - Create a SAML Resource
 
 
 
-#. Begin by selecting **Access ‑> Federation ‑> SAML Resources**
+#. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
 
-#. Click the **Create** button (far right)
+   |image018|
 
 #. In the **New SAML Resource** window, enter the following values:
 
@@ -212,32 +212,31 @@ TASK 2 - Create a SAML Resource
 
 #. Click **Finished** at the bottom of the configuration window
 
-   |image37|
+   |image019|
 
-   |br|
 
-   |image38|
 
 Task 3 - Create a Webtop
 -------------------------------
 
-#. Select **Access ‑> Webtops ‑> Webtop List**
+#. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
 
-#. Click the **Create** button (far right)
 
-   |image39|
+   |image20|
 
 #. In the resulting window, enter the following values:
 
-   +-------+----------------------+
-   | Name: | ``full_webtop``      |
-   +-------+----------------------+
-   | Type: | ``Full`` (drop down) |
-   +-------+----------------------+
+   +------------------+----------------------+
+   | Name:            | ``full_webtop``      |
+   +------------------+----------------------+
+   | Type:            | ``Full`` (drop down) |
+   +------------------+----------------------+
+   | Minimize To Tray | ``uncheck``          |
+   +------------------+----------------------+
 
 #. Click **Finished** at the bottom of the GUI
 
-   |image40|
+   |image21|
 
 Task 4 - Create a SAML IdP Access Policy
 ---------------------------------------------
