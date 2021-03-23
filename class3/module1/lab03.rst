@@ -33,7 +33,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image001|
 
-#. Select your RDP solution.
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -53,7 +53,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **Client-side Kerberos SAML IdP**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -68,7 +68,7 @@ TASK 1 – Modify the SAML Identity Provider (IdP) Access Policy
 
 #. Using the existing Access Policy from Lab 2, navigate to **Access ‑>
    Profiles/Policies ‑> Access Profiles (Per-Session Policies)**, and click
-   the **Edit** link next to the previously created *idp.f5demo.com-policy*
+   the **Edit** link next to the previously created *idp.acme.com-psp*
 
    |image70|
 
@@ -258,9 +258,6 @@ TASK 2 - Test the Kerberos to SAML Configuration
 
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
-.. |br| raw:: html
-
-   <br />
 
 Lab Clean Up
 ------------------------
@@ -269,7 +266,7 @@ Lab Clean Up
 
 #. Click the **Classes** tab at the top of the page.
 
-    |image002|
+   |image002|
 
 #. Scroll down the page until you see **301 SAML Federation** on the left
 

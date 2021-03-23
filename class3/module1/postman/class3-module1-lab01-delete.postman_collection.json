@@ -37,8 +37,8 @@
 									"pm.collectionVariables.set(\"DNS1_NAME\", \"idp.acme.com\");",
 									"pm.collectionVariables.set(\"VS1_NAME\", \"idp\");",
 									"pm.collectionVariables.set(\"BIGIP_ADDRESS1\", \"10.1.10.102\");",
-									"pm.collectionVariables.set(\"PATH_NAME\", \"lab02\");",
-									"pm.collectionVariables.set(\"PARTITION_NAME\", \"class2-module3\");",
+									"pm.collectionVariables.set(\"PATH_NAME\", \"lab01\");",
+									"pm.collectionVariables.set(\"PARTITION_NAME\", \"class3-module1\");",
 									"pm.collectionVariables.set(\"DNS2_NAME\", \"sp.acme.com\");",
 									"pm.collectionVariables.set(\"VS2_NAME\", \"sp\");",
 									"pm.collectionVariables.set(\"BIGIP_ADDRESS2\", \"10.1.10.103\");",
@@ -1789,7 +1789,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var DNS_NAME = pm.collectionVariables.get(\"DNS_NAME\");",
+											"var DNS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
 											"",
@@ -1874,7 +1874,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"var VS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
 											"",

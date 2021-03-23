@@ -83,8 +83,8 @@ SP Service
 
 #. Click **Security Settings**
 #. Click **Sign Authentication Request**
-#. From the Message Signing Private Key dropdown  select **/Common/sp.acme.com** 
-#. From the Message Signing Certificate dropdown select **/Common/sp.acme.com**
+#. From the **Message Signing Private Key** dropdown  select **/Common/sp.acme.com** 
+#. From the **Message Signing Certificate** dropdown select **/Common/sp.acme.com**
 
     |image035|
 
@@ -282,7 +282,7 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 ----------------------------------------------------------------------
 
-#. Begin by selecting **Local Traffic >> Virtual Servers >> **+ (Plus Symbol)**
+#. Begin by selecting **Local Traffic >> Virtual Servers >> **+** (Plus Symbol)
 
    |image024|
 
@@ -341,11 +341,11 @@ TASK 4 ‑ Test the SAML SP
 
 #. You are redirect to ``https://idp.acme.com``
 
-#. Log in to the IdP with the credentials: username:user1 password:user1
+#. Log in to the IdP with the credentials: username: **user1** password: **user1**
 
    |image037|
 
-#. You are redirected back to sp.acme.com and successfully logged on.
+#. You are redirected back to https://sp.acme.com and successfully logged on.
 
     |image038|
 
@@ -418,3 +418,5 @@ Lab Clean Up
 .. |image036| image:: ./media/lab01/036.png
 .. |image037| image:: ./media/lab01/037.png
 .. |image038| image:: ./media/lab01/038.png
+.. |image998| image:: ./media/lab01/998.png
+.. |image999| image:: ./media/lab01/999.png
