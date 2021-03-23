@@ -72,7 +72,7 @@ IdP Service
 
 #. Click the **Create** button (far right)
 
-   |image26|
+   |image006|
 
 #. In the **Create New SAML IdP Service** dialog box, click **General Settngs**
    in the left navigation pane and key in the following:
@@ -83,7 +83,7 @@ IdP Service
    | IdP Entity ID:    | ``https://idp.acme.com``       |
    +-------------------+--------------------------------+
 
-   |image27|
+   |image007|
 
    .. NOTE:: The yellow box on "Host" will disappear when the Entity ID is
       entered
@@ -97,11 +97,13 @@ IdP Service
    | Assertion Subject Value: | ``%{session.logon.last.username}`` (drop down) |
    +--------------------------+------------------------------------------------+
 
-   |image28|
+   |image008|
 
 #. In the **Create New SAML IdP Service** dialog box, click
    **SAML Attributes** in the left navigation pane and click the
    **Add** button as shown
+
+    |image009|
 
 #. In the **Name** field in the resulting pop-up window, enter the
    following: ``emailaddress``
@@ -114,27 +116,23 @@ IdP Service
 
 #. Click the **OK** button
 
-   |image29|
-
-   |br|
-
-   |image30|
+   |image010|
 
 #. In the **Create New SAML IdP Service** dialog box, click
    **Security Settings** in the left navigation pane and key in
    the following:
 
-   +----------------------+----------------------------------+
-   | Signing Key:         | ``/Common/idp.key`` (drop down)  |
-   +----------------------+----------------------------------+
-   | Signing Certificate: | ``/Common/idp.crt`` (drop down)  |
-   +-----------------------+---------------------------------+
+   +----------------------+---------------------------------------+
+   | Signing Key:         | ``/Common/idp.acme.com`` (drop down)  |
+   +----------------------+---------------------------------------+
+   | Signing Certificate: | ``/Common/idp.acme.com`` (drop down)  |
+   +-----------------------+--------------------------------------+
 
    .. NOTE:: The certificate and key were previously imported
 
 #. Click **OK** to complete the creation of the IdP service
 
-   |image31|
+   |image011|
 
 SP Connector
 ~~~~~~~~~~~~~~~~~
@@ -147,7 +145,7 @@ SP Connector
 
 #. Select **From Metadata** from the drop down menu
 
-   |image32|
+   |image012|
 
 #. In the **Create New SAML Service Provider** dialogue box, click **Browse**
    and select the *sp_acme_com.xml* file from the Desktop of
@@ -158,7 +156,7 @@ SP Connector
 
 #. Click **OK** on the dialog box
 
-   |image33|
+   |image013|
 
    .. NOTE:: The sp_acme_com.xml file was created previously.
       Oftentimes SP providers will have a metadata file representing their
@@ -167,17 +165,20 @@ SP Connector
 
 #. Click on **Local IdP Services** (under the **SAML Identity Provider** tab)
    in the horizontal navigation menu
+
+   |image014|
+
 #. Select the **Checkbox** next to the previously created ``idp.acme.com``
    and click the **Bind/Unbind SP Connectors** button at the bottom of the GUI
 
-   |image34|
+   |image015|
 
 #. In the **Edit SAML SP's that use this IdP** dialog, select the
    ``/Common/sp.acme.com`` SAML SP Connection Name created previously
 
 #. Click the **OK** button at the bottom of the dialog box
 
-   |image35|
+   |image016|
 
 #. Under the **Access ‑> Federation ‑> SAML Identity Provider ‑>
    Local IdP Services** menu you should now see the following (as shown):
@@ -188,7 +189,7 @@ SP Connector
    | SAML SP Connectors: | ``sp.acme.com``        |
    +---------------------+------------------------+
 
-   |image36|
+   |image017|
 
 TASK 2 - Create a SAML Resource
 -------------------------------------
