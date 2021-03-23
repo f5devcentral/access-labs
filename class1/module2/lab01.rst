@@ -204,7 +204,7 @@ appropriate virtual server to be able to use it.
 #. Click **Update** at the bottom of the screen
 
 Task 4: Testing
----------------
+----------------
 
 Now you are ready to test.
 
@@ -222,7 +222,7 @@ Now you are ready to test.
     | Username:  |**user1**  |
     +------------+-----------+
     | Password:  |**user1**  |
-    +------------+-----------|
+    +------------+-----------+
 
 You will see a screen similar to the following:
 
