@@ -218,13 +218,13 @@ Now you are ready to test.
 
 #. Enter the following credentials and click **Logon**:
 
-  +------------+-----------+
-  | Username:  |**user1**  |
-  +------------+-----------+
-  | Password:  |**user1**  |
-  +------------+-----------|
+    +------------+-----------+
+    | Username:  |**user1**  |
+    +------------+-----------+
+    | Password:  |**user1**  |
+    +------------+-----------|
 
-   You will see a screen similar to the following:
+You will see a screen similar to the following:
 
    |Lab1-Image18|
 
