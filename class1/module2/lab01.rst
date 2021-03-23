@@ -39,9 +39,18 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Hover over tile **Building a Basic Acces Policy**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |guioverview|
+   +---------------+-------------+
+   | |lab01|       | |lab01fly|  |
+   +---------------+-------------+
 
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+#. After the click it may take up to 30 seconds before you see processing
+
+   |process|
+
+#. Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |issues|
+
 
 Task 1: Intro to Per-Session Policy
 ---------------------------------------
@@ -67,80 +76,83 @@ Task 1: Define an Authentication Server
 Before we can create an access profile, we must create the necessary AAA
 server profile for our Active Directory.
 
-1. From the main screen, browse to **Access > Authentication > Active
+#. Click the bigip1 bookmark from within Chrome and login to the BIG-IP, admin/admin
+
+#. From the main screen, browse to **Access > Authentication > Active
    Directory**
 
-2. Click **Create...** in the upper right-hand corner
+#. Click **Create...** in the upper right-hand corner
 
-3. Configure the new server profile as follows:
+#. Configure the new server profile as follows:
 
-    Name: **Lab\_SSO\_AD\_Server**
+    +------------------+---------------------------+
+    |Name:             | **lab\_sso\_ad\_server**  |
+    +------------------+---------------------------+
+    |Domain Name:      | **f5lab.local**           |
+    +------------------+---------------------------+
+    |Server Connection:| **Direct**                |
+    +------------------+---------------------------+
+    |Domain Controller:| **10.1.20.7**             |
+    +------------------+---------------------------+
+    |User Name:        | **f5lab\\admin**          |
+    +------------------+---------------------------+
+    |Password:         | **admin**                 |
+    +------------------+---------------------------+
 
-    Domain Name: **f5lab.local**
 
-    Server Connection: **Direct**
+#. Click **Finished**
 
-    Domain Controller: **10.1.20.7**
+    .. Note:: If you wish you can simply use the **app-ad-servers**.
 
-    User Name: **f5lab\\admin**
-
-    Password: **admin**
-
-
-
-4. Click **Finished**
-
-Note: If you wish you can simply use the **pre-built-ad-servers**.
 
 Task 2: Create a Simple Access Profile
 --------------------------------------
 
-1. Navigate to **Access > Profiles / Policies > Access Profiles
+#. Navigate to **Access > Profiles / Policies > Access Profiles
    (Per-Session Policies)**
 
    |Lab1-Image1|
 
-2. From the Access Profiles screen, click **Create...** in the upper
+#. From the Access Profiles screen, click **Create...** in the upper
    right-hand corner
 
-3. In the Name field, enter **MyAccessPolicy** and for the **Profile Type**,
+#. In the Name field, enter **mycccesspolicy** and for the **Profile Type**,
    select the dropdown and choose **All**
 
    |Lab1-Image2|
 
-4. Under "Language Settings", choose **English** and click the
+#. Under "Language Settings", choose **English** and click the
     **<<** button to slide over to the **Accepted Languages** column.
 
    |Lab1-Image3|
 
-5. Click **Finished**, which will bring you back to the Access Profiles
+#. Click **Finished**, which will bring you back to the Access Profiles
    screen.
 
-6. On the Access Profiles screen, click the **Edit** link under the
+#. On the Access Profiles screen, click the **Edit** link under the
    Per-Session Policy column.
 
    |Lab1-Image4|
 
    The Visual Policy Editor (VPE) will open in a new tab.
 
-7. On the VPE page, click the **+** icon on the **fallback** path,
+#. On the VPE page, click the **+** icon on the **fallback** path,
    to the right of the **Start** object.
 
    |Lab1-Image5|
 
-8. On the popup menu, choose the **Logon Page** radio button under the
+#. On the popup menu, choose the **Logon Page** radio button under the
    Logon tab and click **Add Item**
 
    |Lab1-Image6|
 
    |Lab1-Image7|
 
-9. Accept the defaults and click **Save**
+#. Accept the defaults and click **Save**
 
-Now let's authenticate the client using the credentials to be provided
-via the **Logon Page** object.
+    Now let's authenticate the client using the credentials to be provided via the **Logon Page** object.
 
-1. Between the **Logon Page** and **Deny** objects, click the **+**
+#. Between the **Logon Page** and **Deny** objects, click the **+**
    icon, select **AD Auth** found under the **Authentication** tab,
    and click the **Add Item** button
 
@@ -148,24 +160,24 @@ via the **Logon Page** object.
 
    |Lab1-Image9|
 
-2. Accept the default for the **Name** and in the **Server** drop-down
+#. Accept the default for the **Name** and in the **Server** drop-down
    menu select the AD server created above:
-   **/Common/LAB\_SSO\_AD\_Server**, then click **Save**
+   **/Common/lab\_sso\_ad\_server**, then click **Save**
 
    |Lab1-Image10|
 
-3. On the **Successful** branch between the **AD Auth** and **Deny**
+#. On the **Successful** branch between the **AD Auth** and **Deny**
    objects, click on the word **Deny** to change the ending
 
    |Lab1-Image11|
 
-4. Change the **Successful** branch ending to **Allow**, then click **Save**
+#. Change the **Successful** branch ending to **Allow**, then click **Save**
 
    |Lab1-Image12|
 
    |Lab1-Image13|
 
-5. In the upper left-hand corner of the screen, click on the **Apply
+#. In the upper left-hand corner of the screen, click on the **Apply
    Access Policy** link, then close the window using the **Close**
    button in the upper right-hand. Click **Yes** when asked **Do you
    want to close this tab?**
@@ -180,34 +192,39 @@ Task 3: Associate Access Policy to Virtual Servers
 Now that we have created an access policy, we must apply it to the
 appropriate virtual server to be able to use it.
 
-1. From the **Local Traffic** menu, navigate to the **Virtual Servers
+#. From the **Local Traffic** menu, navigate to the **Virtual Servers
    List** and click the name of the virtual server created previously:
-   **demo-vs-https**.
+   **app-https**.
 
-2. Scroll down to the **Access Policy** section, then for the **Access
-   Profile** dropdown, select **MyAccessPolicy**
+#. Scroll down to the **Access Policy** section, then for the **Access
+   Profile** dropdown, select **myaccesspolicy**
 
    |Lab1-Image16|
 
-3. Click **Update** at the bottom of the screen
+#. Click **Update** at the bottom of the screen
 
 Task 4: Testing
----------------
+----------------
 
 Now you are ready to test.
 
-1. Open a new browser window and open the URL for the virtual server
-   that has the access policy applied:
-   **https://server1.acme.com**
+#. Open a new browser window and open the URL for the virtual server that has the access policy applied:
+
+   **https://app.acme.com**
+
    You will be presented with a login window
 
    |Lab1-Image17|
 
-2. Enter the following credentials and click **Logon**:
-   Username: **user1**
-   Password: **user1**
+#. Enter the following credentials and click **Logon**:
 
-   You will see a screen similar to the following:
+    +------------+-----------+
+    | Username:  |**user1**  |
+    +------------+-----------+
+    | Password:  |**user1**  |
+    +------------+-----------+
+
+You will see a screen similar to the following:
 
    |Lab1-Image18|
 
@@ -268,3 +285,7 @@ Lab 1 is now complete.
 .. |accessjh| image:: /class1/module2/media/accessjh.png
 .. |accessportal| image:: /class1/module2/media/accessportal.png
 .. |102intro| image:: /class1/module2/media/102intro.png
+.. |lab01| image:: /class1/module2/media/lab01.png
+.. |lab01fly| image:: /class1/module2/media/lab01fly.png
+.. |process| image:: /class1/module2/media/process.png
+.. |issues| image:: /class1/module2/media/issues.png
