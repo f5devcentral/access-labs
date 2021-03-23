@@ -1,9 +1,5 @@
-Lab 3: Kerberos to SAML Lab
-===========================
-
-.. toctree::
-   :maxdepth: 1
-   :glob:
+Lab 3: Client-side Kerberos SAML IdP
+========================================
 
 The purpose of this lab is to deploy and test a Kerberos to SAML
 configuration. Students will modify a previous built Access Policy and
@@ -25,12 +21,54 @@ Lab Requirements:
 
 Estimated completion time: 25 minutes
 
+
+Setup Lab Environment
+-----------------------------------
+
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
+
+#. Click **ACCESS** next to jumpohost.f5lab.local
+
+   |image001|
+
+#. Select your RDP resolution.
+
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+
+#. Login with the following credentials:
+
+         - User: **f5lab\\user1**
+         - Password: **user1**
+
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
+
+#. Click the **Classes** tab at the top of the page.
+
+	|image002|
+
+
+#. Scroll down the page until you see **301 SAML Federation** on the left
+
+   |image003|
+
+#. Hover over tile **Client-side Kerberos SAML IdP**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+
+   |image004|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image005|
+
+
+
 TASK 1 – Modify the SAML Identity Provider (IdP) Access Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Using the existing Access Policy from Lab 2, navigate to **Access ‑>
    Profiles/Policies ‑> Access Profiles (Per-Session Policies)**, and click
-   the **Edit** link next to the previously created *idp.f5demo.com-policy*
+   the **Edit** link next to the previously created *idp.acme.com-psp*
 
    |image70|
 
@@ -220,9 +258,32 @@ TASK 2 - Test the Kerberos to SAML Configuration
 
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
-.. |br| raw:: html
 
-   <br />
+Lab Clean Up
+------------------------
+
+#. From a browser on the jumphost navigate to https://portal.f5lab.local
+
+#. Click the **Classes** tab at the top of the page.
+
+   |image002|
+
+#. Scroll down the page until you see **301 SAML Federation** on the left
+
+   |image003|
+
+#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+
+   |image998|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image999|
+
+#. This concludes the lab.
+
+   |image000|
+
 
 .. |image70| image:: /_static/class1/image44.png
 .. |image71| image:: /_static/class1/image70.png
