@@ -245,71 +245,26 @@ Lab 1 is now complete.
 
 
 
-
-
-
-
-
-
-..
 .. |Lab1-Image1| image:: /class1/module2/media/Lab1-Image1.png
 .. |Lab1-Image2| image:: /class1/module2/media/Lab1-Image2.png
-   :width: 2.49705in
-   :height: 2.49047in
 .. |Lab1-Image3| image:: /class1/module2/media/Lab1-Image3.png
-   :width: 2.81496in
-   :height: 2.04331in
 .. |Lab1-Image4| image:: /class1/module2/media/Lab1-Image4.png
-   :width: 3.35694in
-   :height: 1.17083in
 .. |Lab1-Image5| image:: /class1/module2/media/Lab1-Image5.png
-   :width: 5.30972in
-   :height: 1.96914in
 .. |Lab1-Image6| image:: /class1/module2/media/Lab1-Image6.png
-   :width: 5.30625in
-   :height: 1.20139in
 .. |Lab1-Image7| image:: /class1/module2/media/Lab1-Image7.png
-   :width: 3.67708in
-   :height: 1.59375in
 .. |Lab1-Image8| image:: /class1/module2/media/Lab1-Image8.png
-   :width: 5.30972in
-   :height: 2.99543in
 .. |Lab1-Image9| image:: /class1/module2/media/Lab1-Image9.png
-   :width: 4.09422in
-   :height: 4.25486in
 .. |Lab1-Image10| image:: /class1/module2/media/Lab1-Image10.png
-   :width: 2.75000in
-   :height: 1.32500in
 .. |Lab1-Image11| image:: /class1/module2/media/Lab1-Image11.png
-   :width: 2.83858in
-   :height: 4.42520in
 .. |Lab1-Image12| image:: /class1/module2/media/Lab1-Image12.png
-   :width: 5.05208in
-   :height: 2.44710in
 .. |Lab1-Image13| image:: /class1/module2/media/Lab1-Image13.png
-   :width: 4.80000in
-   :height: 1.40000in
 .. |Lab1-Image14| image:: /class1/module2/media/Lab1-Image14.png
-   :width: 2.17708in
-   :height: 2.73681in
 .. |Lab1-Image15| image:: /class1/module2/media/Lab1-Image15.png
-   :width: 4.51887in
-   :height: 1.56041in
 .. |Lab1-Image16| image:: /class1/module2/media/Lab1-Image16.png
-   :width: 2.14583in
-   :height: 0.73958in
 .. |Lab1-Image17| image:: /class1/module2/media/Lab1-Image17.png
-   :width: 2.00000in
-   :height: 0.67921in
 .. |Lab1-Image18| image:: /class1/module2/media/Lab1-Image18.png
-   :width: 2.40945in
-   :height: 3.52362in
 .. |Lab1-Image19| image:: /class1/module2/media/Lab1-Image19.png
-   :width: 2.13489in
-   :height: 1.96875in
 .. |Lab1-Image20| image:: /class1/module2/media/Lab1-Image20.png
-   :width: 5.07751in
-   :height: 2.84357in
 .. |accessjh| image:: /class1/module2/media/accessjh.png
 .. |accessportal| image:: /class1/module2/media/accessportal.png
 .. |102intro| image:: /class1/module2/media/102intro.png
