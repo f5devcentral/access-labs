@@ -68,13 +68,13 @@ Task 2 - Import IDP Signing Certificate
 
 #. Notice the request endpoint is **/mgmt/shared/file-transfer/uploads**.  This endpoint allows us to upload files to the /var/config/rest/downloads directory on the BIG-IP. 
 
-    .. note:: If you unfamiliar with Postman the information in curly braces are variables that have been defined inside the collection.  If you wish the see the variable values simply click the three dots on the collection that allow you display more options. Click Edit and then Variables.
+    .. note:: If you are unfamiliar with Postman, the information in curly braces are variables that have been defined inside the collection.  If you wish to see the variable values simply click the three dots on the collection that allows you display more options. Click Edit and then Variables.
 
 #. Click **Body** to display what will be passed in the POST request
 
    .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
 
-    |image008|
+   |image008|
 
 #. Click the blue **Send** button in the upper right corner
 
@@ -237,7 +237,7 @@ Task 6 - Ensure objects were removed via GUI
 
     |image030|
 
-This concludes the APM lab on created and deleting APM objects via iControlREST.
+This concludes the APM lab on creating and deleting APM objects via iControlREST.
 
     |image000|
 
