@@ -78,7 +78,7 @@ IdP Service
    in the left navigation pane and key in the following:
 
    +-------------------+--------------------------------+
-   | IdP Service Name: | ``idp.acme.com`                |
+   | IdP Service Name: | ``idp.acme.com``               |
    +-------------------+--------------------------------+
    | IdP Entity ID:    | ``https://idp.acme.com``       |
    +-------------------+--------------------------------+
@@ -126,7 +126,7 @@ IdP Service
    | Signing Key:         | ``/Common/idp.acme.com`` (drop down)  |
    +----------------------+---------------------------------------+
    | Signing Certificate: | ``/Common/idp.acme.com`` (drop down)  |
-   +-----------------------+--------------------------------------+
+   +----------------------+---------------------------------------+
 
    .. NOTE:: The certificate and key were previously imported
 
@@ -193,6 +193,8 @@ SP Connector
 
 TASK 2 - Create a SAML Resource
 -------------------------------------
+
+
 
 #. Begin by selecting **Access ‑> Federation ‑> SAML Resources**
 
