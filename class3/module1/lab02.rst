@@ -222,7 +222,7 @@ Task 3 - Create a Webtop
 #. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
 
 
-   |image20|
+   |image020|
 
 #. In the resulting window, enter the following values:
 
@@ -236,7 +236,7 @@ Task 3 - Create a Webtop
 
 #. Click **Finished** at the bottom of the GUI
 
-   |image21|
+   |image021|
 
 Task 4 - Create a SAML IdP Access Policy
 ---------------------------------------------
@@ -246,17 +246,21 @@ Task 4 - Create a SAML IdP Access Policy
 
 #. Click the **Create** button (far right)
 
-   |image41|
+   |image022|
 
 #. In the **New Profile** window, enter the following information:
 
-   +----------------+---------------------------+
-   | Name:          | ``idp.acme.com‑psp``      |
-   +----------------+---------------------------+
-   | Profile Type:  | ``All`` (drop down)       |
-   +----------------+---------------------------+
-   | Profile Scope: | ``Profile`` (default)     |
-   +----------------+---------------------------+
+   +----------------------+---------------------------+
+   | Name:                | ``idp.acme.com‑psp``      |
+   +----------------------+---------------------------+
+   | Profile Type:        | ``All`` (drop down)       |
+   +----------------------+---------------------------+
+   | Profile Scope:       | ``Profile`` (default)     |
+   +----------------------+---------------------------+
+   | Customization Type:  | ``modern`` (default)      |
+   +----------------------+---------------------------+
+
+   |image023|
 
 #. Scroll to the bottom of the **New Profile** window to the
    **Language Settings** section
@@ -267,55 +271,59 @@ Task 4 - Create a SAML IdP Access Policy
 
 #. The **Default Language** should be automatically set
 
-   |image42|
+   |image024|
 
 #. From the **Access ‑> Profiles/Policies ‑> Access Profiles
    (Per-Session Policies) screen**, click the **Edit** link on the previously
    created ``idp.acme.com-psp`` line
 
-   |image43|
+   |image025|
 
 #. Click the **Plus (+) Sign** between **Start** and **Deny**
 
-   |image44|
+   |image026|
 
 #. In the pop-up dialog box, select the **Logon** tab and then select the
    **Radio** next to **Logon Page**, and click the **Add Item** button
 
+
+   |image027|
+
+
 #. Click **Save** in the resulting Logon Page dialog box
 
-   |image45|
+   |image028|
 
 #. Click the **Plus (+) Sign** between **Logon Page** and **Deny**
 
-   |image46|
+   |image029|
 
 #. In the pop-up dialog box, select the **Authentication** tab and then
    select the **Radio** next to **AD Auth**, and click the **Add Item** button
 
-   |image47|
+   |image030|
 
 #. In the resulting **AD Auth** pop-up window, select ``/Common/f5lab.local``
    from the **Server** drop down menu
 
 #. Click **Save** at the bottom of the window
 
-   |image48|
+   |image031|
 
 #. Click the **Plus (+) Sign** on the successful branch between **AD Auth**
    and **Deny**
 
-   |image49|
+   |image032|
 
 #. In the pop-up dialog box, select the **Authentication** tab and then
    select the **Radio** next to **AD Query**, and click the **Add Item** button
 
-   |image50|
+   |image033|
 
 #. In the resulting **AD Query** pop-up window, select ``/Common/f5lab.local``
    from the **Server** drop down menu
 
-   |image51|
+   |image034|
 
 #. In the **AD Query** pop‑up window, select the **Branch Rules** tab
 
@@ -323,16 +331,16 @@ Task 4 - Create a SAML IdP Access Policy
 
 #. Click the **Change** link next to the **Expression**
 
-   |image52|
+   |image035|
 
 #. In the resulting pop-up window, delete the existing expression by
    clicking the **X** as shown
 
-   |image53|
+   |image036|
 
 #. Create a new **Simple** expression by clicking the **Add Expression** button
 
-   |image54|
+   |image037|
 
 #. In the resulting menu, select the following from the drop down menus:
 
@@ -344,65 +352,69 @@ Task 4 - Create a SAML IdP Access Policy
 
 #. Click the **Add Expression** Button
 
-   |image55|
+   |image038|
 
 #. Click the **Finished** button to complete the expression
 
-   |image56|
+   |image039|
 
-   |br|
-
-   |image57|
 
 #. Click the **Save** button to complete the **AD Query**
 
+   |image040|
+
 #. Click the **Plus (+) Sign** on the successful branch between **AD Query** and **Deny**
 
-   |image58|
+   |image041|
 
 #. In the pop-up dialog box, select the **Assignment** tab and then select
    the **Radio** next to **Advanced Resource Assign**, and click the
    **Add Item** button
 
-   |image59|
+   |image042|
 
 #. In the resulting **Advanced Resource Assign** pop-up window, click the
    **Add New Entry** button
 
 #. In the new Resource Assignment entry, click the **Add/Delete** link
 
-   |image60|
+   |image043|
 
 #. In the resulting pop-up window, click the **SAML** tab, and select the
    **Checkbox** next to ``/Common/sp.acme.com``
 
-   |image61|
+   |image044|
 
 #. Click the **Webtop** tab, and select the **Checkbox** next to
    ``/Common/full_webtop``
 
-   |image62|
+  
 
 #. Click the **Update** button at the bottom of the window to complete
    the Resource Assignment entry
 
+   |image045|
+
+
 #. Click the **Save** button at the bottom of the
    **Advanced Resource Assign** window
+
+   |image046|
 
 #. In the **Visual Policy Editor**, select the **Deny** ending on the
    fallback branch following **Advanced Resource Assign**
 
-   |image63|
+   |image047|
 
 #. In the **Select Ending** dialog box, selet the **Allow** radio button
    and then click **Save**
 
-   |image64|
+   |image048|
 
 #. In the **Visual Policy Editor**, click **Apply Access Policy** (top left),
    and close the **Visual Policy Editor**
 
-   |image65|
+   |image49|
 
 TASK 6 - Create the IdP Virtual Server
 ----------------------------------------
@@ -412,7 +424,7 @@ TASK 6 - Create the IdP Virtual Server
 
 #. Click the **Create** button (far right)
 
-   |image66|
+   |image050|
 
 #. In the **New Virtual Server** window, enter the following information:
 
@@ -426,6 +438,8 @@ TASK 6 - Create the IdP Virtual Server
    | Service Port:             | ``443``                      |
    +---------------------------+------------------------------+
 
+   |image051|
+
    +---------------------------+------------------------------+
    | Configuration                                            |
    +===========================+==============================+
@@ -434,17 +448,16 @@ TASK 6 - Create the IdP Virtual Server
    | SSL Profile (Client)      | ``wildcard.acme.com``        |
    +---------------------------+------------------------------+
 
+   |image052|
+
    +-----------------+---------------------------+
    | Access Policy                               |
    +=================+===========================+
    | Access Profile: | ``idp.acme.com-psp``      |
    +-----------------+---------------------------+
 
-   |image67|
+   |image053|
 
-   |br|
-
-   |image68|
 
 #. Scroll to the bottom of the configuration window and click **Finished**
 
@@ -452,17 +465,23 @@ TASK 7 - Test the SAML IdP
 -------------------------------
 
 #. Using your browser from the jump host, navigate to the SAML IdP you just
-   configured at ``https://idp.acme.com`` (or click the provided bookmark)
+   configured at ``https://idp.acme.com`` 
 
-   |image69|
+   
+#. Log in to the IdP with the credentials: Username: user1 Password:user1
 
-#. Log in to the IdP.   Were you successfully authenticated? Did you see the
-   webtop with the SP application?
+|image054|
+
 
  
 
-#. Click on the Partner App icon. Were you successfully authenticated
-   (via SAML) to the SP?
+#. Click on the sp.acme.com icon.
+
+   |image055|
+
+#.  You are successfully logged into https://sp.acme.com
+
+   |image056|
 
 #. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
 
@@ -534,3 +553,23 @@ Lab Clean Up
 .. |image036| image:: ./media/lab02/036.png
 .. |image037| image:: ./media/lab02/037.png
 .. |image038| image:: ./media/lab02/038.png
+.. |image039| image:: ./media/lab02/039.png
+.. |image040| image:: ./media/lab02/040.png
+.. |image041| image:: ./media/lab02/041.png
+.. |image042| image:: ./media/lab02/042.png
+.. |image043| image:: ./media/lab02/043.png
+.. |image044| image:: ./media/lab02/044.png
+.. |image045| image:: ./media/lab02/045.png
+.. |image046| image:: ./media/lab02/046.png
+.. |image047| image:: ./media/lab02/047.png
+.. |image048| image:: ./media/lab02/048.png
+.. |image049| image:: ./media/lab02/049.png
+.. |image050| image:: ./media/lab02/050.png
+.. |image051| image:: ./media/lab02/051.png
+.. |image052| image:: ./media/lab02/052.png
+.. |image053| image:: ./media/lab02/053.png
+.. |image054| image:: ./media/lab02/054.png
+.. |image055| image:: ./media/lab02/055.png
+.. |image056| image:: ./media/lab02/056.png
+.. |image998| image:: ./media/lab02/998.png
+.. |image999| image:: ./media/lab02/999.png
