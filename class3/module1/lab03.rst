@@ -330,7 +330,7 @@ Task 4 - Create a SAML IdP Access Policy
 
 #. Click the **Save** button at the bottom of the dialog box
 
-   |image31|
+   |image031|
 
 #. Click the **Branch Rules** tab
 #. Click the **X** on the Basic Branch
@@ -356,7 +356,7 @@ Task 4 - Create a SAML IdP Access Policy
    +-----------------------+--------------------------------------------+
    | AAA Server:           | ``/Common/idp.acme.com`` (drop down)       |
    +-----------------------+--------------------------------------------+
-   | Request Based Auth:   | ``Enabled` (drop down)                     |
+   | Request Based Auth:   | ``Enabled`` (drop down)                     |
    +-----------------------+--------------------------------------------+
 
 #. Click **Save**
@@ -443,7 +443,7 @@ Task 4 - Create a SAML IdP Access Policy
 #. Click the **Webtop** tab, and select the **Checkbox** next to
    ``/Common/full_webtop``
 
- #. Click the **Update** button at the bottom of the window to complete
+#. Click the **Update** button at the bottom of the window to complete
    the Resource Assignment entry
 
      |image050|
