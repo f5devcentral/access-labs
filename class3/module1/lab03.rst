@@ -21,7 +21,6 @@ Lab Requirements:
 
 Estimated completion time: 25 minutes
 
-
 Setup Lab Environment
 -----------------------------------
 
@@ -53,13 +52,201 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **Client-side Kerberos SAML IdP**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SAML Identity Provider (IdP)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
    |image005|
+
+
+
+TASK 1 ‑ Configure the SAML Identity Provider (IdP)
+--------------------------------------------------------
+
+IdP Service
+~~~~~~~~~~~~~~~~
+
+#. Begin by selecting: **Access ‑> Federation ‑> SAML Identity Provider
+   ‑> Local IdP Services**
+
+#. Click the **Create** button (far right)
+
+   |image006|
+
+#. In the **Create New SAML IdP Service** dialog box, click **General Settngs**
+   in the left navigation pane and key in the following:
+
+   +-------------------+--------------------------------+
+   | IdP Service Name: | ``idp.acme.com``               |
+   +-------------------+--------------------------------+
+   | IdP Entity ID:    | ``https://idp.acme.com``       |
+   +-------------------+--------------------------------+
+
+   |image007|
+
+   .. NOTE:: The yellow box on "Host" will disappear when the Entity ID is
+      entered
+
+#. In the **Create New SAML IdP Service** dialog box, click **Assertion
+   Settings** in the left navigation pane and key in the following:
+
+   +--------------------------+------------------------------------------------+
+   | Assertion Subject Type:  | ``Persistent Identifier`` (drop down)          |
+   +--------------------------+------------------------------------------------+
+   | Assertion Subject Value: | ``%{session.logon.last.username}`` (drop down) |
+   +--------------------------+------------------------------------------------+
+
+   |image008|
+
+#. In the **Create New SAML IdP Service** dialog box, click
+   **SAML Attributes** in the left navigation pane and click the
+   **Add** button as shown
+
+    |image009|
+
+#. In the **Name** field in the resulting pop-up window, enter the
+   following: ``emailaddress``
+
+#. Under **Attribute Values**, click the **Add** button
+
+#. In the **Values** line, enter the following: ``%{session.ad.last.attr.mail}``
+
+#. Click the **Update** button
+
+#. Click the **OK** button
+
+   |image010|
+
+#. In the **Create New SAML IdP Service** dialog box, click
+   **Security Settings** in the left navigation pane and key in
+   the following:
+
+   +----------------------+---------------------------------------+
+   | Signing Key:         | ``/Common/idp.acme.com`` (drop down)  |
+   +----------------------+---------------------------------------+
+   | Signing Certificate: | ``/Common/idp.acme.com`` (drop down)  |
+   +----------------------+---------------------------------------+
+
+   .. NOTE:: The certificate and key were previously imported
+
+#. Click **OK** to complete the creation of the IdP service
+
+   |image011|
+
+SP Connector
+~~~~~~~~~~~~~~~~~
+
+#. Click on **External SP Connectors** (under the **SAML Identity Provider**
+   tab) in the horizontal navigation menu
+
+#. Click specifically on the **Down Arrow** next to the **Create** button
+   (far right)
+
+#. Select **From Metadata** from the drop down menu
+
+   |image012|
+
+#. In the **Create New SAML Service Provider** dialogue box, click **Browse**
+   and select the *sp_acme_com.xml* file from the Desktop of
+   your jump host
+
+#. In the **Service Provider Name** field, enter the following:
+   ``sp.acme.com``
+
+#. Click **OK** on the dialog box
+
+   |image013|
+
+   .. NOTE:: The sp_acme_com.xml file was created previously.
+      Oftentimes SP providers will have a metadata file representing their
+      SP service. This can be imported to save object creation time as has
+      been done in this lab.
+
+#. Click on **Local IdP Services** (under the **SAML Identity Provider** tab)
+   in the horizontal navigation menu
+
+   |image014|
+
+#. Select the **Checkbox** next to the previously created ``idp.acme.com``
+   and click the **Bind/Unbind SP Connectors** button at the bottom of the GUI
+
+   |image015|
+
+#. In the **Edit SAML SP's that use this IdP** dialog, select the
+   ``/Common/sp.acme.com`` SAML SP Connection Name created previously
+
+#. Click the **OK** button at the bottom of the dialog box
+
+   |image016|
+
+#. Under the **Access ‑> Federation ‑> SAML Identity Provider ‑>
+   Local IdP Services** menu you should now see the following (as shown):
+
+   +---------------------+------------------------+
+   | Name:               | ``idp.acme.com``       |
+   +---------------------+------------------------+
+   | SAML SP Connectors: | ``sp.acme.com``        |
+   +---------------------+------------------------+
+
+   |image017|
+
+TASK 2 - Create a SAML Resource
+-------------------------------------
+
+
+
+#. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
+
+   |image018|
+
+#. In the **New SAML Resource** window, enter the following values:
+
+   +--------------------+------------------------+
+   | Name:              | ``sp.acme.com``        |
+   +--------------------+------------------------+
+   | SSO Configuration: | ``idp.acmem.com``      |
+   +--------------------+------------------------+
+   | Caption:           | ``sp.acme.com``        |
+   +--------------------+------------------------+
+
+#. Click **Finished** at the bottom of the configuration window
+
+   |image019|
+
+
+
+Task 3 - Create a Webtop
+-------------------------------
+
+#. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
+
+
+   |image020|
+
+#. In the resulting window, enter the following values:
+
+   +------------------+----------------------+
+   | Name:            | ``full_webtop``      |
+   +------------------+----------------------+
+   | Type:            | ``Full`` (drop down) |
+   +------------------+----------------------+
+   | Minimize To Tray | ``uncheck``          |
+   +------------------+----------------------+
+
+#. Click **Finished** at the bottom of the GUI
+
+   |image021|
+
+
+Task 4 - Create a Kerberos AAA Object
+----------------------------------------
+
+#. From the jump host type in the follow command to generate a kerberos key tab file
+
+ktpass -princ HTTP/idp.acme.com@F5LAB.LOCAL -mapuser f5lab\krbtsrv -ptype KRB5_NT_PRINCIPAL -pass ’P@$$w0rd' -out C:\Users\user1\Desktop\out.keytab
+
 
 
 
