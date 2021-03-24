@@ -49,6 +49,7 @@ TASK 1: Create Per Session Policy
 Refer to the instructions and screen shots below:
 
 #. Login to your lab provided **Virtual Edition BIG-IP**
+
      - On your jumphost launch Chrome and click the bigip1 link from the app shortcut menu
      - Login with credentials admin/admin
 
@@ -56,7 +57,8 @@ Refer to the instructions and screen shots below:
 
 #. Click the + Sign next to **Access Profiles (Per-Session Policies)**
 
-    Lab2-Image1
+    |Lab2-Image1|
+
 #. Enter the name of the policy, profile type, and profile scope
 
     +--------------------------+-------------------------+
@@ -69,8 +71,7 @@ Refer to the instructions and screen shots below:
     |**Accept Languages**:     | **English (en)**        |
     +--------------------------+-------------------------+
 
-.. Note:: You will need a per session policy and a per request policy but we will be
-          leaving the per session policy blank and performing our auth in per Request
+    .. Note:: You will need a per session policy and a per request policy but we will be leaving the per session policy blank and performing our auth in per Request
 
     |Lab2-Image2|
 
@@ -82,8 +83,7 @@ Refer to the instructions and screen shots below:
 
 #. Click Apply policy
 
-.. Note::  Nothing will be set in this policy we will simply establish a session and manage
-           all the authentication in the Per-Request Policy
+    .. Note::  Nothing will be set in this policy we will simply establish a session and manage all the authentication in the Per-Request Policy
 
     |Lab2-Image3|
 
@@ -92,6 +92,7 @@ Refer to the instructions and screen shots below:
 
 Task 2: Step Up Authentication with Per Request Policies
 --------------------------------------
+
 Step-up authentication can be used to protect layers or parts of a web application that manage more sensitive data. It can be used to increase protection by requiring stronger authentication within an already authenticated access to the web application.
 Step-up authentication can be a part of using the portal access or web application management (reverse proxy) features of Access Policy Manager.
 
@@ -122,11 +123,14 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 
     |Lab2-Image10|
 
- #. Give it a name and Click Save
+#. Give it a name and Click Save
 
-    **Name**: **AD_Subroutine**
+    +-----------+------------------+
+    |**Name**:  | **AD_Subroutine**|
+    +-----------+------------------+
+
     +------------------------------+---------------------------------------------------------------+
-    |Lab2-Image11                  |       Lab2-Image13                                            |
+    ||Lab2-Image11|                |       |Lab2-Image13|                                          |
     +------------------------------+---------------------------------------------------------------+
 
  #. Click the + between In and Out In the subroutine
@@ -137,16 +141,14 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 
  #. Select **Save** at the bottom of the Logon Page dialog box
 
- #. In the subroutine, between the Logon page and the green **out** terminal click the **+**
-     and select the **Logon Tab** and click the **Logon Page** radio button
+ #. In the subroutine, between the Logon page and the green **out** terminal click the **+** and select the **Logon Tab** and click the **Logon Page** radio button
 
 
      |Lab2-Image15|
 
      |Lab2-Image16|
 
-#. Click the + sign between Logon Page and Out and select the **Authentication** tab and
-    click the **AD Auth** radio Button
+#. Click the + sign between Logon Page and Out and select the **Authentication** tab and click the **AD Auth** radio Button
 
     |Lab2-Image17|
 
@@ -156,11 +158,13 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 
 #. Give the item a name
 
-    -  **Name**: **AD_Auth**
+    +------------+-------------+
+    |**Name**:   | **AD_Auth** |
+    +------------+-------------+
 
 #. Select **/Common/lab_sso_sd_server** for the Server option
 
-    ..Note:: The lab_sso_ad_server object was created in Lab 1
+    .. Note:: The lab_sso_ad_server object was created in Lab 1
 
 #. Click the **Save**
 
@@ -189,12 +193,15 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 #. Change the drop down on the right hand side to **Session Varaible** and input the
    following value
 
-    - **subsession.ad.last.attr.memberOf**
+   +----------------------------------------+
+   |**subsession.ad.last.attr.memberOf**    |
+   +----------------------------------------+
 
 #. In the left hand box type the following then click finished and Save
 
-   - **session.adgroups.custom**
-
+   +----------------------------------+
+   | **session.adgroups.custom**      |
+   +----------------------------------+
 
     |Lab2-Image21|
 
