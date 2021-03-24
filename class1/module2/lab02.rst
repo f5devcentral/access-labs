@@ -132,15 +132,15 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
     ||Lab2-Image11|                |       |Lab2-Image13|                                          |
     +------------------------------+---------------------------------------------------------------+
 
- #. Click the + between In and Out In the subroutine
+#. Click the + between In and Out In the subroutine
 
- #. Click the **Logon** Tab
+#. Click the **Logon** Tab
 
- #. At the middle of the list choose **Logon Page** and click **Add Item**
+#. At the middle of the list choose **Logon Page** and click **Add Item**
 
- #. Select **Save** at the bottom of the Logon Page dialog box
+#. Select **Save** at the bottom of the Logon Page dialog box
 
- #. In the subroutine, between the Logon page and the green **out** terminal click the **+** and select the **Logon Tab** and click the **Logon Page** radio button
+#. In the subroutine, between the Logon page and the green **out** terminal click the **+** and select the **Logon Tab** and click the **Logon Page** radio button
 
 
      |Lab2-Image15|
