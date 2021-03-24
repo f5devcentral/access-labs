@@ -103,7 +103,6 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 
 #. Click the **Create** button (far right)
 
-
     |Lab2-Image7|
 
 #. Give the policy a name and select the Language Settings
@@ -186,22 +185,21 @@ In this example we're going to use a Per-Request Policy with a subroutine to aut
 
 #. Under Variable Assign click **Add New Entry**
 
-      |Lab2-Image20|
+    |Lab2-Image20|
 
 #. Next to "Empty" click the **change** links
 
-#. Change the drop down on the right hand side to **Session Varaible** and input the
-   following value
+#. Change the drop down on the right hand side to **Session Varaible** and input the following value
 
-   +----------------------------------------+
-   |**subsession.ad.last.attr.memberOf**    |
-   +----------------------------------------+
+    +----------------------------------------+
+    |**subsession.ad.last.attr.memberOf**    |
+    +----------------------------------------+
 
 #. In the left hand box type the following then click finished and Save
 
-   +----------------------------------+
-   | **session.adgroups.custom**      |
-   +----------------------------------+
+    +----------------------------------+
+    | **session.adgroups.custom**      |
+    +----------------------------------+
 
     |Lab2-Image21|
 
