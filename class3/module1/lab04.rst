@@ -1,772 +1,568 @@
-Lab 1.1: Create a SAML Identity Provider 
-----------------------------------------
-
-.. graphviz::
-
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="steelblue1"]
-         spconnector [label="SP Connector"]
-         bind [label="Bind Connectors"]
-         resource [label="SAML Resource"]
-         webtop [label="Webtop"]
-         profile [label="Access Profile"]
-         vs [label="VS"]
-         test [label="Test"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
-
-      }
-   }
-
-Task 1 - Create a Local IdP Service
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this lab we will create the local Identity Provider service. This
-service is responsbile for handling the authentication for the SaaS
-application.
-
-.. NOTE:: This guide may require you to Copy/Paste information from the
-   guide to your jumphost.  To make this easier you can open a copy of the
-   guide by using the **Lab Guide** bookmark in Chrome.
-
-a. Navigate to :menuselection:`Access --> Federation --> SAML Identity Provider --> Local IdP Services`
-b. Click the :menuselection:`+` sign
-
-    |image1|
-
-c. Configure the :guilabel:`General Settings`:
-
-    +------------------+------------------------+
-    | Property         | Value                  |
-    +==================+========================+
-    | IdP Service Name | idp.f5demo.com         |
-    +------------------+------------------------+
-    | IdP Entity Id    | https://idp.f5demo.com |
-    +------------------+------------------------+
-
-    |image2|
-
-d. Configure the :guilabel:`Assertiion Settings`:
-
-    +-------------------------+--------------------------------+
-    | Property                | Value                          |
-    +=========================+================================+
-    | Assertion Subject Value | %{session.logon.last.username} |
-    +-------------------------+--------------------------------+
-
-    |image3|
-
-e. Configure the :guilabel:`Security Settings`:
-
-    +---------------------+------------------------+
-    | Property            | Value                  |
-    +=====================+========================+
-    | Signing Key         | idp.f5demo.com.key     |
-    +---------------------+------------------------+
-    | Signing Certificate | idp.f5demo.com.crt     |
-    +---------------------+------------------------+
-
-    |image4|
-
-f. Click the :guilabel:`OK` button.
-
-Lab 1.2: Create an External SP Connector
-----------------------------------------
-
-.. graphviz::
-
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="palegreen"]
-         spconnector [label="SP Connector",color="steelblue1"]
-         bind [label="Bind Connectors"]
-         resource [label="SAML Resource"]
-         webtop [label="Webtop"]
-         profile [label="Access Profile"]
-         vs [label="VS"]
-         test [label="Test"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
-
-      }
-   }
-
-Now that we have the Identity Provider configured, we need to configure
-the BIG-IP so it is aware of the Service Provider (the SaaS
-application). We do this by defining an External SP Connector using the
-metadata provided by the SaaS application, importing it into the
-BIG-IP, and setting the appropriate cryptographic controls.
-
-Task 1 - Obtain the SAML Service Provider Metadata
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In a common deployment the metadata is provided by the application.
-This lab is no different, but the access method will vary. Follow the
-listed steps below to obtain the necessary XML file.
-
-a. Open a browser and nagivate to https://app.f5demo.com/metadata.xml
-b. Save the file as ``app.f5demo.com.xml``
-
-Task 2 - Create an External SP Connector
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-In this task we will create the External SP Connector object.
-
-a. Navigate to :menuselection:`Access --> Federation --> SAML Identity Provider --> External SP Connector`
-b. Click on the triangle on the right side of the :guilabel:`Create` button and select :guilabel:`From Metadata`
-    
-    |image5|
-
-c. Enter the following information:
-
-    +-----------------------+------------------------------+
-    | Property              | Value                        |
-    +=======================+==============================+
-    | Select File           | app.f5demo.com.xml           |
-    +-----------------------+------------------------------+
-    | Service Provider Name | app.f5demo.com               |
-    +-----------------------+------------------------------+
-
-    |image6|
-
-d. Click the :guilabel:`OK` button
-
-Task 3 - Modify the SP Connector Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Finally, for security purposes, we'll configure the External SP
-Connector object to require that resposes are cryptographically signed.
-This prevents an attacker from manipulating the response and
-potentially gaining unauthorized access.
+Lab 4: SAML Identity Provider (IdP) - LocalDB Auth
+======================================================
 
 
-a. Click the checkbox next to :guilabel:`app.f5demo.com` and click the :guilabel:`Edit` button
 
-b. Modify the following :guilabel:`Security Settings`:
-
-    +---------------------------------------+-----------+
-    | Property                              | Value     |
-    +=======================================+===========+
-    | Response must be signed               | checked   |
-    +---------------------------------------+-----------+
-
-    |image7|
-
-c. Click the :guilabel:`OK` button.
-
-
-Lab 1.3: Bind SP Connectors
+Setup Lab Environment
 -----------------------------------
 
-.. graphviz::
+To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="palegreen"]
-         spconnector [label="SP Connector",color="palegreen"]
-         bind [label="Bind Connectors",color="steelblue1"]
-         resource [label="SAML Resource"]
-         webtop [label="Webtop"]
-         profile [label="Access Profile"]
-         vs [label="VS"]
-         test [label="Test"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
+#. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-      }
-   }
+#. Click **ACCESS** next to jumpohost.f5lab.local
 
-Once we have the Identity Provider and Service Provider objects
-configured, we need to link them together.
+   |image001|
 
-Task 1 - Bind the IdP and SP Connector
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. Select your RDP resolution.
 
-a. Navigate to :menuselection:`Access --> Federation --> SAML Identity Provider --> Local IdP Services`
+#. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
-    |image1|
+#. Login with the following credentials:
 
-b. Check the radio button next to :guilabel:`idp.f5.demo.com`
+         - User: **f5lab\\user1**
+         - Password: **user1**
 
-c. Click on the :guilabel:`Bind/Unbind SP Connectors` button
+#. After successful logon the Chrome browser will auto launch opening the site https://portal.f5lab.local.  This process usually takes 30 seconds after logon.
 
-d. Check the box next to :guilabel:`/Common/app.f5demo.com`
+#. Click the **Classes** tab at the top of the page.
 
-    |image9|
-
-e. Click the :guilabel:`OK` button.
+	|image002|
 
 
-Lab 1.4: Create SAML Resource
------------------------------
+#. Scroll down the page until you see **301 SAML Federation** on the left
 
-.. graphviz::
+   |image003|
 
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="palegreen"]
-         spconnector [label="SP Connector",color="palegreen"]
-         bind [label="Bind Connectors",color="palegreen"]
-         resource [label="SAML Resource",color="steelblue1"]
-         webtop [label="Webtop"]
-         profile [label="Access Profile"]
-         vs [label="VS"]
-         test [label="Test"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
+#. Hover over tile **SAML Identity Provider (IdP)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-      }
-   }
+   |image004|
 
-Task 1 - Create SAML Resource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-a. Navigate to :menuselection:`Access --> Federation --> SAML Resource` and click the :guilabel:`+` sign
-
-   |image10|
-
-b. Configure the following settings:
-
-   ================= ================
-   Property          Value     
-   ================= ================
-   Name              app.f5demo.com 
-   SSO Configuration idp.f5demo.com 
-   Caption           app       
-   ================= ================
-
-   |image11|
-
-c. Click the :guilabel:`Finished` button.
+   |image005|
 
 
 
-Lab 1.5: Create a Webtop
+
+
+TASK 1 ‑ Configure the SAML Identity Provider (IdP)
+--------------------------------------------------------
+
+IdP Service
+~~~~~~~~~~~~~~~~
+
+#. Begin by selecting: **Access ‑> Federation ‑> SAML Identity Provider
+   ‑> Local IdP Services**
+
+#. Click the **Create** button (far right)
+
+   |image006|
+
+#. In the **Create New SAML IdP Service** dialog box, click **General Settngs**
+   in the left navigation pane and key in the following:
+
+   +-------------------+--------------------------------+
+   | IdP Service Name: | ``idp.acme.com``               |
+   +-------------------+--------------------------------+
+   | IdP Entity ID:    | ``https://idp.acme.com``       |
+   +-------------------+--------------------------------+
+
+   |image007|
+
+   .. NOTE:: The yellow box on "Host" will disappear when the Entity ID is
+      entered
+
+#. In the **Create New SAML IdP Service** dialog box, click **Assertion
+   Settings** in the left navigation pane and key in the following:
+
+   +--------------------------+------------------------------------------------+
+   | Assertion Subject Type:  | ``Persistent Identifier`` (drop down)          |
+   +--------------------------+------------------------------------------------+
+   | Assertion Subject Value: | ``%{session.logon.last.username}`` (drop down) |
+   +--------------------------+------------------------------------------------+
+
+   |image008|
+
+#. In the **Create New SAML IdP Service** dialog box, click
+   **SAML Attributes** in the left navigation pane and click the
+   **Add** button as shown
+
+    |image009|
+
+#. In the **Name** field in the resulting pop-up window, enter the
+   following: ``emailaddress``
+
+#. Under **Attribute Values**, click the **Add** button
+
+#. In the **Values** line, enter the following: ``%{session.ad.last.attr.mail}``
+
+#. Click the **Update** button
+
+#. Click the **OK** button
+
+   |image010|
+
+#. In the **Create New SAML IdP Service** dialog box, click
+   **Security Settings** in the left navigation pane and key in
+   the following:
+
+   +----------------------+---------------------------------------+
+   | Signing Key:         | ``/Common/idp.acme.com`` (drop down)  |
+   +----------------------+---------------------------------------+
+   | Signing Certificate: | ``/Common/idp.acme.com`` (drop down)  |
+   +----------------------+---------------------------------------+
+
+   .. NOTE:: The certificate and key were previously imported
+
+#. Click **OK** to complete the creation of the IdP service
+
+   |image011|
+
+SP Connector
+~~~~~~~~~~~~~~~~~
+
+#. Click on **External SP Connectors** (under the **SAML Identity Provider**
+   tab) in the horizontal navigation menu
+
+#. Click specifically on the **Down Arrow** next to the **Create** button
+   (far right)
+
+#. Select **From Metadata** from the drop down menu
+
+   |image012|
+
+#. In the **Create New SAML Service Provider** dialogue box, click **Browse**
+   and select the *sp_acme_com.xml* file from the Desktop of
+   your jump host
+
+#. In the **Service Provider Name** field, enter the following:
+   ``sp.acme.com``
+
+#. Click **OK** on the dialog box
+
+   |image013|
+
+   .. NOTE:: The sp_acme_com.xml file was created previously.
+      Oftentimes SP providers will have a metadata file representing their
+      SP service. This can be imported to save object creation time as has
+      been done in this lab.
+
+#. Click on **Local IdP Services** (under the **SAML Identity Provider** tab)
+   in the horizontal navigation menu
+
+   |image014|
+
+#. Select the **Checkbox** next to the previously created ``idp.acme.com``
+   and click the **Bind/Unbind SP Connectors** button at the bottom of the GUI
+
+   |image015|
+
+#. In the **Edit SAML SP's that use this IdP** dialog, select the
+   ``/Common/sp.acme.com`` SAML SP Connection Name created previously
+
+#. Click the **OK** button at the bottom of the dialog box
+
+   |image016|
+
+#. Under the **Access ‑> Federation ‑> SAML Identity Provider ‑>
+   Local IdP Services** menu you should now see the following (as shown):
+
+   +---------------------+------------------------+
+   | Name:               | ``idp.acme.com``       |
+   +---------------------+------------------------+
+   | SAML SP Connectors: | ``sp.acme.com``        |
+   +---------------------+------------------------+
+
+   |image017|
+
+TASK 2 - Create a SAML Resource
+-------------------------------------
+
+
+#. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
+
+   |image018|
+
+#. In the **New SAML Resource** window, enter the following values:
+
+   +--------------------+------------------------+
+   | Name:              | ``sp.acme.com``        |
+   +--------------------+------------------------+
+   | SSO Configuration: | ``idp.acmem.com``      |
+   +--------------------+------------------------+
+   | Caption:           | ``sp.acme.com``        |
+   +--------------------+------------------------+
+
+#. Click **Finished** at the bottom of the configuration window
+
+   |image019|
+
+
+
+Task 3 - Create a Webtop
+-------------------------------
+
+#. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
+
+
+   |image020|
+
+#. In the resulting window, enter the following values:
+
+   +------------------+----------------------+
+   | Name:            | ``full_webtop``      |
+   +------------------+----------------------+
+   | Type:            | ``Full`` (drop down) |
+   +------------------+----------------------+
+   | Minimize To Tray | ``uncheck``          |
+   +------------------+----------------------+
+
+#. Click **Finished** at the bottom of the GUI
+
+   |image021|
+
+
+Task 4 - Create a Local Dabasebase 
+----------------------------------------
+
+#. From the jumphost, navigate to the command line enter the command below to generate a kerberos key tab file
+
+   ``ktpass -princ HTTP/idp.acme.com@F5LAB.LOCAL -mapuser f5lab\krbtsrv -ptype KRB5_NT_PRINCIPAL -pass ’P@$$w0rd' -out C:\Users\user1\Desktop\out.keytab``
+
+   |image022|
+
+#. From the BIG-IP GUI, navigate to Access >> Authentication >> Kerberos >> Click the **+** Plus Symbol
+
+
+   |image023|
+
+   +------------------+-------------------------+
+   | Name:            | ``idp.acme.com``        |
+   +------------------+-------------------------+
+   | SPN Format:      | ``Host-based service``  |
+   +------------------+-------------------------+
+   | Auth Realm:      | ``F5LAB.LOCAL``         |
+   +------------------+-------------------------+
+   | Service Name:    | ``HTTP``                |
+   +------------------+-------------------------+
+   | Keytab File:     | ``out.keytab``          |
+   +------------------+-------------------------+
+
+#. Click **Finished**
+
+   |image024|
+
+
+
+
+
+Task 4 - Create a SAML IdP Access Policy
+---------------------------------------------
+
+#. Select **Access ‑> Profiles/Policies ‑> Access Profiles
+   (Per-Session Policies)**
+
+#. Click the **Create** button (far right)
+
+   |image025|
+
+#. In the **New Profile** window, enter the following information:
+
+   +----------------------+---------------------------+
+   | Name:                | ``idp.acme.com‑psp``      |
+   +----------------------+---------------------------+
+   | Profile Type:        | ``All`` (drop down)       |
+   +----------------------+---------------------------+
+   | Profile Scope:       | ``Profile`` (default)     |
+   +----------------------+---------------------------+
+   | Customization Type:  | ``modern`` (default)      |
+   +----------------------+---------------------------+
+
+   |image026|
+
+#. Scroll to the bottom of the **New Profile** window to the
+   **Language Settings** section
+
+#. Select *English* from the **Factory Built‑in Languages** menu on the
+   right and click the **Double Arrow (<<)**, then click the **Finished**
+   button.
+
+#. The **Default Language** should be automatically set
+
+   |image027|
+
+#. From the **Access ‑> Profiles/Policies ‑> Access Profiles
+   (Per-Session Policies) screen**, click the **Edit** link on the previously
+   created ``idp.acme.com-psp`` line
+
+   |image028|
+
+#. Click the **Plus (+) Sign** between **Start** and **Deny**
+
+   |image029|
+
+#. In the pop-up dialog box, select the **Logon** tab and then select the
+   **Radio** next to **HTTP 401 Response**, and click the **Add Item** button
+
+   |image030|
+
+#. In the **HTTP 401 Response** dialog box, enter the following information:
+
+   +-------------------+---------------------------------+
+   | HTTP Auth Level:  | ``negotiate`` (drop down)       |
+   +-------------------+---------------------------------+
+
+#. Click the **Save** button at the bottom of the dialog box
+
+   |image31|
+
+#. Click the **Branch Rules** tab
+#. Click the **X** on the Basic Branch
+
+   |image032|
+
+#. Click **Save**
+
+   |image033|
+
+#. Click the **+** (Plus symbo) on the negotiate branch
+
+   |image034|
+
+#. Click the **Authentication** tab
+#. Select **Kerberos Auth*
+#. Click **Add Item**
+
+   |image035|
+
+#. In the **Kerberos Auth** dialog box, enter the following information:
+
+   +-----------------------+--------------------------------------------+
+   | AAA Server:           | ``/Common/idp.acme.com`` (drop down)       |
+   +-----------------------+--------------------------------------------+
+   | Request Based Auth:   | ``Enabled` (drop down)                     |
+   +-----------------------+--------------------------------------------+
+
+#. Click **Save**
+
+   |image036|
+
+#. Click the **Plus (+) Sign** on the **Successful** branch between **Kerberos Auth** and **Deny**
+
+   |image037|
+
+#. In the pop-up dialog box, select the **Authentication** tab and then
+   select the **Radio** next to **AD Query**, and click the **Add Item** button
+
+   |image038|
+
+#. In the resulting **AD Query** pop-up window, select
+   ``/Commmon/f5lab.local`` from the **Server** drop down menu
+
+#. In the **SearchFilter** field, enter the following value:
+   ``userPrincipalName=%{session.logon.last.username}``
+
+   |image039|
+
+#. In the **AD Query** window, click the **Branch Rules** tab
+
+#. Change the **Name** of the branch to *Successful*.
+
+#. Click the **Change** link next to the **Expression**
+
+   |image040|
+
+#. In the resulting pop-up window, delete the existing expression by clicking
+   the **X** as shown
+
+   |image041|
+
+#. Create a new **Simple** expression by clicking the **Add Expression** button
+
+   |image042|
+
+#. In the resulting menu, select the following from the drop down menus:
+
+   +------------+---------------------+
+   | Agent Sel: | ``AD Query``        |
+   +------------+---------------------+
+   | Condition: | ``AD Query Passed`` |
+   +------------+---------------------+
+
+#. Click the **Add Expression** Button
+
+   |image043|
+
+#. Click the **Finished** button to complete the expression
+
+   |image044|
+
+#. Click the **Save** button to complete the **AD Query**
+
+   |image045|
+
+#. Click the **Plus (+) Sign** on the **Successful** branch between
+   **AD Query** and **Deny**
+
+   |image046|
+
+#. In the pop-up dialog box, select the **Assignment** tab and then select
+   the **Radio** next to **Advanced Resource Assign**, and click the
+   **Add Item** button
+
+   |image047|
+
+#. In the resulting **Advanced Resource Assign** pop-up window, click
+   the **Add New Entry** button
+
+#. In the new Resource Assignment entry, click the **Add/Delete** link
+
+   |image048|
+
+#. In the resulting pop-up window, click the **SAML** tab, and select the
+   **Checkbox** next to */Common/sp.acme.com*
+
+   |image049|
+
+#. Click the **Webtop** tab, and select the **Checkbox** next to
+   ``/Common/full_webtop``
+
+ #. Click the **Update** button at the bottom of the window to complete
+   the Resource Assignment entry
+
+     |image050|
+
+
+#. Click the **Save** button at the bottom of the **Advanced Resource Assign** window
+
+   |image051|
+
+
+#. In the **Visual Policy Editor**, select the **Deny** ending on the
+   fallback branch following **Advanced Resource Assign**
+
+   |image052|
+
+#. In the **Select Ending** dialog box, selet the **Allow** radio button
+   and then click **Save**
+
+   |image053|
+
+#. In the **Visual Policy Editor**, click **Apply Access Policy**
+   (top left), and close the **Visual Policy Editor**
+
+   |image054|
+
+
+
+TASK 2 - Test the Kerberos to SAML Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. From the jumphost, navigate to the SAML IdP you previously configured at *https://idp.acme.com*.  Noticee you are automatically signed into the IDP. 
+  
+#. Click **sp.acme.com**
+
+   |image055|
+
+#.  You are then successfully logged into https://sp.acme.com and presented a webpage.
+
+   |image056|
+
+#. From the jumphost CLI, type klist.  You will see there is a kerberos ticket for HTTP/idp.acme.com@F5LAB.LOCAL
+
+   |image057|
+
+
+#. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
+
+#. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
+
+
+Lab Clean Up
 ------------------------
 
-.. graphviz::
+#. From a browser on the jumphost navigate to https://portal.f5lab.local
+
+#. Click the **Classes** tab at the top of the page.
+
+   |image002|
+
+#. Scroll down the page until you see **301 SAML Federation** on the left
+
+   |image003|
+
+#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+
+   |image998|
+
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+
+   |image999|
+
+#. This concludes the lab.
+
+   |image000|
+
+
+.. |image000| image:: ./media/lab04/000.png
+.. |image001| image:: ./media/lab04/001.png
+.. |image002| image:: ./media/lab04/002.png
+.. |image003| image:: ./media/lab04/003.png
+.. |image004| image:: ./media/lab04/004.png
+.. |image005| image:: ./media/lab04/005.png
+.. |image006| image:: ./media/lab04/006.png
+.. |image007| image:: ./media/lab04/007.png
+.. |image008| image:: ./media/lab04/008.png
+.. |image009| image:: ./media/lab04/009.png
+.. |image010| image:: ./media/lab04/010.png
+.. |image011| image:: ./media/lab04/011.png
+.. |image012| image:: ./media/lab04/012.png
+.. |image013| image:: ./media/lab04/013.png
+.. |image014| image:: ./media/lab04/014.png
+.. |image015| image:: ./media/lab04/015.png
+.. |image016| image:: ./media/lab04/016.png
+.. |image017| image:: ./media/lab04/017.png
+.. |image018| image:: ./media/lab04/018.png
+.. |image019| image:: ./media/lab04/019.png
+.. |image020| image:: ./media/lab04/020.png
+.. |image021| image:: ./media/lab04/021.png
+.. |image022| image:: ./media/lab04/022.png
+.. |image023| image:: ./media/lab04/023.png
+.. |image024| image:: ./media/lab04/024.png
+.. |image025| image:: ./media/lab04/025.png
+.. |image026| image:: ./media/lab04/026.png
+.. |image027| image:: ./media/lab04/027.png
+.. |image028| image:: ./media/lab04/028.png
+.. |image029| image:: ./media/lab04/029.png
+.. |image030| image:: ./media/lab04/030.png
+.. |image031| image:: ./media/lab04/031.png
+.. |image032| image:: ./media/lab04/032.png
+.. |image033| image:: ./media/lab04/033.png
+.. |image034| image:: ./media/lab04/034.png
+.. |image035| image:: ./media/lab04/035.png
+.. |image036| image:: ./media/lab04/036.png
+.. |image037| image:: ./media/lab04/037.png
+.. |image038| image:: ./media/lab04/038.png
+.. |image039| image:: ./media/lab04/039.png
+.. |image040| image:: ./media/lab04/040.png
+.. |image041| image:: ./media/lab04/041.png
+.. |image042| image:: ./media/lab04/042.png
+.. |image043| image:: ./media/lab04/043.png
+.. |image044| image:: ./media/lab04/044.png
+.. |image045| image:: ./media/lab04/045.png
+.. |image046| image:: ./media/lab04/046.png
+.. |image047| image:: ./media/lab04/047.png
+.. |image048| image:: ./media/lab04/048.png
+.. |image049| image:: ./media/lab04/049.png
+.. |image050| image:: ./media/lab04/050.png
+.. |image051| image:: ./media/lab04/051.png
+.. |image052| image:: ./media/lab04/052.png
+.. |image053| image:: ./media/lab04/053.png
+.. |image054| image:: ./media/lab04/054.png
+.. |image055| image:: ./media/lab04/055.png
+.. |image056| image:: ./media/lab04/056.png
+.. |image057| image:: ./media/lab04/057.png
+.. |image998| image:: ./media/lab04/998.png
+.. |image999| image:: ./media/lab04/999.png
 
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="palegreen"]
-         spconnector [label="SP Connector",color="palegreen"]
-         bind [label="Bind Connectors",color="palegreen"]
-         resource [label="SAML Resource",color="palegreen"]
-         webtop [label="Webtop",color="steelblue1"]
-         profile [label="Access Profile"]
-         vs [label="VS"]
-         test [label="Test"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
-
-      }
-   }
-
-Task 1 - Create the SAML Webtop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-a. Navigate to :menuselection:`Access --> Webtops --> Webtop Lists`
-b. Click the :guilabel:`+` sign
-
-    |image12|
-
-c. Configure the following settings:
-
-    +-------------------+-------------+
-    | Property          | Value       |
-    +===================+=============+
-    | Name              | saml_webtop |
-    +-------------------+-------------+
-    | Type              | full        |
-    +-------------------+-------------+
-
-    |image13|
-
-3. Click the :guilabel:`Finished` button.
-
-
-
-Lab 1.6: Configure the Access Profile
-------------------------------------------------
-
-.. graphviz::
-
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="palegreen"]
-         spconnector [label="SP Connector",color="palegreen"]
-         bind [label="Bind Connectors",color="palegreen"]
-         resource [label="SAML Resource",color="palegreen"]
-         webtop [label="Webtop",color="palegreen"]
-         profile [label="Access Profile",color="steelblue1"]
-         vs [label="VS"]
-         test [label="Test"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
-
-      }
-   }
-
-The Access Profile defines the characteristics of how we authenticate
-and authorize a user using the BIG-IP platform. It controls things like
-what type logon page is presented to the user (if any at all), what
-language any dialog messages should be presented in, and -- most
-importantly -- the flow through which we limit access and assign
-resources.
-
-F5 BIG-IP Access Policy Manager supports two types of Access Policies:
-
-1. Per-Session access policies
-2. Per-Request access policies
-
-The difference centers around how frequently a policy is evaluated,
-either once at time of initial logon or after every single HTTP
-request.
-
-Task 1 - Create the Access Profile Object
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-a. Navigate to :menuselection:`Access --> Profiles/Policies --> Access Profiles (Per-Session Policies)`
-b. Click the :guilabel:`+` sign
-
-    |image14|
-
-c. Configure the following settings:
-
-    +-------------------+-----------------------+
-    | Property          | Value                 |
-    +===================+=======================+
-    | Name              | idp.f5demo.com-policy |
-    +-------------------+-----------------------+
-    | Profile Type      | All                   |
-    +-------------------+-----------------------+
-    | Languages         | English (en)          |
-    +-------------------+-----------------------+
-
-    |image15|
-
-    |image16|
-
-d. Click the :guilabel:`Finished` button.
-
-Task 2 - Configure the Access Policy Using the Visual Policy Editor
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The Visual Policy Editor (VPE) is where the administrator configures
-the heart of the Access Policy. Using a flow chart methodology, it is
-easy to create robust policies without adding burdensome management
-overhead. Even significant policies can be easily read and understood.
-
-1. Open the Visual Policy Editor
-    a. Navigate to :menuselection:`Access --> Profiles/Policies --> Access Profiles (Per-Session Policies)`
-    b. Click the :guilabel:`Edit...` link and the VPE will open in a new window
-
-        |image20|
-
-    We'll build a policy like the one below:
-
-        |image17|
-
-2. Add a Logon Page
-    a. Click on the :guilabel:`+` link after the :guilabel:`Start` node
-    b. Select the :guilabel:`Logon Page` tab and click the :guilabel:`Add Item` button
-    c. Use the default settings and click the :guilabel:`Save` button
-
-3. Add an Authentication Mechanism
-    a. Click on the :guilabel:`+` link after the :guilabel:`Logon Page` node
-    b. Select the :guilabel:`Authentication` tab and select :guilabel:`LocalDB Auth` then click the :guilabel:`Add Item` button
-    c. Configure the following settings:
-
-    +-------------------+-----------------------+
-    | Property          | Value                 |
-    +===================+=======================+
-    | LocalDB Instance  | /Common/agility       |
-    +-------------------+-----------------------+
-
-    |image18|
-
-      .. NOTE:: The administrator can select from a variety of
-         Authentication Mechanisms, including Active Directory and LDAP,
-         among others. In this lab, the :guilabel:`LocalDB Auth` has been
-         pre-configured.
-
-    d. Click the :guilabel:`Save` button.
-
-4. Add Advanced Resource Assign
-    a. Click on the :guilabel:`+` link on the successful branch after the :guilabel:`LocalDB Auth` node
-    b. Select the :guilabel:`Assignment` tab and select :guilabel:`Advanced Resource Assign` then click the :guilabel:`Add Item` button
-    c. Click the :guilabel:`Add New Entry` button
-    d. Click the :guilabel:`Add/Delete` link
-    e. Select the :guilabel:`Webtop` tab and select the :guilabel:`/Common/saml_webtop`
-    f. Select the :guilabel:`SAML` tab and select the :guilabel:`/Common/app.f5demo.com`
-    g. Click the :guilabel:`Update` button, then click the :guilabel:`Save` button
-
-
-    |image19|
-
-5. Change the ending to Allow
-    a. Click on the :guilabel:`Deny` ending after the :guilabel:`Advanced Resource Assign`
-    b. Select :guilabel:`Allow`
-    c. Click :guilabel:`Save`
-
-6. Apply Policy Changes
-    a. Click the :guilabel:`Apply Access Policy` in top left next to the F5 red ball
-    b. Close browser tab
-
-
-    Lab 1.7: Create the Virtual Server
-----------------------------------
-
-.. graphviz::
-
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="palegreen"]
-         spconnector [label="SP Connector",color="palegreen"]
-         bind [label="Bind Connectors",color="palegreen"]
-         resource [label="SAML Resource",color="palegreen"]
-         webtop [label="Webtop",color="palegreen"]
-         profile [label="Access Profile",color="palegreen"]
-         vs [label="VS",color="steelblue1"]
-         test [label="Test"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
-
-      }
-   }
-
-In order to access almost anything through an F5 BIG-IP, you must
-define a Virtual Server. The Virtual Server listens on the specified
-address and handles the requests either by making a load balancing
-decision or prompting for a logon (or both!). 
-
-Task 1 - Create the Virtual Server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-a. Navigate to :menuselection:`Local Traffic --> Virtual Server List`
-b. Click the :guilabel:`+` sign
-
-    |image21|
-
-b. Configure the :guilabel:`General Properties` settings:
-
-    =========================== ========================
-    General Properties
-    ----------------------------------------------------
-    Property                    Value
-    =========================== ========================
-    Name                        idp.f5demo.com
-    Destination Address/Mask    10.1.10.101
-    Service Port                443
-    =========================== ========================
-
-    |image22|
-
-c. Configure the :guilabel:`Configuration` settings:
-
-    =========================== ========================
-    Configuration
-    ----------------------------------------------------
-    Property                    Value
-    =========================== ========================
-    HTTP Profile                http
-    SSL Profile (Client)        idp.f5demo.com-clientssl
-    SSL Profile (Server)        serverssl
-    =========================== ========================
-
-    |image23|
-
-d. Configure the :guilabel:`Access Policy` settings:
-
-    =========================== ========================
-    Access Policy
-    ----------------------------------------------------
-    Property                    Value
-    =========================== ========================
-    Access Profile              idp.f5demo.com
-    =========================== ========================
-
-    |image24|
-
-e. Click the :guilabel:`Finished` button.
-
-
-
-Lab 1.8: Test the SAML Configuration
-------------------------------------
-
-.. graphviz::
-
-   digraph breadcrumb {
-      rankdir="LR"
-      ranksep=.4
-      node [fontsize=10,style="rounded,filled",shape=box,color=gray72,margin="0.05,0.05",height=0.1]
-      fontsize = 10
-      labeljust="l"
-      subgraph cluster_provider {
-         style = "rounded,filled"
-         color = lightgrey
-         height = .75
-         label = "BIG-IP APM"
-         idp [label="IDP",color="palegreen"]
-         spconnector [label="SP Connector",color="palegreen"]
-         bind [label="Bind Connectors",color="palegreen"]
-         resource [label="SAML Resource",color="palegreen"]
-         webtop [label="Webtop",color="palegreen"]
-         profile [label="Access Profile",color="palegreen"]
-         vs [label="VS",color="palegreen"]
-         test [label="Test",color="steelblue1"]
-         idp -> spconnector -> bind -> resource -> webtop -> profile -> vs -> test
-
-      }
-   }
-
-Now that we have all the pieces configured, the only thing left is to
-test and validate our setup to make sure it's working as expected.
-
-Task 1 - Test SAML IdP
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-1. Open Chromium and navigate to https://app.f5demo.com
-
-2. Notice how we've been redirected to the authentication page at https://...
-
-3. Login with the test credentials below:
-
-    =========== ========
-    Username    Password
-    =========== ========
-    alice       agility
-    =========== ========
-4. You should now see a demo application.  If not, please step back through the configuration and make sure you did not mistype one of the settings
-
-    |image25|
-
-5. Close the Chromium browser
-
-
-Lab 2.1: Modify the Access Profile 
-----------------------------------
-
-Task 1 - Launching the Visual Policy Editor 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Navigate to :menuselection:`Access --> Profiles/Policies --> Access
-   Profiles (Per-Session Policies)`
-#. Click the :guilabel:`Edit...` link
-   
-   |image20|
-
-Task 2 - Add a LocalDB Query
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Click on the :guilabel:`+` sign after :guilabel:`LocalDB Auth` on the `Successful` branch
-#. In the search field type `local`
-#. Select :guilabel:`Local Database` and click the :guilabel:`Add Item` button
-#. Configure the following settings:
-
-   ======================= ===================
-   Property                Value
-   ======================= ===================
-   LocalDB Instance        /Common/Agility
-   ======================= ===================
-
-#. Click the :guilabel:`Add new entry button`
-#. Configure the following settings:
-
-   ======================= ======================
-   Property                Value
-   ======================= ======================
-   Action                  read
-   Destination             session.localdb.groups
-   Source                  groups
-   ======================= ======================
-
-#. Click the :guilabel:`Save` button
-
-Task 3 - Modify the Advance Resource Assignment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Click on :guilabel:`Advance Resource Assign`
-#. Click on the :guilabel:`change` link
-
-   |image26|
-
-#. Click the :guilabel:`Add Expression` button
-#. Configure the following settings:
-
-   ======================= ===================
-   Property                Value
-   ======================= ===================
-   Agent Sel               LocalDB Group Check
-   Condition               LocalDB Query
-   User is a member of     Sales
-   ======================= ===================
-
-#. Click the :guilabel:`Add Expression` button
-
-   |image27|
-
-#. Click the :guilabel:`Finished` button
-#. Click the :guilabel:`Save` button
-#. Click the :guilabel:`Apply Access Policy` link in top left next to
-   the F5 red ball
-
-
-
-   Lab 2.2: Test Access Control
-----------------------------
-
-Now that you have your IdP configured we need to test it to make sure
-it is working as expected.
-
-Task 1 - Test with an Authorized User
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Open Chromium and navigate to https://app.f5demo.com
-
-#. Login with the test credentials
-
-    =========== ========
-    Username    Password
-    =========== ========
-    alice       agility
-    =========== ========
-
-#. You should now see a demo application.  
-
-    |image25|
-
-#. Click the user icon in the top right of the app and logout
-
-Task 2 - Test with an Unauthorized User
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Navigate to https://app.f5demo.com (you can click the bookmark)
-
-#. Login with the test credentials 
-
-    =========== ========
-    Username    Password
-    =========== ========
-    john        agility
-    =========== ========
-
-#. You should now see an error page since John is not a member of the sales group
-
-    |image28|
-
-8. Close the Chromium browser
-
-.. |image25| image:: /_static/class4/image25.png
-.. |image28| image:: /_static/class4/image28.png
-
-
-
-.. |image20| image:: /_static/class4/image20.png
-.. |image26| image:: /_static/class4/image26.png
-.. |image27| image:: /_static/class4/image27.png
-
-.. |image25| image:: /_static/class4/image25.png
-
-
-.. |image21| image:: /_static/class4/image21.png
-.. |image22| image:: /_static/class4/image22.png
-.. |image23| image:: /_static/class4/image23.png
-.. |image24| image:: /_static/class4/image24.png
-
-
-
-.. |image14| image:: /_static/class4/image14.png
-.. |image15| image:: /_static/class4/image15.png
-.. |image16| image:: /_static/class4/image16.png
-.. |image17| image:: /_static/class4/image17.png
-.. |image18| image:: /_static/class4/image18.png
-.. |image19| image:: /_static/class4/image19.png
-.. |image20| image:: /_static/class4/image20.png
-
-
-.. |image12| image:: /_static/class4/image12.png
-.. |image13| image:: /_static/class4/image13.png
-
-
-.. |image10| image:: /_static/class4/image10.png
-.. |image11| image:: /_static/class4/image11.png
-
-
-
-
-.. |image1| image:: /_static/class4/image1.png
-.. |image9| image:: /_static/class4/image9.png
-
-
-
-
-
-.. |image5| image:: /_static/class4/image5.png
-.. |image6| image:: /_static/class4/image6.png
-.. |image7| image:: /_static/class4/image7.png
-
-
-
-.. |image1| image:: /_static/class4/image1.png
-.. |image2| image:: /_static/class4/image2.png
-.. |image3| image:: /_static/class4/image3.png
-.. |image4| image:: /_static/class4/image4.png
