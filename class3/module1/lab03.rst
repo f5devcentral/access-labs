@@ -1,5 +1,5 @@
-Lab 3: Client-side Kerberos SAML IdP
-========================================
+Lab 3: SAML Identity Provider (IdP) - kerberos Auth
+======================================================
 
 The purpose of this lab is to deploy and test a Kerberos to SAML
 configuration. Students will modify a previous built Access Policy and

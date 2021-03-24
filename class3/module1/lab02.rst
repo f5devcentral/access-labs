@@ -1,5 +1,5 @@
-Lab 2: SAML Identity Provider (IdP) Lab
-=======================================
+Lab 2: SAML Identity Provider (IdP) - AD Auth
+===============================================
 
 
 The purpose of this lab is to configure and test a SAML Identity Provider.
