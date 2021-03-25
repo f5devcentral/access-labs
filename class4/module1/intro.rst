@@ -33,12 +33,14 @@ components:
 
 
 +------------------------+-------------------------+--------------------------+
-| Component              | VLAN/IP Address(es)     | Credentials              |
-+========================+=========================+==========================+
-| jumpbox.f5lab.local    | - Management 10.1.1.10  | - user1/user1            |
-|                        | - External   10.1.10.10 | - user2/user2            |
-|                        | - Internal   10.1.20.10 |                          |
-+------------------------+-------------------------+--------------------------+
+| Component              | VLAN/IP Address(es)     | Credentials              | 
++========================+=========================+=============+============+
+| jumpbox.f5lab.local    | - Management 10.1.1.10  | Username    | Password   |
+|                        | - External   10.1.10.10 +-------------+------------+
+|                        | - Internal   10.1.20.10 | f5lab\user1 | user1      |
+|                        |                         | f5lab\user2 | user2      |
+|                        |                         | f5lab\admin | admin      |
++------------------------+-------------------------+-------------+------------+
 | bigip1.f5lab.local     | - Management 10.1.1.4   | - admin/admin            |
 |                        | - External              |                          |
 |                        |     - 10.1.10.4         |                          |
