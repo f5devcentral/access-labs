@@ -2077,7 +2077,7 @@
 														],
 														"body": {
 															"mode": "raw",
-															"raw": "{\n\n    \"name\": \"{{VS_NAME}}-psp_act_variable_assign_ag\",\n    \"partition\": \"Common\",\n    \"type\": \"general\",\n    \"variables\": [\n        {\n            \"append\": \"false\",\n            \"expression\": \"mcget {session.saml.last.attr.name.emailaddress}\",\n            \"secure\": \"false\",\n            \"varname\": \"session.logon.last.username\"\n        }\n    ]\n}"
+															"raw": "{\n\n    \"name\": \"{{VS_NAME}}-psp_act_variable_assign_ag\",\n    \"partition\": \"Common\",\n    \"type\": \"general\",\n    \"variables\": [\n        {\n            \"append\": \"false\",\n            \"expression\": \"mcget {session.saml.last.nameIDValue}\",\n            \"secure\": \"false\",\n            \"varname\": \"session.logon.last.username\"\n        }\n    ]\n}"
 														},
 														"url": {
 															"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/agent/variable-assign/",
@@ -3850,7 +3850,7 @@
 											"script": {
 												"exec": [
 													"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");",
-													"var ADDR = pm.collectionVariables.get(\"BIGIP_ADDRESS1\")",
+													"var ADDR = pm.collectionVariables.get(\"BIGIP_ADDRESS2\")",
 													"",
 													"if (responseCode.code === 200) {",
 													"",

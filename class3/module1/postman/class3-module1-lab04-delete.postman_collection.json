@@ -346,7 +346,7 @@
 					]
 				},
 				{
-					"name": "Delete Virtuals Server Address 1 from BIG-IP Server",
+					"name": "Delete Virtuals Server Address 2 from BIG-IP Server",
 					"item": [
 						{
 							"name": "bigip5-delete-server-vs",
@@ -364,7 +364,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
+											"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
 											"pm.test(\"Virtual Server \"+VS_NAME+\" deleted from server\", function () {",
@@ -411,7 +411,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/~{{PARTITION_NAME}}~{{PATH_NAME}}~{{DNS2_NAME}}",
+									"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/~{{PARTITION_NAME}}~{{PATH_NAME}}~{{VS2_NAME}}",
 									"protocol": "https",
 									"host": [
 										"10",
@@ -426,7 +426,7 @@
 										"server",
 										"~Common~bigip1.f5lab.local",
 										"virtual-servers",
-										"~{{PARTITION_NAME}}~{{PATH_NAME}}~{{DNS2_NAME}}"
+										"~{{PARTITION_NAME}}~{{PATH_NAME}}~{{VS2_NAME}}"
 									]
 								}
 							},
@@ -1403,7 +1403,7 @@
 											"raw": ""
 										},
 										"url": {
-											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/sys/crypto/cert/~Common~{{VS_NAME}}-idp",
+											"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/sys/crypto/cert/~Common~{{DNS2_NAME}}",
 											"protocol": "https",
 											"host": [
 												"{{BIGIP_MGMT}}"
@@ -1414,7 +1414,7 @@
 												"sys",
 												"crypto",
 												"cert",
-												"~Common~{{VS_NAME}}-idp"
+												"~Common~{{DNS2_NAME}}"
 											]
 										}
 									},
@@ -2261,7 +2261,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+													"var VS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");\r",
 													"\r",
 													"if (responseCode.code === 200) {\r",
 													"    pm.test(\"Profile \"+VS_NAME+\"-psp Deleted\", function () {\r",
@@ -2347,7 +2347,7 @@
 											"listen": "test",
 											"script": {
 												"exec": [
-													"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
+													"var VS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");\r",
 													"\r",
 													"if (responseCode.code === 200) {\r",
 													"    pm.test(\"Policy \"+VS_NAME+\"-psp deleted\", function () {\r",
@@ -2519,14 +2519,14 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"",
 											"",
 											"if (responseCode.code === 200) {",
-											"    pm.test(\"Webtop \"+VS_NAME+\"-webtop Deleted\", function () {",
+											"    pm.test(\"Webtop full_webtop Deleted\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"} else ",
-											"    pm.test(\"Webtop \"+VS_NAME+\"-webtop does not exist\", function () {",
+											"    pm.test(\"Webtop full_webtop does not exist\", function () {",
 											"        pm.response.to.have.status(404);",
 											"    });",
 											"",
@@ -2603,14 +2603,14 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var DNS_NAME = pm.collectionVariables.get(\"DNS2_NAME\");\r",
+											"var DNS_NAME = pm.collectionVariables.get(\"DNS1_NAME\");\r",
 											"\r",
 											"if (responseCode.code === 200) {\r",
-											"    pm.test(\"SAML Resource \"+DNS_NAME+\"-saml-resource deleted\", function () {\r",
+											"    pm.test(\"SAML Resource \"+DNS_NAME+\" deleted\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
 											"} else \r",
-											"    pm.test(\"SAML Resource \"+DNS_NAME+\"-saml-resource doesn't exist\", function () {\r",
+											"    pm.test(\"SAML Resource \"+DNS_NAME+\" doesn't exist\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
 											"    });\r",
 											""
@@ -3002,11 +3002,11 @@
 										"exec": [
 											"\r",
 											"if (responseCode.code === 200) {\r",
-											"    pm.test(\"sp.acme.com key deleted\", function () {\r",
+											"    pm.test(\"idp.acme.com key deleted\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
 											"} else if (responseCode.code === 404) { \r",
-											"    pm.test(\"sp.acme.com key does not exist\", function () {\r",
+											"    pm.test(\"idp.acme.com key does not exist\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
 											"    });\r",
 											"} "

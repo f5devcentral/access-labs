@@ -34,7 +34,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **SAML Identity Provider (IdP)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SAML Identity Provider (IdP) - LocalDB Auth**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -85,25 +85,6 @@ IdP Service
    |image008|
 
 #. In the **Create New SAML IdP Service** dialog box, click
-   **SAML Attributes** in the left navigation pane and click the
-   **Add** button as shown
-
-    |image009|
-
-#. In the **Name** field in the resulting pop-up window, enter the
-   following: ``emailaddress``
-
-#. Under **Attribute Values**, click the **Add** button
-
-#. In the **Values** line, enter the following: ``%{session.ad.last.attr.mail}``
-
-#. Click the **Update** button
-
-#. Click the **OK** button
-
-   |image010|
-
-#. In the **Create New SAML IdP Service** dialog box, click
    **Security Settings** in the left navigation pane and key in
    the following:
 
@@ -117,7 +98,7 @@ IdP Service
 
 #. Click **OK** to complete the creation of the IdP service
 
-   |image011|
+   |image009|
 
 SP Connector
 ~~~~~~~~~~~~~~~~~
@@ -130,7 +111,7 @@ SP Connector
 
 #. Select **From Metadata** from the drop down menu
 
-   |image012|
+   |image010|
 
 #. In the **Create New SAML Service Provider** dialogue box, click **Browse**
    and select the *sp_acme_com.xml* file from the Desktop of
@@ -141,7 +122,7 @@ SP Connector
 
 #. Click **OK** on the dialog box
 
-   |image013|
+   |image011|
 
    .. NOTE:: The sp_acme_com.xml file was created previously.
       Oftentimes SP providers will have a metadata file representing their
@@ -151,19 +132,19 @@ SP Connector
 #. Click on **Local IdP Services** (under the **SAML Identity Provider** tab)
    in the horizontal navigation menu
 
-   |image014|
+   |image012|
 
 #. Select the **Checkbox** next to the previously created ``idp.acme.com``
    and click the **Bind/Unbind SP Connectors** button at the bottom of the GUI
 
-   |image015|
+   |image013|
 
 #. In the **Edit SAML SP's that use this IdP** dialog, select the
    ``/Common/sp.acme.com`` SAML SP Connection Name created previously
 
 #. Click the **OK** button at the bottom of the dialog box
 
-   |image016|
+   |image014|
 
 #. Under the **Access ‑> Federation ‑> SAML Identity Provider ‑>
    Local IdP Services** menu you should now see the following (as shown):
@@ -174,7 +155,7 @@ SP Connector
    | SAML SP Connectors: | ``sp.acme.com``        |
    +---------------------+------------------------+
 
-   |image017|
+   |image015|
 
 TASK 2 - Create a SAML Resource
 -------------------------------------
@@ -182,7 +163,7 @@ TASK 2 - Create a SAML Resource
 
 #. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
 
-   |image018|
+   |image016|
 
 #. In the **New SAML Resource** window, enter the following values:
 
@@ -196,7 +177,7 @@ TASK 2 - Create a SAML Resource
 
 #. Click **Finished** at the bottom of the configuration window
 
-   |image019|
+   |image017|
 
 
 
@@ -206,7 +187,7 @@ Task 3 - Create a Webtop
 #. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
 
 
-   |image020|
+   |image018|
 
 #. In the resulting window, enter the following values:
 
@@ -220,42 +201,52 @@ Task 3 - Create a Webtop
 
 #. Click **Finished** at the bottom of the GUI
 
-   |image021|
+   |image019|
 
 
 Task 4 - Create a Local Dabasebase 
 ----------------------------------------
 
-#. From the jumphost, navigate to the command line enter the command below to generate a kerberos key tab file
+#. Navigate to Access >> Authentication >> Local User DB >> Instances >> **+** (Plus Symbol).  
 
-   ``ktpass -princ HTTP/idp.acme.com@F5LAB.LOCAL -mapuser f5lab\krbtsrv -ptype KRB5_NT_PRINCIPAL -pass ’P@$$w0rd' -out C:\Users\user1\Desktop\out.keytab``
+
+   |image020|
+
+#. In the **Create New Local User DB Instance** window, enter the following information:
+
+   +-------------------------------+------------------+
+   | Name:                         | ``users``        |
+   +-------------------------------+------------------+
+   | Lockout Interval:             | ``600``          |
+   +-------------------------------+------------------+
+   | Lockoout Threshold:           | ``3``            |
+   +-------------------------------+------------------+
+   | Dynamic User Remove Interval: | ``1800``         |
+   +-------------------------------+------------------+
+  
+
+#. Click **OK**
+
+   |image021|
+
+#. Navigate to Access >> Authentication >> Local User DB >> Users >> **+** (Plus Symbol).  
 
    |image022|
 
-#. From the BIG-IP GUI, navigate to Access >> Authentication >> Kerberos >> Click the **+** Plus Symbol
+#. In the **User Information** window, enter the following information:
 
+   +-------------------------------+------------------+
+   | User Name:                    | ``user1``        |
+   +-------------------------------+------------------+
+   | Password:                     | ``user1``        |
+   +-------------------------------+------------------+
+   | Confirm Password:             | ``user1``        |
+   +-------------------------------+------------------+
+
+
+#. Click **OK**
 
    |image023|
-
-   +------------------+-------------------------+
-   | Name:            | ``idp.acme.com``        |
-   +------------------+-------------------------+
-   | SPN Format:      | ``Host-based service``  |
-   +------------------+-------------------------+
-   | Auth Realm:      | ``F5LAB.LOCAL``         |
-   +------------------+-------------------------+
-   | Service Name:    | ``HTTP``                |
-   +------------------+-------------------------+
-   | Keytab File:     | ``out.keytab``          |
-   +------------------+-------------------------+
-
-#. Click **Finished**
-
-   |image024|
-
-
-
-
 
 Task 4 - Create a SAML IdP Access Policy
 ---------------------------------------------
@@ -265,7 +256,7 @@ Task 4 - Create a SAML IdP Access Policy
 
 #. Click the **Create** button (far right)
 
-   |image025|
+   |image024|
 
 #. In the **New Profile** window, enter the following information:
 
@@ -279,7 +270,7 @@ Task 4 - Create a SAML IdP Access Policy
    | Customization Type:  | ``modern`` (default)      |
    +----------------------+---------------------------+
 
-   |image026|
+   |image025|
 
 #. Scroll to the bottom of the **New Profile** window to the
    **Language Settings** section
@@ -290,140 +281,65 @@ Task 4 - Create a SAML IdP Access Policy
 
 #. The **Default Language** should be automatically set
 
-   |image027|
+   |image026|
 
 #. From the **Access ‑> Profiles/Policies ‑> Access Profiles
    (Per-Session Policies) screen**, click the **Edit** link on the previously
    created ``idp.acme.com-psp`` line
 
-   |image028|
+   |image027|
 
 #. Click the **Plus (+) Sign** between **Start** and **Deny**
 
-   |image029|
+   |image028|
 
 #. In the pop-up dialog box, select the **Logon** tab and then select the
-   **Radio** next to **HTTP 401 Response**, and click the **Add Item** button
+   **Radio** next to **Logon Page**, and click the **Add Item** button
+
+   |image029|
+
+#. Click **Save** in the resulting Logon Page dialog box
 
    |image030|
 
-#. In the **HTTP 401 Response** dialog box, enter the following information:
+#. Click the **Plus (+) Sign** between **Logon Page** and **Deny**
 
-   +-------------------+---------------------------------+
-   | HTTP Auth Level:  | ``negotiate`` (drop down)       |
-   +-------------------+---------------------------------+
+   |image031|
 
-#. Click the **Save** button at the bottom of the dialog box
-
-   |image31|
-
-#. Click the **Branch Rules** tab
-#. Click the **X** on the Basic Branch
+#. In the pop-up dialog box, select the **Authentication** tab and then
+   select the **Radio** next to **LocalDB Auth**, and click the **Add Item** button
 
    |image032|
 
-#. Click **Save**
+#. In the resulting **LocalDB Auth** pop-up window, select ``/Common/users``
+   from the **LocalDB Instance** drop down menu
+
+#. Click **Save** at the bottom of the window
 
    |image033|
 
-#. Click the **+** (Plus symbo) on the negotiate branch
+#. Click the **Plus (+) Sign** on the successful branch between **LocalDB Auth**
+   and **Deny**
 
    |image034|
-
-#. Click the **Authentication** tab
-#. Select **Kerberos Auth*
-#. Click **Add Item**
-
-   |image035|
-
-#. In the **Kerberos Auth** dialog box, enter the following information:
-
-   +-----------------------+--------------------------------------------+
-   | AAA Server:           | ``/Common/idp.acme.com`` (drop down)       |
-   +-----------------------+--------------------------------------------+
-   | Request Based Auth:   | ``Enabled` (drop down)                     |
-   +-----------------------+--------------------------------------------+
-
-#. Click **Save**
-
-   |image036|
-
-#. Click the **Plus (+) Sign** on the **Successful** branch between **Kerberos Auth** and **Deny**
-
-   |image037|
-
-#. In the pop-up dialog box, select the **Authentication** tab and then
-   select the **Radio** next to **AD Query**, and click the **Add Item** button
-
-   |image038|
-
-#. In the resulting **AD Query** pop-up window, select
-   ``/Commmon/f5lab.local`` from the **Server** drop down menu
-
-#. In the **SearchFilter** field, enter the following value:
-   ``userPrincipalName=%{session.logon.last.username}``
-
-   |image039|
-
-#. In the **AD Query** window, click the **Branch Rules** tab
-
-#. Change the **Name** of the branch to *Successful*.
-
-#. Click the **Change** link next to the **Expression**
-
-   |image040|
-
-#. In the resulting pop-up window, delete the existing expression by clicking
-   the **X** as shown
-
-   |image041|
-
-#. Create a new **Simple** expression by clicking the **Add Expression** button
-
-   |image042|
-
-#. In the resulting menu, select the following from the drop down menus:
-
-   +------------+---------------------+
-   | Agent Sel: | ``AD Query``        |
-   +------------+---------------------+
-   | Condition: | ``AD Query Passed`` |
-   +------------+---------------------+
-
-#. Click the **Add Expression** Button
-
-   |image043|
-
-#. Click the **Finished** button to complete the expression
-
-   |image044|
-
-#. Click the **Save** button to complete the **AD Query**
-
-   |image045|
-
-#. Click the **Plus (+) Sign** on the **Successful** branch between
-   **AD Query** and **Deny**
-
-   |image046|
 
 #. In the pop-up dialog box, select the **Assignment** tab and then select
    the **Radio** next to **Advanced Resource Assign**, and click the
    **Add Item** button
 
-   |image047|
+   |image035|
 
 #. In the resulting **Advanced Resource Assign** pop-up window, click
    the **Add New Entry** button
 
 #. In the new Resource Assignment entry, click the **Add/Delete** link
 
-   |image048|
+   |image036|
 
 #. In the resulting pop-up window, click the **SAML** tab, and select the
    **Checkbox** next to */Common/sp.acme.com*
 
-   |image049|
+   |image037|
 
 #. Click the **Webtop** tab, and select the **Checkbox** next to
    ``/Common/full_webtop``
@@ -431,47 +347,92 @@ Task 4 - Create a SAML IdP Access Policy
  #. Click the **Update** button at the bottom of the window to complete
    the Resource Assignment entry
 
-     |image050|
+   |image038|
 
 
 #. Click the **Save** button at the bottom of the **Advanced Resource Assign** window
 
-   |image051|
+   |image039|
 
 
 #. In the **Visual Policy Editor**, select the **Deny** ending on the
    fallback branch following **Advanced Resource Assign**
 
-   |image052|
+   |image040|
 
 #. In the **Select Ending** dialog box, selet the **Allow** radio button
    and then click **Save**
 
-   |image053|
+   |image041|
 
 #. In the **Visual Policy Editor**, click **Apply Access Policy**
    (top left), and close the **Visual Policy Editor**
 
-   |image054|
+   |image042|
 
 
+TASK 6 - Create the IdP Virtual Server
+----------------------------------------
 
-TASK 2 - Test the Kerberos to SAML Configuration
+
+#. Begin by selecting **Local Traffic ‑> Virtual Servers**
+
+#. Click the **Create** button (far right)
+
+   |image043|
+
+#. In the **New Virtual Server** window, enter the following information:
+
+   +---------------------------+------------------------------+
+   | General Properties                                       |
+   +===========================+==============================+
+   | Name:                     | ``idp.acme.com``             |
+   +---------------------------+------------------------------+
+   | Destination Address/Mask: | ``10.1.10.102``              |
+   +---------------------------+------------------------------+
+   | Service Port:             | ``443``                      |
+   +---------------------------+------------------------------+
+
+   |image044|
+
+   +---------------------------+------------------------------+
+   | Configuration                                            |
+   +===========================+==============================+
+   | HTTP Profile:             | ``http`` (drop down)         |
+   +---------------------------+------------------------------+
+   | SSL Profile (Client)      | ``wildcard.acme.com``        |
+   +---------------------------+------------------------------+
+
+   |image045|
+
+   +-----------------+---------------------------+
+   | Access Policy                               |
+   +=================+===========================+
+   | Access Profile: | ``idp.acme.com-psp``      |
+   +-----------------+---------------------------+
+
+   |image046|
+
+
+#. Scroll to the bottom of the configuration window and click **Finished**
+
+
+TASK 2 - Test the SAML Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the jumphost, navigate to the SAML IdP you previously configured at *https://idp.acme.com*.  Noticee you are automatically signed into the IDP. 
+#. From the jumphost, navigate to the SAML IdP you previously configured at *https://idp.acme.com*.  
+
+#. Logon with the the following credentials: Username:**user1** Password:**user1**
+
+   |image047|
   
 #. Click **sp.acme.com**
 
-   |image055|
+   |image048|
 
 #.  You are then successfully logged into https://sp.acme.com and presented a webpage.
 
-   |image056|
-
-#. From the jumphost CLI, type klist.  You will see there is a kerberos ticket for HTTP/idp.acme.com@F5LAB.LOCAL
-
-   |image057|
+   |image049|
 
 
 #. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
@@ -555,14 +516,6 @@ Lab Clean Up
 .. |image047| image:: ./media/lab04/047.png
 .. |image048| image:: ./media/lab04/048.png
 .. |image049| image:: ./media/lab04/049.png
-.. |image050| image:: ./media/lab04/050.png
-.. |image051| image:: ./media/lab04/051.png
-.. |image052| image:: ./media/lab04/052.png
-.. |image053| image:: ./media/lab04/053.png
-.. |image054| image:: ./media/lab04/054.png
-.. |image055| image:: ./media/lab04/055.png
-.. |image056| image:: ./media/lab04/056.png
-.. |image057| image:: ./media/lab04/057.png
 .. |image998| image:: ./media/lab04/998.png
 .. |image999| image:: ./media/lab04/999.png
 

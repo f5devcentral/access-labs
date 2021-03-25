@@ -469,6 +469,50 @@ Task 4 - Create a SAML IdP Access Policy
 
    |image054|
 
+TASK 6 - Create the IdP Virtual Server
+----------------------------------------
+
+
+#. Begin by selecting **Local Traffic ‑> Virtual Servers**
+
+#. Click the **Create** button (far right)
+
+   |image055|
+
+#. In the **New Virtual Server** window, enter the following information:
+
+   +---------------------------+------------------------------+
+   | General Properties                                       |
+   +===========================+==============================+
+   | Name:                     | ``idp.acme.com``             |
+   +---------------------------+------------------------------+
+   | Destination Address/Mask: | ``10.1.10.102``              |
+   +---------------------------+------------------------------+
+   | Service Port:             | ``443``                      |
+   +---------------------------+------------------------------+
+
+   |image056|
+
+   +---------------------------+------------------------------+
+   | Configuration                                            |
+   +===========================+==============================+
+   | HTTP Profile:             | ``http`` (drop down)         |
+   +---------------------------+------------------------------+
+   | SSL Profile (Client)      | ``wildcard.acme.com``        |
+   +---------------------------+------------------------------+
+
+   |image057|
+
+   +-----------------+---------------------------+
+   | Access Policy                               |
+   +=================+===========================+
+   | Access Profile: | ``idp.acme.com-psp``      |
+   +-----------------+---------------------------+
+
+   |image058|
+
+
+#. Scroll to the bottom of the configuration window and click **Finished**
 
 
 TASK 2 - Test the Kerberos to SAML Configuration
@@ -478,15 +522,15 @@ TASK 2 - Test the Kerberos to SAML Configuration
   
 #. Click **sp.acme.com**
 
-   |image055|
+   |image059|
 
 #.  You are then successfully logged into https://sp.acme.com and presented a webpage.
 
-   |image056|
+   |image060|
 
 #. From the jumphost CLI, type klist.  You will see there is a kerberos ticket for HTTP/idp.acme.com@F5LAB.LOCAL
 
-   |image057|
+   |image061|
 
 
 #. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
