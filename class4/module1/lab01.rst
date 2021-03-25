@@ -1,16 +1,16 @@
 Lab 1: Creating a SAML Service Provider(SP)
 ============================================
 .. _class4-module1-lab1:
-In this lab you will learn how to create and delete Access related objects.
+In this lab you will learn how to work with the SP Service and IdP Connector.
 
-Access Lab Environment
--------------------------
+Task 1 - Access the Lab Environment
+--------------------------------------
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click **ACCESS** next to jumphostf5lab.local
+#. Click **ACCESS** next to jumphost.f5lab.local
 
     |image101|
 
@@ -19,7 +19,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
-#.  login with the following credentials:
+#. Login with the following credentials:
 
          - User: **f5lab\\user1**
          - Password: **user1**

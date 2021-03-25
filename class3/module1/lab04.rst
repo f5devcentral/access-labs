@@ -6,11 +6,11 @@ Lab 4: SAML Identity Provider (IdP) - LocalDB Auth
 Setup Lab Environment
 -----------------------------------
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click **ACCESS** next to jumpohost.f5lab.local
+#. Click **ACCESS** next to jumphost.f5lab.local
 
    |image001|
 
@@ -29,7 +29,6 @@ To access your dedicated student lab environment, you will require a web browser
 
 	|image002|
 
-
 #. Scroll down the page until you see **301 SAML Federation** on the left
 
    |image003|
@@ -41,9 +40,6 @@ To access your dedicated student lab environment, you will require a web browser
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
    |image005|
-
-
-
 
 
 TASK 1 ‑ Configure the SAML Identity Provider (IdP)
