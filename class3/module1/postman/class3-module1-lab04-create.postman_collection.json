@@ -33,7 +33,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"3\",\n\"user\": \"user1\"\n}"
+							"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"3\",\n\"module_number\":\"1\",\n\"user\": \"user1\"\n}"
 						},
 						"url": {
 							"raw": "http://10.1.20.6:81/desktop",
@@ -82,7 +82,7 @@
 									"pm.collectionVariables.set(\"VIPS\", \"1\");\r",
 									"\r",
 									"//THis below varaibles are using for defining the tenant ID in AS3.  This should be the solution number. Example: solution1 or solution2.\r",
-									"pm.collectionVariables.set(\"PATH_NAME\", \"lab03\");\r",
+									"pm.collectionVariables.set(\"PATH_NAME\", \"lab04\");\r",
 									"pm.collectionVariables.set(\"PARTITION_NAME\", \"class3-module1\");\r",
 									"\r",
 									"//This is the primary section defining the settings for the application the solutions is going to deploy\r",
@@ -3168,7 +3168,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"ca.f5lab.local.crt installed\", function () {\r",
+											"pm.test(\"idp.acme.com key imported\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
@@ -3247,7 +3247,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"ca.f5lab.local.crt imported\", function () {\r",
+											"pm.test(\"idp.acme.com key installed\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
@@ -3307,7 +3307,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"ca.f5lab.local.crt installed\", function () {\r",
+											"pm.test(\"idp.acme.com certificate imported\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],
@@ -3386,7 +3386,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"pm.test(\"ca.f5lab.local.crt imported\", function () {\r",
+											"pm.test(\"idp.acme.com certificate installed\", function () {\r",
 											"    pm.response.to.have.status(200);\r",
 											"});"
 										],

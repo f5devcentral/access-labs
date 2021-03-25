@@ -34,7 +34,7 @@
 									"pm.collectionVariables.set(\"VIPS\", \"1\");\r",
 									"\r",
 									"//THis below varaibles are using for defining the tenant ID in AS3.  This should be the solution number. Example: solution1 or solution2.\r",
-									"pm.collectionVariables.set(\"PATH_NAME\", \"lab03\");\r",
+									"pm.collectionVariables.set(\"PATH_NAME\", \"lab04\");\r",
 									"pm.collectionVariables.set(\"PARTITION_NAME\", \"class3-module1\");\r",
 									"\r",
 									"//This is the primary section defining the settings for the application the solutions is going to deploy\r",
