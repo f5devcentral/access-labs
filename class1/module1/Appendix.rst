@@ -350,7 +350,7 @@ Resources
 - `BIG-IP APM: Visual Policy Editor <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-visual-policy-editor.html>`_
 - `BIG-IP APM: Customization <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-customization.html>`_
 - `BIG-IP APM: Advanced Customization Examples <https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-advanced-customization-examples.html>`_
-- `BIG-IP APM: Application Access <https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-application-access.html`_
+- `BIG-IP APM: Application Access <https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-application-access.html>`_
 - `BIG-IP APM: Authentication Essentials <https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-authentication-essentials.html>`_
 - `BIG-IP APM: Authentication Methods <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-authentication-methods.html>`_
 - `BIG-IP APM: Single Sign-on Concepts <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration.html>`_
@@ -364,3 +364,4 @@ Resources
 .. |image20| image:: /class1/module1/media/appendix/image20.png
 .. |image21| image:: /class1/module1/media/appendix/image21.png
 .. |inlinesaml| image:: /class1/module1/media/appendix/inlinesaml.png
+.. |multidomain| image:: /class1/module1/media/appendix/multidomain.png
