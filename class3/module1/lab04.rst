@@ -344,7 +344,7 @@ Task 4 - Create a SAML IdP Access Policy
 #. Click the **Webtop** tab, and select the **Checkbox** next to
    ``/Common/full_webtop``
 
- #. Click the **Update** button at the bottom of the window to complete
+#. Click the **Update** button at the bottom of the window to complete
    the Resource Assignment entry
 
    |image038|
@@ -420,7 +420,7 @@ TASK 6 - Create the IdP Virtual Server
 TASK 2 - Test the SAML Configuration
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. From the jumphost, navigate to the SAML IdP you previously configured at *https://idp.acme.com*.  
+#. From the jumphost, navigate to the SAML IdP you previously configured at **https://idp.acme.com**.  
 
 #. Logon with the the following credentials: Username:**user1** Password:**user1**
 
@@ -430,10 +430,9 @@ TASK 2 - Test the SAML Configuration
 
    |image048|
 
-#.  You are then successfully logged into https://sp.acme.com and presented a webpage.
+#. You are then successfully logged into https://sp.acme.com and presented a webpage.
 
    |image049|
-
 
 #. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
 
