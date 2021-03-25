@@ -355,7 +355,7 @@ Resources
 - `BIG-IP APM: Authentication Methods <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-authentication-methods.html>`_
 - `BIG-IP APM: Single Sign-on Concepts <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration.html>`_
 - `BIG-IP APM: Network Access <https://techdocs.f5.com/en-us/bigip-16-0-0/big-ip-access-policy-manager-network-access.html>`_
-- `BIG-IP APM: All thing APM <https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM&version=16.0.1>`_
+- `BIG-IP APM: All things APM <https://support.f5.com/csp/knowledge-center/software/BIG-IP?module=BIG-IP%20APM&version=16.0.1>`_
 
 
 .. |image4| image:: /class1/module1/media/appendix/image5.png
