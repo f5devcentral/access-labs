@@ -8,8 +8,8 @@ In this lab you will learn about the API calls necessary to build the basline Ac
 
 
 
-Access Lab Environment
--------------------------
+Task 1 -Access Lab Environment
+--------------------------------
 
 To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
@@ -29,7 +29,7 @@ To access your dedicated student lab environment, you will need a web browser an
          - Password: **user1**
 
 
-Task 1 - Import Postman Collections
+Task 2 - Import Postman Collections
 -----------------------------------------------------------------------
 
 #. From the Jumphost, open **Postman** via the desktop shortcut or toolbar at the bottom
@@ -62,7 +62,7 @@ Task 1 - Import Postman Collections
 #. A collection called **student-class4-module2-lab1** will appear on the left side in Postman
 
 
-Task 2 - Explore the icontrolRest Endpoints
+Task 3 - Explore the icontrolRest Endpoints
 -----------------------------------------------------------------------
 .. _class4-module2-lab1-endpoints:
 #. Expand the **student-class4-module2-lab1** collection and the **Create Policy** folder to see its subfolders.
@@ -185,7 +185,7 @@ Task 2 - Explore the icontrolRest Endpoints
 
 
 
-Task 3 - Create your first policy using automation
+Task 4 - Create your first policy using automation
 -----------------------------------------------------------------------  
 
 #.  Now that we have walked through all the API calls required to create a policy through automation, we will use Postman Runner to create it.
@@ -237,7 +237,7 @@ Task 3 - Create your first policy using automation
     |image036|
 
 
-Task 4 - Deleting an Access Profile 
+Task 5 - Deleting an Access Profile 
 ----------------------------------------------------------------------- 
 .. _class4-module2-lab1-delete:
 
@@ -271,6 +271,16 @@ Task 4 - Deleting an Access Profile
 #. The Policy has been successfully deleted.
 
     |image040|
+
+
+Task 6 - Lab Clean up
+---------------------------------
+
+#. From Postman, Click the **3 dots** on the bottom right of the student-class4-module2-lab1 Collection.
+
+#. Click **Delete**
+
+    |image042|
 
 This concludes the lab on building a baseline Access Policy
 
@@ -320,7 +330,8 @@ This concludes the lab on building a baseline Access Policy
 .. |image038| image:: media/lab01/038.png
 .. |image039| image:: media/lab01/039.png
 .. |image040| image:: media/lab01/040.png
-.. |image040| image:: media/lab01/041.png
+.. |image041| image:: media/lab01/041.png
+.. |image042| image:: media/lab01/042.png
 .. |image100| image:: media/lab01/100.png
 .. |image101| image:: media/lab01/101.png
 
