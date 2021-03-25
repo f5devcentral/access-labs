@@ -57,7 +57,7 @@ Task 2 - Import Postman Collections
 #. A collection called **student-class4-module1-lab1** will appear on the left side in Postman
 
 
-Task 2 - Import IDP Signing Certificate
+Task 3 - Import IDP Signing Certificate
 -----------------------------------------------------------------------
 
 #. Expand the **student-class4-module1-lab1** collection to see the subfolders and requests.
@@ -97,7 +97,7 @@ Task 2 - Import IDP Signing Certificate
 
 
 
-Task 2 - Create an SAML IDP Connector 
+Task 4 - Create an SAML IDP Connector 
 -----------------------------------------------------------------------
 
 In order to create an SP service the IDP Connector must exist.  This is because the SP Service endpoint contains the binding information to the IDP Connector.
@@ -117,7 +117,7 @@ In order to create an SP service the IDP Connector must exist.  This is because 
     |image013|
 
 
-Task 3 - Create an SAML SP Service
+Task 5 - Create an SAML SP Service
 -----------------------------------------------------------------------   
 
 #. Select the **bigip-create-sp service-bigip**
@@ -134,7 +134,7 @@ Task 3 - Create an SAML SP Service
 
     |image015|
 
-Task 4 - Explore configuration via the BIG-IP GUI
+Task 6 - Explore configuration via the BIG-IP GUI
 -----------------------------------------------------------------------
 
 #. From the jumphost, open a browser and navigate to https://bigip1.f5lab.local
@@ -160,7 +160,7 @@ Task 4 - Explore configuration via the BIG-IP GUI
 
     |image019|
 
-Task 5 - Deleting a SAML Service Provider(SP) Service Configuration
+Task 7 - Deleting a SAML Service Provider(SP) Service Configuration
 ------------------------------------------------------------------------
 .. _class4-module1-lab1-delete:
 
@@ -205,7 +205,7 @@ With imperative call objects must be deleted in the reverse order they are typic
     |image026|
 
 
-Task 6 - Ensure objects were removed via GUI
+Task 8 - Ensure objects were removed via GUI
 -----------------------------------------------
 
 #. Return to the jumpbox's browser and navigate to https://bigip1.f5lab.local
@@ -238,6 +238,17 @@ Task 6 - Ensure objects were removed via GUI
 #. Notice the IDP Connector was deleted.
 
     |image030|
+
+Task 9 - Lab Clean up
+---------------------------------
+
+
+#. From Postman, Click the **3 dots** on the bottom right of the student-class4-module1-lab1 Collection.
+
+#. Click **Delete**
+
+|image031|
+
 
 This concludes the APM lab on creating and deleting APM objects via iControlREST.
 
@@ -275,4 +286,5 @@ This concludes the APM lab on creating and deleting APM objects via iControlREST
 .. |image028| image:: media/lab01/028.png
 .. |image029| image:: media/lab01/029.png
 .. |image030| image:: media/lab01/030.png
+.. |image031| image:: media/lab01/031.png
 .. |image101| image:: media/lab01/101.png
