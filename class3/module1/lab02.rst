@@ -1,5 +1,5 @@
-Lab 2: SAML Identity Provider (IdP) Lab
-=======================================
+Lab 2: SAML Identity Provider (IdP) - AD Auth
+===============================================
 
 
 The purpose of this lab is to configure and test a SAML Identity Provider.
@@ -414,7 +414,7 @@ Task 4 - Create a SAML IdP Access Policy
 #. In the **Visual Policy Editor**, click **Apply Access Policy** (top left),
    and close the **Visual Policy Editor**
 
-   |image49|
+   |image049|
 
 TASK 6 - Create the IdP Virtual Server
 ----------------------------------------
@@ -470,10 +470,7 @@ TASK 7 - Test the SAML IdP
    
 #. Log in to the IdP with the credentials: Username: user1 Password:user1
 
-|image054|
-
-
- 
+   |image054|
 
 #. Click on the sp.acme.com icon.
 
