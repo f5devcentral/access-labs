@@ -32,16 +32,17 @@ The following table lists VLANS, IP Addresses and Credentials for all
 components:
 
 
-+------------------------+-------------------------+----------------------------+
-| Component              | VLAN/IP Address(es)     | Credentials                |
-+========================+=========================+===============+============+
-| jumpbox.f5lab.local    | - Management 10.1.1.10  | Username      | Password   |
-|                        | - External   10.1.10.10 +---------------+------------+
-|                        | - Internal   10.1.20.10 | ::            |            |
-|                        |                         |   f5lab\user1 | user1      |
-|                        |                         |   f5lab\user2 | user2      |
-|                        |                         |   f5lab\admin | admin      |
-+------------------------+-------------------------+---------------+------------+
++------------------------+-------------------------+-----------------------------+
+| Component              | VLAN/IP Address(es)     | Credentials                 |
++========================+=========================+================+============+
+| jumpbox.f5lab.local    | - Management 10.1.1.10  | Username       | Password   |
+|                        | - External   10.1.10.10 +----------------+------------+
+|                        | - Internal   10.1.20.10 |                |            |
+|                        |                         |  - f5lab\user1 | - user1    |
+|                        |                         |  - f5lab\user2 | - user2    |
+|                        |                         |  - f5lab\admin | - admin    |
++------------------------+-------------------------+----------------+------------+
+
 
 .. |image000| image:: media/intro/000.png
 
