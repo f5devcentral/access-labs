@@ -25,12 +25,12 @@ To access your dedicated student lab environment, you will need a web browser an
          - Password: **user1**
 
 
-Task 1 - Import Postman Collections
+Task 2 - Import Postman Collections
 -----------------------------------------------------------------------
 
 #. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
 
-     .. note::  Dismiss any prompts to update Postman.  
+    .. note::  Dismiss any prompts to update Postman.  
 
     |image001|
 
@@ -72,7 +72,7 @@ Task 2 - Import IDP Signing Certificate
 
 #. Click **Body** to display what will be passed in the POST request
 
-   .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
+    .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
 
    |image008|
 
@@ -84,7 +84,7 @@ Task 2 - Import IDP Signing Certificate
 
 #. Select the **bigip-install-cert-idp** request.
 
-#. Examine the body of this request.  This request installs the certificate we previously uploaded to the BIG-IPs crypte store.
+#. Examine the body of this request.  This request installs the certificate we previously uploaded to the BIG-IPs crypto store.
 
     |image010|
 
@@ -124,7 +124,7 @@ Task 3 - Create an SAML SP Service
 
 #. Notice the request endpoint is **/mgmt/tm/apm/aaa/saml/**.
 
-#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting for the SP service, plus a binding the IDP Connector we just created. 
+#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting for the SP service, plus a binding to the IDP Connector we just created. 
 
     |image014|
 
@@ -137,25 +137,26 @@ Task 3 - Create an SAML SP Service
 Task 4 - Explore configuration via the BIG-IP GUI
 -----------------------------------------------------------------------
 
-#. Open a browser and naviage to https://bigip1.f5lab.local
+#. From the jumphost, open a browser and navigate to https://bigip1.f5lab.local
 
 #. Login to the BIG-IP GUI with the following credentials:
+
     - Username: **admin**
     - Password: **admin**
 
-#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on **SSL Certificate List** and not the + plus symbol.
 
     |image016|
 
-#. You can see the certificate **class4-module1-lab1-idp** that was imported in Task 1 is displayed.  
+#. You can see the certificate **class4-module1-lab1-idp** from Task 1 was succesfully imported.  
 
     |image017|
 
-#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on Local SP Services and not the + (plus symbol).
+#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on **Local SP Services** and not the + (plus symbol).
 
     |image018|
 
-#. You can see an SP service object was created with the name class4-module1-lab1-sp and successfully binded to an IDP Connector named class4-module1-lab1-idp.
+#. You can see a SP service object was created with the name **class4-module1-lab1-sp** and successfully binded to an IDP Connector named **class4-module1-lab1-idp**.
 
     |image019|
 
@@ -169,7 +170,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 
 #. Click **bigip-delete-sp service**
 
-#. Notice the body is empty and the endpoint we are hitting is the same endpoint we used to create the SP service plus the partition and object name.
+#. Notice the body is empty.  Also, the endpoint we are using is the same endpoint we used to create the SP service plus the partition and object name.
 
     |image020|
 
@@ -179,7 +180,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 
     |image021|
 
-#. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.
+#. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.  That's because the object was deleted with the prior request.
 
     |image022|
 
@@ -207,13 +208,14 @@ With imperative call objects must be deleted in the reverse order they are typic
 Task 6 - Ensure objects were removed via GUI
 -----------------------------------------------
 
-#. Open a browser and navigate to https://bigip1.f5lab.local
+#. Return to the jumpbox's browser and navigate to https://bigip1.f5lab.local
 
 #. Login to the BIG-IP GUI with the following credentials:
+    
     - Username: **admin**
     - Password: **admin**
 
-#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on **SSL Certificate List** and not the + (plus symbol).
 
     |image016|
 
@@ -221,7 +223,7 @@ Task 6 - Ensure objects were removed via GUI
 
     |image027|
 
-#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on Local SP Services and not the+ plus symbol.
+#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on **Local SP Services** and not the + (plus symbol).
 
     |image018|
 
@@ -240,7 +242,6 @@ Task 6 - Ensure objects were removed via GUI
 This concludes the APM lab on creating and deleting APM objects via iControlREST.
 
     |image000|
-
 
 
 .. |image000| image:: media/lab01/000.png
