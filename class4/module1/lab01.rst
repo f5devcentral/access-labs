@@ -28,7 +28,7 @@ To access your dedicated student lab environment, you will need a web browser an
 Task 2 - Import Postman Collections
 -----------------------------------------------------------------------
 
-#. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
+#. From the Jumphost, open **Postman** via the desktop shortcut or toolbar at the bottom
 
     .. note::  Dismiss any prompts to update Postman.  
 
