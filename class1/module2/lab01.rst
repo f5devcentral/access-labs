@@ -229,6 +229,7 @@ You will see a screen similar to the following:
    |Lab1-Image18|
 
 
+
 Task 5: Troubleshooting tips
 ----------------------------
 
@@ -262,30 +263,30 @@ Lab 1 is now complete.
 
 
 
-.. |Lab1-Image1| image:: /class1/module2/media/Lab1-Image1.png
-.. |Lab1-Image2| image:: /class1/module2/media/Lab1-Image2.png
-.. |Lab1-Image3| image:: /class1/module2/media/Lab1-Image3.png
-.. |Lab1-Image4| image:: /class1/module2/media/Lab1-Image4.png
-.. |Lab1-Image5| image:: /class1/module2/media/Lab1-Image5.png
-.. |Lab1-Image6| image:: /class1/module2/media/Lab1-Image6.png
-.. |Lab1-Image7| image:: /class1/module2/media/Lab1-Image7.png
-.. |Lab1-Image8| image:: /class1/module2/media/Lab1-Image8.png
-.. |Lab1-Image9| image:: /class1/module2/media/Lab1-Image9.png
-.. |Lab1-Image10| image:: /class1/module2/media/Lab1-Image10.png
-.. |Lab1-Image11| image:: /class1/module2/media/Lab1-Image11.png
-.. |Lab1-Image12| image:: /class1/module2/media/Lab1-Image12.png
-.. |Lab1-Image13| image:: /class1/module2/media/Lab1-Image13.png
-.. |Lab1-Image14| image:: /class1/module2/media/Lab1-Image14.png
-.. |Lab1-Image15| image:: /class1/module2/media/Lab1-Image15.png
-.. |Lab1-Image16| image:: /class1/module2/media/Lab1-Image16.png
-.. |Lab1-Image17| image:: /class1/module2/media/Lab1-Image17.png
-.. |Lab1-Image18| image:: /class1/module2/media/Lab1-Image18.png
-.. |Lab1-Image19| image:: /class1/module2/media/Lab1-Image19.png
-.. |Lab1-Image20| image:: /class1/module2/media/Lab1-Image20.png
-.. |accessjh| image:: /class1/module2/media/accessjh.png
-.. |accessportal| image:: /class1/module2/media/accessportal.png
-.. |102intro| image:: /class1/module2/media/102intro.png
-.. |lab01| image:: /class1/module2/media/lab01.png
-.. |lab01fly| image:: /class1/module2/media/lab01fly.png
-.. |process| image:: /class1/module2/media/process.png
-.. |issues| image:: /class1/module2/media/issues.png
+.. |Lab1-Image1| image:: ./media/Lab1-Image1.png
+.. |Lab1-Image2| image:: ./media/Lab1-Image2.png
+.. |Lab1-Image3| image:: ./media/Lab1-Image3.png
+.. |Lab1-Image4| image:: ./media/Lab1-Image4.png
+.. |Lab1-Image5| image:: ./media/Lab1-Image5.png
+.. |Lab1-Image6| image:: ./media/Lab1-Image6.png
+.. |Lab1-Image7| image:: ./media/Lab1-Image7.png
+.. |Lab1-Image8| image:: ./media/Lab1-Image8.png
+.. |Lab1-Image9| image:: ./media/Lab1-Image9.png
+.. |Lab1-Image10| image:: ./media/Lab1-Image10.png
+.. |Lab1-Image11| image:: ./media/Lab1-Image11.png
+.. |Lab1-Image12| image:: ./media/Lab1-Image12.png
+.. |Lab1-Image13| image:: ./media/Lab1-Image13.png
+.. |Lab1-Image14| image:: ./media/Lab1-Image14.png
+.. |Lab1-Image15| image:: ./media/Lab1-Image15.png
+.. |Lab1-Image16| image:: ./media/Lab1-Image16.png
+.. |Lab1-Image17| image:: ./media/Lab1-Image17.png
+.. |Lab1-Image18| image:: ./media/Lab1-Image18.png
+.. |Lab1-Image19| image:: ./media/Lab1-Image19.png
+.. |Lab1-Image20| image:: ./media/Lab1-Image20.png
+.. |accessjh| image:: ./media/accessjh.png
+.. |accessportal| image:: ./media/accessportal.png
+.. |102intro| image:: ./media/102intro.png
+.. |lab01| image:: ./media/lab01.png
+.. |lab01fly| image:: ./media/lab01fly.png
+.. |process| image:: ./media/process.png
+.. |issues| image:: ./media/issues.png

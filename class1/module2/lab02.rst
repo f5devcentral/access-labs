@@ -1,5 +1,5 @@
 Lab 2: Step up Authentication with Per-Request Policies
-=====================================
+========================================================
 
 Objectives
 ----------
@@ -270,42 +270,42 @@ the application in the form of an HTTP Headers
 
 Lab 2 is now complete.
 
-.. |Lab2-Image1| image:: /class1/module2/media/Lab2-Image1.png
-.. |Lab2-Image2| image:: /class1/module2/media/Lab2-Image2.png
-.. |Lab2-Image3| image:: /class1/module2/media/Lab2-Image3.png
-.. |Lab2-Image4| image:: /class1/module2/media/Lab2-Image4.png
-.. |Lab2-Image5| image:: /class1/module2/media/Lab2-Image5.png
-.. |Lab2-Image6| image:: /class1/module2/media/Lab2-Image6.png
-.. |Lab2-Image7| image:: /class1/module2/media/Lab2-Image7.png
-.. |Lab2-Image8| image:: /class1/module2/media/Lab2-Image8.png
-.. |Lab2-Image9| image:: /class1/module2/media/Lab2-Image9.png
-.. |Lab2-Image10| image:: /class1/module2/media/Lab2-Image10.PNG
-.. |Lab2-Image11| image:: /class1/module2/media/Lab2-Image11.png
-.. |Lab2-Image12| image:: /class1/module2/media/Lab2-Image12.png
-.. |Lab2-Image13| image:: /class1/module2/media/Lab2-Image13.png
-.. |Lab2-Image14| image:: /class1/module2/media/Lab2-Image14.png
-.. |Lab2-Image15| image:: /class1/module2/media/Lab2-Image15.png
-.. |Lab2-Image16| image:: /class1/module2/media/Lab2-Image16.png
-.. |Lab2-Image17| image:: /class1/module2/media/Lab2-Image17.png
-.. |Lab2-Image18| image:: /class1/module2/media/Lab2-Image18.png
-.. |Lab2-Image19| image:: /class1/module2/media/Lab2-Image19.png
-.. |Lab2-Image20| image:: /class1/module2/media/Lab2-Image20.png
-.. |Lab2-Image21| image:: /class1/module2/media/Lab2-Image21.png
-.. |Lab2-Image22| image:: /class1/module2/media/Lab2-Image22.png
-.. |Lab2-Image23| image:: /class1/module2/media/Lab2-Image23.png
-.. |Lab2-Image24| image:: /class1/module2/media/Lab2-Image24.png
-.. |Lab2-Image25| image:: /class1/module2/media/Lab2-Image25.png
-.. |Lab2-Image26| image:: /class1/module2/media/Lab2-Image26.png
-.. |Lab2-Image27| image:: /class1/module2/media/Lab2-Image27.png
-.. |Lab2-Image28| image:: /class1/module2/media/Lab2-Image28.png
-.. |Lab2-Image29| image:: /class1/module2/media/Lab2-Image29.png
-.. |Lab2-Image30| image:: /class1/module2/media/Lab2-Image30.png
-.. |Lab2-Image31| image:: /class1/module2/media/Lab2-Image31.png
-.. |Lab2-Image32| image:: /class1/module2/media/Lab2-Image32.png
-.. |Lab2-Image33| image:: /class1/module2/media/Lab2-Image33.png
-.. |Lab2-Image34| image:: /class1/module2/media/Lab2-Image34.png
-.. |Lab2-Image35| image:: /class1/module2/media/Lab2-Image35.png
-.. |Lab2-Image36| image:: /class1/module2/media/Lab2-Image36.png
-.. |Lab2-Image37| image:: /class1/module2/media/Lab2-Image37.png
-.. |Lab2-Image38| image:: /class1/module2/media/Lab2-Image38.png
-.. |Lab2-Image39| image:: /class1/module2/media/Lab2-Image39.png
+.. |Lab2-Image1| image:: ./media/Lab2-Image1.png
+.. |Lab2-Image2| image:: ./media/Lab2-Image2.png
+.. |Lab2-Image3| image:: ./media/Lab2-Image3.png
+.. |Lab2-Image4| image:: ./media/Lab2-Image4.png
+.. |Lab2-Image5| image:: ./media/Lab2-Image5.png
+.. |Lab2-Image6| image:: ./media/Lab2-Image6.png
+.. |Lab2-Image7| image:: ./media/Lab2-Image7.png
+.. |Lab2-Image8| image:: ./media/Lab2-Image8.png
+.. |Lab2-Image9| image:: ./media/Lab2-Image9.png
+.. |Lab2-Image10| image:: ./media/Lab2-Image10.PNG
+.. |Lab2-Image11| image:: ./media/Lab2-Image11.png
+.. |Lab2-Image12| image:: ./media/Lab2-Image12.png
+.. |Lab2-Image13| image:: ./media/Lab2-Image13.png
+.. |Lab2-Image14| image:: ./media/Lab2-Image14.png
+.. |Lab2-Image15| image:: ./media/Lab2-Image15.png
+.. |Lab2-Image16| image:: ./media/Lab2-Image16.png
+.. |Lab2-Image17| image:: ./media/Lab2-Image17.png
+.. |Lab2-Image18| image:: ./media/Lab2-Image18.png
+.. |Lab2-Image19| image:: ./media/Lab2-Image19.png
+.. |Lab2-Image20| image:: ./media/Lab2-Image20.png
+.. |Lab2-Image21| image:: ./media/Lab2-Image21.png
+.. |Lab2-Image22| image:: ./media/Lab2-Image22.png
+.. |Lab2-Image23| image:: ./media/Lab2-Image23.png
+.. |Lab2-Image24| image:: ./media/Lab2-Image24.png
+.. |Lab2-Image25| image:: ./media/Lab2-Image25.png
+.. |Lab2-Image26| image:: ./media/Lab2-Image26.png
+.. |Lab2-Image27| image:: ./media/Lab2-Image27.png
+.. |Lab2-Image28| image:: ./media/Lab2-Image28.png
+.. |Lab2-Image29| image:: ./media/Lab2-Image29.png
+.. |Lab2-Image30| image:: ./media/Lab2-Image30.png
+.. |Lab2-Image31| image:: ./media/Lab2-Image31.png
+.. |Lab2-Image32| image:: ./media/Lab2-Image32.png
+.. |Lab2-Image33| image:: ./media/Lab2-Image33.png
+.. |Lab2-Image34| image:: ./media/Lab2-Image34.png
+.. |Lab2-Image35| image:: ./media/Lab2-Image35.png
+.. |Lab2-Image36| image:: ./media/Lab2-Image36.png
+.. |Lab2-Image37| image:: ./media/Lab2-Image37.png
+.. |Lab2-Image38| image:: ./media/Lab2-Image38.png
+.. |Lab2-Image39| image:: ./media/Lab2-Image39.png

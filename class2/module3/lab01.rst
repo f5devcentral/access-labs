@@ -3,7 +3,7 @@ Lab 1: SAML IdP Access Guided Configuration (AGC) Lab
 
 The purpose of this lab is to configure and test SAML Federation Services.
 
-Students will leverage Access Guided Configuration (AGC) to 
+Students will leverage Access Guided Configuration (AGC) to
 configure the various aspects of a SAML Identity Provider (IdP), import and bind
 to a SAML Service Provider (SP) and test IdP-Initiated SAML Federation.
 
@@ -34,7 +34,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image999|
 
-#. Select your RDP resolution.  
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -62,7 +62,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image995|
 
-TASK 2 - Configure a SAML Identity Provider (IdP) via AGC 
+TASK 2 - Configure a SAML Identity Provider (IdP) via AGC
 -------------------------------------------------------------
 
 +----------------------------------------------------------------------------------------------+
@@ -322,7 +322,7 @@ TASK: 13: Testing the SAML Identity Provider (IdP)
 +----------------------------------------------------------------------------------------------+
 | |image023|                                                                                   |
 +----------------------------------------------------------------------------------------------+
- 
+
 +----------------------------------------------------------------------------------------------+
 | 4. The **Application** will now open if successfully configured.  Close the                  |
 |                                                                                              |
@@ -337,31 +337,31 @@ TASK 14: Lab CleanUp
 
 
 +----------------------------------------------------------------------------------------------+
-| 1. Navigate to **Access -> Guided Configuration** in the left-hand menu.                     |                                                                  
+| 1. Navigate to **Access -> Guided Configuration** in the left-hand menu.                     |
 +----------------------------------------------------------------------------------------------+
 | |image002|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 2. Click the **Undeploy** button                                                             |                                                                  
+| 2. Click the **Undeploy** button                                                             |
 +----------------------------------------------------------------------------------------------+
 | |image025|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 3. Click **OK** when asked, "Are you sure you want to undeploy this configuration?"          |                                                                  
+| 3. Click **OK** when asked, "Are you sure you want to undeploy this configuration?"          |
 +----------------------------------------------------------------------------------------------+
 | |image026|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 4. Click the **Delete** button once the deployment is undeployed                             |                                                                  
+| 4. Click the **Delete** button once the deployment is undeployed                             |
 +----------------------------------------------------------------------------------------------+
 | |image027|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 5. Click **OK** when asked, "Are you sure you want to delete this configuration?"            |                                                                  
+| 5. Click **OK** when asked, "Are you sure you want to delete this configuration?"            |
 +----------------------------------------------------------------------------------------------+
 | |image028|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -381,7 +381,7 @@ TASK 14: Lab CleanUp
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 9. Scroll down the page until you see **202 - Federation** on the left                       |                                                                  
+| 9. Scroll down the page until you see **202 - Federation** on the left                       |
 +----------------------------------------------------------------------------------------------+
 | |image997|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -390,17 +390,17 @@ TASK 14: Lab CleanUp
 +----------------------------------------------------------------------------------------------+
 | 10. Hover over the tile **SAML IdP Access Guided Configuration(AGC) Lab**. A start and stop  |
 | icon should appear within the tile.  Click the **Stop** Button to start the automation to    |
-| delete any prebuilt objects                                                                  |                                                                  
+| delete any prebuilt objects                                                                  |
 +----------------------------------------------------------------------------------------------+
 | |image045|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 11. The screen should refresh displaying the progress of the automation within 30 seconds.   |  
+| 11. The screen should refresh displaying the progress of the automation within 30 seconds.   |
 | Scroll to the bottom of the automation workflow to ensure all requests succeeded.            |
-| If you you experience errors try running the automation a second time or open an issue on    | 
+| If you you experience errors try running the automation a second time or open an issue on    |
 | the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.                      |
-|                                                                                              |                                             
+|                                                                                              |
 +----------------------------------------------------------------------------------------------+
 | |image044|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -453,7 +453,7 @@ TASK 14: Lab CleanUp
    :width: 800px
 .. |image019| image:: ./media/lab01/019.png
    :width: 800px
-.. |image020| image:: ./media/lab01/lab1-020.png
+.. |image020| image:: ./media/lab01/020.png
    :width: 800px
 .. |image021| image:: ./media/lab01/021.png
    :width: 800px
@@ -510,7 +510,6 @@ TASK 14: Lab CleanUp
 .. |image997| image:: ./media/lab01/997.png
    :width: 800px
 .. |image998| image:: ./media/lab01/998.png
-   :width: 800px 
+   :width: 800px
 .. |image999| image:: ./media/lab01/999.png
    :width: 800px
-

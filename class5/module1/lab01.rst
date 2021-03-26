@@ -12,7 +12,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image001|
 
-#. Select your RDP resolution.  
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jumphost.
 
@@ -47,7 +47,7 @@ Task 2 -  Create a failed connection
 
 The message box is a great tool for troubleshooting a policy that may have been reaching an ENDING DENY and closing the APM session too rapidly for proper inspection during the troubleshooting phase.
 
-#. From the jumphost open new browser tab. Then navigate to https://server1.acme.com.  
+#. From the jumphost open new browser tab. Then navigate to https://server1.acme.com.
 
 #. You instantly receive an access denied message.  Let's go look at the reports to see why we failed the pollicy.
 
@@ -114,7 +114,7 @@ Task 3 - Create the Test Branch
 
    |image017|
 
-#. Change the name to **Test Branch 10.1.10.10**.  
+#. Change the name to **Test Branch 10.1.10.10**.
 #. Click **Save**
 
    |image018|
@@ -137,7 +137,7 @@ In this task you will create two Message Box Macros.  One for the success branch
 #. Enter the Name **Success Box**
 #. Click **Save**
 
-   |image21|
+   |image021|
 
 #. Expand the Macro
 #. Click the **+ (Plus Symbol) on the fallback branch.
@@ -170,7 +170,7 @@ In this task you will create two Message Box Macros.  One for the success branch
 #. Enter the Name **Failure Box**
 #. Click **Save**
 
-   |image25|
+   |image025|
 
 #. Expand the Macro
 #. Click the **+ (Plus Symbol) on the fallback branch.
@@ -203,7 +203,7 @@ Task 5 - Add the Test condition
 
 In this section we will now add the condition we want to test against and use our message boxes to "pause" the session and provide us instant feedback
 
-#. Click the **+ (Plus Symbol)** on the test branch 
+#. Click the **+ (Plus Symbol)** on the test branch
 
    |image028|
 
@@ -214,7 +214,7 @@ In this section we will now add the condition we want to test against and use ou
 
    |image029|
 
-#. Click the **+ (Plus Symbol)** on the Pass branch 
+#. Click the **+ (Plus Symbol)** on the Pass branch
 
    |image030|
 
@@ -225,7 +225,7 @@ In this section we will now add the condition we want to test against and use ou
 
    |image031|
 
-#. Click the **+ (Plus Symbol)** on the Pass branch 
+#. Click the **+ (Plus Symbol)** on the Pass branch
 
    |image032|
 
@@ -244,7 +244,7 @@ In this section we will now add the condition we want to test against and use ou
 Task 6 - Test failure
 -----------------------
 
-#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.  
+#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.
 
 #. Rather than the instant deny, your presented a message box with the following information.  This has now "paused" the session for you to look at the session variables.  Do **NOT** click Continue
 
@@ -282,12 +282,12 @@ Now that we have the information about the clients Firewall settings we can retu
 
    |image040|
 
-#. The Platform, Vendor ID, Product ID all match what was stored in the session variables.  However, if you look closely at the Version number you notice a digit is missing.  The version the Firewall Action is 10.0.1433.0.  The was return a version of 10.0.14393.0 in the message box or when we looked directly at the session varibles.  Let's make a configuration change to our Firewall action and see if it fixes the problem.  Type the number **10.0.14393.0** into the version field  
+#. The Platform, Vendor ID, Product ID all match what was stored in the session variables.  However, if you look closely at the Version number you notice a digit is missing.  The version the Firewall Action is 10.0.1433.0.  The was return a version of 10.0.14393.0 in the message box or when we looked directly at the session varibles.  Let's make a configuration change to our Firewall action and see if it fixes the problem.  Type the number **10.0.14393.0** into the version field
 #. Click **Save**
 
    |image041|
 
-#. Click Apply Policy 
+#. Click Apply Policy
 
    |image042|
 
@@ -296,7 +296,7 @@ Task 8 - Test our fix
 
 When testing you should now receive the  Successful Message Box.
 
-#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.  
+#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.
 
 #. You have successfully diagnosed the problem.
 
@@ -315,7 +315,7 @@ While we successfully diagnose the problem we haven't actually fixed the problem
 
    |image013|
 
-#. Click the **X** in the top right corner of the Posture Assessments Macro. 
+#. Click the **X** in the top right corner of the Posture Assessments Macro.
 
    |image044|
 
@@ -366,9 +366,9 @@ While we successfully diagnose the problem we haven't actually fixed the problem
 Task 10 - Validate user1 is working
 --------------------------------------
 
-#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.  
+#. From the jumphost open a new browser tab. Then navigate to https://server1.acme.com.
 
-#.  Rather than being denied you are presented a logon page.  
+#.  Rather than being denied you are presented a logon page.
 
 #.  At the logon page enter the Username:**user1** and Password:**user1**
 
