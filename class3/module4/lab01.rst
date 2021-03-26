@@ -237,7 +237,7 @@ Task 9 - Attempt to Retrieve User1\'s Attributes without JWT
 
    |image26|
 
-Task 9 -  Retrieve User1\'s Attributes with a JWT
+Task 10 -  Retrieve User1\'s Attributes with a JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request3: Retrieve User Attributes with JWT**  
@@ -273,7 +273,7 @@ Task 9 -  Retrieve User1\'s Attributes with a JWT
    |image31|
 
 
-Task 10 - Set a Valid User Attribute
+Task 11 - Set a Valid User Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 4: Update a Valid User Attribute**
@@ -297,7 +297,7 @@ Task 10 - Set a Valid User Attribute
    |image35|
 
 
-Task 11 - Set an Nonexistent User's Attribute
+Task 12 - Set an Nonexistent User's Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 5: Update a Nonexistent User Attribute**
@@ -317,7 +317,7 @@ Task 11 - Set an Nonexistent User's Attribute
 |image37|
 
 
-Task 12 - Update a Valid User with PUT
+Task 13 - Update a Valid User with PUT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 6: Update a Valid User's Attribute with PUT**
@@ -335,7 +335,7 @@ Task 12 - Update a Valid User with PUT
    |image39|
 
 
-Task 13 - Create a User
+Task 14 - Create a User
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 7: Create a User**
@@ -353,7 +353,7 @@ Task 13 - Create a User
    |image46|
 
 
-Task 14 - Request invalid endpoint
+Task 15 - Request invalid endpoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 8: Request Invalid Endpoint**
