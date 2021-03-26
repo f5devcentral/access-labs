@@ -1,5 +1,5 @@
 Lab 1: SAML Service Provider (SP) Lab
-=====================================
+=======================================
 
 The purpose of this lab is to configure and test a SAML Service
 Provider. Students will configure the various aspects of a SAML Service
@@ -13,14 +13,11 @@ Objective:
 
 -  Gain an understanding of the access flow for SP-Initiated SAML
 
-Lab Requirements:
-
--  All Lab requirements will be noted inƒ the tasks that follow
 
 Estimated completion time: 25 minutes
 
 
-Setup Lab Environment
+Task 1 - Setup Lab Environment
 -----------------------------------
 
 To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
@@ -51,7 +48,10 @@ To access your dedicated student lab environment, you will need a web browser an
 
 #. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image004|
+
+   +---------------+-------------+
+   | |image039|    | |image004|  |
+   +---------------+-------------+   
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -60,7 +60,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
 
 
-TASK 1 ‑ Configure the SAML Service Provider (SP)
+TASK 2 ‑ Configure the SAML Service Provider (SP)
 -----------------------------------------------------
 
 SP Service
@@ -156,7 +156,7 @@ IdP Connector
 
    |image007|
 
-TASK 2 ‑ Configure the SAML SP Access Policy
+TASK 3 ‑ Configure the SAML SP Access Policy
 ----------------------------------------------------
 
 #. Begin by selecting **Access ‑> Profiles/Policies ‑>
@@ -278,10 +278,10 @@ TASK 2 ‑ Configure the SAML SP Access Policy
 
    |image023|
 
-TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
+TASK 4 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 ----------------------------------------------------------------------
 
-#. Begin by selecting **Local Traffic >> Virtual Servers >> **+** (Plus Symbol)
+#. Begin by selecting Local Traffic >> Virtual Servers >> **+** (Plus Symbol)
 
    |image024|
 
@@ -333,14 +333,17 @@ TASK 3 ‑ Create the SP Virtual Server & Apply the SP Access Policy
 
 
 
-TASK 4 ‑ Test the SAML SP
+TASK 5 ‑ Test the SAML SP
 ------------------------------
 
 #. Using your browser from the jump host, navigate to ``https://sp.acme.com``
 
-#. You are redirect to ``https://idp.acme.com``
+#. You are redirected to ``https://idp.acme.com``
 
-#. Log in to the IdP with the credentials: username: **user1** password: **user1**
+#. Log in to the IdP with the credentials: 
+
+   - username: **user1** 
+   - password: **user1**
 
    |image037|
 
@@ -352,7 +355,7 @@ TASK 4 ‑ Test the SAML SP
 
 
 
-Lab Clean Up
+Task 6 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
@@ -367,7 +370,10 @@ Lab Clean Up
 
 #. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-   |image998|
+   +---------------+-------------+
+   | |image039|    | |image998|  |
+   +---------------+-------------+  
+
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -417,5 +423,6 @@ Lab Clean Up
 .. |image036| image:: ./media/lab01/036.png
 .. |image037| image:: ./media/lab01/037.png
 .. |image038| image:: ./media/lab01/038.png
+.. |image039| image:: ./media/lab01/039.png
 .. |image998| image:: ./media/lab01/998.png
 .. |image999| image:: ./media/lab01/999.png
