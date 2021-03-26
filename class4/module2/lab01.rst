@@ -71,7 +71,7 @@ Task 3 - Explore the icontrolRest Endpoints
 
 #.  Expand the **Create Transaction** subfolder and click on the request **bigip-create-transaction**
 
-    .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First, you create the transaction by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent configuration requests that contain the transaction ID header to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the transaction is commited in the final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is process sucessfully or none of the configuration changes are made.  This is extremely important to ensure all the required information is correct for building a working policy.
+    .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First, you create the transaction by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent configuration requests that contain the transaction ID header to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the transaction is commited in the final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is processed sucessfully or none of the configuration changes are made.  This is extremely important to ensure all the required information is correct for building a working policy.
 
 #. Click on Body. The only thing in the Body are open and close curly braces.
 
