@@ -228,9 +228,19 @@ You will see a screen similar to the following:
 
    |Lab1-Image18|
 
+Task 5: Adding in Per-Request Posture Check
+--------------------------------------------
 
+Add in a PRP with Posture assessment
+Steps in progress
 
-Task 5: Troubleshooting tips
+Task 6: Sessions and subsessions
+---------------------------------
+
+Explanation and Overview
+Steps in progress
+
+Task 7: Troubleshooting tips
 ----------------------------
 
 You can view active sessions by navigating Access/Overview/Active Sessions
