@@ -21,7 +21,7 @@ Lab Requirements:
 
 Estimated completion time: 25 minutes
 
-Setup Lab Environment
+Task 1 - Setup Lab Environment
 -----------------------------------
 
 To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
@@ -63,7 +63,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
 
 
-TASK 1 ‑ Configure the SAML Identity Provider (IdP)
+TASK 2 ‑ Configure the SAML Identity Provider (IdP)
 --------------------------------------------------------
 
 IdP Service
@@ -193,10 +193,8 @@ SP Connector
 
    |image017|
 
-TASK 2 - Create a SAML Resource
+TASK 3 - Create a SAML Resource
 -------------------------------------
-
-
 
 #. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
 
@@ -218,7 +216,7 @@ TASK 2 - Create a SAML Resource
 
 
 
-Task 3 - Create a Webtop
+Task 4 - Create a Webtop
 -------------------------------
 
 #. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
@@ -241,7 +239,7 @@ Task 3 - Create a Webtop
    |image021|
 
 
-Task 4 - Create a Kerberos AAA Object
+Task 5 - Create a Kerberos AAA Object
 ----------------------------------------
 
 #. From the jumphost, navigate to the command line enter the command below to generate a kerberos key tab file
@@ -273,7 +271,7 @@ Task 4 - Create a Kerberos AAA Object
 
 
 
-Task 4 - Create a SAML IdP Access Policy
+Task 6 - Create a SAML IdP Access Policy
 ---------------------------------------------
 
 #. Select **Access ‑> Profiles/Policies ‑> Access Profiles
@@ -470,7 +468,7 @@ Task 4 - Create a SAML IdP Access Policy
 
    |image054|
 
-TASK 6 - Create the IdP Virtual Server
+TASK 7 - Create the IdP Virtual Server
 ----------------------------------------
 
 
@@ -516,8 +514,8 @@ TASK 6 - Create the IdP Virtual Server
 #. Scroll to the bottom of the configuration window and click **Finished**
 
 
-TASK 2 - Test the Kerberos to SAML Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 8 - Test the Configuration
+-----------------------------------
 
 #. From the jumphost, navigate to the SAML IdP you previously configured at *https://idp.acme.com*.  Noticee you are automatically signed into the IDP. 
   
@@ -539,7 +537,7 @@ TASK 2 - Test the Kerberos to SAML Configuration
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Lab Cleanup
+Task 9 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
