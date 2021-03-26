@@ -381,7 +381,7 @@ Task 10 - Validate user1 is working
    |image055|
 
 
-Task 11 - Lab CleanUp
+Task 11 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local

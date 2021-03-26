@@ -273,7 +273,7 @@ Task 5 - Deleting an Access Profile
     |image040|
 
 
-Task 6 - Lab Clean up
+Task 6 - Lab Cleanup
 ---------------------------------
 
 #. From Postman, Click the **3 dots** on the bottom right of the student-class4-module2-lab1 Collection.

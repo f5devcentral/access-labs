@@ -1,4 +1,4 @@
-Lab 3: OAuth and AzureAD Lab
+Lab 1: OAuth and AzureAD Lab
 ============================
 
 The purpose of this lab is to familiarize students with using APM in

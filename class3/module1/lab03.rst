@@ -51,7 +51,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image003|
 
-#. Hover over tile **SAML Identity Provider (IdP)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SAML Identity Provider (IdP) - Kerberos Auth**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    |image004|
 
@@ -537,7 +537,7 @@ TASK 2 - Test the Kerberos to SAML Configuration
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Lab Clean Up
+Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
@@ -550,7 +550,7 @@ Lab Clean Up
 
    |image003|
 
-#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **SAML Identity Provider (IdP) - Kerberos Auth**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
    |image998|
 

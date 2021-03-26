@@ -436,7 +436,7 @@ Task 2.6 Testing
     |image063|
 
 
-Lab CleanUp
+Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local

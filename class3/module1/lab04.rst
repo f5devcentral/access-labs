@@ -435,7 +435,7 @@ TASK 2 - Test the SAML Configuration
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Lab Clean Up
+Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
@@ -448,7 +448,7 @@ Lab Clean Up
 
    |image003|
 
-#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **SAML Identity Provider (IdP) - LocalDB Auth**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
    |image998|
 

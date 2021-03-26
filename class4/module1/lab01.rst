@@ -239,7 +239,7 @@ Task 8 - Ensure objects were removed via GUI
 
     |image030|
 
-Task 9 - Lab Clean up
+Task 9 - Lab Cleanup
 ---------------------------------
 
 

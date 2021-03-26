@@ -266,7 +266,7 @@ In Task 2, you learned how to view access reports.  In this Task you will learn 
 .. note:: to learn more about logging levels see https://support.f5.com/csp/article/K24826763
 
 
-Task 5 - Lab CleanUp
+Task 5 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
