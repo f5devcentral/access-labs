@@ -16,7 +16,7 @@ Objective:
 Estimated completion time: 25 minutes
 
 
-Setup Lab Environment
+Task 1 - Setup Lab Environment
 -----------------------------------
 
 To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
@@ -49,7 +49,9 @@ To access your dedicated student lab environment, you will need a web browser an
 
 #. Hover over tile **SAML Identity Provider (IdP) - AD Auth**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image004|
+   +---------------+-------------+
+   | |image057|    | |image004|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -57,7 +59,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
 
 
-TASK 1 ‑ Configure the SAML Identity Provider (IdP)
+TASK 2 ‑ Configure the SAML Identity Provider (IdP)
 --------------------------------------------------------
 
 IdP Service
@@ -187,10 +189,8 @@ SP Connector
 
    |image017|
 
-TASK 2 - Create a SAML Resource
+TASK 3 - Create a SAML Resource
 -------------------------------------
-
-
 
 #. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
 
@@ -210,9 +210,7 @@ TASK 2 - Create a SAML Resource
 
    |image019|
 
-
-
-Task 3 - Create a Webtop
+Task 4 - Create a Webtop
 -------------------------------
 
 #. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
@@ -234,7 +232,7 @@ Task 3 - Create a Webtop
 
    |image021|
 
-Task 4 - Create a SAML IdP Access Policy
+Task 5 - Create a SAML IdP Access Policy
 ---------------------------------------------
 
 #. Select **Access ‑> Profiles/Policies ‑> Access Profiles
@@ -464,7 +462,10 @@ TASK 7 - Test the SAML IdP
    configured at ``https://idp.acme.com`` 
 
    
-#. Log in to the IdP with the credentials: Username: user1 Password:user1
+#. Log in to the IdP with the credentials:
+
+   - Username: **user1** 
+   - Password: **user1**
 
    |image054|
 
@@ -481,7 +482,7 @@ TASK 7 - Test the SAML IdP
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Lab Cleanup
+Task 8 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
@@ -496,7 +497,9 @@ Lab Cleanup
 
 #. Hover over tile **SAML Identity Provider (IdP) - AD Auth**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-   |image998|
+   +---------------+-------------+
+   | |image057|    | |image998|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -564,5 +567,6 @@ Lab Cleanup
 .. |image054| image:: ./media/lab02/054.png
 .. |image055| image:: ./media/lab02/055.png
 .. |image056| image:: ./media/lab02/056.png
+.. |image057| image:: ./media/lab02/057.png
 .. |image998| image:: ./media/lab02/998.png
 .. |image999| image:: ./media/lab02/999.png

@@ -35,7 +35,9 @@ To access your dedicated student lab environment, you will need a web browser an
 
 #. Hover over tile **SAML Identity Provider (IdP) - LocalDB Auth**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image004|
+   +---------------+-------------+
+   | |image050|    | |image004|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -450,7 +452,9 @@ Lab Cleanup
 
 #. Hover over tile **SAML Identity Provider (IdP) - LocalDB Auth**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-   |image998|
+   +---------------+-------------+
+   | |image050|    | |image998|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -511,6 +515,7 @@ Lab Cleanup
 .. |image047| image:: ./media/lab04/047.png
 .. |image048| image:: ./media/lab04/048.png
 .. |image049| image:: ./media/lab04/049.png
+.. |image050| image:: ./media/lab04/050.png
 .. |image998| image:: ./media/lab04/998.png
 .. |image999| image:: ./media/lab04/999.png
 

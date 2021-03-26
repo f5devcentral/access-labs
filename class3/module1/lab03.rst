@@ -53,7 +53,9 @@ To access your dedicated student lab environment, you will need a web browser an
 
 #. Hover over tile **SAML Identity Provider (IdP) - Kerberos Auth**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image004|
+   +---------------+-------------+
+   | |image062|    | |image004|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -552,7 +554,9 @@ Lab Cleanup
 
 #. Hover over tile **SAML Identity Provider (IdP) - Kerberos Auth**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-   |image998|
+   +---------------+-------------+
+   | |image062|    | |image998|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -621,5 +625,10 @@ Lab Cleanup
 .. |image055| image:: ./media/lab03/055.png
 .. |image056| image:: ./media/lab03/056.png
 .. |image057| image:: ./media/lab03/057.png
+.. |image058| image:: ./media/lab03/058.png
+.. |image059| image:: ./media/lab03/059.png
+.. |image060| image:: ./media/lab03/060.png
+.. |image061| image:: ./media/lab03/061.png
+.. |image062| image:: ./media/lab03/062.png
 .. |image998| image:: ./media/lab03/998.png
 .. |image999| image:: ./media/lab03/999.png
