@@ -140,7 +140,7 @@ Task 4 - Create a SAML SP policy
 #. Copy and paste the below JSON inside the items array in front of the allow Terminal.  The placement of policy-items inside of the items array is not important to the order they used within branch rules or Visual Policy Editors. 
         
     .. code-block:: JSON 
-       
+
         {
             "name": "{{VS_NAME}}-psp_act_saml_auth",
             "partition": "Common"
@@ -153,9 +153,13 @@ Task 4 - Create a SAML SP policy
 #. After you are done editing the request, click **Save** in the upper right corner.  Runner will not pickup any changes that are not saved causing the automation to fail.
 
 
-#.  Now that we have the automation updated lets deploy the policy.  Hover over the Collection name **student-class4-module2-lab2** with your mouse and click the **Arrow** icon.
+#.  Now that we have the automation updated let's deploy the policy.  Hover over the Collection name **student-class4-module2-lab2** with your mouse and click the **Arrow** icon.
 
     |image021|
+
+#. Click **student-class4-module...** to return to the main folder if you are not already there.
+
+    |image035|
 
 #. Click the **Create Policy** folder. 
 
@@ -169,14 +173,16 @@ Task 4 - Create a SAML SP policy
 
     |image024|
 
-#. The **Pass** circle will display a value 2.   
+#. The **Pass** circle will display a value 2. 
+#. Close Runner by clicking the **X** in the top right corner.  
     
     |image025|   
 
 
-#. Open a browser and navigate to https://bigip1.f5lab.local
+#. From the jumphost, open browser and navigate to https://bigip1.f5lab.local
 
 #. Login to the BIG-IP GUI with the following credentials:
+        
         - Username: **admin**
         - Password: **admin**
 
@@ -196,15 +202,18 @@ Task 4 - Create a SAML SP policy
 Task 5 - Lab Cleanup
 -------------------------------------------
 
-#.  Expand the **Lab Cleanup** subfolder and it's subfolders. There are a total of five requests.  The first two requests delete the Policy, while the last three requests delete the SP Service, IdP Connector, and IdP signing certificate.  To understand these requests further review :ref:`Deleting an Access Profile <class4-module2-lab1-delete>` or :ref:`Deleting a SAML Service Provider(SP) Service Configuration <class4-module1-lab1-delete>` 
+#.  Expand the **Lab Cleanup** subfolder and its subfolders. There are a total of five requests.  The first two requests delete the Policy, while the last three requests delete the SP Service, IdP Connector, and IdP signing certificate.  To understand these requests further review :ref:`Deleting an Access Profile <class4-module2-lab1-delete>` or :ref:`Deleting a SAML Service Provider(SP) Service Configuration <class4-module1-lab1-delete>` 
 
     |image028|
 
 
-
-#.  Now that we have the automation updated lets deploy the policy.  Hover over the Collection name **student-class4-module2-lab2** with your mouse and click the **Arrow** icon.
+#.  Hover over the Collection name **student-class4-module2-lab2** with your mouse and click the **Arrow** icon.
 
     |image029|
+
+ #. Click **student-class4-module2-lab2** to return to the main folder if you are not already there.
+
+    |image036|
 
 #. Click the **Lab Cleanup** folder.
 
@@ -222,6 +231,11 @@ Task 5 - Lab Cleanup
     
     |image033|  
 
+#. From Postman, Click the **3 dots** on the bottom right of the student-class4-module2-lab2 Collection.
+
+#. Click **Delete**
+
+    |image037|
 
 This concludes the lab on creating and deleting a SAML SP Access Policy.
 
@@ -264,6 +278,9 @@ This concludes the lab on creating and deleting a SAML SP Access Policy.
 .. |image032| image:: media/lab02/032.png
 .. |image033| image:: media/lab02/033.png
 .. |image034| image:: media/lab02/034.png
+.. |image035| image:: media/lab02/035.png
+.. |image036| image:: media/lab02/036.png
+.. |image036| image:: media/lab02/037.png
 .. |image100| image:: media/lab02/100.png
 .. |image101| image:: media/lab02/101.png
 
