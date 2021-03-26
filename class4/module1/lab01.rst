@@ -180,7 +180,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 
     |image021|
 
-#. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.  That's because the object was deleted with the prior request.
+#. If you click **Send** a second time you will you get a message back stating the object is not found and a Status Code of 404.  That's because the object was deleted with the prior request.
 
     |image022|
 

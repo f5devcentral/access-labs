@@ -65,6 +65,7 @@ Access Policy Manager (APM) is a module available for use on the BIG-IP platform
 #. Click box and on the drop down next to the module and choose **Nominal**
 
       .. Note:: In most use cases you will want to use **Nominal** for provisioning modules.  What does each setting mean?
+
       +---------------+---------------------------------------------------------------------------------------+
       |Dedicated      |Specifies that all resources are dedicated to the module you are provisioning. For all |
       |               |other modules, the level option must be set to none.                                   |
@@ -334,6 +335,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       A per request policy creation will work the same way as a per session policy allowing you to add various items to the main policy and create macros. In addition a per request policy can also contain subroutines.
 
       .. Note:: A per-request policy subroutine is a collection of actions. What distinguishes a subroutine from other collections of actions (such as macros), is that a subroutine starts a subsession that, for its duration, controls user access to specified resources. If a subroutine has an established subsession, subroutine execution is skipped. A subroutine is therefore useful for cases that require user interaction (such as a confirmation dialog or a step-up authentication), since it allows skipping that interaction in a subsequent access.
+      
       You cannot use subroutines in macros within per-request policies.
       Subroutine properties specify subsession timeout values, maximum macro loop count, and gating criteria. You can reauthenticate, check for changes on the client, or take other actions based on timeouts or gating criteria.
 

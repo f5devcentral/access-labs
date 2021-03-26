@@ -222,7 +222,7 @@ Task 8 - Retreive your OAuth clientID
 
    |image25|
 
-#. You receive a *200 OK** with a response body.  The clientID is now stored as a Postman Variable to be used in future requests.
+#. You receive a **200 OK** with a response body.  The clientID is now stored as a Postman Variable to be used in future requests.
 
    |image113|
 
@@ -921,8 +921,6 @@ Task 3 - Test Access to the new path
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
 .. |image102| image:: media/lab01/102.png
-.. |image103| image:: media/lab01/image103.png
-	:width: 800px
 .. |image104| image:: media/lab01/104.png
 .. |image105| image:: media/lab01/105.png
 .. |image106| image:: media/lab01/106.png

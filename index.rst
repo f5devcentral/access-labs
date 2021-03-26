@@ -12,11 +12,7 @@ The following labs will instruct you on how to configure a variety of APM use ca
    :caption: Contents:
    :glob:
 
-   class1/class1.rst
-   class2/class2.rst
-   class3/class3.rst
-   class4/class4.rst
-   class5/class5.rst
+   class*/class*
    archived/archived.rst
 
 

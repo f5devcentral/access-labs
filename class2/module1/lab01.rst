@@ -54,7 +54,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
 
 Section 1.1 - Access Guided Configuration
-----------------------------------------
+-----------------------------------------------
 
 The first step in deploying the IAP is accessing Guided Configuration
 
@@ -301,12 +301,12 @@ Task 1 - Create Contextual Access for basic.acme.com
 
 
 Section 1.10 - Customization
-------------------------------------------------
+-----------------------------
 
 The Customization section allows an administrator to define the images, colors, and messages that are presented to a user.
 
 Task 1 - Customize the Remediation Page URL
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The default **remediation Page** URL uses the hostname site **request.com**.  This should be changed to reference a real host where users can download and install the EPI updates.
 
