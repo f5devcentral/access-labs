@@ -49,7 +49,7 @@ The message box is a great tool for troubleshooting a policy that may have been 
 
 #. From the jumphost open new browser tab. Then navigate to https://server1.acme.com.
 
-#. You instantly receive an access denied message.  Let's go look at the reports to see why we failed the pollicy.
+#. You instantly receive an access denied message.  Let's go look at the reports to see why we failed the policy.
 
    |image006|
 
@@ -94,13 +94,13 @@ Task 3 - Create the Test Branch
    A. Client enters **IP Subnet Match** action and proceeds down the **fallback** branch.
    B. The client enters the **Production Policy** Macro
    C. Inside the Macro the Client Enters the **Posture Assessment** Macro
-   D. Inside the **Posture Asseessments** Macro the client enters the **Client OS** action.
+   D. Inside the **Posture Assessments** Macro the client enters the **Client OS** action.
    E. The client enters the **Firewall** Check action.
    F. The client fails the check and proceeds down the **failback** branch
    G. The client exits the **Posture Assessments** Macro down the **fallback** branch
    H. The client exists the **Production Policy** Macro to the **Deny** Terminal
 
-#.  The first step in troubleshooting this user would be seperating this user from all other production users on the system.  This can be done by entering the user's IP address in the **IP Subnet Match** action.  Click the **IP Subnet Match** action
+#.  The first step in troubleshooting this user would be separating this user from all other production users on the system.  This can be done by entering the user's IP address in the **IP Subnet Match** action.  Click the **IP Subnet Match** action
 
    |image015|
 
@@ -119,7 +119,7 @@ Task 3 - Create the Test Branch
 
    |image018|
 
-#.  Next time the client attempts to connec they will sent down the test branch mataching their IP address.  This can safely be done in production since the branch ends in a **Deny**.
+#.  Next time the client attempts to connect they will sent down the test branch matching their IP address.  This can safely be done in production since the branch ends in a **Deny**.
 
    |image019|
 
@@ -127,7 +127,7 @@ Task 3 - Create the Test Branch
 Task 4 - Create Message boxes
 --------------------------------
 
-In this task you will create two Message Box Macros.  One for the success branch and a second for a failure branch.  Having the Mssage Box in a Macro allows you to customize the messages but still use them in muliple locations.  Also when you are done using them you simply remove them from the flow of policy but they can still exist in the overpolicy for the next time you need them.
+In this task you will create two Message Box Macros.  One for the success branch and a second for a failure branch.  Having the Message Box in a Macro allows you to customize the messages but still use them in multiple locations.  Also when you are done using them you simply remove them from the flow of policy but they can still exist in the overpolicy for the next time you need them.
 
 
 #. Click **Add New Macro**
@@ -358,7 +358,7 @@ While we successfully diagnose the problem we haven't actually fixed the problem
 
    |image052|
 
-#.  The configuration has now been reversed.  It's important to note that while we delected the Message Boxes from the current policy workslow the Marcros are still there the next time we need them.
+#.  The configuration has now been reversed.  It's important to note that while we detected the Message Boxes from the current policy workflow the Macros are still there the next time we need them.
 
    |image053|
 
@@ -376,7 +376,7 @@ Task 10 - Validate user1 is working
 
    |image054|
 
-#. You are presented the webpage below.  Congratualations you fixed the user's problem and they are working again.
+#. You are presented the webpage below.  Congratulations you fixed the user's problem and they are working again.
 
    |image055|
 
@@ -398,7 +398,7 @@ Task 11 - Lab Cleanup
 
    |image998|
 
-#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
+#. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
    |image999|
 
