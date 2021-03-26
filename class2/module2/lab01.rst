@@ -429,7 +429,7 @@ Task 2 - Disable Windows Firewall
 
    |image45|
 
-#. Click the radio button **Turn off Windows Firewall** under Public Network Settings
+#. Click the radio button **Turn off Windows Firewall** 
 #. Click **Ok**
 
    |image46|
@@ -471,7 +471,7 @@ Task 4 - Enable Windows Firewall
 
    |image45|
 
-#. Click the radio button **Turn on Windows Firewall** under Public Network Settings
+#. Click the radio button **Turn on Windows Firewall** 
 #. Click **Ok**
 
    |image48|
