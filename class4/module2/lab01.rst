@@ -8,7 +8,7 @@ In this lab you will learn about the API calls necessary to build the basline Ac
 
 
 
-Task 1 -Access Lab Environment
+Task 1 - Access Lab Environment
 --------------------------------
 
 To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
