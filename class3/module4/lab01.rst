@@ -12,7 +12,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image200|
 
-#. Select your RDP resolution.  
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jumphost.
 
@@ -150,8 +150,8 @@ Task 5 - Associate a JWT Provider
 #. Click **Save**
 
    |image17|
-   
-   
+
+
 Task 6 - Create a virtual server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -194,7 +194,7 @@ Task 7 - Import Postman Collections
 
     |image108|
 
-#.  Click **Upload Files** 
+#.  Click **Upload Files**
 
     |image109|
 
@@ -214,7 +214,7 @@ Task 8 - Retreive your OAuth clientID
 
 #. Expand the **student-class3-module4-lab01** Collection
 
-#. Select the request **Request1: Retrieve Postman ClientID** 
+#. Select the request **Request1: Retrieve Postman ClientID**
 
    |image112|
 
@@ -222,14 +222,14 @@ Task 8 - Retreive your OAuth clientID
 
    |image25|
 
-#. You receive a **200 OK** with a response body.  The clientID is now stored as a Postman Variable to be used in future requests.
+#. You receive a *200 OK** with a response body.  The clientID is now stored as a Postman Variable to be used in future requests.
 
    |image113|
 
 Task 9 - Attempt to Retrieve User1\'s Attributes without JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request2: Retrieve User Attributes without JWT** 
+#. Select the request **Request2: Retrieve User Attributes without JWT**
 
 #. Click **Send**
 
@@ -237,18 +237,18 @@ Task 9 - Attempt to Retrieve User1\'s Attributes without JWT
 
    |image26|
 
-Task 10 -  Retrieve User1\'s Attributes with a JWT
+Task 9 -  Retrieve User1\'s Attributes with a JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Select the request **Request3: Retrieve User Attributes with JWT**  
+#. Select the request **Request3: Retrieve User Attributes with JWT**
 
-#. Select the **Authorization** tab 
+#. Select the **Authorization** tab
 
 #. Click **Get New Access Token**
 
    |image44|
 
-#. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified.  
+#. Enter **User1** for the Token Name and review the Postman Configuration. Nothing else should need to be modified.
 
 #. Click **Request Token**
 
@@ -273,7 +273,7 @@ Task 10 -  Retrieve User1\'s Attributes with a JWT
    |image31|
 
 
-Task 11 - Set a Valid User Attribute
+Task 10 - Set a Valid User Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 4: Update a Valid User Attribute**
@@ -297,7 +297,7 @@ Task 11 - Set a Valid User Attribute
    |image35|
 
 
-Task 12 - Set an Nonexistent User's Attribute
+Task 11 - Set an Nonexistent User's Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 5: Update a Nonexistent User Attribute**
@@ -317,7 +317,7 @@ Task 12 - Set an Nonexistent User's Attribute
 |image37|
 
 
-Task 13 - Update a Valid User with PUT
+Task 12 - Update a Valid User with PUT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 6: Update a Valid User's Attribute with PUT**
@@ -335,7 +335,7 @@ Task 13 - Update a Valid User with PUT
    |image39|
 
 
-Task 14 - Create a User
+Task 13 - Create a User
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 7: Create a User**
@@ -349,11 +349,11 @@ Task 14 - Create a User
 #. Click **Send**
 
 #. You receive a **200 OK** response status code with a response body that contains Bob Smith's user attributes
-   
+
    |image46|
 
 
-Task 15 - Request invalid endpoint
+Task 14 - Request invalid endpoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 8: Request Invalid Endpoint**
@@ -438,7 +438,7 @@ Task 2 - Edit the per-request policy
 #. Click **Save**
 
    |image60|
- 
+
 #. Click the **+ (Plus Symbol)** on the POST /user branch
 
    |image50|
@@ -469,14 +469,14 @@ Task 2 - Edit the per-request policy
 
 #. Click the **Advanced** tab
 
-#. Enter the string in the notes section to restrict access to only members of the **CreateUser** Group. Make sure the " characters are properly formatted after pasting. If they aren't, simply delete and re-enter them manually.  
+#. Enter the string in the notes section to restrict access to only members of the **CreateUser** Group. Make sure the " characters are properly formatted after pasting. If they aren't, simply delete and re-enter them manually.
 
 #. Click **Finished**
 
-   .. Note:: 
+   .. Note::
 
 	expr {[mcget {subsession.oauth.scope.last.jwt.groups}] contains "CreateUser"}
-	
+
    |image55|
 
 #. Click **Save**
@@ -719,8 +719,8 @@ Task 5 - Test Rate Limiting
 #. On the 6th request you begin to receive a **429 Too Many Requests** response status code
 
    |image99|
-   
-   
+
+
 Section 1.5 - Onboard a New API
 ----------------------------------------
 
@@ -788,28 +788,28 @@ Task 3 - Test Access to the new path
 
 .. |image0| image:: media/lab01/image000.png
 	:width: 800px
-.. |image1| image:: media/lab01/image001.png	
+.. |image1| image:: media/lab01/image001.png
 .. |image2| image:: media/lab01/image002.png
 .. |image3| image:: media/lab01/image003.png
 .. |image4| image:: media/lab01/004.png
 .. |image5| image:: media/lab01/005.png
 .. |image6| image:: media/lab01/image006.png
-	:width: 800px	
+	:width: 800px
 .. |image7| image:: media/lab01/image007.png
 .. |image8| image:: media/lab01/image008.png
 .. |image9| image:: media/lab01/image009.png
 .. |image10| image:: media/lab01/image010.png
 .. |image11| image:: media/lab01/image011.png
 .. |image12| image:: media/lab01/image012.png
-	:width: 800px	
+	:width: 800px
 .. |image13| image:: media/lab01/013.png
-	:width: 800px	
+	:width: 800px
 .. |image14| image:: media/lab01/image014.png
-	:width: 800px	
+	:width: 800px
 .. |image15| image:: media/lab01/image015.png
-	:width: 800px	
+	:width: 800px
 .. |image16| image:: media/lab01/image016.png
-	:width: 800px	
+	:width: 800px
 .. |image17| image:: media/lab01/image017.png
 	:width: 800px
 .. |image18| image:: media/lab01/image018.png
@@ -818,6 +818,7 @@ Task 3 - Test Access to the new path
 .. |image21| image:: media/lab01/image021.png
 	:width: 700px
 .. |image22| image:: media/lab01/image022.png
+.. |image23| image:: media/lab01/image023.png
 .. |image24| image:: media/lab01/024.png
 .. |image25| image:: media/lab01/image025.png
 .. |image26| image:: media/lab01/image026.png
@@ -920,6 +921,8 @@ Task 3 - Test Access to the new path
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
 .. |image102| image:: media/lab01/102.png
+.. |image103| image:: media/lab01/image103.png
+	:width: 800px
 .. |image104| image:: media/lab01/104.png
 .. |image105| image:: media/lab01/105.png
 .. |image106| image:: media/lab01/106.png
@@ -929,12 +932,10 @@ Task 3 - Test Access to the new path
 .. |image110| image:: media/lab01/110.png
 .. |image111| image:: media/lab01/111.png
 .. |image112| image:: media/lab01/112.png
-.. |image112| image:: media/lab01/113.png
+.. |image113| image:: media/lab01/113.png
 .. |image200| image:: media/lab01/200.png
 .. |image201| image:: media/lab01/201.png
 .. |image202| image:: media/lab01/202.png
 .. |image203| image:: media/lab01/203.png
 .. |image204| image:: media/lab01/204.png
-
-
-
+.. |image205| image:: media/lab01/205.png
