@@ -345,7 +345,7 @@ Task 6 - Create a SAML IdP Access Policy
    |image034|
 
 #. Click the **Authentication** tab
-#. Select **Kerberos Auth*
+#. Select **Kerberos Auth**
 #. Click **Add Item**
 
    |image035|
@@ -355,7 +355,7 @@ Task 6 - Create a SAML IdP Access Policy
    +-----------------------+--------------------------------------------+
    | AAA Server:           | ``/Common/idp.acme.com`` (drop down)       |
    +-----------------------+--------------------------------------------+
-   | Request Based Auth:   | ``Enabled`` (drop down)                     |
+   | Request Based Auth:   | ``Enabled`` (drop down)                    |
    +-----------------------+--------------------------------------------+
 
 #. Click **Save**

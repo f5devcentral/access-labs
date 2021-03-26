@@ -34,7 +34,9 @@ To access your dedicated student lab environment, you will need a web browser an
 
 #. Hover over tile **The Message Box**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image004|
+   +---------------+-------------+
+   | |image056|    | |image004|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -82,12 +84,11 @@ Task 3 - Create the Test Branch
 
    |image012|
 
-#.  Click **Edit** to open Visual Policy Editor(VPE)
+#. Click **Edit** to open Visual Policy Editor(VPE)
 
    |image013|
 
-
-#.  If you exam the Policy you can the follow workflow is where the failure is happening:
+#. Exam the policy to understand where the failure is happening:
 
    |image014|
 
@@ -100,7 +101,7 @@ Task 3 - Create the Test Branch
    G. The client exits the **Posture Assessments** Macro down the **fallback** branch
    H. The client exists the **Production Policy** Macro to the **Deny** Terminal
 
-#.  The first step in troubleshooting this user would be separating this user from all other production users on the system.  This can be done by entering the user's IP address in the **IP Subnet Match** action.  Click the **IP Subnet Match** action
+#. The first step in troubleshooting this user would be separating this user from all other production users on the system.  This can be done by entering the user's IP address in the **IP Subnet Match** action.  Click the **IP Subnet Match** action
 
    |image015|
 
@@ -159,7 +160,7 @@ In this task you will create two Message Box Macros.  One for the success branch
       <br>Firewall Name: %{session.check_software.last.fw.item_1.name}
       <br>Firewall Version: %{session.check_software.last.fw.item_1.version}
 
-# Click **Save**
+#. Click **Save**
 
    |image024|
 
@@ -273,7 +274,7 @@ Now that we have the information about the clients Firewall settings we can retu
 
    |image012|
 
-#.  Click **Edit** to open Visual Policy Editor(VPE)
+#. Click **Edit** to open Visual Policy Editor(VPE)
 
    |image013|
 
@@ -291,7 +292,7 @@ Now that we have the information about the clients Firewall settings we can retu
 
    |image042|
 
-Task 8 - Test our fix
+Task 8 - Test Our Fix
 --------------------------
 
 When testing you should now receive the  Successful Message Box.
@@ -396,7 +397,9 @@ Task 11 - Lab Cleanup
 
 #. Hover over tile **The Message Box**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-   |image998|
+   +---------------+-------------+
+   | |image056|    | |image998|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -462,5 +465,6 @@ Task 11 - Lab Cleanup
 .. |image053| image:: ./media/lab01/053.png
 .. |image054| image:: ./media/lab01/054.png
 .. |image055| image:: ./media/lab01/055.png
+.. |image056| image:: ./media/lab01/056.png
 .. |image998| image:: ./media/lab01/998.png
 .. |image999| image:: ./media/lab01/999.png
