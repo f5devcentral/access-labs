@@ -1,16 +1,16 @@
 Lab 1: Creating a SAML Service Provider(SP)
 ============================================
 .. _class4-module1-lab1:
-In this lab you will learn how to create and delete Access related objects.
+In this lab you will learn how to work with the SP Service and IdP Connector.
 
-Access Lab Environment
--------------------------
+Task 1 - Access the Lab Environment
+--------------------------------------
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click **ACCESS** next to jumphostf5lab.local
+#. Click **ACCESS** next to jumphost.f5lab.local
 
     |image101|
 
@@ -19,18 +19,18 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
-#.  login with the following credentials:
+#. Login with the following credentials:
 
          - User: **f5lab\\user1**
          - Password: **user1**
 
 
-Task 1 - Import Postman Collections
+Task 2 - Import Postman Collections
 -----------------------------------------------------------------------
 
-#. From the Jumpbox, open **Postman** via the desktop shortcut or toolbar at the bottom
+#. From the Jumphost, open **Postman** via the desktop shortcut or toolbar at the bottom
 
-     .. note::  Dismiss any prompts to update Postman.  
+    .. note::  Dismiss any prompts to update Postman.  
 
     |image001|
 
@@ -57,7 +57,7 @@ Task 1 - Import Postman Collections
 #. A collection called **student-class4-module1-lab1** will appear on the left side in Postman
 
 
-Task 2 - Import IDP Signing Certificate
+Task 3 - Import IDP Signing Certificate
 -----------------------------------------------------------------------
 
 #. Expand the **student-class4-module1-lab1** collection to see the subfolders and requests.
@@ -72,7 +72,7 @@ Task 2 - Import IDP Signing Certificate
 
 #. Click **Body** to display what will be passed in the POST request
 
-   .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
+    .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
 
    |image008|
 
@@ -84,7 +84,7 @@ Task 2 - Import IDP Signing Certificate
 
 #. Select the **bigip-install-cert-idp** request.
 
-#. Examine the body of this request.  This request installs the certificate we previously uploaded to the BIG-IPs crypte store.
+#. Examine the body of this request.  This request installs the certificate we previously uploaded to the BIG-IPs crypto store.
 
     |image010|
 
@@ -97,7 +97,7 @@ Task 2 - Import IDP Signing Certificate
 
 
 
-Task 2 - Create an SAML IDP Connector 
+Task 4 - Create an SAML IDP Connector 
 -----------------------------------------------------------------------
 
 In order to create an SP service the IDP Connector must exist.  This is because the SP Service endpoint contains the binding information to the IDP Connector.
@@ -117,14 +117,14 @@ In order to create an SP service the IDP Connector must exist.  This is because 
     |image013|
 
 
-Task 3 - Create an SAML SP Service
+Task 5 - Create an SAML SP Service
 -----------------------------------------------------------------------   
 
 #. Select the **bigip-create-sp service-bigip**
 
 #. Notice the request endpoint is **/mgmt/tm/apm/aaa/saml/**.
 
-#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting for the SP service, plus a binding the IDP Connector we just created. 
+#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting for the SP service, plus a binding to the IDP Connector we just created. 
 
     |image014|
 
@@ -134,32 +134,33 @@ Task 3 - Create an SAML SP Service
 
     |image015|
 
-Task 4 - Explore configuration via the BIG-IP GUI
+Task 6 - Explore configuration via the BIG-IP GUI
 -----------------------------------------------------------------------
 
-#. Open a browser and naviage to https://bigip1.f5lab.local
+#. From the jumphost, open a browser and navigate to https://bigip1.f5lab.local
 
 #. Login to the BIG-IP GUI with the following credentials:
+
     - Username: **admin**
     - Password: **admin**
 
-#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on **SSL Certificate List** and not the + plus symbol.
 
     |image016|
 
-#. You can see the certificate **class4-module1-lab1-idp** that was imported in Task 1 is displayed.  
+#. You can see the certificate **class4-module1-lab1-idp** from Task 1 was succesfully imported.  
 
     |image017|
 
-#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on Local SP Services and not the + (plus symbol).
+#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on **Local SP Services** and not the + (plus symbol).
 
     |image018|
 
-#. You can see an SP service object was created with the name class4-module1-lab1-sp and successfully binded to an IDP Connector named class4-module1-lab1-idp.
+#. You can see a SP service object was created with the name **class4-module1-lab1-sp** and successfully binded to an IDP Connector named **class4-module1-lab1-idp**.
 
     |image019|
 
-Task 5 - Deleting a SAML Service Provider(SP) Service Configuration
+Task 7 - Deleting a SAML Service Provider(SP) Service Configuration
 ------------------------------------------------------------------------
 .. _class4-module1-lab1-delete:
 
@@ -169,7 +170,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 
 #. Click **bigip-delete-sp service**
 
-#. Notice the body is empty and the endpoint we are hitting is the same endpoint we used to create the SP service plus the partition and object name.
+#. Notice the body is empty.  Also, the endpoint we are using is the same endpoint we used to create the SP service plus the partition and object name.
 
     |image020|
 
@@ -179,7 +180,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 
     |image021|
 
-#. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.
+#. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.  That's because the object was deleted with the prior request.
 
     |image022|
 
@@ -204,16 +205,17 @@ With imperative call objects must be deleted in the reverse order they are typic
     |image026|
 
 
-Task 6 - Ensure objects were removed via GUI
+Task 8 - Ensure objects were removed via GUI
 -----------------------------------------------
 
-#. Open a browser and navigate to https://bigip1.f5lab.local
+#. Return to the jumpbox's browser and navigate to https://bigip1.f5lab.local
 
 #. Login to the BIG-IP GUI with the following credentials:
+    
     - Username: **admin**
     - Password: **admin**
 
-#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on SSL Certificate List and not the + plus symbol.
+#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on **SSL Certificate List** and not the + (plus symbol).
 
     |image016|
 
@@ -221,7 +223,7 @@ Task 6 - Ensure objects were removed via GUI
 
     |image027|
 
-#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on Local SP Services and not the+ plus symbol.
+#. Navigate to Access >> Federation >> SAML Service Provider >> Local SP Services.  Click on **Local SP Services** and not the + (plus symbol).
 
     |image018|
 
@@ -237,10 +239,20 @@ Task 6 - Ensure objects were removed via GUI
 
     |image030|
 
+Task 9 - Lab Cleanup
+---------------------------------
+
+
+#. From Postman, Click the **3 dots** on the bottom right of the student-class4-module1-lab1 Collection.
+
+#. Click **Delete**
+
+|image031|
+
+
 This concludes the APM lab on creating and deleting APM objects via iControlREST.
 
     |image000|
-
 
 
 .. |image000| image:: media/lab01/000.png
@@ -274,4 +286,5 @@ This concludes the APM lab on creating and deleting APM objects via iControlREST
 .. |image028| image:: media/lab01/028.png
 .. |image029| image:: media/lab01/029.png
 .. |image030| image:: media/lab01/030.png
+.. |image031| image:: media/lab01/031.png
 .. |image101| image:: media/lab01/101.png

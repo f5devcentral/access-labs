@@ -3,14 +3,14 @@ Lab 4: SAML Identity Provider (IdP) - LocalDB Auth
 
 
 
-Setup Lab Environment
+Task 1 - Setup Lab Environment
 -----------------------------------
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click **ACCESS** next to jumpohost.f5lab.local
+#. Click **ACCESS** next to jumphost.f5lab.local
 
    |image001|
 
@@ -29,24 +29,22 @@ To access your dedicated student lab environment, you will require a web browser
 
 	|image002|
 
-
 #. Scroll down the page until you see **301 SAML Federation** on the left
 
    |image003|
 
 #. Hover over tile **SAML Identity Provider (IdP) - LocalDB Auth**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image004|
+   +---------------+-------------+
+   | |image050|    | |image004|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
    |image005|
 
 
-
-
-
-TASK 1 ‑ Configure the SAML Identity Provider (IdP)
+TASK 2 ‑ Configure the SAML Identity Provider (IdP)
 --------------------------------------------------------
 
 IdP Service
@@ -157,7 +155,7 @@ SP Connector
 
    |image015|
 
-TASK 2 - Create a SAML Resource
+TASK 3 - Create a SAML Resource
 -------------------------------------
 
 
@@ -181,7 +179,7 @@ TASK 2 - Create a SAML Resource
 
 
 
-Task 3 - Create a Webtop
+Task 4 - Create a Webtop
 -------------------------------
 
 #. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
@@ -204,7 +202,7 @@ Task 3 - Create a Webtop
    |image019|
 
 
-Task 4 - Create a Local Dabasebase 
+Task 5 - Create a Local Dabasebase 
 ----------------------------------------
 
 #. Navigate to Access >> Authentication >> Local User DB >> Instances >> **+** (Plus Symbol).  
@@ -248,7 +246,7 @@ Task 4 - Create a Local Dabasebase
 
    |image023|
 
-Task 4 - Create a SAML IdP Access Policy
+Task 6 - Create a SAML IdP Access Policy
 ---------------------------------------------
 
 #. Select **Access ‑> Profiles/Policies ‑> Access Profiles
@@ -371,7 +369,7 @@ Task 4 - Create a SAML IdP Access Policy
    |image042|
 
 
-TASK 6 - Create the IdP Virtual Server
+TASK 7 - Create the IdP Virtual Server
 ----------------------------------------
 
 
@@ -417,12 +415,15 @@ TASK 6 - Create the IdP Virtual Server
 #. Scroll to the bottom of the configuration window and click **Finished**
 
 
-TASK 2 - Test the SAML Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 8 - Test the Configuration
+------------------------------------------
 
 #. From the jumphost, navigate to the SAML IdP you previously configured at **https://idp.acme.com**.  
 
-#. Logon with the the following credentials: Username:**user1** Password:**user1**
+#. Logon with the the following credentials: 
+
+   - Username:**user1** 
+   - Password:**user1**
 
    |image047|
   
@@ -439,7 +440,7 @@ TASK 2 - Test the SAML Configuration
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Lab Clean Up
+Task 9 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
@@ -452,9 +453,11 @@ Lab Clean Up
 
    |image003|
 
-#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **SAML Identity Provider (IdP) - LocalDB Auth**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-   |image998|
+   +---------------+-------------+
+   | |image050|    | |image998|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -515,6 +518,7 @@ Lab Clean Up
 .. |image047| image:: ./media/lab04/047.png
 .. |image048| image:: ./media/lab04/048.png
 .. |image049| image:: ./media/lab04/049.png
+.. |image050| image:: ./media/lab04/050.png
 .. |image998| image:: ./media/lab04/998.png
 .. |image999| image:: ./media/lab04/999.png
 

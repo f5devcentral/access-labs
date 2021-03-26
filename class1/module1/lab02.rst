@@ -1,4 +1,4 @@
-Lab 2: Intro to Per-Session Policies
+Lab 2: Visual Policy Editor (VPE) Overview
 ========================================================
 
 
@@ -13,7 +13,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image001|
 
-#. Select your RDP resolution.  
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -63,14 +63,14 @@ Section 1 - The Access Profile
 
     |image009|
 
-#. The **Properties** section provides baseline settings related to Scope, timers, and languages accross the all sessions that will use the policy regardless of how Visual Policy Editor is configured.  
+#. The **Properties** section provides baseline settings related to Scope, timers, and languages accross the all sessions that will use the policy regardless of how Visual Policy Editor is configured.
 
     |image010|
 
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
-    | Setting                 | Value                   | Description and defaults                                                                                           | 
+    | Setting                 | Value                   | Description and defaults                                                                                           |
     +=========================+=========================+====================================================================================================================+
-    | Name                    | text                    | Specifies the name of the access profile.                                                                          | 
+    | Name                    | text                    | Specifies the name of the access profile.                                                                          |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | Inactivity Timeout      | Number of seconds, or 0 | Specifies the inactivity timeout for the connection. If there is no activity between the client and server within  |
     |                         |                         | the specified threshold time, the system closes the current session. By default, the threshold is 0, which         |
@@ -97,13 +97,13 @@ Section 1 - The Access Profile
     | Per Client IP           |                         | take into account whether users will come from a NAT-ed or proxied client address and, if so, consider increasing  |
     |                         |                         | the value accordingly. The default value is 0 which represents unlimited sessions.                                 |                                                                                                          |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
-    | Restrict to Single      | Selected or cleared     | When selected, limits a session to a single IP address.                                                            |                                                            
+    | Restrict to Single      | Selected or cleared     | When selected, limits a session to a single IP address.                                                            |
     | Client IP               |                         |                                                                                                                    |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
-    | Logout URI Include      | One or more URIs        | Specifies a list of URIs to include in the access profile to initiate session logout.                              |                                                            
+    | Logout URI Include      | One or more URIs        | Specifies a list of URIs to include in the access profile to initiate session logout.                              |
     |                         |                         |                                                                                                                    |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
-    | Logout URI Timeout      | Logout delay URI in     | Specifies the time delay before the logout occurs, using the logout URIs defined in the logout URI include list.   |                                                            
+    | Logout URI Timeout      | Logout delay URI in     | Specifies the time delay before the logout occurs, using the logout URIs defined in the logout URI include list.   |
     |                         | seconds                 |                                                                                                                    |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
 
@@ -112,11 +112,11 @@ Section 1 - The Access Profile
     |image011|
 
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
-    | Setting                 | Value                   | Description and defaults                                                                                           | 
+    | Setting                 | Value                   | Description and defaults                                                                                           |
     +=========================+=========================+====================================================================================================================+
     | Domain Mode             | Single Domain or        | Select Single Domain to apply your SSO configuration to a single domain. Select Multiple Domain to apply your SSO  |
     |                         | Multiple Domains        | configuration across multiple domains. This is useful in cases where you want to allow your users a single Access  |
-    |                         |                         | Policy Manager® (APM®) login session and apply it across multiple Local Traffic Manager™ or APM virtual servers,   |                                                   
+    |                         |                         | Policy Manager® (APM®) login session and apply it across multiple Local Traffic Manager™ or APM virtual servers,   |
     |                         |                         | front-ending different domains.                                                                                    |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | Domain Cookie           | A Domain Cookie         | If you specify a domain cookie, then the line domain=specified_domain is added to the MRHsession                   |
@@ -124,19 +124,19 @@ Section 1 - The Access Profile
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | Cookie Options:         | Enable or disable check | Enabled, this setting specifies to add the secure keyword to the session cookie. If you are configuring an         |
     | Secure                  | box                     | application access control scenario where you are using an HTTPS virtual server to authenticate the user, and then |
-    |                         |                         | sending the user to an existing HTTP virtual server to use applications, clear this check box.                     |                                                                                         
+    |                         |                         | sending the user to an existing HTTP virtual server to use applications, clear this check box.                     |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | Cookie Options:         | Enable or disable check | Enabled, this setting specifies to set cookies if the session does not have a webtop. When the session is first    |
     | Persistent              | box                     | established, session cookies are not marked as persistent, but when the first response is sent to the client after |
-    |                         |                         | the access policy completes successfully, the cookies are marked persistent.                                       |                                                                                       
+    |                         |                         | the access policy completes successfully, the cookies are marked persistent.                                       |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
-    | Cookie Options:         | Enable or disable check | HttpOnly is an additional flag included in a Set-Cookie HTTP response header. Use the HttpOnly flag when generating| 
+    | Cookie Options:         | Enable or disable check | HttpOnly is an additional flag included in a Set-Cookie HTTP response header. Use the HttpOnly flag when generating|
     | HTTP only               | box                     | a cookie to help mitigate the risk of a client-side script accessing the protected cookie, if the browser supports |
-    |                         |                         | HttpOnly.                                                                                                          |                                                                                      
+    |                         |                         | HttpOnly.                                                                                                          |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | SSO Configuration       | Predefined SSO          | SSO configurations contain settings to configure single sign-on with an access profile. Select the SSO             |
     |                         | Configuration           | configuration from the list that you want applied to your domain.                                                  |
-    |                         |                         |                                                                                                                    |                                                                                      
+    |                         |                         |                                                                                                                    |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
 
 
@@ -145,11 +145,11 @@ Section 1 - The Access Profile
     |image012|
 
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
-    | Setting                 | Value                   | Description and defaults                                                                                           | 
+    | Setting                 | Value                   | Description and defaults                                                                                           |
     +=========================+=========================+====================================================================================================================+
     | Primary Authentication  | URI                     | The URI of your primary authentication server, for example https://logon.siterequest.com. This is required if you  |
     | URI                     |                         | use SSO across multiple domains. You provide this URI so your users can access multiple back-end applications from |
-    |                         |                         | multiple domains and hosts without requiring them to re-enter their credentials, because the user session is stored| 
+    |                         |                         | multiple domains and hosts without requiring them to re-enter their credentials, because the user session is stored|
     |                         |                         | on the primary domain.                                                                                             |
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | Cookie                  | Domain or Host          | If you specify multiple domains, populate this area with hosts or domains. Each host or domain can have a separate |
@@ -159,7 +159,7 @@ Section 1 - The Access Profile
 
 #. Click **Access Policy**
 
-    .. note::  Object builts outside visual policy editor, but used within the policy are displayed here.  
+    .. note::  Object builts outside visual policy editor, but used within the policy are displayed here.
 
 #. Click **Edit Access Policy for Profile "server1-psp"** to open Visual Policy Editor(VPE) in a new tab.
 
@@ -184,7 +184,7 @@ Task 2.1 - Branches
 
 A branch rule evaluates the result of an access policy action, findings about a client system, or other access policy item. The outcome of the evaluation of a branch rule grants or denies access, or continues on to the next action. The order of branch rules in an access policy determines the flow of action.
 
-Some actions such as Logon Pages only have a single default branch, while other actions such as authentication will have a minimum of two branches.  
+Some actions such as Logon Pages only have a single default branch, while other actions such as authentication will have a minimum of two branches.
 
 When a creating a policy from scratch there will only be a single branch connecting the **Start** item to the **Deny** Terminal as depicted below.
 
@@ -201,13 +201,13 @@ When a creating a policy from scratch there will only be a single branch connect
 
     |image017|
 
-#. Expressions can be modified under the **Simple** or **Advanced** Tabs.  The Simple tab allows you create expression using boolean logic.  If something is added to the AND experssion both conditions must be true.  While if something is add the OR condition either condition must be true.  Click **Advanced**. 
+#. Expressions can be modified under the **Simple** or **Advanced** Tabs.  The Simple tab allows you create expression using boolean logic.  If something is added to the AND experssion both conditions must be true.  While if something is add the OR condition either condition must be true.  Click **Advanced**.
 
     |image018|
 
 #.  The **Advanced** tab allows direct modifation of the expression using TCL.  You can now see that AD Auth action evaluates the session variable session.ad.last.authresult to determine if the value is a 1(true).
-#.  Click **Cancel** because we do not want to modify anything in the AD Auth action.  
-    
+#.  Click **Cancel** because we do not want to modify anything in the AD Auth action.
+
     |image019|
 
 
@@ -230,7 +230,7 @@ APM includes a number of pre-defined actions. You can see the available actions 
 #. Click the Authentication Tab.  It contains actions that either validate credentials or interact with directory servers in some way.
 
     |image022|
-    
+
     |image023|
 
 #.  Click the **Assigment** tab.  It determines the associatation between resources and users.  Secoondly this is where mechanisms such as ACLs orbandwidth controls are chosen.
@@ -238,7 +238,7 @@ APM includes a number of pre-defined actions. You can see the available actions 
     |image024|
 
 
-#. Click the Endpoint Security (Server-side) tab.  These endpoint checks do not require anything to be installed on the client. 
+#. Click the Endpoint Security (Server-side) tab.  These endpoint checks do not require anything to be installed on the client.
 
     |image025|
 
@@ -247,20 +247,20 @@ APM includes a number of pre-defined actions. You can see the available actions 
     |image026|
 
 
-#. Click the **General Purpose** tab. We are now going to add a new action to the policy. 
+#. Click the **General Purpose** tab. We are now going to add a new action to the policy.
 #. Click **Message Box**
 #. Click **Add Item**
 
     |image027|
 
-#. Enter the text **Learning APM** in the Title Section.  
+#. Enter the text **Learning APM** in the Title Section.
 #. Click **Save**
-    
+
     |image028|
 
-#.  We have successfully added our first new action to this policy.  Now After the user credentials are successfully validated against Active Directory the user will see a message box with the text "Learning APM".  
+#.  We have successfully added our first new action to this policy.  Now After the user credentials are successfully validated against Active Directory the user will see a message box with the text "Learning APM".
 #.  Also notice a new set of text has appeared in the top left corner of the policy.  When you see **Apply Access Policy** in the left corner it means a policy has changes that have been saved but yet to be commited.  It is important to understand that changes made to a per-session policy do not impact existing sessions. we will leave it that way for now as we have more changes to make.
-   
+
     |image029|
 
 Task 2.3 - Macros
@@ -273,7 +273,7 @@ In this task we are going to create a Macro that detects the client operating sy
 
     |image030|
 
-#. Click **Add New Macro**.  
+#. Click **Add New Macro**.
 
     |image031|
 
@@ -296,8 +296,8 @@ In this task we are going to create a Macro that detects the client operating sy
 
     |image035|
 
-#. Change the default terminal text to **Pass**. This is the terminal using the color green 
-#. Change the new terminal text to **Fail**.  
+#. Change the default terminal text to **Pass**. This is the terminal using the color green
+#. Change the new terminal text to **Fail**.
 #. Toggle the Terminal Endpoints order so the **Fail** Terminal is on the **bottom**.
 
     |image036|
@@ -403,7 +403,7 @@ Endings allow an administrtor to customize APM's reponsse by introducing redirec
 Task 2.6 Testing
 ~~~~~~~~~~~~~~~~~~
 
-#. Open a new browser tab and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and the first thing that happens in our policy is the Windows and Firewall Check.  You can see these are being performed as the agent software is being triggered when the screen states **Awaiting Connection...** and then transitions to **Checking for security software**. 
+#. Open a new browser tab and then navigate to https://server1.acme.com.  You will be redirected to /my.policy and the first thing that happens in our policy is the Windows and Firewall Check.  You can see these are being performed as the agent software is being triggered when the screen states **Awaiting Connection...** and then transitions to **Checking for security software**.
 
     |image056|
 
@@ -431,12 +431,12 @@ Task 2.6 Testing
 
     |image062|
 
-#. User1 has successfully authenticated through the policy and now granted access to their resource.  
+#. User1 has successfully authenticated through the policy and now granted access to their resource.
 
     |image063|
 
 
-Lab CleanUp
+Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local

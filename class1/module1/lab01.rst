@@ -11,11 +11,11 @@ This is not a deep dive on the components but an overview of the components, fea
 Setup Lab Environment
 -----------------------------------
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click **ACCESS** next to jumpohost.f5lab.local
+#. Click **ACCESS** next to jumphost.f5lab.local
 
    |accessjh|
 
@@ -773,7 +773,7 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
 .. Information:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
 
-Task 8: Lab Clean Up
+Task 8: Lab Cleanup
 ----------------------------
 
 #. Open a new tab and click on the Access: PORTAL bookmark then select **CLASSES**
@@ -794,69 +794,69 @@ Lab 1 is now complete.
 
 
 
-.. |accessjh| image:: /class1/module1/media/lab01/setup/accessjh.png
-.. |accessportal| image:: /class1/module1/media/lab01/setup/accessportal.png
-.. |101intro| image:: /class1/module1/media/lab01/setup/101intro.png
-.. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
-.. |guiflyout| image:: /class1/module1/media/lab01/setup/guiflyout.png
-.. |guistop| image:: /class1/module1/media/lab01/setup/guistop.png
-.. |process| image:: /class1/module1/media/lab01/setup/process.png
-.. |issues| image:: /class1/module1/media/lab01/setup/issues.png
-.. |Dashboard| image:: /class1/module1/media/lab01/setup/Dashboard.png
-.. |image01| image:: /class1/module1/media/lab01/image01.png
-.. |image02| image:: /class1/module1/media/lab01/image02.png
-.. |image03| image:: /class1/module1/media/lab01/image03.png
-.. |image4| image:: /class1/module1/media/lab01/image4.png
-.. |image5| image:: /class1/module1/media/lab01/image5.png
-.. |image06| image:: /class1/module1/media/lab01/image6.png
-.. |image07| image:: /class1/module1/media/lab01/image7.png
-.. |image08| image:: /class1/module1/media/lab01/image8.png
-.. |image09| image:: /class1/module1/media/lab01/image9.png
-.. |image13| image:: /class1/module1/media/lab01/image13.png
-.. |image14| image:: /class1/module1/media/lab01/image14.png
-.. |image16| image:: /class1/module1/media/lab01/image16.png
-.. |image17| image:: /class1/module1/media/lab01/image17.png
-.. |image18| image:: /class1/module1/media/lab01/image18.png
-.. |image19| image:: /class1/module1/media/lab01/image19.png
-.. |image20| image:: /class1/module1/media/lab01/image20.png
-.. |image21| image:: /class1/module1/media/lab01/image21.png
-.. |sessionid| image:: /class1/module1/media/lab01/sessionid.png
-.. |activesessions| image:: /class1/module1/media/lab01/activesessions.png
-.. |killsession| image:: /class1/module1/media/lab01/killsession.png
-.. |image22| image:: /class1/module1/media/lab01/image22.png
-.. |image23| image:: /class1/module1/media/lab01/image23.png
-.. |multidomain| image:: /class1/module1/media/lab01/multidomain.png
-.. |image25| image:: /class1/module1/media/lab01/image25.png
-.. |adpool| image:: /class1/module1/media/lab01/adpool.png
-.. |basicpsp| image:: /class1/module1/media/lab01/basicpsp.png
-.. |ssocredmap| image:: /class1/module1/media/lab01/ssocredmap.png
-.. |policyattach| image:: /class1/module1/media/lab01/policyattach.png
-.. |basicpolicy| image:: /class1/module1/media/lab01/basicpolicy.png
-.. |samlidp| image:: /class1/module1/media/lab01/samlidp.png
-.. |samlidplogin| image:: /class1/module1/media/lab01/samlidplogin.png
-.. |webtopsaml| image:: /class1/module1/media/lab01/webtopsaml.png
-.. |spacme| image:: /class1/module1/media/lab01/spacme.png
-.. |idppsp| image:: /class1/module1/media/lab01/idppsp.png
-.. |idpadauth| image:: /class1/module1/media/lab01/idpadauth.png
-.. |samlidpaaa| image:: /class1/module1/media/lab01/samlidpaaa.png
-.. |samladvres| image:: /class1/module1/media/lab01/samladvres.png
-.. |samlidpobj| image:: /class1/module1/media/lab01/samlidpobj.png
-.. |samlbindexp| image:: /class1/module1/media/lab01/samlbindexp.png
-.. |samlsp| image:: /class1/module1/media/lab01/samlsp.png
-.. |spinitiated| image:: /class1/module1/media/lab01/spinitiated.png
-.. |sppsp| image:: /class1/module1/media/lab01/spsp.png
-.. |samlspauth| image:: /class1/module1/media/lab01/samlspauth.png
-.. |samlspobj| image:: /class1/module1/media/lab01/samlspobj.png
-.. |image001| image:: /class1/module1/media/lab01/001.png
-.. |image002| image:: /class1/module1/media/lab01/002.png
-.. |image003| image:: /class1/module1/media/lab01/003.png
-.. |image004| image:: /class1/module1/media/lab01/004.png
-.. |image005| image:: /class1/module1/media/lab01/005.png
-.. |image006| image:: /class1/module1/media/lab01/006.png
-.. |image007| image:: /class1/module1/media/lab01/007.png
-.. |image008| image:: /class1/module1/media/lab01/008.png
-.. |image009| image:: /class1/module1/media/lab01/009.png
-.. |image010| image:: /class1/module1/media/lab01/010.png
-.. |image011| image:: /class1/module1/media/lab01/011.png
-.. |image012| image:: /class1/module1/media/lab01/012.png
-.. |image013| image:: /class1/module1/media/lab01/013.png
+.. |accessjh| image:: ./media/lab01/setup/accessjh.png
+.. |accessportal| image:: ./media/lab01/setup/accessportal.png
+.. |101intro| image:: ./media/lab01/setup/101intro.png
+.. |guioverview| image:: ./media/lab01/setup/guioverview.png
+.. |guiflyout| image:: ./media/lab01/setup/guiflyout.png
+.. |guistop| image:: ./media/lab01/setup/guistop.png
+.. |process| image:: ./media/lab01/setup/process.png
+.. |issues| image:: ./media/lab01/setup/issues.png
+.. |Dashboard| image:: ./media/lab01/setup/Dashboard.png
+.. |image01| image:: ./media/lab01/image01.png
+.. |image02| image:: ./media/lab01/image02.png
+.. |image03| image:: ./media/lab01/image03.png
+.. |image4| image:: ./media/lab01/image4.png
+.. |image5| image:: ./media/lab01/image5.png
+.. |image06| image:: ./media/lab01/image6.png
+.. |image07| image:: ./media/lab01/image7.png
+.. |image08| image:: ./media/lab01/image8.png
+.. |image09| image:: ./media/lab01/image9.png
+.. |image13| image:: ./media/lab01/image13.png
+.. |image14| image:: ./media/lab01/image14.png
+.. |image16| image:: ./media/lab01/image16.png
+.. |image17| image:: ./media/lab01/image17.png
+.. |image18| image:: ./media/lab01/image18.png
+.. |image19| image:: ./media/lab01/image19.png
+.. |image20| image:: ./media/lab01/image20.png
+.. |image21| image:: ./media/lab01/image21.png
+.. |sessionid| image:: ./media/lab01/sessionid.png
+.. |activesessions| image:: ./media/lab01/activesessions.png
+.. |killsession| image:: ./media/lab01/killsession.png
+.. |image22| image:: ./media/lab01/image22.png
+.. |image23| image:: ./media/lab01/image23.png
+.. |multidomain| image:: ./media/lab01/multidomain.png
+.. |image25| image:: ./media/lab01/image25.png
+.. |adpool| image:: ./media/lab01/adpool.png
+.. |basicpsp| image:: ./media/lab01/basicpsp.png
+.. |ssocredmap| image:: ./media/lab01/ssocredmap.png
+.. |policyattach| image:: ./media/lab01/policyattach.png
+.. |basicpolicy| image:: ./media/lab01/basicpolicy.png
+.. |samlidp| image:: ./media/lab01/samlidp.png
+.. |samlidplogin| image:: ./media/lab01/samlidplogin.png
+.. |webtopsaml| image:: ./media/lab01/webtopsaml.png
+.. |spacme| image:: ./media/lab01/spacme.png
+.. |idppsp| image:: ./media/lab01/idppsp.png
+.. |idpadauth| image:: ./media/lab01/idpadauth.png
+.. |samlidpaaa| image:: ./media/lab01/samlidpaaa.png
+.. |samladvres| image:: ./media/lab01/samladvres.png
+.. |samlidpobj| image:: ./media/lab01/samlidpobj.png
+.. |samlbindexp| image:: ./media/lab01/samlbindexp.png
+.. |samlsp| image:: ./media/lab01/samlsp.png
+.. |spinitiated| image:: ./media/lab01/spinitiated.png
+.. |sppsp| image:: ./media/lab01/spsp.png
+.. |samlspauth| image:: ./media/lab01/samlspauth.png
+.. |samlspobj| image:: ./media/lab01/samlspobj.png
+.. |image001| image:: ./media/lab01/001.png
+.. |image002| image:: ./media/lab01/002.png
+.. |image003| image:: ./media/lab01/003.png
+.. |image004| image:: ./media/lab01/004.png
+.. |image005| image:: ./media/lab01/005.png
+.. |image006| image:: ./media/lab01/006.png
+.. |image007| image:: ./media/lab01/007.png
+.. |image008| image:: ./media/lab01/008.png
+.. |image009| image:: ./media/lab01/009.png
+.. |image010| image:: ./media/lab01/010.png
+.. |image011| image:: ./media/lab01/011.png
+.. |image012| image:: ./media/lab01/012.png
+.. |image013| image:: ./media/lab01/013.png

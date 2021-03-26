@@ -21,14 +21,14 @@ Lab Requirements:
 
 Estimated completion time: 25 minutes
 
-Setup Lab Environment
+Task 1 - Setup Lab Environment
 -----------------------------------
 
-To access your dedicated student lab environment, you will require a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Lab Training Portal. The RDP client will be used to connect to the Jump Host, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
-#. Click **ACCESS** next to jumpohost.f5lab.local
+#. Click **ACCESS** next to jumphost.f5lab.local
 
    |image001|
 
@@ -47,14 +47,15 @@ To access your dedicated student lab environment, you will require a web browser
 
 	|image002|
 
-
 #. Scroll down the page until you see **301 SAML Federation** on the left
 
    |image003|
 
-#. Hover over tile **SAML Identity Provider (IdP)**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SAML Identity Provider (IdP) - Kerberos Auth**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
-   |image004|
+   +---------------+-------------+
+   | |image062|    | |image004|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -62,7 +63,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 
 
-TASK 1 ‑ Configure the SAML Identity Provider (IdP)
+TASK 2 ‑ Configure the SAML Identity Provider (IdP)
 --------------------------------------------------------
 
 IdP Service
@@ -192,10 +193,8 @@ SP Connector
 
    |image017|
 
-TASK 2 - Create a SAML Resource
+TASK 3 - Create a SAML Resource
 -------------------------------------
-
-
 
 #. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
 
@@ -217,7 +216,7 @@ TASK 2 - Create a SAML Resource
 
 
 
-Task 3 - Create a Webtop
+Task 4 - Create a Webtop
 -------------------------------
 
 #. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
@@ -240,7 +239,7 @@ Task 3 - Create a Webtop
    |image021|
 
 
-Task 4 - Create a Kerberos AAA Object
+Task 5 - Create a Kerberos AAA Object
 ----------------------------------------
 
 #. From the jumphost, navigate to the command line enter the command below to generate a kerberos key tab file
@@ -272,7 +271,7 @@ Task 4 - Create a Kerberos AAA Object
 
 
 
-Task 4 - Create a SAML IdP Access Policy
+Task 6 - Create a SAML IdP Access Policy
 ---------------------------------------------
 
 #. Select **Access ‑> Profiles/Policies ‑> Access Profiles
@@ -346,7 +345,7 @@ Task 4 - Create a SAML IdP Access Policy
    |image034|
 
 #. Click the **Authentication** tab
-#. Select **Kerberos Auth*
+#. Select **Kerberos Auth**
 #. Click **Add Item**
 
    |image035|
@@ -356,7 +355,7 @@ Task 4 - Create a SAML IdP Access Policy
    +-----------------------+--------------------------------------------+
    | AAA Server:           | ``/Common/idp.acme.com`` (drop down)       |
    +-----------------------+--------------------------------------------+
-   | Request Based Auth:   | ``Enabled`` (drop down)                     |
+   | Request Based Auth:   | ``Enabled`` (drop down)                    |
    +-----------------------+--------------------------------------------+
 
 #. Click **Save**
@@ -469,7 +468,7 @@ Task 4 - Create a SAML IdP Access Policy
 
    |image054|
 
-TASK 6 - Create the IdP Virtual Server
+TASK 7 - Create the IdP Virtual Server
 ----------------------------------------
 
 
@@ -515,8 +514,8 @@ TASK 6 - Create the IdP Virtual Server
 #. Scroll to the bottom of the configuration window and click **Finished**
 
 
-TASK 2 - Test the Kerberos to SAML Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TASK 8 - Test the Configuration
+-----------------------------------
 
 #. From the jumphost, navigate to the SAML IdP you previously configured at *https://idp.acme.com*.  Noticee you are automatically signed into the IDP. 
   
@@ -538,7 +537,7 @@ TASK 2 - Test the Kerberos to SAML Configuration
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Lab Clean Up
+Task 9 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
@@ -551,9 +550,11 @@ Lab Clean Up
 
    |image003|
 
-#. Hover over tile **SAML Service Provider (SP) Lab**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **SAML Identity Provider (IdP) - Kerberos Auth**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
-   |image998|
+   +---------------+-------------+
+   | |image062|    | |image998|  |
+   +---------------+-------------+ 
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -622,5 +623,10 @@ Lab Clean Up
 .. |image055| image:: ./media/lab03/055.png
 .. |image056| image:: ./media/lab03/056.png
 .. |image057| image:: ./media/lab03/057.png
+.. |image058| image:: ./media/lab03/058.png
+.. |image059| image:: ./media/lab03/059.png
+.. |image060| image:: ./media/lab03/060.png
+.. |image061| image:: ./media/lab03/061.png
+.. |image062| image:: ./media/lab03/062.png
 .. |image998| image:: ./media/lab03/998.png
 .. |image999| image:: ./media/lab03/999.png
