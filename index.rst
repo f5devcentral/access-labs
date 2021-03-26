@@ -1,11 +1,16 @@
 Welcome
 =======
 
-Welcome to the Access labs series currated by the F5 APM SME-UA community .
+Welcome to the Access Policy Manager (APM) lab series at Agility |year|.
 
-The following labs will instruct you on how to configure a variety of APM use cases via the GUI based on the experience of Solution Engineers, Architects, Support Engineers, and clients. 
+The following labs and exercises will instruct you on how to configure and
+troubleshoot various APM use cases based on the experience of solutions 
+engineers, support engineers and clients. This guide is intended to
+complement lecture material provided during the course as well as a
+reference guide that can be referred to after the class as a basis for
+configuring Access solutions your own environment.
 
-
+|repoinfo|
 
 .. toctree::
    :maxdepth: 1
@@ -13,6 +18,4 @@ The following labs will instruct you on how to configure a variety of APM use ca
    :glob:
 
    class*/class*
-   archived/archived.rst
-
-
+   archived/archived*
