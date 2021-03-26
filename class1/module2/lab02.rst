@@ -274,8 +274,6 @@ Lab 2 is now complete.
 .. |Lab2-Image2| image:: ./media/Lab2-Image2.png
 .. |Lab2-Image3| image:: ./media/Lab2-Image3.png
 .. |Lab2-Image4| image:: ./media/Lab2-Image4.png
-.. |Lab2-Image5| image:: ./media/Lab2-Image5.png
-.. |Lab2-Image6| image:: ./media/Lab2-Image6.png
 .. |Lab2-Image7| image:: ./media/Lab2-Image7.png
 .. |Lab2-Image8| image:: ./media/Lab2-Image8.png
 .. |Lab2-Image9| image:: ./media/Lab2-Image9.png

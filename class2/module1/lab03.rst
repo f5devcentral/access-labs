@@ -264,7 +264,6 @@ Task 1 - Access basic.acme.com
 .. |image29| image:: ./media/lab03/image029.png
 	 :width: 1000px
 .. |image30| image:: ./media/lab03/image030.png
-.. |image31| image:: ./media/lab03/image031.png
 .. |image32| image:: ./media/lab03/032.png
 .. |image33| image:: ./media/lab03/image033.png
 .. |image34| image:: ./media/lab03/image034.png

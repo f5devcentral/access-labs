@@ -818,7 +818,6 @@ Task 3 - Test Access to the new path
 .. |image21| image:: media/lab01/image021.png
 	:width: 700px
 .. |image22| image:: media/lab01/image022.png
-.. |image23| image:: media/lab01/image023.png
 .. |image24| image:: media/lab01/024.png
 .. |image25| image:: media/lab01/image025.png
 .. |image26| image:: media/lab01/image026.png
@@ -930,12 +929,12 @@ Task 3 - Test Access to the new path
 .. |image110| image:: media/lab01/110.png
 .. |image111| image:: media/lab01/111.png
 .. |image112| image:: media/lab01/112.png
+.. |image112| image:: media/lab01/113.png
 .. |image200| image:: media/lab01/200.png
 .. |image201| image:: media/lab01/201.png
 .. |image202| image:: media/lab01/202.png
 .. |image203| image:: media/lab01/203.png
 .. |image204| image:: media/lab01/204.png
-.. |image205| image:: media/lab01/205.png
 
 
 
