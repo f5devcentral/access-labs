@@ -206,9 +206,6 @@ Task 1 - Access basic.acme.com
    |image30|
 
 #. Locate the **DisableUser2.ps1** Powershell script located on the desktop.
-
-   |image31|
-
 #. Right click the script and select **Run with PowerShell**.  A Powershell window will appear displaying User2 account is Disabled.
 
    |image32|
