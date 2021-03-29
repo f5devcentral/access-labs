@@ -12,7 +12,7 @@ Lab Requirements
 
 
 Task - Create a Webtop resource
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------------
 
 #. Expand the **Access** tab from the main menu on the left and navigate
    to **Webtops** > **Webtop Lists**.
@@ -26,7 +26,7 @@ Task - Create a Webtop resource
 
 
 Task - Create Webtop Item
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 #. Browse to **Access** > **Webtops >** **Webtop Link** and click create.
 
 
@@ -44,11 +44,9 @@ Task - Create Webtop Item
 
 
 Task - Add Webtop resource to existing Access Policy
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------------------
 
-#. Browse to **Access** > **Profiles / Policies > Access Profiles
-   (Per-Session Policies)**, click on **Edit** for **MyAccessPolicy**. A
-   new tab should open to the Visual Policy Editor for **MyAccessPolicy**.
+#. Browse to **Access** > **Profiles / Policies > Access Profiles (Per-Session Policies)**, click on **Edit** for **MyAccessPolicy**. A new tab should open to the Visual Policy Editor for **MyAccessPolicy**.
 
    |Lab4-Image4|
 
@@ -56,8 +54,7 @@ Task - Add Webtop resource to existing Access Policy
 
    |Lab4-Image5|
 
-#. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign"
-   radio button. Click **Add Item**.
+#. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign" radio button. Click **Add Item**.
 
    |Lab4-Image6|
 
@@ -68,17 +65,13 @@ Task - Add Webtop resource to existing Access Policy
 
 #. Then under the "Expression Section" click the "Add/Delete" button
 
-#. | Click on the **Webtop** tab, select the radio button for
-     **MyFullWebtop**. Click on the **Webop Links** tab, and select the radio button for **F5Rocks**
-     then click the **Update** button at the bottom of
-     the screen.
+#. Click on the **Webtop** tab, select the radio button for **MyFullWebtop**. Click on the **Webop Links** tab, and select the radio button for **F5Rocks** then click the **Update** button at the bottom of the screen.
 
    |Lab4-Image8|
 
 #. Click **Save**.
 
-#. | At the top left of the browser window, click on **Apply Access
-     Policy** , then close the tab.
+#. At the top left of the browser window, click on **Apply Access Policy** , then close the tab.
 
    |Lab4-Image9|
 
@@ -86,24 +79,23 @@ Task - Add Webtop resource to existing Access Policy
 
 
 Task Testing
-~~~~~~~~~~~~~~
+-------------
 
-#. Open a **New Incognito** web browser to the virtual server created in the previous lab
-   by navigating to **https://server1.acme.com**. You will be presented
-   with a Logon page similar to the one from the last lab.
+#. Open a **New Incognito** web browser to the virtual server created in the previous lab by navigating to **https://server1.acme.com**. You will be presented with a Logon page similar to the one from the last lab.
 
 #. Enter the following credentials:
 
-   Username: **user1**
-
-   Password: **user1**
+    +-------------+--------------+
+    |Username:    |**user1**     |
+    +-------------+--------------+
+    |Password:    |**user1**     |
+    +-------------+--------------+
 
 #. Click **Logon**.
 
-   This will open the APM Webtop landing page that shows the resources you
-   are allowed to access. In this lab, we've only configured one resource:
-   **F5 Rocks**, but you can add as many as you want and they will
-   appear on this Webtop page.
+   This will open the APM Webtop landing page that shows the resources you are allowed to access. In this lab, we've only configured one resource:
+
+   **F5 Rocks**, but you can add as many as you want and they will appear on this Webtop page.
 
    |Lab4-Image10|
 
