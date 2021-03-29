@@ -11,8 +11,8 @@ Lab Requirements
   - Working HTTPS Virtual Server with Access Policy Created in Lab 1 (Lab 1 successfully completed).
 
 
-Task - Create a Webtop resource
---------------------------------
+Task 1: Create a Webtop resource
+---------------------------------
 
 #. Expand the **Access** tab from the main menu on the left and navigate
    to **Webtops** > **Webtop Lists**.
@@ -25,7 +25,7 @@ Task - Create a Webtop resource
 
 
 
-Task - Create Webtop Item
+Task 2: Create Webtop Item
 ----------------------------
 #. Browse to **Access** > **Webtops >** **Webtop Link** and click create.
 
@@ -43,8 +43,8 @@ Task - Create Webtop Item
 
 
 
-Task - Add Webtop resource to existing Access Policy
------------------------------------------------------
+Task 3: Add Webtop resource to existing Access Policy
+------------------------------------------------------
 
 #. Browse to **Access** > **Profiles / Policies > Access Profiles (Per-Session Policies)**, click on **Edit** for **MyAccessPolicy**. A new tab should open to the Visual Policy Editor for **MyAccessPolicy**.
 
@@ -78,8 +78,8 @@ Task - Add Webtop resource to existing Access Policy
 
 
 
-Task Testing
--------------
+Task 4: Testing
+-----------------
 
 #. Open a **New Incognito** web browser to the virtual server created in the previous lab by navigating to **https://server1.acme.com**. You will be presented with a Logon page similar to the one from the last lab.
 
