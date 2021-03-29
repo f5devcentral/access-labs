@@ -15,7 +15,7 @@ To access your dedicated student lab environment, you will need a web browser an
     |image101|
 
 
-#. Select your RDP resolution.  
+#. Select your RDP resolution.
 
 #. The RDP client on your local host establishes a RDP connection to the Jump Host.
 
@@ -30,7 +30,7 @@ Task 2 - Import Postman Collections
 
 #. From the Jumphost, open **Postman** via the desktop shortcut or toolbar at the bottom
 
-    .. note::  Dismiss any prompts to update Postman.  
+    .. note::  Dismiss any prompts to update Postman.
 
     |image001|
 
@@ -42,7 +42,7 @@ Task 2 - Import Postman Collections
 
     |image003|
 
-#.  Click **Upload Files** 
+#.  Click **Upload Files**
 
     |image004|
 
@@ -66,19 +66,19 @@ Task 3 - Import IDP Signing Certificate
 
 #. Select the **bigip-import-cert-idp** request.
 
-#. Notice the request endpoint is **/mgmt/shared/file-transfer/uploads**.  This endpoint allows us to upload files to the /var/config/rest/downloads directory on the BIG-IP. 
+#. Notice the request endpoint is **/mgmt/shared/file-transfer/uploads**.  This endpoint allows us to upload files to the /var/config/rest/downloads directory on the BIG-IP.
 
     .. note:: If you are unfamiliar with Postman, the information in curly braces are variables that have been defined inside the collection.  If you wish to see the variable values simply click the three dots on the collection that allows you display more options. Click Edit and then Variables.
 
 #. Click **Body** to display what will be passed in the POST request
 
-    .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider. 
+    .. note:: The request contains only the PEM formated certificate of our AzureAD Identity Provider.
 
    |image008|
 
 #. Click the blue **Send** button in the upper right corner
 
-#.  In the response body we see where the file is stored and its file name.  
+#.  In the response body we see where the file is stored and its file name.
 
     |image009|
 
@@ -97,16 +97,16 @@ Task 3 - Import IDP Signing Certificate
 
 
 
-Task 4 - Create an SAML IDP Connector 
+Task 4 - Create an SAML IDP Connector
 -----------------------------------------------------------------------
 
 In order to create an SP service the IDP Connector must exist.  This is because the SP Service endpoint contains the binding information to the IDP Connector.
 
 #. Select the **bigip-create-idp connector-azuread** request
 
-#. Notice the request endpoint is **/mgmt/tm/apm/aaa/saml-idp-connector/**. 
+#. Notice the request endpoint is **/mgmt/tm/apm/aaa/saml-idp-connector/**.
 
-#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting in order to integrate with AzureAD.  
+#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting in order to integrate with AzureAD.
 
     |image012|
 
@@ -118,13 +118,13 @@ In order to create an SP service the IDP Connector must exist.  This is because 
 
 
 Task 5 - Create an SAML SP Service
------------------------------------------------------------------------   
+-----------------------------------------------------------------------
 
 #. Select the **bigip-create-sp service-bigip**
 
 #. Notice the request endpoint is **/mgmt/tm/apm/aaa/saml/**.
 
-#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting for the SP service, plus a binding to the IDP Connector we just created. 
+#. Click **Body** to display what will be passed in the POST request.  The body contains all the necessary setting for the SP service, plus a binding to the IDP Connector we just created.
 
     |image014|
 
@@ -144,11 +144,11 @@ Task 6 - Explore configuration via the BIG-IP GUI
     - Username: **admin**
     - Password: **admin**
 
-#. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on **SSL Certificate List** and not the + plus symbol.
+#. Navigate to System -> Certificate Management -> Traffic Certificate Management -> SSL Certificate List.  Click on **SSL Certificate List** and not the + plus symbol.
 
     |image016|
 
-#. You can see the certificate **class4-module1-lab1-idp** from Task 1 was succesfully imported.  
+#. You can see the certificate **class4-module1-lab1-idp** from Task 1 was successfully imported.
 
     |image017|
 
@@ -156,7 +156,7 @@ Task 6 - Explore configuration via the BIG-IP GUI
 
     |image018|
 
-#. You can see a SP service object was created with the name **class4-module1-lab1-sp** and successfully binded to an IDP Connector named **class4-module1-lab1-idp**.
+#. You can see a SP service object was created with the name **class4-module1-lab1-sp** and successfully bound to an IDP Connector named **class4-module1-lab1-idp**.
 
     |image019|
 
@@ -164,7 +164,7 @@ Task 7 - Deleting a SAML Service Provider(SP) Service Configuration
 ------------------------------------------------------------------------
 .. _class4-module1-lab1-delete:
 
-With imperative call objects must be deleted in the reverse order they are typically created in.  This is because objects that are currently in use cannot be deleted.  
+With imperative call objects must be deleted in the reverse order they are typically created in.  This is because objects that are currently in use cannot be deleted.
 
 #. From Postman, inside the collection Student-class4-module1-lab1 open the subfolder **Delete Objects**
 
@@ -174,7 +174,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 
     |image020|
 
-#. Click the blue **Send** button in the upper right corner. 
+#. Click the blue **Send** button in the upper right corner.
 
 #. Notice nothing is returned in the response body but the Response code is a 200 OK.
 
@@ -211,7 +211,7 @@ Task 8 - Ensure objects were removed via GUI
 #. Return to the jumpbox's browser and navigate to https://bigip1.f5lab.local
 
 #. Login to the BIG-IP GUI with the following credentials:
-    
+
     - Username: **admin**
     - Password: **admin**
 
@@ -239,7 +239,7 @@ Task 8 - Ensure objects were removed via GUI
 
     |image030|
 
-Task 9 - Lab Cleanup
+Task 9 - Lab Clean up
 ---------------------------------
 
 

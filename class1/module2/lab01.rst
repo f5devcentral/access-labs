@@ -296,7 +296,9 @@ Lab 1 is now complete.
 .. |accessjh| image:: ./media/accessjh.png
 .. |accessportal| image:: ./media/accessportal.png
 .. |102intro| image:: ./media/102intro.png
+.. |guioverview| image:: /class1/module1/media/lab01/setup/guioverview.png
 .. |lab01| image:: ./media/lab01.png
 .. |lab01fly| image:: ./media/lab01fly.png
 .. |process| image:: ./media/process.png
 .. |issues| image:: ./media/issues.png
+

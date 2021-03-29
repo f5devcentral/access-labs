@@ -95,7 +95,7 @@ Section 1 - The Access Profile
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | Max In Progress Sessions| Number 0 or greater     | Specifies the maximum number of sessions that can be in progress for a client IP address. When setting this value, |
     | Per Client IP           |                         | take into account whether users will come from a NAT-ed or proxied client address and, if so, consider increasing  |
-    |                         |                         | the value accordingly. The default value is 0 which represents unlimited sessions.                                 |                                                                                                          |
+    |                         |                         | the value accordingly. The default value is 0 which represents unlimited sessions.                                 |                                                                                                          
     +-------------------------+-------------------------+--------------------------------------------------------------------------------------------------------------------+
     | Restrict to Single      | Selected or cleared     | When selected, limits a session to a single IP address.                                                            |
     | Client IP               |                         |                                                                                                                    |
@@ -340,7 +340,7 @@ In this task we are going to create a Macro that detects the client operating sy
 
     |image044|
 
-#. Click the **+(Plus Symbol) inside of the Windows branch.
+#. Click the **+(Plus Symbol)** inside of the Windows branch.
 
     |image045|
 

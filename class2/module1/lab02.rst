@@ -8,7 +8,7 @@ This Module also introduces the **Application Group** (skipped in the previous m
 
 
 Section 2.1 - Access Guided Configuration
-----------------------------------------
+--------------------------------------------
 
 To onboard a new application to the IAP, you will first access the Guided Configuration menu.
 

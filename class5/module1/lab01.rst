@@ -36,7 +36,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    +---------------+-------------+
    | |image056|    | |image004|  |
-   +---------------+-------------+ 
+   +---------------+-------------+
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -59,7 +59,7 @@ The message box is a great tool for troubleshooting a policy that may have been 
 
 #. Login with the following credentials:
 
-   - username **admin** 
+   - username **admin**
    - password **admin**
 
    |image007|
@@ -144,7 +144,7 @@ In this task you will create two Message Box Macros.  One for the success branch
    |image021|
 
 #. Expand the Macro
-#. Click the **+** (Plus Symbol) on the fallback branch.
+#. Click the **+ (Plus Symbol)** on the fallback branch.
 
    |image022|
 
@@ -157,7 +157,7 @@ In this task you will create two Message Box Macros.  One for the success branch
 #. Enter the Title **Success**
 #. Enter the Description below
 
-   .. code-block:: irule
+   .. code-block:: bash
 
       <br>Firewall Vendor: %{session.check_software.last.fw.item_1.vendor_name}
       <br>Firewall Name: %{session.check_software.last.fw.item_1.name}
@@ -190,7 +190,7 @@ In this task you will create two Message Box Macros.  One for the success branch
 #. Enter the Title **Failure**
 #. Enter the Description below
 
-   .. code-block:: irule
+   .. code-block:: bash
 
       <br>Firewall Vendor: %{session.check_software.last.fw.item_1.vendor_name}
       <br>Firewall Name: %{session.check_software.last.fw.item_1.name}
@@ -376,7 +376,7 @@ Task 10 - Validate user1 is working
 
 #. At the logon page enter the following credentials:
 
-   - Username:**user1** 
+   - Username:**user1**
    - Password:**user1**
 
 #. Click **Logon**
@@ -405,7 +405,7 @@ Task 11 - Lab Cleanup
 
    +---------------+-------------+
    | |image056|    | |image998|  |
-   +---------------+-------------+ 
+   +---------------+-------------+
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
@@ -450,7 +450,6 @@ Task 11 - Lab Cleanup
 .. |image032| image:: ./media/lab01/032.png
 .. |image033| image:: ./media/lab01/033.png
 .. |image034| image:: ./media/lab01/034.png
-.. |image035| image:: ./media/lab01/035.png
 .. |image036| image:: ./media/lab01/036.png
 .. |image037| image:: ./media/lab01/037.png
 .. |image038| image:: ./media/lab01/038.png

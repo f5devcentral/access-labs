@@ -471,34 +471,6 @@ TASK 14: Lab CleanUp
    :width: 800px
 .. |image029| image:: ./media/lab01/029.png
    :width: 800px
-.. |image030| image:: ./media/lab01/lab1-030.png
-   :width: 800px
-.. |image031| image:: ./media/lab01/lab1-031.png
-   :width: 800px
-.. |image032| image:: ./media/lab01/lab1-032.png
-   :width: 800px
-.. |image033| image:: ./media/lab01/lab1-033.png
-   :width: 800px
-.. |image034| image:: ./media/lab01/lab1-034.png
-   :width: 800px
-.. |image035| image:: ./media/lab01/lab1-035.png
-   :width: 800px
-.. |image036| image:: ./media/lab01/lab1-036.png
-   :width: 800px
-.. |image037| image:: ./media/lab01/lab1-037.png
-   :width: 800px
-.. |image038| image:: ./media/lab01/lab1-038.png
-   :width: 800px
-.. |image039| image:: ./media/lab01/lab1-039.png
-   :width: 800px
-.. |image040| image:: ./media/lab01/lab1-040.png
-   :width: 800px
-.. |image041| image:: ./media/lab01/lab1-041.png
-   :width: 800px
-.. |image042| image:: ./media/lab01/lab1-042.png
-   :width: 800px
-.. |image043| image:: ./media/lab01/lab1-043.png
-   :width: 800px
 .. |image044| image:: ./media/lab01/044.png
    :width: 800px
 .. |image045| image:: ./media/lab01/045.png

@@ -5,15 +5,13 @@ This lab documents provides foundational concepts for understanding Access Polic
 
 
 301 - SAML Federation
-----------------------------------------
+----------------------
 .. toctree::
    :maxdepth: 1
    :glob:
    
    module1/intro.rst
    module1/lab*
-   
-   
    
 302 - Ephemeral Authentication
 --------------------------------  
@@ -24,8 +22,6 @@ This lab documents provides foundational concepts for understanding Access Polic
    module2/intro.rst
    module2/lab*
   
-  
-  
 303 - Per Request Application Control
 ---------------------------------------- 
 .. toctree::
@@ -34,10 +30,9 @@ This lab documents provides foundational concepts for understanding Access Polic
    
    module3/intro.rst
    module3/lab*
- 
-   
+    
 304 - API Protection
----------------------------------------- 
+----------------------
 .. toctree::
    :maxdepth: 1
    :glob:
@@ -45,14 +40,4 @@ This lab documents provides foundational concepts for understanding Access Polic
    module4/intro.rst
    module4/lab*
 
-
-305 - OAuth/OIDC
----------------------------------------- 
-.. toctree::
-   :maxdepth: 1
-   :glob:
-   
-   module5/intro.rst
-   module5/lab*
-   
  

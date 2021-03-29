@@ -102,7 +102,7 @@ Task 1 - Configure Application header.acme.com
 
    |image12|
 
-#. Toggle **Advanced Setting** to **ON**in the top left corner to see additional properties
+#. Toggle **Advanced Setting** to **ON** in the top left corner to see additional properties
 #. Enter Name **header.acme.com**
 #. Enter FQDN **header.acme.com**
 #. Enter Subpath Pattern **/admin.php**
@@ -304,8 +304,6 @@ Task 2 - Login to header.acme.com using user2
    |image100|
 
 
-.. |image0| image:: media/lab02/image000.png
-	:width: 800px
 .. |image1| image:: media/lab02/image001.png
 .. |image2| image:: media/lab02/image002.png
 	:width: 800px

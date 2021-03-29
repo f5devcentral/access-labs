@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "5231db1b-c377-4b29-8525-2b86487aed56",
+		"_postman_id": "f2f706e4-c8c1-42c1-b7ad-738f726a550b",
 		"name": "class3-module1-lab04-delete ",
 		"description": "This solution was created using template 1.8",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -46,7 +46,7 @@
 									"\r",
 									"//This section is used when building two virtrual servers as part of a solutions or when a reference is needed to another solutions.  For example, if your solutions involved Federation you will need to define both the FQDNs for the both the SP and IDP.  \r",
 									"pm.collectionVariables.set(\"DNS2_NAME\", \"idp.acme.com\");\r",
-									"pm.collectionVariables.set(\"VS2_NAME\", \"idp\");\r",
+									"pm.collectionVariables.set(\"VS2_NAME\", \"idp.acme.com\");\r",
 									"pm.collectionVariables.set(\"BIGIP_ADDRESS2\", \"10.1.10.102\");\r",
 									"\r",
 									"\r",
@@ -3084,6 +3084,52 @@
 					""
 				]
 			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BIGIP_ADDRESS1",
+			"value": ""
+		},
+		{
+			"key": "BIGIP_ADDRESS2",
+			"value": ""
+		},
+		{
+			"key": "CONFLICT1_NAME",
+			"value": ""
+		},
+		{
+			"key": "CUSTOM_TYPE",
+			"value": ""
+		},
+		{
+			"key": "DNS1_NAME",
+			"value": ""
+		},
+		{
+			"key": "DNS2_NAME",
+			"value": ""
+		},
+		{
+			"key": "PARTITION_NAME",
+			"value": ""
+		},
+		{
+			"key": "PATH_NAME",
+			"value": ""
+		},
+		{
+			"key": "VIPS",
+			"value": ""
+		},
+		{
+			"key": "VS1_NAME",
+			"value": ""
+		},
+		{
+			"key": "VS2_NAME",
+			"value": ""
 		}
 	]
 }

@@ -13,5 +13,6 @@ Welcome to the Troubleshooting Universal Access Lab Series. These lab exercises 
    :glob:
    
    module1/intro.rst
-   module1/lab*  
+   module1/lab*
+   
  
