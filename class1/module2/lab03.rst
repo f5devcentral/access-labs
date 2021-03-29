@@ -122,8 +122,7 @@ Task 3: Access Profile Configuration
 
 #. Note that a custom variable will be created called session.custom.upn.  We will write an expression that will extract the othername:UPN field from the certificate for a new custom variable.
 
-    .. code-block::
-    :caption: Expression used for othername:UPN extraction
+    .. parsed-literal::
 
       set x509e_fields [split [mcget {session.ssl.cert.x509extension}] "\n"];
       # For each element in the list:
