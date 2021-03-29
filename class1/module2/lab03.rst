@@ -126,16 +126,16 @@ Task 3: Access Profile Configuration
 
       set x509e_fields [split [mcget {session.ssl.cert.x509extension}] "\n"];
       # For each element in the list:
-        foreach field $x509e_fields {
+      foreach field $x509e_fields {
       # If the element contains UPN:
-        if { $field contains "othername:UPN" } {
+      if { $field contains "othername:UPN" } {
       ## set start of UPN variable
-        set start [expr {[string first "othername:UPN<" $field] +14}]
+      set start [expr {[string first "othername:UPN<" $field] +14}]
       # UPN format is <user@domain>
       # Return the UPN, by finding the index of opening and closing brackets, then use string range to get everything between.
-        return [string range $field $start [expr { [string first ">" $field $start] - 1 } ] ];  } }
+      return [string range $field $start [expr { [string first ">" $field $start] - 1 } ] ];  } }
       # Otherwise return UPN Not Found:
-        return "UPN-NOT-FOUND";
+      return "UPN-NOT-FOUND";
 
       |Lab3-Image15|
 
