@@ -49,7 +49,7 @@ TASK 1: Intialize Access Guided Configuration (AGC)
 |                                                                                              |
 | 6. Scroll through and review the remaining element of the dialogue box to the bottom of the  |
 |                                                                                              |
-|    screen and click "Next"                                                                   |
+|    screen and click **Next**.                                                                |
 +----------------------------------------------------------------------------------------------+
 | |image002|                                                                                   |
 |                                                                                              |
@@ -60,17 +60,15 @@ TASK 2: Config Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| 1. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**                    |
+| 1. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**.                   |
 |                                                                                              |
 | 2. Toggle **Single Sign-On (SSO) & HTTP Header** to the **On** position.                     |
 |                                                                                              |
 | 3. Toggle **Application Groups** to the **On** position.                                     |
 |                                                                                              |
-| 4. Toggle **Webtop** to the **On** position.                                                 |
+| 4. Toggle **Webtop** to the **Off** position.                                                |
 |                                                                                              |
-| 5. In the **Configuration Name** dialogue box, enter **agc-app.acme.com**                    |
-|                                                                                              |
-| 6. Click **Save & Next** at the bottom of the dialogue window.                               |
+| 5. Click **Save & Next** at the bottom of the dialogue window.                               |
 +----------------------------------------------------------------------------------------------+
 | |image004|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -194,7 +192,7 @@ TASK 6: Applications
 ~~~~~~~~~~~~~~~~~~~~
 
 +----------------------------------------------------------------------------------------------+
-| 1. Click the **Add** button on the **Applications** dialogue window.                         |
+| 1. Click the **Add** button in the **Applications** dialogue window.                         |
 +----------------------------------------------------------------------------------------------+
 | |image014|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -215,7 +213,11 @@ TASK 6: Applications
 |    to add to more rows.                                                                      |
 |                                                                                              |
 | 7. In the two new rows add **/apps/app2\*** and **/apps/app3\*** respectively.               |
-|                                                                                              |
++----------------------------------------------------------------------------------------------+
+| |image015|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
 | 8. In the **Pool Configuration** section, under **Health Monitors** area move                |
 |                                                                                              |
 |    **/Common/http** to the right **Selected** side.                                          |
@@ -226,15 +228,13 @@ TASK 6: Applications
 |                                                                                              |
 | 10. Click the **Save** button at the bottom of the dialogue window.                          |
 +----------------------------------------------------------------------------------------------+
-| |image015|                                                                                   |
-|                                                                                              |
 | |image016|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
 | 11. In the **Applications** dialogue window that follows, expand the **Subpaths** and ensure |
 |                                                                                              |
-|    /apps/app1*, /apps/app2*, /apps/app3* are present for the **agc-app.acme.com** row.       |
+|     /apps/app1*, /apps/app2*, /apps/app3* are present for the **agc-app.acme.com** row.      |
 |                                                                                              |
 | 12. Click the **Save & Next** button at the bottom of the dialogue window.                   |
 +----------------------------------------------------------------------------------------------+
@@ -265,7 +265,7 @@ TASK 7: Application Groups
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 5. Click the **Add* button in the *Application Groups** dialogue window that follows and     |
+| 5. Click the **Add** button in the **Application Groups** dialogue window that follows and   |
 |                                                                                              |
 |    repeat steps 2 through 4 using the following values:                                      |
 |                                                                                              |
@@ -314,7 +314,7 @@ TASK 8: Contextual Access
 +----------------------------------------------------------------------------------------------+
 | 7. In the **Assign User Groups** section, scroll through the available groups to find the    |
 |                                                                                              |
-|     **app1** **Group Name**. Click the **Add** button in the **Action** column.              |
+|    **app1** **Group Name**. Click the **Add** button in the **Action** column.               |
 |                                                                                              |
 | 8. Verify the added group in the **Selected User Groups**.                                   |
 |                                                                                              |
@@ -392,7 +392,7 @@ TASK 8: Contextual Access
 +----------------------------------------------------------------------------------------------+
 | 18. In the **Assign User Groups** section, scroll through the available groups to find the   |
 |                                                                                              |
-|    **Sales Engineering** **Group Name**. Click the **Add** button in the **Action** column.  |
+|     **Sales Engineering** **Group Name**. Click the **Add** button in the **Action** column. |
 |                                                                                              |
 | 19. Verify the added group in the **Selected User Groups**.                                  |
 |                                                                                              |
@@ -402,11 +402,11 @@ TASK 8: Contextual Access
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
-| 22. Review the resulting **Contextual Access** dialogue window for completion of all         |
+| 21. Review the resulting **Contextual Access** dialogue window for completion of all         |
 |                                                                                              |
 |     created access rules.                                                                    |
 |                                                                                              |
-| 23. Click the **Save & Next** button at the bottom of the dialogue window.                   |
+| 22. Click the **Save & Next** button at the bottom of the dialogue window.                   |
 +----------------------------------------------------------------------------------------------+
 | |image029|                                                                                   |
 +----------------------------------------------------------------------------------------------+
@@ -451,7 +451,7 @@ TASK 11: Summary
 +----------------------------------------------------------------------------------------------+
 | 2. Click the **Finish** button in the final dialogue window. Access Guided Configuration     |
 |                                                                                              |
-|    will return to the start screen and **agc-app.acme.com** will be "DEPLOYED"               |
+|    will return to the start screen and **agc-app.acme.com** will be **DEPLOYED**             |
 +----------------------------------------------------------------------------------------------+
 | |image035|                                                                                   |
 |                                                                                              |
@@ -480,9 +480,9 @@ TASK 12: Testing
 |                                                                                              |
 |    application.                                                                              |
 +----------------------------------------------------------------------------------------------+
-| |image035|                                                                                   |
+| |image038|                                                                                   |
 |                                                                                              |
-| |image036|                                                                                   |
+| |image039|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -492,9 +492,9 @@ TASK 12: Testing
 |                                                                                              |
 |    application based on AD group membership.                                                 |
 +----------------------------------------------------------------------------------------------+
-| |image037|                                                                                   |
+| |image040|                                                                                   |
 |                                                                                              |
-| |image038|                                                                                   |
+| |image041|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -506,9 +506,9 @@ TASK 12: Testing
 |                                                                                              |
 |    desktop. The script will run and automatically close.                                     |
 +----------------------------------------------------------------------------------------------+
-| |image039|                                                                                   |
+| |image042|                                                                                   |
 |                                                                                              |
-| |image040|                                                                                   |
+| |image043|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -522,7 +522,7 @@ TASK 12: Testing
 |                                                                                              |
 |     application becasue of the change in the user's Group Membership.                        |
 +----------------------------------------------------------------------------------------------+
-| |image041|                                                                                   |
+| |image044|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 TASK 14: Review
@@ -539,7 +539,7 @@ TASK 14: Review
 |                                                                                              |
 | 4. Click on the **View** asscoiated with the active session's subsession.                    |
 +----------------------------------------------------------------------------------------------+
-| |image042|                                                                                   |
+| |image045|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -547,7 +547,7 @@ TASK 14: Review
 |                                                                                              |
 |    access requests performed in testing.                                                     |
 +----------------------------------------------------------------------------------------------+
-| |image043|                                                                                   |
+| |image046|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 +----------------------------------------------------------------------------------------------+
@@ -561,9 +561,9 @@ TASK 14: Review
 |                                                                                              |
 | 8. Review the created Per Request Policy                                                     |
 +----------------------------------------------------------------------------------------------+
-| |image044|                                                                                   |
+| |image047|                                                                                   |
 |                                                                                              |
-| |image045|                                                                                   |
+| |image048|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
 TASK 15: End of Lab1
@@ -666,4 +666,10 @@ TASK 15: End of Lab1
 .. |image044| image:: media/lab1-044.png
    :width: 800px
 .. |image045| image:: media/lab1-045.png
+   :width: 800px
+.. |image046| image:: media/lab1-046.png
+   :width: 800px
+.. |image047| image:: media/lab1-047.png
+   :width: 800px
+.. |image048| image:: media/lab1-048.png
    :width: 800px
