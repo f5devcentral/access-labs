@@ -115,7 +115,11 @@ TASK: 4: Configure User Identity
 | 4. Confirm **Choose Authentication Server Type** is **Active Directory**                     |
 |                                                                                              |
 | 5. Select **f5lab.local** from the **Choose Authentication Server** drop down.               |
-|                                                                                              |
++----------------------------------------------------------------------------------------------+
+| |image008|                                                                                   |
++----------------------------------------------------------------------------------------------+
+
++----------------------------------------------------------------------------------------------+
 | 6. Check the **Active Directory Query Properties** checkbox.                                 |
 |                                                                                              |
 | 7. Confirm the **Search Filter Type** & **Search Filter** match **sAMAccountName** values.   |
@@ -126,8 +130,6 @@ TASK: 4: Configure User Identity
 |                                                                                              |
 | 10. Click **Save** at the bottom of the dialogue window.                                     |
 +----------------------------------------------------------------------------------------------+
-| |image008|                                                                                   |
-|                                                                                              |
 | |image009|                                                                                   |
 +----------------------------------------------------------------------------------------------+
 
