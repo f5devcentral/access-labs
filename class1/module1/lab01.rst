@@ -773,7 +773,7 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
       |image013|
 
-.. information:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
+.. note:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
 
 Task 8: Lab Cleanup
 ----------------------------
