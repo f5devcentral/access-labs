@@ -190,7 +190,7 @@ We will need to make some modifications to the client SSL profile to accommodate
 Task 5: Logging in from a user’s perspective
 ----------------------------------------------
 
-#.  Open an incognito window in the Chrome browser
+#.  Open an incognito window in the Chrome browser and access https://solution6.acme.com
 
 #.  You will be presented with three possible certificates.  Choose **User1** and click **OK**
 
