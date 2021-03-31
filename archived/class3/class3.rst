@@ -13,5 +13,5 @@ Expected time to complete: **3 hours**
    :glob:
 
    labinfo
-   module*/module*
+   module*/lab*
    conclusion
