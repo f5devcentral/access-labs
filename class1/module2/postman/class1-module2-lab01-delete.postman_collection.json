@@ -924,21 +924,19 @@
 							"response": []
 						},
 						{
-							"name": "bigip-delete-myaccessprofile-psp",
+							"name": "bigip-delete-myaccesspolicy-psp",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "bebee1e1-7d92-419e-933f-6f73fa921557",
 										"exec": [
-											"#var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
-											"\r",
 											"if (responseCode.code === 200) {\r",
-											"    pm.test(\"Profile myaccessprofile-psp Deleted\", function () {\r",
+											"    pm.test(\"Profile myaccesspolicy Deleted\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
 											"} else \r",
-											"    pm.test(\"Profile myaccessprofile-psp Does Not Exist\", function () {\r",
+											"    pm.test(\"Profile myaccesspolicy Does Not Exist\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
 											"    });\r",
 											"\r",
@@ -994,7 +992,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/profile/access/~Common~myacessprofile-psp",
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/profile/access/~Common~myacesspolicy",
 									"protocol": "https",
 									"host": [
 										"{{BIGIP_MGMT}}"
@@ -1005,7 +1003,7 @@
 										"apm",
 										"profile",
 										"access",
-										"~Common~myacessprofile-psp"
+										"~Common~myacesspolicy"
 									]
 								}
 							},
@@ -1098,21 +1096,19 @@
 							"response": []
 						},
 						{
-							"name": "bigip-delete-myaccessprofile-policy-psp",
+							"name": "bigip-delete-myaccesspolicy-policy",
 							"event": [
 								{
 									"listen": "test",
 									"script": {
 										"id": "62b921a9-558d-43bc-a04a-4a0adbeccf57",
 										"exec": [
-											"#var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");\r",
-											"\r",
 											"if (responseCode.code === 200) {\r",
-											"    pm.test(\"Policy myaccessprofile-psp deleted\", function () {\r",
+											"    pm.test(\"Policy myaccesspolicy deleted\", function () {\r",
 											"        pm.response.to.have.status(200);\r",
 											"    });\r",
 											"} else \r",
-											"    pm.test(\"Policy myaccessprofile-psp does not exist\", function () {\r",
+											"    pm.test(\"Policy myaccesspolicy does not exist\", function () {\r",
 											"        pm.response.to.have.status(404);\r",
 											"    });\r",
 											""
@@ -1166,7 +1162,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/access-policy/~Common~myaccessprofile-psp",
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/access-policy/~Common~myaccesspolicy",
 									"protocol": "https",
 									"host": [
 										"{{BIGIP_MGMT}}"
@@ -1177,7 +1173,7 @@
 										"apm",
 										"policy",
 										"access-policy",
-										"~Common~myaccessprofile-psp"
+										"~Common~myaccesspolicy"
 									]
 								}
 							},
@@ -1935,8 +1931,6 @@
 									"script": {
 										"id": "d332a8b5-ed5b-4bc2-a522-eb938638e544",
 										"exec": [
-											"#var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
-											"",
 											"if (responseCode.code === 200) {",
 											"    pm.test(\"AAA AD Servers lab_sso_ad_servers deleted\", function () {",
 											"        pm.response.to.have.status(200);",
@@ -6912,112 +6906,112 @@
 	],
 	"variable": [
 		{
-			"id": "37656318-4944-4ad9-9ec3-9a84e3f5d095",
+			"id": "e771a0ea-d88e-41a5-a759-a0222ae32766",
 			"key": "DNS1_NAME",
 			"value": ""
 		},
 		{
-			"id": "0207f3cb-72c7-48f4-96b8-9cddd139496d",
+			"id": "5e829273-2823-4330-a1f0-ab23e425235f",
 			"key": "DNS2_NAME",
 			"value": ""
 		},
 		{
-			"id": "e9abc029-0b14-44b3-acd7-d9539fb17e35",
+			"id": "3be37cc3-d1f9-41b8-a01d-1898e0e2b2b0",
 			"key": "PARTITION_NAME",
 			"value": ""
 		},
 		{
-			"id": "70f06ad5-dde5-4564-9c5c-3e2b553aa45a",
+			"id": "e6a178fc-5b32-4d5a-aa60-2eaf0ad3d817",
 			"key": "PATH_NAME",
 			"value": ""
 		},
 		{
-			"id": "2027ca55-e575-4576-9960-05754f7a4dbc",
+			"id": "dcb843a9-ad0f-491a-b2c7-a5b810e72a5b",
 			"key": "VIPS",
 			"value": ""
 		},
 		{
-			"id": "64dd38f1-8924-406c-96ec-63c7febbdc16",
+			"id": "d588bcce-c8d7-4ec8-af9e-61c500bf630f",
 			"key": "VS1_NAME",
 			"value": ""
 		},
 		{
-			"id": "b0755935-f1a6-4af3-915d-260af2b8e449",
+			"id": "f3503c67-4d34-4e04-949d-7fc20968b1b6",
 			"key": "VS2_NAME",
 			"value": ""
 		},
 		{
-			"id": "302c2c56-1ace-45f6-9348-d78675c4203a",
+			"id": "12177051-5019-435f-bf9b-c48356b7904f",
 			"key": "BIGIP_MGMT",
 			"value": ""
 		},
 		{
-			"id": "a295dd06-03f3-4ee6-b5d3-3c9e3baaafc8",
+			"id": "4639d28f-0b57-4cb8-8396-a0310d23f734",
 			"key": "BIGIP_SCOPE",
 			"value": ""
 		},
 		{
-			"id": "49e02cf9-41a8-497e-92c8-9aac4bb1f81a",
+			"id": "129ec5c8-2a2f-42d9-805d-3dd6557349dd",
 			"key": "DC_COUNTER",
 			"value": ""
 		},
 		{
-			"id": "1d123bc6-faf9-4de9-8bc1-53ace225dccd",
+			"id": "dd723ac2-05a6-421e-ba7f-4025af3931ee",
 			"key": "DNS_COUNTER",
 			"value": ""
 		},
 		{
-			"id": "f4845a12-fe7c-4575-b323-9515733a8008",
+			"id": "19e6f5cd-1642-43b9-8af2-e4ff083a39c8",
 			"key": "DNS_NAME",
 			"value": ""
 		},
 		{
-			"id": "bcefb07b-babe-4739-8783-1238f4a5d164",
+			"id": "ba69a370-811a-44cd-b727-dbd37db9e934",
 			"key": "VS_COUNTER",
 			"value": ""
 		},
 		{
-			"id": "a79c99a4-84be-465c-ac38-f702ead36159",
+			"id": "5cc7719e-af8a-4f6f-a1f3-8414a58c68b7",
 			"key": "VS_NAME",
 			"value": ""
 		},
 		{
-			"id": "bf0abbed-68cf-4590-b16a-1fd1fd2a840d",
+			"id": "b9ccc3be-13a0-48a4-a59b-db22b2810a1d",
 			"key": "BIGIP_NUMBER",
 			"value": ""
 		},
 		{
-			"id": "d5aa5c93-6fe2-44c8-85b8-3bf3f4b405d2",
+			"id": "bfe4dd4c-360a-475e-8041-25b9e5e61573",
 			"key": "COUNTER",
 			"value": ""
 		},
 		{
-			"id": "0ec7425a-6494-4f31-8c62-7543ca05c2bd",
+			"id": "a133bc59-36cf-4717-83eb-394b40f8e711",
 			"key": "CUSTOM_TYPE",
 			"value": ""
 		},
 		{
-			"id": "05ea2fd3-f4b0-4452-9966-3c1efa7bf2c8",
+			"id": "402d48f6-2e16-49e4-82fb-b540fea3b3e6",
 			"key": "PRIOR_RESPONSE",
 			"value": ""
 		},
 		{
-			"id": "0a20eadb-c0e6-48a1-9c35-4a8ee88c6b5f",
+			"id": "ba97d031-5373-4880-b256-d42c2ec68f62",
 			"key": "BIGIP_ADDRESS1",
 			"value": ""
 		},
 		{
-			"id": "fc0f8f16-d493-4a75-bc62-f0cd226a6ddc",
+			"id": "f3cb60e7-a8fc-441e-b75b-a59910cbf263",
 			"key": "DNS_DEST",
 			"value": ""
 		},
 		{
-			"id": "96362dc6-bd88-45ea-923b-e3c274872137",
+			"id": "76f0ebae-b2bb-4990-9495-acfce16333b1",
 			"key": "IIS_ADDRESS",
 			"value": ""
 		},
 		{
-			"id": "2c8fb758-e5c7-4e09-acda-196fc89e587f",
+			"id": "8266e591-e9c5-4be8-a51c-15e2b85e552f",
 			"key": "IIS_ADDRESS1",
 			"value": ""
 		}
