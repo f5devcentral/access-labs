@@ -1,4 +1,4 @@
-Azure AD Easy Button integration
+Lab 1: Azure AD Easy Button integration
 #####################################################
 
 Publish and protect on-prems apps with Azure AD as identity provider
