@@ -12,6 +12,6 @@ Expected time to complete: **3 hours**
    :maxdepth: 1
    :glob:
 
-   labinfo
-   module*/lab*
-   conclusion
+   module1/labinfo
+   module1/Lab*
+   module1/conclusion
