@@ -14,4 +14,3 @@ Expected time to complete: **3 hours**
 
    module1/labinfo*
    module1/Lab*
-   ./conclusion*
