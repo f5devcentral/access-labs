@@ -57,7 +57,7 @@ Create an AD AAA Server
 
 -  Click **Finished**
 
-   |image1|
+   |image001|
 
 Create a Per-Session Access Policy
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -75,28 +75,28 @@ Create a Per-Session Access Policy
 
 -  Click on the **Edit…** link for the appropriate Access Policy created above
 
-   |image2|
+   |image002|
 
 -  Select the **+** between Start and Deny and **Add**
    an **HTTP 407 Response** object
 
-   |image3|
+   |image003|
 
 -  Change the **HTTP Auth Level** to **basic**
 
-   |image4|
+   |image004|
 
 -  Click **Save**
 
 -  On the **Basic** branch of the **HTTP 407** Object, **Add**
    an **AD Auth** Object
 
-   |image5|
+   |image005|
 
 -  Change the **Server** to **/Common/AD_F5DEMO** and change
    **Show Extended Error** to **Enabled**
 
-   |image6|
+   |image006|
 
 -  Click **Save**
 
@@ -107,7 +107,7 @@ Create a Per-Session Access Policy
 
 -  Click on the **Apply Access Policy** link
 
-   |image7|
+   |image007|
 
 Task 2 – Create a custom URL Filter
 -----------------------------------
@@ -119,16 +119,16 @@ Task 2 – Create a custom URL Filter
 
 -  Click on the first check box to select all categories
 
-   |image8|
+   |image008|
 
 -  Click **Allow** at the bottom of the page
 
-   |image9|
+   |image009|
 
 -  Click the check box to select **Social Web – Facebook** and then click
    **Block** (for this lab, our URL filter will only block Facebook)
 
-   |image10|
+   |image010|
 
 Task 3 – Create a "Per-Request" Access Policy
 ---------------------------------------------
@@ -143,14 +143,14 @@ Task 3 – Create a "Per-Request" Access Policy
 -  Click on the **Edit…** link for the appropriate Per-Request Policy created
    above, then go back to the VPE tab in your browser
 
-   |image11|
+   |image011|
 
 -  Click on the **+** symbol between **Start** and **Allow**
 
 -  Go to the **General Purpose** tab and add a **Protocol
    Lookup** object
 
-   |image12|
+   |image012|
 
 -  Click **Add Item**
 
@@ -159,7 +159,7 @@ Task 3 – Create a "Per-Request" Access Policy
 -  On the HTTPS branch, click the **+** and **Add** a
    **Category Lookup** object (**General Purpose** tab)
 
-   |image13|
+   |image013|
 
 -  Select **Use SNI in Client Hello** for **Categorization Input**
 
@@ -169,12 +169,12 @@ Task 3 – Create a "Per-Request" Access Policy
    (from the **General Purpose** tab) and choose URL Filter
    **/Common/LAB_URL_FILTER**
 
-   |image14|
+   |image014|
 
    .. IMPORTANT:: Change the Ending of the **Allow**
       outcome on the "fallback" branch from “Reject” to **Allow**
 
-   |image15|
+   |image015|
 
 Task 4 – Create Explicit Proxy Configuration using the SWG iApp
 ----------------------------------------------------------------
@@ -285,7 +285,7 @@ origin server) to domain-joined machines.
    scroll down. You should see the **F5 Agility CA** certificate in the
    list.
 
-   |image17|
+   |image017|
 
 -  Double-click on the certificate to view its properties, then close
    this window and the Certificates window.
@@ -306,7 +306,7 @@ Configure your browser with a “Proxy Server”
 
 -  Click **OK** twice.
 
-   |image18|
+   |image018|
 
 Test 1:
 ~~~~~~~
@@ -316,7 +316,7 @@ Test 1:
 
 -  Browse to **https://www.google.com**
 
-   |image19|
+   |image019|
 
 -  The browser should prompt you for authentication. Submit your
    credentials:
@@ -329,7 +329,7 @@ Test 1:
 
 -  Browse to **Access > Overview > Active Sessions**
 
-   |image20|
+   |image020|
 
 Test 2:
 ~~~~~~~
@@ -338,14 +338,14 @@ Test 2:
    machine, go to https://www.google.com and verify the SSL certificate
    is signed by the **F5 Agility CA** you configured in Lab 1
 
-   |image21|
+   |image021|
 
 -  Using an InPrivate browser window from the client test
    machine, go to https://www.wellsfargo.com and examine the certificate
    to verify that it is signed by the same **F5 Agility CA** you
    configured in Lab 1
 
-   |image22|
+   |image022|
 
 Test 3:
 ~~~~~~~
@@ -355,7 +355,7 @@ Test 3:
    instead delivered a SWG Block Page, in accordance to the URL Filter
    you configured above.
 
-   |image23|
+   |image023|
 
 
 
