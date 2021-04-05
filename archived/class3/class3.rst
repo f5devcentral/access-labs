@@ -12,6 +12,5 @@ Expected time to complete: **3 hours**
    :maxdepth: 1
    :glob:
 
-   module1/labinfo
    module1/Lab*
-   conclusion
+   conclusion.rst 
