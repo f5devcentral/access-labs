@@ -277,7 +277,7 @@ origin server) to domain-joined machines.
 -  Click the gear icon or hit ``Alt-X`` and select
    **Internet options**
 
-   |image16|
+   |image016|
 
 -  Go to the **Content** tab and click **Certificates**
 
