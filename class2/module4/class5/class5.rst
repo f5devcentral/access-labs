@@ -7,7 +7,7 @@ Class 4 - Clean up the lab
 
    .. image:: ./pictures/undeploy.png
       :align: center 
-   |
+   
 
 #. When finished, click on ``Delete`` icon
 
