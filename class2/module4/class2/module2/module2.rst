@@ -31,10 +31,10 @@ Configuration Properties
          :align: center
          :scale: 50%
 
-      |
-      .. note :: In a real world, you will set here the values from the Azure Service Application created for APM. You have to create an Azure Application so that APM get access to Microsoft Graph API. But for **security concerns**, I can't show in this lab the application secret.
+      
+      .. note:: In a real world, you will set here the values from the Azure Service Application created for APM. You have to create an Azure Application so that APM get access to Microsoft Graph API. But for **security concerns**, I can't show in this lab the application secret.
 
-      .. note :: The steps to create this Azure applications are below
+      .. note:: The steps to create this Azure applications are below
 
          #. In Azure AD, create a service application under your organization's tenant directory using App Registration.
          #. Register the App as Azure AD only single-tenant.
@@ -97,7 +97,7 @@ Azure Active Directory
          
          .. image:: ../pictures/module2/user.png
             :align: center
-         |
+         
 
       #. Click ``Close``
       #. You can see ``user1`` in the list.
@@ -172,7 +172,7 @@ Deploy your app template
 
    .. image:: ../pictures/module2/deploy.png
       :align: center
-   |
+   
 
 #. Behind the scene, the deployment creates an ``Azure Enterprise Application`` for ``Bluesky``. We can see it in ``Azure portal`` (you don't have access in this lab). With this Enterprise Application, Azure knows where to redirect you when authenticated. And this app has the certificate and key used to sign the SAML assertion.
 
@@ -192,7 +192,7 @@ Test your deployment
    .. image:: ../pictures/module1/login.png
       :align: center
       :scale: 50%
-   |
+   
 
 #. You are redirected to APM with a SAML assertion, and can access to Vanilla application.
 #. APM did ``Single Sign-on`` with Vanilla application (Kerberos Constrained Delegation)
@@ -200,7 +200,7 @@ Test your deployment
     .. image:: ../pictures/module2/vanilla.png
       :align: center
       :scale: 50%
-    |
+    
 
 #. Click ``Bluesky`` bookmark, you can access ``Bluesky`` application as well.
 #. Extra lab, enable ``Inspect mode`` in Edge, and follow the SAML redirections to understand the workflow.

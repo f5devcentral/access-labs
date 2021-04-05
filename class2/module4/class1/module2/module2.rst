@@ -13,7 +13,6 @@ Architecture of Cloud App
 
    .. image:: ../pictures/module2/azure.png
       :align: center
-   |
 
 #. This App Service is already bound with our demo Azure AD tenant.
 
