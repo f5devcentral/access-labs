@@ -357,72 +357,29 @@ Test 3:
 
    |image23|
 
-.. |image1| image:: ./media/image3.png
-   :width: 3.69928in
-   :height: 4.01600in
-.. |image2| image:: ./media/image4.png
-   :width: 5.30417in
-   :height: 1.38264in
-.. |image3| image:: ./media/image5.png
-   :width: 5.30417in
-   :height: 1.69583in
-.. |image4| image:: ./media/image6.png
-   :width: 3.31806in
-   :height: 3.78403in
-.. |image5| image:: ./media/image7.png
-   :width: 2.99375in
-   :height: 2.42569in
-.. |image6| image:: ./media/image8.png
-   :width: 2.97778in
-   :height: 2.66458in
-.. |image7| image:: ./media/image9.png
-   :width: 5.30694in
-   :height: 3.12847in
-.. |image8| image:: ./media/image10.png
-   :width: 5.35833in
-   :height: 4.54097in
-.. |image9| image:: ./media/image11.png
-   :width: 3.50000in
-   :height: 1.58889in
-.. |image10| image:: ./media/image12.png
-   :width: 5.22083in
-   :height: 4.91736in
-.. |image11| image:: ./media/image13.png
-   :width: 5.40278in
-   :height: 1.57222in
-.. |image12| image:: ./media/image14.png
-   :width: 4.91458in
-   :height: 3.24722in
-.. |image13| image:: ./media/image15.png
-   :width: 5.19653in
-   :height: 3.96181in
-.. |image14| image:: ./media/image16.png
-   :width: 5.58958in
-   :height: 2.93333in
-.. |image15| image:: ./media/image17.png
-   :width: 4.96736in
-   :height: 1.67153in
-.. |image16| image:: ./media/image18.png
-   :width: 1.90556in
-   :height: 2.55139in
-.. |image17| image:: ./media/image19.png
-   :width: 4.91459in
-   :height: 5.05600in
-.. |image18| image:: ./media/image20.png
-   :width: 3.93600in
-   :height: 3.97152in
-.. |image19| image:: ./media/image21.png
-   :width: 2.44262in
-   :height: 2.39685in
-.. |image20| image:: ./media/image22.png
-   :width: 4.83200in
-   :height: 2.86912in
-.. |image21| image:: ./media/image23.png
-   :width: 5.31000in
-   :height: 2.48000in
-.. |image22| image:: ./media/image24.png
-   :width: 4.17000in
-   :height: 2.10168in
-.. |image23| image:: ./media/image25.png
-   :width: 5.33000in
-   :height: 2.17000in
+
+
+
+.. |image001| image:: ./media/lab01/001.png
+.. |image002| image:: ./media/lab01/002.png
+.. |image003| image:: ./media/lab01/003.png
+.. |image004| image:: ./media/lab01/004.png
+.. |image005| image:: ./media/lab01/005.png
+.. |image006| image:: ./media/lab01/006.png
+.. |image007| image:: ./media/lab01/007.png
+.. |image008| image:: ./media/lab01/008.png
+.. |image009| image:: ./media/lab01/009.png
+.. |image010| image:: ./media/lab01/010.png
+.. |image011| image:: ./media/lab01/011.png
+.. |image012| image:: ./media/lab01/012.png
+.. |image013| image:: ./media/lab01/013.png
+.. |image014| image:: ./media/lab01/014.png
+.. |image015| image:: ./media/lab01/015.png
+.. |image016| image:: ./media/lab01/016.png
+.. |image017| image:: ./media/lab01/017.png
+.. |image018| image:: ./media/lab01/018.png
+.. |image019| image:: ./media/lab01/019.png
+.. |image020| image:: ./media/lab01/020.png
+.. |image021| image:: ./media/lab01/021.png
+.. |image022| image:: ./media/lab01/022.png
+.. |image023| image:: ./media/lab01/023.png
