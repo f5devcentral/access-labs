@@ -89,7 +89,7 @@ Access Policy Manager (APM) is a module available for use on the BIG-IP platform
 
 Task 2: Guided Configuration
 -----------------------------
-Access Guided Configuration (AGC) provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is written in has an independent release from TMOS and requires updates for new configurations from time to time. To find updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab.
+Access Guided Configuration (AGC) provides an easy way to create BIG-IP configurations for categories of Access use cases. This feature is an independent release from TMOS and requires updates for new configurations from time to time. To find updates and expanded use cases it will be necessary to download and install updates from https://downloads.f5.com. In this task we are going to explore the menu and take a look at a few options. We will not be deploying any of these solutions in this lab.
 
 #.  Go to **Access** --> **Guided Configuration**
 #.  A set of tiles appears at top listing the areas of use cases where Guided Configuration can be used
@@ -113,7 +113,8 @@ Access Guided Configuration (AGC) provides an easy way to create BIG-IP configur
 
 #.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
 #.  Click on the Guide Configuration bread crumb at the top of the screen to return to the main menu.
-#.  Zero Trust is the next tile. Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or outside of the network.
+#.  Click on the Zero Trust tile.
+#.  Zero trust follows the principle never trust, always verify and thus enforces authentication and verification for every user or device attempting to access resources whether from within or outside of the network.
 
       **About Identity Aware proxy**
 
@@ -133,7 +134,7 @@ Access Guided Configuration (AGC) provides an easy way to create BIG-IP configur
       and transparently transmits it to chosen APM server endpoints using special HTTP headers. Refer to BIG-IP Access Policy Manager: Configuring F5 Access Guard
       for details on client requirements.
 
-#.  Click on the Identity Aware Proxy configuration option
+#.  Click on the **Identity Aware Proxy** configuration option
 #.  There are two topologies available:
 
       +---------------+-------------+-------------+
@@ -178,7 +179,7 @@ The Overview menu is where an administrator can view active sessions, previous s
 
     .. Note:: URL Request Logs is part of SWG functionality and will not be covered in this lab
 
-#.  From the top menu bar Click on the drop down next to **Event Logs** and choose **Log Settings**. This is where you can create logging profiles for access policies.  From here you can specify what information to collect and to what detail.
+#.  From the top menu bar Click on the drop down next to **Event Logs** and choose **Settings**. This is where you can create logging profiles for access policies.  From here you can specify what information to collect and to what detail.
 #.  Click the **Create** button
 #.  We will create a new APM Log profile
 
@@ -233,6 +234,8 @@ Task 4: Profile/Policies
 Profiles and Policies are where we begin to learn about what makes APM function.  In order for APM functions to be added to a Virtual server we need to create Access Profiles and Policies.  These entities take all the components we will look at below and put them in a logical flow through the Visual Policy Editor (VPE). These entities are things like login pages, authentication, single sign on methods and endpoint checks.  To being we have to create an Access Profile.  Within that profile we create a per session policy.  When that is completed we attach that profile to a Virtual Server.
 
 .. Note::  You can associate one Access Profile (which includes a per-session policy) and one per-request policy per virtual server.
+
+.. Important:: We will creating objects for use within this task.
 
 #.  From the left menu go to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
 
@@ -298,7 +301,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 
 #.  Still in the profile click on **SSO/Auth Domain** at the top
 
-      BIG-IP APM offers a number of Single Sign On (SSO) options.  The SSO/Auth Domain tab in a Per Session Profile is where you will select what SSO method to use for your application. In Task 6 we will cover the objects that need to be created in order to associate that SSO method to a policy.  At this time the drop down for the SSO Configuration will have a pre-built sso object we will use later.
+      BIG-IP APM offers a number of Single Sign On (SSO) options.  The SSO/Auth Domain tab in a Per Session Profile is where you will select what SSO method to use for your application. In Task 6 we will cover the objects that need to be created in order to associate that SSO method to a policy.  At this time the drop down for the SSO Configuration will have a pre-built SSO object we will use later.
 
       .. Note::  We will not discuss Multi-Domain in this lab but you can find more information in the Appendix
 
@@ -331,6 +334,8 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       +----------------------+---------------------------+----------------------------------+
       |Language Settings     | Accepted Languages        |  English                         |
       +----------------------+---------------------------+----------------------------------+
+
+#. Click **Save**
 
 #. Click **Edit**
 
@@ -405,6 +410,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #. Under **Available Profiles** choose the /Common/server1-psp
 #. Select Language:  **English**
 #. Let's upload a new image.  Click **Upload New Image**
+#.
 #. Choose an image from the selection and click **Open**
 #. Pick a Background color
 #. Pick a Header Background color
