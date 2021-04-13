@@ -165,7 +165,7 @@ The Overview menu is where an administrator can view active sessions, previous s
 
       |killsession|
 
-#.  Click on **Access** --> **Access Report**
+#.  Click on **Access** --> **Overview** --> **Access Report**
 #.  This section will give you details on the all sessions active and inactive.  Each log item is a message on the policy flow as a user walks through an Access policy.  (We will cover Per Session and Per Request policies in in more detail later).
 #.  You will be prompted to enter a time period to run the report
 
@@ -183,7 +183,7 @@ The Overview menu is where an administrator can view active sessions, previous s
 #.  We will create a new APM Log profile
 
       +----------------------+---------------------------+----------------------------------+
-      |General Information   | Name                      |  basic_Log_profile               |
+      |General Information   | Name                      |  basic_log_profile               |
       +----------------------+---------------------------+----------------------------------+
       |                      | Enable Access System Logs |  Check box                       |
       +----------------------+---------------------------+----------------------------------+
@@ -215,6 +215,8 @@ The Overview menu is where an administrator can view active sessions, previous s
       +----------------------+---------------------------+----------------------------------+
 
       .. Note:: Within the Access System Logs section of the log profile is where you can change the logging for various portions of the APM Policies.  The one you will use most will be to move Access Policy from Notice to Debug and/or Pre-Request Policy from Notice to Debug.  As you can see you can pick and choose what level of notifications you want in your logs.  This will impact what you see in Access Reports for a session and what appears in /var/log/apm.
+
+#.  Click OK
 
 #.  From the left menu go to **Access** --> **Overview** --> **Dashboard**
 
@@ -458,16 +460,16 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
       - Local User Database authentication
 
 #. Go to **Access** --> **Authentication** --> **Active Directory**
-#. Click on server1-ad-servers and review the settings.  You can choose to use go direct or use a pool of AD servers.
+#. Click on basic-ad-servers and review the settings.  You can choose to use go direct or use a pool of AD servers.
 
       +----------------------+-----------------------------+----------------------------------+
-      |General Properties    | Name                        |  server1-ad-servers              |
+      |General Properties    | Name                        |  basic-ad-servers                |
       +----------------------+-----------------------------+----------------------------------+
       |Configuration         | Domain Name                 |  f5lab.local                     |
       +----------------------+-----------------------------+----------------------------------+
       |                      | Server Connection           |  Use Pool                        |
       +----------------------+-----------------------------+----------------------------------+
-      |                      | Domain Controller Pool Name |  /Common/server1-ad-pool         |
+      |                      | Domain Controller Pool Name |  /Common/basic-ad-pool           |
       +----------------------+-----------------------------+----------------------------------+
       |                      | IP Address                  |  10.1.20.7                       |
       +----------------------+-----------------------------+----------------------------------+
@@ -493,9 +495,9 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
 #. Click the **+** between **Logon Page** and Deny
 #. Click the **Authentication** tab
 #. Choose the **AD Auth** radio button and click **Add Item**
-#. Under the **Type** field click on the drop down menu and choose the newly created AAA server **server1-psp_aaa**
+#. Under the **Type** field click on the drop down menu and choose the AAA server **basic-ad-servers**
 #. Click **Save**
-#. Click on the **Deny** end point and choose **Allow** then click **Save**
+#. On the Success branch click on the **Deny** end point and choose **Allow** then click **Save**
 #. Click **Apply Access Policy**
 
       |basicpolicy|
@@ -504,7 +506,7 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
 
 #. Go to **Local Traffic** --> **Virtual Servers**
 #. Locate **server1-https** and click on it
-#. Scroll down to the **Access Policy** section.  Next to **Access Profile** click the drop and replace server1-psp with your server1-psp
+#. Scroll down to the **Access Policy** section.  Next to **Access Profile** click the drop and chose server1-psp
 #. Scroll down to the bottom and click **Update**
 #. In a new browser tab go to http://server1.acme.com and Login
 
@@ -523,10 +525,10 @@ BIG-IP APM supports industry standard authentication methods, including:
     .. Note:: Client-side authentication methods outnumber server-side methods. This is because BIG-IP APM does not transmit client certificate, RSA SecurID, or one-time passcodes to the server on the client’s behalf.
 
 #.  Go to **Access** --> **Single Sign-On** --> **HTTP Basic**
-#.  Click **basic_sso**
+#.  Click **basic-sso**
 
         +----------------------+-----------------------------+----------------------------------+
-        |General Properties    | Name                        |  basic_sso                       |
+        |General Properties    | Name                        |  basic-sso                       |
         +----------------------+-----------------------------+----------------------------------+
         |Credential Source     | Username Source             |  session.sso.token.last.username |
         +----------------------+-----------------------------+----------------------------------+
@@ -537,7 +539,7 @@ BIG-IP APM supports industry standard authentication methods, including:
 
         .. Note::  Username conversion can be enabled if you want domain\\username or username@domain to convert to just username.
 
-#. Click on **Access** --> *Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#. Click on **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
 #. Locate the **basic-psp** profile and click on the name
 #. Click on **SSO/Auth Domains**
 #. Under SSO Configuration notice **basic_sso** is selected
@@ -673,6 +675,9 @@ Task 8: Connectivity/VPN
 ----------------------------
 
 **Policy Walk-Through**
+
+#.  Navigate to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
+#.  Locate profile **vpn-psp** and click on **Edit**.  This opens the Visual Policy Editor (VPE) and we can take a look at the policy
 
       |image001|
 
