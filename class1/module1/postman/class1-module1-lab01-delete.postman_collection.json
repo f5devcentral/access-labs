@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "79f2828c-24fc-4d76-8b60-65da3cc54140",
+		"_postman_id": "d0db5183-380c-4b13-8a79-9963c59b8068",
 		"name": "class1-module1-lab01-delete",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -8582,6 +8582,37 @@
 							"response": []
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "Delete images",
+			"item": [
+				{
+					"name": "Remove images",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"repo\":\"access-labs\",\r\n\"class_number\":\"1\",\r\n\"module_number\":\"1\",\r\n\"user\": \"user1\"\r\n}"
+						},
+						"url": {
+							"raw": "http://10.1.20.6:81/desktop",
+							"protocol": "http",
+							"host": [
+								"10",
+								"1",
+								"20",
+								"6"
+							],
+							"port": "81",
+							"path": [
+								"desktop"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
