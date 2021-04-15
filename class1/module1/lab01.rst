@@ -337,7 +337,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       |Language Settings     | Accepted Languages        |  English                         |
       +----------------------+---------------------------+----------------------------------+
 
-#. Click **Save**
+#. Click **Finished**
 
 #. Click **Edit**
 
@@ -351,6 +351,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       .. Note:: A subsession starts when a subroutine runs and continues until reaching the maximum lifetime specified in the subroutine properties, or until the session terminates. A subsession populates subsession variables that are available for the duration of the subsession. Subsession variables and events that occur during a subsession are logged. Multiple subsessions can exist at the same time. The maximum number of subsessions allowed varies across platforms. The total number of subsessions is limited by the session limits in APM (128 * max sessions). Creating a subsession does not count against the license limit.
 
 #. If you click on the plus between Start and Allow a new box will appear and you can explore the various components that can be added.  At this time we will leave the policy blank and return to populate it in later tasks.
+#. Close the VPE tab when you are done exploring.
 
 **Policy Sync**
 
@@ -488,7 +489,7 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
       |                      | Admin Password              |  admin                           |
       +----------------------+-----------------------------+----------------------------------+
 
-      .. Note:: If you choose to use a pool you can create the pool as you create the AD object.  Go back and click create to see what this looks like.
+      .. Note:: If you choose to use a pool you can create the pool as you create the AD object.  You can also choose to use Direct which allows you to only use one server. Go back and click create to see what this looks like.
 
       |adpool|
 
