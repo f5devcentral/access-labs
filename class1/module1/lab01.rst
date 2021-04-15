@@ -101,15 +101,17 @@ Access Guided Configuration (AGC) provides an easy way to create BIG-IP configur
 #.  Click on **SAML Service Provider**
 #.  Here you will find there are couple topologies.  SAML SP Initiated and SAML IdP Initiated.
 
-      |image07|
+      +------------+-----------+
+      | |image08|  | |image09| |
+      +------------+-----------+
 
 #. If there are any required configuration pieces missing to complete guided configuration they will appear in the right pane
 
-      |image08|
+      |image07|
 
 #. Below the topologies you will find all the components that will be configured using the guided configured
 
-      |image09|
+      |image10|
 
 #.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
 #.  Click on the Guide Configuration bread crumb at the top of the screen to return to the main menu.
@@ -335,7 +337,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       |Language Settings     | Accepted Languages        |  English                         |
       +----------------------+---------------------------+----------------------------------+
 
-#. Click **Save**
+#. Click **Finished**
 
 #. Click **Edit**
 
@@ -349,6 +351,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
       .. Note:: A subsession starts when a subroutine runs and continues until reaching the maximum lifetime specified in the subroutine properties, or until the session terminates. A subsession populates subsession variables that are available for the duration of the subsession. Subsession variables and events that occur during a subsession are logged. Multiple subsessions can exist at the same time. The maximum number of subsessions allowed varies across platforms. The total number of subsessions is limited by the session limits in APM (128 * max sessions). Creating a subsession does not count against the license limit.
 
 #. If you click on the plus between Start and Allow a new box will appear and you can explore the various components that can be added.  At this time we will leave the policy blank and return to populate it in later tasks.
+#. Close the VPE tab when you are done exploring.
 
 **Policy Sync**
 
@@ -486,7 +489,7 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
       |                      | Admin Password              |  admin                           |
       +----------------------+-----------------------------+----------------------------------+
 
-      .. Note:: If you choose to use a pool you can create the pool as you create the AD object.  Go back and click create to see what this looks like.
+      .. Note:: If you choose to use a pool you can create the pool as you create the AD object.  You can also choose to use Direct which allows you to only use one server. Go back and click create to see what this looks like.
 
       |adpool|
 
@@ -516,9 +519,15 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
 #. Scroll down to the bottom and click **Update**
 #. In a new browser tab go to http://server1.acme.com and Login
 
+      +---------------+--------------+
+      | username      | user1        |
+      +---------------+--------------+
+      | password      | user1        |
+      +---------------+--------------+
+
 Task 6: Single Sign-On
 ----------------------------
-Client side and server side are loosely coupled in the authentication proxy. Because of this, BIG-IP APM can transform client-side identity values of one type can into server-side identity values of another type. You configure SSO within an SSO profile, which is applied to an access profile. The system triggers SSO at the end of successful access policy evaluation and on subsequent client-side requests.
+Client side and server side are loosely coupled in the authentication proxy. Because of this, BIG-IP APM can transform client-side identity values of one type into server-side identity values of another type. You configure SSO within an SSO profile, which is applied to an access profile. The system triggers SSO at the end of successful access policy evaluation and on subsequent client-side requests.
 
 BIG-IP APM supports industry standard authentication methods, including:
 
@@ -561,7 +570,7 @@ BIG-IP APM supports industry standard authentication methods, including:
 
 #. Open an incognito window and try go to https://basic.acme.com
 #. You should have been prompted with a windows login.  Close the Window
-#. Go to **Local Traffic** --> **Virtual Servers** and open basic-https
+#. Go to **Local Traffic** --> **Virtual Servers** and open **basic-https**
 #. Scroll to **Access Policy** and click the drop down next to **Access Profile**.  Choose **basic-psp**
 
       |policyattach|
@@ -617,7 +626,7 @@ Task 7: Federation
 
       |idpadauth|
 
-      .. Note::  If you look at the AAA server under Active directory you will find the idp-ad-server object.  We are leveraging Active Directory as the credential verification but BIG-IP is acting as a SAML Identity Provider.  BIB-IP will verify the credentials against Active Directory and create a SAML Assertion for the user requesting access.  That assertion can then be used by the SAML Service Provider to provide access to the SAML SP resource.
+      .. Note::  If you look at the AAA server under Active directory you will find the idp-ad-server object.  We are leveraging Active Directory as the credential verification but BIG-IP is acting as a SAML Identity Provider.  BIG-IP will verify the credentials against Active Directory and create a SAML Assertion for the user requesting access.  That assertion can then be used by the SAML Service Provider to provide access to the SAML SP resource.
 
       |samlidpaaa|
 
@@ -634,7 +643,7 @@ Task 7: Federation
 
       In order for the BIG-IP to be configured as a SAML IdP you must define the Identity provider and bind it with a SAML Service Provider.  This object contains the settings required to configure BIG-IP as a SAML SP.  For more information on SAML and uses with BIG-IP consider taking the Federation lab.
 
-      .. Note::  You can export the Metadate of the SAML IdP in this menu by clicking the SAML IdP and clicking the Export Metadata button.  With will output an XML file that you can use to upload in to a SAML Service Provider with all the IdP setting particular to this IdP.
+      .. Note::  You can export the Metadata of the SAML IdP in this menu by clicking the SAML IdP and clicking the Export Metadata button.  It will output an XML file that you can use to upload in to a SAML Service Provider with all the IdP setting particular to this IdP.
 
 **SP-initiated federation with BIG-IP APM**
 
@@ -780,11 +789,19 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
       |image012|
 
+      .. Note::  You may be prompted to download the VPN update.  This is what a user will experience if you have auto-update enabled in the VPN Connectivity Profile. Click Download and wait for the components to update.
+
 #. A popup opens displaying the status of the VPN connection.  The status will eventually become **Connected**
 
       |image013|
 
-.. note:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
+      .. Information::  If you lose the pop-up check the system tray for the little red ball.  Right click and choose **restore**
+
+#. Click **Disconnect**
+
+
+.. Note:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
+
 
 Task 8: Lab Cleanup
 ----------------------------
@@ -823,6 +840,7 @@ Lab 1 is now complete.
 .. |image07| image:: ./media/lab01/image7.png
 .. |image08| image:: ./media/lab01/image8.png
 .. |image09| image:: ./media/lab01/image9.png
+.. |image10| image:: ./media/lab01/image10.png
 .. |image13| image:: ./media/lab01/image13.png
 .. |image14| image:: ./media/lab01/image14.png
 .. |image16| image:: ./media/lab01/image16.png
