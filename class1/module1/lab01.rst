@@ -410,7 +410,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #. Under **Available Profiles** choose the /Common/server1-psp
 #. Select Language:  **English**
 #. Let's upload a new image.  Click **Upload New Image**
-#.
+#. Browse to **Desktop** and locate the **Lab01_images** folder
 #. Choose an image from the selection and click **Open**
 #. Pick a Background color
 #. Pick a Header Background color
