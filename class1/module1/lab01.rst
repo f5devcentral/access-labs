@@ -519,9 +519,15 @@ The following figure shows BIG-IP APM acting as an authentication gateway. Infor
 #. Scroll down to the bottom and click **Update**
 #. In a new browser tab go to http://server1.acme.com and Login
 
+      +---------------+--------------+
+      | username      | user1        |
+      +---------------+--------------+
+      | password      | user1        |
+      +---------------+--------------+
+
 Task 6: Single Sign-On
 ----------------------------
-Client side and server side are loosely coupled in the authentication proxy. Because of this, BIG-IP APM can transform client-side identity values of one type can into server-side identity values of another type. You configure SSO within an SSO profile, which is applied to an access profile. The system triggers SSO at the end of successful access policy evaluation and on subsequent client-side requests.
+Client side and server side are loosely coupled in the authentication proxy. Because of this, BIG-IP APM can transform client-side identity values of one type into server-side identity values of another type. You configure SSO within an SSO profile, which is applied to an access profile. The system triggers SSO at the end of successful access policy evaluation and on subsequent client-side requests.
 
 BIG-IP APM supports industry standard authentication methods, including:
 
@@ -564,7 +570,7 @@ BIG-IP APM supports industry standard authentication methods, including:
 
 #. Open an incognito window and try go to https://basic.acme.com
 #. You should have been prompted with a windows login.  Close the Window
-#. Go to **Local Traffic** --> **Virtual Servers** and open basic-https
+#. Go to **Local Traffic** --> **Virtual Servers** and open **basic-https**
 #. Scroll to **Access Policy** and click the drop down next to **Access Profile**.  Choose **basic-psp**
 
       |policyattach|
@@ -620,7 +626,7 @@ Task 7: Federation
 
       |idpadauth|
 
-      .. Note::  If you look at the AAA server under Active directory you will find the idp-ad-server object.  We are leveraging Active Directory as the credential verification but BIG-IP is acting as a SAML Identity Provider.  BIB-IP will verify the credentials against Active Directory and create a SAML Assertion for the user requesting access.  That assertion can then be used by the SAML Service Provider to provide access to the SAML SP resource.
+      .. Note::  If you look at the AAA server under Active directory you will find the idp-ad-server object.  We are leveraging Active Directory as the credential verification but BIG-IP is acting as a SAML Identity Provider.  BIG-IP will verify the credentials against Active Directory and create a SAML Assertion for the user requesting access.  That assertion can then be used by the SAML Service Provider to provide access to the SAML SP resource.
 
       |samlidpaaa|
 
@@ -637,7 +643,7 @@ Task 7: Federation
 
       In order for the BIG-IP to be configured as a SAML IdP you must define the Identity provider and bind it with a SAML Service Provider.  This object contains the settings required to configure BIG-IP as a SAML SP.  For more information on SAML and uses with BIG-IP consider taking the Federation lab.
 
-      .. Note::  You can export the Metadate of the SAML IdP in this menu by clicking the SAML IdP and clicking the Export Metadata button.  With will output an XML file that you can use to upload in to a SAML Service Provider with all the IdP setting particular to this IdP.
+      .. Note::  You can export the Metadata of the SAML IdP in this menu by clicking the SAML IdP and clicking the Export Metadata button.  It will output an XML file that you can use to upload in to a SAML Service Provider with all the IdP setting particular to this IdP.
 
 **SP-initiated federation with BIG-IP APM**
 
@@ -783,11 +789,19 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
       |image012|
 
+      .. Note::  You may be prompted to download the VPN update.  This is what a user will experience if you have auto-update enabled in the VPN Connectivity Profile. Click Download and wait for the components to update.
+
 #. A popup opens displaying the status of the VPN connection.  The status will eventually become **Connected**
 
       |image013|
 
-.. note:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
+      .. Information::  If you lose the pop-up check the system tray for the little red ball.  Right click and choose **restore**
+
+#. Click **Disconnect**
+
+
+.. Note:: For more information on API Protection consider taking the API Protection lab.  For more information on SWG, ACL and Webtops see the appendix or further APM labs.
+
 
 Task 8: Lab Cleanup
 ----------------------------
