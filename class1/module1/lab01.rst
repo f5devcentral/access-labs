@@ -101,15 +101,17 @@ Access Guided Configuration (AGC) provides an easy way to create BIG-IP configur
 #.  Click on **SAML Service Provider**
 #.  Here you will find there are couple topologies.  SAML SP Initiated and SAML IdP Initiated.
 
-      |image07|
+      +------------+-----------+
+      | |image08|  | |image09| |
+      +------------+-----------+
 
 #. If there are any required configuration pieces missing to complete guided configuration they will appear in the right pane
 
-      |image08|
+      |image07|
 
 #. Below the topologies you will find all the components that will be configured using the guided configured
 
-      |image09|
+      |image10|
 
 #.  From here you would click next to begin configuration. (We will explore this further in the 300 Series labs)
 #.  Click on the Guide Configuration bread crumb at the top of the screen to return to the main menu.
@@ -823,6 +825,7 @@ Lab 1 is now complete.
 .. |image07| image:: ./media/lab01/image7.png
 .. |image08| image:: ./media/lab01/image8.png
 .. |image09| image:: ./media/lab01/image9.png
+.. |image10| image:: ./media/lab01/image10.png
 .. |image13| image:: ./media/lab01/image13.png
 .. |image14| image:: ./media/lab01/image14.png
 .. |image16| image:: ./media/lab01/image16.png
