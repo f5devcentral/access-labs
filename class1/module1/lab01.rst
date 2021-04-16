@@ -795,7 +795,7 @@ The Advanced Resource Assign agent grants a user access to the assigned resource
 
       |image013|
 
-      .. Information::  If you lose the pop-up check the system tray for the little red ball.  Right click and choose **restore**
+      .. Note::  If you lose the pop-up check the system tray for the little red ball.  Right click and choose **restore**
 
 #. Click **Disconnect**
 
