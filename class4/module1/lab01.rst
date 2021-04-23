@@ -1,6 +1,8 @@
 Lab 1: Creating a SAML Service Provider(SP)
 ============================================
+
 .. _class4-module1-lab1:
+
 In this lab you will learn how to work with the SP Service and IdP Connector.
 
 Task 1 - Access the Lab Environment
@@ -180,7 +182,7 @@ With imperative call objects must be deleted in the reverse order they are typic
 
     |image021|
 
-#. If you click *Send a second time you will you get a message back stating the object is not found and a Status Code of 404.  That's because the object was deleted with the prior request.
+#. If you click **Send** a second time you will you get a message back stating the object is not found and a Status Code of 404.  That's because the object was deleted with the prior request.
 
     |image022|
 

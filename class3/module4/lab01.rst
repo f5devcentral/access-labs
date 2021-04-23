@@ -46,7 +46,7 @@ Section 1.2 - Implement Course-Graing Access Control
 
 
 Task 1 - Create a Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.
 
@@ -72,7 +72,7 @@ The cornerstone of the API protection profile is the ability to authorize users 
 
 
 Task 2 - Create a JWT Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to Access >> Federation >> JSON Web Token >> Provider List. Click the **+ (Plus Symbol)**.
 
@@ -88,7 +88,7 @@ Task 2 - Create a JWT Provider
 
 
 Task 3 - Create an API Protection Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to API Protection >> Profile. Click the **+ (plus symbol)**
 
@@ -111,7 +111,7 @@ Task 3 - Create an API Protection Profile
 
 
 Task 4 - Explore the Path Configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Note the Spec file contained a single path of /user but it supports four different request methods.
 
@@ -121,7 +121,7 @@ Task 4 - Explore the Path Configuration
 
 
 Task 5 - Associate a JWT Provider
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Access Control** from the top ribbon
 
@@ -153,7 +153,7 @@ Task 5 - Associate a JWT Provider
 
 
 Task 6 - Create a virtual server
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. From the web browser, click on the **Local Traffic** tab located on the left side
 
@@ -210,7 +210,7 @@ Task 7 - Import Postman Collections
 
 
 Task 8 - Retreive your OAuth clientID
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Expand the **student-class3-module4-lab01** Collection
 
@@ -237,7 +237,7 @@ Task 9 - Attempt to Retrieve User1\'s Attributes without JWT
 
    |image26|
 
-Task 9 -  Retrieve User1\'s Attributes with a JWT
+Task 10 -  Retrieve User1\'s Attributes with a JWT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request3: Retrieve User Attributes with JWT**
@@ -273,7 +273,7 @@ Task 9 -  Retrieve User1\'s Attributes with a JWT
    |image31|
 
 
-Task 10 - Set a Valid User Attribute
+Task 11 - Set a Valid User Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 4: Update a Valid User Attribute**
@@ -297,7 +297,7 @@ Task 10 - Set a Valid User Attribute
    |image35|
 
 
-Task 11 - Set an Nonexistent User's Attribute
+Task 12 - Set an Nonexistent User's Attribute
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 5: Update a Nonexistent User Attribute**
@@ -317,7 +317,7 @@ Task 11 - Set an Nonexistent User's Attribute
 |image37|
 
 
-Task 12 - Update a Valid User with PUT
+Task 13 - Update a Valid User with PUT
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 6: Update a Valid User's Attribute with PUT**
@@ -335,7 +335,7 @@ Task 12 - Update a Valid User with PUT
    |image39|
 
 
-Task 13 - Create a User
+Task 14 - Create a User
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 7: Create a User**
@@ -353,7 +353,7 @@ Task 13 - Create a User
    |image46|
 
 
-Task 14 - Request invalid endpoint
+Task 15 - Request invalid endpoint
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Select the request **Request 8: Request Invalid Endpoint**
@@ -818,7 +818,6 @@ Task 3 - Test Access to the new path
 .. |image21| image:: media/lab01/image021.png
 	:width: 700px
 .. |image22| image:: media/lab01/image022.png
-.. |image23| image:: media/lab01/image023.png
 .. |image24| image:: media/lab01/024.png
 .. |image25| image:: media/lab01/image025.png
 .. |image26| image:: media/lab01/image026.png
@@ -921,8 +920,6 @@ Task 3 - Test Access to the new path
 .. |image103| image:: media/lab01/image103.png
 	:width: 800px
 .. |image102| image:: media/lab01/102.png
-.. |image103| image:: media/lab01/image103.png
-	:width: 800px
 .. |image104| image:: media/lab01/104.png
 .. |image105| image:: media/lab01/105.png
 .. |image106| image:: media/lab01/106.png
@@ -938,4 +935,4 @@ Task 3 - Test Access to the new path
 .. |image202| image:: media/lab01/202.png
 .. |image203| image:: media/lab01/203.png
 .. |image204| image:: media/lab01/204.png
-.. |image205| image:: media/lab01/205.png
+
