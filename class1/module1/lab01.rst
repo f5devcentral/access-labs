@@ -142,7 +142,7 @@ Access Guided Configuration (AGC) provides an easy way to create BIG-IP configur
       +---------------+-------------+-------------+
       |Single Proxy   | |image13|   |  |image17|  |
       +---------------+-------------+-------------+
-      |Multi-Proxy    | |image14|   |  |image16|  |
+      |Multi-Proxy    | |image019|  |  |image16|  |
       +---------------+-------------+-------------+
 
 #.  Proceeding with this configuration will create a number of object as seen here.
@@ -420,7 +420,7 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #. Change the footer Text
 #. Remember to click **Save** icon at the bottom
 
-    |iamge14|
+    |image14|
 
     ..Note:: If you click the Preview button at the bottom of this screen you will get to preview the page you are editing.  However, we are going to use the Preview button located at the top right of this GUI.
 
@@ -858,7 +858,6 @@ Lab 1 is now complete.
 .. |image09| image:: ./media/lab01/image9.png
 .. |image10| image:: ./media/lab01/image10.png
 .. |image13| image:: ./media/lab01/image13.png
-.. |image14| image:: ./media/lab01/image14.png
 .. |image16| image:: ./media/lab01/image16.png
 .. |image17| image:: ./media/lab01/image17.png
 .. |image18| image:: ./media/lab01/image18.png
@@ -903,3 +902,4 @@ Lab 1 is now complete.
 .. |image013| image:: ./media/lab01/013.png
 .. |image014| image:: ./media/lab01/014.png
 .. |image015| image:: ./media/lab01/015.png
+.. |image019| image:: ./media/lab01/019.png
