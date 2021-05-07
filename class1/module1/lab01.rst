@@ -420,13 +420,13 @@ Profiles and Policies are where we begin to learn about what makes APM function.
 #. Change the footer Text
 #. Remember to click **Save** icon at the bottom
 
-    |image14|
+    |image014|
 
     ..Note:: If you click the Preview button at the bottom of this screen you will get to preview the page you are editing.  However, we are going to use the Preview button located at the top right of this GUI.
 
 #. Click on the **Preview** button (At the top right)
 
-    |image15|
+    |image015|
 
 #. Choose **Access Profiles** --> **/Common/server1-psp** --> **Access Policy** --> **Ending pages** -- **Deny**
 
