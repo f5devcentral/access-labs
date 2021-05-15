@@ -16,10 +16,8 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									"",
-									"",
 									"var jsonData = pm.response.json();",
-									"pm.test(\"Files Copied\", function () {",
+									"pm.test(\"Files Deleted\", function () {",
 									"",
 									"    pm.expect(jsonData.status).to.eql(\"Success\");",
 									"});"
@@ -64,7 +62,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"User Account Deleted\", function () {\r",
+									"\r",
+									"    pm.expect(jsonData.status).to.eql(\"Success\");\r",
+									"});"
 								],
 								"type": "text/javascript"
 							}

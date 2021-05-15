@@ -64,7 +64,11 @@
 							"listen": "test",
 							"script": {
 								"exec": [
-									""
+									"var jsonData = pm.response.json();",
+									"pm.test(\"User Account Created\", function () {",
+									"",
+									"    pm.expect(jsonData.status).to.eql(\"Success\");",
+									"});"
 								],
 								"type": "text/javascript"
 							}
