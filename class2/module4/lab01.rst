@@ -17,6 +17,8 @@ In this lab, we will use the new **Easy Button** Guided Configuration template. 
 
    |image001|
 
+.. |image001| image:: media/lab01/001.png
+
 
 In the video below, you can see the use case. This is **not** the **lab video**, it is the public facing use case demo.
 
@@ -559,8 +561,7 @@ Class 4 - Clean up the lab
 
 
 
-.. |image001| image:: media/lab01/001.png
-   :align: center
+
 .. |image002| image:: media/lab01/002.png
    :align: center
 .. |image003| image:: media/lab01/003.png
