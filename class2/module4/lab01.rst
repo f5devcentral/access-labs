@@ -563,24 +563,13 @@ Class 4 - Clean up the lab
 
 .. |image001| image:: media/lab01/001.png
 .. |image002| image:: media/lab01/002.png
-   :align: center
 .. |image003| image:: media/lab01/003.png
-   :align: center
 .. |image004| image:: media/lab01/004.png
-   :align: center
 .. |image005| image:: media/lab01/005.png
-   :align: center
-   :scale: 50%
 .. |image006| image:: media/lab01/006.png
-   :align: center
-   :scale: 50%
 .. |image007| image:: media/lab01/007.png
-   :align: center
-   :scale: 50%
 .. |image008| image:: media/lab01/008.png
-   :align: center
 .. |image009| image:: media/lab01/009.png
-   :align: center
 .. |image010| image:: media/lab01/010.png
    :align: center
    :scale: 50%
