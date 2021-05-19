@@ -571,83 +571,39 @@ Class 4 - Clean up the lab
 .. |image008| image:: media/lab01/008.png
 .. |image009| image:: media/lab01/009.png
 .. |image010| image:: media/lab01/010.png
-   :align: center
-   :scale: 50%
 .. |image011| image:: media/lab01/011.png
-   :align: center
 .. |image012| image:: media/lab01/012.png
-   :align: center
-   :scale: 50%
 .. |image013| image:: media/lab01/013.png
-   :scale: 50%
 .. |image014| image:: media/lab01/014.png
-   :scale: 50%
 .. |image015| image:: media/lab01/015.png
-   :scale: 50%
 .. |image016| image:: media/lab01/016.png
-   :align: center
 .. |image017| image:: media/lab01/017.png
-   :align: center
 .. |image018| image:: media/lab01/018.png
-   :align: center
 .. |image019| image:: media/lab01/019.png
-   :align: center
 .. |image020| image:: media/lab01/020.png
-   :align: center
 .. |image021| image:: media/lab01/021.png
-   :align: center
-   :scale: 50%
 .. |image022| image:: media/lab01/022.png
-   :align: center
-   :scale: 50%
 .. |image023| image:: media/lab01/023.png
-   :align: center
-   :scale: 50%
 .. |image024| image:: media/lab01/024.png
-   :align: center
-   :scale: 50%
 .. |image025| image:: media/lab01/025.png
-   :align: center
-   :scale: 50%
 .. |image026| image:: media/lab01/026.png
-   :scale: 50%
 .. |image027| image:: media/lab01/027.png
-   :scale: 50%
 .. |image028| image:: media/lab01/028.png
-   :scale: 50%
 .. |image029| image:: media/lab01/029.png
-   :align: center
 .. |image030| image:: media/lab01/030.png
-   :align: center 
 .. |image031| image:: media/lab01/031.png
-   :align: center
 .. |image032| image:: media/lab01/032.png
-   :align: center
 .. |image033| image:: media/lab01/033.png
-   :align: center
 .. |image034| image:: media/lab01/034.png
-   :align: center 
 .. |image035| image:: media/lab01/035.png
-   :align: center 
 .. |image036| image:: media/lab01/036.png
-   :align: center
-   :scale: 50%
 .. |image037| image:: media/lab01/037.png
-   :align: center
-   :scale: 50%     
 .. |image038| image:: media/lab01/038.png
-   :align: center
-   :scale: 50%
 .. |image039| image:: media/lab01/039.png
-   :align: center
-   :scale: 50%
-.. |image040| image:: media/lab01/040.png
-   :align: center
-   :scale: 50%         
+.. |image040| image:: media/lab01/040.png  
 .. |image041| image:: media/lab01/041.png
-   :align: center
 .. |image042| image:: media/lab01/042.png
-   :align: center      
+  
    
 
 
