@@ -15,8 +15,7 @@ In this lab, we will use the new **Easy Button** Guided Configuration template. 
 
 .. note :: You will notice we will never connect to Azure AD interface. APM will use Microsoft Graph API to configure AAD tenant accordingly.
 
-
-|image001|
+   |image001|
 
 
 In the video below, you can see the use case. This is **not** the **lab video**, it is the public facing use case demo.
