@@ -90,7 +90,7 @@ Architecture of Cloud App
 
 .. note :: A Wordpress application is already up and running in Azure Cloud at this address ``https://wordpress-apm-aad.azurewebsites.net/``
 
-|image008|
+   |image008|
 
 
 #. This Wordpress application is an Azure App Service.
@@ -230,7 +230,7 @@ Task 6 - Pool Properties
 
    |image019|
 
-Task 7 - ession Management Properties
+Task 7 - Session Management Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Nothing to change, click ``Save & Next``
@@ -268,7 +268,7 @@ Task 9 - Test your deployment
 Section 1.3 - Deploy APM to protect the Vanilla App
 --------------------------------------------------------
 
-In this section, we will publish the ``Vanilla` application hosted on-prems.
+In this section, we will publish the ``Vanilla`` application hosted on-prems.
 
 
 Task 1 - Publish and protect Vanilla app
@@ -488,7 +488,7 @@ You have **nothing** to configure on APM side, as everything is dealed between t
    |image040|
 
 
-Section 1.4 - Clean up the Lab
+Section 1.5 - Clean up the Lab
 --------------------------------------------------------
 
 .. warning :: In order to keep the Azure AD tenant clean, it is important you delete your application in Guided Configuration, when your demo is finished.
