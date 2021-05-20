@@ -64,6 +64,8 @@ Task 2 - Access the Microsoft ADFS guided configuration
 
 #. Click **Next**
 
+    |image011|
+
 Task 3 - ADFS Proxy Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
