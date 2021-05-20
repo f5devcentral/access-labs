@@ -488,7 +488,7 @@ You have **nothing** to configure on APM side, as everything is dealed between t
    |image040|
 
 
-Section 1.4 - Clean up the Lab
+Section 1.5 - Clean up the Lab
 --------------------------------------------------------
 
 .. warning :: In order to keep the Azure AD tenant clean, it is important you delete your application in Guided Configuration, when your demo is finished.
