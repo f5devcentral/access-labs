@@ -1,59 +1,11 @@
 {
 	"info": {
-		"_postman_id": "f47dd2ff-9579-4398-905c-78cde2b200c7",
+		"_postman_id": "014e9bf6-9604-4555-a9f7-47d160261bd9",
 		"name": "class2-module4-lab02-create",
 		"description": "This solution was created using template 1.8",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
-		{
-			"name": "Desktop Files",
-			"item": [
-				{
-					"name": "Create Desktop files",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"",
-									"",
-									"var jsonData = pm.response.json();",
-									"pm.test(\"Files Copied\", function () {",
-									"",
-									"    pm.expect(jsonData.status).to.eql(\"Success\");",
-									"});"
-								],
-								"type": "text/javascript"
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\"repo\":\"access-labs\",\n\"class_number\":\"2\",\n\"module_number\":\"4\",\n\"user\": \"user1\"\n}"
-						},
-						"url": {
-							"raw": "http://10.1.20.6:81/desktop",
-							"protocol": "http",
-							"host": [
-								"10",
-								"1",
-								"20",
-								"6"
-							],
-							"port": "81",
-							"path": [
-								"desktop"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
 		{
 			"name": "Set Collection Parameters",
 			"item": [
@@ -3091,6 +3043,178 @@
 			]
 		},
 		{
+			"name": "adfs.acme.com",
+			"item": [
+				{
+					"name": "bigip-Import ca.f5lab.local cert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"ca.f5lab.local Certificate imported\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var requestLength = request.data.length;\r",
+									"pm.collectionVariables.set(\"CONTENT_LENGTH\", requestLength);\r",
+									"var requestrange = requestLength - 1;\r",
+									"pm.collectionVariables.set(\"CONTENT_RANGE\", requestrange);\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/octet-stream"
+							},
+							{
+								"key": "X-F5-REST-Coordination-Id",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Range",
+								"value": "0-{{CONTENT_RANGE}}/{{CONTENT_LENGTH}}",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "{{CONTENT_LENGTH}}",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "Keep-alive",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "-----BEGIN CERTIFICATE-----\r\nMIIDazCCAlOgAwIBAgIQJ4DA+pop3K9HGUl4CIxjbjANBgkqhkiG9w0BAQsFADBI\r\nMRUwEwYKCZImiZPyLGQBGRYFbG9jYWwxFTATBgoJkiaJk/IsZAEZFgVmNWxhYjEY\r\nMBYGA1UEAxMPZGMxLmY1bGFiLmxvY2FsMB4XDTE5MTEyMDIyMDc0NVoXDTI5MTEy\r\nMDIyMTc0NVowSDEVMBMGCgmSJomT8ixkARkWBWxvY2FsMRUwEwYKCZImiZPyLGQB\r\nGRYFZjVsYWIxGDAWBgNVBAMTD2RjMS5mNWxhYi5sb2NhbDCCASIwDQYJKoZIhvcN\r\nAQEBBQADggEPADCCAQoCggEBANOejxrkrJD12YIeEkZNjRZ9/OZwFeX+QhVi1uHL\r\niILP+4+3ZiZ/dhVGQLncDfHlJm5hSXpzMMDK+LxmjnWfBcx8xurgDyL6E80ZTnIP\r\nBbVJ6Au2IWFXM62NK/qsE+5IF0ptAYzDiWjj75njoVQygMNkdWEPxu1N+Ar7WAR4\r\n5xghN2wE7d57iCZ53RmrIeGT6equiihns5nUssoOFh/ny9oR6+yudINlozllHhMB\r\nGRDCEeGC/0mY/LF50hP6vwEbl1ub0J1SlqlvTn3rrX7dumvtjSKxfQipwbCpG8Qz\r\nGi7ZsSe78Xg7VIGtDVk0Vh4+PbHVJ6GB8pUmFpQ4vVa6sY0CAwEAAaNRME8wCwYD\r\nVR0PBAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHQYDVR0OBBYEFNhpUMHsIixtS9g6\r\ny/FyNrayg9V6MBAGCSsGAQQBgjcVAQQDAgEAMA0GCSqGSIb3DQEBCwUAA4IBAQCr\r\nEjJWFyZR3VFoIvZxUztGiWSjELJGD0vH42hONh6GrzxHadhZcQFmQsi4SmS9TUhP\r\nqyj+mUzreWziMcogqTYisSmF6h/cyAujdnLPbR//spGSOvLlV+43P57FmpQ+c+bB\r\nV8CJq3e0uvxt2h/9v5Du20fE/Zb6iPESMSjzhEoCPosozELpEqwKTzwGLsyqgLSN\r\nWW/+Ov+DGr+cE8pHsXZy8yhkbDY5wrbHMCyrRuXFXwYLpoMcUKMOWUCq+K3TSQ2A\r\nmGUtzY3KMfC7YCJj+mrCniWmvncryUpkY3hPplglevWAFQx4hslOU618gt4IpBXy\r\nLlIC0DqyAVMHJqF7WozV\r\n-----END CERTIFICATE-----\r\n"
+						},
+						"url": {
+							"raw": "https://{{BIGIP_MGMT}}/mgmt/shared/file-transfer/uploads/ca.f5lab.local.crt",
+							"protocol": "https",
+							"host": [
+								"{{BIGIP_MGMT}}"
+							],
+							"path": [
+								"mgmt",
+								"shared",
+								"file-transfer",
+								"uploads",
+								"ca.f5lab.local.crt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip-Install ca.f5lab.local cert",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"ca.f5lab.local Certificate installed\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-REST-Coordination-Id",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							},
+							{
+								"key": "Content-Range",
+								"value": "0-1321/1322",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"command\":\"install\",\n\t\"name\":\"ca.f5lab.local\",\n\t\"from-local-file\":\"/var/config/rest/downloads/ca.f5lab.local.crt\"\n\t\n}"
+						},
+						"url": {
+							"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/sys/crypto/cert",
+							"protocol": "https",
+							"host": [
+								"{{BIGIP_MGMT}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"sys",
+								"crypto",
+								"cert"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "External DNS",
 			"item": [
 				{
@@ -3497,7 +3621,7 @@
 											"script": {
 												"exec": [
 													"var VS_NAME = pm.collectionVariables.get(\"VS2_NAME\");",
-													"var ADDR = pm.collectionVariables.get(\"BIGIP_ADDRESS1\")",
+													"var ADDR = pm.collectionVariables.get(\"BIGIP_ADDRESS2\")",
 													"",
 													"if (responseCode.code === 200) {",
 													"",
