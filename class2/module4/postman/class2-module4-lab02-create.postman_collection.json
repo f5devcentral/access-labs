@@ -915,7 +915,7 @@
 													"listen": "test",
 													"script": {
 														"exec": [
-															"pm.test(\"ADFS IDP Certificate imported\", function () {\r",
+															"pm.test(\"ADFS IdP Certificate imported\", function () {\r",
 															"    pm.response.to.have.status(200);\r",
 															"});"
 														],
@@ -1007,7 +1007,7 @@
 													"listen": "test",
 													"script": {
 														"exec": [
-															"pm.test(\"Okta Certificate installed\", function () {\r",
+															"pm.test(\"ADFS IdP Certificate installed\", function () {\r",
 															"    pm.response.to.have.status(200);\r",
 															"});"
 														],
@@ -1155,11 +1155,11 @@
 															"\r",
 															"\r",
 															"if (responseCode.code === 200) {\r",
-															"    pm.test(\"SAML SP \"+DNS_NAME+\"-sp created\", function () {\r",
+															"    pm.test(\"SAML SP Service \"+DNS_NAME+\"-sp-s created\", function () {\r",
 															"        pm.response.to.have.status(200);\r",
 															"    });\r",
 															"} else \r",
-															"    pm.test(\"SAML SP \"+DNS_NAME+\"-sp exists\", function () {\r",
+															"    pm.test(\"SAML SP Service \"+DNS_NAME+\"-sp-s exists\", function () {\r",
 															"        pm.response.to.have.status(409);\r",
 															"    });\r",
 															""
@@ -2756,7 +2756,7 @@
 											"",
 											"",
 											"} else {",
-											"    pm.test(\"Objects for Virtual Server \"+VS_NAME+\" Ccmpleted.  All objects created\" , function () {",
+											"    pm.test(\"Objects for Virtual Server \"+VS_NAME+\" Completed.  All objects created\" , function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"  pm.collectionVariables.set(\"VS_COUNTER\", 1)",
