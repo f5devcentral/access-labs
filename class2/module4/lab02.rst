@@ -99,13 +99,13 @@ Task 4 - Virtual Server Properties
 Task 5 - ADFS Server Pool Properties
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-#. Enter the IP address **10.1.20.7**
+#. Enter the IP address **10.1.20.13**
 #. Click **Save & Next**
 
     |image014|
 
 Task 6 - Summary
-~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~
 
 #. Click **Deploy**
 
