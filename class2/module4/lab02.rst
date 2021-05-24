@@ -15,7 +15,7 @@ To access your dedicated student lab environment, you will require a web browser
 
 #. Select your RDP resolution.
 
-#. The RDP client on your local host establishes a RDP connection to the Jump Host.
+#. The RDP client on your local host establishes a RDP connection to the Jumphost.
 
 #. Login with the following credentials:
 
@@ -33,10 +33,10 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **ADFS proxy using ADFS Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **ADFS Proxy using ADFS Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    +---------------+-------------+
-   | |image004     | |image005|  |
+   | |image004|     | |image005| |
    +---------------+-------------+
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
@@ -217,7 +217,7 @@ Task 9 - Lab Cleanup
 #. Hover over the tile **ADFS Proxy using ADFS Authentication**. A start and stop icon should appear within the tile.  Click the **Stop** Button to start the automation to delete any prebuilt objects                                                                  
 
    +---------------+-------------+
-   | |image004     | |image005|  |
+   | |image004     | |image029|  |
    +---------------+-------------+
 
 11. The screen should refresh displaying the progress of the automation within 30 seconds. Scroll to the bottom of the automation workflow to ensure all requests succeeded. If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.                      
@@ -257,3 +257,5 @@ Task 9 - Lab Cleanup
 .. |image026| image:: ./media/lab02/026.png
 .. |image027| image:: ./media/lab02/027.png
 .. |image028| image:: ./media/lab02/028.png
+.. |image028| image:: ./media/lab02/029.png
+
