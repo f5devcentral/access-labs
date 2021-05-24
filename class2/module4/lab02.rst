@@ -77,8 +77,8 @@ Task 3 - ADFS Proxy Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Enter the Configuration Name **ADFS_PROXY**
-#. Enter the ADFS FQDN **adfs.acme.coM**
-#  Select the Authenticatin Method **ADFS Authentication**
+#. Enter the ADFS FQDN **adfs.acme.com**
+#. Select the Authenticatin Method **ADFS Authentication**
 #. Click **Save & Next**
 
     |image012|
@@ -216,9 +216,9 @@ Task 9 - Lab Cleanup
 
 #. Hover over the tile **ADFS Proxy using ADFS Authentication**. A start and stop icon should appear within the tile.  Click the **Stop** Button to start the automation to delete any prebuilt objects                                                                  
 
-   +---------------+-------------+
-   | |image004     | |image029|  |
-   +---------------+-------------+
+    +---------------+-------------+
+    | |image004|     | |image029| |
+    +---------------+-------------+
 
 11. The screen should refresh displaying the progress of the automation within 30 seconds. Scroll to the bottom of the automation workflow to ensure all requests succeeded. If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.                      
 
