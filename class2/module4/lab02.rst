@@ -90,7 +90,7 @@ Task 4 - Virtual Server Properties
 #. Enter the Destination Address **10.1.10.101**
 #. Select the Client SSL Certificate **acme.com-wildcard**
 #. Select the Associated Private Key **acme.com-wilcard**
-#. Select the **Trusted Certificate Authorities for Client Authentication **ca.f5lab.local**
+#. From the Trusted Certificate Authorities for Client Authentication dropdown select **ca.f5lab.local** 
 #. Click **Save & Next**
 
     |image013|
