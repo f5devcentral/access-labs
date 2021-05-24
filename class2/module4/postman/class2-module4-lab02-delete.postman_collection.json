@@ -322,7 +322,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip{{DC_COUNTER}}.f5lab.local/virtual-servers/~{{PARTITION_NAME}}~{{PATH_NAME}}~{{VS1_NAME}}",
+									"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/~{{PARTITION_NAME}}~{{PATH_NAME}}~{{VS1_NAME}}",
 									"protocol": "https",
 									"host": [
 										"10",
@@ -335,7 +335,7 @@
 										"tm",
 										"gtm",
 										"server",
-										"~Common~bigip{{DC_COUNTER}}.f5lab.local",
+										"~Common~bigip1.f5lab.local",
 										"virtual-servers",
 										"~{{PARTITION_NAME}}~{{PATH_NAME}}~{{VS1_NAME}}"
 									]
@@ -411,7 +411,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip{{DC_COUNTER}}.f5lab.local/virtual-servers/~{{PARTITION_NAME}}~{{PATH_NAME}}~{{DNS2_NAME}}",
+									"raw": "https://10.1.1.11/mgmt/tm/gtm/server/~Common~bigip1.f5lab.local/virtual-servers/~{{PARTITION_NAME}}~{{PATH_NAME}}~{{DNS2_NAME}}",
 									"protocol": "https",
 									"host": [
 										"10",
@@ -424,7 +424,7 @@
 										"tm",
 										"gtm",
 										"server",
-										"~Common~bigip{{DC_COUNTER}}.f5lab.local",
+										"~Common~bigip1.f5lab.local",
 										"virtual-servers",
 										"~{{PARTITION_NAME}}~{{PATH_NAME}}~{{DNS2_NAME}}"
 									]

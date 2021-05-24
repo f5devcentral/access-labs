@@ -222,6 +222,7 @@ Task 9 - Lab Cleanup
 
 11. The screen should refresh displaying the progress of the automation within 30 seconds. Scroll to the bottom of the automation workflow to ensure all requests succeeded. If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.                      
 
+    |image030|
 
 12. This concludes Lab2.   
 
@@ -257,5 +258,6 @@ Task 9 - Lab Cleanup
 .. |image026| image:: ./media/lab02/026.png
 .. |image027| image:: ./media/lab02/027.png
 .. |image028| image:: ./media/lab02/028.png
-.. |image028| image:: ./media/lab02/029.png
+.. |image029| image:: ./media/lab02/029.png
+.. |image030| image:: ./media/lab02/030.png
 
