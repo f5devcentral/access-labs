@@ -1,4 +1,4 @@
-Lab 2: ADFS Proxy using Endpoint Checks
+Lab 3: ADFS Proxy using Endpoint Checks
 ========================================
 
 
