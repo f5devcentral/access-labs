@@ -137,7 +137,7 @@ Task 8 - Summary
 
     |image021|
 
-#. A certificate appears under the Establish Trust secion signifying the trust was successfullly established. 
+#. A certificate appears under the **Establish Trust** section signifying the trust was successfully established. 
 #. Click **Finish** 
 
     |image022|
@@ -262,4 +262,5 @@ Task 9 - Lab Cleanup
 .. |image028| image:: ./media/lab03/028.png
 .. |image029| image:: ./media/lab03/029.png
 .. |image030| image:: ./media/lab03/030.png
+.. |image031| image:: ./media/lab03/031.png
 

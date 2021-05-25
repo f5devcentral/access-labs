@@ -121,7 +121,7 @@ Task 6 - Summary
 
     |image017|
 
-#. A certificate appears under the Establish Trust secion signifying the trust was successfullly established. 
+#. A certificate appears under the **Establish Trust** section signifying the trust was successfully established. 
 #. Click **Finish** 
 
     |image018|
