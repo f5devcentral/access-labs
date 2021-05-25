@@ -1,4 +1,4 @@
-Lab 2: ADFS Proxy using Endpoint Checks
+Lab 3: ADFS Proxy using Endpoint Checks
 ========================================
 
 
@@ -44,7 +44,7 @@ To access your dedicated student lab environment, you will require a web browser
    |image006|
 
 Task 2 - Access the Microsoft ADFS guided configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------
 
 #. From the jumphost browser navigate to https://bigip1.f5lab.local
 
@@ -74,7 +74,7 @@ Task 2 - Access the Microsoft ADFS guided configuration
     |image013|
 
 Task 3 - ADFS Proxy Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------
 
 #. Enter the Configuration Name **ADFS_PROXY**
 #. Enter the ADFS FQDN **adfs.acme.com**
@@ -86,7 +86,7 @@ Task 3 - ADFS Proxy Settings
 
 
 Task 4 - Virtual Server Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 #. Enter the Destination Address **10.1.10.101**
 #. Select the Client SSL Certificate **acme.com-wildcard**
@@ -97,7 +97,7 @@ Task 4 - Virtual Server Properties
 
 
 Task 5 - ADFS Server Pool Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 #. Enter the IP address **10.1.20.13**
 #. Click **Save & Next**
@@ -105,7 +105,7 @@ Task 5 - ADFS Server Pool Properties
     |image016|
 
 Task 6 - Endpoint Check Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------
 
 #. Check **Firewall**
 #. Click **Save & Next**
@@ -113,7 +113,7 @@ Task 6 - Endpoint Check Properties
     |image017|
 
 Task 7 - Session Management Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------
 
 #. Click **Save & Next**
 
@@ -121,7 +121,7 @@ Task 7 - Session Management Properties
 
 
 Task 8 - Summary
-~~~~~~~~~~~~~~~~~~~
+-----------------
 
 #. Click **Deploy**
 
@@ -149,7 +149,7 @@ Task 8 - Summary
 
 
 Task 9 - Test Endpoint Checks
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------
 
 
 #. On the jumphost open a webbrowser and navigate to https://sp.acme.com.  You will redirected to https://adfs.acme.com
@@ -171,7 +171,7 @@ Task 9 - Test Endpoint Checks
 
 
 Task 9 - Lab Cleanup
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 #. From the jumphost browser navigate to https://bigip1.f5lab.local
 
@@ -226,7 +226,7 @@ Task 9 - Lab Cleanup
 
     |image008|
 
-#. This concludes Lab3.   
+#. This concludes Lab 3.   
 
     |image000|
 
