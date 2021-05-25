@@ -44,7 +44,7 @@ To access your dedicated student lab environment, you will require a web browser
    |image006|
 
 Task 2 - Access the Microsoft ADFS guided configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------------------------------
 
 #. From the jumphost browser navigate to https://bigip1.f5lab.local
 
@@ -74,8 +74,7 @@ Task 2 - Access the Microsoft ADFS guided configuration
     |image011|
 
 Task 3 - ADFS Proxy Settings
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
+-----------------------------
 #. Enter the Configuration Name **ADFS_PROXY**
 #. Enter the ADFS FQDN **adfs.acme.com**
 #. Select the Authenticatin Method **ADFS Authentication**
@@ -85,7 +84,7 @@ Task 3 - ADFS Proxy Settings
 
 
 Task 4 - Virtual Server Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------------------
 
 #. Enter the Destination Address **10.1.10.101**
 #. Select the Client SSL Certificate **acme.com-wildcard**
@@ -97,7 +96,7 @@ Task 4 - Virtual Server Properties
 
 
 Task 5 - ADFS Server Pool Properties
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 #. Enter the IP address **10.1.20.13**
 #. Click **Save & Next**
@@ -105,7 +104,7 @@ Task 5 - ADFS Server Pool Properties
     |image014|
 
 Task 6 - Summary
-~~~~~~~~~~~~~~~~~~~
+-----------------
 
 #. Click **Deploy**
 
@@ -133,7 +132,7 @@ Task 6 - Summary
 
 
 Task 7 - Test username and password Authenticaiton
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------------------------------
 
 
 #. On the jumphost open a webbrowser and navigate to https://sp.acme.com.  You will redirected to https://adfs.acme.com
@@ -151,7 +150,7 @@ Task 7 - Test username and password Authenticaiton
 
 
 Task 8 - Test Certificate authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------------------------
 
 #. Close the browser completely from the previous test or open a new tab in ingonito(private) view
 #.  On the jumphost open a webbrowser and navigate to https://sp.acme.com.  You will redirected to https://adfs.acme.com
@@ -169,7 +168,7 @@ Task 8 - Test Certificate authentication
     |image021|
 
 Task 9 - Lab Cleanup
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------
 
 #. From the jumphost browser navigate to https://bigip1.f5lab.local
 
@@ -224,7 +223,7 @@ Task 9 - Lab Cleanup
 
     |image030|
 
-#. This concludes Lab2.   
+#. This concludes Lab 2.   
 
     |image000|
 
