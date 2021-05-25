@@ -1,5 +1,5 @@
-Lab 2: ADFS Proxy using ADFS Authentication
-=============================================
+Lab 2: ADFS Proxy using Endpoint Checks
+========================================
 
 
 Task 1 - Setup Lab Environment
@@ -33,7 +33,7 @@ To access your dedicated student lab environment, you will require a web browser
 
    |image003|
 
-#. Hover over tile **ADFS Proxy using ADFS Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **ADFS Proxy using Endpoint Checks**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    +---------------+-------------+
    | |image004|     | |image005| |
@@ -55,33 +55,34 @@ Task 2 - Access the Microsoft ADFS guided configuration
 
 #. Click on the **Access** tab located on the left side.
 
-    |image007|
+    |image009|
 
 #. Click **Guided Configuration**
 
-    |image008|
+    |image010|
 
 #. Click **Microsoft Integration**
 
-    |image009|
+    |image011|
 
 #. Click **ADFS Proxy**
 
-    |image010|
+    |image012|
 
 #. Click **Next**
 
-    |image011|
+    |image013|
 
 Task 3 - ADFS Proxy Settings
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Enter the Configuration Name **ADFS_PROXY**
 #. Enter the ADFS FQDN **adfs.acme.com**
-#. Select the Authenticatin Method **ADFS Authentication**
+#. Select the Authenticatin Method **Access Policy Authentication**
+#. Select Access Policy Authentication Type **Only Endpoint Checks**
 #. Click **Save & Next**
 
-    |image012|
+    |image014|
 
 
 Task 4 - Virtual Server Properties
@@ -90,10 +91,9 @@ Task 4 - Virtual Server Properties
 #. Enter the Destination Address **10.1.10.101**
 #. Select the Client SSL Certificate **acme.com-wildcard**
 #. Select the Associated Private Key **acme.com-wilcard**
-#. From the Trusted Certificate Authorities for Client Authentication dropdown select **ca.f5lab.local** 
 #. Click **Save & Next**
 
-    |image013|
+    |image015|
 
 
 Task 5 - ADFS Server Pool Properties
@@ -102,71 +102,73 @@ Task 5 - ADFS Server Pool Properties
 #. Enter the IP address **10.1.20.13**
 #. Click **Save & Next**
 
-    |image014|
+    |image016|
 
-Task 6 - Summary
+Task 6 - Endpoint Check Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Check **Firewall**
+#. Click **Save & Next**
+
+    |image017|
+
+Task 7 - Session Management Properties
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#. Click **Save & Next**
+
+    |image018|
+
+
+Task 8 - Summary
 ~~~~~~~~~~~~~~~~~~~
 
 #. Click **Deploy**
 
-    |image015|
+    |image019|
 
 #. Click **Establish Trust**
 
-    |image016|
+    |image020|
 
 #. Enter the Username **admin**
 #. Enter the Password **admin**
 #. Click **Establish Trust**
 
-    |image017|
+    |image021|
 
 #. A certificate appears under the Establish Trust secion signifying the trust was successfullly established. 
 #. Click **Finish** 
 
-    |image018|
+    |image022|
 
 #.  The configuration has been successfully deployed
 
-    |image019|
+    |image023|
 
 
 
-Task 7 - Test username and password Authenticaiton
+Task 9 - Test Endpoint Checks
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
 #. On the jumphost open a webbrowser and navigate to https://sp.acme.com.  You will redirected to https://adfs.acme.com
+#. The Firewall Posture Assessment is performed automatically.
+
+    |image024|
+
 #. Enter the username **user1@f5lab.local**
 #. Enter the password **user1**
 #. Click **Sign in**
 
-    |image020|
+    |image025|
 
 #.  After successful login at ADFS you redirected to http://sp.acme.com
 
-    |image021|
+    |image026|
 
     
 
-
-Task 8 - Test Certificate authentication
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-#. Close the browser completely from the previous test or open a new tab in ingonito(private) view
-#.  On the jumphost open a webbrowser and navigate to https://sp.acme.com.  You will redirected to https://adfs.acme.com
-#. Select **Sign in using an X.509 Certificate**
-
-    |image022|
-
-#. Select the **user1** certificate
-#. Click **OK**
-
-    |image023|
-
-#.  After successful login at ADFS you redirected to http://sp.acme.com
-
-    |image021|
 
 Task 9 - Lab Cleanup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -180,29 +182,29 @@ Task 9 - Lab Cleanup
 
 #. Navigate to **Access -> Guided Configuration** in the left-hand menu. 
 
-    |image008|
+    |image010|
 
                                                                         
 #. Click the **Undeploy** button  
 
-    |image024|
+    |image027|
 
                                                                             
 #. Click **OK** when asked, "Are you sure you want to undeploy this configuration?"   
 
-    |image025|       
+    |image028|       
 
 #. Click the **Delete** button once the deployment is undeployed    
 
-    |image026|
+    |image029|
 
 #. Click **OK** when asked, "Are you sure you want to delete this configuration?"     
 
-    |image027|       
+    |image030|       
 
 #. The Configuration section should now be empty  
 
-    |image028|
+    |image031|
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local                     
                                                                                             
@@ -214,50 +216,50 @@ Task 9 - Lab Cleanup
 
     |image003|
 
-#. Hover over the tile **ADFS Proxy using ADFS Authentication**. A start and stop icon should appear within the tile.  Click the **Stop** Button to start the automation to delete any prebuilt objects                                                                  
+#. Hover over the tile **ADFS Proxy using Endpoint Checks**. A start and stop icon should appear within the tile.  Click the **Stop** Button to start the automation to delete any prebuilt objects                                                                  
 
     +---------------+-------------+
-    | |image004|    | |image029|  |
+    | |image004|    | |image007|  |
     +---------------+-------------+
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds. Scroll to the bottom of the automation workflow to ensure all requests succeeded. If you you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.                      
 
-    |image030|
+    |image008|
 
-#. This concludes Lab2.   
+#. This concludes Lab3.   
 
     |image000|
 
 
-.. |image000| image:: ./media/lab02/000.png
-.. |image001| image:: ./media/lab02/001.png
-.. |image002| image:: ./media/lab02/002.png
-.. |image003| image:: ./media/lab02/003.png
-.. |image004| image:: ./media/lab02/004.png
-.. |image005| image:: ./media/lab02/005.png
-.. |image006| image:: ./media/lab02/006.png
-.. |image007| image:: ./media/lab02/007.png
-.. |image008| image:: ./media/lab02/008.png
-.. |image009| image:: ./media/lab02/009.png
-.. |image010| image:: ./media/lab02/010.png
-.. |image011| image:: ./media/lab02/011.png
-.. |image012| image:: ./media/lab02/012.png
-.. |image013| image:: ./media/lab02/013.png
-.. |image014| image:: ./media/lab02/014.png
-.. |image015| image:: ./media/lab02/015.png
-.. |image016| image:: ./media/lab02/016.png
-.. |image017| image:: ./media/lab02/017.png
-.. |image018| image:: ./media/lab02/018.png
-.. |image019| image:: ./media/lab02/019.png
-.. |image020| image:: ./media/lab02/020.png
-.. |image021| image:: ./media/lab02/021.png
-.. |image022| image:: ./media/lab02/022.png
-.. |image023| image:: ./media/lab02/023.png
-.. |image024| image:: ./media/lab02/024.png
-.. |image025| image:: ./media/lab02/025.png
-.. |image026| image:: ./media/lab02/026.png
-.. |image027| image:: ./media/lab02/027.png
-.. |image028| image:: ./media/lab02/028.png
-.. |image029| image:: ./media/lab02/029.png
-.. |image030| image:: ./media/lab02/030.png
+.. |image000| image:: ./media/lab03/000.png
+.. |image001| image:: ./media/lab03/001.png
+.. |image002| image:: ./media/lab03/002.png
+.. |image003| image:: ./media/lab03/003.png
+.. |image004| image:: ./media/lab03/004.png
+.. |image005| image:: ./media/lab03/005.png
+.. |image006| image:: ./media/lab03/006.png
+.. |image007| image:: ./media/lab03/007.png
+.. |image008| image:: ./media/lab03/008.png
+.. |image009| image:: ./media/lab03/009.png
+.. |image010| image:: ./media/lab03/010.png
+.. |image011| image:: ./media/lab03/011.png
+.. |image012| image:: ./media/lab03/012.png
+.. |image013| image:: ./media/lab03/013.png
+.. |image014| image:: ./media/lab03/014.png
+.. |image015| image:: ./media/lab03/015.png
+.. |image016| image:: ./media/lab03/016.png
+.. |image017| image:: ./media/lab03/017.png
+.. |image018| image:: ./media/lab03/018.png
+.. |image019| image:: ./media/lab03/019.png
+.. |image020| image:: ./media/lab03/020.png
+.. |image021| image:: ./media/lab03/021.png
+.. |image022| image:: ./media/lab03/022.png
+.. |image023| image:: ./media/lab03/023.png
+.. |image024| image:: ./media/lab03/024.png
+.. |image025| image:: ./media/lab03/025.png
+.. |image026| image:: ./media/lab03/026.png
+.. |image027| image:: ./media/lab03/027.png
+.. |image028| image:: ./media/lab03/028.png
+.. |image029| image:: ./media/lab03/029.png
+.. |image030| image:: ./media/lab03/030.png
 
