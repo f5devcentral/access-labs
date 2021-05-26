@@ -113,13 +113,15 @@ Task 6 - Authentication Properties
     |image017|
 
 #. Enter the Domain Name **f5lab.local**
-#. Select **Use Pool
+#. Select **Use Pool**
 #. Select Domain Controller Pool Name **AD_POOL**
 #. For Domain Controllers enter the IP address **10.1.20.7** and Hostname **dc1.f5lab.local**
 #. Enter Admin Name **admin**
 #. Enter Admin Password **admin** 
 #. Enter Verify Admin Password **admin**  
 #. Click **Save & Next**
+
+
 
     |image018|
 
@@ -269,36 +271,41 @@ Task 14 - Lab Cleanup
     |image000|
 
 
-.. |image000| image:: ./media/lab03/000.png
-.. |image001| image:: ./media/lab03/001.png
-.. |image002| image:: ./media/lab03/002.png
-.. |image003| image:: ./media/lab03/003.png
-.. |image004| image:: ./media/lab03/004.png
-.. |image005| image:: ./media/lab03/005.png
-.. |image006| image:: ./media/lab03/006.png
-.. |image007| image:: ./media/lab03/007.png
-.. |image008| image:: ./media/lab03/008.png
-.. |image009| image:: ./media/lab03/009.png
-.. |image010| image:: ./media/lab03/010.png
-.. |image011| image:: ./media/lab03/011.png
-.. |image012| image:: ./media/lab03/012.png
-.. |image013| image:: ./media/lab03/013.png
-.. |image014| image:: ./media/lab03/014.png
-.. |image015| image:: ./media/lab03/015.png
-.. |image016| image:: ./media/lab03/016.png
-.. |image017| image:: ./media/lab03/017.png
-.. |image018| image:: ./media/lab03/018.png
-.. |image019| image:: ./media/lab03/019.png
-.. |image020| image:: ./media/lab03/020.png
-.. |image021| image:: ./media/lab03/021.png
-.. |image022| image:: ./media/lab03/022.png
-.. |image023| image:: ./media/lab03/023.png
-.. |image024| image:: ./media/lab03/024.png
-.. |image025| image:: ./media/lab03/025.png
-.. |image026| image:: ./media/lab03/026.png
-.. |image027| image:: ./media/lab03/027.png
-.. |image028| image:: ./media/lab03/028.png
-.. |image029| image:: ./media/lab03/029.png
-.. |image030| image:: ./media/lab03/030.png
-.. |image031| image:: ./media/lab03/031.png
+.. |image000| image:: ./media/lab04/000.png
+.. |image001| image:: ./media/lab04/001.png
+.. |image002| image:: ./media/lab04/002.png
+.. |image003| image:: ./media/lab04/003.png
+.. |image004| image:: ./media/lab04/004.png
+.. |image005| image:: ./media/lab04/005.png
+.. |image006| image:: ./media/lab04/006.png
+.. |image007| image:: ./media/lab04/007.png
+.. |image008| image:: ./media/lab04/008.png
+.. |image009| image:: ./media/lab04/009.png
+.. |image010| image:: ./media/lab04/010.png
+.. |image011| image:: ./media/lab04/011.png
+.. |image012| image:: ./media/lab04/012.png
+.. |image013| image:: ./media/lab04/013.png
+.. |image014| image:: ./media/lab04/014.png
+.. |image015| image:: ./media/lab04/015.png
+.. |image016| image:: ./media/lab04/016.png
+.. |image017| image:: ./media/lab04/017.png
+.. |image018| image:: ./media/lab04/018.png
+.. |image019| image:: ./media/lab04/019.png
+.. |image020| image:: ./media/lab04/020.png
+.. |image021| image:: ./media/lab04/021.png
+.. |image022| image:: ./media/lab04/022.png
+.. |image023| image:: ./media/lab04/023.png
+.. |image024| image:: ./media/lab04/024.png
+.. |image025| image:: ./media/lab04/025.png
+.. |image026| image:: ./media/lab04/026.png
+.. |image027| image:: ./media/lab04/027.png
+.. |image028| image:: ./media/lab04/028.png
+.. |image029| image:: ./media/lab04/029.png
+.. |image030| image:: ./media/lab04/030.png
+.. |image031| image:: ./media/lab04/031.png
+.. |image032| image:: ./media/lab04/032.png
+.. |image033| image:: ./media/lab04/033.png
+.. |image034| image:: ./media/lab04/034.png
+.. |image035| image:: ./media/lab04/035.png
+.. |image036| image:: ./media/lab04/036.png
 
