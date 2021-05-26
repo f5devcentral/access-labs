@@ -148,7 +148,6 @@ Task 9 - Customization Properties
 
     |image022|
 
-#. Click **Save & Next**   
 
 Task 10 - Logon Protection Properties
 --------------------------------------
