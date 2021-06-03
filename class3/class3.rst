@@ -40,7 +40,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    module4/intro.rst
    module4/lab*
 
- 305 - ADFS Proxy
+305 - ADFS Proxy
 ----------------------
 .. toctree::
    :maxdepth: 1
