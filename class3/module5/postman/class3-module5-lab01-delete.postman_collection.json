@@ -2160,7 +2160,7 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = \"adfs-ad-auth\"",
+											"var VS_NAME = \"adfs-cert-auth\"",
 											"",
 											"if (responseCode.code === 200) {",
 											"    pm.test(\"Application \"+VS_NAME+\" deleted\", function () {",
