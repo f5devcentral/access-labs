@@ -245,7 +245,7 @@ Task 9 - Test Certificate authentication
 
 
 
-Task 14 - Lab Cleanup
+Task 10 - Lab Cleanup
 -----------------------
 
 #. From the jumphost browser navigate to https://bigip1.f5lab.local
