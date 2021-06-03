@@ -121,5 +121,3 @@ components:
 
 .. |image000| image:: media/intro/000.png
 
-
-
