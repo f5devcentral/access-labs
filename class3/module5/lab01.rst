@@ -278,3 +278,39 @@ Task 14 - Lab Cleanup
 #. This concludes Lab 1.   
 
     |image000|
+
+
+
+.. |image000| image:: ./media/lab01/000.png
+.. |image001| image:: ./media/lab01/001.png
+.. |image002| image:: ./media/lab01/002.png
+.. |image003| image:: ./media/lab01/003.png
+.. |image004| image:: ./media/lab01/004.png
+.. |image005| image:: ./media/lab01/005.png
+.. |image006| image:: ./media/lab01/006.png
+.. |image007| image:: ./media/lab01/007.png
+.. |image008| image:: ./media/lab01/008.png
+.. |image009| image:: ./media/lab01/009.png
+.. |image010| image:: ./media/lab01/010.png
+.. |image011| image:: ./media/lab01/011.png
+.. |image012| image:: ./media/lab01/012.png
+.. |image013| image:: ./media/lab01/013.png
+.. |image014| image:: ./media/lab01/014.png
+.. |image015| image:: ./media/lab01/015.png
+.. |image016| image:: ./media/lab01/016.png
+.. |image017| image:: ./media/lab01/017.png
+.. |image018| image:: ./media/lab01/018.png
+.. |image019| image:: ./media/lab01/019.png
+.. |image020| image:: ./media/lab01/020.png
+.. |image021| image:: ./media/lab01/021.png
+.. |image022| image:: ./media/lab01/022.png
+.. |image023| image:: ./media/lab01/023.png
+.. |image024| image:: ./media/lab01/024.png
+.. |image025| image:: ./media/lab01/025.png
+.. |image026| image:: ./media/lab01/026.png
+.. |image027| image:: ./media/lab01/027.png
+.. |image028| image:: ./media/lab01/028.png
+.. |image029| image:: ./media/lab01/029.png
+.. |image030| image:: ./media/lab01/030.png
+.. |image031| image:: ./media/lab01/031.png
+.. |image032| image:: ./media/lab01/032.png
