@@ -61,7 +61,7 @@ Task 2 - Create the ADFS Server Pool
 #. Enter the Name **adfs_pool**
 #. Select the Health Monitor **https** from the list of available monitors
 #. Enter the Member Address **10.1.20.13**
-#. Enter the Member Service Port **10.1.20.13**
+#. Enter the Member Service Port **443**
 #. Click **Add**
 #. Click **Finished**
 
@@ -261,7 +261,7 @@ Task 14 - Lab Cleanup
 
     |image002|
 
-#. Scroll down the page until you see **305 - ADFS Proxy** on the left     
+#. Scroll down the page until you see **305 ADFS Proxy** on the left     
 
     |image003|
 
@@ -314,3 +314,5 @@ Task 14 - Lab Cleanup
 .. |image030| image:: ./media/lab01/030.png
 .. |image031| image:: ./media/lab01/031.png
 .. |image032| image:: ./media/lab01/032.png
+.. |image033| image:: ./media/lab01/033.png
+.. |image034| image:: ./media/lab01/034.png
