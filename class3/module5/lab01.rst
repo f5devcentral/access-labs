@@ -68,7 +68,7 @@ Task 2 - Create the ADFS Server Pool
     |image010|
 
 Task 3 - Create an ADFS Server-side SSL Profile
--------------------------------------------
+-----------------------------------------------------
 
 #. Navigate to Local Traffic >> Profiles >> SSL >> Server.  Click the **+ (Plus Symbol)**
 
