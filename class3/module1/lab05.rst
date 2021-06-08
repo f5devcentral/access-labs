@@ -79,7 +79,7 @@ IdP Service
    +----------------------------------------+-----------------------------------------------------------------+
    | Assertion Subject Value:               | ``%{session.logon.last.username}`` (drop down)                  |
    +----------------------------------------+-----------------------------------------------------------------+
-   | Authentication Context Class Reference | ``urn: oasis: names: tc: SAML 2.0 ac: classes" SmartCard PKI``  |
+   | Authentication Context Class Reference | ``urn:oasis:names:tc:SAML:2.0:ac:classes:SmartcardPKI``         |  
    +----------------------------------------+-----------------------------------------------------------------+
 
    |image011|
