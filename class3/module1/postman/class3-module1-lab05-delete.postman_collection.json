@@ -19,7 +19,7 @@
 									"",
 									"",
 									"var jsonData = pm.response.json();",
-									"pm.test(\"Files Copied\", function () {",
+									"pm.test(\"Files Deleted\", function () {",
 									"",
 									"    pm.expect(jsonData.status).to.eql(\"Success\");",
 									"});"
@@ -2494,14 +2494,14 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"",
 											"",
 											"if (responseCode.code === 200) {",
-											"    pm.test(\"OCSP Responders \"+VS_NAME+\"-ocsp-servers\", function () {",
+											"    pm.test(\"OCSP Responders ocsp_servers\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"} else  { ",
-											"    pm.test(\"OCSP Responders \"+VS_NAME+\"-ocsp-servers does not exist\", function () {",
+											"    pm.test(\"OCSP Responders ocsp_servers does not exist\", function () {",
 											"        pm.response.to.have.status(404);",
 											"    });",
 											"} ",
@@ -2569,14 +2569,13 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
-											"    pm.test(\"AAA LDAP Servers \"+VS_NAME+\"-ldap-servers deleted\", function () {",
+											"    pm.test(\"AAA LDAP Servers ldap-servers deleted\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"} else ",
-											"    pm.test(\"AAA LDAP Servers \"+VS_NAME+\"-ldap-servers does not exist\", function () {",
+											"    pm.test(\"AAA LDAP Servers ldap-servers does not exist\", function () {",
 											"        pm.response.to.have.status(404);",
 											"    });",
 											"",
