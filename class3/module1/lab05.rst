@@ -351,7 +351,7 @@ Task 6 - Create a SAML IdP Access Policy
 #. Enter the text below for the custom expression.
 
     .. code-block:: text
-    
+
         set x509e_fields [split [mcget {session.ssl.cert.x509extension}] "\n"];
         # For each element in the list:
         foreach field $x509e_fields {
@@ -684,6 +684,36 @@ Task 9 - Lab Cleanup
 .. |image048| image:: ./media/lab05/048.png
 .. |image049| image:: ./media/lab05/049.png
 .. |image050| image:: ./media/lab05/050.png
-.. |image998| image:: ./media/lab05/998.png
-.. |image999| image:: ./media/lab05/999.png
+.. |image051| image:: ./media/lab05/051.png
+.. |image052| image:: ./media/lab05/052.png
+.. |image053| image:: ./media/lab05/053.png
+.. |image054| image:: ./media/lab05/054.png
+.. |image055| image:: ./media/lab05/055.png
+.. |image056| image:: ./media/lab05/056.png
+.. |image057| image:: ./media/lab05/057.png
+.. |image058| image:: ./media/lab05/058.png
+.. |image059| image:: ./media/lab05/059.png
+.. |image060| image:: ./media/lab05/060.png
+.. |image061| image:: ./media/lab05/061.png
+.. |image062| image:: ./media/lab05/062.png
+.. |image063| image:: ./media/lab05/063.png
+.. |image064| image:: ./media/lab05/064.png
+.. |image065| image:: ./media/lab05/065.png
+.. |image066| image:: ./media/lab05/066.png
+.. |image067| image:: ./media/lab05/067.png
+.. |image068| image:: ./media/lab05/068.png
+.. |image069| image:: ./media/lab05/069.png
+.. |image070| image:: ./media/lab05/070.png
+.. |image071| image:: ./media/lab05/071.png
+.. |image072| image:: ./media/lab05/072.png
+.. |image073| image:: ./media/lab05/073.png
+.. |image074| image:: ./media/lab05/074.png
+.. |image075| image:: ./media/lab05/075.png
+.. |image076| image:: ./media/lab05/076.png
+
+
+
+
+
+
 
