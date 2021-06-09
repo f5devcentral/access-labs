@@ -431,7 +431,7 @@ Task 6 - Create a SAML IdP Access Policy
 
     |image051|
 
-#. Click the **Plus (+) Sign** on the LDAP Query Passed branch between **LDAP Query ** and **Deny**  
+#. Click the **Plus (+) Sign** on the LDAP Query Passed branch between **LDAP Query** and **Deny**  
 
     |image052|
 
@@ -449,7 +449,7 @@ Task 6 - Create a SAML IdP Access Policy
 
 #. Enter the Custom Variable **session.logon.last.username**
 #. Select **Session Variable** from the right drop down menu
-#. Enter the session variable name session.ldap.last.attr.sAMAccountName.
+#. Enter the session variable name **session.ldap.last.attr.sAMAccountName**
 #. Click **Finished**
 
     |image055|
@@ -474,7 +474,7 @@ Task 6 - Create a SAML IdP Access Policy
    |image059|
 
 #. In the resulting pop-up window, click the **SAML** tab, and select the
-   **Checkbox** next to */Common/sp.acme.com*
+   **Checkbox** next to ``/Common/sp.acme.com``
 
    |image060|
 
@@ -528,9 +528,9 @@ Task 7 - Create a Client-side SSL Profile
     |image068|
 
 #. Check the **custom box** on the Trusted Certificate Authorities Line
-#. Select **ca.f5lab.local* from the Trusted Certificate Authorities dropdown menu     
+#. Select **ca.f5lab.local** from the Trusted Certificate Authorities dropdown menu     
 #. Check the **custom box** on the Advertised Certificate Authorities Line
-#. Select **ca.f5lab.local* from the Advertised Certificate Authorities dropdown menu
+#. Select **ca.f5lab.local** from the Advertised Certificate Authorities dropdown menu
 
     |image069|
 
@@ -541,7 +541,7 @@ Task 7 - Create a Client-side SSL Profile
 Task 8 - Create an IdP Virtual Server
 ----------------------------------------
 
-#. Begin by selecting **Local Traffic ‑> Virtual Servers -> Virtual Server List. Click the **Plus (+) Sign** 
+#. Begin by selecting Local Traffic ‑> Virtual Servers -> Virtual Server List. Click the **Plus (+) Sign** 
 
 
    |image070|
@@ -565,7 +565,7 @@ Task 8 - Create an IdP Virtual Server
    +===========================+==============================+
    | HTTP Profile:             | ``http`` (drop down)         |
    +---------------------------+------------------------------+
-   | SSL Profile (Client)      | ``wildcard.acme.com``        |
+   | SSL Profile (Client)      | ``idp.acme.com-clientssl``   |
    +---------------------------+------------------------------+
 
    |image072|
@@ -582,7 +582,7 @@ Task 8 - Create an IdP Virtual Server
 #. Scroll to the bottom of the configuration window and click **Finished**
 
 
-TASK 8 - Test the Configuration
+Task 9 - Test the Configuration
 ------------------------------------------
 
 #. From the jumphost, navigate to the SAML IdP you previously configured at **https://idp.acme.com**. 
@@ -605,7 +605,7 @@ TASK 8 - Test the Configuration
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Task 9 - Lab Cleanup
+Task 10 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
