@@ -161,7 +161,7 @@ Task 3 - Create a SAML Resource
 ---------------------------------
 
 
-#. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **+** (Plus Button)
+#. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **Plus (+) Sign**
 
    |image019|
 
@@ -184,7 +184,7 @@ Task 3 - Create a SAML Resource
 Task 4 - Create a Webtop
 -------------------------------
 
-#. Select Access ‑> Webtops ‑> Webtop Lists >> **+** (Plus Button)
+#. Select Access ‑> Webtops ‑> Webtop Lists >> **Plus (+) Sign**
 
 
    |image021|
@@ -207,7 +207,7 @@ Task 4 - Create a Webtop
 Task 5 - Create an OCSP Responder 
 ----------------------------------------
 
-#. Navigate to Access >> Authentication >> OCSP Responder >> Click the **+** (Plus Symbol).  
+#. Navigate to Access >> Authentication >> OCSP Responder >> Click the **Plus (+) Sign**.  
 
 
    |image023|
@@ -229,14 +229,14 @@ Task 5 - Create an OCSP Responder
    +-------------------------------+-----------------------------+
   
 
-#. Click Finished
+#. Click **Finished**
 
     |image024|
 
 Task 6 - Create an AAA LDAP Server  
 ----------------------------------------
 
-#. Navigate to Access >> Authentication >> LDAP >> Click the **+** (Plus Symbol).  
+#. Navigate to Access >> Authentication >> LDAP >> Click the **Plus (+) Sign**.  
 
     |image025|
 
@@ -256,7 +256,7 @@ Task 6 - Create an AAA LDAP Server
    | Admin Password:               | ``admin``                                |
    +-------------------------------+------------------------------------------+
 
-#. Click Finished
+#. Click **Finished**
 
     |image026|
 
@@ -316,12 +316,11 @@ Task 6 - Create a SAML IdP Access Policy
 
    |image033|
 
-#.  On the successful branch of the On-Demand Cert Auth Policy-Item* click the **Plus (+) Sign**
+#.  On the successful branch of the On-Demand Cert Auth Policy-Item click the **Plus (+) Sign**
 
-   |image034|
+    |image034|
 
-#. In the pop-up dialog box, select the **Authentication** tab and then
-   select the **Radio** next to **OCSP Auth**, and click the **Add Item** button
+#. In the pop-up dialog box, select the **Authentication** tab and then select the **Radio** next to **OCSP Auth**, and click the **Add Item** button
 
    |image035|
 
@@ -352,6 +351,7 @@ Task 6 - Create a SAML IdP Access Policy
 #. Enter the text below for the custom expression.
 
     .. code-block:: text
+    
         set x509e_fields [split [mcget {session.ssl.cert.x509extension}] "\n"];
         # For each element in the list:
         foreach field $x509e_fields {
