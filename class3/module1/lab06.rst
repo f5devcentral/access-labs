@@ -54,7 +54,7 @@ Task 3 - Create portal.acme.com SAML Service Provider(SP) Service
 #. In the **Create New SAML SP Service** dialog box, click **General Settngs** in the left navigation pane and key in the following:
 
    +-------------------+--------------------------------+
-   | Service Name:     | ``portal.acme.com``            |
+   | Service Name:     | ``portal.acme.com-sp-s``       |
    +-------------------+--------------------------------+
    | Entity ID:        | ``https://portal.acme.com``    |
    +-------------------+--------------------------------+
@@ -95,7 +95,7 @@ Task 2 ‑ Configure the SAML Identity Provider (IdP) Service
    in the left navigation pane and key in the following:
 
    +-------------------+--------------------------------+
-   | IdP Service Name: | ``portal.acme.com``            |
+   | IdP Service Name: | ``portal.acme.com-idp-s``      |
    +-------------------+--------------------------------+
    | IdP Entity ID:    | ``https://portal.acme.com``    |
    +-------------------+--------------------------------+
@@ -159,13 +159,13 @@ Task 6 - Create a SAML Resource
 
 #. In the **New SAML Resource** window, enter the following values:
 
-   +--------------------+------------------------+
-   | Name:              | ``sp.acme.com``        |
-   +--------------------+------------------------+
-   | SSO Configuration: | ``portal.acmem.com``   |
-   +--------------------+------------------------+
-   | Caption:           | ``sp.acme.com``        |
-   +--------------------+------------------------+
+   +--------------------+------------------------------+
+   | Name:              | ``sp.acme.com``              |
+   +--------------------+------------------------------+
+   | SSO Configuration: | ``portal.acmem.com-idp-s``   |
+   +--------------------+------------------------------+
+   | Caption:           | ``sp.acme.com``              |
+   +--------------------+------------------------------+
 
 #. Click **Finished** at the bottom of the configuration window
 
@@ -199,17 +199,14 @@ Task 4 - Create a Webtop
 Task 7 - Create a SAML IdP Access Policy
 ---------------------------------------------
 
-#. Select **Access ‑> Profiles/Policies ‑> Access Profiles
-   (Per-Session Policies)**
+#. Select Access ‑> Profiles/Policies ‑> Access Profiles (Per-Session Policies) -> **Plus (+) Sign**
 
-#. Click the **Create** button (far right)
-
-   |image027|
+   |image025|
 
 #. In the **New Profile** window, enter the following information:
 
    +----------------------+---------------------------+
-   | Name:                | ``idp.acme.com‑psp``      |
+   | Name:                | ``portal.acme.com‑psp``   |
    +----------------------+---------------------------+
    | Profile Type:        | ``All`` (drop down)       |
    +----------------------+---------------------------+
@@ -218,7 +215,7 @@ Task 7 - Create a SAML IdP Access Policy
    | Customization Type:  | ``modern`` (default)      |
    +----------------------+---------------------------+
 
-   |image028|
+   |image026|
 
 
 #. Scroll to the bottom of the **New Profile** window to the
@@ -230,13 +227,13 @@ Task 7 - Create a SAML IdP Access Policy
 
 #. The **Default Language** should be automatically set
 
-   |image029|
+   |image027|
 
 #. From the **Access ‑> Profiles/Policies ‑> Access Profiles
    (Per-Session Policies) screen**, click the **Edit** link on the previously
-   created ``idp.acme.com-psp`` line
+   created ``portal.acme.com-psp`` line
 
-   |image030|
+   |image028|
 
 #. Click the **Plus (+) Sign** between **Start** and **Deny**
 
