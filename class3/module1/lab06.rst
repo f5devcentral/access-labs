@@ -44,7 +44,7 @@ To access your dedicated student lab environment, you will need a web browser an
    |image006|
 
 
-Task 3 - Create portal.acme.com SAML Service Provider(SP) Service
+Task 2 - Create portal.acme.com SAML Service Provider(SP) Service
 --------------------------------------------------------------------
 
 #. Begin by selecting: Access ‑> Federation ‑> SAML Service Provider ‑> Local SP Services. Click the **Plus (+) Sign** 
@@ -83,7 +83,7 @@ Task 3 - Create portal.acme.com SAML Service Provider(SP) Service
 
    |image014|
 
-Task 2 ‑ Configure the SAML Identity Provider (IdP) Service 
+Task 3 ‑ Configure the SAML Identity Provider (IdP) Service 
 -------------------------------------------------------------
 
 
@@ -149,7 +149,7 @@ Task 2 ‑ Configure the SAML Identity Provider (IdP) Service
    |image020|
 
 
-Task 6 - Create a SAML Resource
+Task 4 - Create a SAML Resource
 ---------------------------------
 
 
@@ -173,7 +173,7 @@ Task 6 - Create a SAML Resource
 
 
 
-Task 4 - Create a Webtop
+Task 5 - Create a Webtop
 -------------------------------
 
 #. Select Access ‑> Webtops ‑> Webtop Lists >> **Plus (+) Sign**
@@ -196,7 +196,7 @@ Task 4 - Create a Webtop
    |image024|
 
   
-Task 7 - Create a SAML IdP Access Policy
+Task 6 - Create a SAML IdP Access Policy
 ---------------------------------------------
 
 #. Select Access ‑> Profiles/Policies ‑> Access Profiles (Per-Session Policies) -> **Plus (+) Sign**
@@ -237,178 +237,67 @@ Task 7 - Create a SAML IdP Access Policy
 
 #. Click the **Plus (+) Sign** between **Start** and **Deny**
 
-   |image031|
+   |image029|
 
 #. In the pop-up dialog box, select the **Authentication** tab and then select the
-   **Radio** next to **On-Demand Cert Auth**, and click the **Add Item** button
+   **Radio** next to **SAML Auth**, and click the **Add Item** button
+
+   |image030|
+
+   |image031|
+
+#. Select **/Common/portal.acme.com-sp-s** from the AAA Server dropdown menu
+
+#. Click **Save** 
 
    |image032|
 
-#. Click **Save** in the resulting Logon Page dialog box
+#.  On the successful branch of the SAML Auth Policy-Item click the **Plus (+) Sign**
 
-   |image033|
+    |image033|
 
-#.  On the successful branch of the On-Demand Cert Auth Policy-Item click the **Plus (+) Sign**
+#. In the pop-up dialog box, select the **Assignment** tab and then select the **Radio** next to **Variable Assign**, and click the **Add Item** button
 
-    |image034|
+   |image034|
 
-#. In the pop-up dialog box, select the **Authentication** tab and then select the **Radio** next to **OCSP Auth**, and click the **Add Item** button
+#. Click **Add new entry**
+#. Click **Change**
 
    |image035|
 
-#. Select ``/Common/ocsp_servers`` from the **OCSP Responder** drop down menu.
-
-#. Click **Save** at the bottom of the window
-
-   |image036|
-
-#. Click the **Plus (+) Sign** on the successful branch between **OCSP Auth** and **Deny**
-
-   |image037|
-
-#. In the pop-up dialog box, select the **Assignment** tab and then select
-   the **Radio** next to **Variable Assign**, and click the
-   **Add Item** button
-
-   |image038|
-
-#. Enter the Name **upn_extract**
-#. Click **Add new entry**
-#. Click **Change**
-
-    |image039|
-
-#. Enter the Custom Variable **session.custom.upn**
-#. Select **Custom Expresssion** from the right drop down menu
-#. Enter the text below for the custom expression.
-
-    .. code-block:: text
-
-        set x509e_fields [split [mcget {session.ssl.cert.x509extension}] "\n"];
-        # For each element in the list:
-        foreach field $x509e_fields {
-        # If the element contains UPN:
-        if { $field contains "othername:UPN" } {
-        ## set start of UPN variable
-        set start [expr {[string first "othername:UPN<" $field] +14}]
-        # UPN format is <user@domain>
-        # Return the UPN, by finding the index of opening and closing brackets, then use string range to get everything between.
-        return [string range $field $start [expr { [string first ">" $field $start] - 1 } ] ];  } }
-        #Otherwise return UPN Not Found:
-        return "UPN-NOT-FOUND";
+#. Enter the Custom Variable **session.logon.last.username**
+#. Select **Session Variable** from the right drop down menu
+#. Enter the session variable name **session.saml.last.nameIDvalue**
 
 #. Click **Finished**
 
-    |image040|
+    |image036|
 
 #. Click **Save**  
 
-    |image041|
-
-#. Click the **Plus (+) Sign** between **upn_extract** and **Deny**  
-
-    |image042|
-
-#. In the pop-up dialog box, select the **Authentication** tab and then select
-   the **Radio** next to **LDAP Query**, and click the
-   **Add Item** button
-
-   |image043|
-
-#. In the **LDAP Query Properties** window, enter the following information:
-
-   +----------------------+------------------------------------------------+
-   | Server:              | ``/Common/ldap_servers`` (drop down)           |
-   +----------------------+------------------------------------------------+
-   | Search DN:           | ``dc=f5lab,dc=local`` (drop down)              |
-   +----------------------+------------------------------------------------+
-   | SearchFilter:        | ``(userPrincipalName=%{session.custom.upn})``  |
-   +----------------------+------------------------------------------------+
-   
-#. Click **Add new entry**
-#. Add **sAMAAccountName** to the list of Required Attributes
-   
-    |image044|
+   |image037|
 
 
-#. Click the **Branch Rules** tab
-#. Click the **X** on the User Group Membership line
+#. Click the **Plus (+) Sign** on the fallback branch between **Variable Assign** and **Deny**
 
-    |image045|
+   |image038|
 
-#. Click **Add Branch Rule**
-
-    |image046|
-
-#. Enter the name **LDAP Query Passed**
-#. Click **change**
-
-    |image047|
-
-#. Click **Add Expression**
-
-    |image048|
-
-#. Select **LDAP Query** from the Context dropdown menu
-#. Select **LDAP Query Passed** from the Condition dropdown menu
-#. Click **Add Expression**
-
-    |image049|
-
-#. Click **Finsished**
-
-    |image050|
-
-#. Click **Save**
-
-    |image051|
-
-#. Click the **Plus (+) Sign** on the LDAP Query Passed branch between **LDAP Query** and **Deny**  
-
-    |image052|
-
-#. In the pop-up dialog box, select the **Assignment** tab and then select
-   the **Radio** next to **Variable Assign**, and click the
-   **Add Item** button
-
-   |image053|
-
-#. Enter the Name **set_username**
-#. Click **Add new entry**
-#. Click **Change**
-
-    |image054|
-
-#. Enter the Custom Variable **session.logon.last.username**
-#. Select **Session Variable** from the right drop down menu
-#. Enter the session variable name **session.ldap.last.attr.sAMAccountName**
-#. Click **Finished**
-
-    |image055|
-
-#. Click **Save**
-
-    |image056|
-
-#. Click the **Plus (+) Sign** between **set_username** and **Deny**  
-
-    |image057|
 
 #. In the pop-up dialog box, select the **Assignment** tab and then select
    the **Radio** next to **Advanced Resource Assign**, and click the
    **Add Item** button
 
-   |image058|
+   |image039|
 
-
+#. Click **Add new entry**
 #. In the new Resource Assignment entry, click the **Add/Delete** link
 
-   |image059|
+   |image040|
 
 #. In the resulting pop-up window, click the **SAML** tab, and select the
    **Checkbox** next to ``/Common/sp.acme.com``
 
-   |image060|
+   |image041|
 
 #. Click the **Webtop** tab, and select the **Checkbox** next to
    ``/Common/full_webtop``
@@ -416,128 +305,146 @@ Task 7 - Create a SAML IdP Access Policy
 #. Click the **Update** button at the bottom of the window to complete
    the Resource Assignment entry
 
-   |image061|
-
+   |image042|
 
 #. Click the **Save** button at the bottom of the **Advanced Resource Assign** window
 
-   |image062|
+   |image043|
 
 
 #. In the **Visual Policy Editor**, select the **Deny** ending on the
    fallback branch following **Advanced Resource Assign**
 
-   |image063|
+   |image044|
 
 #. In the **Select Ending** dialog box, selet the **Allow** radio button
    and then click **Save**
 
-   |image064|
+   |image045|
 
 #. In the **Visual Policy Editor**, click **Apply Access Policy**
    (top left), and close the **Visual Policy Editor**
 
-   |image065|
+   |image046|
 
 
-Task 8 - Create a Client-side SSL Profile
----------------------------------------------
-
-#. Navigate to Local Traffic ‑> Profile -> SSL -> Client. Click the **Plus (+) Sign**
-
-    |image066|
-
-#. Enter the Name **idp.acme.com-clientssl**
-#. Check the **custom box** on the Certificate Key Chain Line 
-#. Click **Add**
-
-    |image067|
-
-#. Select **acme.com-wildcard** from the Certificate dropdown menu
-#. Select **acme.com-wildcard** from the Key dropdown menu
-#. Click **Add**
-
-    |image068|
-
-#. Check the **custom box** on the Trusted Certificate Authorities Line
-#. Select **ca.f5lab.local** from the Trusted Certificate Authorities dropdown menu     
-#. Check the **custom box** on the Advertised Certificate Authorities Line
-#. Select **ca.f5lab.local** from the Advertised Certificate Authorities dropdown menu
-
-    |image069|
-
-#. Click **Finished**
-
-
-
-Task 9 - Create an IdP Virtual Server
+Task 7 - Create an IdP Virtual Server
 ----------------------------------------
 
 #. Begin by selecting Local Traffic ‑> Virtual Servers -> Virtual Server List. Click the **Plus (+) Sign** 
 
-
-   |image070|
+   |image047|
 
 #. In the **New Virtual Server** window, enter the following information:
 
    +---------------------------+------------------------------+
    | General Properties                                       |
    +===========================+==============================+
-   | Name:                     | ``idp.acme.com``             |
+   | Name:                     | ``portal.acme.com``          |
    +---------------------------+------------------------------+
    | Destination Address/Mask: | ``10.1.10.102``              |
    +---------------------------+------------------------------+
    | Service Port:             | ``443``                      |
    +---------------------------+------------------------------+
 
-   |image071|
+   |image048|
 
    +---------------------------+------------------------------+
    | Configuration                                            |
    +===========================+==============================+
    | HTTP Profile:             | ``http`` (drop down)         |
    +---------------------------+------------------------------+
-   | SSL Profile (Client)      | ``idp.acme.com-clientssl``   |
+   | SSL Profile (Client)      | ``wildcard.acme.com``        |
    +---------------------------+------------------------------+
 
-   |image072|
+   |image049|
 
    +-----------------+---------------------------+
    | Access Policy                               |
    +=================+===========================+
-   | Access Profile: | ``idp.acme.com-psp``      |
+   | Access Profile: | ``portal.acme.com-psp``   |
    +-----------------+---------------------------+
 
-   |image073|
+   |image050|
 
 
 #. Scroll to the bottom of the configuration window and click **Finished**
 
 
-Task 10 - Test the Configuration
-------------------------------------------
+Task 8 - Test Access to sp.acme.com 
+--------------------------------------
 
-#. From the jumphost, navigate to the SAML IdP you previously configured at **https://idp.acme.com**. 
-#. Select the **user1** certificate
-#. Click **OK**
+#. Using your browser from the jumphost, navigate to ``https://sp.acme.com``
+
+#. You will not see this but you are redirected to ``https://portal.acme.com`` before finally landing at the Azure Logon Screen.
 
 
-   |image074|
+   |image051|
   
-#. Click **sp.acme.com**
+#. Enter the username:  **user1@f5access.onmicrosoft.com**
+#. Click **Next**
 
-   |image075|
+   |image052|
 
-#. You are then successfully logged into https://sp.acme.com and presented a webpage.
+#. Enter the Password: **F5twister$**
+#. Click **Sign in**
 
-   |image076|
+   |image053|
+
+#. If you receive a notice about Staying Signed in simply click **No**
+
+   |image054|
+ 
+#. You are successfully logged into https://portal.acme.com, automatically redirected back to https://sp.acme.com,  and presented a webpage.
+
+   |image055|
 
 #. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
 
 #. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
-Task 11 - Lab Cleanup
+Task 9 - Test access to portal.acme.com 
+------------------------------------------
+
+#. The broswer completely or open a new session in incoginito view
+
+#. Using your browser from the jumphost, navigate to ``https://portal.acme.com``
+
+#. You will not see this but you are redirected to ``https://login.microsoftonline.com``
+
+   |image051|
+  
+#. Enter the username:  **user1@f5access.onmicrosoft.com**
+#. Click **Next**
+
+   |image052|
+
+#. Enter the Password: **F5twister$**
+#. Click **Sign in**
+
+   |image053|
+
+#. If you receive a notice about Staying Signed in simply click **No**
+
+   |image054|
+ 
+#. You automatically redirected back to https://portal.acme.com and presented a webtop.
+
+#. Click the **sp.acme.com** resource on the Webtop
+
+   |image056|
+
+#. You are successfully authenticated to the sp.acme.com application
+
+   |image055|
+
+#. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
+
+#. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
+
+
+Task 10 - Lab Cleanup
 ------------------------
 
 #. From a browser on the jumphost navigate to https://portal.f5lab.local
