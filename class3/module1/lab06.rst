@@ -75,7 +75,7 @@ Task 2 - Create portal.acme.com SAML Service Provider(SP) Service
 #. Select **/Common/azure-idp** from the SAML IdP Connectors dropdown menu
 #. Click **Update**
 
-.. NOTE:: The Azure IdP connector was previously configured through the automation.
+   .. NOTE:: The Azure IdP connector was previously configured through the automation.
 
    |image013|
 
@@ -113,7 +113,7 @@ Task 3 ‑ Configure the SAML Identity Provider (IdP) Service
    +----------------------------------------+-----------------------------------------------------------------+
    | Assertion Subject Value:               | ``%{session.logon.last.username}`` (drop down)                  |
    +----------------------------------------+-----------------------------------------------------------------+
-   | Authentication Context Class Reference | ``urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified``          |  
+   | Authentication Context Class Reference | ``%{{session.saml.last.authNContextClassRef}}``                 |  
    +----------------------------------------+-----------------------------------------------------------------+
 
    |image017|
