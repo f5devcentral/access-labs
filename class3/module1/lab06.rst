@@ -267,7 +267,7 @@ Task 6 - Create a SAML IdP Access Policy
 
 #. Enter the Custom Variable **session.logon.last.username**
 #. Select **Session Variable** from the right drop down menu
-#. Enter the session variable name **session.saml.last.nameIDvalue**
+#. Enter the session variable name ``session.saml.last.nameIDvalue``
 
 #. Click **Finished**
 
@@ -331,7 +331,7 @@ Task 6 - Create a SAML IdP Access Policy
 Task 7 - Create an IdP Virtual Server
 ----------------------------------------
 
-#. Begin by selecting Local Traffic ‑> Virtual Servers -> Virtual Server List. Click the **Plus (+) Sign** 
+#. Navigate to Local Traffic ‑> Virtual Servers -> Virtual Server List. Click the **Plus (+) Sign** 
 
    |image047|
 
@@ -374,9 +374,9 @@ Task 7 - Create an IdP Virtual Server
 Task 8 - Test Access to sp.acme.com 
 --------------------------------------
 
-#. Using your browser from the jumphost, navigate to ``https://sp.acme.com``
+#. From the jumphost's browser, navigate to ``https://sp.acme.com``
 
-#. You will not see this but you are redirected to ``https://portal.acme.com`` before finally landing at the Azure Logon Screen.
+#. You will not see this but you are redirected to ``https://portal.acme.com`` before finally landing at the Azure Logon Screen ``https://login.microsoft.com``
 
 
    |image051|
@@ -409,7 +409,7 @@ Task 9 - Test access to portal.acme.com
 
 #. The broswer completely or open a new session in incoginito view
 
-#. Using your browser from the jumphost, navigate to ``https://portal.acme.com``
+#. From the jumphost's browser, navigate to ``https://portal.acme.com``
 
 #. You will not see this but you are redirected to ``https://login.microsoftonline.com``
 
@@ -447,7 +447,7 @@ Task 9 - Test access to portal.acme.com
 Task 10 - Lab Cleanup
 ------------------------
 
-#. From a browser on the jumphost navigate to https://portal.f5lab.local
+#. From the jumphost's browser navigate to https://portal.f5lab.local
 
 #. Click the **Classes** tab at the top of the page.
 
