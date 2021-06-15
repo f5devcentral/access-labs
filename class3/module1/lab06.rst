@@ -113,7 +113,7 @@ Task 3 ‑ Configure the SAML Identity Provider (IdP) Service
    +----------------------------------------+-----------------------------------------------------------------+
    | Assertion Subject Value:               | ``%{session.logon.last.username}`` (drop down)                  |
    +----------------------------------------+-----------------------------------------------------------------+
-   | Authentication Context Class Reference | ``%{{session.saml.last.authNContextClassRef}}``                 |  
+   | Authentication Context Class Reference | ``%{session.saml.last.authNContextClassRef}``                   |  
    +----------------------------------------+-----------------------------------------------------------------+
 
    |image017|
@@ -135,7 +135,7 @@ Task 3 ‑ Configure the SAML Identity Provider (IdP) Service
    |image018|
 
 
-#. Select the **Checkbox** next to the previously created ``portal.acme.com``
+#. Select the **Checkbox** next to the previously created ``portal.acme.com-idp-s``
    and click the **Bind/Unbind SP Connectors** button at the bottom of the GUI
 
    |image019|
@@ -153,7 +153,7 @@ Task 4 - Create a SAML Resource
 ---------------------------------
 
 
-#. Begin by selecting **Access ‑> Federation ‑> SAML Resources >> **Plus (+) Sign**
+#. Begin by selecting Access ‑> Federation ‑> SAML Resources >> **Plus (+) Sign**
 
    |image021|
 
