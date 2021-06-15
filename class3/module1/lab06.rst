@@ -521,30 +521,3 @@ Task 10 - Lab Cleanup
 .. |image054| image:: ./media/lab06/054.png
 .. |image055| image:: ./media/lab06/055.png
 .. |image056| image:: ./media/lab06/056.png
-.. |image057| image:: ./media/lab06/057.png
-.. |image058| image:: ./media/lab06/058.png
-.. |image059| image:: ./media/lab06/059.png
-.. |image060| image:: ./media/lab06/060.png
-.. |image061| image:: ./media/lab06/061.png
-.. |image062| image:: ./media/lab06/062.png
-.. |image063| image:: ./media/lab06/063.png
-.. |image064| image:: ./media/lab06/064.png
-.. |image065| image:: ./media/lab06/065.png
-.. |image066| image:: ./media/lab06/066.png
-.. |image067| image:: ./media/lab06/067.png
-.. |image068| image:: ./media/lab06/068.png
-.. |image069| image:: ./media/lab06/069.png
-.. |image070| image:: ./media/lab06/070.png
-.. |image071| image:: ./media/lab06/071.png
-.. |image072| image:: ./media/lab06/072.png
-.. |image073| image:: ./media/lab06/073.png
-.. |image074| image:: ./media/lab06/074.png
-.. |image075| image:: ./media/lab06/075.png
-.. |image076| image:: ./media/lab06/076.png
-
-
-
-
-
-
-
