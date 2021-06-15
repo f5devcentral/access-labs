@@ -103,6 +103,298 @@
 			"name": "sp.acme.com",
 			"item": [
 				{
+					"name": "Test For Solution Conflicts",
+					"item": [
+						{
+							"name": "Detect Wide-IP Conflict",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var PARTITION_NAME = pm.collectionVariables.get(\"PARTITION_NAME\");",
+											"var jsonData = pm.response.json();",
+											"var EXIST = 0",
+											"",
+											"for (var i = 0; i < jsonData.items.length; i++) {",
+											"    for (var x = 1; x < 10; x++) {",
+											"        var DNS_NAME = pm.collectionVariables.get(\"CONFLICT\"+x+\"_NAME\");",
+											"        if ( jsonData.items[i].name  === DNS_NAME ) {  ",
+											"                if ( jsonData.items[i].partition  !== PARTITION_NAME+\"-gslb\" ) { ",
+											"                    var EXIST = 1",
+											"                    var EXISTING_SOLUTION = jsonData.items[i].partition.split(\"-\");",
+											"                    pm.test( EXISTING_SOLUTION[0]+\" must be deleted before \"+PARTITION_NAME+\" can be deployed\", function () { ",
+											"                        pm.expect(EXIST).to.be.a(\"0\");     ",
+											"                    });",
+											"                    postman.setNextRequest(\"null\");",
+											"                ",
+											"                }",
+											"        }",
+											"    }          ",
+											"}",
+											" ",
+											"if (EXIST === 0) {",
+											"    if (responseCode.code === 200) {",
+											"        pm.test(\"No Existing Conficts Detected\" , function () {",
+											"            pm.response.to.have.status(200);",
+											"        }); ",
+											"    }",
+											"}",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://10.1.1.11/mgmt/tm/gtm/wideip/a",
+									"protocol": "https",
+									"host": [
+										"10",
+										"1",
+										"1",
+										"11"
+									],
+									"path": [
+										"mgmt",
+										"tm",
+										"gtm",
+										"wideip",
+										"a"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Start-loop-Datacenters",
+					"item": [
+						{
+							"name": "start",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var DC_COUNTER = pm.collectionVariables.get(\"DC_COUNTER\");\r",
+											"\r",
+											"\r",
+											"pm.test(\"Starting configuratioon of Data Center \"+DC_COUNTER, function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var DC_COUNTER = pm.collectionVariables.get(\"DC_COUNTER\");\r",
+											"var DC2_APM = pm.environment.get(\"DC2_APM\");\r",
+											"\r",
+											"\r",
+											"if (DC2_APM === 'true' && DC_COUNTER === '2') {\r",
+											"pm.collectionVariables.set(\"BIGIP_MGMT\", \"10.1.1.5\");\r",
+											"pm.collectionVariables.set(\"BIGIP_SCOPE\", pm.environment.get(\"BIGIP2_SCOPE\"));\r",
+											"\r",
+											"} else {\r",
+											"pm.collectionVariables.set(\"BIGIP_MGMT\", \"10.1.1.4\");\r",
+											"pm.collectionVariables.set(\"BIGIP_SCOPE\", pm.environment.get(\"BIGIP1_SCOPE\"));\r",
+											"pm.collectionVariables.set('DC_COUNTER', '1' );\r",
+											"\r",
+											"\r",
+											"}\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/shared/appsvcs/info",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"info"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "Start Loop - Imperative Calls",
+					"item": [
+						{
+							"name": "start-objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var VS_COUNTER = pm.collectionVariables.get(\"VS_COUNTER\");\r",
+											"var DNS_COUNTER = pm.collectionVariables.get(\"DNS_COUNTER\");\r",
+											"\r",
+											"if (!VS_COUNTER) {\r",
+											"pm.collectionVariables.set(\"VS_COUNTER\", 1);\r",
+											"pm.collectionVariables.set(\"DNS_COUNTER\", 1);\r",
+											"var VS_COUNTER = pm.collectionVariables.get(\"VS_COUNTER\");\r",
+											"var DNS_COUNTER = pm.collectionVariables.get(\"DNS_COUNTER\");\r",
+											"pm.collectionVariables.set(\"VS_NAME\", pm.collectionVariables.get(\"VS\"+VS_COUNTER+\"_NAME\"));\r",
+											"pm.collectionVariables.set(\"DNS_NAME\", pm.collectionVariables.get(\"DNS\"+DNS_COUNTER+\"_NAME\"));\r",
+											" } else { \r",
+											"\r",
+											"pm.collectionVariables.set(\"VS_NAME\", pm.collectionVariables.get(\"VS\"+VS_COUNTER+\"_NAME\"));\r",
+											"pm.collectionVariables.set(\"DNS_NAME\", pm.collectionVariables.get(\"DNS\"+DNS_COUNTER+\"_NAME\"));\r",
+											"}\r",
+											"\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "admin",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://{{BIGIP_MGMT}}/mgmt/shared/appsvcs/info",
+									"protocol": "https",
+									"host": [
+										"{{BIGIP_MGMT}}"
+									],
+									"path": [
+										"mgmt",
+										"shared",
+										"appsvcs",
+										"info"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
 					"name": "start Website",
 					"item": [
 						{
