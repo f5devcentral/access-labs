@@ -267,7 +267,7 @@ Task 6 - Create a SAML IdP Access Policy
 
 #. Enter the Custom Variable ``session.logon.last.username``
 #. Select **Session Variable** from the right drop down menu
-#. Enter the session variable name ``session.saml.last.nameIDvalue``
+#. Enter the session variable name ``session.saml.last.nameIDValue``
 
 #. Click **Finished**
 
@@ -376,7 +376,7 @@ Task 8 - Test Access to sp.acme.com
 
 #. From the jumphost's browser, navigate to ``https://sp.acme.com``
 
-#. You will not see this but you are redirected to ``https://portal.acme.com`` before finally landing at the Azure Logon Screen ``https://login.microsoft.com``
+#. You will not see this but you are redirected to ``https://portal.acme.com`` before finally landing at the Azure Login Screen ``https://login.microsoft.com``
 
 
    |image051|
@@ -398,10 +398,6 @@ Task 8 - Test Access to sp.acme.com
 #. You are successfully logged into https://portal.acme.com, automatically redirected back to https://sp.acme.com,  and presented a webpage.
 
    |image055|
-
-#. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
-
-#. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
 Task 9 - Test access to portal.acme.com 
@@ -438,10 +434,6 @@ Task 9 - Test access to portal.acme.com
 #. You are successfully authenticated to the sp.acme.com application
 
    |image055|
-
-#. Review your Active Sessions **(Access ‑> Overview ‑> Active Sessions­­­)**
-
-#. Review your Access Report Logs **(Access ‑> Overview ‑> Access Reports)**
 
 
 Task 10 - Lab Cleanup
