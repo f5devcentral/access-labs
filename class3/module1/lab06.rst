@@ -265,7 +265,7 @@ Task 6 - Create a SAML IdP Access Policy
 
    |image035|
 
-#. Enter the Custom Variable **session.logon.last.username**
+#. Enter the Custom Variable ``session.logon.last.username``
 #. Select **Session Variable** from the right drop down menu
 #. Enter the session variable name ``session.saml.last.nameIDvalue``
 
