@@ -17,10 +17,20 @@ This lab documents provides foundational concepts for understanding Access Polic
 --------------------------------  
 .. toctree::
    :maxdepth: 1
+   :caption: Version 15.1 Labs:
    :glob:
    
    module2/intro.rst
    module2/lab*
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Version 16.0 Labs:
+   :glob:
+
+   module6/intro.rst
+   module6/lab*
+
   
 303 - Per Request Application Control
 ---------------------------------------- 
