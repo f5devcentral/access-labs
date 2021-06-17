@@ -746,7 +746,7 @@ Navigate to Local Traffic >> Virtual Servers
    *. Set LDAP Authentication Configuration to **pua.ldap.conf**
    *. Click **Update**
 
-   |image117.5|
+   |image122|
 
 Task 17 - PUA testing 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -931,7 +931,7 @@ Task 17 - PUA testing
 .. |image115| image:: media/lab02/image115.png
 .. |image116| image:: media/lab02/image116.png
 .. |image117| image:: media/lab02/image117.png
-.. |image117.5| image:: media/lab02/image117.5.png
+.. |image122| image:: media/lab02/image122.png
 .. |image118| image:: media/lab02/image118.png
 .. |image119| image:: media/lab02/image119.png
 .. |image120| image:: media/lab02/image120.png
