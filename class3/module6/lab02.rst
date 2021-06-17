@@ -1,5 +1,5 @@
 Lab 2: Deploy Priviledged User Access (PUA) or Ephemeral Authentication using Radius
-==================================================================
+=======================================================================================
 
 In this lab ephemeral authentication is configured on Access Policy Manager (APM) using Radius authentication. 
 
@@ -132,7 +132,7 @@ Task 5 - Create WebSSH Resource
    |image8|
 
 Task 6 - Creating an RADIUS Authentication configuration
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The RADIUS Authentication configuration defines the external LDAP server used to identity users.
 
@@ -249,7 +249,7 @@ Task 9 - Create an Admin Access Macro
    |image29|
 
 Task 10 - Create an GET UPN from CAC Macro
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Click **Add New Macro**
 

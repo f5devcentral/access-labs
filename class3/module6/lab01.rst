@@ -8,7 +8,7 @@ In this lab ephemeral authentication is configured on Access Policy Manager (APM
 
 
 Task 1 - Access Lab Environment
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
 
@@ -48,7 +48,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
 
 Task 2 - Create Ephemeral Authentication configuration 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Ephemeral authentication Configuration defines the authentication method (LDAP or radius) and ephemeral password usage for privileged user access.
 
@@ -108,7 +108,7 @@ Ephemeral Authentication Configuration specifies the password setting for privil
    |image6|
 
 Task 5 - Create WebSSH Resource 
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to Access >> Ephemeral Authentication >> WebSSH Configuration >> Resource. Click the **+ (plus symbol)**
 
@@ -155,7 +155,7 @@ The LDAP Authentication configuration defines the external LDAP server used to i
 
 
 Task 7 - Create a Webtop
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 The Webtop houses links to resources we would like to access.
 
@@ -172,7 +172,7 @@ The Webtop houses links to resources we would like to access.
    |image14|
 
 Task 8 - Create an Access Profile
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #. Navigate to Access >> Profiles / Policies >> Access Profiles (Per-Session Policies). Click the **+ (plus symbol)**
 
