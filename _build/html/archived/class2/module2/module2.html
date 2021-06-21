@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 2: API Protection</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 2: API Protection"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:45:41"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2: API Protection &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lab 3: Reporting and Session Management" href="../module3/module3.html" />
+    <link rel="prev" title="Lab 1: Social Login Lab" href="../module1/module1.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 2: API Protection</a><ul>
+<li><a class="reference internal" href="#purpose">Purpose</a></li>
+<li><a class="reference internal" href="#task-1-setup-virtual-server-for-the-api">Task 1: Setup Virtual Server for the API</a><ul>
+<li><a class="reference internal" href="#create-the-virtual-server">Create the Virtual Server</a></li>
+<li><a class="reference internal" href="#test-configuration">Test Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#task-2-authorization-server">Task 2: Authorization Server</a><ul>
+<li><a class="reference internal" href="#configure-the-database-instance">Configure the Database Instance</a></li>
+<li><a class="reference internal" href="#configure-the-scope">Configure the Scope</a></li>
+<li><a class="reference internal" href="#configure-the-client-application">Configure the Client Application</a></li>
+<li><a class="reference internal" href="#configure-the-resource-server">Configure the Resource Server</a></li>
+<li><a class="reference internal" href="#configure-the-oauth-profile">Configure the OAuth Profile</a></li>
+<li><a class="reference internal" href="#configure-the-apm-per-session-policy">Configure the APM Per Session Policy</a></li>
+<li><a class="reference internal" href="#create-the-authorization-virtual-server">Create the Authorization Virtual Server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#task-3-resource-server">Task 3: Resource Server</a><ul>
+<li><a class="reference internal" href="#configure-the-oauth-provider">Configure the OAuth Provider</a></li>
+<li><a class="reference internal" href="#configure-the-oauth-server">Configure the OAuth Server</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#task-3-verify">Task 3: Verify</a></li>
+<li><a class="reference internal" href="#task-4-testing-session-and-token-states">Task 4: Testing Session and Token States</a><ul>
+<li><a class="reference internal" href="#invalidate-the-session">Invalidate the Session</a></li>
+<li><a class="reference internal" href="#invalidate-both-the-current-session-and-token">Invalidate both the Current Session and Token</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="../class2.html">Class 2: OAuth Federation with F5</a>
+
+          <span class="right">
+             <a href="../../../_sources/archived/class2/module2/module2.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-2-api-protection">
+<h1>Lab 2: API Protection<a class="headerlink" href="#lab-2-api-protection" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>This section will teach you how to configure a Big-IP (#1) as a Resource
+Server protecting an API with OAuth and another Big-IP (#2) as the
+Authorization Server providing the OAuth tokens.</p>
+</div>
+<div class="section" id="task-1-setup-virtual-server-for-the-api">
+<h2>Task 1: Setup Virtual Server for the API<a class="headerlink" href="#task-1-setup-virtual-server-for-the-api" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This task is performed on Big-IP #1 (RS)</p>
+</div>
+<div class="section" id="create-the-virtual-server">
+<h3>Create the Virtual Server<a class="headerlink" href="#create-the-virtual-server" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Local Traffic -&gt; Virtual Servers</strong> and click on <strong>Create</strong></p>
+<p><img alt="image139" src="../../../_images/image129.png" /></p>
+</li>
+<li><p class="first">Enter the following values <em>(leave others default)</em> then scroll
+down to <strong>Resources</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">api.f5agility.com-vs</span></code></li>
+<li><strong>Destination Address:</strong> <code class="docutils literal notranslate"><span class="pre">10.1.20.112</span></code></li>
+<li><strong>Service Port:</strong> <code class="docutils literal notranslate"><span class="pre">443</span></code></li>
+<li><strong>HTTP Profile:</strong> <code class="docutils literal notranslate"><span class="pre">http</span></code></li>
+<li><strong>SSL Profile (Client):</strong> <code class="docutils literal notranslate"><span class="pre">f5agility-wildcard-self-clientssl</span></code></li>
+<li><strong>Source Address Translation:</strong> <code class="docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">Map</span></code></li>
+</ul>
+<p><img alt="image140" src="../../../_images/image130.png" /></p>
+</li>
+<li><p class="first">In the <strong>Resources</strong> section, select following value <em>(leave others
+default)</em> then click <strong>Finished</strong></p>
+<p><strong>Default Pool:</strong> <code class="docutils literal notranslate"><span class="pre">api-pool</span></code></p>
+<p><img alt="image141" src="../../../_images/image131.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="test-configuration">
+<h3>Test Configuration<a class="headerlink" href="#test-configuration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">On the Jump Host, launch <strong>Postman</strong> from the desktop icon</p>
+<p><img alt="image142" src="../../../_images/image132.png" /></p>
+</li>
+<li><p class="first">The request should be prefilled with the settings below. If not change as
+needed or select <strong>TEST API Call</strong> from the <strong>API Collection</strong> and
+click <strong>Send</strong></p>
+<p><strong>Method:</strong> <code class="docutils literal notranslate"><span class="pre">GET</span></code></p>
+<p><strong>Target:</strong> <code class="docutils literal notranslate"><span class="pre">https://api.f5agility.com/department</span></code></p>
+<p><strong>Authorization:</strong> <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">Auth</span></code></p>
+<p><strong>Headers:</strong> (none should be set)</p>
+<p><img alt="image143" src="../../../_images/image133.png" /></p>
+</li>
+<li><p class="first">You should receive a 200 OK, 4 headers and the body should contain a list
+of departments.</p>
+<p><img alt="image144" src="../../../_images/image134.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This request is working because we have not yet provided any
+protection for the API.*</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you get “Could not get any response” then Postman’s settings
+may be set to verify SSL Certificates (default). Click <strong>File -&gt; Settings</strong>
+and turn <code class="docutils literal notranslate"><span class="pre">SSL</span> <span class="pre">Certificate</span> <span class="pre">Verification</span></code> to <strong>Off</strong>.*</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-2-authorization-server">
+<h2>Task 2: Authorization Server<a class="headerlink" href="#task-2-authorization-server" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This task is performed on Big-IP #2 (AS)</p>
+</div>
+<div class="section" id="configure-the-database-instance">
+<h3>Configure the Database Instance<a class="headerlink" href="#configure-the-database-instance" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access -&gt; Federation -&gt; OAuth Authorization Server -&gt; Database Instance</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image145" src="../../../_images/image135.png" /></p>
+</li>
+<li><p class="first">Enter oauth-api-db for the <strong>Name</strong> field and click <strong>Finished</strong>.</p>
+<p><img alt="image146" src="../../../_images/image136.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-scope">
+<h3>Configure the Scope<a class="headerlink" href="#configure-the-scope" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access</strong> -&gt; Federation -&gt; <strong>OAuth Authorization Server -&gt; Scope</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image147" src="../../../_images/image137.png" /></p>
+</li>
+<li><p class="first">Enter the following values and and click <strong>Finished</strong>.</p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-scope-username</span></code></li>
+<li><strong>Scope Name:</strong> <code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+<li><strong>Scope Value:</strong> <code class="docutils literal notranslate"><span class="pre">%{session.logon.last.username}</span></code></li>
+<li><strong>Caption:</strong> <code class="docutils literal notranslate"><span class="pre">username</span></code></li>
+</ul>
+<p><img alt="image148" src="../../../_images/image138.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This scope is requested by the Resource Server and the information
+here is provided back. You can hardcode a value or use a variable as we
+have here. So if the scope username is requested, we will supply back
+the username that was used to login at the Authorization Server (AS).*</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-client-application">
+<h3>Configure the Client Application<a class="headerlink" href="#configure-the-client-application" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access</strong> -&gt; Federation -&gt; <strong>OAuth Authorization Server -&gt; Client Application</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image149" src="../../../_images/image139.png" /></p>
+</li>
+<li><p class="first">Enter the following values and click <strong>Finished</strong>.</p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-api-client</span></code></li>
+<li><strong>Application Name:</strong> <code class="docutils literal notranslate"><span class="pre">HR</span> <span class="pre">API</span></code></li>
+<li><strong>Caption:</strong> <code class="docutils literal notranslate"><span class="pre">HR</span> <span class="pre">API</span></code></li>
+<li><strong>Authentication Type:</strong> <code class="docutils literal notranslate"><span class="pre">Secret</span></code></li>
+<li><strong>Scope:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-scope-username</span></code></li>
+<li><strong>Grant Type:</strong> <code class="docutils literal notranslate"><span class="pre">Authorization</span> <span class="pre">Code</span></code></li>
+<li><strong>Redirect URI(s):</strong> <code class="docutils literal notranslate"><span class="pre">https://www.getpostman.com/oauth2/callback</span></code></li>
+</ul>
+<p><strong>Remember to click Add</strong></p>
+<p><img alt="image150" src="../../../_images/image140.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Redirect URI above is a special URI for the Postman client
+you’ll be using. This would normally be a specific URI to your client</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-resource-server">
+<h3>Configure the Resource Server<a class="headerlink" href="#configure-the-resource-server" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access -&gt; Federation -&gt; OAuth Authorization Server -&gt; Resource Server</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image151" src="../../../_images/image141.png" /></p>
+</li>
+<li><p class="first">Enter the following values and click <strong>Finished</strong>.</p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-api-rs</span></code></li>
+<li><strong>Application Type:</strong> <code class="docutils literal notranslate"><span class="pre">Secret</span></code></li>
+</ul>
+<p><img alt="image152" src="../../../_images/image142.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-oauth-profile">
+<h3>Configure the OAuth Profile<a class="headerlink" href="#configure-the-oauth-profile" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access -&gt; Federation -&gt; OAuth Authorization Server -&gt; OAuth Profile</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image153" src="../../../_images/image143.png" /></p>
+</li>
+<li><p class="first">Enter the following values and click <strong>Finished</strong>.</p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-api-profile</span></code></li>
+<li><strong>Client Application:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-api-client</span></code></li>
+<li><strong>Resource Server:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-api-rs</span></code></li>
+<li><strong>Database Instance:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-api-db</span></code></li>
+</ul>
+<p><img alt="image154" src="../../../_images/image144.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-apm-per-session-policy">
+<h3>Configure the APM Per Session Policy<a class="headerlink" href="#configure-the-apm-per-session-policy" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access -&gt; Profiles/Policies -&gt; Access Profiles (Per Session Policies)</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image155" src="../../../_images/image7.png" /></p>
+</li>
+<li><p class="first">In the <strong>General Properties</strong> section enter the following values</p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauthas-ap</span></code></li>
+<li><strong>Profile Type:</strong> <code class="docutils literal notranslate"><span class="pre">All</span></code></li>
+<li><strong>Profile Scope:</strong> <code class="docutils literal notranslate"><span class="pre">Profile</span></code></li>
+</ul>
+<p><img alt="image156" src="../../../_images/image145.png" /></p>
+</li>
+<li><p class="first">In the <strong>Configurations</strong> section select the following value from the
+<strong>OAuth Profile</strong> drop down menu.</p>
+<ul class="simple">
+<li><strong>OAuth Profile:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-api-profile</span></code></li>
+</ul>
+<p><img alt="image157" src="../../../_images/image146.png" /></p>
+</li>
+<li><p class="first">In the <strong>Language Settings</strong> section enter the following value and
+then click <strong>Finished</strong>.</p>
+<ul class="simple">
+<li><strong>Languages:</strong> <code class="docutils literal notranslate"><span class="pre">English</span></code></li>
+</ul>
+<p><img alt="image158" src="../../../_images/image147.png" /></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong> on the <strong>oauthas-ap</strong> policy, a new browser tab will open.</p>
+<p><img alt="image159" src="../../../_images/image148.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> between <strong>Start</strong> and <strong>Deny</strong></p>
+<p><img alt="image160" src="../../../_images/image149.png" /></p>
+</li>
+<li><p class="first">Select <strong>Logon Page</strong> from the <strong>Logon</strong> tab, and click <strong>Add Item</strong></p>
+<p><img alt="image161" src="../../../_images/image150.png" /></p>
+</li>
+<li><p class="first">Accept the defaults on the <strong>Logon Page</strong> and click <strong>Save</strong></p>
+<p><img alt="image162" src="../../../_images/image151.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> between <strong>Logon Page</strong> and <strong>Deny</strong></p>
+<p><img alt="image163" src="../../../_images/image152.png" /></p>
+</li>
+<li><p class="first">Select <strong>OAuth Authorization</strong> from the <strong>Authentication</strong> tab
+and click <strong>Add Item</strong></p>
+<p><img alt="image164" src="../../../_images/image153.png" /></p>
+</li>
+<li><p class="first">Accept the defaults for the <strong>OAuth Authorization</strong>
+and click <strong>Save</strong></p>
+<p><img alt="image165" src="../../../_images/image154.png" /></p>
+</li>
+<li><p class="first">Click <strong>Deny</strong> on the <strong>Successful</strong> branch after the
+<strong>OAuth Authorization</strong> object, select <strong>Allow</strong>,
+click <strong>Save</strong></p>
+<p><img alt="image166" src="../../../_images/image155.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong> in the top left and then close
+the tab</p>
+<p><img alt="image167" src="../../../_images/image156.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We are not validating the credentials entered on the Logon Page,
+so you can enter anything you want. In a production deployment you would
+most likely include some process for validating credentials such as an
+LDAP Auth or AD Auth object, or perhaps limiting access by IP or client
+certificate</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This policy might also set some variables that get used as
+scope values. Thus, you could determine what the scope values are by
+utilizing the policy here.*</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="create-the-authorization-virtual-server">
+<h3>Create the Authorization Virtual Server<a class="headerlink" href="#create-the-authorization-virtual-server" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Local Traffic -&gt; Virtual Servers</strong> and click <strong>Create</strong></p>
+<p><img alt="image168" src="../../../_images/image157.png" /></p>
+</li>
+<li><p class="first">Enter the following values for the Authorization Server Virtual Server</p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauthas.f5agility.com-vs</span></code></li>
+<li><strong>Destination Address:</strong> <code class="docutils literal notranslate"><span class="pre">10.1.20.110</span></code></li>
+<li><strong>Service Port:</strong> <code class="docutils literal notranslate"><span class="pre">443</span></code></li>
+<li><strong>HTTP Profile:</strong> <code class="docutils literal notranslate"><span class="pre">http</span></code></li>
+<li><strong>SSL Profile (Client):</strong> <code class="docutils literal notranslate"><span class="pre">f5agility-wildcard-self-clientssl</span></code></li>
+<li><strong>Source Address Translation:</strong> <code class="docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">Map</span></code></li>
+</ul>
+<p><img alt="image169" src="../../../_images/image158.png" /></p>
+</li>
+<li><p class="first">Scroll to the <strong>Access Policy</strong> section, select oauthas-ap from the
+<strong>Access Profile</strong> drop down menu and then click <strong>Finished</strong> at the
+bottom of the screen.</p>
+<p><img alt="image170" src="../../../_images/image159.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-3-resource-server">
+<h2>Task 3: Resource Server<a class="headerlink" href="#task-3-resource-server" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This task is performed on Big-IP #1 (RS)</p>
+</div>
+<div class="section" id="configure-the-oauth-provider">
+<h3>Configure the OAuth Provider<a class="headerlink" href="#configure-the-oauth-provider" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access -&gt; Federation -&gt; OAuth Client/Resource Server -&gt; Provider</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image171" src="../../../_images/image160.png" /></p>
+</li>
+<li><p class="first">Enter the following values for the Authorization Server Virtual Server
+and then click <strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauthas.f5agility.com-provider</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">F5</span></code></li>
+<li><strong>Authentication URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://oauthas.f5agility.com/f5-oauth2/v1/authorize</span></code></li>
+<li><strong>Token URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://oauthas.f5agility.com/f5-oauth2/v1/token</span></code></li>
+<li><strong>Token Validation Scope:</strong> <code class="docutils literal notranslate"><span class="pre">https://oauthas.f5agility.com/f5-oauth2/v1/introspect</span></code></li>
+</ul>
+<p><img alt="image172" src="../../../_images/image161.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-the-oauth-server">
+<h3>Configure the OAuth Server<a class="headerlink" href="#configure-the-oauth-server" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access</strong> -&gt; Federation -&gt; <strong>OAuth Client/Resource Server -&gt; OAuth Server</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image173" src="../../../_images/image162.png" /></p>
+</li>
+<li><p class="first">Enter the following values for the Authorization Server Virtual Server and
+then click <strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">api-resource-server</span></code></li>
+<li><strong>Mode:</strong> <code class="docutils literal notranslate"><span class="pre">Resource</span> <span class="pre">Server</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">F5</span></code></li>
+<li><strong>OAuth Provider:</strong> <code class="docutils literal notranslate"><span class="pre">oauthas.f5agility.com-provider</span></code></li>
+<li><strong>DNS Resolver:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-dns</span></code></li>
+<li><strong>Resource Server ID:</strong> (see step 5) <em>&lt;Get this from Big-IP 2 -&gt; Access
+-&gt; Federation -&gt; OAuth Authorization Server -&gt; Resource Server -&gt;
+oauth-api-rs&gt;</em></li>
+<li><strong>Resource Server Secret:</strong> (see step 5) <em>&lt;Get this from Big-IP 2
+-&gt; Access -&gt; Federation -&gt; OAuth Authorization Server -&gt; Resource Server
+-&gt; oauth-api-rs&gt;</em></li>
+<li><strong>Resource Server’s Server SSL Profile Name:</strong> apm-allowuntrusted-serverssl</li>
+</ul>
+<p><img alt="image174" src="../../../_images/image163.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">We are using a custom serverssl profile to allow negotiation with
+an untrusted certificate. This is needed because our Authorization Server
+is using a self-signed certificate. In production for proper security you
+should leverage a trusted certificate (most likely publicly signed) and
+the apm-default-serverssl profile (or other as appropriate)*</p>
+</div>
+</li>
+<li><p class="first">The values for step 4 above can be obtained by accessing Big-IP 2 and
+navigating to <strong>Access -&gt; Federation -&gt; OAuth Authorization Server -&gt; Resource Server -&gt; oauth-api-rs</strong>
+as shown.</p>
+<p><img alt="image175" src="../../../_images/image164.png" /></p>
+</li>
+<li><p class="first">To configure the <strong>APM Per Session Policy</strong> go to
+<strong>Access -&gt; Profiles / Policies -&gt; Access Profiles (Per Session Policies)</strong>
+and then click <strong>Create</strong></p>
+<p><img alt="image176" src="../../../_images/image165.png" /></p>
+</li>
+<li><p class="first">Enter the following values and then click <strong>Finished</strong></p>
+<p><img alt="image177" src="../../../_images/image166.png" /></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">api-ap</span></code></li>
+<li><strong>Profile Type:</strong> <code class="docutils literal notranslate"><span class="pre">OAuth-Resource-Server</span></code></li>
+<li><strong>Profile Scope:</strong> <code class="docutils literal notranslate"><span class="pre">Profile</span></code></li>
+<li><strong>Languages:</strong> <code class="docutils literal notranslate"><span class="pre">English</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">User Identification Method is set to OAuth Token and you cannot
+change it for this profile type.</p>
+</div>
+</li>
+<li><p class="first">Click <strong>Edit</strong> on the new api-ap policy and a new window will open</p>
+<p><img alt="image178" src="../../../_images/image167.png" /></p>
+</li>
+<li><p class="first">Click <strong>Deny</strong> on the fallback branch after <strong>Start</strong>, select <strong>Allow</strong>
+and click <strong>Save</strong></p>
+<p><img alt="image179" src="../../../_images/image168.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong> in the top left and then close the tab</p>
+<p><img alt="image180" src="../../../_images/image169.png" /></p>
+</li>
+<li><p class="first">To configure the <strong>APM Per Request Policy</strong> go to
+<strong>Access -&gt; Profiles / Policies -&gt; Per Request Policies</strong>
+and then click <strong>Create</strong></p>
+<p><img alt="image181" src="../../../_images/image170.png" /></p>
+</li>
+<li><p class="first">Enter api-prp for the <strong>Name</strong> and click <strong>Finished</strong></p>
+<p><img alt="image182" src="../../../_images/image171.png" /></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong> on the <strong>api-prp</strong> policy and a new window will appear</p>
+<p><img alt="image183" src="../../../_images/image172.png" /></p>
+</li>
+<li><p class="first">Click <strong>Add New Subroutine</strong></p>
+<p><img alt="image184" src="../../../_images/image173.png" /></p>
+</li>
+<li><p class="first">Leave the <code class="docutils literal notranslate"><span class="pre">Select</span> <span class="pre">Subroutine</span> <span class="pre">template</span></code> as Empty. Enter RS Scope
+Check for the <strong>Name</strong> and then click <strong>Save</strong></p>
+<p><img alt="image185" src="../../../_images/image174.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> next to the <strong>RS Scope Check</strong></p>
+<p><img alt="image186" src="../../../_images/image175.png" /></p>
+</li>
+<li><p class="first">Click Edit Terminals on the RS Scope Check Subroutine</p>
+<p><img alt="image187" src="../../../_images/image176.png" /></p>
+</li>
+<li><p class="first">First, rename <strong>Out</strong> to Success, then click <strong>Add Terminal</strong> and
+name it Failure</p>
+<p><img alt="image188" src="../../../_images/image177.png" /></p>
+</li>
+<li><p class="first">Go to the <strong>Set Default</strong> tab and select <strong>Failure</strong> then click Save</p>
+<p><img alt="image189" src="../../../_images/image178.png" /></p>
+</li>
+<li><p class="first">Click <strong>Edit Terminals</strong> again <em>(it will ignore the order settings if
+you do this in one step without saving in between)</em></p>
+<p><img alt="image190" src="../../../_images/image176.png" /></p>
+</li>
+<li><p class="first">Move <strong>Success</strong> to the top using the up arrow on the right side
+then click <strong>Save</strong></p>
+<p><img alt="image191" src="../../../_images/image179.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> between <strong>In</strong> and <strong>Success</strong>, a new window will
+appear</p>
+<p><img alt="image192" src="../../../_images/image180.png" /></p>
+</li>
+<li><p class="first">Select <strong>OAuth Scope</strong> from the <strong>Authentication</strong> tab and click
+<strong>Add Item</strong></p>
+<p><img alt="image193" src="../../../_images/image181.png" /></p>
+</li>
+<li><p class="first">Enter the following values and then click <strong>Save</strong></p>
+<ul class="simple">
+<li><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/api-resource-server</span></code></li>
+<li><strong>Scopes Request:</strong> /Common/F5ScopesRequest</li>
+</ul>
+<p><img alt="image194" src="../../../_images/image182.png" /></p>
+</li>
+<li><p class="first">Verify that the <strong>Successful</strong> branch terminates in <strong>Success</strong> and
+the <strong>Fallback</strong> branch terminates in <strong>Failure</strong></p>
+<p><img alt="image195" src="../../../_images/image183.png" /></p>
+</li>
+<li><p class="first">In the main policy, click <strong>+</strong> between the <strong>Start</strong> and <strong>Allow</strong></p>
+<p><img alt="image196" src="../../../_images/image184.png" /></p>
+</li>
+<li><p class="first">Select <strong>RS Scope Check</strong> from the <strong>Subroutines</strong> tab and
+click <strong>Add Item</strong></p>
+<p><img alt="image197" src="../../../_images/image185.png" /></p>
+</li>
+<li><p class="first">Verify that the Success branch terminates in Allow and the Fallback
+branch terminates in Reject</p>
+<p><img alt="image198" src="../../../_images/image186.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You do not need to “Apply Policy ” on Per Request Policies*</p>
+</div>
+</li>
+<li><p class="first">To add the APM Policies to the API Virtual Server, go to
+<strong>Local Traffic -&gt; Virtual Servers</strong> and click on
+<strong>api.f5agility.com-vs</strong></p>
+<p><img alt="image199" src="../../../_images/image187.png" /></p>
+</li>
+<li><p class="first">Scroll down to the <strong>Access Policy</strong> section. Change <strong>Access Profile</strong>
+from <strong>None</strong> to api-ap</p>
+<p><img alt="image200" src="../../../_images/image188.png" /></p>
+</li>
+<li><p class="first">Change <strong>Per-Request Policy</strong> from <strong>None</strong> to api-prp and
+then click <strong>Update</strong></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-3-verify">
+<h2>Task 3: Verify<a class="headerlink" href="#task-3-verify" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">On the Jump Host, launch <strong>Postman</strong> from the desktop icon</p>
+<p><img alt="image201" src="../../../_images/image132.png" /></p>
+</li>
+<li><p class="first">The request should be prefilled with the settings below (same as earlier).
+If not change as needed or select <strong>TEST API Call</strong> from the
+<strong>API Collection</strong> and click <strong>Send</strong></p>
+<p><img alt="image202" src="../../../_images/image133.png" /></p>
+<ul class="simple">
+<li><strong>Method:</strong> <code class="docutils literal notranslate"><span class="pre">GET</span></code></li>
+<li><strong>Target:</strong> <code class="docutils literal notranslate"><span class="pre">https://api.f5agility.com/department</span></code></li>
+<li><strong>Authorization:</strong> <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">Auth</span></code></li>
+<li><strong>Headers:</strong> <code class="docutils literal notranslate"><span class="pre">(none</span> <span class="pre">should</span> <span class="pre">be</span> <span class="pre">set)</span></code></li>
+</ul>
+</li>
+<li><p class="first">You should receive a <code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code> and <strong>3 headers</strong>,
+including <code class="docutils literal notranslate"><span class="pre">WWW-Authenticate:</span> <span class="pre">Bearer</span></code>. The body will be empty.</p>
+<p><img alt="image203" src="../../../_images/image189.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Your API call failed because you are not providing an
+OAuth token. Both tabs shown</p>
+</div>
+<p><img alt="image204" src="../../../_images/image190.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Authorization</strong> tab and change the <strong>Type</strong> from
+<strong>No Auth</strong> to OAuth 2.0</p>
+<p><img alt="image205" src="../../../_images/image191.png" /></p>
+</li>
+<li><p class="first">If present, select any existing tokens on the left side and delete
+them on the right side. Click <strong>Get New Access Token</strong></p>
+<p><img alt="image206" src="../../../_images/image192.png" /></p>
+</li>
+<li><p class="first">In the <strong>Get New Access Token</strong> window, if the values do not match
+then adjust as needed, and click <strong>Request Token</strong></p>
+<ul class="simple">
+<li><strong>Token Name:</strong> &lt;Anything is fine here&gt;</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you’re doing this lab on your own machine and using
+self signed certificates you must add the certs to the trusted
+store on your computer. If you’ve just done this, you must close
+Postman and reopen. You also need to go to File -&gt; Settings in
+Postman and turn SSL certificate validation to off.</p>
+</div>
+<ul class="simple">
+<li><strong>Auth URL:</strong> <code class="docutils literal notranslate"><span class="pre">https://oauthas.f5agility.com/f5-oauth2/v1/authorize</span></code></li>
+<li><strong>Access Token URL:</strong> <code class="docutils literal notranslate"><span class="pre">https://oauthas.f5agility.com/f5-oauth2/v1/token</span></code></li>
+<li><strong>Client ID:</strong> &lt;Get this from Big-IP 2 -&gt; Access -&gt; Federation -&gt;
+OAuth Authorization Server -&gt; Client Application -&gt; oauth-api-client&gt;</li>
+<li><strong>Client Secret:</strong> &lt;Get this from Big-IP 2 -&gt; Access -&gt; Federation
+-&gt; OAuth Authorization Server -&gt; Client Application -&gt; oauth-api-client&gt;</li>
+<li><strong>Scope:</strong></li>
+<li><strong>Grant Type:</strong> <code class="docutils literal notranslate"><span class="pre">Authorization</span> <span class="pre">Code</span></code></li>
+<li><strong>Request access token locally:</strong> <code class="docutils literal notranslate"><span class="pre">checked</span></code></li>
+</ul>
+<p><img alt="image207" src="../../../_images/image193.png" /></p>
+</li>
+<li><p class="first">Logon with any credentials, such as user/password</p>
+<p><img alt="image208" src="../../../_images/image194.png" /></p>
+</li>
+<li><p class="first">Authorize the HR API by clicking <strong>Authorize</strong></p>
+<p><img alt="image209" src="../../../_images/image195.png" /></p>
+</li>
+<li><p class="first">You now have received an OAuth Token. Click the <strong>name of your
+token</strong> under <strong>Existing Tokens</strong> (left) and your token will
+appear on the right</p>
+<p><img alt="image210" src="../../../_images/image196.png" /></p>
+</li>
+<li><p class="first">Change the <strong>Add token to</strong> drop down to Header and the click
+<strong>Use Token</strong>. You will note that the <strong>Header</strong> tab (in the section
+tabs just above) now has one header in the <strong>Header</strong> tab which contains
+your <strong>Authorization Header</strong> of type <strong>Bearer</strong> with a string value.</p>
+<p><img alt="image211" src="../../../_images/image197.png" /></p>
+<p><em>The Header tab data is shown in the screenshot</em></p>
+<p><img alt="image212" src="../../../_images/image198.png" /></p>
+</li>
+<li><p class="first">Click <strong>Send</strong> at the top of the Postman screen</p>
+<p><img alt="image213" src="../../../_images/image199.png" /></p>
+</li>
+<li><p class="first">You should receive a <strong>200 OK</strong>, <strong>5 headers</strong> and the <strong>body</strong>
+should contain a list of departments</p>
+<p><img alt="image214" src="../../../_images/image200.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This time the request was successful because you presented a valid
+OAuth token to the resource server (the Big-IP), so it allowed the traffic
+to the API server on the backend.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-testing-session-and-token-states">
+<h2>Task 4: Testing Session and Token States<a class="headerlink" href="#task-4-testing-session-and-token-states" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Parts of this task are performed on both Big-IP devices. Check
+each step to make sure you are working on the correct device.</p>
+</div>
+<div class="section" id="invalidate-the-session">
+<h3>Invalidate the Session<a class="headerlink" href="#invalidate-the-session" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Big-IP 1 (OAuth C/RS) -&gt; Access -&gt; Overview -&gt; Active Sessions</strong>.
+Select the existing sessions and click <strong>Kill Selected Sessions</strong>, then
+confirm by clicking <strong>Delete</strong></p>
+<p><img alt="image215" src="../../../_images/image201.png" /></p>
+</li>
+<li><p class="first">Go back to <strong>Postman</strong> and click <strong>Send</strong> with your current OAuth token
+still inserted into the header. You should still receive a 200 OK,
+5 headers and the body should contain a list of departments.</p>
+<p><img alt="image216" src="../../../_images/image200.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You were still able to reach the API because you were able to
+establish a new session with your existing valid token*.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="invalidate-both-the-current-session-and-token">
+<h3>Invalidate both the Current Session and Token<a class="headerlink" href="#invalidate-both-the-current-session-and-token" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go Big-IP 2 (OAuth AS) -&gt; <strong>Access -&gt; Overview -&gt; OAuth Reports -&gt; Tokens</strong>.
+Change the <strong>DB Instance</strong> to oauth-api-db.</p>
+<p><img alt="image217" src="../../../_images/image202.png" /></p>
+</li>
+<li><p class="first">Select all tokens, click <strong>Checkbox</strong> left in title bar and the click
+<strong>Revoke</strong> in the top right</p>
+<p><img alt="image218" src="../../../_images/image203.png" /></p>
+</li>
+<li><p class="first">Go to <strong>Big-IP 1 (OAuth C/RS) -&gt; Access -&gt; Overview -&gt; Active Sessions</strong>.
+Select the existing sessions and click <strong>Kill Selected Sessions</strong>, then
+confirm by clicking <strong>Delete</strong></p>
+<p><img alt="image219" src="../../../_images/image201.png" /></p>
+</li>
+<li><p class="first">Go back to <strong>Postman</strong> and click Send with your
+<em>current OAuth token still inserted</em> into the header. You should receive
+a <code class="docutils literal notranslate"><span class="pre">401</span> <span class="pre">Unauthorized</span></code>, <strong>3 headers</strong>, no body, and the <code class="docutils literal notranslate"><span class="pre">WWW-Authenticate</span></code>
+header will provide an error description indicating the token is not active.</p>
+<p><img alt="image220" src="../../../_images/image204.png" /></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can remove the header, delete the token, and start over getting
+a new token and it will work once again.*</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This time you were no longer able to reach the API because you no
+longer had a valid token to establish your new session with. Getting a
+new token will resolve the issue.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../module1/module1.html" title="Lab 1: Social Login Lab" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module3/module3.html" title="Lab 3: Reporting and Session Management" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

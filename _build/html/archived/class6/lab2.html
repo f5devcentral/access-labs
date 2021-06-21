@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 2: IDaaS SAML Identity Provider (iDP) Lab (OKTA)</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 2: IDaaS SAML Identity Provider (iDP) Lab (OKTA)"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:45:41"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2: IDaaS SAML Identity Provider (iDP) Lab (OKTA) &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 3: oAuth and OpenID Connect Lab (Google)" href="lab3.html" />
+    <link rel="prev" title="Lab 1: SAML Service Provider (SP) Lab" href="lab1.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 2: IDaaS SAML Identity Provider (iDP) Lab (OKTA)</a><ul>
+<li><a class="reference internal" href="#objective">Objective:</a></li>
+<li><a class="reference internal" href="#lab-requirements">Lab Requirements:</a></li>
+<li><a class="reference internal" href="#lab-2-tasks">Lab 2 Tasks:</a><ul>
+<li><a class="reference internal" href="#task-1-sign-up-for-okta-developer-account">TASK 1: Sign Up for OKTA Developer Account</a></li>
+<li><a class="reference internal" href="#task-2-okta-classic-ui">TASK 2: OKTA Classic UI</a></li>
+<li><a class="reference internal" href="#task-3-enable-okta-multi-factor-authentication-optional">TASK 3: Enable OKTA Multi-Factor Authentication [OPTIONAL]</a></li>
+<li><a class="reference internal" href="#task-4-build-saml-application-okta">TASK 4: Build SAML Application - OKTA</a></li>
+<li><a class="reference internal" href="#task-5-add-user-to-saml-application">TASK 5: Add User to SAML Application</a></li>
+<li><a class="reference internal" href="#task-6-add-multi-factor-authentication-sign-on-policy-optional">TASK 6: Add Multi-Factor Authentication Sign-On Policy [OPTIONAL]</a></li>
+<li><a class="reference internal" href="#task-7-create-the-external-idp-connector">TASK 7: Create the External IDP Connector</a></li>
+<li><a class="reference internal" href="#task-8-change-the-saml-sp-binding">TASK 8: Change the SAML SP Binding</a></li>
+<li><a class="reference internal" href="#task-9-apply-access-policy-changes">TASK 9: Apply Access Policy Changes</a></li>
+<li><a class="reference internal" href="#task-10-test-access-to-the-app-f5demo-com-application">TASK 10 - Test Access to the app.f5demo.com application</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="class6.html">Class 6: Federating Common Services</a>
+
+          <span class="right">
+             <a href="../../_sources/archived/class6/lab2.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-2-idaas-saml-identity-provider-idp-lab-okta">
+<h1>Lab 2: IDaaS SAML Identity Provider (iDP) Lab (OKTA)<a class="headerlink" href="#lab-2-idaas-saml-identity-provider-idp-lab-okta" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this lab is to configure and test a IDaaS SAML Identity
+Provider. Students will configure a IDaaS based SAML Identity Provider
+(in this case OKTA) and import and bind to a SAML Service Provider and
+test IdP-Initiated and SP-Initiated SAML Federation.</p>
+<div class="section" id="objective">
+<h2>Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Gain an understanding of integrating a IDaaS SAML Identity
+Provider(IdP)</li>
+<li>Gain an understanding of the access flow for IdP-Initiated SAML</li>
+</ul>
+</div>
+<div class="section" id="lab-requirements">
+<h2>Lab Requirements:<a class="headerlink" href="#lab-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All Lab requirements will be noted in the tasks that follow</li>
+<li>Estimated completion time: 25 minutes</li>
+</ul>
+</div>
+<div class="section" id="lab-2-tasks">
+<h2>Lab 2 Tasks:<a class="headerlink" href="#lab-2-tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-1-sign-up-for-okta-developer-account">
+<h3>TASK 1: Sign Up for OKTA Developer Account<a class="headerlink" href="#task-1-sign-up-for-okta-developer-account" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><em>Note: The following steps provide instruction for setting up an OKTA developer account.</em></p>
+<p><em>If you already have one, you may elect to use that account. Understand, however, that the</em></p>
+<p class="last"><em>instructions below may need to be modified to match your environment.</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Sign Up for an OKTA developer account by navigating to:</p>
+<p><strong>https://developer.okta.com/signup/</strong> and using a VALID email and click <strong>Get Started</strong></p>
+</li>
+<li><p class="first">Upon registration, you will be directed to a hyperlink (hostname) for your developer</p>
+<p>account. This link should be saved for future use.</p>
+</li>
+<li><p class="first">Additional instructions will be sent to the email address provided during account setup.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/image022.png"><img alt="image022" src="../../_images/image022.png" style="width: 4.5in; height: 2.32in;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/image023.png"><img alt="image023" src="../../_images/image023.png" style="width: 4.5in; height: 2.37in;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="4">
+<li><p class="first">Following the instructions received from the generated email, sign into the OKTA</p>
+<p>development environment with your provided, temporary password.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image024.png"><img alt="image024" src="../../_images/image024.png" style="width: 1.75in; height: 2.75in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>Enter a <strong>New Password</strong> and the <strong>Repeat New Password</strong></li>
+<li>Use the drop down to select a <strong>Forgot Password Question</strong> and provide the Answer</li>
+<li>Click a <strong>Security Image</strong></li>
+<li>Click <strong>Create My Account</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image025.png"><img alt="image025" src="../../_images/image025.png" style="width: 2.5in; height: 4.5in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-2-okta-classic-ui">
+<h3>TASK 2: OKTA Classic UI<a class="headerlink" href="#task-2-okta-classic-ui" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">For the purposes of the lab and SAML development, we will be using the OKTA Classic UI</p>
+<p>which provides access to SAML configurations. <em>(Note: At lab publication, the Developer</em></p>
+<p><em>Console did not have SAML resources.)</em></p>
+</li>
+<li><p class="first">In the top, left hand corner click the <strong>&lt;&gt;</strong> &amp; select <strong>Classic UI</strong> from the drop down.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image026.png"><img alt="image026" src="../../_images/image026.png" style="width: 4.5in; height: 0.74in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-3-enable-okta-multi-factor-authentication-optional">
+<h3>TASK 3: Enable OKTA Multi-Factor Authentication [OPTIONAL]<a class="headerlink" href="#task-3-enable-okta-multi-factor-authentication-optional" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below. This task will require a mobile app to enable a second factor.</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>[OPTIONAL]</strong></p>
+<p><em>Note: Enabling MFA will require a Smart Device with the appropriate OKTA client for your OS</em></p>
+<p><em>The step can be skipped if you prefer to just use UserID/Password</em></p>
+<ol class="last arabic simple">
+<li>Click <strong>Security</strong> from the top navigation, then click <strong>Multifactor</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image027.png"><img alt="image027" src="../../_images/image027.png" style="width: 4.5in; height: 1.03in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>[OPTIONAL]</strong></p>
+<ol class="last arabic simple" start="2">
+<li>Under <strong>OKTA Verify</strong>, change the dropdown from <strong>Inactive</strong> to <strong>Active</strong></li>
+<li>Click the <strong>Edit</strong> button next to <strong>*OKTA Verify Settings</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image028.png"><img alt="image028" src="../../_images/image028.png" style="width: 4.5in; height: 2.58in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>[OPTIONAL]</strong></p>
+<ol class="last arabic simple" start="4">
+<li>Check <strong>Enable Push Verification</strong></li>
+<li>Check <strong>Require TouchID for OKTA Verify</strong> (optional)</li>
+<li>Click <strong>Save</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image029.png"><img alt="image029" src="../../_images/image029.png" style="width: 4.5in; height: 2.56in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-4-build-saml-application-okta">
+<h3>TASK 4: Build SAML Application - OKTA<a class="headerlink" href="#task-4-build-saml-application-okta" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">In the main menu, click <strong>Applications</strong>, and <strong>Applications</strong> from the dropdown in the</p>
+<p>top navigation.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image030.png"><img alt="image030" src="../../_images/image030.png" style="width: 4.5in; height: 0.80in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="2">
+<li>Click <strong>Add Application</strong> in the <strong>Applications</strong> dialogue window.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image031.png"><img alt="image031" src="../../_images/image031.png" style="width: 4.5in; height: 1.66in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Click <strong>Create New App</strong> in the <strong>Add Application Menu</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image032.png"><img alt="image032" src="../../_images/image032.png" style="width: 4.5in; height: 1.64in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">In the <strong>Create a New Application Integration</strong> dialogue box, select <strong>Web</strong> from the</p>
+<p>drop down for <strong>Platform</strong>.</p>
+</li>
+<li><p class="first">Select the <strong>SAML 2.0</strong> radio button for <strong>Sign on Method</strong> and click <strong>Create</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image033.png"><img alt="image033" src="../../_images/image033.png" style="width: 4.5in; height: 2.64in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>In the <strong>Create SAML Integration</strong> screen, enter <strong>app.f5demo.com</strong> for the <strong>App Name</strong>.</li>
+<li>Leave all other values as default and click <strong>Next</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image034.png"><img alt="image034" src="../../_images/image034.png" style="width: 4.5in; height: 2.71in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="7">
+<li>In the <strong>Create SAML Integration</strong> screen, enter the following values</li>
+<li>In the <strong>SAML Setting</strong> section<ul>
+<li><strong>Single Sign on URL:</strong> <strong>https://app.f5demo.com/saml/sp/profile/post/acs</strong></li>
+<li><strong>Audience URI (SP Entity ID):</strong> <strong>https://app.f5demo.com</strong></li>
+</ul>
+</li>
+<li>Leave all other values as default and click <strong>Next</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image035.png"><img alt="image035" src="../../_images/image035.png" style="width: 4.0in; height: 3.75in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="10">
+<li><p class="first">In the <strong>Create SAML Integration</strong> screen, select the:</p>
+<p><strong>“I’m an OKTA customer adding an internal app”</strong> radio button for</p>
+<p><strong>Are you a customer or partner?</strong></p>
+</li>
+<li><p class="first">In the resulting expanded window, select:</p>
+<p><strong>“This is an internal app that we have created”</strong> for <strong>App Type</strong></p>
+<p>and click <strong>Finish</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image036.png"><img alt="image036" src="../../_images/image036.png" style="width: 4.5in; height: 2.56in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="12">
+<li><p class="first">In the resulting application screen for <strong>app.f5demo.com</strong>, navigate to the</p>
+<p><strong>SAML 2.0 section</strong>.</p>
+</li>
+<li><p class="first">Right Click the <strong>Identity Provider Metadata</strong> hyperlink and click <strong>Save Link As …</strong></p>
+</li>
+<li><p class="first">Save the <strong>metadata.xml</strong> to your jumphost desktop. We will be using it in a later step</p>
+<p>in the Lab.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image037.png"><img alt="image037" src="../../_images/image037.png" style="width: 4.5in; height: 3.40in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-5-add-user-to-saml-application">
+<h3>TASK 5: Add User to SAML Application<a class="headerlink" href="#task-5-add-user-to-saml-application" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Within the <strong>app.f5demo.com</strong> application screen, Click <strong>Assignments</strong> then <strong>Assign</strong></p>
+<p>and then <strong>Assign to People</strong> from the dropdown.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image038.png"><img alt="image038" src="../../_images/image038.png" style="width: 4.5in; height: 1.89in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">In the <strong>Assign app.f5demo.com to People</strong> dialogue box, select your <strong>User ID</strong>, click</p>
+<p><strong>Assign</strong>, then <strong>Done</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image039.png"><img alt="image039" src="../../_images/image039.png" style="width: 4.5in; height: 1.72in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Click <strong>Save and Go Back</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image040.png"><img alt="image040" src="../../_images/image040.png" style="width: 4.5in; height: 1.69in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="4">
+<li>Click <strong>Done</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image041.png"><img alt="image041" src="../../_images/image041.png" style="width: 4.5in; height: 1.73in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-6-add-multi-factor-authentication-sign-on-policy-optional">
+<h3>TASK 6: Add Multi-Factor Authentication Sign-On Policy [OPTIONAL]<a class="headerlink" href="#task-6-add-multi-factor-authentication-sign-on-policy-optional" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below.  This section requires that <strong>Task 3</strong> be completed.</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>[OPTIONAL]</strong></p>
+<ol class="last arabic simple">
+<li>Within the <strong>app.f5demo.com</strong> application screen, Click <strong>Sign On</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image042.png"><img alt="image042" src="../../_images/image042.png" style="width: 4.5in; height: 1.22in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>[OPTIONAL]</strong></p>
+<ol class="last arabic simple" start="2">
+<li>Scroll down to the <strong>Sign On Policy</strong> section and click <strong>Add Rule</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image043.png"><img alt="image043" src="../../_images/image043.png" style="width: 4.5in; height: 1.68in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>[OPTIONAL]</strong></p>
+<ol class="last arabic simple" start="3">
+<li>In the <strong>Add Sign On Rule</strong> dialogue box, enter <strong>MFA</strong> for the <strong>Rule Name</strong>.</li>
+<li>Scroll down to the <strong>Actions</strong> section.</li>
+<li>In the <strong>Actions</strong> section, under <strong>Access</strong>, check the box for <strong>Prompt for factor</strong>.</li>
+<li>Ensure <strong>Every Sign On</strong> radio button is selected.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image044.png"><img alt="image044" src="../../_images/image044.png" style="width: 2.5in; height: 3.25in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-7-create-the-external-idp-connector">
+<h3>TASK 7: Create the External IDP Connector<a class="headerlink" href="#task-7-create-the-external-idp-connector" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Login to your lab provided <strong>Virtual Edition BIG-IP</strong></p>
+</li>
+<li><p class="first">Begin by selecting: <strong>Access</strong> -&gt; <strong>Federation</strong> -&gt; <strong>SAML Service Provider</strong> -&gt;</p>
+<p><strong>External IdP Connectors</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image045.png"><img alt="image045" src="../../_images/image045.png" style="width: 4.5in; height: 2.30in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">In the <strong>External IdP Connectors</strong> screen, click the <strong>downward arrow</strong> next to the word</p>
+<p><strong>Create</strong> on the <strong>Create</strong> button (right side)</p>
+</li>
+<li><p class="first">Select <strong>From Metadata</strong> from the drop down menu</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image046.png"><img alt="image046" src="../../_images/image046.png" style="width: 4.5in; height: 0.77in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="5">
+<li><p class="first">In the <strong>Create New SAML IdP Connector</strong> dialogue box, use the <strong>Browse</strong> button to</p>
+<p>select the <strong>metadata.xml</strong> from the desktop (created in Task 4).</p>
+</li>
+<li><p class="first">Name the <strong>Identity Provider Name</strong>: <strong>OKTA_SaaS-iDP</strong>.</p>
+</li>
+<li><p class="first">Click <strong>OK</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image047.png"><img alt="image047" src="../../_images/image047.png" style="width: 4.5in; height: 3.38in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-8-change-the-saml-sp-binding">
+<h3>TASK 8: Change the SAML SP Binding<a class="headerlink" href="#task-8-change-the-saml-sp-binding" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Begin by selecting: <strong>Access</strong> -&gt; <strong>Federation</strong> -&gt; <strong>SAML Service Provider</strong> -&gt;</p>
+<p><strong>Local SP Services</strong></p>
+</li>
+<li><p class="first">Select the checkbox next to <strong>app.f5demo.com</strong> and click <strong>Bind\UnBind IdP Connectors</strong></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image048.png"><img alt="image048" src="../../_images/image048.png" style="width: 4.5in; height: 1.15in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Check the existing binding and click <strong>Delete</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image049.png"><img alt="image049" src="../../_images/image049.png" style="width: 4.5in; height: 2.04in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="4">
+<li>Click <strong>Add New Row</strong> and use the following values<ul>
+<li><strong>SAML IdP Connectors:</strong> <strong>/Common/OKTA_SaaS-iDP</strong></li>
+<li><strong>Matching Source:</strong> <strong>%{session.server.landinguri}</strong></li>
+<li><strong>Matching Value:</strong> /*</li>
+</ul>
+</li>
+<li>Click <strong>Update</strong> then <strong>OK</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image050.png"><img alt="image050" src="../../_images/image050.png" style="width: 4.5in; height: 2.33in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-9-apply-access-policy-changes">
+<h3>TASK 9: Apply Access Policy Changes<a class="headerlink" href="#task-9-apply-access-policy-changes" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>Click the <strong>Apply Access Policy</strong> link in the top left corner of the Admin GUI</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image051.png"><img alt="image051" src="../../_images/image051.png" style="width: 4.5in; height: 1.10in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="2">
+<li>Ensure <strong>app.f5demo.com-policy</strong> is checked and click <strong>Apply</strong></li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image052.png"><img alt="image052" src="../../_images/image052.png" style="width: 4.5in; height: 1.66in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-10-test-access-to-the-app-f5demo-com-application">
+<h3>TASK 10 - Test Access to the app.f5demo.com application<a class="headerlink" href="#task-10-test-access-to-the-app-f5demo-com-application" title="Permalink to this headline">¶</a></h3>
+<p>Refer to the instructions and screen shots below:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Using your browser from the Jump Host click on the provided bookmark or navigate to:</p>
+<p><a class="reference external" href="https://app.f5demo.com">https://app.f5demo.com</a></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image053.png"><img alt="image053" src="../../_images/image053.png" style="width: 4.5in; height: 1.03in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">Follow the necessary prompts as directed.</p>
+<p><em>Note: Those who enabled MFA access will be required to activate their second factor for</em></p>
+<p><em>application access. Requires Task 3 &amp; Task be completed.</em></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image054.png"><img alt="image054" src="../../_images/image054.png" style="width: 2.0in; height: 1.75in;" /></a>
+<a class="reference internal" href="../../_images/image055.png"><img alt="image055" src="../../_images/image055.png" style="width: 2.0in; height: 1.75in;" /></a>
+<a class="reference internal" href="../../_images/image056.png"><img alt="image056" src="../../_images/image056.png" style="width: 2.0in; height: 1.75in;" /></a></td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic" start="4">
+<li><p class="first">Did you successfully redirect to the OKTA SaaS IdP?</p>
+</li>
+<li><p class="first">Login to the iDP, were you successfully authenticated? Were you prompted for MFA</p>
+<p>if configured?</p>
+</li>
+<li><p class="first">After successful authentication, were you returned to the SAML SP?</p>
+</li>
+<li><p class="first">Were you successfully authenticated (SAML)?</p>
+</li>
+<li><p class="first">Review your <strong>Active Sessions</strong> (<strong>Access Overview</strong> -&gt; <strong>Active Sessions</strong>).</p>
+</li>
+<li><p class="first">Review your Access Report Logs (<strong>Access Overview</strong> -&gt; <strong>Access Reports</strong>).</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="../../_images/image057.png"><img alt="image057" src="../../_images/image057.png" style="width: 4.5in; height: 3.03in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="10">
+<li><p class="first">Destroy your Active Session by nagivating to <strong>Access Overview</strong> -&gt; <strong>Active Sessions</strong></p>
+<p>Select the checkbox next to your session and click the <strong>Kill Selected Session</strong> button.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image058.png"><img alt="image058" src="../../_images/image058.png" style="width: 2.5in; height: 2.5in;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="11">
+<li><p class="first">Close your browser and logon to your <strong>https://dev-&lt;Dev-ID&gt;.oktapreview.com</strong> account.</p>
+<p>Click on your <strong>app.f5demo.com</strong> application for IDP initiated Access.</p>
+</li>
+<li><p class="first">After successful authentication, were you returned to the SAML SP?</p>
+</li>
+<li><p class="first">Were you successfully authenticated (SAML)?</p>
+</li>
+<li><p class="first">Review your <strong>Active Sessions</strong> (<strong>Access Overview</strong> -&gt; <strong>Active Sessions</strong>).</p>
+</li>
+<li><p class="first">Review your Access Report Logs (<strong>Access Overview</strong> -&gt; <strong>Access Reports</strong>).</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image059.png"><img alt="image059" src="../../_images/image059.png" style="width: 4.5in; height: 1.08in;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="lab1.html" title="Lab 1: SAML Service Provider (SP) Lab" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab3.html" title="Lab 3: oAuth and OpenID Connect Lab (Google)" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

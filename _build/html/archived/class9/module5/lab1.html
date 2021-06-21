@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab – Set up Google Authenticator (GA)</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab – Set up Google Authenticator (GA)"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:45:41"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab – Set up Google Authenticator (GA) &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lab 5: Set up DUO" href="../module6/module6.html" />
+    <link rel="prev" title="Lab 4: Set up Google Authenticator (GA)" href="module5.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab –  Set up Google Authenticator (GA)</a></li>
+<li><a class="reference internal" href="#task-create-the-vs-used-to-generate-ga-tokens">Task - Create the VS used to generate GA tokens</a></li>
+<li><a class="reference internal" href="#task-generate-a-token">Task - Generate a token</a></li>
+<li><a class="reference internal" href="#task-update-the-vs-with-the-verification-irule">Task - Update the VS with the verification iRule</a></li>
+<li><a class="reference internal" href="#task-update-the-access-policy">Task - Update the Access Policy</a></li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="../class9.html">Class 9: Multi-Factor Auth for Cloud Applications</a>
+              &gt; <a href="module5.html">Lab 4: Set up Google Authenticator (GA)</a>
+
+          <span class="right">
+             <a href="../../../_sources/archived/class9/module5/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-set-up-google-authenticator-ga">
+<h1>Lab –  Set up Google Authenticator (GA)<a class="headerlink" href="#lab-set-up-google-authenticator-ga" title="Permalink to this headline">¶</a></h1>
+<p>This lab will teach you how to configure Google Authenticator as Second Auth Factor.
+Estimated completion time: <strong>30 minutes</strong></p>
+</div>
+<div class="section" id="task-create-the-vs-used-to-generate-ga-tokens">
+<h1>Task - Create the VS used to generate GA tokens<a class="headerlink" href="#task-create-the-vs-used-to-generate-ga-tokens" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Log in to the BIG IP then go to <strong>Local Traffic</strong> -&gt;
+<strong>Virtual Servers</strong> -&gt; <strong>Virtual Server List</strong>. Click on
+<strong>Create</strong>.</td>
+<td><img alt="image104" src="../../../_images/image1042.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Enter the following values (leave others default) and then
+<strong>finished.</strong></p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">VS_GENERATE_TOKEN</span></code></p>
+<p><strong>Destination Address:</strong> <code class="docutils literal notranslate"><span class="pre">10.1.10.80</span></code></p>
+<p><strong>Service Port:</strong> <code class="docutils literal notranslate"><span class="pre">443</span></code></p>
+<p><strong>HTTP Profile:</strong> <code class="docutils literal notranslate"><span class="pre">http</span></code></p>
+<p><strong>SSL Profile (Client):</strong> <code class="docutils literal notranslate"><span class="pre">f5demo_client_ssl</span></code></p>
+<p><strong>iRules:</strong> <code class="docutils literal notranslate"><span class="pre">generate_ga_code</span></code></p>
+</div></blockquote>
+</td>
+<td><p class="first"><img alt="image105" src="../../../_images/image1052.png" /></p>
+<p class="last"><img alt="image106" src="../../../_images/image1062.png" /></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-generate-a-token">
+<h1>Task - Generate a token<a class="headerlink" href="#task-generate-a-token" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Open a <strong>Chrome</strong> browser and click on
+<strong>generategacode bookmark.</strong> You should see the
+<strong>GA generator App</strong>.</td>
+<td><img alt="image107" src="../../../_images/image1072.png" /></td>
+</tr>
+<tr class="row-even"><td>2. Enter the <strong>account:</strong> <code class="docutils literal notranslate"><span class="pre">sales_manager</span></code> and <strong>domain:</strong>
+<code class="docutils literal notranslate"><span class="pre">f5demo.com</span></code>. Also <strong>check</strong> the <strong>generate QR code</strong>,
+and then click <strong>Submit</strong></td>
+<td><img alt="image108" src="../../../_images/image1082.png" /></td>
+</tr>
+<tr class="row-odd"><td>3. Open up your <strong>Google Authenticator</strong> app and touch
+the <strong>“plus sign”</strong>, select scan barcode and <strong>scan</strong> the
+<strong>QR code</strong>. Save the <strong>secret</strong>, we will need it soon.</td>
+<td><img alt="image109" src="../../../_images/image1092.png" /></td>
+</tr>
+<tr class="row-even"><td>4. Go to <strong>Local Traffic</strong> -&gt; <strong>iRules</strong> -&gt; <strong>Data Group List</strong>
+.Click on <strong>google_auth_keys</strong>.</td>
+<td><img alt="image110" src="../../../_images/image1102.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">5. Create a new record, using the info saved in <strong>step 3</strong>.
+Click <strong>Add</strong> and then <strong>Update.</strong></p>
+<blockquote class="last">
+<div><p><strong>String:</strong> <code class="docutils literal notranslate"><span class="pre">sales_manager</span></code></p>
+<p><strong>Value:</strong> <code class="docutils literal notranslate"><span class="pre">use</span> <span class="pre">the</span> <span class="pre">secret</span> <span class="pre">ie</span> <span class="pre">(G4ZEIWDJLBJE4ZCM)</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image111" src="../../../_images/image1113.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic" start="6">
+<li><p class="first">Repeat the steps <strong>1 to 5</strong>, for the users:</p>
+<p><strong>sales_user</strong> and <strong>partner_user</strong></p>
+</li>
+</ol>
+</td>
+<td><img alt="image112" src="../../../_images/image1122.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-update-the-vs-with-the-verification-irule">
+<h1>Task - Update the VS with the verification iRule<a class="headerlink" href="#task-update-the-vs-with-the-verification-irule" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Local Traffic</strong> -&gt; <strong>Virtual Servers</strong> -&gt;
+<strong>Virtual Server List</strong>, then find the Virtual Server
+<strong>webtop_demo_vs</strong> and <strong>click on</strong> it.</td>
+<td><img alt="image113" src="../../../_images/image1132.png" /></td>
+</tr>
+<tr class="row-even"><td>2. In the following page, choose <strong>Resources</strong> and click on
+<strong>manage</strong> in the <strong>iRules</strong> section</td>
+<td><img alt="image114" src="../../../_images/image1142.png" /></td>
+</tr>
+<tr class="row-odd"><td>3. Find the <strong>ga_code_verify</strong> irule in the right list and
+<strong>click on the arrows</strong> pointing left. The irule should now
+moved to the left side. Then Click <strong>finished</strong>.</td>
+<td><img alt="image115" src="../../../_images/image1152.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-update-the-access-policy">
+<h1>Task - Update the Access Policy<a class="headerlink" href="#task-update-the-access-policy" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Profiles/Policies</strong> -&gt;
+<strong>Access Profiles.</strong> Find the <strong>webtop_demo</strong> policy and
+click on <strong>Edit</strong>.</td>
+<td><img alt="image116" src="../../../_images/image1162.png" /></td>
+</tr>
+<tr class="row-even"><td>2. In the <strong>VPE</strong> (Visual Policy Editor), click the <code class="docutils literal notranslate"><span class="pre">+</span></code>
+between <strong>AD Auth</strong> and <strong>AD Query.</strong></td>
+<td><img alt="image117" src="../../../_images/image1172.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>In the <strong>Logon tab</strong>, choose <strong>Logon Page</strong> and then <strong>Add Item</strong></li>
+</ol>
+</td>
+<td><img alt="image118" src="../../../_images/image1182.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">4. <strong>Modify</strong> the values according to the picture
+(leave others default) and then <strong>Save.</strong></p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Get</span> <span class="pre">Ga</span> <span class="pre">Code</span></code></p>
+<p><strong>Post Variabl:e</strong> <code class="docutils literal notranslate"><span class="pre">ga_code_attempt</span></code></p>
+<p><strong>Session Variable:</strong> <code class="docutils literal notranslate"><span class="pre">ga_code_attempt</span></code></p>
+<p><strong>Form Header Text:</strong> <code class="docutils literal notranslate"><span class="pre">Empty</span></code></p>
+<p><strong>Logon Page Input Field:</strong> <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Authenticator</span> <span class="pre">Token</span></code></p>
+<p><strong>Logon Button:</strong> <code class="docutils literal notranslate"><span class="pre">Submit</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image119" src="../../../_images/image1192.png" /></td>
+</tr>
+<tr class="row-odd"><td>5. Click on <strong>Add New Macro</strong>, name it as
+<code class="docutils literal notranslate"><span class="pre">Verify</span> <span class="pre">Google</span> <span class="pre">Token</span></code> and click <strong>Save</strong></td>
+<td><p class="first"><img alt="image120" src="../../../_images/image1202.png" /></p>
+<p class="last"><img alt="image121" src="../../../_images/image1213.png" /></p>
+</td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="6">
+<li>Click on <strong>Edit Terminals</strong> in the <strong>Macro Settings</strong></li>
+</ol>
+</td>
+<td><p class="first"><img alt="image122" src="../../../_images/image1222.png" /></p>
+<p class="last"><img alt="image123" src="../../../_images/image1232.png" /></p>
+</td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="7">
+<li>Click on <strong>Add Terminal</strong>, and name the terminal <strong>Failure</strong>.</li>
+</ol>
+</td>
+<td><img alt="image124" src="../../../_images/image1242.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="8">
+<li><strong>Rename</strong> the terminal called Out to <strong>Successful</strong></li>
+</ol>
+</td>
+<td><img alt="image125" src="../../../_images/image1252.png" /></td>
+</tr>
+<tr class="row-odd"><td>9. Click on the <strong>Set default</strong> tab and set the default to
+<code class="docutils literal notranslate"><span class="pre">Failure</span></code>, then <strong>Save</strong></td>
+<td><img alt="image126" src="../../../_images/image1262.png" /></td>
+</tr>
+<tr class="row-even"><td>10. Change the order in the terminals using the arrows,
+<strong>Successful</strong> should be the number one.</td>
+<td><img alt="image127" src="../../../_images/image1272.png" /></td>
+</tr>
+<tr class="row-odd"><td>11. <strong>Edit</strong> the new macro by clicking on the <code class="docutils literal notranslate"><span class="pre">+</span></code>
+in the <strong>macro settings</strong></td>
+<td><img alt="image128" src="../../../_images/image1281.png" /></td>
+</tr>
+<tr class="row-even"><td>12. Go to the <strong>General Purpose</strong> Tab, click on
+<strong>iRule Event</strong> and then <strong>Add Item</strong></td>
+<td><img alt="image129" src="../../../_images/image1292.png" /></td>
+</tr>
+<tr class="row-odd"><td>13. Name it <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Auth</span> <span class="pre">Verification</span></code> and use the
+<strong>ID</strong> <code class="docutils literal notranslate"><span class="pre">ga_code_verify</span></code>.</td>
+<td><img alt="image130" src="../../../_images/image1302.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">14. Then <strong>click</strong> on <strong>Branch Rules</strong>, <strong>Add Branch Rule</strong>.
+Name and change the expression (<strong>advanced tab</strong>) according
+to the image. Then <strong>Save</strong></p>
+<p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Successful</span></code></p>
+<p><strong>Expression:</strong> <code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">{</span> <span class="pre">[mcget</span> <span class="pre">{session.custom.ga_result}]</span> <span class="pre">==</span> <span class="pre">0</span> <span class="pre">}</span></code></p>
+<p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">No</span> <span class="pre">Google</span> <span class="pre">Auth</span> <span class="pre">Key</span> <span class="pre">Found</span></code></p>
+<p><strong>Expression:</strong> <code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">{</span> <span class="pre">[mcget</span> <span class="pre">{session.custom.ga_result}]</span> <span class="pre">==</span> <span class="pre">2</span> <span class="pre">}</span></code></p>
+<p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Invalid</span> <span class="pre">Google</span> <span class="pre">Auth</span> <span class="pre">Key</span></code></p>
+<p><strong>Expression:</strong> <code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">{</span> <span class="pre">[mcget</span> <span class="pre">{session.custom.ga_result}]</span> <span class="pre">==</span> <span class="pre">3</span> <span class="pre">}</span></code></p>
+<p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">User</span> <span class="pre">locked</span> <span class="pre">out</span></code></p>
+<p><strong>Expression:</strong> <code class="docutils literal notranslate"><span class="pre">expr</span> <span class="pre">{</span> <span class="pre">[mcget</span> <span class="pre">{session.custom.ga_result}]</span> <span class="pre">==</span> <span class="pre">4</span> <span class="pre">}</span></code></p>
+<p class="last"><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">It’s</span> <span class="pre">very</span> <span class="pre">important</span> <span class="pre">the</span> <span class="pre">order.</span></code></p>
+</td>
+<td><img alt="image131" src="../../../_images/image1313.png" /></td>
+</tr>
+<tr class="row-odd"><td>15. Click on the terminals and <strong>set Successful to Successful</strong>
+and <strong>the rest to Failure</strong></td>
+<td><img alt="image132" src="../../../_images/image1322.png" /></td>
+</tr>
+<tr class="row-even"><td>16. Now, we’re going to insert the Macro in the main policy.
+<strong>Click</strong> on the <code class="docutils literal notranslate"><span class="pre">+</span></code> between <strong>Get Ga Code</strong> and <strong>AD Query</strong>.</td>
+<td><img alt="image133" src="../../../_images/image1332.png" /></td>
+</tr>
+<tr class="row-odd"><td>17. Click on the <strong>Macros Tab</strong> and select your
+<strong>Verify Google Token</strong> macro, then click <strong>Add Item</strong>. Click on
+<strong>Apply Policy</strong></td>
+<td><img alt="image134" src="../../../_images/image1342.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first arabic simple" start="18">
+<li>Go to <code class="docutils literal notranslate"><span class="pre">https://webtop.vlab.f5demo.com</span></code> from the jump host,</li>
+</ol>
+<blockquote>
+<div>You can login with any user:</div></blockquote>
+<ul class="simple">
+<li><strong>sales_user</strong></li>
+<li><strong>sales_manager</strong></li>
+<li><strong>partner_user</strong></li>
+</ul>
+<p class="last">You should see the <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">Authenticator</span></code> page as
+<code class="docutils literal notranslate"><span class="pre">Second</span> <span class="pre">Auth</span> <span class="pre">Factor</span></code>.</p>
+</td>
+<td><img alt="image135" src="../../../_images/image1352.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="module5.html" title="Lab 4: Set up Google Authenticator (GA)" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module6/module6.html" title="Lab 5: Set up DUO" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

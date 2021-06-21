@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 2: Onboard a Second Application(16.0)</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 2: Onboard a Second Application(16.0)"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:45:41"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2: Onboard a Second Application(16.0) &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 3: Utilize HTTP Connector(16.0)" href="lab03.html" />
+    <link rel="prev" title="Lab 1: Configure Identity Aware Proxy(16.0)" href="lab01.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 2: Onboard a Second Application(16.0)</a><ul>
+<li><a class="reference internal" href="#section-2-1-access-guided-configuration">Section 2.1 - Access Guided Configuration</a><ul>
+<li><a class="reference internal" href="#task-1-access-the-zero-trust-iap-guided-configuration">Task 1 - Access the Zero Trust IAP guided configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-2-2-user-identity">Section 2.2 - User Identity</a><ul>
+<li><a class="reference internal" href="#task-1-configure-certificate-authentication-with-ocsp">Task 1 - Configure Certificate Authentication with OCSP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-2-3-sso-http-header">Section 2.3 - SSO &amp; HTTP Header</a><ul>
+<li><a class="reference internal" href="#task-1-create-custom-header">Task 1 - Create Custom Header</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-2-4-applications">Section 2.4 - Applications</a><ul>
+<li><a class="reference internal" href="#task-1-configure-application-header-acme-com">Task 1 - Configure Application header.acme.com</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-2-5-application-groups">Section 2.5 - Application Groups</a><ul>
+<li><a class="reference internal" href="#task-1-create-header-ad-group">Task 1 - Create header-ad Group</a></li>
+<li><a class="reference internal" href="#task-2-create-header-ocsp-group">Task 2 - Create header-ocsp Group</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-2-6-webtop">Section 2.6 - Webtop</a><ul>
+<li><a class="reference internal" href="#task-1-verify-applications">Task 1 - Verify applications</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-2-7-contextual-access">Section 2.7 - Contextual Access</a><ul>
+<li><a class="reference internal" href="#task-1-configure-contextual-access-for-header-ad-group">Task 1 - Configure Contextual Access for header_ad Group</a></li>
+<li><a class="reference internal" href="#task-2-configure-contextual-access-for-header-ocsp-group">Task 2 - Configure Contextual Access for header-ocsp Group</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-2-8-testing">Section 2.8 - Testing</a><ul>
+<li><a class="reference internal" href="#task-1-login-to-header-acme-com-using-user1">Task 1 - Login to header.acme.com using user1</a></li>
+<li><a class="reference internal" href="#task-2-login-to-header-acme-com-using-user2">Task 2 - Login to header.acme.com using user2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class2.html">200 Series: Assisted Deployment Use Cases</a>
+
+          <span class="right">
+             <a href="../../_sources/class2/module2/lab02.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-2-onboard-a-second-application-16-0">
+<h1>Lab 2: Onboard a Second Application(16.0)<a class="headerlink" href="#lab-2-onboard-a-second-application-16-0" title="Permalink to this headline">¶</a></h1>
+<p>Guided Configuration supports more than a single application per Identity Aware Proxy Deployment.  In this module you will learn how to modify an existing IAP deployment  to onboard new authentication methods, SSO methods, and applications.</p>
+<p>This Module also introduces the <strong>Application Group</strong> to provide different contextual access controls on parts of a website.</p>
+<div class="section" id="section-2-1-access-guided-configuration">
+<h2>Section 2.1 - Access Guided Configuration<a class="headerlink" href="#section-2-1-access-guided-configuration" title="Permalink to this headline">¶</a></h2>
+<p>To onboard a new application to the IAP, you will first access the Guided Configuration menu.</p>
+<div class="section" id="task-1-access-the-zero-trust-iap-guided-configuration">
+<h3>Task 1 - Access the Zero Trust IAP guided configuration<a class="headerlink" href="#task-1-access-the-zero-trust-iap-guided-configuration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">From Firefox, click on the <strong>Access</strong> tab located on the left side.</p>
+<p><img alt="image1" src="../../_images/image0016.png" /></p>
+</li>
+<li><p class="first">Click <strong>Guided Configuration</strong></p>
+<p><a class="reference internal" href="../../_images/image0026.png"><img alt="image2" src="../../_images/image0026.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click <strong>IAP_DEMO</strong></p>
+<p><a class="reference internal" href="../../_images/image0036.png"><img alt="image3" src="../../_images/image0036.png" style="width: 1000px;" /></a></p>
+</li>
+<li><p class="first">Click <strong>Config Properties</strong> from the top ribbon</p>
+<p><img alt="image4" src="../../_images/image0046.png" /></p>
+</li>
+<li><p class="first">Enable <strong>Application Groups</strong></p>
+</li>
+<li><p class="first">Click <strong>Save &amp; Next</strong></p>
+<p><img alt="image4-1" src="../../_images/image004-1.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-2-2-user-identity">
+<h2>Section 2.2 - User Identity<a class="headerlink" href="#section-2-2-user-identity" title="Permalink to this headline">¶</a></h2>
+<p>Adding an additional User Identity to IAP is just a few simple steps.</p>
+<div class="section" id="task-1-configure-certificate-authentication-with-ocsp">
+<h3>Task 1 - Configure Certificate Authentication with OCSP<a class="headerlink" href="#task-1-configure-certificate-authentication-with-ocsp" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>User Identity</strong> in the Ribbon</p>
+<blockquote>
+<div><p><img alt="image5" src="../../_images/image0056.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Add</strong> to create a new User Identity</p>
+<blockquote>
+<div><p><img alt="image6" src="../../_images/image0066.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Enter Name <strong>ocsp</strong></p>
+</li>
+<li><p class="first">Select <strong>On-Demand Certificate Authentication</strong> from the Authentication Type dropdown</p>
+</li>
+<li><p class="first">Select <strong>OCSP Responder</strong> from the Authentication Server Type dropdown</p>
+</li>
+<li><p class="first">Select <strong>ocsp-servers</strong> from the Authentication Server dropdown</p>
+</li>
+<li><p class="first">Leave <strong>Request</strong> selected under Choose Auth Mode</p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<blockquote>
+<div><p><img alt="image7" src="../../_images/image0076.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Verify the <strong>ocsp</strong> object was created and click <strong>Save &amp; Next</strong></p>
+<blockquote>
+<div><p><img alt="image8" src="../../_images/image0086.png" /></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-2-3-sso-http-header">
+<h2>Section 2.3 - SSO &amp; HTTP Header<a class="headerlink" href="#section-2-3-sso-http-header" title="Permalink to this headline">¶</a></h2>
+<p>In this section, you will create a custom header value to pass to the web server.</p>
+<div class="section" id="task-1-create-custom-header">
+<h3>Task 1 - Create Custom Header<a class="headerlink" href="#task-1-create-custom-header" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Add</strong></p>
+<p><img alt="image9" src="../../_images/image0096.png" /></p>
+</li>
+<li><p class="first">Enter Name <strong>header_sso</strong></p>
+</li>
+<li><p class="first">Change radio button for Type to <strong>HTTP Headers</strong></p>
+</li>
+<li><p class="first">In the <strong>SSO Headers</strong> section, enter <strong>userID</strong> in the Header Name Field</p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image10" src="../../_images/image0106.png" /></p>
+</li>
+<li><p class="first">Verify the <strong>header_sso</strong> object was created and click <strong>Save &amp; Next</strong></p>
+<p><img alt="image11" src="../../_images/image0115.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-2-4-applications">
+<h2>Section 2.4 - Applications<a class="headerlink" href="#section-2-4-applications" title="Permalink to this headline">¶</a></h2>
+<p>In this section you will define a second application with subpaths.</p>
+<div class="section" id="task-1-configure-application-header-acme-com">
+<h3>Task 1 - Configure Application header.acme.com<a class="headerlink" href="#task-1-configure-application-header-acme-com" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Add</strong> to create a new application</p>
+<p><img alt="image12" src="../../_images/image0125.png" /></p>
+</li>
+<li><p class="first">Toggle <strong>Advanced Setting</strong> to <strong>ON</strong> in the top left corner to see additional properties</p>
+</li>
+<li><p class="first">Enter Name <strong>header.acme.com</strong></p>
+</li>
+<li><p class="first">Enter FQDN <strong>header.acme.com</strong></p>
+</li>
+<li><p class="first">Enter Subpath Pattern <strong>/admin.php</strong></p>
+</li>
+<li><p class="first">Under Pool Configuration, you will create a node by entering <strong>10.1.20.6</strong> in the IP Address/Node name field. <strong>Note</strong> This may already exist in the drop down menu.</p>
+</li>
+<li><p class="first">Verify the pool member properties of Port <strong>443</strong> and Protocol <strong>HTTPS</strong></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<blockquote>
+<div><blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Subpaths are used in Application Groups to define contextual access on        portions of an application (separate from the default contextual Access Policy).        If necessary, an application can be split up into multiple Application Groups to        meet an organization’s access control needs.</p>
+</div>
+</div></blockquote>
+<p><img alt="image13" src="../../_images/image0135.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Verify <strong>header.acme.com</strong> was created and click <strong>Save &amp; Next</strong></p>
+<p><img alt="image14" src="../../_images/image0145.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-2-5-application-groups">
+<h2>Section 2.5 - Application Groups<a class="headerlink" href="#section-2-5-application-groups" title="Permalink to this headline">¶</a></h2>
+<p>In this section you will configure two Application groups to enforce different policies on parts of the header.acme.com website.</p>
+<div class="section" id="task-1-create-header-ad-group">
+<h3>Task 1 - Create header-ad Group<a class="headerlink" href="#task-1-create-header-ad-group" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Click <strong>Add</strong></li>
+</ol>
+<blockquote>
+<div><img alt="image15" src="../../_images/image0155.png" /></div></blockquote>
+<ol class="arabic">
+<li><p class="first">Enter Name <strong>header-ad</strong></p>
+</li>
+<li><p class="first">Under Applications List, select <strong>/</strong> and click the arrow to move it into the Selected box</p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image16" src="../../_images/image0165.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-create-header-ocsp-group">
+<h3>Task 2 - Create header-ocsp Group<a class="headerlink" href="#task-2-create-header-ocsp-group" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Add</strong> to create a second application group</p>
+<p><img alt="image17" src="../../_images/image0175.png" /></p>
+</li>
+<li><p class="first">Enter Name <strong>header-ocsp</strong></p>
+</li>
+<li><p class="first">Under Applications List, select <strong>/admin.php</strong> and click the arrow to move it into the Selected box</p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image18" src="../../_images/image0185.png" /></p>
+</li>
+<li><p class="first">Verify both applications groups have been created.</p>
+</li>
+<li><p class="first">Click <strong>Save &amp; Next</strong></p>
+<p><img alt="image19" src="../../_images/image0195.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-2-6-webtop">
+<h2>Section 2.6 - Webtop<a class="headerlink" href="#section-2-6-webtop" title="Permalink to this headline">¶</a></h2>
+<p>In this section you will verify that two applications are added to the <strong>Webtop Sections</strong></p>
+<div class="section" id="task-1-verify-applications">
+<h3>Task 1 - Verify applications<a class="headerlink" href="#task-1-verify-applications" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Ensure that both applications are listed under <strong>Webtop Sections</strong> and click <strong>Save &amp; Next</strong></p>
+<p><img alt="image20" src="../../_images/image0205.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-2-7-contextual-access">
+<h2>Section 2.7 - Contextual Access<a class="headerlink" href="#section-2-7-contextual-access" title="Permalink to this headline">¶</a></h2>
+<p>In this section you will configure Contextual Access for the previously created Application Groups</p>
+<div class="section" id="task-1-configure-contextual-access-for-header-ad-group">
+<h3>Task 1 - Configure Contextual Access for header_ad Group<a class="headerlink" href="#task-1-configure-contextual-access-for-header-ad-group" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Add</strong></p>
+<p><img alt="image21" src="../../_images/image0215.png" /></p>
+</li>
+<li><p class="first">Enter Name <strong>header-ad</strong></p>
+</li>
+<li><p class="first">Select <strong>Application Group</strong> from the Resource Type dropdown</p>
+</li>
+<li><p class="first">Select <strong>header-ad</strong> from the Resource dropdown</p>
+</li>
+<li><p class="first">Select <strong>ad</strong> from the Primary Authentication dropdown</p>
+</li>
+<li><p class="first">Select <strong>header_sso</strong> from the HTTP_Header dropdown</p>
+</li>
+<li><p class="first">Enter <strong>Domain Admins</strong> in the Primary Authentication filter Group Name</p>
+</li>
+<li><p class="first">Click <strong>Add</strong> beside Domain Admins</p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image22" src="../../_images/image0225.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-configure-contextual-access-for-header-ocsp-group">
+<h3>Task 2 - Configure Contextual Access for header-ocsp Group<a class="headerlink" href="#task-2-configure-contextual-access-for-header-ocsp-group" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Add</strong></p>
+<p><img alt="image23" src="../../_images/image0235.png" /></p>
+</li>
+<li><p class="first">Enter Name <strong>header-ocsp</strong></p>
+</li>
+<li><p class="first">Select <strong>Application Group</strong> from the Resource Type dropdown</p>
+</li>
+<li><p class="first">Select <strong>header-ocsp</strong> from the Resource dropdown</p>
+</li>
+<li><p class="first">Select <strong>ad</strong> from the Primary Authentication dropdown</p>
+</li>
+<li><p class="first">Select <strong>header_sso</strong> from the HTTP_Header dropdown</p>
+</li>
+<li><p class="first">Enter <strong>Domain Admins</strong> in the Primary Authentication filter Group Name</p>
+</li>
+<li><p class="first">Click <strong>Add</strong> beside Domain Admins</p>
+<p><img alt="image24" src="../../_images/image0245.png" /></p>
+</li>
+<li><p class="first">Check <strong>Additional Checks</strong></p>
+</li>
+<li><p class="first">Click <strong>Add</strong> under Additional Checks</p>
+<p><img alt="image25" src="../../_images/image0255.png" /></p>
+</li>
+<li><p class="first">Enter Name <strong>webadmin-group</strong></p>
+</li>
+<li><p class="first">Check <strong>User Group Check</strong></p>
+</li>
+<li><p class="first">Enter <strong>Website Admin</strong> in the Primary Authentication filter Group Name</p>
+</li>
+<li><p class="first">Click <strong>Add</strong> beside Website Admin</p>
+<p><img alt="image26" src="../../_images/image0264.png" /></p>
+</li>
+<li><p class="first">Select <strong>Step Up</strong> from the Match Action dropdown</p>
+</li>
+<li><p class="first">Select <strong>ocsp</strong> from the Step Up Authentication dropdown</p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image27" src="../../_images/image0274.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong> again to save the Contextual Access Properties for ocsp-header</p>
+<p><img alt="image28" src="../../_images/image0285.png" /></p>
+</li>
+<li><p class="first">Click <strong>Deploy</strong> located under the ribbon. Deployment will take a few moments.</p>
+<p><img alt="image29" src="../../_images/image0295.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-2-8-testing">
+<h2>Section 2.8 - Testing<a class="headerlink" href="#section-2-8-testing" title="Permalink to this headline">¶</a></h2>
+<p>In this section you will use user1’s credentials to default website header.acme.com.  However, when you attempt to access the admin page you will be prompted for certificate based authentication.  After a successful login you will close your browser and login to default website using user2’s credentials.  User2 will be denied due to not having the correct AD groups.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">You must use <strong>Firefox</strong> for testing!</p>
+</div>
+<div class="section" id="task-1-login-to-header-acme-com-using-user1">
+<h3>Task 1 - Login to header.acme.com using user1<a class="headerlink" href="#task-1-login-to-header-acme-com-using-user1" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Open Firefox</p>
+</li>
+<li><p class="first">Access the site <a class="reference external" href="https://iap1.acme.com">https://iap1.acme.com</a></p>
+</li>
+<li><p class="first">At the logon page enter the Username: <strong>user1</strong> and Password: <strong>user1</strong></p>
+</li>
+<li><p class="first">Click <strong>Logon</strong></p>
+<p><img alt="image30" src="../../_images/image0305.png" /></p>
+</li>
+<li><p class="first">Click the <strong>header.acme.com</strong> tile</p>
+<p><img alt="image31" src="../../_images/image0314.png" /></p>
+</li>
+<li><p class="first">Notice the custom header <strong>UserID</strong> has a value of user1</p>
+<p><img alt="image32" src="../../_images/image0324.png" /></p>
+</li>
+<li><p class="first">Access the <strong>admin</strong> portion of the website <a class="reference external" href="https://header.acme.com/admin.php">https://header.acme.com/admin.php</a></p>
+</li>
+<li><p class="first">Select the certificate <strong>user1</strong></p>
+</li>
+<li><p class="first">Click <strong>OK</strong></p>
+<p><img alt="image34" src="../../_images/0342.png" /></p>
+</li>
+<li><p class="first">You should be successfully logged into the <strong>admin</strong> portion of the site.</p>
+<p><img alt="image33" src="../../_images/0332.png" /></p>
+</li>
+<li><p class="first">Close the browser completely.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-login-to-header-acme-com-using-user2">
+<h3>Task 2 - Login to header.acme.com using user2<a class="headerlink" href="#task-2-login-to-header-acme-com-using-user2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Open a new browser window.</p>
+</li>
+<li><p class="first">Access the site <a class="reference external" href="https://iap1.acme.com">https://iap1.acme.com</a></p>
+</li>
+<li><p class="first">At the logon page enter the Username: <strong>user2</strong> and Password: <strong>user2</strong></p>
+</li>
+<li><p class="first">Click <strong>Logon</strong></p>
+<p><img alt="image35" src="../../_images/image0353.png" /></p>
+</li>
+<li><p class="first">Notice the missing basic.acme tile. User2 is not a member of the required group <strong>Sales Engineering</strong> to view the application</p>
+</li>
+<li><p class="first">Click the <strong>header.acme.com</strong> tile</p>
+<p><img alt="image36" src="../../_images/image0364.png" /></p>
+</li>
+<li><p class="first">Notice the custom header <strong>UserID</strong> has a value of user2</p>
+<p><img alt="image37" src="../../_images/image0374.png" /></p>
+</li>
+<li><p class="first">Access the <strong>admin</strong> portion of the website <a class="reference external" href="https://header.acme.com/admin.php">https://header.acme.com/admin.php</a></p>
+</li>
+<li><p class="first">You receive a <strong>Access Denied</strong> page due to not having the correct group membership <strong>Website Admin</strong></p>
+<p><img alt="image38" src="../../_images/image0383.png" /></p>
+</li>
+<li><p class="first">This concludes lab 2.</p>
+<p><img alt="image100" src="../../_images/image1004.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="lab01.html" title="Lab 1: Configure Identity Aware Proxy(16.0)" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab03.html" title="Lab 3: Utilize HTTP Connector(16.0)" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
