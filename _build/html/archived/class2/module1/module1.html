@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 1: Social Login Lab</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 1: Social Login Lab"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1: Social Login Lab &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lab 2: API Protection" href="../module2/module2.html" />
+    <link rel="prev" title="Lab Environment" href="../labinfo.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 1: Social Login Lab</a><ul>
+<li><a class="reference internal" href="#purpose">Purpose</a></li>
+<li><a class="reference internal" href="#task-1-setup-virtual-server">Task 1: Setup Virtual Server</a></li>
+<li><a class="reference internal" href="#task-2-setup-apm-profile">Task 2: Setup APM Profile</a></li>
+<li><a class="reference internal" href="#task-3-add-the-access-policy-to-the-virtual-server">Task 3: Add the Access Policy to the Virtual Server</a></li>
+<li><a class="reference internal" href="#task-4-google-built-in-provider">Task 4: Google (Built-In Provider)</a><ul>
+<li><a class="reference internal" href="#setup-a-google-project">Setup a Google Project</a></li>
+<li><a class="reference internal" href="#configure-access-policy-manager-apm-to-authenticate-with-google">Configure Access Policy Manager (APM) to authenticate with Google</a></li>
+<li><a class="reference internal" href="#test-configuration">Test Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#task-5-facebook-built-in-provider">Task 5: Facebook (Built-In Provider)</a><ul>
+<li><a class="reference internal" href="#setup-a-facebook-project">Setup a Facebook Project</a></li>
+<li><a class="reference internal" href="#configure-access-policy-manager-apm-to-authenticate-with-facebook">Configure Access Policy Manager (APM) to authenticate with Facebook</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id1">Test Configuration</a></li>
+<li><a class="reference internal" href="#task-6-linkedin-custom-provider">Task 6: LinkedIn (Custom Provider)</a><ul>
+<li><a class="reference internal" href="#configure-access-policy-manager-apm-to-authenticate-with-linkedin">Configure Access Policy Manager (APM) to authenticate with LinkedIn</a></li>
+<li><a class="reference internal" href="#id2">Test Configuration</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#task-7-add-header-insertion-for-sso-to-the-app">Task 7: Add Header Insertion for SSO to the App</a><ul>
+<li><a class="reference internal" href="#configure-the-per-request-policy">Configure the Per Request Policy</a></li>
+<li><a class="reference internal" href="#add-the-per-request-policy-to-the-virtual-server">Add the Per Request Policy to the Virtual Server</a></li>
+<li><a class="reference internal" href="#id3">Test Configuration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="../class2.html">Class 2: OAuth Federation with F5</a>
+
+          <span class="right">
+             <a href="../../../_sources/archived/class2/module1/module1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-1-social-login-lab">
+<h1>Lab 1: Social Login Lab<a class="headerlink" href="#lab-1-social-login-lab" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The entire module covering Social Login is performed on
+BIG-IP 1 (OAuth C/RS)</p>
+</div>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>This module will teach you how to configure a Big-IP as a client and
+resource server enabling you to integrate with social login providers
+like Facebook, Google, and LinkedIn to provide access to a web
+application. You will inject the identity provided by the social network
+into a header that the backend application can use to identify the user.</p>
+</div>
+<div class="section" id="task-1-setup-virtual-server">
+<h2>Task 1: Setup Virtual Server<a class="headerlink" href="#task-1-setup-virtual-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Local Traffic -&gt; Virtual Servers -&gt; Create</strong></p>
+<p><img alt="image1" src="../../../_images/image3.png" /></p>
+</li>
+<li><p class="first">Enter the following values <em>(leave others default)</em></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">social.f5agility.com-vs</span></code></li>
+<li><strong>Destination Address:</strong> <code class="docutils literal notranslate"><span class="pre">10.1.20.111</span></code></li>
+<li><strong>Service Port:</strong> <code class="docutils literal notranslate"><span class="pre">443</span></code></li>
+<li><strong>HTTP Profile:</strong> <code class="docutils literal notranslate"><span class="pre">http</span></code></li>
+<li><strong>SSL Profile (Client):</strong> <code class="docutils literal notranslate"><span class="pre">f5agility-wildcard-self-clientssl</span></code></li>
+<li><strong>Source Address Translation:</strong> <code class="docutils literal notranslate"><span class="pre">Auto</span> <span class="pre">Map</span></code></li>
+</ul>
+<p><img alt="image2" src="../../../_images/image4.png" /></p>
+</li>
+<li><p class="first">Select webapp-pool from the Default Pool drop down and then
+click <strong>Finished</strong></p>
+<p><img alt="image3" src="../../../_images/image5.png" /></p>
+</li>
+<li><p class="first">Test access to <code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com</span></code> from the jump host’s browser.</p>
+<p>You should be able to see the backend application, but it will give you
+an error indicating you have not logged in because it requires a header
+to be inserted to identify the user.</p>
+<p><img alt="image4" src="../../../_images/image6.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-setup-apm-profile">
+<h2>Task 2: Setup APM Profile<a class="headerlink" href="#task-2-setup-apm-profile" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access -&gt; Profiles / Policies -&gt; Access Profiles (Per Session
+Policies) -&gt; Create</strong></p>
+<p><img alt="image5" src="../../../_images/image7.png" /></p>
+</li>
+<li><p class="first">Enter the following values (leave others default) then click <strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">social-ap</span></code></li>
+<li><strong>Profile Type:</strong> <code class="docutils literal notranslate"><span class="pre">All</span></code></li>
+<li><strong>Profile Scope:</strong> <code class="docutils literal notranslate"><span class="pre">Profile</span></code></li>
+<li><strong>Languages:</strong> English</li>
+</ul>
+<p><img alt="image6" src="../../../_images/image8.png" /></p>
+<p><br /></p>
+<p><img alt="image7" src="../../../_images/image9.png" /></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong> for social-ap, a new browser tab will open</p>
+<p><img alt="image8" src="../../../_images/image10.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> between <strong>Start</strong> and <strong>Deny</strong>, select <strong>OAuth Logon Page</strong>
+from the <strong>Logon</strong> tab, click <strong>Add Item</strong></p>
+<p><img alt="image9" src="../../../_images/image11.png" /></p>
+<p><br /></p>
+<p><img alt="image10" src="../../../_images/image12.png" /></p>
+</li>
+<li><p class="first">Set the <strong>Type</strong> on <strong>Lines 2, 3, and 4</strong> to none</p>
+<p><img alt="image11" src="../../../_images/image13.png" /></p>
+</li>
+<li><p class="first">Change the <strong>Logon Page, Input Field #1</strong> to “Choose a Social Logon Provider”</p>
+<p><img alt="image12" src="../../../_images/image14.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Values</strong> column for <strong>Line 1</strong>, a new window will open.</p>
+<p><img alt="image13" src="../../../_images/image15.png" /></p>
+<p><em>Alternatively</em>, you may click <strong>[Edit]</strong> on the <strong>Input Field #1 Values</strong>
+line. Either item will bring you to the next menu.</p>
+<p><img alt="image14" src="../../../_images/image16.png" /></p>
+</li>
+<li><p class="first">Click the <strong>X</strong> to remove <strong>F5, Ping, Custom, and ROPC</strong></p>
+<p><img alt="image15" src="../../../_images/image17.png" /></p>
+</li>
+<li><p class="first">Click <strong>Finished</strong></p>
+<p><img alt="image16" src="../../../_images/image18.png" /></p>
+<p><br /></p>
+<p><img alt="image17" src="../../../_images/image19.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The resulting screen is shown</p>
+</div>
+</li>
+<li><dl class="first docutils">
+<dt>Go to the <strong>Branch Rules</strong> tab and click the <strong>X</strong> to remove <strong>F5</strong>,</dt><dd><p><strong>Ping</strong>, <strong>Custom</strong>, <strong>F5 ROPC</strong>, and <strong>Ping ROPC</strong></p>
+</dd>
+</dl>
+<p><img alt="image18" src="../../../_images/image20.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image19" src="../../../_images/image21.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong> in the top left and then close the browser tab</p>
+<p><img alt="image20" src="../../../_images/image22.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-add-the-access-policy-to-the-virtual-server">
+<h2>Task 3: Add the Access Policy to the Virtual Server<a class="headerlink" href="#task-3-add-the-access-policy-to-the-virtual-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Local Traffic -&gt; Virtual Servers -&gt; social.f5agility.com-vs</strong></p>
+<p><img alt="image21" src="../../../_images/image23.png" /></p>
+</li>
+<li><p class="first">Modify the <strong>Access Profile</strong> setting from none to social-ap and click
+<strong>Update</strong></p>
+<p><img alt="image22" src="../../../_images/image24.png" /></p>
+</li>
+<li><p class="first">Test access to <a class="reference external" href="https://social.f5agility.com">https://social.f5agility.com</a> from the jump host again, you
+should now see a logon page requiring you to select your authentication
+provider. Any attempt to authenticate will fail since we have only deny
+endings.</p>
+<p><img alt="image23" src="../../../_images/image25.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-google-built-in-provider">
+<h2>Task 4: Google (Built-In Provider)<a class="headerlink" href="#task-4-google-built-in-provider" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-a-google-project">
+<h3>Setup a Google Project<a class="headerlink" href="#setup-a-google-project" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Login at <a class="reference external" href="https://console.developers.google.com">https://console.developers.google.com</a></p>
+<p><img alt="image24" src="../../../_images/image26.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This portion of the exercise requires a Google Account. You may use
+an existing one or create one for the purposes of this lab</p>
+</div>
+</li>
+<li><p class="first">Click <strong>Create Project</strong> and give it a name like “OAuth Lab” and click
+<strong>Create</strong></p>
+<p><img alt="image25" src="../../../_images/image27.png" /></p>
+<p><img alt="image26" src="../../../_images/image28.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may have existing projects so the menus may be slightly different.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may have to click on Google+ API under Social APIs</p>
+</div>
+</li>
+<li><p class="first">Go to the <strong>Credentials</strong> section on the left side.</p>
+<p><img alt="image27" src="../../../_images/image29.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may have navigate to your OAuth Lab project depending on your
+browser or prior work in Google Developer</p>
+</div>
+</li>
+<li><p class="first">Click <strong>OAuth Consent Screen</strong> tab, fill out the product name with
+“OAuth Lab”, then click save</p>
+<p><img alt="image28" src="../../../_images/image30.png" /></p>
+</li>
+<li><p class="first">Go to the <strong>Credentials</strong> tab (if you are not taken there), click
+<strong>Create Credentials</strong> and select <strong>OAuth Client ID</strong></p>
+<p><img alt="image29" src="../../../_images/image31.png" /></p>
+</li>
+<li><p class="first">Under the <strong>Create Client ID</strong> screen, select and enter the following
+values and click <strong>Create</strong></p>
+<ul class="simple">
+<li><strong>Application Type:</strong> <code class="docutils literal notranslate"><span class="pre">Web</span> <span class="pre">Application</span></code></li>
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">OAuth</span> <span class="pre">Lab</span></code></li>
+<li><strong>Authorized Javascript Origins:</strong> <code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com</span></code></li>
+<li><strong>Authorized Redirect URIs:</strong> <code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com/oauth/client/redirect</span></code></li>
+</ul>
+<p><img alt="image30" src="../../../_images/image32.png" /></p>
+</li>
+<li><p class="first">Copy the <strong>Client ID</strong> and <strong>Client Secret</strong> to notepad, or you can get it
+by clicking on the <strong>OAuth Lab Credentials</strong> section later if needed. You
+will need these when you setup Access Policy Manager (APM).</p>
+<p><img alt="image31" src="../../../_images/image33.png" /></p>
+</li>
+<li><p class="first">Click <strong>Library</strong> in the left-hand navigation section, then select
+<strong>Google+ API</strong> under <strong>Social APIs</strong> or search for it</p>
+<p><img alt="image32" src="../../../_images/image34.png" /></p>
+</li>
+<li><p class="first">Click <strong>Enable</strong> and wait for it to complete, you will now be able to view
+reporting on usage here</p>
+<p><img alt="image33" src="../../../_images/image35.png" /></p>
+<p><br /></p>
+<p><img alt="image34" src="../../../_images/image36.png" /></p>
+</li>
+<li><p class="first">For Reference: This is a screenshot of the completed Google project:</p>
+<p><img alt="image35" src="../../../_images/image37.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-access-policy-manager-apm-to-authenticate-with-google">
+<h3>Configure Access Policy Manager (APM) to authenticate with Google<a class="headerlink" href="#configure-access-policy-manager-apm-to-authenticate-with-google" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Configure the <strong>OAuth Server</strong> Object: Go to <strong>Access -&gt; Federation -&gt;
+OAuth Client / Resource Server -&gt; OAuth Server</strong> and click <strong>Create</strong></p>
+<p><img alt="image36" src="../../../_images/image38.png" /></p>
+</li>
+<li><p class="first">Enter the values as shown below for the <strong>OAuth Server</strong> and click
+<strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> Google</li>
+<li><strong>Mode:</strong> <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">+</span> <span class="pre">Resource</span> <span class="pre">Server</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Google</span></code></li>
+<li><strong>OAuth Provider:</strong> <code class="docutils literal notranslate"><span class="pre">Google</span></code></li>
+<li><strong>DNS Resolver:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-dns</span> <span class="pre">*(configured</span> <span class="pre">for</span> <span class="pre">you)*</span></code></li>
+<li><strong>Client ID:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Client</span> <span class="pre">ID</span> <span class="pre">from</span> <span class="pre">Google&gt;</span></code></li>
+<li><strong>Client Secret:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Client</span> <span class="pre">Secret</span> <span class="pre">from</span> <span class="pre">Google&gt;</span></code></li>
+<li><strong>Client’s ServerSSL Profile Name:</strong> <code class="docutils literal notranslate"><span class="pre">apm-default-serverssl</span></code></li>
+<li><strong>Resource Server ID:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Client</span> <span class="pre">ID</span> <span class="pre">from</span> <span class="pre">Google&gt;</span></code></li>
+<li><strong>Resource Server Secret:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;Client</span> <span class="pre">Secret</span> <span class="pre">from</span> <span class="pre">Google&gt;</span></code></li>
+<li><strong>Resource Server’s ServerSSL Profile Name:</strong> <code class="docutils literal notranslate"><span class="pre">apm-default-serverssl</span></code></li>
+</ul>
+<p><img alt="image37" src="../../../_images/image39.png" /></p>
+</li>
+<li><p class="first">Configure the VPE for Google: Go to <strong>Access -&gt; Profiles / Policies -&gt;
+Access Profiles (Per Session Policies)</strong> and click <strong>Edit</strong> on <code class="docutils literal notranslate"><span class="pre">social-ap</span></code>,
+a new browser tab will open</p>
+<p><img alt="image38" src="../../../_images/image10.png" /></p>
+</li>
+<li><p class="first">Click the + on the <strong>Google</strong> provider’s branch after the
+<strong>OAuth Logon Page</strong></p>
+<p><img alt="image39" src="../../../_images/image40.png" /></p>
+</li>
+<li><p class="first">Select <strong>OAuth Client</strong> from the <strong>Authentication</strong> tab and click
+<strong>Add Item</strong></p>
+<p><img alt="image40" src="../../../_images/image41.png" /></p>
+</li>
+<li><p class="first">Enter the following in the <strong>OAuth Client</strong> input screen and click <strong>Save</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">OAuth</span> <span class="pre">Client</span></code></li>
+<li><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/Google</span></code></li>
+<li><strong>Grant Type:</strong> <code class="docutils literal notranslate"><span class="pre">Authorization</span> <span class="pre">Code</span></code></li>
+<li><strong>Authentication Redirect Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/GoogleAuthRedirectRequest</span></code></li>
+<li><strong>Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/GoogleTokenRequest</span></code></li>
+<li><strong>Refresh Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/GoogleTokenRefreshRequest</span></code></li>
+<li><strong>Validate Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/GoogleValidationScopesRequest</span></code></li>
+<li><strong>Redirection URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://%{session.server.network.name}/oauth/client/redirect</span></code></li>
+<li><strong>Scope:</strong> <code class="docutils literal notranslate"><span class="pre">profile</span></code></li>
+</ul>
+<p><img alt="image41" src="../../../_images/image42.png" /></p>
+</li>
+<li><p class="first">Click <strong>+</strong> on the <strong>Successful</strong> branch after the <strong>Google OAuth Client</strong></p>
+<p><img alt="image42" src="../../../_images/image43.png" /></p>
+</li>
+<li><p class="first">Select <strong>OAuth Scope</strong> from the <strong>Authentication</strong> tab, and click <strong>Add Item</strong></p>
+<p><img alt="image43" src="../../../_images/image44.png" /></p>
+</li>
+<li><p class="first">Enter the following on the <strong>OAuth Scope</strong> input screen and click <strong>Save</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Google</span> <span class="pre">OAuth</span> <span class="pre">Scope</span></code></li>
+<li><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/Google</span></code></li>
+<li><strong>Scopes Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/GoogleValidationScopesRequest</span></code></li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p class="first">Click <strong>Add New Entry</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Scope Name:</strong> <code class="docutils literal notranslate"><span class="pre">https://www.googleapis.com/auth/userinfo.profile</span></code></li>
+<li><strong>Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/GoogleScopeUserInfoProfileRequest</span></code></li>
+</ul>
+<p><img alt="image44" src="../../../_images/image45.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>Click the <strong>+</strong> on the <strong>Successful</strong> branch after the</dt><dd><p><strong>Google OAuth Scope</strong> object</p>
+</dd>
+</dl>
+<p><img alt="image45" src="../../../_images/image46.png" /></p>
+</li>
+<li><dl class="first docutils">
+<dt>Select <strong>Variable Assign</strong> from the <strong>Assignment</strong> tab, and click</dt><dd><p><strong>Add Item</strong></p>
+</dd>
+</dl>
+<p><img alt="image46" src="../../../_images/image47.png" /></p>
+</li>
+<li><p class="first">Name it Google Variable Assign and click <strong>Add New Entry</strong> then <strong>change</strong></p>
+<p><img alt="image47" src="../../../_images/image48.png" /></p>
+</li>
+<li><p class="first">Enter the following values and click <strong>Finished</strong></p>
+<p>Left Side:</p>
+<ul class="simple">
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">Variable</span></code></li>
+<li><strong>Security:</strong> <code class="docutils literal notranslate"><span class="pre">Unsecure</span></code></li>
+<li><strong>Value:</strong> <code class="docutils literal notranslate"><span class="pre">session.logon.last.username</span></code></li>
+</ul>
+<p>Right Side:</p>
+<ul class="simple">
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">Variable</span></code></li>
+<li><strong>Session Variable:</strong> <code class="docutils literal notranslate"><span class="pre">session.oauth.scope.last.scope_data.userinfo.profile.displayName</span></code></li>
+</ul>
+<p><img alt="image48" src="../../../_images/image49.png" /></p>
+</li>
+<li><p class="first">Review the <strong>Google Variable Assign</strong> object and click <strong>Save</strong></p>
+<p><img alt="image49" src="../../../_images/image50.png" /></p>
+</li>
+<li><p class="first">Click <strong>Deny</strong> on the <strong>Fallback</strong> branch after the
+<strong>Google Variable Assign</strong> object, select <strong>Allow</strong> in the pop up window
+and click <strong>Save</strong></p>
+<p><img alt="image50" src="../../../_images/image51.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong> in the top left and then close the tab</p>
+<p><img alt="image51" src="../../../_images/image52.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="test-configuration">
+<h3>Test Configuration<a class="headerlink" href="#test-configuration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Test by opening Chrome in the jump host and browsing to
+<code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com</span></code>, select the provider and attempt logon.</p>
+<p><img alt="image52" src="../../../_images/image53.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You are able to login and reach the app now, but SSO to the app has
+not been setup so you get an application error.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may also be prompted for additional security measures as you
+are logging in from a new location.</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-5-facebook-built-in-provider">
+<h2>Task 5: Facebook (Built-In Provider)<a class="headerlink" href="#task-5-facebook-built-in-provider" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setup-a-facebook-project">
+<h3>Setup a Facebook Project<a class="headerlink" href="#setup-a-facebook-project" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <a class="reference external" href="https://developers.facebook.com">https://developers.facebook.com</a> and <em>Login</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This portion of the exercise requires a Facebook Account. You may use
+an existing one or create one for the purposes of this lab</p>
+</div>
+<p><img alt="image53" src="../../../_images/image54.png" /></p>
+</li>
+<li><p class="first">If prompted click, <strong>Get Started</strong> and accept the <strong>Developer Policy.</strong>
+Otherwise, click <strong>Create App</strong></p>
+<p><img alt="image54" src="../../../_images/image55.png" /></p>
+</li>
+<li><p class="first">Click <strong>Create App</strong> and name (<strong>Display Name</strong>) your app (Or click the top
+left project drop down and create a new app, then name it). Then click
+<strong>Create App ID</strong>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For example the <strong>Display Name</strong> given here was “OAuth Lab”. You
+may also be prompted with a security captcha</p>
+</div>
+<p><img alt="image55" src="../../../_images/image56.png" /></p>
+</li>
+<li><p class="first">Click <strong>Get Started</strong> in the <strong>Facebook Login</strong> section (<em>Or click + Add
+Product and then Get Started for Facebook</em>)</p>
+<p><img alt="image56" src="../../../_images/image57.png" /></p>
+</li>
+<li><p class="first">From the <em>“Choose a Platform”</em> screen click on <strong>WWW (Web)</strong></p>
+<p><img alt="image57" src="../../../_images/image58.png" /></p>
+</li>
+<li><p class="first">In the <em>“Tell Us about Your Website”</em> prompt, enter
+<code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com</span></code> for the <strong>Site URL</strong> and click <strong>Save</strong>
+then click <strong>Continue</strong></p>
+<p><img alt="image58" src="../../../_images/image59.png" /></p>
+</li>
+<li><p class="first">Click <strong>Next</strong> on the <em>“Set Up the Facebook SDK for Javascript”</em> screen</p>
+<p><img alt="image59" src="../../../_images/image60.png" /></p>
+</li>
+<li><p class="first">Click <strong>Next</strong> on the <em>“Check Login Status”</em> screen</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Additional screen content removed.</p>
+</div>
+<p><img alt="image60" src="../../../_images/image61.png" /></p>
+</li>
+<li><p class="first">Click <strong>Next</strong> on the <em>“Add the Facebook Login Button”</em> screen</p>
+<p><img alt="image61" src="../../../_images/image62.png" /></p>
+</li>
+<li><p class="first">Click <strong>Facebook Login</strong> on the left side bar and then click <strong>Settings</strong></p>
+<p><img alt="image62" src="../../../_images/image63.png" /></p>
+</li>
+<li><p class="first">For the <strong>Client OAuth Settings</strong> screen in the <strong>Valid OAuth redirect URIs</strong>
+enter <code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com/oauth/client/redirect</span></code> and then
+click enter to create it, then <strong>Save Changes</strong></p>
+<p><img alt="image63" src="../../../_images/image64.png" /></p>
+</li>
+<li><p class="first">Click <strong>Dashboard</strong> in the left navigation bar</p>
+<p><img alt="image64" src="../../../_images/image65.png" /></p>
+</li>
+<li><p class="first">Here you can retrieve your <strong>App ID</strong> and <strong>App Secret</strong> for use in Access
+Policy Manager (APM).</p>
+<p><img alt="image65" src="../../../_images/image66.png" /></p>
+<p><em>Screenshot of completed Facebook project</em></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you want Facebook Auth to work for users other than the developer
+you will need to publish the project</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-access-policy-manager-apm-to-authenticate-with-facebook">
+<h3>Configure Access Policy Manager (APM) to authenticate with Facebook<a class="headerlink" href="#configure-access-policy-manager-apm-to-authenticate-with-facebook" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Configure the <strong>OAuth</strong> <strong>Server</strong> Object: Go to <strong>Access -&gt; Federation -&gt;
+OAuth Client / Resource Server -&gt; OAuth Server</strong> and click <strong>Create</strong></p>
+<p><img alt="image66" src="../../../_images/image67.png" /></p>
+</li>
+<li><p class="first">Enter the values as shown below for the <strong>OAuth Server</strong> and click
+<strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Facebook</span></code></li>
+<li><strong>Mode:</strong> <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">+</span> <span class="pre">Resource</span> <span class="pre">Server</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Facebook</span></code></li>
+<li><strong>OAuth Provider:</strong> <code class="docutils literal notranslate"><span class="pre">Facebook</span></code></li>
+<li><strong>DNS Resolver:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-dns</span></code> <em>(configured for you)</em></li>
+<li><strong>Client ID:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;App</span> <span class="pre">ID</span> <span class="pre">from</span> <span class="pre">Facebook&gt;</span></code></li>
+<li><strong>Client Secret:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;App</span> <span class="pre">Secret</span> <span class="pre">from</span> <span class="pre">Facebook&gt;</span></code></li>
+<li><strong>Client’s ServerSSL Profile Name:</strong> <code class="docutils literal notranslate"><span class="pre">apm-default-serverssl</span></code></li>
+<li><strong>Resource Server ID:</strong> `` App ID from Facebook&gt;``</li>
+<li><strong>Resource Server Secret:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;App</span> <span class="pre">Secret</span> <span class="pre">from</span> <span class="pre">Facebook&gt;</span></code></li>
+<li><strong>Resource Server’s ServerSSL Profile Name:</strong> <code class="docutils literal notranslate"><span class="pre">apm-default-serverssl</span></code></li>
+</ul>
+<p><img alt="image67" src="../../../_images/image68.png" /></p>
+</li>
+<li><p class="first">Configure the VPE for Facebook: Go to <strong>Access -&gt; Profiles / Policies -&gt;
+Access Profiles (Per Session Policies)</strong> and click <strong>Edit</strong> on
+<code class="docutils literal notranslate"><span class="pre">social-ap</span></code>, a new browser tab will open</p>
+<p><img alt="image68" src="../../../_images/image69.png" /></p>
+</li>
+<li><p class="first">Click the + on the <strong>Facebook</strong> provider’s branch after the
+<strong>OAuth Logon Page</strong></p>
+<p><img alt="image69" src="../../../_images/image70.png" /></p>
+</li>
+<li><p class="first">Select <strong>OAuth Client</strong> from the <strong>Authentication</strong> tab and click
+<strong>Add Item</strong></p>
+<p><img alt="image70" src="../../../_images/image41.png" /></p>
+</li>
+<li><p class="first">Enter the following in the <strong>OAuth Client</strong> input screen and click <strong>Save</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Facebook</span> <span class="pre">OAuth</span> <span class="pre">Client</span></code></li>
+<li><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/Facebook</span></code></li>
+<li><strong>Grant Type:</strong> <code class="docutils literal notranslate"><span class="pre">Authorization</span> <span class="pre">Code</span></code></li>
+<li><strong>Authentication Redirect Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/FacebookAuthRedirectRequest</span></code></li>
+<li><strong>Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/FacebookTokenRequest</span></code></li>
+<li><strong>Refresh Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></li>
+<li><strong>Validate Token Request:</strong> `` /Common/FacebookValidationScopesRequest``</li>
+<li><strong>Redirection URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://%{session.server.network.name}/oauth/client/redirect</span></code></li>
+<li><strong>Scope:</strong> <code class="docutils literal notranslate"><span class="pre">public_profile</span></code> <em>(Note underscore)</em></li>
+</ul>
+<p><img alt="image71" src="../../../_images/image71.png" /></p>
+</li>
+<li><p class="first">Click <strong>+</strong> on the <strong>Successful</strong> branch after the <strong>Facebook OAuth Client</strong></p>
+<p><img alt="image72" src="../../../_images/image72.png" /></p>
+</li>
+<li><p class="first">Select <strong>OAuth Scope</strong> from the <strong>Authentication</strong> tab, and click <strong>Add Item</strong></p>
+<p><img alt="image73" src="../../../_images/image44.png" /></p>
+</li>
+<li><p class="first">Enter the following on the <strong>OAuth Scope</strong> input screen and click <strong>Save</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">Facebook</span> <span class="pre">OAuth</span> <span class="pre">Scope</span></code></li>
+<li><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/Facebook</span></code></li>
+<li><strong>Scopes Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/FacebookValidationScopesRequest</span></code></li>
+<li>Click <strong>Add New Entry</strong></li>
+<li><strong>Scope Name:</strong> <code class="docutils literal notranslate"><span class="pre">public_profile</span></code></li>
+<li><strong>Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/FacebookScopePublicProfile</span></code></li>
+</ul>
+<p><img alt="image74" src="../../../_images/image73.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> on the <strong>Successful</strong> branch after the <strong>Facebook OAuth Scope</strong> object</p>
+<p><img alt="image75" src="../../../_images/image74.png" /></p>
+</li>
+<li><p class="first">Select <strong>Variable Assign</strong> from the <strong>Assignment</strong> tab, and click <strong>Add Item</strong></p>
+<p><img alt="image76" src="../../../_images/image47.png" /></p>
+</li>
+<li><p class="first">Name it Facebook Variable Assign and click <strong>Add New Entry</strong> then <strong>change</strong></p>
+<p><img alt="image77" src="../../../_images/image75.png" /></p>
+</li>
+<li><p class="first">Enter the following values and click <strong>Finished</strong></p>
+<p>Left Side:</p>
+<ul class="simple">
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">Variable</span></code></li>
+<li><strong>Security:</strong> <code class="docutils literal notranslate"><span class="pre">Unsecure</span></code></li>
+<li><strong>Value:</strong> <code class="docutils literal notranslate"><span class="pre">session.logon.last.username</span></code></li>
+</ul>
+<p>Right Side:</p>
+<ul class="simple">
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">Variable</span></code></li>
+<li><strong>Session Variable:</strong> <code class="docutils literal notranslate"><span class="pre">session.oauth.scope.last.scope_data.public_profile.name</span></code></li>
+</ul>
+<p><img alt="image78" src="../../../_images/image49.png" /></p>
+</li>
+<li><p class="first">Review the <strong>Facebook Variable Assign</strong> object and click <strong>Save</strong></p>
+<p><img alt="image79" src="../../../_images/image76.png" /></p>
+</li>
+<li><p class="first">Click <strong>Deny</strong> on the <strong>Fallback</strong> branch after the
+<strong>Facebook Variable Assign</strong> object, select <strong>Allow</strong> in the pop up
+window and click <strong>Save</strong></p>
+<p><img alt="image80" src="../../../_images/image77.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong> in the top left and then close the tab</p>
+<p><img alt="image81" src="../../../_images/image78.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="id1">
+<h2>Test Configuration<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Test by opening Chrome in the jump host and browsing to
+<code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com</span></code>, select the provider and attempt logon.</p>
+<p><img alt="image82" src="../../../_images/image79.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You are able to login and reach the app now, but SSO to the app has
+not been setup so you get an application error.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may also be prompted for additional security measures as you
+are logging in from a new location</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may need to start a Chrome New Incognito Window so no session
+data carries over.</p>
+</div>
+</li>
+<li><p class="first">You should be prompted to authorize your request. Click <strong>Continue as
+&lt;Account&gt;</strong> (Where &lt;Account&gt; is your Facebook Profile name)</p>
+<p><img alt="image83" src="../../../_images/image80.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-6-linkedin-custom-provider">
+<h2>Task 6: LinkedIn (Custom Provider)<a class="headerlink" href="#task-6-linkedin-custom-provider" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Login at <code class="docutils literal notranslate"><span class="pre">https://www.linkedin.com/secure/developer</span></code></p>
+<p><img alt="image84" src="../../../_images/image81.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This portion of the exercise requires a LinkedIn Account. You
+may use an existing one or create one for the purposes of this lab*</p>
+</div>
+</li>
+<li><p class="first">Click <strong>Create Application</strong></p>
+<p><img alt="image85" src="../../../_images/image82.png" /></p>
+</li>
+<li><p class="first">In the <strong>Create a New Application</strong> screen fill in the required
+values and click <strong>Submit</strong></p>
+<p><img alt="image86" src="../../../_images/image83.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Generic values have been shown. You may use the values you
+deem appropriate</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An Application logo has been provided on your desktop ‘OAuth2.png’</p>
+</div>
+</li>
+<li><p class="first">In the <em>“Authentication Keys”</em> screen, check the boxes for
+<code class="docutils literal notranslate"><span class="pre">r_basicprofile</span></code> and <code class="docutils literal notranslate"><span class="pre">r_emailaddress</span></code>. In the
+<strong>Authorized Redirect URLs</strong>, enter
+<code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com/oauth/client/redirect</span></code></p>
+</li>
+<li><p class="first">Click <strong>Add</strong>. Finally, click <strong>Update</strong> at the bottom of the screen.</p>
+<p><img alt="image87" src="../../../_images/image84.png" /></p>
+</li>
+</ol>
+<div class="section" id="configure-access-policy-manager-apm-to-authenticate-with-linkedin">
+<h3>Configure Access Policy Manager (APM) to authenticate with LinkedIn<a class="headerlink" href="#configure-access-policy-manager-apm-to-authenticate-with-linkedin" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Configure the <strong>OAuth</strong> <strong>Server</strong> Object: Go to <strong>Access -&gt;
+Federation -&gt; OAuth Client / Resource Server -&gt; Provider</strong> and
+click <strong>Create</strong></p>
+<p><img alt="image88" src="../../../_images/image85.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You are creating a “Provider”</p>
+</div>
+</li>
+<li><p class="first">Enter the values as shown below for the <strong>OAuth Provider</strong> and
+click <strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedIn</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Custom</span></code></li>
+<li><strong>Authentication URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://www.linkedin.com/oauth/v2/authorization</span></code></li>
+<li><strong>Token URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://www.linkedin.com/oauth/v2/accessToken</span></code></li>
+<li><strong>Token Validation Scope URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://www.linkedin.com/v1/people/~</span></code></li>
+</ul>
+<p><img alt="image89" src="../../../_images/image86.png" /></p>
+</li>
+<li><p class="first">Configure the <strong>OAuth</strong> <strong>Redirect</strong> <strong>Request</strong> Profile Object: Go to
+<strong>Access -&gt; Federation -&gt; OAuth Client / Resource Server -&gt; Request</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image90" src="../../../_images/image87.png" /></p>
+</li>
+<li><p class="first">Enter the values as shown for the <strong>OAuth</strong> <strong>Request</strong> and click
+<strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedInAuthRedirectRequest</span></code></li>
+<li><strong>HTTP Method:</strong> <code class="docutils literal notranslate"><span class="pre">GET</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">auth-redirect-request</span></code></li>
+</ul>
+<p><img alt="image91" src="../../../_images/image88.png" /></p>
+</li>
+<li><p class="first">Add the following request parameters and click <strong>Add</strong> after entering
+the values for each:</p>
+<ul class="simple">
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">custom</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">response_type</span></code></li>
+<li><strong>Parameter Value:</strong> <code class="docutils literal notranslate"><span class="pre">code</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">client-id</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">client_id</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">redirect-uri</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">scope</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">scope</span></code></li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">LinkedIn requires a state parameter, but we already insert it by
+default.</p>
+</div>
+<p><img alt="image92" src="../../../_images/image89.png" /></p>
+</li>
+<li><p class="first">Configure the <strong>OAuth</strong> <strong>Token</strong> <strong>Request</strong> Profile Object: Go to
+<strong>Access -&gt; Federation -&gt; OAuth Client / Resource Server -&gt; Request</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image93" src="../../../_images/image87.png" /></p>
+</li>
+<li><p class="first">Enter the values as shown for the <strong>OAuth</strong> <strong>Request</strong> and click
+<strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedInTokenRequest</span></code></li>
+<li><strong>HTTP Method:</strong> <code class="docutils literal notranslate"><span class="pre">POST</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">token-request</span></code></li>
+</ul>
+<p><img alt="image94" src="../../../_images/image90.png" /></p>
+</li>
+<li><p class="first">Add the following request parameters and click <strong>Add</strong> after entering the
+values for each:</p>
+<ul class="simple">
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">grant-type</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">grant_type</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">redirect-uri</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">redirect_uri</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">client-id</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">client_id</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">client-secret</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">client_secret</span></code></li>
+</ul>
+<p><img alt="image95" src="../../../_images/image91.png" /></p>
+</li>
+<li><p class="first">Configure the <strong>OAuth</strong> <strong>Validation Scopes Request</strong> Profile Object:
+Go to <strong>Access -&gt; Federation -&gt; OAuth Client / Resource Server -&gt; Request</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image96" src="../../../_images/image87.png" /></p>
+</li>
+<li><p class="first">Enter the values as shown for the <strong>OAuth</strong> <strong>Request</strong> and click
+<strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedInValidationScopesRequest</span></code></li>
+<li><strong>HTTP Method:</strong> <code class="docutils literal notranslate"><span class="pre">GET</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">validation-scopes-request</span></code></li>
+</ul>
+<p><img alt="image97" src="../../../_images/image92.png" /></p>
+</li>
+<li><p class="first">Add the following request parameters and click <strong>Add</strong> after entering the
+values for each:</p>
+<ul class="simple">
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">custom</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">oauth2_access_token</span></code></li>
+<li><strong>Parameter Value:</strong> <code class="docutils literal notranslate"><span class="pre">%{session.oauth.client.last.access_token}</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">custom</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">format</span></code></li>
+<li><strong>Parameter Value:</strong> <code class="docutils literal notranslate"><span class="pre">json</span></code></li>
+</ul>
+<p><img alt="image98" src="../../../_images/image93.png" /></p>
+</li>
+<li><p class="first">Configure the <strong>OAuth</strong> <strong>Scope Data Request</strong> Profile Object: Go to
+<strong>Access -&gt; Federation -&gt; OAuth Client / Resource Server -&gt; Request</strong>
+and click <strong>Create</strong></p>
+<p><img alt="image99" src="../../../_images/image87.png" /></p>
+</li>
+<li><p class="first">Enter the values as shown for the <strong>OAuth</strong> <strong>Request</strong> and click
+<strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedInScopeBasicProfile</span></code></li>
+<li><strong>HTTP Method:</strong> <code class="docutils literal notranslate"><span class="pre">GET</span></code></li>
+<li><strong>URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://api.linkedin.com/v1/people/~</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">scope-data-request</span></code></li>
+</ul>
+<p><img alt="image100" src="../../../_images/image94.png" /></p>
+</li>
+<li><p class="first">Add the following request parameters and click <strong>Add</strong> after entering the
+values for each:</p>
+<ul class="simple">
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">custom</span></code></li>
+<li><strong>Parameter Name:</strong> ``  oauth2_access_token``</li>
+<li><strong>Parameter Value:</strong> <code class="docutils literal notranslate"><span class="pre">%{session.oauth.client.last.access_token}</span></code></li>
+<li><strong>Parameter Type:</strong> <code class="docutils literal notranslate"><span class="pre">custom</span></code></li>
+<li><strong>Parameter Name:</strong> <code class="docutils literal notranslate"><span class="pre">format</span></code></li>
+<li><strong>Parameter Value:</strong> <code class="docutils literal notranslate"><span class="pre">json</span></code></li>
+</ul>
+<p><img alt="image101" src="../../../_images/image93.png" /></p>
+</li>
+<li><p class="first">Configure the <strong>OAuth</strong> <strong>Server</strong> Object: Go to <strong>Access -&gt; Federation
+-&gt; OAuth Client / Resource Server -&gt; OAuth Server</strong> and click <strong>Create</strong></p>
+<p><img alt="image102" src="../../../_images/image95.png" /></p>
+</li>
+<li><p class="first">Enter the values as shown below for the <strong>OAuth Server</strong> and click
+<strong>Finished</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedIn</span></code></li>
+<li><strong>Mode:</strong> <code class="docutils literal notranslate"><span class="pre">Client</span> <span class="pre">+</span> <span class="pre">Resource</span> <span class="pre">Server</span></code></li>
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Custom</span></code></li>
+<li><strong>OAuth Provider:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedIn</span></code></li>
+<li><strong>DNS Resolver:</strong> <code class="docutils literal notranslate"><span class="pre">oauth-dns</span> <span class="pre">*(configured</span> <span class="pre">for</span> <span class="pre">you)*</span></code></li>
+<li><strong>Client ID:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;App</span> <span class="pre">ID</span> <span class="pre">from</span> <span class="pre">LinkedIn&gt;</span></code></li>
+<li><strong>Client Secret:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;App</span> <span class="pre">Secret</span> <span class="pre">from</span> <span class="pre">LinkedIn</span> <span class="pre">&gt;</span></code></li>
+<li><strong>Client’s ServerSSL Profile Name:</strong> <code class="docutils literal notranslate"><span class="pre">apm-default-serverssl</span></code></li>
+<li><strong>Resource Server ID:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;App</span> <span class="pre">ID</span> <span class="pre">from</span> <span class="pre">LinkedIn</span> <span class="pre">&gt;</span></code></li>
+<li><strong>Resource Server Secret:</strong> <code class="docutils literal notranslate"><span class="pre">&lt;App</span> <span class="pre">Secret</span> <span class="pre">from</span> <span class="pre">LinkedIn</span> <span class="pre">&gt;</span></code></li>
+<li><strong>Resource Server’s ServerSSL Profile Name:</strong> <code class="docutils literal notranslate"><span class="pre">apm-default-serverssl</span></code></li>
+</ul>
+<p><img alt="image103" src="../../../_images/image96.png" /></p>
+</li>
+<li><p class="first">Configure the VPE for LinkedIn: Go to <strong>Access -&gt; Profiles / Policies -&gt;
+Access Profiles (Per Session Policies)</strong> and click <strong>Edit</strong> on <code class="docutils literal notranslate"><span class="pre">social-ap</span></code>,
+a new browser tab will open</p>
+<p><img alt="image104" src="../../../_images/image69.png" /></p>
+</li>
+<li><p class="first">Click on the link <strong>OAuth Logon Page</strong> as shown</p>
+<p><img alt="image105" src="../../../_images/image97.png" /></p>
+</li>
+<li><p class="first">Click on the <strong>Values</strong> area of <strong>Line #1</strong> as shown. A pop-up window will
+appear</p>
+<p><img alt="image106" src="../../../_images/image98.png" /></p>
+</li>
+<li><p class="first">Click <strong>Add Option</strong>. In the new <strong>Line 3</strong>, type LinkedIn in both the
+<strong>Value</strong> and <strong>Text (Optional)</strong> fields and click <strong>Finished</strong></p>
+<p><img alt="image107" src="../../../_images/image99.png" /></p>
+</li>
+<li><p class="first">Click on the <strong>Branch Rules</strong> tab of the <strong>OAuth Logon Page</strong> screen</p>
+<p><img alt="image108" src="../../../_images/image100.png" /></p>
+</li>
+<li><p class="first">Click <strong>Add Branch Rule</strong>. In the resulting new line enter LinkedIn for
+the <strong>Name</strong> field and click the <strong>Change</strong> link on the <strong>Expression</strong> line</p>
+<p><img alt="image109" src="../../../_images/image101.png" /></p>
+</li>
+<li><p class="first">Click <strong>Add Expression</strong> on the <strong>Simple</strong> tab</p>
+<p><img alt="image110" src="../../../_images/image102.png" /></p>
+</li>
+<li><p class="first">Select OAuth Logon Page in the <strong>Agent Sel:</strong> drop down. Select OAuth
+provider type from the <strong>Condition</strong> drop down. In the <strong>OAuth provider</strong>
+field enter LinkedIn and then click <strong>Add Expression</strong></p>
+<p><img alt="image111" src="../../../_images/image103.png" /></p>
+</li>
+<li><p class="first">Click <strong>Finished</strong> on the <strong>Simple</strong> Expression tab</p>
+<p><img alt="image112" src="../../../_images/image104.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong> on the completed <strong>Branch Rules</strong> tab</p>
+<p><img alt="image113" src="../../../_images/image105.png" /></p>
+</li>
+<li><p class="first">Click the + on the <strong>LinkedIn</strong> provider’s branch after the
+<strong>OAuth Logon Page</strong></p>
+<p><img alt="image114" src="../../../_images/image106.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If not still in the VPE: Go to
+<strong>Access -&gt; Profiles / Policies -&gt; Access Profiles (Per Session Policies)</strong>.
+Click <strong>Edit</strong> on <strong>social-ap</strong>, a new browser tab will open*</p>
+</div>
+</li>
+<li><p class="first">Select <strong>OAuth Client</strong> from the <strong>Authentication</strong> tab and click
+<strong>Add Item</strong></p>
+<p><img alt="image115" src="../../../_images/image107.png" /></p>
+</li>
+<li><p class="first">Enter the following in the <strong>OAuth Client</strong> input screen and click <strong>Save</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedIn</span> <span class="pre">OAuth</span> <span class="pre">Client</span></code></li>
+<li><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/LinkedIn</span></code></li>
+<li><strong>Grant Type:</strong> <code class="docutils literal notranslate"><span class="pre">Authorization</span> <span class="pre">Code</span></code></li>
+<li><strong>Authentication Redirect Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/LinkedInAuthRedirectRequest</span></code></li>
+<li><strong>Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/LinkedInTokenRequest</span></code></li>
+<li><strong>Refresh Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">None</span></code></li>
+<li><strong>Validate Token Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/LinkedInValidationScopesRequest</span></code></li>
+<li><strong>Redirection URI:</strong> <code class="docutils literal notranslate"><span class="pre">https://%{session.server.network.name}/oauth/client/redirect</span></code></li>
+<li><strong>Scope:</strong> <code class="docutils literal notranslate"><span class="pre">r_basicprofile</span> <span class="pre">*(Note</span> <span class="pre">underscore)*</span></code></li>
+</ul>
+<p><img alt="image116" src="../../../_images/image108.png" /></p>
+</li>
+<li><p class="first">Click <strong>+</strong> on the <strong>Successful</strong> branch after the <strong>LinkedIn OAuth Client</strong></p>
+<p><img alt="image117" src="../../../_images/image109.png" /></p>
+</li>
+<li><p class="first">Select <strong>OAuth Scope</strong> from the <strong>Authentication</strong> tab, and click
+<strong>Add Item</strong></p>
+<p><img alt="image118" src="../../../_images/image44.png" /></p>
+</li>
+<li><p class="first">Enter the following on the <strong>OAuth Scope</strong> input screen and click <strong>Save</strong></p>
+<ul class="simple">
+<li><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">LinkedIn</span> <span class="pre">OAuth</span> <span class="pre">Scope</span></code></li>
+<li><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/LinkedIn</span></code></li>
+<li><strong>Scopes Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/LinkedInValidationScopesRequest</span></code></li>
+<li>Click <strong>Add New Entry</strong></li>
+<li><strong>Scope Name:</strong> <code class="docutils literal notranslate"><span class="pre">r_basicprofile</span></code></li>
+<li><strong>Request:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/LinkedInScopeBasicProfile</span></code></li>
+</ul>
+<p><img alt="image119" src="../../../_images/image110.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> on the <strong>Successful</strong> branch after the
+<strong>LinkedIn OAuth Scope</strong> object</p>
+<p><img alt="image120" src="../../../_images/image111.png" /></p>
+</li>
+<li><p class="first">Select <strong>Variable Assign</strong> from the <strong>Assignment</strong> tab, and click
+<strong>Add Item</strong></p>
+<p><img alt="image121" src="../../../_images/image47.png" /></p>
+</li>
+<li><p class="first">Name it LinkedIn Variable Assign and click <strong>Add New Entry</strong> then
+<strong>change</strong></p>
+<p><img alt="image122" src="../../../_images/image112.png" /></p>
+</li>
+<li><p class="first">Enter the following values and click <strong>Finished</strong></p>
+<p>Left Side:</p>
+<ul class="simple">
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Custom</span> <span class="pre">Variable</span></code></li>
+<li><strong>Security:</strong> <code class="docutils literal notranslate"><span class="pre">Unsecure</span></code></li>
+<li><strong>Value:</strong> <code class="docutils literal notranslate"><span class="pre">session.logon.last.username</span></code></li>
+</ul>
+<p>Right Side:</p>
+<ul class="simple">
+<li><strong>Type:</strong> <code class="docutils literal notranslate"><span class="pre">Session</span> <span class="pre">Variable</span></code></li>
+<li><strong>Session Variable:</strong> <code class="docutils literal notranslate"><span class="pre">session.oauth.scope.last.firstName</span></code></li>
+</ul>
+<p><img alt="image123" src="../../../_images/image113.png" /></p>
+</li>
+<li><p class="first">Review the <strong>LinkedIn Variable Assign</strong> object and click <strong>Save</strong></p>
+<p><img alt="image124" src="../../../_images/image114.png" /></p>
+</li>
+<li><p class="first">Click <strong>Deny</strong> on the <strong>Fallback</strong> branch after the
+<strong>LinkedIn Variable Assign</strong> object, select <strong>Allow</strong> in the pop up
+window and click <strong>Save</strong></p>
+<p><img alt="image125" src="../../../_images/image115.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong> in the top left and then close the tab</p>
+<p><img alt="image126" src="../../../_images/image116.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="id2">
+<h3>Test Configuration<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Test by opening Chrome in the jump host and browsing to
+<code class="docutils literal notranslate"><span class="pre">https://social.f5agility.com</span></code>, select the provider and attempt logon.</p>
+<p><img alt="image127" src="../../../_images/image117.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You are able to login and reach the app now, but SSO to the app has
+not been setup so you get an application error.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may also be prompted for additional security measures as you
+are logging in from a new location.</p>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You may need to start a Chrome New Incognito Window so no
+session data carries over.</p>
+</div>
+</li>
+<li><p class="first">You will be prompted to authorize your request. Click <strong>Allow.</strong></p>
+<p><img alt="image128" src="../../../_images/image118.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-7-add-header-insertion-for-sso-to-the-app">
+<h2>Task 7: Add Header Insertion for SSO to the App<a class="headerlink" href="#task-7-add-header-insertion-for-sso-to-the-app" title="Permalink to this headline">¶</a></h2>
+<p>In this task you will create a policy that runs on every request. It
+will insert a header into the serverside HTTP Requests that contains the
+username. The application will use this to identify who the user is,
+providing Single Sign On (SSO).</p>
+<div class="section" id="configure-the-per-request-policy">
+<h3>Configure the Per Request Policy<a class="headerlink" href="#configure-the-per-request-policy" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Access</strong> -&gt; <strong>Profiles/Policies</strong> -&gt; <strong>Per Request Policies</strong> and
+click <strong>Create</strong></p>
+<p><img alt="image129" src="../../../_images/image119.png" /></p>
+</li>
+<li><p class="first">Enter prp-x-user-insertion the Name field and click <strong>Finished</strong></p>
+<p><img alt="image130" src="../../../_images/image120.png" /></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong> on the <strong>prp-x-user-insertion policy</strong> line</p>
+<p><img alt="image131" src="../../../_images/image121.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+</strong> symbol between <strong>Start</strong> and <strong>Allow</strong></p>
+<p><img alt="image132" src="../../../_images/image122.png" /></p>
+</li>
+<li><p class="first">Under the <strong>General Purpose</strong> tab select <strong>HTTP Headers</strong> and click
+<strong>Add Item</strong></p>
+<p><img alt="image133" src="../../../_images/image123.png" /></p>
+</li>
+<li><p class="first">Under the HTTP Header Modify section, click Add New Entry to add the
+following two headers and then click Save</p>
+<ul class="simple">
+<li><strong>Header Operation:</strong> <code class="docutils literal notranslate"><span class="pre">replace</span></code></li>
+<li><strong>Header Name:</strong> <code class="docutils literal notranslate"><span class="pre">X-User</span></code></li>
+<li><strong>Header Value:</strong> <code class="docutils literal notranslate"><span class="pre">%{session.logon.last.username}</span></code></li>
+<li><strong>Header Operation:</strong> <code class="docutils literal notranslate"><span class="pre">replace</span></code></li>
+<li><strong>Header Name:</strong> <code class="docutils literal notranslate"><span class="pre">X-Provider</span></code></li>
+<li><strong>Header Value:</strong> <code class="docutils literal notranslate"><span class="pre">%{session.logon.last.oauthprovidertype}</span></code></li>
+</ul>
+<p><img alt="image134" src="../../../_images/image124.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Replace instead of Insert has been selected for Header Operation to
+improve security. A malicious user might insert their own X-User header. As
+using Insert would simply add another header. Using Replace will add a header
+if it does not exist, or replace one if it does.</p>
+</div>
+<p>You do not need to Apply Policy on per request policies. You may simply
+close the browser tab</p>
+<p><img alt="image135" src="../../../_images/image125.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="add-the-per-request-policy-to-the-virtual-server">
+<h3>Add the Per Request Policy to the Virtual Server<a class="headerlink" href="#add-the-per-request-policy-to-the-virtual-server" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <strong>Local Traffic -&gt; Virtual Servers</strong> and click on
+<code class="docutils literal notranslate"><span class="pre">social.f5agility.com-vs</span></code></p>
+<p><img alt="image136" src="../../../_images/image126.png" /></p>
+</li>
+<li><p class="first">Scroll to the <strong>Access Policy</strong> section of the Virtual Server and select
+<code class="docutils literal notranslate"><span class="pre">prp-x-user-insertion</span></code> from the <strong>Per-Request Policy</strong> drop down. Scroll
+to the bottom of the page and click <strong>Update</strong></p>
+<p><img alt="image137" src="../../../_images/image127.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="id3">
+<h3>Test Configuration<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Go to <a class="reference external" href="https://social.f5agility.com">https://social.f5agility.com</a> in your browser and logon using one of
+the social logon providers. This time you should see your name appear in the
+top right corner. You can also click “Headers” in the webapp and look at the
+headers presented to the client. You will see x-user present here with your
+name as the value. You’ll also see the x-provider header you inserted
+indicating where the data is coming from.</p>
+<p><img alt="image138" src="../../../_images/image128.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../labinfo.html" title="Lab Environment" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module2/module2.html" title="Lab 2: API Protection" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

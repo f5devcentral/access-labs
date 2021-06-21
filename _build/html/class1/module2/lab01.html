@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 1: Building a Basic Access Policy</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 1: Building a Basic Access Policy"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1: Building a Basic Access Policy &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 2: Step up Authentication with Per-Request Policies" href="lab02.html" />
+    <link rel="prev" title="Environment Overview" href="intro.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 1: Building a Basic Access Policy</a><ul>
+<li><a class="reference internal" href="#objectives">Objectives</a></li>
+<li><a class="reference internal" href="#setup-lab-environment">Setup Lab Environment</a></li>
+<li><a class="reference internal" href="#intro-to-access-profiles-and-policies">Intro to Access Profiles and Policies</a></li>
+<li><a class="reference internal" href="#id1">Objectives</a></li>
+<li><a class="reference internal" href="#lab-requirements">Lab Requirements</a></li>
+<li><a class="reference internal" href="#task-1-define-an-authentication-server">Task 1: Define an Authentication Server</a></li>
+<li><a class="reference internal" href="#task-2-create-a-simple-access-profile">Task 2: Create a Simple Access Profile</a></li>
+<li><a class="reference internal" href="#task-3-associate-access-policy-to-virtual-servers">Task 3: Associate Access Policy to Virtual Servers</a></li>
+<li><a class="reference internal" href="#task-4-testing">Task 4: Testing</a></li>
+<li><a class="reference internal" href="#task-5-troubleshooting-tips">Task 5: Troubleshooting tips</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class1.html">100 Series: Access Foundational Concepts</a>
+
+          <span class="right">
+             <a href="../../_sources/class1/module2/lab01.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-1-building-a-basic-access-policy">
+<h1>Lab 1: Building a Basic Access Policy<a class="headerlink" href="#lab-1-building-a-basic-access-policy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="objectives">
+<h2>Objectives<a class="headerlink" href="#objectives" title="Permalink to this headline">¶</a></h2>
+<p>In this lab we will work through the building blocks of Access Policy Manager. Much like the majority of the other modules around LTM they are policy based meaning you are binding a Profile
+to the virtual server in question that you want to provide enhanced functionality. In this case those come in the form of Per-Session and Per-Request Policies</p>
+</div>
+<div class="section" id="setup-lab-environment">
+<h2>Setup Lab Environment<a class="headerlink" href="#setup-lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).</p>
+<ol class="arabic">
+<li><p class="first">Click <strong>DEPLOYMENT</strong> located on the top left corner to display the environment</p>
+</li>
+<li><p class="first">Click <strong>ACCESS</strong> next to jumphost.f5lab.local</p>
+<p><img alt="accessjh" src="../../_images/accessjh1.png" /></p>
+</li>
+<li><p class="first">Select your RDP resolution.</p>
+</li>
+<li><p class="first">The RDP client on your local host establishes a RDP connection to the Jump Host.</p>
+</li>
+<li><p class="first">Login with the following credentials:</p>
+<blockquote>
+<div><ul class="simple">
+<li>User: <strong>f5lab\user1</strong></li>
+<li>Password: <strong>user1</strong></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">After successful logon the Chrome browser will auto launch opening the site <a class="reference external" href="https://portal.f5lab.local">https://portal.f5lab.local</a>.  This process usually takes 30 seconds after logon.</p>
+</li>
+<li><p class="first">Click the <strong>Classes</strong> tab at the top of the page.</p>
+<blockquote>
+<div><p><img alt="accessportal" src="../../_images/accessportal1.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Scroll down the page until you see <strong>102 Access Building Blocks</strong> on the left</p>
+<p><img alt="102intro" src="../../_images/102intro.png" /></p>
+</li>
+<li><p class="first">Hover over tile <strong>Building a Basic Acces Policy</strong>. A start and stop icon should appear within the tile.  Click the <strong>Play</strong> Button to start the automation to build the environment</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="54%" />
+<col width="46%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><img alt="lab01" src="../../_images/lab01.png" /></td>
+<td><img alt="lab01fly" src="../../_images/lab01fly.png" /></td>
+</tr>
+</tbody>
+</table>
+</li>
+<li><p class="first">After the click it may take up to 30 seconds before you see processing</p>
+<p><img alt="process" src="../../_images/process1.png" /></p>
+</li>
+<li><p class="first">Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the <a class="reference external" href="https://github.com/f5devcentral/access-labs">Access Labs Repo</a>.</p>
+<p><img alt="issues" src="../../_images/issues1.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="intro-to-access-profiles-and-policies">
+<h2>Intro to Access Profiles and Policies<a class="headerlink" href="#intro-to-access-profiles-and-policies" title="Permalink to this headline">¶</a></h2>
+<p>Access Policy Manager (APM) provides two types of policies.</p>
+<p><strong>Per-session policy</strong></p>
+<blockquote>
+<div>The per-session policy runs when a client initiates a session. (A per-session policy is also known as an access policy.) Depending on the actions you include in the access policy, it can authenticate the user and perform other actions that populate session variables with data for use throughout the session.</div></blockquote>
+<p><strong>Per-request policy</strong></p>
+<blockquote>
+<div>After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request. Because of this behavior, a per-request policy is particularly useful in the context of a Zero Trust scenario, where the client requires re-verification on every request. A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You cannot use subroutines in macros within per-request policies.</div></blockquote>
+<p>You can associate one access policy and one per-request policy with a virtual server.</p>
+<p><strong>Access Session</strong></p>
+<blockquote>
+<div>An access session is recorded when a client initiates a connection through a per-session policy.  Once an access session is established it has a set of timeouts set within the Access profile.  A session will terminate if it reaches a timeout or the client ends the session.  An access session is now not limited by a license but by the platform running APM.  For more information on APM licensing see <a class="reference external" href="https://support.f5.com/csp/article/K15624537">K15624537: BIG-IP APM Licensing for BIG-IP Standard Platforms</a></div></blockquote>
+<p><strong>Subsession</strong></p>
+<blockquote>
+<div><p>A subsession is part of the per-request policy framework.  It starts when a subroutine (within a per-request policy) runs and continues until reaching the maximum lifetime specified in the subroutine properties, or until the session terminates. A subsession populates subsession variables that are available for the duration of the subsession. Subsession variables and events that occur during a subsession are logged.</p>
+<p>Multiple subsessions can exist at the same time. The maximum number of subsessions allowed varies across platforms. The total number of subsessions is limited by the session limits in APM (128 * max sessions). Creating a subsession does not count against the license limit.</p>
+</div></blockquote>
+</div>
+<div class="section" id="id1">
+<h2>Objectives<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>The lab has a pre-configured test Virtual Server which will be used throughout the lab.  You will use the Visual Policy Editor (VPE) to create and attach a simple Access Profile which performs user authentication.</p>
+</div>
+<div class="section" id="lab-requirements">
+<h2>Lab Requirements<a class="headerlink" href="#lab-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>A pre existing virtual server at 10.1.10.101 or <a class="reference external" href="https://app.acme.com">https://app.acme.com</a></li>
+</ul>
+</div>
+<div class="section" id="task-1-define-an-authentication-server">
+<h2>Task 1: Define an Authentication Server<a class="headerlink" href="#task-1-define-an-authentication-server" title="Permalink to this headline">¶</a></h2>
+<p>Before we can create an access profile, we must create the necessary AAA
+server profile for our Active Directory.</p>
+<ol class="arabic">
+<li><p class="first">Click the bigip1 bookmark from within Chrome and login to the BIG-IP, admin/admin</p>
+</li>
+<li><p class="first">From the main screen, browse to <strong>Access &gt; Authentication &gt; Active
+Directory</strong></p>
+</li>
+<li><p class="first">Click <strong>Create…</strong> in the upper right-hand corner</p>
+</li>
+<li><p class="first">Configure the new server profile as follows:</p>
+<blockquote>
+<div><table border="1" class="docutils align-default">
+<colgroup>
+<col width="40%" />
+<col width="60%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Name:</td>
+<td><strong>lab_sso_ad_server</strong></td>
+</tr>
+<tr class="row-even"><td>Domain Name:</td>
+<td><strong>f5lab.local</strong></td>
+</tr>
+<tr class="row-odd"><td>Server Connection:</td>
+<td><strong>Direct</strong></td>
+</tr>
+<tr class="row-even"><td>Domain Controller:</td>
+<td><strong>10.1.20.7</strong></td>
+</tr>
+<tr class="row-odd"><td>User Name:</td>
+<td><strong>admin</strong></td>
+</tr>
+<tr class="row-even"><td>Password:</td>
+<td><strong>admin</strong></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Finished</strong></p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you wish you can simply use the <strong>app-ad-servers</strong>.</p>
+</div>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-create-a-simple-access-profile">
+<h2>Task 2: Create a Simple Access Profile<a class="headerlink" href="#task-2-create-a-simple-access-profile" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Navigate to <strong>Access &gt; Profiles / Policies &gt; Access Profiles
+(Per-Session Policies)</strong></p>
+<p><img alt="Lab1-Image1" src="../../_images/Lab1-Image1.png" /></p>
+</li>
+<li><p class="first">From the Access Profiles screen, click <strong>Create…</strong> in the upper
+right-hand corner</p>
+</li>
+<li><p class="first">In the Name field, enter <strong>mycccesspolicy</strong> and for the <strong>Profile Type</strong>,
+select the dropdown and choose <strong>All</strong></p>
+<p><img alt="Lab1-Image2" src="../../_images/Lab1-Image2.png" /></p>
+</li>
+<li><dl class="first docutils">
+<dt>Under “Language Settings”, choose <strong>English</strong> and click the</dt><dd><p><strong>&lt;&lt;</strong> button to slide over to the <strong>Accepted Languages</strong> column.</p>
+</dd>
+</dl>
+<p><img alt="Lab1-Image3" src="../../_images/Lab1-Image3.png" /></p>
+</li>
+<li><p class="first">Click <strong>Finished</strong>, which will bring you back to the Access Profiles
+screen.</p>
+</li>
+<li><p class="first">On the Access Profiles screen, click the <strong>Edit</strong> link under the
+Per-Session Policy column.</p>
+<p><img alt="Lab1-Image4" src="../../_images/Lab1-Image4.png" /></p>
+<p>The Visual Policy Editor (VPE) will open in a new tab.</p>
+</li>
+<li><p class="first">On the VPE page, click the <strong>+</strong> icon on the <strong>fallback</strong> path,
+to the right of the <strong>Start</strong> object.</p>
+<p><img alt="Lab1-Image5" src="../../_images/Lab1-Image5.png" /></p>
+</li>
+<li><p class="first">On the popup menu, choose the <strong>Logon Page</strong> radio button under the
+Logon tab and click <strong>Add Item</strong></p>
+<p><img alt="Lab1-Image6" src="../../_images/Lab1-Image6.png" /></p>
+<p><img alt="Lab1-Image7" src="../../_images/Lab1-Image7.png" /></p>
+</li>
+<li><p class="first">Accept the defaults and click <strong>Save</strong></p>
+<blockquote>
+<div><p>Now let’s authenticate the client using the credentials to be provided via the <strong>Logon Page</strong> object.</p>
+</div></blockquote>
+</li>
+<li><p class="first">Between the <strong>Logon Page</strong> and <strong>Deny</strong> objects, click the <strong>+</strong>
+icon, select <strong>AD Auth</strong> found under the <strong>Authentication</strong> tab,
+and click the <strong>Add Item</strong> button</p>
+<p><img alt="Lab1-Image8" src="../../_images/Lab1-Image8.png" /></p>
+<p><img alt="Lab1-Image9" src="../../_images/Lab1-Image9.png" /></p>
+</li>
+<li><p class="first">Accept the default for the <strong>Name</strong> and in the <strong>Server</strong> drop-down
+menu select the AD server created above:
+<strong>/Common/lab_sso_ad_server</strong>, then click <strong>Save</strong></p>
+<p><img alt="Lab1-Image10" src="../../_images/Lab1-Image10.png" /></p>
+</li>
+<li><p class="first">On the <strong>Successful</strong> branch between the <strong>AD Auth</strong> and <strong>Deny</strong>
+objects, click on the word <strong>Deny</strong> to change the ending</p>
+<p><img alt="Lab1-Image11" src="../../_images/Lab1-Image11.png" /></p>
+</li>
+<li><p class="first">Change the <strong>Successful</strong> branch ending to <strong>Allow</strong>, then click <strong>Save</strong></p>
+<p><img alt="Lab1-Image12" src="../../_images/Lab1-Image12.png" /></p>
+<p><img alt="Lab1-Image13" src="../../_images/Lab1-Image13.png" /></p>
+</li>
+<li><p class="first">In the upper left-hand corner of the screen, click on the <strong>Apply
+Access Policy</strong> link, then close the window using the <strong>Close</strong>
+button in the upper right-hand. Click <strong>Yes</strong> when asked <strong>Do you
+want to close this tab?</strong></p>
+<p><img alt="Lab1-Image14" src="../../_images/Lab1-Image14.png" /></p>
+<p><img alt="Lab1-Image15" src="../../_images/Lab1-Image15.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-associate-access-policy-to-virtual-servers">
+<h2>Task 3: Associate Access Policy to Virtual Servers<a class="headerlink" href="#task-3-associate-access-policy-to-virtual-servers" title="Permalink to this headline">¶</a></h2>
+<p>Now that we have created an access policy, we must apply it to the
+appropriate virtual server to be able to use it.</p>
+<ol class="arabic">
+<li><p class="first">Navigate to <strong>Local Traffic</strong> –&gt; <strong>Virtual Servers</strong> –&gt; <strong>Virtual Server List</strong> and click the name of the virtual server created previously:  <strong>app-https</strong></p>
+</li>
+<li><p class="first">Scroll down to the <strong>Access Policy</strong> section, for the <strong>Access
+Profile</strong> dropdown, select <strong>myaccesspolicy</strong></p>
+<p><img alt="Lab1-Image16" src="../../_images/Lab1-Image16.png" /></p>
+</li>
+<li><p class="first">Click <strong>Update</strong> at the bottom of the screen</p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-testing">
+<h2>Task 4: Testing<a class="headerlink" href="#task-4-testing" title="Permalink to this headline">¶</a></h2>
+<p>Now you are ready to test.</p>
+<ol class="arabic">
+<li><p class="first">Open a new browser window and open the URL for the virtual server that has the access policy applied:</p>
+<p><strong>https://app.acme.com</strong></p>
+<p>You will be presented with a login window</p>
+<p><img alt="Lab1-Image17" src="../../_images/Lab1-Image17.png" /></p>
+</li>
+<li><p class="first">Enter the following credentials and click <strong>Logon</strong>:</p>
+<blockquote>
+<div><table border="1" class="docutils align-default">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Username:</td>
+<td><strong>user1</strong></td>
+</tr>
+<tr class="row-even"><td>Password:</td>
+<td><strong>user1</strong></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</li>
+</ol>
+<p>You will see a screen similar to the following:</p>
+<blockquote>
+<div><img alt="Lab1-Image18" src="../../_images/Lab1-Image18.png" /></div></blockquote>
+</div>
+<div class="section" id="task-5-troubleshooting-tips">
+<h2>Task 5: Troubleshooting tips<a class="headerlink" href="#task-5-troubleshooting-tips" title="Permalink to this headline">¶</a></h2>
+<p>You can view active sessions by navigating Access/Overview/Active Sessions</p>
+<p>You will see a screen similar to the following:</p>
+<p>Click on the session id for the active session. If the session is active it will show up as a green in the status.</p>
+<p><img alt="Lab1-Image19" src="../../_images/Lab1-Image19.png" /></p>
+<p>Click on the “session ID” next to the active session. Note every session has a unique session id. Associated with it.
+This can be used for troubleshooting specific authentication problem.</p>
+<p>Once you click on the session id you will be presented with a screen that is similar to the following.</p>
+<p><img alt="Lab1-Image20" src="../../_images/Lab1-Image20.png" /></p>
+<p>Note that the screen will show all of the log messages associated with the session. This becomes useful if there is a problem authenticating users.</p>
+<p>The default log level shows limited “informational” messages but you can enable debug logging in the event that you need to increase the verbosity of the logging
+on the APM policy. Note you should always turn off debug logging when you are finished with trouble shooting as debug level logging can
+generate a lot of messages that will fill up log files and could lead to disk issues in the event that logging is set to log to the
+local Big-IP.</p>
+<p>Please review the following support article that details how to enable debug logging.</p>
+<p><a class="reference external" href="https://support.f5.com/csp/article/K45423041">https://support.f5.com/csp/article/K45423041</a></p>
+<p>Lab 1 is now complete.</p>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="intro.html" title="Environment Overview" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab02.html" title="Lab 2: Step up Authentication with Per-Request Policies" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

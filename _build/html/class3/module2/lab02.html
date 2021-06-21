@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 2: Implement Priviledged User Access Authentication</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 2: Implement Priviledged User Access Authentication"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2: Implement Priviledged User Access Authentication &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Environment Overview" href="../module6/intro.html" />
+    <link rel="prev" title="Lab 1: Implement C3D with APM Enhancements" href="lab01.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 2: Implement Priviledged User Access Authentication</a><ul>
+<li><a class="reference internal" href="#priviledged-user-access-pua-requirements">Priviledged User Access (PUA) Requirements</a></li>
+<li><a class="reference internal" href="#task-1-setup-lab-environment">Task 1 - Setup Lab Environment</a></li>
+<li><a class="reference internal" href="#task-2-executing-the-pua-script">Task 2 - Executing the PUA Script</a></li>
+<li><a class="reference internal" href="#task-3-accessing-the-big-ip-via-apm-webtop">Task 3 - Accessing the BIG-IP via APM Webtop</a></li>
+<li><a class="reference internal" href="#task-4-review-the-apm-policy-created-by-the-pua-build-script">Task 4 - Review the APM Policy Created by the PUA Build Script</a></li>
+<li><a class="reference internal" href="#task-5-build-a-ldap-macro">Task 5 - Build a LDAP macro</a></li>
+<li><a class="reference internal" href="#task-6-build-cac-auth-macro">Task 6 - Build CAC AUTH Macro</a></li>
+<li><a class="reference internal" href="#task-7-update-the-initial-access-policy">Task 7 - Update the Initial Access Policy</a><ul>
+<li><a class="reference internal" href="#task-8-update-the-ssl-profile">Task 8 - Update the SSL Profile</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#task-9-adding-devices-to-the-webtop">Task 9 - Adding Devices to the webtop</a></li>
+<li><a class="reference internal" href="#task-10-modifying-radius-configurations">Task 10 - Modifying Radius Configurations</a></li>
+<li><a class="reference internal" href="#task-11-verification-testing">Task 11 - Verification Testing</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a>
+
+          <span class="right">
+             <a href="../../_sources/class3/module2/lab02.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-2-implement-priviledged-user-access-authentication">
+<h1>Lab 2: Implement Priviledged User Access Authentication<a class="headerlink" href="#lab-2-implement-priviledged-user-access-authentication" title="Permalink to this headline">¶</a></h1>
+<p>The F5 Privileged User Access (PUA) solution provides an easy way to add CAC/PKI authentication or other strong authentication methods to network infrastructure and systems that do not natively support this functionality.  It does this without requiring the addition of client software or agents anywhere in the environment and allows you to fully leverage your legacy or non-compliant systems in a safe and secure manner.  It integrates directly into DoD PKI or MFA systems and may be configured to work cooperatively with existing TACACS, Active Directory, AAA servers, or a variety of third-party authentication databases.</p>
+<p>F5 PUA is DoD CIO approved as an Identify Federation Service (IFS) for facilitating both privileged and unprivileged user authentication to unclassified and secret fabric DoD Information Systems.</p>
+<p>IFS are third-party intermediary services facilitating user-authentication to resources or relying parties. IFS may be used when a system or application does not support direct authentication with PKI or MFA credentials, or the system owner desires a single management framework for a group of heterogeneous systems.</p>
+<p><strong>F5 Certifications</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>DoD UC APL</li>
+<li>FIPS 140-2 Validated - Level 1, 2, or 3 depending on platform selection.  F5 offers software (VE), F5 Full-Box FIPS platforms, integrated (HSM PCI Card), and external (Network HSM) FIPS solutions</li>
+<li>Common Criteria Certification</li>
+<li>NSA Commercial Solutions for Classified (CSfC) Components List</li>
+<li>DISA/JITC PKE (public key enabled)</li>
+<li>United States Government IPv6 Conformance Certification (USGv6)</li>
+</ul>
+</div></blockquote>
+<div class="section" id="priviledged-user-access-pua-requirements">
+<h2>Priviledged User Access (PUA) Requirements<a class="headerlink" href="#priviledged-user-access-pua-requirements" title="Permalink to this headline">¶</a></h2>
+<p>In order to deploy the F5 PUA solution, you will require the following:</p>
+<blockquote>
+<div><ul class="simple">
+<li>F5 BIG-IP Access Policy Manager (APM)</li>
+<li>iRules LX licensed and provisioned</li>
+<li>F5 PUA platform and device licenses</li>
+<li>F5 PUA installation script (“build_pua.zip”) - for this release of PUA</li>
+</ul>
+</div></blockquote>
+<p>The following resources will be defined for the lab environment:</p>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="24%" />
+<col width="63%" />
+<col width="13%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Resource</strong></th>
+<th class="head"><strong>Description</strong></th>
+<th class="head"><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>WebSSH_proxy_vs_IP</td>
+<td>Virtual server IP Address of WebSSH2 service.</td>
+<td>10.1.10.104</td>
+</tr>
+<tr class="row-odd"><td>APM_Portal_vs_IP</td>
+<td>Virtual server IP Address of APM portal for authentication</td>
+<td>10.1.20.104</td>
+</tr>
+<tr class="row-even"><td>RADIUS_proxy_vs_IP</td>
+<td>Virtual server IP address of RADIUS proxy service</td>
+<td>10.1.20.104</td>
+</tr>
+<tr class="row-odd"><td>LDAP_proxy_vs_IP</td>
+<td>Virtual server IP address of LDAP proxy service</td>
+<td>10.1.20.104</td>
+</tr>
+<tr class="row-even"><td>LDAPS_proxy_vs_IP</td>
+<td>Virtual server IP address of LDAPS proxy service</td>
+<td>10.1.20.104</td>
+</tr>
+<tr class="row-odd"><td>LDAP_server_IP</td>
+<td>IP Address of site LDAP or AD server (required for LDAP use)</td>
+<td>10.1.20.7</td>
+</tr>
+<tr class="row-even"><td>RADIUS_server_IP</td>
+<td>IP Address of site RADIUS server (if RADIUS bypass is used)</td>
+<td>10.1.20.7</td>
+</tr>
+</tbody>
+</table>
+<p>Expected time to complete: <strong>1 hour</strong></p>
+</div>
+<div class="section" id="task-1-setup-lab-environment">
+<h2>Task 1 - Setup Lab Environment<a class="headerlink" href="#task-1-setup-lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).</p>
+<ol class="arabic">
+<li><p class="first">Click <strong>DEPLOYMENT</strong> located on the top left corner to display the environment</p>
+</li>
+<li><p class="first">Click <strong>ACCESS</strong> next to jumpbox.f5lab.local</p>
+<p><img alt="image200" src="../../_images/200.png" /></p>
+</li>
+<li><p class="first">Select your RDP resolution.</p>
+</li>
+<li><p class="first">The RDP client on your local host establishes a RDP connection to the Jump Host.</p>
+</li>
+<li><dl class="first docutils">
+<dt>Login with the following credentials:</dt><dd><ul class="simple">
+<li>User: <strong>f5lab\user1</strong></li>
+<li>Password: <strong>user1</strong></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">After successful logon the Chrome browser will auto launch opening the site <a class="reference external" href="https://portal.f5lab.local">https://portal.f5lab.local</a>.  This process usually takes 30 seconds after logon.</p>
+<blockquote>
+<div><p><img alt="image201" src="../../_images/201.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click the <strong>Classes</strong> tab at the top of the page.</p>
+</li>
+<li><p class="first">Scroll down the page until you see <strong>302 Ephemeral Authentication</strong> on the left</p>
+<p><img alt="image087" src="../../_images/0874.png" /></p>
+</li>
+<li><p class="first">Hover over tile <strong>Implement Priviledged user Access Authentication</strong>. A start and stop icon should appear within the tile.  Click the <strong>Play</strong> Button to start the automation to build the environment</p>
+<p><img alt="image088" src="../../_images/0884.png" /></p>
+</li>
+<li><p class="first">The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the <a class="reference external" href="https://github.com/f5devcentral/access-labs">Access Labs Repo</a>..</p>
+<p><img alt="image089" src="../../_images/0894.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-executing-the-pua-script">
+<h2>Task 2 - Executing the PUA Script<a class="headerlink" href="#task-2-executing-the-pua-script" title="Permalink to this headline">¶</a></h2>
+<p><strong>Overview</strong></p>
+<p>The ./build_pua.sh script will do a pre-flight check to ensure all the pre-requisites are met and will invoke a UCS backup by default before making any changes. If this script is run on a BIG-IP with a trial license, you must use the -s or –sanity option to prevent checking for licensing restrictions, this should only be done in a non-production environment as this may cause issues with production systems.</p>
+<p>After each invocation, a log file will be left in /var/log called f5-pua-install-xxxx.log which will outline all the actions taken along with the result or any errors encountered. This log file may be requested by support or an F5 engineer to assist in any troubleshooting.</p>
+<p><strong>Usage</strong></p>
+<p>Invoking ./build_pua.sh with “-h” or “–help” will alert you to the potential options you may use to modify the behavior of the script. As of this document and version 1.1.3 the current options are:</p>
+<table border="1" class="colwidths-given docutils align-default">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><strong>Options</strong></th>
+<th class="head"><strong>Descriptions</strong></th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>-h, -\-help</td>
+<td>This Notice</td>
+</tr>
+<tr class="row-odd"><td>-s -\-sanity</td>
+<td>Bypass santiy checks (license, BIG-IP status)</td>
+</tr>
+<tr class="row-even"><td>-u -\-update</td>
+<td>Update existing installation</td>
+</tr>
+<tr class="row-odd"><td>-e -\-extract</td>
+<td>Extract files to temp location and exit</td>
+</tr>
+<tr class="row-even"><td>-n -\-nobackup</td>
+<td>Does not perform UCS backup</td>
+</tr>
+<tr class="row-odd"><td>-c -\-checkonly</td>
+<td>Check installed versions against this package</td>
+</tr>
+<tr class="row-even"><td>-d -\-disabletest</td>
+<td>Disable test user</td>
+</tr>
+<tr class="row-odd"><td>-f -\-forceupgrade</td>
+<td>Force upgrade of packages from this archive</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This lab will automate the installation of the ./build_pua.sh script by creating a file called pua_config.sh and saving to the same directory as ./build_pua.sh.
+The <strong>pua_config.sh</strong> file is located in the <strong>/var/tmp/pua</strong> directory</p>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Sample unattended install script
+<span class="gp"># </span>place this <span class="k">in</span> the same directory as
+<span class="gp"># </span>build_pua.sh to automatcailly install
+<span class="gp">#</span>
+<span class="gp"># </span>uncomment the lines below to use/customize
+<span class="go">noninteractive=true</span>
+<span class="go">radiusvip=10.1.20.104</span>
+<span class="go">ldapvip=10.1.20.104</span>
+<span class="go">ldapsvip=10.1.20.104</span>
+<span class="go">webtopvip=10.1.10.104</span>
+<span class="go">radiusconfig=y</span>
+<span class="go">sampleca=y</span>
+<span class="go">disabletest=true</span>
+<span class="go">nobackup=true</span>
+</pre></div>
+</div>
+<p>Setting the “noninteractive=true” option will perform a full unattended install if all the sample prompts above are provided and uncommented, otherwise the answers provided in pua_config.sh will be used as the defaults in a semi-interactive install method.</p>
+<ol class="arabic">
+<li><p class="first">Login to into the BIG-IP via SSH</p>
+</li>
+<li><p class="first">Change Directory to <strong>/var/tmp/pua</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cd /var/tmp/pua</span>
+</pre></div>
+</div>
+<p><img alt="image01" src="../../_images/image00110.png" /></p>
+</li>
+<li><p class="first">Unzip the PUA Build Script</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">unzip build_pua-151-1.1.5-rc17.zip</span>
+</pre></div>
+</div>
+<p><img alt="image02" src="../../_images/image0029.png" /></p>
+</li>
+<li><p class="first">Verify the <strong>pua_config.sh</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">cat pua_config.sh</span>
+</pre></div>
+</div>
+<p><img alt="image03" src="../../_images/image00310.png" /></p>
+</li>
+<li><p class="first">Run the PUA installation script <strong>./build_pua.sh</strong></p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">./build_pua-151.sh</span>
+</pre></div>
+</div>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">[admin@bigip1:Active:Standalone] pua # </span>./build_pua-151.sh
+
+<span class="go">/var/tmp/pua/build_pua-151.sh - v1.1.5-rc17 on BIG-IP v15.1.0</span>
+<span class="go">Reading config from /var/tmp/pua/pua_config.sh...</span>
+
+<span class="go">noninteractive is GO... Buckle up...</span>
+
+<span class="go">Preparing environment... [OK]</span>
+
+<span class="go">Changing to /tmp/pua.rILEoICRFw... [OK]</span>
+
+<span class="go">Extracting archive... [OK]</span>
+
+<span class="go">Checking License Entitlements for Privileged User Access... [OK]</span>
+
+<span class="go">Adding ILX archive directory... [OK]</span>
+
+<span class="go">Checking modules are provisioned.</span>
+
+<span class="go">Checking apm... [OK]</span>
+
+<span class="go">Checking ilx... [OK]</span>
+
+<span class="go">SUCCESS: All modules provisioned.</span>
+
+<span class="go">Checking for BIG-IP-ILX-WebSSH2-current.tgz... [OK]</span>
+
+<span class="go">Hash check for BIG-IP-ILX-WebSSH2-current.tgz... [OK]</span>
+
+<span class="go">Checking for BIG-IP-ILX-ephemeral_auth-151-current.tgz... [OK]</span>
+
+<span class="go">Hash check for BIG-IP-ILX-ephemeral_auth-151-current.tgz... [OK]</span>
+
+<span class="go">RADIUS = 10.1.20.104</span>
+
+<span class="go">LDAP = 10.1.20.104</span>
+
+<span class="go">LDAPS = 10.1.20.104</span>
+
+<span class="go">Webtop = 10.1.10.104</span>
+<span class="go">[OK]</span>
+<span class="go">[OK]</span>
+<span class="go">[OK]</span>
+<span class="go">[OK]</span>
+<span class="go">[OK]</span>
+<span class="go">[OK]</span>
+
+<span class="go">Checking for ca.pua.lab.cer... [OK]</span>
+
+<span class="go">Hash check for ca.pua.lab.cer... [OK]</span>
+
+<span class="go">Installing CA file ca.pua.lab.cer... [OK]</span>
+
+<span class="go">Creating pua_webtop-clientssl profile with CA ca.pua.lab.cer... [OK]</span>
+
+<span class="go">Creating ephemeral_config data group... [OK]</span>
+
+<span class="go">Creating ephemeral_LDAP_Bypass data group... [OK]</span>
+
+<span class="go">Creating ephemeral_RADIUS_Bypass data group... [OK]</span>
+
+<span class="go">Creating ephemeral_radprox_host_groups data group... [OK]</span>
+
+<span class="go">Creating ephemeral_radprox_radius_attributes data group... [OK]</span>
+
+<span class="go">Creating ephemeral_radprox_radius_client data group... [OK]</span>
+
+<span class="go">Creating WebSSH2 Workspace... [OK]</span>
+
+<span class="go">Extracting BIG-IP-ILX-WebSSH2-current.tgz to /var/ilx/workspaces/Common... [OK]</span>
+
+<span class="go">Copying WebSSH2 config.json.sample to config.json... [OK]</span>
+
+<span class="go">Creating WebSSH2 Plugin... [OK]</span>
+
+<span class="go">Importing APM sample profile ... [OK]</span>
+
+<span class="go">Modifying pua Web Top Link... [OK]</span>
+
+<span class="go">Applying pua APM Policy... [OK]</span>
+
+<span class="go">Creating Ephemeral Authentication Workspace... [OK]</span>
+
+<span class="go">Extracting BIG-IP-ILX-ephemeral_auth-151-current.tgz to /var/ilx/workspaces/Common... [OK]</span>
+
+<span class="go">Modifying Ephemeral Authentication Workspace... [OK]</span>
+
+<span class="go">Copying Ephemeral Auth config.json.sample to config.json... [OK]</span>
+
+<span class="go">Creating Ephemeral Authentication Plugin... [OK]</span>
+
+<span class="go">Creating RADIUS Proxy Service Virtual Server... [OK]</span>
+
+<span class="go">Creating LDAP Proxy Service Virtual Server... [OK]</span>
+
+<span class="go">Creating LDAP Proxy Service Virtual Server... [OK]</span>
+
+<span class="go">Creating LDAPS (ssl) Proxy Service Virtual Server... [OK]</span>
+
+<span class="go">Creating Webtop Virtual Server... [OK]</span>
+
+<span class="go">Modifying BIG-IP for RADIUS authentication against itself... [OK]</span>
+
+<span class="go">Saving config... [OK]</span>
+
+<span class="go">You can test your new APM webtop now by browsing to:</span>
+
+<span class="go">   https://10.1.10.104</span>
+
+<span class="go">   username: &lt;any&gt;</span>
+<span class="go">   password: &lt;any&gt;</span>
+
+<span class="go">This will let anyone in with any policy. The next step after testing would be</span>
+<span class="go">to add access control through AD, MFA, or some other method.</span>
+
+<span class="go">If the RADIUS testing option was enabled, any username will log in using</span>
+<span class="go">Ephemeral Authentication.</span>
+
+<span class="go">Task complete.</span>
+
+<span class="go">Now go build an APM policy for PUA!</span>
+
+<span class="go">Cleaning up...</span>
+
+
+<span class="go">/var/tmp/pua/build_pua-151.sh - v1.1.5-rc17 on BIG-IP v15.1.0</span>
+<span class="go">[admin@bigip1:Active:Standalone]</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-accessing-the-big-ip-via-apm-webtop">
+<h2>Task 3 - Accessing the BIG-IP via APM Webtop<a class="headerlink" href="#task-3-accessing-the-big-ip-via-apm-webtop" title="Permalink to this headline">¶</a></h2>
+<p>In this section, you will test the initial installation of the PUA deployment.</p>
+<ol class="arabic">
+<li><p class="first">Open a web browser and navigate to <a class="reference external" href="https://pua.acme.com">https://pua.acme.com</a></p>
+</li>
+<li><p class="first">A Warning Banner page (customizable) should appear, click the <strong>Click here to continue</strong> link.</p>
+<p><img alt="image10" src="../../_images/image0109.png" /></p>
+</li>
+<li><p class="first">You should now see a logon page. Enter a random username and any password. Then, click the <strong>Logon</strong> button.</p>
+<p><img alt="image11" src="../../_images/image0118.png" /></p>
+</li>
+<li><p class="first">You should be directed to the webtop. Click the <strong>BIG-IP</strong> tile.</p>
+<p><img alt="image12" src="../../_images/image0128.png" /></p>
+</li>
+<li><p class="first">You should then see a WebSSH screen. Notice that you were logged into the BIG-IP with the username that you entered at the logon page.</p>
+<p><img alt="image13" src="../../_images/image0138.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-review-the-apm-policy-created-by-the-pua-build-script">
+<h2>Task 4 - Review the APM Policy Created by the PUA Build Script<a class="headerlink" href="#task-4-review-the-apm-policy-created-by-the-pua-build-script" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Open a web browser and log into the BIG-IP via its management address: <a class="reference external" href="https://10.1.1.4">https://10.1.1.4</a></p>
+</li>
+<li><p class="first">Navigate to <strong>Access &gt;&gt; Profiles/Policies &gt;&gt; Access Profiles (Per-Session Polices)</strong>.</p>
+<p><img alt="image20" src="../../_images/image0208.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Edit</strong> link for the <strong>pua</strong> Access Profile.</p>
+<p><img alt="image21" src="../../_images/image0218.png" /></p>
+</li>
+<li><p class="first">Expanded the Macros by clicking the square box with the plus sign inside.</p>
+<p><img alt="image22" src="../../_images/image0228.png" /></p>
+</li>
+<li><p class="first">Here is the policy created by the PUA Build Script:</p>
+<p><img alt="image23" src="../../_images/image0238.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-5-build-a-ldap-macro">
+<h2>Task 5 - Build a LDAP macro<a class="headerlink" href="#task-5-build-a-ldap-macro" title="Permalink to this headline">¶</a></h2>
+<p>PUA requires a Directory Service to authenticate users. In this section you will build a LDAP macro to perform the authentication function.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This lab makes use of APM macros to make policies easy to view and manage.</p>
+</div>
+<p>The LDAP macro will verify that the requesting user has a valid account and the appropriate group permission.</p>
+<ol class="arabic">
+<li><p class="first">Click the <strong>Add New Macro</strong> button</p>
+<p><img alt="image30" src="../../_images/image0308.png" /></p>
+</li>
+<li><p class="first">Enter <strong>LDAP_Query</strong> for the and click <strong>Save</strong></p>
+<p><img alt="image31" src="../../_images/image0317.png" /></p>
+</li>
+<li><p class="first">Open the newly created macro by clicking the plus sign by the name: <strong>Macro: LDAP_Query</strong></p>
+<p><img alt="image32" src="../../_images/image0327.png" /></p>
+</li>
+<li><p class="first">Add the LDAP Query action by clicking the plus sign</p>
+<p><img alt="image33" src="../../_images/image0337.png" /></p>
+</li>
+<li><p class="first">Select the <strong>Authentication</strong> tab, select the <strong>LDAP Query</strong> agent, and then click <strong>Add Item</strong></p>
+<p><img alt="image34" src="../../_images/image0346.png" /></p>
+</li>
+<li><p class="first">Update the <strong>Properties</strong> tab by modifying the <strong>Server</strong>, <strong>SearchDN</strong>, <strong>SearchFilter</strong>, and <strong>Fetch Groups</strong> settings</p>
+<ul class="simple">
+<li>Server = <strong>/Common/ldap-servers</strong></li>
+<li>SearchDN = <strong>DC=f5lab,DC=local</strong></li>
+<li>SearchFilter = <strong>UserPrincipalName=%{session.custom.ephemeral.upn}</strong></li>
+<li>Fetch groups to which the user or group belong = <strong>Direct</strong></li>
+</ul>
+<p><img alt="image35" src="../../_images/image0355.png" /></p>
+</li>
+<li><p class="first">Click on the <strong>Branch Rules</strong> tab to edit the Branch Rules</p>
+</li>
+<li><p class="first">Click the <strong>X</strong> button beside <strong>User Group Membership</strong>. This will delete the branch</p>
+<p><img alt="image36" src="../../_images/image0367.png" /></p>
+</li>
+<li><p class="first">Click <strong>Add Branch Rule</strong></p>
+<p><img alt="image37" src="../../_images/image0377.png" /></p>
+</li>
+<li><p class="first">Enter <strong>LDAP Query</strong> in the <strong>Name</strong> field and click the <strong>change</strong> link</p>
+<p><img alt="image38" src="../../_images/image0386.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Add Expression</strong> button</p>
+<p><img alt="image39" src="../../_images/image0393.png" /></p>
+</li>
+<li><p class="first">Change the <strong>Context</strong> setting to <strong>LDAP Query</strong> and the <strong>Condition</strong> setting to <strong>LDAP Query Passed</strong>. Ensure that <strong>LDAP Query has</strong> is set to <strong>Passed</strong>. Click th</p>
+<p><img alt="image130" src="../../_images/image1303.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Add Expression</strong> button</p>
+<p><img alt="image131" src="../../_images/image1315.png" /></p>
+</li>
+<li><p class="first">Click <strong>Finish</strong>, and then click <strong>Save</strong></p>
+</li>
+<li><p class="first">Now add a <strong>Message Box</strong> agent to alert when the LDAP query fails. Click on the plus sign on the <strong>fallback</strong> branch (between the <strong>LDAP Query</strong> and the <strong>OUT</strong> terminal)</p>
+<p><img alt="image132" src="../../_images/image1323.png" /></p>
+</li>
+<li><p class="first">Select the <strong>General Purpose</strong> tab and then select <strong>Message Box</strong> in the main section, and Click the <strong>Add Item</strong> button</p>
+<p><img alt="image133" src="../../_images/image1333.png" /></p>
+</li>
+<li><p class="first">Enter the following values for the message box agent, and Click on the <strong>Save</strong> button</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Name:    **LDAP Failure**</span>
+<span class="go">Message: **LDAP Failure for user %{UserPrincipalName}**</span>
+</pre></div>
+</div>
+<p><img alt="image134" src="../../_images/image1343.png" /></p>
+</li>
+<li><p class="first">Click on the <strong>Edit Terminals</strong> button to change the terminals to report Success and Failure</p>
+<p><img alt="image136" src="../../_images/image1363.png" /></p>
+</li>
+<li><p class="first">Change the Name from <strong>out</strong> to <strong>Success</strong>, and then click on the <strong>Add Terminal</strong> button</p>
+<p><img alt="image137" src="../../_images/image1373.png" /></p>
+</li>
+<li><p class="first">Change the name from <strong>Terminal 1</strong> to <strong>Failure</strong>, and then click on <strong>Save</strong></p>
+<p><img alt="image138" src="../../_images/image1383.png" /></p>
+</li>
+<li><p class="first">Click the terminal for the <strong>LDAP Failure</strong> branch</p>
+<p><img alt="image139" src="../../_images/image1393.png" /></p>
+</li>
+<li><p class="first">Change the setting from <strong>Success</strong> to <strong>Failure</strong>. and click <strong>Save</strong></p>
+<p><img alt="image1130" src="../../_images/image1130.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+</li>
+</ol>
+<p>Here is the completed macro.</p>
+<blockquote>
+<div><img alt="image135" src="../../_images/image1353.png" /></div></blockquote>
+</div>
+<div class="section" id="task-6-build-cac-auth-macro">
+<h2>Task 6 - Build CAC AUTH Macro<a class="headerlink" href="#task-6-build-cac-auth-macro" title="Permalink to this headline">¶</a></h2>
+<p>In this section, you will build a macro to request the user certificate.</p>
+<ol class="arabic">
+<li><p class="first">Click the <strong>Add New Macro</strong> button</p>
+<p><img alt="image30" src="../../_images/image0308.png" /></p>
+</li>
+<li><p class="first">Name the Macro CAC Auth and click <strong>save</strong></p>
+<p><img alt="image40" src="../../_images/image0403.png" /></p>
+</li>
+<li><p class="first">Open the newly created macro by clicking the plus sign by the name: <strong>CAC Auth</strong></p>
+<p><img alt="image41" src="../../_images/image0414.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Authentication</strong> tab across the top, select <strong>On-Demand Cert Auth</strong>, and click <strong>Add Item</strong></p>
+<p><img alt="image42" src="../../_images/image0424.png" /></p>
+</li>
+<li><p class="first">Leave the <strong>Auth Mode</strong> set to the default <strong>Request</strong>, and click <strong>Save</strong></p>
+<p><img alt="image43" src="../../_images/image0433.png" /></p>
+</li>
+<li><p class="first">Click the plus sign on the <strong>Successful</strong> branch</p>
+<p><img alt="image44" src="../../_images/image0443.png" /></p>
+</li>
+<li><p class="first">Click the tab <strong>Macros</strong> across the top, select the <strong>GET UPN from CAC</strong> button in the main page, and click <strong>Add Item</strong></p>
+<p><img alt="image45" src="../../_images/image0453.png" /></p>
+</li>
+<li><p class="first">Click the plus sign on the <strong>Found</strong> branch</p>
+<p><img alt="image46" src="../../_images/image0462.png" /></p>
+</li>
+<li><p class="first">Select <strong>Macros</strong> across the top, select the <strong>LDAP_Query</strong> button in the main page, and click <strong>Add Item</strong></p>
+<p><img alt="image47" src="../../_images/image0472.png" /></p>
+</li>
+<li><p class="first">Click the plus sign on the <strong>fallback</strong> branch after the On-Demand Cert Auth</p>
+<p><img alt="image48" src="../../_images/image0483.png" /></p>
+</li>
+<li><p class="first">Select <strong>General Purpose</strong> across the top, select <strong>Message Box</strong> in the main page, and click <strong>Add Item</strong></p>
+<p><img alt="image49" src="../../_images/image0492.png" /></p>
+</li>
+<li><p class="first">Name the message box CAC Failure, enter CAC Failure in the <strong>Message</strong> box, and click <strong>Save</strong></p>
+<p><img alt="image140" src="../../_images/image1403.png" /></p>
+</li>
+<li><p class="first">Click <strong>Edit Terminals</strong></p>
+<p><img alt="image141" src="../../_images/image1414.png" /></p>
+</li>
+<li><p class="first">Change the default name from Out to <strong>Success</strong>, and click <strong>Add Terminal</strong></p>
+<p><img alt="image142" src="../../_images/image1423.png" /></p>
+</li>
+<li><p class="first">Change the default name to Failure</p>
+<p><img alt="image143" src="../../_images/image1433.png" /></p>
+</li>
+<li><p class="first">Click the down arrow beside the Failure box to change the order. The <strong>Success</strong> terminal should be on top. Click <strong>Save</strong></p>
+<p><img alt="image147" src="../../_images/image1473.png" /></p>
+</li>
+<li><p class="first">Click the terminals on the <strong>Not Found</strong>, <strong>Failure</strong>, <strong>Fallback</strong> branches and change them from <strong>Success</strong> to <strong>Failure</strong>. Click <strong>Save</strong></p>
+<p><img alt="image144" src="../../_images/image1443.png" /></p>
+<p><img alt="image145" src="../../_images/image1453.png" /></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The completed CAC Auth Macro</p>
+<p class="last"><img alt="image146" src="../../_images/image1463.png" /></p>
+</div>
+</div>
+<div class="section" id="task-7-update-the-initial-access-policy">
+<h2>Task 7 - Update the Initial Access Policy<a class="headerlink" href="#task-7-update-the-initial-access-policy" title="Permalink to this headline">¶</a></h2>
+<p>In this section, you will add the CAC Auth Macro to the initial access policy and update the variable assignments.</p>
+<ol class="arabic">
+<li><p class="first">Click the <strong>X</strong> the Logon Page box to remove the Logon Page</p>
+<p><img alt="image50" src="../../_images/image0502.png" /></p>
+</li>
+<li><p class="first">Click the Delete button</p>
+<p><img alt="image51" src="../../_images/image0512.png" /></p>
+</li>
+<li><p class="first">Click the plus sign between USG Waring Banner and Variable Assign</p>
+<p><img alt="image52" src="../../_images/image0521.png" /></p>
+</li>
+<li><p class="first">Select <strong>Macros</strong> across the top, select the <strong>CAC Auth</strong> button in the main page, and click <strong>Add Item</strong></p>
+<p><img alt="image53" src="../../_images/image0531.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Variable Assign</strong> box</p>
+<p><img alt="image54" src="../../_images/image0542.png" /></p>
+</li>
+<li><p class="first">Click <strong>change</strong> on row 1</p>
+<p><img alt="image55" src="../../_images/image0552.png" /></p>
+</li>
+<li><p class="first">Make the following changes</p>
+<ul class="simple">
+<li>Change the right hand pull down setting to <strong>AAA Attribute</strong></li>
+<li>Change the Agent Type to <strong>LDAP</strong></li>
+<li>Change the Attribute type to <strong>USE LDAP attribute</strong></li>
+<li>Set the LDAP attribute name to <strong>dn</strong></li>
+<li>Click <strong>Finished</strong></li>
+</ul>
+<p><img alt="image56" src="../../_images/image0562.png" /></p>
+</li>
+<li><p class="first">Click <strong>Add new entry</strong></p>
+<p><img alt="image57" src="../../_images/image0572.png" /></p>
+</li>
+<li><p class="first">Click <strong>change</strong></p>
+<p><img alt="image58" src="../../_images/image0582.png" /></p>
+</li>
+<li><p class="first">Make the following changes</p>
+<ul class="simple">
+<li>Update the field below Custom Variable with <strong>session.logon.last.username</strong></li>
+<li>Change the Custom Expression pull down to <strong>AAA Atribute</strong></li>
+<li>Change the Agent Type to <strong>LDAP</strong></li>
+<li>Change the Atribute type to <strong>Use LDAP attribute</strong></li>
+<li>Set the LDAP attribute name to <strong>sAMAccountName</strong></li>
+<li>Click <strong>Finished</strong></li>
+</ul>
+<p><img alt="image59" src="../../_images/image0592.png" /></p>
+</li>
+<li><p class="first">Click the down arrow on row 1 to move the Assignment to the second row, and click <strong>Save</strong></p>
+<p><img alt="image150" src="../../_images/image1502.png" /></p>
+<p>Here is the completed initial policy</p>
+<p><img alt="image151" src="../../_images/image1513.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong></p>
+<p><img alt="image152" src="../../_images/image1522.png" /></p>
+</li>
+</ol>
+<div class="section" id="task-8-update-the-ssl-profile">
+<h3>Task 8 - Update the SSL Profile<a class="headerlink" href="#task-8-update-the-ssl-profile" title="Permalink to this headline">¶</a></h3>
+<p>In this section, you will modify the SSL profile to present an internally signed certificate for the PUA webtop and select a trusted Certificate Authority to validate the user certificates.</p>
+<ol class="arabic">
+<li><p class="first">Click Local Traffic &gt;&gt; Profiles &gt;&gt; SSL &gt;&gt; Client</p>
+<p><img alt="image60" src="../../_images/image0601.png" /></p>
+</li>
+<li><p class="first">Click <strong>pua_webtop-clientssl</strong></p>
+<p><img alt="image61" src="../../_images/image0611.png" /></p>
+</li>
+<li><p class="first">Update the <strong>Certificate Key Chain</strong></p>
+<ul>
+<li><p class="first">Check the custom box beside <strong>Certificate Key Chain</strong></p>
+</li>
+<li><p class="first">Highlight the <strong>default key chain</strong> and click <strong>delete</strong></p>
+<blockquote>
+<div><p><img alt="image62" src="../../_images/image0621.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>ADD</strong></p>
+<blockquote>
+<div><p><img alt="image63" src="../../_images/image0631.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Change the Certificate to <strong>acme.com-wildcard.crt</strong></p>
+</li>
+<li><p class="first">Change the Key to <strong>acme.com-wildcard.key</strong></p>
+</li>
+<li><p class="first">Click <strong>ADD</strong></p>
+<blockquote>
+<div><p><img alt="image64" src="../../_images/image0641.png" /></p>
+</div></blockquote>
+</li>
+</ul>
+</li>
+<li><p class="first">Update the Certificate Authorities</p>
+<ul class="simple">
+<li>Change the Trusted Certificate from ca. pua.lab.cer to ca.f5lab.local</li>
+<li>Change the Advertised Certificate from ca. pua.lab.cer to ca.f5lab.local</li>
+<li>Click <strong>Update</strong></li>
+</ul>
+<p><img alt="image65" src="../../_images/image0651.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="task-9-adding-devices-to-the-webtop">
+<h2>Task 9 - Adding Devices to the webtop<a class="headerlink" href="#task-9-adding-devices-to-the-webtop" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">click <strong>Access &gt;&gt; Webtops &gt;&gt; Webtop Links</strong></p>
+<p><img alt="image70" src="../../_images/image0701.png" /></p>
+</li>
+<li><p class="first">Click <strong>Create</strong></p>
+<p><img alt="image71" src="../../_images/image0711.png" /></p>
+</li>
+<li><p class="first">Make the following changes</p>
+<ul class="simple">
+<li>Enter <strong>Host01</strong> as the <strong>Name</strong></li>
+<li>Change the <strong>Link Type</strong> to <strong>Application URI</strong></li>
+<li>Update the <strong>Application URI</strong> with  <strong>https://%{session.server.network.name}/ssh/host/10.1.20.8</strong></li>
+</ul>
+</li>
+<li><p class="first">Click <strong>Finish</strong></p>
+<p><img alt="image72" src="../../_images/image0721.png" /></p>
+</li>
+<li><p class="first">Click <strong>Access &gt;&gt; Profiles/Policies &gt;&gt; Access Profiles (Per-Session Polices)</strong></p>
+<p><img alt="image73" src="../../_images/image0731.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Edit</strong> button on the <strong>pua</strong> row</p>
+<p><img alt="image74" src="../../_images/image0741.png" /></p>
+</li>
+<li><p class="first">Click the plus sign beside the <strong>Macro: Admin Access</strong></p>
+<p><img alt="image75" src="../../_images/image0751.png" /></p>
+</li>
+<li><p class="first">Click <strong>Advanced Resource Assign</strong></p>
+<p><img alt="image76" src="../../_images/image0761.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Add/Delete</strong> button</p>
+<p><img alt="image77" src="../../_images/image0771.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Webtop Links</strong> tab and enable the <strong>/Common/Host1</strong> checkbox</p>
+</li>
+<li><p class="first">Click <strong>Update</strong>, and then click <strong>Save</strong></p>
+<p><img alt="image78" src="../../_images/image0781.png" /></p>
+</li>
+<li><p class="first">Click <strong>Apply Access Policy</strong></p>
+<p><img alt="image79" src="../../_images/image0791.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-10-modifying-radius-configurations">
+<h2>Task 10 - Modifying Radius Configurations<a class="headerlink" href="#task-10-modifying-radius-configurations" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Navigate to <strong>Local Traffic &gt;&gt; iRules &gt;&gt; Data Group List</strong></p>
+<p><img alt="image80" src="../../_images/image0801.png" /></p>
+</li>
+<li><p class="first">Click <strong>ephemeral_config</strong></p>
+<p><img alt="image81" src="../../_images/image0811.png" /></p>
+</li>
+<li><p class="first">Change the Radius Secret</p>
+<ul class="simple">
+<li>Highlight <strong>RADIUS_SECRET</strong> in the String Records window</li>
+<li>Click <strong>Edit</strong></li>
+</ul>
+<p><img alt="image82" src="../../_images/image0821.png" /></p>
+</li>
+<li><p class="first">Change the Value from radius_secret to <strong>secret</strong>, Click <strong>ADD</strong>, and click <strong>Update</strong></p>
+<p><img alt="image83" src="../../_images/image0831.png" /></p>
+</li>
+<li><p class="first">SSH into the BIG-IP and enter traffic management shell by typing <strong>tmsh</strong></p>
+</li>
+<li><p class="first">Enter the following commands</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">modify auth radius-server system_auth_name1 secret secret</span>
+<span class="go">save sys config</span>
+</pre></div>
+</div>
+<p><img alt="image84" src="../../_images/image0841.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-11-verification-testing">
+<h2>Task 11 - Verification Testing<a class="headerlink" href="#task-11-verification-testing" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Access the webtop via <a class="reference external" href="https://pua.acme.com">https://pua.acme.com</a></p>
+</li>
+<li><p class="first">A Warning Banner page (customizable) should appear, click the <strong>Click here to continue</strong> link.</p>
+<p><img alt="image90" src="../../_images/image090.png" /></p>
+</li>
+<li><p class="first">Select the certificate for user1 and click OK</p>
+<p><img alt="image91" src="../../_images/image091.png" /></p>
+</li>
+<li><p class="first">Observer the updated webtop with Host01</p>
+<p><img alt="image92" src="../../_images/image092.png" /></p>
+</li>
+<li><p class="first">Click the BIG-IP icon, and observer the username in the bottom left corner</p>
+<p><img alt="image93" src="../../_images/image093.png" /></p>
+</li>
+<li><p class="first">Close the browser window and return to webtop</p>
+</li>
+<li><p class="first">Click the Host01 icon</p>
+<p><img alt="image92" src="../../_images/image092.png" /></p>
+</li>
+<li><p class="first">Observer the the username at the bottom left corner</p>
+<p><img alt="image94" src="../../_images/image094.png" /></p>
+</li>
+<li><p class="first">Escalate Priviledges</p>
+<ul class="simple">
+<li>type <strong>sudo -i</strong></li>
+<li>click the <strong>Menu</strong> button</li>
+<li>click click <strong>Credentials</strong> button</li>
+</ul>
+<p><img alt="image95" src="../../_images/image095.png" /></p>
+</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Credentials button sends the password to terminal</p>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="lab01.html" title="Lab 1: Implement C3D with APM Enhancements" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module6/intro.html" title="Environment Overview" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

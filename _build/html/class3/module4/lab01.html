@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 1: Deploy an API Protection Profile</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 1: Deploy an API Protection Profile"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1: Deploy an API Protection Profile &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 2: Additional Security - Bot Defense and WAF" href="lab02.html" />
+    <link rel="prev" title="Environment Overview" href="intro.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 1: Deploy an API Protection Profile</a><ul>
+<li><a class="reference internal" href="#section-1-1-setup-lab-environment">Section 1.1 - Setup Lab Environment</a></li>
+<li><a class="reference internal" href="#section-1-2-implement-course-graing-access-control">Section 1.2 - Implement Course-Graing Access Control</a><ul>
+<li><a class="reference internal" href="#task-1-create-a-provider">Task 1 - Create a Provider</a></li>
+<li><a class="reference internal" href="#task-2-create-a-jwt-provider">Task 2 - Create a JWT Provider</a></li>
+<li><a class="reference internal" href="#task-3-create-an-api-protection-profile">Task 3 - Create an API Protection Profile</a></li>
+<li><a class="reference internal" href="#task-4-explore-the-path-configuration">Task 4 - Explore the Path Configuration</a></li>
+<li><a class="reference internal" href="#task-5-associate-a-jwt-provider">Task 5 - Associate a JWT Provider</a></li>
+<li><a class="reference internal" href="#task-6-create-a-virtual-server">Task 6 - Create a virtual server</a></li>
+<li><a class="reference internal" href="#task-7-import-postman-collections">Task 7 - Import Postman Collections</a></li>
+<li><a class="reference internal" href="#task-8-retreive-your-oauth-clientid">Task 8 - Retreive your OAuth clientID</a></li>
+<li><a class="reference internal" href="#task-9-attempt-to-retrieve-user1-s-attributes-without-jwt">Task 9 - Attempt to Retrieve User1's Attributes without JWT</a></li>
+<li><a class="reference internal" href="#task-10-retrieve-user1-s-attributes-with-a-jwt">Task 10 -  Retrieve User1's Attributes with a JWT</a></li>
+<li><a class="reference internal" href="#task-11-set-a-valid-user-attribute">Task 11 - Set a Valid User Attribute</a></li>
+<li><a class="reference internal" href="#task-12-set-an-nonexistent-user-s-attribute">Task 12 - Set an Nonexistent User’s Attribute</a></li>
+<li><a class="reference internal" href="#task-13-update-a-valid-user-with-put">Task 13 - Update a Valid User with PUT</a></li>
+<li><a class="reference internal" href="#task-14-create-a-user">Task 14 - Create a User</a></li>
+<li><a class="reference internal" href="#task-15-request-invalid-endpoint">Task 15 - Request invalid endpoint</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-1-3-implement-fine-grained-access-controls">Section 1.3 - Implement Fine-Grained Access Controls</a><ul>
+<li><a class="reference internal" href="#task-1-retrieve-group-membership-subsession-variable">Task 1 - Retrieve Group Membership Subsession Variable</a></li>
+<li><a class="reference internal" href="#task-2-edit-the-per-request-policy">Task 2 - Edit the per-request policy</a></li>
+<li><a class="reference internal" href="#task-3-test-the-fine-grained-access-control-with-user1">Task 3 - Test the Fine-Grained Access Control with user1</a></li>
+<li><a class="reference internal" href="#task-4-test-the-fine-grained-access-control-with-user2">Task 4 - Test the Fine-Grained Access Control with user2</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-1-4-implement-rate-limiting">Section 1.4 - Implement Rate Limiting</a><ul>
+<li><a class="reference internal" href="#task-1-test-pre-rate-limiting-access">Task 1 - Test pre-rate limiting Access</a></li>
+<li><a class="reference internal" href="#task-2-define-the-rate-limiting-keys">Task 2 - Define the rate limiting keys</a></li>
+<li><a class="reference internal" href="#task-3-create-a-rate-limiting-policy">Task 3 - Create a Rate Limiting Policy</a></li>
+<li><a class="reference internal" href="#task-4-apply-the-rate-limiting-policy">Task 4 - Apply the Rate Limiting Policy</a></li>
+<li><a class="reference internal" href="#task-5-test-rate-limiting">Task 5 - Test Rate Limiting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#section-1-5-onboard-a-new-api">Section 1.5 - Onboard a New API</a><ul>
+<li><a class="reference internal" href="#task-1-verify-no-access-to-api">Task 1 - Verify no access to API</a></li>
+<li><a class="reference internal" href="#task-2-add-the-new-api-path">Task 2 - Add the new API path</a></li>
+<li><a class="reference internal" href="#task-3-test-access-to-the-new-path">Task 3 - Test Access to the new path</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a>
+
+          <span class="right">
+             <a href="../../_sources/class3/module4/lab01.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-1-deploy-an-api-protection-profile">
+<h1>Lab 1: Deploy an API Protection Profile<a class="headerlink" href="#lab-1-deploy-an-api-protection-profile" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="section-1-1-setup-lab-environment">
+<h2>Section 1.1 - Setup Lab Environment<a class="headerlink" href="#section-1-1-setup-lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).</p>
+<ol class="arabic">
+<li><p class="first">Click <strong>DEPLOYMENT</strong> located on the top left corner to display the environment</p>
+</li>
+<li><p class="first">Click <strong>ACCESS</strong> next to jumphost.f5lab.local</p>
+<p><img alt="image200" src="../../_images/2001.png" /></p>
+</li>
+<li><p class="first">Select your RDP resolution.</p>
+</li>
+<li><p class="first">The RDP client on your local host establishes a RDP connection to the Jumphost.</p>
+</li>
+<li><p class="first">Login with the following credentials:</p>
+<blockquote>
+<div><ul class="simple">
+<li>User: <strong>f5lab\user1</strong></li>
+<li>Password: <strong>user1</strong></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">After successful logon the Chrome browser will auto launch opening the site <a class="reference external" href="https://portal.f5lab.local">https://portal.f5lab.local</a>.  This process usually takes 30 seconds after logon.</p>
+<blockquote>
+<div><p><img alt="image201" src="../../_images/2011.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click the <strong>Classes</strong> tab at the top of the page.</p>
+</li>
+<li><p class="first">Scroll down the page until you see <strong>304 API Protection</strong> on the left</p>
+<p><img alt="image202" src="../../_images/202.png" /></p>
+</li>
+<li><p class="first">Hover over tile <strong>Deploy an API Protection Profile</strong>. A start and stop icon should appear within the tile.  Click the <strong>Play</strong> Button to start the automation to build the environment</p>
+<p><img alt="image203" src="../../_images/203.png" /></p>
+</li>
+<li><p class="first">The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the <a class="reference external" href="https://github.com/f5devcentral/access-labs">Access Labs Repo</a>.</p>
+<p><img alt="image204" src="../../_images/204.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="section-1-2-implement-course-graing-access-control">
+<h2>Section 1.2 - Implement Course-Graing Access Control<a class="headerlink" href="#section-1-2-implement-course-graing-access-control" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-1-create-a-provider">
+<h3>Task 1 - Create a Provider<a class="headerlink" href="#task-1-create-a-provider" title="Permalink to this headline">¶</a></h3>
+<p>The cornerstone of the API protection profile is the ability to authorize users using JWT. Unlike Guided Configuration that creates the JWT Provider for you based on a few defined parameters, you must create the provider manually.</p>
+<ol class="arabic">
+<li><p class="first">Navigate to Access &gt;&gt; Federation &gt;&gt; OAuth Client/Resource Server &gt;&gt; Provider. Click the <strong>+ (Plus Symbol)</strong></p>
+<p><img alt="image3" src="../../_images/image00311.png" /></p>
+</li>
+<li><p class="first">Configure the following parameters:</p>
+<ul class="simple">
+<li>Name: <strong>api-as-provider</strong></li>
+<li>Trusted Certificate Authorities: <strong>ca.acme.com.</strong></li>
+<li>OpenID URL: replace f5-oauth.local with <strong>as.acme.com</strong></li>
+</ul>
+</li>
+<li><p class="first">Click <strong>Discover</strong></p>
+<p><img alt="image4" src="../../_images/00415.png" /></p>
+</li>
+<li><p class="first">The Authentication URI, Token URI, Token Validation Scope URI, UserInfo URI and keys should be updated.</p>
+<p><img alt="image5" src="../../_images/00515.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-create-a-jwt-provider">
+<h3>Task 2 - Create a JWT Provider<a class="headerlink" href="#task-2-create-a-jwt-provider" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Navigate to Access &gt;&gt; Federation &gt;&gt; JSON Web Token &gt;&gt; Provider List. Click the <strong>+ (Plus Symbol)</strong>.</p>
+<p><img alt="image9" src="../../_images/image00910.png" /></p>
+</li>
+<li><p class="first">Enter the name: <strong>as-jwt-provider</strong></p>
+</li>
+<li><p class="first">Click <strong>Add</strong> so api-as-provider is added to list of providers</p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image10" src="../../_images/image01010.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-create-an-api-protection-profile">
+<h3>Task 3 - Create an API Protection Profile<a class="headerlink" href="#task-3-create-an-api-protection-profile" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Navigate to API Protection &gt;&gt; Profile. Click the <strong>+ (plus symbol)</strong></p>
+<p><img alt="image11" src="../../_images/image0119.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The JSON file is located on the jumpbox in c:\access-labs\class3\module4\student_files</p>
+</div>
+</li>
+<li><p class="first">Enter the following parameters:</p>
+<ul class="simple">
+<li>Name: <strong>api-protection</strong></li>
+<li>OpenAPI File: <strong>Active Directory OpenAPI.json</strong></li>
+<li>DNS Resolver: <strong>internal-dns-resolver</strong></li>
+<li>Authorization: <strong>OAuth 2.0</strong></li>
+</ul>
+</li>
+<li><p class="first">Click <strong>Add</strong></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><a class="reference internal" href="../../_images/image0129.png"><img alt="image12" src="../../_images/image0129.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-explore-the-path-configuration">
+<h3>Task 4 - Explore the Path Configuration<a class="headerlink" href="#task-4-explore-the-path-configuration" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Note the Spec file contained a single path of /user but it supports four different request methods.</p>
+</li>
+<li><p class="first">The API server that all requests will be sent to is <a class="reference external" href="http://adapi.f5lab.local:81">http://adapi.f5lab.local:81</a></p>
+<p><a class="reference internal" href="../../_images/01317.png"><img alt="image13" src="../../_images/01317.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-5-associate-a-jwt-provider">
+<h3>Task 5 - Associate a JWT Provider<a class="headerlink" href="#task-5-associate-a-jwt-provider" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Access Control</strong> from the top ribbon</p>
+</li>
+<li><p class="first">Click <strong>Edit (Per Request Policy)</strong></p>
+<p><a class="reference internal" href="../../_images/image0148.png"><img alt="image14" src="../../_images/image0148.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Notice the same paths displayed in the API Protection profile appear here. Currently there is no fine-grained access control.  We will implement it later in the lab.</p>
+</li>
+<li><p class="first">Click the <strong>+ (plus symbol)</strong> next the Subroutine <strong>OAuth Scope Check AuthZ</strong> to expand its properties:</p>
+<p><a class="reference internal" href="../../_images/01516.png"><img alt="image15" src="../../_images/01516.png" style="width: 800px;" /></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The OAuth scope agent currently has a red asterisk since no provider is associated with it.</p>
+</div>
+</li>
+<li><p class="first">Click <strong>OAuth Scope</strong></p>
+<p><a class="reference internal" href="../../_images/image0168.png"><img alt="image16" src="../../_images/image0168.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Enter the following parameters:</p>
+<ul class="simple">
+<li>Token Validation Mode: <strong>Internal</strong></li>
+<li>JWT Provider List: <strong>as-jwt-provider</strong></li>
+<li>Response: <strong>api-protection_auto_response1</strong></li>
+</ul>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><a class="reference internal" href="../../_images/image0178.png"><img alt="image17" src="../../_images/image0178.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-6-create-a-virtual-server">
+<h3>Task 6 - Create a virtual server<a class="headerlink" href="#task-6-create-a-virtual-server" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Navigate to Local Traffic &gt;&gt; Virtual Servers &gt;&gt; Virtual Server List.  Click the <strong>+ (plus symbol)</strong></p>
+<p><img alt="image19" src="../../_images/image0198.png" /></p>
+</li>
+<li><p class="first">Enter the following parameters:</p>
+<ul class="simple">
+<li>Name: <strong>api.acme.com</strong></li>
+<li>Destination Address/Mask: <strong>10.1.10.102</strong></li>
+<li>Service Port: <strong>443</strong></li>
+<li>HTTP Profile (Client): <strong>http</strong></li>
+<li>SSL Profile(Client): <strong>acme.com</strong></li>
+<li>Source Address Translation: <strong>Auto Map</strong></li>
+<li>API Protection: <strong>api-protection</strong></li>
+</ul>
+</li>
+<li><p class="first">Click <strong>Finished</strong></p>
+<p><img alt="image20" src="../../_images/image0209.png" />
+<img alt="image22" src="../../_images/image0229.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-7-import-postman-collections">
+<h3>Task 7 - Import Postman Collections<a class="headerlink" href="#task-7-import-postman-collections" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">From the Jumpbox, open <strong>Postman</strong> via the desktop shortcut or toolbar at the bottom</p>
+<blockquote>
+<div><p><img alt="image106" src="../../_images/106.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Yes</strong> if prompted for “Do you want to allow this app to make changes to your device?”</p>
+<blockquote>
+<div><p><img alt="image107" src="../../_images/107.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Import</strong> located on the top left of the Postman application</p>
+<blockquote>
+<div><p><img alt="image108" src="../../_images/108.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Upload Files</strong></p>
+<p><img alt="image109" src="../../_images/109.png" /></p>
+</li>
+<li><p class="first">Navigate to C:\access-labs\class3\module4\student_files, select <strong>student-class3-module4-lab01.postman_collection.json</strong>, and click <strong>Open</strong></p>
+<blockquote>
+<div><p><img alt="image110" src="../../_images/110.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Import</strong></p>
+<p><img alt="image111" src="../../_images/111.png" /></p>
+</li>
+<li><p class="first">A collection called <strong>student-class3-module4-lab01</strong> will appear on the left side in Postman</p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-8-retreive-your-oauth-clientid">
+<h3>Task 8 - Retreive your OAuth clientID<a class="headerlink" href="#task-8-retreive-your-oauth-clientid" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Expand the <strong>student-class3-module4-lab01</strong> Collection</p>
+</li>
+<li><p class="first">Select the request <strong>Request1: Retrieve Postman ClientID</strong></p>
+<p><img alt="image112" src="../../_images/112.png" /></p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+<p><img alt="image25" src="../../_images/image0257.png" /></p>
+</li>
+<li><p class="first">You receive a <strong>200 OK</strong> with a response body.  The clientID is now stored as a Postman Variable to be used in future requests.  Your ClientID will not be the same as displayed in the screenshot below.</p>
+<p><img alt="image113" src="../../_images/113.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-9-attempt-to-retrieve-user1-s-attributes-without-jwt">
+<h3>Task 9 - Attempt to Retrieve User1's Attributes without JWT<a class="headerlink" href="#task-9-attempt-to-retrieve-user1-s-attributes-without-jwt" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 2: Retrieve User Attributes without JWT</strong></p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>403 Forbidden</strong> response status code since you do not have a valid JWT</p>
+<p><img alt="image26" src="../../_images/image0266.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-10-retrieve-user1-s-attributes-with-a-jwt">
+<h3>Task 10 -  Retrieve User1's Attributes with a JWT<a class="headerlink" href="#task-10-retrieve-user1-s-attributes-with-a-jwt" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 3: Retrieve User Attributes with JWT</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> tab</p>
+</li>
+<li><p class="first">Click <strong>Get New Access Token</strong></p>
+<p><a class="reference internal" href="../../_images/02713.png"><img alt="image27" src="../../_images/02713.png" style="width: 600px;" /></a></p>
+</li>
+<li><p class="first">Login using Username: <strong>user1</strong>, Password: <strong>user1</strong></p>
+<p><img alt="image28" src="../../_images/image0287.png" /></p>
+</li>
+<li><p class="first">Click <strong>Use Token</strong> at the top.</p>
+<p><img alt="image29" src="../../_images/02913.png" /></p>
+</li>
+<li><p class="first">Notice the <strong>Access Token</strong> field is now populated</p>
+<p><img alt="image34" src="../../_images/03411.png" /></p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>200 OK</strong> response status code with attributes for user1 in the body of the response</p>
+<p><img alt="image31" src="../../_images/03111.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-11-set-a-valid-user-attribute">
+<h3>Task 11 - Set a Valid User Attribute<a class="headerlink" href="#task-11-set-a-valid-user-attribute" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 4: Update a Valid User Attribute</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> tab</p>
+</li>
+<li><p class="first">Select the previously created <strong>User1</strong> token from the <strong>Available Tokens</strong> dropdown</p>
+<p><a class="reference internal" href="../../_images/03311.png"><img alt="image33" src="../../_images/03311.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">The <strong>Token</strong> field is now populated</p>
+<p><img alt="image34" src="../../_images/03411.png" /></p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you receive a 403 response status code, request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.</p>
+</div>
+</li>
+<li><p class="first">You receive a <strong>200 OK</strong> response status code with a response body that contains user1’s employeeNumber <strong>123456</strong></p>
+<p><img alt="image35" src="../../_images/image0356.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-12-set-an-nonexistent-user-s-attribute">
+<h3>Task 12 - Set an Nonexistent User’s Attribute<a class="headerlink" href="#task-12-set-an-nonexistent-user-s-attribute" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 5: Update a Nonexistent User's Attribute</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> tab</p>
+</li>
+<li><p class="first">Select the previously created <strong>User1</strong> token from the <strong>Available Tokens</strong> dropdown</p>
+</li>
+<li><p class="first">The <strong>Token</strong> field is now populated</p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you receive a 403 response status code, request a new token.  You can change the name of the token request prior to sending by setting the Token Name. You can delete expired tokens by clicking the Available Tokens dropdown, clicking Manage Tokens, and then clicking the trashcan next to the Token.</p>
+</div>
+</li>
+<li><p class="first">You receive a <strong>2O0 OK</strong> response status code. The request successfully passed through the API Gateway, but the server failed to process the request.</p>
+</li>
+</ol>
+<p><img alt="image37" src="../../_images/0379.png" /></p>
+</div>
+<div class="section" id="task-13-update-a-valid-user-with-put">
+<h3>Task 13 - Update a Valid User with PUT<a class="headerlink" href="#task-13-update-a-valid-user-with-put" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 6: Update a Valid User’s Attribute with PUT</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> tab</p>
+</li>
+<li><p class="first">Select the previously created <strong>User1</strong> token from the <strong>Available Tokens</strong> dropdown</p>
+</li>
+<li><p class="first">The <strong>Token</strong> field is now populated</p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>403 Forbidden</strong> response status code. This is expected because the PUT Method was not specified in the API Protection Profile for the path /user</p>
+<p><img alt="image39" src="../../_images/image0394.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-14-create-a-user">
+<h3>Task 14 - Create a User<a class="headerlink" href="#task-14-create-a-user" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 7: Create a User</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> tab</p>
+</li>
+<li><p class="first">Select the previously created <strong>User1</strong> token from the <strong>Available Tokens</strong> dropdown</p>
+<p><a class="reference internal" href="../../_images/03311.png"><img alt="image33" src="../../_images/03311.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>200 OK</strong> response status code with a response body that contains Bob Smith’s user attributes</p>
+<p><img alt="image46" src="../../_images/0466.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-15-request-invalid-endpoint">
+<h3>Task 15 - Request invalid endpoint<a class="headerlink" href="#task-15-request-invalid-endpoint" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 8: Request Invalid Endpoint</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> tab</p>
+</li>
+<li><p class="first">Select the previously created <strong>User1</strong> token from the <strong>Available Tokens</strong> dropdown</p>
+</li>
+<li><p class="first">The <strong>Token</strong> field is now populated</p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>403 Forbidden</strong> response status code. This is expected because the path /hacker/attack was not specified in the API Protection Profile</p>
+<p><img alt="image39" src="../../_images/image0394.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-1-3-implement-fine-grained-access-controls">
+<h2>Section 1.3 - Implement Fine-Grained Access Controls<a class="headerlink" href="#section-1-3-implement-fine-grained-access-controls" title="Permalink to this headline">¶</a></h2>
+<p>Up to this point any authenticated user to the API is authorized to use them. In this section we will restrict user1’s ability to create users, but will still be able to modify a user’s employee number.</p>
+<div class="section" id="task-1-retrieve-group-membership-subsession-variable">
+<h3>Task 1 - Retrieve Group Membership Subsession Variable<a class="headerlink" href="#task-1-retrieve-group-membership-subsession-variable" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In order to implement fine-grained control the session variables that contain the data must be known. This first session shows you how to display the session variables and their values.</p>
+</div>
+</div></blockquote>
+<ol class="arabic">
+<li><p class="first">From the Jumpbox desktop click on the <strong>BIG-IP1</strong> Putty icon</p>
+<p><img alt="image47" src="../../_images/image0473.png" /></p>
+</li>
+<li><p class="first">Enter the command <strong>sessiondump –delete all</strong> to remove any existing APM sessions</p>
+<p><img alt="image41" src="../../_images/image0415.png" /></p>
+</li>
+<li><p class="first">Enter the command <strong>tailf /var/log/apm</strong>.  Hit enter a few times to create some space on the screen</p>
+<p><a class="reference internal" href="../../_images/image0842.png"><img alt="image84" src="../../_images/image0842.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">From Postman, Select the request <strong>Request 3: Retrieve User Attributes with JWT</strong>.  The Authorization field should already be populated with User1’s token.</p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>200 OK</strong> response status code with attributes for user1 in the body of the response</p>
+<p><img alt="image31" src="../../_images/03111.png" /></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Your SessionID will be different</p>
+</div>
+</li>
+<li><p class="first">Return to the CLI and examine the logs. You will see a message about a new subsession being created. Copy the subsession ID</p>
+<p><a class="reference internal" href="../../_images/image0851.png"><img alt="image85" src="../../_images/image0851.png" style="width: 1200px;" /></a></p>
+</li>
+<li><p class="first">Exit the logs using Ctrl+Z</p>
+</li>
+<li><p class="first">Enter the command <strong>sessiondump -subkeys &lt;subsessionID&gt;</strong></p>
+<p><a class="reference internal" href="../../_images/image0861.png"><img alt="image86" src="../../_images/image0861.png" style="width: 1200px;" /></a></p>
+</li>
+<li><p class="first">Scroll through input until you find the session variable for <strong>subsession.oauth.scope.last.jwt.groups</strong></p>
+</li>
+</ol>
+<blockquote>
+<div><a class="reference internal" href="../../_images/image087.png"><img alt="image87" src="../../_images/image087.png" style="width: 1200px;" /></a></div></blockquote>
+</div>
+<div class="section" id="task-2-edit-the-per-request-policy">
+<h3>Task 2 - Edit the per-request policy<a class="headerlink" href="#task-2-edit-the-per-request-policy" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Return to BIG-IP1’s management interface and navigate to Access  &gt;&gt; API Protection &gt;&gt; Profile.  Click <strong>Profile</strong> to modify the previously created API protection Profile (not the + Plus symbol)</p>
+</li>
+<li><p class="first">Click <strong>Edit</strong> Under Per-Request Policy</p>
+<p><img alt="image49" src="../../_images/0496.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Allow</strong> terminal located at the end of the <strong>POST /user</strong> branch</p>
+<p><img alt="image72" src="../../_images/0721.png" /></p>
+</li>
+<li><p class="first">Select <strong>Reject</strong></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image60" src="../../_images/image0602.png" /></p>
+</li>
+<li><p class="first">Click the <strong>+ (Plus Symbol)</strong> on the POST /user branch</p>
+<p><img alt="image50" src="../../_images/0506.png" /></p>
+</li>
+<li><p class="first">Click the <strong>General Purpose</strong> tab</p>
+</li>
+<li><p class="first">Select <strong>Empty</strong></p>
+</li>
+<li><p class="first">Click <strong>Add Item</strong></p>
+<p><img alt="image51" src="../../_images/image0513.png" /></p>
+</li>
+<li><p class="first">Enter the name <strong>Claim Check</strong></p>
+<p><img alt="image53" src="../../_images/image0532.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Branch Rules</strong> tab</p>
+</li>
+<li><p class="first">Click the <strong>Add Branch Rule</strong></p>
+<p><img alt="image52" src="../../_images/image0522.png" /></p>
+</li>
+<li><p class="first">Enter Name <strong>CreateUser</strong></p>
+</li>
+<li><p class="first">Click <strong>Change</strong></p>
+<p><img alt="image54" src="../../_images/image0543.png" /></p>
+</li>
+<li><p class="first">Click the <strong>Advanced</strong> tab</p>
+</li>
+<li><p class="first">Enter the string in the notes section to restrict access to only members of the <strong>CreateUser</strong> Group. Make sure the ” characters are properly formatted after pasting. If they aren’t, simply delete and re-enter them manually.</p>
+</li>
+<li><p class="first">Click <strong>Finished</strong></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">expr {[mcget {subsession.oauth.scope.last.jwt.groups}] contains “CreateUser”}</p>
+</div>
+<p><img alt="image55" src="../../_images/image0553.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><a class="reference internal" href="../../_images/image0563.png"><img alt="image56" src="../../_images/image0563.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click <strong>Reject</strong> on the CreateUser Branch to permit access</p>
+<p><img alt="image57" src="../../_images/0574.png" /></p>
+</li>
+<li><p class="first">Select <strong>Allow</strong></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image58" src="../../_images/image0583.png" /></p>
+</li>
+<li><p class="first">Review the Policy Flow</p>
+<p><a class="reference internal" href="../../_images/0613.png"><img alt="image61" src="../../_images/0613.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-test-the-fine-grained-access-control-with-user1">
+<h3>Task 3 - Test the Fine-Grained Access Control with user1<a class="headerlink" href="#task-3-test-the-fine-grained-access-control-with-user1" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">From Postman select the request <strong>Request 7: Create User</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> Tab</p>
+</li>
+<li><p class="first">Select the previously created <strong>User1</strong> token from the <strong>Available Tokens</strong> dropdown</p>
+</li>
+<li><p class="first">The <strong>Token</strong> field is now populated</p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>403 Forbidden</strong> response status code when using user1. User1 does not contain the proper claim data.</p>
+<p><img alt="image26" src="../../_images/image0266.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-test-the-fine-grained-access-control-with-user2">
+<h3>Task 4 - Test the Fine-Grained Access Control with user2<a class="headerlink" href="#task-4-test-the-fine-grained-access-control-with-user2" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Select the request <strong>Request 7: Create User</strong></p>
+</li>
+<li><p class="first">Select the <strong>Authorization</strong> tab</p>
+</li>
+<li><p class="first">Click <strong>Edit token configuration</strong></p>
+<p><img alt="image205" src="../../_images/205.png" /></p>
+</li>
+<li><p class="first">Enter <strong>User2</strong> for the Token Name and review the Postman Configuration. Nothing else should need to be modified</p>
+</li>
+<li><p class="first">Click <strong>Get New Access Token</strong></p>
+<p><img alt="image044" src="../../_images/0448.png" /></p>
+</li>
+<li><p class="first">Login using Username: <strong>user2</strong>, Password: <strong>user2</strong></p>
+<p><img alt="image62" src="../../_images/image0622.png" /></p>
+</li>
+<li><p class="first">Ensure the <strong>User2</strong> Token is selected</p>
+</li>
+<li><p class="first">Click <strong>Use Token</strong> at the top right.</p>
+<p><img alt="image206" src="../../_images/206.png" /></p>
+</li>
+<li><p class="first">The <strong>Token</strong> field is now populated</p>
+</li>
+<li><p class="first">Click <strong>Send</strong></p>
+</li>
+<li><p class="first">You receive a <strong>200 OK</strong> response status code when using user2. User2 does contain the proper claim data</p>
+<p><img alt="image46" src="../../_images/0466.png" /></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-1-4-implement-rate-limiting">
+<h2>Section 1.4 - Implement Rate Limiting<a class="headerlink" href="#section-1-4-implement-rate-limiting" title="Permalink to this headline">¶</a></h2>
+<p>The API Protection Profile allows a BIG-IP administrator to throttle the amount of connections to an API through the use of Key Names.</p>
+<div class="section" id="task-1-test-pre-rate-limiting-access">
+<h3>Task 1 - Test pre-rate limiting Access<a class="headerlink" href="#task-1-test-pre-rate-limiting-access" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">From Postman, Select the request <strong>Request 3: Retrieve User Attributes with JWT</strong></p>
+</li>
+<li><p class="first">Click <strong>Save</strong>, so the current token is saved as part of the API request.</p>
+<p><a class="reference internal" href="../../_images/0885.png"><img alt="image88" src="../../_images/0885.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click the <strong>arrow</strong> located to the right of the student-class3-module4-lab01 collection.</p>
+<p><img alt="image89" src="../../_images/0895.png" /></p>
+</li>
+<li><p class="first">Click <strong>Run</strong></p>
+<p><img alt="image104" src="../../_images/104.png" /></p>
+</li>
+<li><p class="first">Deselect all requests except <strong>Request 3: Retrieve User Attributes with JWT</strong></p>
+</li>
+<li><p class="first">Set the iterations to <strong>100</strong></p>
+</li>
+<li><p class="first">Click the blue <strong>Run Student-class….</strong> button</p>
+<p><img alt="image105" src="../../_images/105.png" /></p>
+</li>
+<li><p class="first">You receive a <strong>200 OK</strong> for every request. Leave Runner open</p>
+<p><img alt="image92" src="../../_images/092.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-define-the-rate-limiting-keys">
+<h3>Task 2 - Define the rate limiting keys<a class="headerlink" href="#task-2-define-the-rate-limiting-keys" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Navigate to API Protection &gt;&gt; Profile.  Click <strong>Profile</strong> to modify the previously created API protection Profile.  Not the + Plus symbol.</p>
+<p><img alt="image48" src="../../_images/image0484.png" /></p>
+</li>
+<li><p class="first">Click <strong>api-protection</strong></p>
+<p><img alt="image64" src="../../_images/0642.png" /></p>
+</li>
+<li><p class="first">Click <strong>Rate Limiting</strong> from the top ribbon</p>
+<p><a class="reference internal" href="../../_images/image0691.png"><img alt="image69" src="../../_images/image0691.png" style="width: 800px;" /></a></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The API protection profile default settings contains five Key Names created, but their values are empty.  Additional Keys can be created if necessary</p>
+</div>
+</li>
+<li><p class="first">Click <strong>api-protection_auto_rate_limiting_key1</strong></p>
+<p><a class="reference internal" href="../../_images/image0702.png"><img alt="image70" src="../../_images/image0702.png" style="width: 1000px;" /></a></p>
+</li>
+<li><p class="first">Enter the Key Value <strong>%{subsession.oauth.scope.last.jwt.user}</strong></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong></p>
+<p><img alt="image71" src="../../_images/image0712.png" /></p>
+</li>
+<li><p class="first">Click <strong>api-protection_auto_rate_limiting_key2</strong></p>
+</li>
+<li><p class="first">Enter the Key Value <strong>%{subsession.oauth.scope.last.jwt.groupid}</strong></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong></p>
+<p><img alt="image73" src="../../_images/image0732.png" /></p>
+</li>
+<li><p class="first">Click <strong>api-protection_auto_rate_limiting_key3</strong></p>
+</li>
+<li><p class="first">Enter the Key Value <strong>%{subsession.oauth.scope.last.jwt.client}</strong></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong></p>
+<p><img alt="image75" src="../../_images/image0752.png" /></p>
+</li>
+<li><p class="first">Click <strong>api-protection_auto_rate_limiting_key4</strong></p>
+</li>
+<li><p class="first">Enter the Key Value <strong>%{subsession.oauth.scope.last.jwt.tier}</strong></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong></p>
+<p><img alt="image77" src="../../_images/image0772.png" /></p>
+</li>
+<li><p class="first">Click <strong>api-protection_auto_rate_limiting_key5</strong></p>
+</li>
+<li><p class="first">Enter the Key Value <strong>%{subsession.oauth.scope.last.jwt.org}</strong></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong></p>
+<p><img alt="image79" src="../../_images/image0792.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><a class="reference internal" href="../../_images/image0802.png"><img alt="image80" src="../../_images/image0802.png" style="width: 1200px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-create-a-rate-limiting-policy">
+<h3>Task 3 - Create a Rate Limiting Policy<a class="headerlink" href="#task-3-create-a-rate-limiting-policy" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Create</strong> in the rate limiting section</p>
+<p><a class="reference internal" href="../../_images/image0812.png"><img alt="image81" src="../../_images/image0812.png" style="width: 1000px;" /></a></p>
+</li>
+<li><p class="first">Enter the Name <strong>acme-rate-limits</strong></p>
+</li>
+<li><p class="first">Move all five keys under <strong>Selected Keys</strong></p>
+</li>
+<li><p class="first">Enter <strong>10</strong> for the number of requests per minute</p>
+</li>
+<li><p class="first">Enter <strong>5</strong> for the number requests per second</p>
+</li>
+<li><p class="first">Click <strong>Add</strong>.</p>
+<p><a class="reference internal" href="../../_images/image0822.png"><img alt="image82" src="../../_images/image0822.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><a class="reference internal" href="../../_images/image0832.png"><img alt="image83" src="../../_images/image0832.png" style="width: 1200px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-apply-the-rate-limiting-policy">
+<h3>Task 4 - Apply the Rate Limiting Policy<a class="headerlink" href="#task-4-apply-the-rate-limiting-policy" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Click <strong>Access Control</strong> from the ribbon</p>
+<p><a class="reference internal" href="../../_images/image0931.png"><img alt="image93" src="../../_images/image0931.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click <strong>Edit</strong> Per Request Policy</p>
+<p><a class="reference internal" href="../../_images/image0941.png"><img alt="image94" src="../../_images/image0941.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click the <strong>+ (Plus Symbol)</strong> on the <strong>Out</strong> branch of the <strong>OAuth Scope Check AuthZ</strong> Macro</p>
+<p><a class="reference internal" href="../../_images/095.png"><img alt="image95" src="../../_images/095.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click the <strong>Traffic Management</strong> tab</p>
+</li>
+<li><p class="first">Select <strong>API Rate Limiting</strong></p>
+</li>
+<li><p class="first">Click <strong>Add Item</strong></p>
+<p><a class="reference internal" href="../../_images/image096.png"><img alt="image96" src="../../_images/image096.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Click <strong>Add new entry</strong></p>
+</li>
+<li><p class="first">Select <strong>acme-rate-limits</strong></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><a class="reference internal" href="../../_images/image097.png"><img alt="image97" src="../../_images/image097.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Verify the Rate Limiting agent now appears in the appropriate location</p>
+<p><a class="reference internal" href="../../_images/098.png"><img alt="image98" src="../../_images/098.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-5-test-rate-limiting">
+<h3>Task 5 - Test Rate Limiting<a class="headerlink" href="#task-5-test-rate-limiting" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">From Postman, return to Runner</p>
+<p><img alt="image89" src="../../_images/0895.png" /></p>
+</li>
+<li><p class="first">Click <strong>Retry</strong> to rerun the request an additional 100 times.</p>
+<p><a class="reference internal" href="../../_images/image1033.png"><img alt="image103" src="../../_images/image1033.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">On the 6th request you begin to receive a <strong>429 Too Many Requests</strong> response status code</p>
+<p><a class="reference internal" href="../../_images/099.png"><img alt="image99" src="../../_images/099.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="section-1-5-onboard-a-new-api">
+<h2>Section 1.5 - Onboard a New API<a class="headerlink" href="#section-1-5-onboard-a-new-api" title="Permalink to this headline">¶</a></h2>
+<p>Organizations change. With this change, new APIs are introduced requiring modifications to the API Gateway. In this section you will learn how to add additional paths.</p>
+<div class="section" id="task-1-verify-no-access-to-api">
+<h3>Task 1 - Verify no access to API<a class="headerlink" href="#task-1-verify-no-access-to-api" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>From Postman, select the request <strong>Request 9: Create DNS Entry</strong></li>
+<li>Select the <strong>Authorization</strong> tab</li>
+<li>Select the previously created <strong>User1</strong> token from the <strong>Available Tokens</strong> dropdown</li>
+<li>The <strong>Token</strong> field is now populated</li>
+<li>Click <strong>Send</strong></li>
+<li>You receive a <strong>403 Forbidden</strong> response status code because the the new API has not been published at the Gateway. WARNING: If you executed this step too quickly after the prior 1.6 lab, you may still be rate limited and need to wait a minute.</li>
+</ol>
+</div>
+<div class="section" id="task-2-add-the-new-api-path">
+<h3>Task 2 - Add the new API path<a class="headerlink" href="#task-2-add-the-new-api-path" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">From the browser, navigate to API Protection &gt;&gt; Profile.  Click <strong>Profile</strong> to modify the previously created API protection Profile (not the + Plus symbol)</p>
+<p><img alt="image48" src="../../_images/image0484.png" /></p>
+</li>
+<li><p class="first">Click <strong>api-protection</strong></p>
+<p><img alt="image64" src="../../_images/0642.png" /></p>
+</li>
+<li><p class="first">Click <strong>Paths</strong></p>
+<p><img alt="image65" src="../../_images/0651.png" /></p>
+</li>
+<li><p class="first">Click <strong>Create</strong></p>
+<p><a class="reference internal" href="../../_images/0661.png"><img alt="image66" src="../../_images/0661.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">The URI <strong>/dns</strong></p>
+</li>
+<li><p class="first">Select the Method <strong>POST</strong></p>
+</li>
+<li><p class="first">Click <strong>Add</strong></p>
+<p><img alt="image67" src="../../_images/0671.png" /></p>
+</li>
+<li><p class="first">Click <strong>Save</strong></p>
+<p><img alt="image68" src="../../_images/0681.png" /></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-test-access-to-the-new-path">
+<h3>Task 3 - Test Access to the new path<a class="headerlink" href="#task-3-test-access-to-the-new-path" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>From Postman, select the request <strong>Request 9: Create DNS Entry</strong></li>
+<li>You receive a <strong>200 OK</strong> that the endpoint is now published.</li>
+</ol>
+<p><img alt="image102" src="../../_images/102.png" /></p>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="intro.html" title="Environment Overview" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab02.html" title="Lab 2: Additional Security - Bot Defense and WAF" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

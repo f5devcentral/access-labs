@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab – Setup AWS Connector</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab – Setup AWS Connector"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab – Setup AWS Connector &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lab 3: Setup a Salesforce Connector" href="../module4/module4.html" />
+    <link rel="prev" title="Lab 2: Setup an AWS Connector" href="module3.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab – Setup AWS Connector</a></li>
+<li><a class="reference internal" href="#task-download-aws-metadata">Task - Download AWS metadata</a></li>
+<li><a class="reference internal" href="#task-create-an-external-sp-connector-to-aws">Task - Create an external SP connector to AWS</a></li>
+<li><a class="reference internal" href="#task-create-a-local-idp-service-to-aws">Task - Create a local IDP Service to AWS</a></li>
+<li><a class="reference internal" href="#task-download-idp-metadata-from-big-ip-for-aws">Task - Download IdP metadata from BIG-IP for AWS</a></li>
+<li><a class="reference internal" href="#task-bind-idp-and-sp-connector-to-aws">Task - Bind IdP and SP Connector to AWS</a></li>
+<li><a class="reference internal" href="#task-create-an-idp-provider-in-aws">Task - Create an IdP provider in AWS</a></li>
+<li><a class="reference internal" href="#task-create-a-new-role-in-aws">Task - Create a new Role in AWS</a></li>
+<li><a class="reference internal" href="#task-create-a-aws-saml-resource-in-big-ip">Task - Create a AWS SAML resource in BIG-IP</a></li>
+<li><a class="reference internal" href="#task-assign-the-aws-saml-resource">Task - Assign the AWS SAML resource</a></li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="../class9.html">Class 9: Multi-Factor Auth for Cloud Applications</a>
+              &gt; <a href="module3.html">Lab 2: Setup an AWS Connector</a>
+
+          <span class="right">
+             <a href="../../../_sources/archived/class9/module3/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-setup-aws-connector">
+<h1>Lab – Setup AWS Connector<a class="headerlink" href="#lab-setup-aws-connector" title="Permalink to this headline">¶</a></h1>
+<p>This lab will teach you how to create a SAML AWS connector.
+Estimated completion time: <strong>30 minutes</strong></p>
+</div>
+<div class="section" id="task-download-aws-metadata">
+<h1>Task - Download AWS metadata<a class="headerlink" href="#task-download-aws-metadata" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. From the jumpbox machine (<strong>Win7</strong>) , open new window
+browser tab to
+<code class="docutils literal notranslate"><span class="pre">https://signin.aws.amazon.com/static/saml-metadata.xml</span></code>
+and <strong>download</strong> de xml file to the <strong>Desktop</strong>.
+This file will be used to create and AWS external SP Connector
+on the BIG-IP.</td>
+<td><img alt="image44" src="../../../_images/image442.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-an-external-sp-connector-to-aws">
+<h1>Task - Create an external SP connector to AWS<a class="headerlink" href="#task-create-an-external-sp-connector-to-aws" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Logon onto BIG-IP, then go to <strong>Access</strong>
+-&gt; <strong>Federation: SAML Identity Provider</strong>
+-&gt; <strong>External SP Connectors</strong> -&gt; <strong>Create</strong>
+-&gt; <strong>From Metadata</strong></td>
+<td><img alt="image45" src="../../../_images/image452.png" />
+<img alt="image46" src="../../../_images/image462.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Enter the following values (leave others default)
+then click <strong>OK</strong></p>
+<blockquote class="last">
+<div><p><strong>Select File:</strong> <code class="docutils literal notranslate"><span class="pre">saml-metadata.xml</span></code></p>
+<p><strong>Service Provider Name:</strong> <code class="docutils literal notranslate"><span class="pre">AWS_EXT_SP</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image47" src="../../../_images/image472.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-a-local-idp-service-to-aws">
+<h1>Task - Create a local IDP Service to AWS<a class="headerlink" href="#task-create-a-local-idp-service-to-aws" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="56%" />
+<col width="44%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Logon onto BIG-IP, then go to <strong>Access</strong>
+-&gt; <strong>Federation: SAML Identity Provider</strong>
+-&gt; <strong>Local Idp Services</strong> -&gt; <strong>Create</strong></td>
+<td><img alt="image48" src="../../../_images/image482.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic" start="2">
+<li><p class="first">Enter the following values (leave others default) on the <strong>General Settings</strong></p>
+<p><strong>Idp Service Name:</strong> <code class="docutils literal notranslate"><span class="pre">AWS_IDP_DEMO</span></code></p>
+<p><strong>IdP Entity ID:</strong> <code class="docutils literal notranslate"><span class="pre">https://webtop.vlab.f5demo.com/idp/f5/</span></code></p>
+</li>
+</ol>
+</td>
+<td><img alt="image49" src="../../../_images/image492.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">3. Enter the following values (leave others default)
+on the <strong>Assertion Settings</strong>.</p>
+<blockquote>
+<div><p><strong>Assertion Subject Type:</strong> <code class="docutils literal notranslate"><span class="pre">Unspecified</span></code></p>
+<p><strong>Assertion Subject Value:</strong>  <code class="docutils literal notranslate"><span class="pre">%{session.ad.last.attr.sAMAccountName}</span></code></p>
+<p><strong>Authentication Context Class Reference:</strong></p>
+</div></blockquote>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</span></code></p>
+</td>
+<td><img alt="image50" src="../../../_images/image502.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="4">
+<li>On the <strong>Saml Attributes</strong> click <strong>Add</strong>.</li>
+</ol>
+</td>
+<td><img alt="image51" src="../../../_images/image513.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">5. Create the <strong>RoleSessionName</strong> Attribute with the following
+values (leave others default), click <strong>Update</strong>,
+then click <strong>OK</strong></p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">https://aws.amazon.com/SAML/Attributes/RoleSessionName</span></code></p>
+<p><strong>Value:</strong> <code class="docutils literal notranslate"><span class="pre">%{session.logon.last.logonname}</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image52" src="../../../_images/image522.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">6. Create the <strong>Role</strong> Attribute with the following values
+(leave others default), click <strong>Update</strong>, then click <strong>OK</strong></p>
+<blockquote>
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">https://aws.amazon.com/SAML/Attributes/Role</span></code></p>
+<p><strong>Value:</strong></p>
+</div></blockquote>
+<p><code class="docutils literal notranslate"><span class="pre">arn:aws:iam::AccountId:role/SamlAdmin,arn:aws:iam::AccountId:saml-provider/f5demo</span></code></p>
+<p class="last">Take the <code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Id</span></code> from AWS IAM Console <code class="docutils literal notranslate"><span class="pre">https://console.aws.amazon.com/iam</span></code>,
+click your <strong>User Name</strong> on the upper right, and then select <strong>My Account</strong>. A new
+window opens. Copy the <code class="docutils literal notranslate"><span class="pre">Account</span> <span class="pre">Id</span></code> and use it as part of the <code class="docutils literal notranslate"><span class="pre">Value</span></code></p>
+</td>
+<td><img alt="image53" src="../../../_images/image532.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic" start="7">
+<li><p class="first">Enter the following values (leave others default) on the <strong>Security Settings</strong></p>
+<blockquote>
+<div><p><strong>Signing Key:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/IDP_CERT_F5DEMO.key</span></code></p>
+<p><strong>Signing Certificate:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/IDP_CERT_F5DEMO.crt</span></code></p>
+</div></blockquote>
+</li>
+</ol>
+</td>
+<td><img alt="image54" src="../../../_images/image542.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-download-idp-metadata-from-big-ip-for-aws">
+<h1>Task - Download IdP metadata from BIG-IP for AWS<a class="headerlink" href="#task-download-idp-metadata-from-big-ip-for-aws" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Federation: SAML Identity Provider</strong>
+-&gt; <strong>Local IdP Services</strong>, select the <code class="docutils literal notranslate"><span class="pre">AWS_IDP_DEMO</span></code> object,
+then click <strong>Export Metadata</strong>. Leave the <strong>Sign Metadata</strong>
+to <strong>No</strong>, and then click <strong>Download</strong>.</td>
+<td><p class="first"><img alt="image55" src="../../../_images/image552.png" /></p>
+<p class="last"><img alt="image56" src="../../../_images/image562.png" /></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-bind-idp-and-sp-connector-to-aws">
+<h1>Task - Bind IdP and SP Connector to AWS<a class="headerlink" href="#task-bind-idp-and-sp-connector-to-aws" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Federation: SAML Identity Provider</strong>
+-&gt; <strong>Local IdP Services</strong>, select the <code class="docutils literal notranslate"><span class="pre">AWS_IDP_DEMO</span></code> object,
+then click <strong>Bind/Unbind SP Connector</strong>. Then select
+<code class="docutils literal notranslate"><span class="pre">/Common/AWS_EXT_SP</span></code> as SP connector and click <strong>OK</strong>.</td>
+<td><p class="first"><img alt="image56_2" src="../../../_images/image56_2.png" /></p>
+<p class="last"><img alt="image57" src="../../../_images/image572.png" /></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-an-idp-provider-in-aws">
+<h1>Task - Create an IdP provider in AWS<a class="headerlink" href="#task-create-an-idp-provider-in-aws" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Sign in to the AWS Management Console and open the
+<strong>IAM console</strong> at <code class="docutils literal notranslate"><span class="pre">https://console.aws.amazon.com/iam/</span></code>
+then click <strong>Identity Provider</strong></td>
+<td><img alt="image58" src="../../../_images/image582.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="2">
+<li>Click <strong>Create Provider</strong></li>
+</ol>
+</td>
+<td><img alt="image59" src="../../../_images/image592.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">3. Enter the following values (leave others default)
+on the <strong>Configure Provider</strong> tab, then click <strong>Next Step</strong></p>
+<blockquote class="last">
+<div><blockquote>
+<div><p><strong>Provider Type:</strong> <code class="docutils literal notranslate"><span class="pre">SAML</span></code></p>
+<p><strong>Provider Name:</strong> <code class="docutils literal notranslate"><span class="pre">f5demo</span></code></p>
+<p><strong>Metadata Document:</strong> <code class="docutils literal notranslate"><span class="pre">PATH\\AWS_IDP_DEMO_metadata.xml</span></code></p>
+</div></blockquote>
+<p>For the <code class="docutils literal notranslate"><span class="pre">metadata</span></code> document choose the file that you
+already downloaded.</p>
+</div></blockquote>
+</td>
+<td><img alt="image60" src="../../../_images/image603.png" /></td>
+</tr>
+<tr class="row-even"><td>4. <code class="docutils literal notranslate"><span class="pre">Verify</span> <span class="pre">the</span> <span class="pre">information</span></code> you have provided, and then
+click <strong>Create</strong>.</td>
+<td><img alt="image61" src="../../../_images/image614.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-a-new-role-in-aws">
+<h1>Task - Create a new Role in AWS<a class="headerlink" href="#task-create-a-new-role-in-aws" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>In the left navigation pane, click <strong>Roles</strong>.</li>
+</ol>
+</td>
+<td><img alt="image62" src="../../../_images/image623.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="2">
+<li>Click <strong>Create Role</strong></li>
+</ol>
+</td>
+<td><img alt="image63" src="../../../_images/image633.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">3. Enter the following values (leave others default) on the
+<strong>Select type of trusted entity</strong> tab, then click
+<strong>Next: Permisions</strong></p>
+<blockquote class="last">
+<div><p><strong>Type of trusted entity:</strong> <code class="docutils literal notranslate"><span class="pre">SAML</span> <span class="pre">2.0</span></code></p>
+<p><strong>SAML provider:</strong> <code class="docutils literal notranslate"><span class="pre">f5demo</span></code></p>
+<p><strong>Select:</strong> <code class="docutils literal notranslate"><span class="pre">Allow</span> <span class="pre">programmatic</span> <span class="pre">and</span> <span class="pre">AWS</span> <span class="pre">Management</span> <span class="pre">Console</span></code></p>
+<p><strong>Attribute:</strong> <code class="docutils literal notranslate"><span class="pre">SAML:aud</span></code></p>
+<p><strong>Value:</strong> <code class="docutils literal notranslate"><span class="pre">https://signing.aws.amazon.com/saml</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image64" src="../../../_images/image643.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">4. Enter the following values (leave others default) on the
+<strong>Attach permissions policies</strong> tab, then click
+<strong>Next: Review</strong></p>
+<blockquote class="last">
+<div><strong>Select the Policy Name:</strong> <code class="docutils literal notranslate"><span class="pre">AdministratorAccess</span></code></div></blockquote>
+</td>
+<td><img alt="image65" src="../../../_images/image653.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">5. Enter the following values (leave others default) on the
+<strong>Review</strong> tab, then click <strong>Create Role</strong></p>
+<blockquote class="last">
+<div><strong>Role Name:</strong> <code class="docutils literal notranslate"><span class="pre">SamlAdmin</span></code></div></blockquote>
+</td>
+<td><img alt="image66" src="../../../_images/image663.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-a-aws-saml-resource-in-big-ip">
+<h1>Task - Create a AWS SAML resource in BIG-IP<a class="headerlink" href="#task-create-a-aws-saml-resource-in-big-ip" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Federation: SAML Resources</strong>
+-&gt; <strong>Create.</strong></td>
+<td><img alt="image67" src="../../../_images/image673.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Enter the following values (leave others default) on the
+<strong>New SAML Resource</strong> tab, then click <strong>Finished.</strong></p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">AWS_SAML_DEMO</span></code></p>
+<p><strong>SSO Configuration:</strong> <code class="docutils literal notranslate"><span class="pre">AWS_IDP_DEMO</span></code></p>
+<p><strong>Caption:</strong> <code class="docutils literal notranslate"><span class="pre">AWS</span> <span class="pre">(SAML)</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image68" src="../../../_images/image683.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-assign-the-aws-saml-resource">
+<h1>Task - Assign the AWS SAML resource<a class="headerlink" href="#task-assign-the-aws-saml-resource" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Profiles/Policies</strong>
+-&gt; <strong>Access Profiles</strong>, then click <strong>Edit</strong> for
+<strong>webtop_demo</strong>, a new browser tab will open</td>
+<td><img alt="image69_2" src="../../../_images/image69_2.png" /></td>
+</tr>
+<tr class="row-even"><td>2. Click the <code class="docutils literal notranslate"><span class="pre">+</span></code> between <strong>AD Auth</strong> and
+<strong>Advanced Resource Assign</strong>, select <strong>AD Query</strong> from the
+<strong>Authentication</strong> tab, click <strong>Add Item</strong></td>
+<td><p class="first"><img alt="image69" src="../../../_images/image693.png" /></p>
+<p class="last"><img alt="image70" src="../../../_images/image703.png" /></p>
+</td>
+</tr>
+<tr class="row-odd"><td><p class="first">3. Enter the following values (leave others default) then
+click <strong>Save</strong></p>
+<blockquote class="last">
+<div><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/webtop_demo_aaa_srvr</span></code></div></blockquote>
+</td>
+<td><img alt="image71" src="../../../_images/image714.png" /></td>
+</tr>
+<tr class="row-even"><td>4. Click on the <strong>AD Query</strong> object, a new window will open.
+Click on the <strong>Branch Rules</strong> tab</td>
+<td><p class="first"><img alt="image72" src="../../../_images/image723.png" /></p>
+<p class="last"><img alt="image73" src="../../../_images/image733.png" /></p>
+</td>
+</tr>
+<tr class="row-odd"><td>5. Click on <strong>change</strong> link, and then delete the expression
+using <code class="docutils literal notranslate"><span class="pre">X</span></code>. After that select <strong>AD Auth</strong> from <strong>Agent Sel</strong>
+parameter then click <strong>Add Expression</strong>. Click <strong>Finished</strong>
+and change the name to <strong>Passed Query</strong> then <strong>Save</strong>.</td>
+<td><p class="first"><img alt="image74" src="../../../_images/image743.png" /></p>
+<p><img alt="image75" src="../../../_images/image752.png" /></p>
+<p><img alt="image76" src="../../../_images/image762.png" /></p>
+<p class="last"><img alt="image77" src="../../../_images/image772.png" /></p>
+</td>
+</tr>
+<tr class="row-even"><td>6. Click on the <strong>Advanced Resource Assign</strong> object, a new
+window will open. Click <strong>Add/Delete</strong>, then choose
+<code class="docutils literal notranslate"><span class="pre">/Common/AWS_SAML_DEMO</span></code> from the <strong>SAML</strong> tab and click
+<strong>Update,</strong> then <strong>Save</strong>.</td>
+<td><p class="first"><img alt="image72" src="../../../_images/image723.png" /></p>
+<p><img alt="image78" src="../../../_images/image782.png" /></p>
+<p class="last"><img alt="image79" src="../../../_images/image792.png" /></p>
+</td>
+</tr>
+<tr class="row-odd"><td>7. Click <strong>Apply Access Policy</strong> in the top left and then
+close the browser tab</td>
+<td><img alt="image80" src="../../../_images/image802.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first arabic" start="8">
+<li><p class="first">Go to <code class="docutils literal notranslate"><span class="pre">https://webtop.vlab.f5demo.com</span></code> from the jump host,</p>
+<p>You can login with any user:</p>
+</li>
+</ol>
+<ul class="simple">
+<li><strong>sales_user</strong></li>
+<li><strong>sales_manager</strong></li>
+<li><strong>partner_user</strong></li>
+</ul>
+<p class="last">You should see an <strong>AWS (SAML)</strong> object that you just created.</p>
+</td>
+<td><img alt="image81" src="../../../_images/image813.png" /></td>
+</tr>
+<tr class="row-odd"><td>9. Click on the <strong>AWS</strong> link. You should be able to access
+<strong>AWS GUI</strong> because of <code class="docutils literal notranslate"><span class="pre">SSO</span></code> <strong>(SAML Federation)</strong>.</td>
+<td><img alt="image82" src="../../../_images/image822.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="module3.html" title="Lab 2: Setup an AWS Connector" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module4/module4.html" title="Lab 3: Setup a Salesforce Connector" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

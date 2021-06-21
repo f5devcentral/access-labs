@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 1: SAML IdP Access Guided Configuration (AGC) Lab</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 1: SAML IdP Access Guided Configuration (AGC) Lab"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1: SAML IdP Access Guided Configuration (AGC) Lab &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 2: SAML SP Access Guided Configuration (AGC) Lab" href="lab02.html" />
+    <link rel="prev" title="Environment Overview" href="intro.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 1: SAML IdP Access Guided Configuration (AGC) Lab</a><ul>
+<li><a class="reference internal" href="#objective">Objective:</a></li>
+<li><a class="reference internal" href="#lab-requirements">Lab Requirements:</a></li>
+<li><a class="reference internal" href="#task-1-setup-lab-environment">Task 1 - Setup Lab environment</a></li>
+<li><a class="reference internal" href="#task-2-configure-a-saml-identity-provider-idp-via-agc">TASK 2 - Configure a SAML Identity Provider (IdP) via AGC</a></li>
+<li><a class="reference internal" href="#task-3-configure-the-identity-provider">TASK 3 - Configure the Identity Provider</a></li>
+<li><a class="reference internal" href="#task-4-configure-the-virtual-server">TASK 4 - Configure the Virtual Server</a></li>
+<li><a class="reference internal" href="#task-5-configure-authentication">TASK 5 - Configure Authentication</a></li>
+<li><a class="reference internal" href="#task-6-configure-mfa">TASK 6 - Configure MFA</a></li>
+<li><a class="reference internal" href="#task-7-configure-applications">TASK 7: Configure Applications</a></li>
+<li><a class="reference internal" href="#task-8-configure-endpoint-checks">TASK 8 - Configure Endpoint Checks</a></li>
+<li><a class="reference internal" href="#task-9-configure-customization">TASK 9 - Configure Customization</a></li>
+<li><a class="reference internal" href="#task-10-configure-logon-protection">TASK 10 - Configure Logon Protection</a></li>
+<li><a class="reference internal" href="#task-11-configure-session-management">TASK 11: Configure Session Management</a></li>
+<li><a class="reference internal" href="#task-12-review-the-summary-and-deploy">TASK 12: Review the Summary and Deploy</a></li>
+<li><a class="reference internal" href="#task-13-testing-the-saml-identity-provider-idp">TASK: 13: Testing the SAML Identity Provider (IdP)</a></li>
+<li><a class="reference internal" href="#task-14-lab-cleanup">TASK 14: Lab CleanUp</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class2.html">200 Series: Assisted Deployment Use Cases</a>
+
+          <span class="right">
+             <a href="../../_sources/class2/module3/lab01.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-1-saml-idp-access-guided-configuration-agc-lab">
+<h1>Lab 1: SAML IdP Access Guided Configuration (AGC) Lab<a class="headerlink" href="#lab-1-saml-idp-access-guided-configuration-agc-lab" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this lab is to configure and test SAML Federation Services.</p>
+<p>Students will leverage Access Guided Configuration (AGC) to
+configure the various aspects of a SAML Identity Provider (IdP), import and bind
+to a SAML Service Provider (SP) and test IdP-Initiated SAML Federation.</p>
+<div class="section" id="objective">
+<h2>Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Gain an understanding of SAML Federation configurations and
+their component parts through Access Guided Configuration (AGC)</li>
+<li>Gain an understanding of the access flow for IDP &amp; SP Initiated SAML</li>
+</ul>
+</div>
+<div class="section" id="lab-requirements">
+<h2>Lab Requirements:<a class="headerlink" href="#lab-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All Lab requirements will be noted in the tasks that follow</li>
+<li>Estimated completion time: 25-30 minutes</li>
+</ul>
+</div>
+<div class="section" id="task-1-setup-lab-environment">
+<h2>Task 1 - Setup Lab environment<a class="headerlink" href="#task-1-setup-lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).</p>
+<ol class="arabic">
+<li><p class="first">Click <strong>DEPLOYMENT</strong> located on the top left corner to display the environment</p>
+</li>
+<li><p class="first">Click <strong>ACCESS</strong> next to jumpbox.f5lab.local</p>
+<p><a class="reference internal" href="../../_images/9992.png"><img alt="image999" src="../../_images/9992.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Select your RDP resolution.</p>
+</li>
+<li><p class="first">The RDP client on your local host establishes a RDP connection to the Jump Host.</p>
+</li>
+<li><p class="first">Login with the following credentials:</p>
+<blockquote>
+<div><ul class="simple">
+<li>User: <strong>f5lab\user1</strong></li>
+<li>Password: <strong>user1</strong></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">After successful logon the Chrome browser will auto launch opening the site <a class="reference external" href="https://portal.f5lab.local">https://portal.f5lab.local</a>.  This process usually takes 30 seconds after logon.</p>
+</li>
+<li><p class="first">Click the <strong>Classes</strong> tab at the top of the page.</p>
+<blockquote>
+<div><p><a class="reference internal" href="../../_images/9982.png"><img alt="image998" src="../../_images/9982.png" style="width: 800px;" /></a></p>
+</div></blockquote>
+</li>
+<li><p class="first">Scroll down the page until you see <strong>202 - Federation</strong> on the left</p>
+<p><a class="reference internal" href="../../_images/997.png"><img alt="image997" src="../../_images/997.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">Hover over tile <strong>SAML IdP Access Guided Configuration(AGC) Lab</strong>. A start and stop icon should appear within the tile.  Click the <strong>Play</strong> Button to start the automation to build the environment</p>
+<p><a class="reference internal" href="../../_images/996.png"><img alt="image996" src="../../_images/996.png" style="width: 800px;" /></a></p>
+</li>
+<li><p class="first">The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you you experience errors try running the automation a second time or open an issue on the <a class="reference external" href="https://github.com/f5devcentral/access-labs">Access Labs Repo</a>.</p>
+<p><a class="reference internal" href="../../_images/995.png"><img alt="image995" src="../../_images/995.png" style="width: 800px;" /></a></p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-configure-a-saml-identity-provider-idp-via-agc">
+<h2>TASK 2 - Configure a SAML Identity Provider (IdP) via AGC<a class="headerlink" href="#task-2-configure-a-saml-identity-provider-idp-via-agc" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic">
+<li><p class="first">Login to your lab provided <strong>Virtual Edition BIG-IP</strong>  by clicking <strong>bigip1</strong> in the</p>
+<p>shortcut toolbar from the Jumphost.  Username: <strong>admin</strong>, Password: <strong>admin</strong>.</p>
+</li>
+</ol>
+<p><strong>Note:</strong> <em>Many of the lab steps will need to be run from the Jumphost. This is to support</em></p>
+<p class="last"><em>file imports and various other tasks.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-001.png"><img alt="image001" src="../../_images/lab1-001.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="2">
+<li>Navigate to <strong>Access -&gt; Guided Configuration</strong> in the left-hand menu.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-002.png"><img alt="image002" src="../../_images/lab1-002.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">Once <strong>Guided Configuration</strong> loads, click on <strong>Federation</strong> and then in the resulting</p>
+<p><strong>Federation</strong> sub-menu click, <strong>SAML Identity Provider Federation for Applications</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-003.png"><img alt="image003" src="../../_images/lab1-003.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="4">
+<li><p class="first">In the resulting <strong>SAML Identity Provider Federation for Applications</strong> window,</p>
+<p>review the <strong>IdP-Initiated SAML flow</strong> and then click the <strong>right arrow</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-004.png"><img alt="image004" src="../../_images/lab1-004.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>Review the <strong>SP-Initiated SAML flow</strong> and then scroll down to the bottom of the window.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-005.png"><img alt="image005" src="../../_images/lab1-005.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="6">
+<li>Review the configuration objects to be created and the click <strong>Next</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-006.png"><img alt="image006" src="../../_images/lab1-006.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-3-configure-the-identity-provider">
+<h2>TASK 3 - Configure the Identity Provider<a class="headerlink" href="#task-3-configure-the-identity-provider" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">In the <strong>Identity Provider Properties</strong> section, enter the following values in the fields</p>
+<p>provided:</p>
+<ul class="simple">
+<li>In the <strong>Configuration Name</strong> field input <strong>idp.acme.com</strong>.</li>
+<li>In the <strong>Entity ID</strong> field input <strong>https://idp.acme.com</strong>.</li>
+</ul>
+</li>
+<li><p class="first">In the <strong>Assertion Properties</strong> section, use the dropdowns to select the following:</p>
+<ul class="simple">
+<li>For the <strong>Signing Key</strong> select <strong>idp.acme.com</strong>.</li>
+<li>For the <strong>Signing Certificate</strong> select <strong>idp.acme.com</strong>.</li>
+</ul>
+</li>
+<li><p class="first">Click <strong>Save &amp; Next</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0074.png"><img alt="image007" src="../../_images/0074.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-4-configure-the-virtual-server">
+<h2>TASK 4 - Configure the Virtual Server<a class="headerlink" href="#task-4-configure-the-virtual-server" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">In the <strong>Virtual Server Properties</strong> section, enter the following values in the fields</p>
+<p>provided:</p>
+<ul class="simple">
+<li>In the <strong>Destination Address</strong> field input <strong>10.1.10.102</strong>.</li>
+<li>In the <strong>Service Port</strong> field input <strong>443</strong> <strong>HTTPS</strong></li>
+<li>In the <strong>Redirect Port</strong> field input <strong>80</strong> <strong>HTTP</strong></li>
+</ul>
+</li>
+<li><p class="first">In the <strong>Client SSL Profile</strong> section, use the arrows to move only the</p>
+<p><strong>wildcard.acme.com</strong> profile to the right-hand column as shown.</p>
+</li>
+<li><p class="first">Click <strong>Save &amp; Next</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-008.png"><img alt="image008" src="../../_images/lab1-008.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-5-configure-authentication">
+<h2>TASK 5 - Configure Authentication<a class="headerlink" href="#task-5-configure-authentication" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">In the <strong>Authentication Properties</strong> section, use the dropdowns to select the following:</p>
+<ul class="simple">
+<li>For the <strong>Choose Authentication Server Type</strong> select <strong>Active Directory</strong>.</li>
+<li>For the <strong>Choose Authentication Server</strong> select <strong>f5lab.local</strong>.</li>
+</ul>
+</li>
+<li><p class="first"><strong>Check</strong> the <strong>Active Directory Query Properties</strong> checkbox.</p>
+</li>
+<li><p class="first">Input <strong>%{session.logon.last.username}</strong> in <strong>Search Filter</strong> field. Your cursor will be</p>
+<p>next to the existing <strong>sAMAccountName=</strong>.</p>
+</li>
+<li><p class="first">In the <strong>Required Attributes</strong> section, use the arrows to move only the</p>
+<p><strong>memberOf</strong> attribute to the right-hand column as shown.</p>
+</li>
+<li><p class="first">Scroll to the bottom of the window and click <strong>Save &amp; Next</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-009.png"><img alt="image009" src="../../_images/lab1-009.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-6-configure-mfa">
+<h2>TASK 6 - Configure MFA<a class="headerlink" href="#task-6-configure-mfa" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple">
+<li>In the Multi Factor Authentication winodw, click <strong>Save &amp; Next</strong>.</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>Multiple MFA options can be easily integrated with TMOS.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-010.png"><img alt="image010" src="../../_images/lab1-010.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-7-configure-applications">
+<h2>TASK 7: Configure Applications<a class="headerlink" href="#task-7-configure-applications" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic">
+<li><p class="first">In the <strong>Application Properties</strong> section, use the <strong>Select method to configure your</strong></p>
+<p><strong>application</strong> dropdown to choose <strong>Metadata</strong>.</p>
+</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>Multiple applications are available to be configured with more continually added</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-011.png"><img alt="image011" src="../../_images/lab1-011.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">In the updated <strong>Application Properties</strong> window, click the <strong>Choose File</strong> button, browse</p>
+<p>the <strong>Jumphost</strong> desktop and select the <strong>sp_acme_com.xml</strong> file.</p>
+</li>
+<li><p class="first">For the <strong>Application Name</strong>, input <strong>sp.acme.com</strong></p>
+</li>
+<li><p class="first">For the <strong>Webtop Caption</strong>, make sure the value is <strong>sp.partner.com</strong></p>
+</li>
+<li><p class="first">Scroll to the bottom of the window and click <strong>Save</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0125.png"><img alt="image012" src="../../_images/0125.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="6">
+<li>Review the <strong>Configured Application List</strong> and then click <strong>Save &amp; Next</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0135.png"><img alt="image013" src="../../_images/0135.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-8-configure-endpoint-checks">
+<h2>TASK 8 - Configure Endpoint Checks<a class="headerlink" href="#task-8-configure-endpoint-checks" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple">
+<li>In the <strong>Endpoints Checks Properties</strong> window, click <strong>Save &amp; Next</strong>.</li>
+</ol>
+<p><strong>Note:</strong> <em>Endpoints checks can also be configured to protect application access.  The</em></p>
+<p class="last"><em>Access 302 Lab, hosted at this year’s Agility will have additional details.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-014.png"><img alt="image014" src="../../_images/lab1-014.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-9-configure-customization">
+<h2>TASK 9 - Configure Customization<a class="headerlink" href="#task-9-configure-customization" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic">
+<li><p class="first">Review the Customization options, then scroll to the bottom of the window and click</p>
+<p><strong>Save &amp; Next</strong>.</p>
+</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>Unlike iApps, Access basic customizations are part of AGC.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-015.png"><img alt="image015" src="../../_images/lab1-015.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-10-configure-logon-protection">
+<h2>TASK 10 - Configure Logon Protection<a class="headerlink" href="#task-10-configure-logon-protection" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple">
+<li>In the <strong>Logon Protection Properties</strong> window, click <strong>Save &amp; Next</strong>.</li>
+</ol>
+<p><strong>Note:</strong> <em>Logon Page Protection enables Datasafe to further protect logon pages and</em></p>
+<p class="last"><em>defend against malicious in-browser attacks</em>.</p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-016.png"><img alt="image016" src="../../_images/lab1-016.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-11-configure-session-management">
+<h2>TASK 11: Configure Session Management<a class="headerlink" href="#task-11-configure-session-management" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Review the Session Managment settings, in the <strong>Timeout Settings</strong> section then scroll to</p>
+<p>the bottom of the window and click <strong>Save &amp; Next</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-017.png"><img alt="image017" src="../../_images/lab1-017.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-12-review-the-summary-and-deploy">
+<h2>TASK 12: Review the Summary and Deploy<a class="headerlink" href="#task-12-review-the-summary-and-deploy" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>Review the Summary, then scroll to the bottom of the window and click <strong>Deploy</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0183.png"><img alt="image018" src="../../_images/0183.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="2">
+<li>Once the application is deployed, scroll to the bottom and click <strong>Finish</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0194.png"><img alt="image019" src="../../_images/0194.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">Review the Access Guided Confguration window, <strong>Status</strong> for <strong>idp.acme.com</strong> is</p>
+<p><strong>DEPLOYED</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0203.png"><img alt="image020" src="../../_images/0203.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-13-testing-the-saml-identity-provider-idp">
+<h2>TASK: 13: Testing the SAML Identity Provider (IdP)<a class="headerlink" href="#task-13-testing-the-saml-identity-provider-idp" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic">
+<li><p class="first">Open Firefox from the Jumphost desktop and navigate to <a class="reference external" href="https://idp.acme.com">https://idp.acme.com</a></p>
+</li>
+<li><p class="first">Once the page loads, enter <strong>user1</strong> for username and <strong>user1</strong> for password  in the</p>
+<p>logon form and click the logon button.</p>
+</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>If you have issues, open Firefox in a New Private Window (Incognito/Safe Mode)</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0212.png"><img alt="image021" src="../../_images/0212.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">On the presented webtop, click the <strong>sp.acme.com</strong> link in the <strong>Applications and</strong></p>
+<p><strong>Links</strong> section.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0233.png"><img alt="image023" src="../../_images/0233.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="4">
+<li><p class="first">The <strong>Application</strong> will now open if successfully configured.  Close the</p>
+<p>Application window, navigate to the <strong>F5 Dynamic Webtop</strong> tab/window and click <strong>Logout</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0242.png"><img alt="image024" src="../../_images/0242.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-14-lab-cleanup">
+<h2>TASK 14: Lab CleanUp<a class="headerlink" href="#task-14-lab-cleanup" title="Permalink to this headline">¶</a></h2>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>Navigate to <strong>Access -&gt; Guided Configuration</strong> in the left-hand menu.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab1-002.png"><img alt="image002" src="../../_images/lab1-002.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="2">
+<li>Click the <strong>Undeploy</strong> button</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0252.png"><img alt="image025" src="../../_images/0252.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Click <strong>OK</strong> when asked, “Are you sure you want to undeploy this configuration?”</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0263.png"><img alt="image026" src="../../_images/0263.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="4">
+<li>Click the <strong>Delete</strong> button once the deployment is undeployed</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0272.png"><img alt="image027" src="../../_images/0272.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>Click <strong>OK</strong> when asked, “Are you sure you want to delete this configuration?”</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0282.png"><img alt="image028" src="../../_images/0282.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="6">
+<li>The Configuration section should now be empty</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0292.png"><img alt="image029" src="../../_images/0292.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="7">
+<li>From a browser on the jumphost navigate to <a class="reference external" href="https://portal.f5lab.local">https://portal.f5lab.local</a></li>
+<li>Click the <strong>Classes</strong> tab at the top of the page.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/9982.png"><img alt="image998" src="../../_images/9982.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="9">
+<li>Scroll down the page until you see <strong>202 - Federation</strong> on the left</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/997.png"><img alt="image997" src="../../_images/997.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>10. Hover over the tile <strong>SAML IdP Access Guided Configuration(AGC) Lab</strong>. A start and stop
+icon should appear within the tile.  Click the <strong>Stop</strong> Button to start the automation to
+delete any prebuilt objects</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0452.png"><img alt="image045" src="../../_images/0452.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>11. The screen should refresh displaying the progress of the automation within 30 seconds.
+Scroll to the bottom of the automation workflow to ensure all requests succeeded.
+If you you experience errors try running the automation a second time or open an issue on
+the <a class="reference external" href="https://github.com/f5devcentral/access-labs">Access Labs Repo</a>.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0442.png"><img alt="image044" src="../../_images/0442.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="12">
+<li>This concludes Lab1.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/0007.png"><img alt="image000" src="../../_images/0007.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="intro.html" title="Environment Overview" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab02.html" title="Lab 2: SAML SP Access Guided Configuration (AGC) Lab" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab – Set up DUO as Second Auth Factor</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab – Set up DUO as Second Auth Factor"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab – Set up DUO as Second Auth Factor &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Lab 5: Set up DUO" href="module6.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab –  Set up DUO as Second Auth Factor</a></li>
+<li><a class="reference internal" href="#task-get-the-values-from-duo-admin-panel">Task - Get the values from DUO Admin Panel</a></li>
+<li><a class="reference internal" href="#task-configure-the-proxy-for-apm">Task - Configure the Proxy for APM</a></li>
+<li><a class="reference internal" href="#task-modify-the-access-policy-to-include-duo">Task - Modify the Access Policy to include DUO</a></li>
+<li><a class="reference internal" href="#task-configure-the-apm-to-use-the-duo-service">Task - Configure the APM to use the DUO Service</a></li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="../class9.html">Class 9: Multi-Factor Auth for Cloud Applications</a>
+              &gt; <a href="module6.html">Lab 5: Set up DUO</a>
+
+          <span class="right">
+             <a href="../../../_sources/archived/class9/module6/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-set-up-duo-as-second-auth-factor">
+<h1>Lab –  Set up DUO as Second Auth Factor<a class="headerlink" href="#lab-set-up-duo-as-second-auth-factor" title="Permalink to this headline">¶</a></h1>
+<p>This lab will teach you how to configure DUO as Second Auth Factor.
+Estimated completion time: <strong>30 minutes</strong></p>
+</div>
+<div class="section" id="task-get-the-values-from-duo-admin-panel">
+<h1>Task - Get the values from DUO Admin Panel<a class="headerlink" href="#task-get-the-values-from-duo-admin-panel" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Log in to the <strong>Duo Admin Panel</strong> and navigate to
+<strong>Applications</strong>. Then click on <code class="docutils literal notranslate"><span class="pre">F5</span> <span class="pre">BIG-IP</span> <span class="pre">APM</span></code>.</td>
+<td><img alt="image136" src="../../../_images/image1362.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic" start="2">
+<li><p class="first"><strong>Copy</strong> the values for:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Integration</span> <span class="pre">key</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">Secret</span> <span class="pre">key</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">API</span> <span class="pre">hostname</span></code></p>
+</li>
+</ol>
+</td>
+<td><img alt="image137" src="../../../_images/image1372.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-configure-the-proxy-for-apm">
+<h1>Task - Configure the Proxy for APM<a class="headerlink" href="#task-configure-the-proxy-for-apm" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. In the <strong>Win 7 External</strong> open (<code class="docutils literal notranslate"><span class="pre">as</span> <span class="pre">administrator</span></code>) the
+file
+<strong>C:Program FilesDuo Security Authentication Proxyconfauthproxy.cfg</strong></td>
+<td><img alt="image138" src="../../../_images/image1382.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">1. Search the section <strong>[radius_server_iframe]</strong> and modify the
+following values according to your <strong>DUO account</strong></p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">ikey</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">skey</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">api</span></code></li>
+</ul>
+</div></blockquote>
+</td>
+<td><img alt="image139" src="../../../_images/image1392.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-modify-the-access-policy-to-include-duo">
+<h1>Task - Modify the Access Policy to include DUO<a class="headerlink" href="#task-modify-the-access-policy-to-include-duo" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Authentication</strong> -&gt; <strong>RADIUS</strong>
+-&gt; <strong>Create.</strong></td>
+<td><img alt="image140" src="../../../_images/image1402.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Create a new record, using the following info and
+then <strong>Finished.</strong></p>
+<blockquote class="last">
+<div><p><strong>Name</strong>: <code class="docutils literal notranslate"><span class="pre">DUO_RADIUS</span></code></p>
+<p><strong>Mode:</strong> <code class="docutils literal notranslate"><span class="pre">Authentication</span></code></p>
+<p><strong>Server Connection:</strong> <code class="docutils literal notranslate"><span class="pre">Direct</span></code></p>
+<p><strong>Server Address:</strong> <code class="docutils literal notranslate"><span class="pre">10.1.10.199</span></code></p>
+<p><strong>Authentication Service Port:</strong> <code class="docutils literal notranslate"><span class="pre">1812</span></code></p>
+<p><strong>Secret:</strong> <code class="docutils literal notranslate"><span class="pre">password</span></code></p>
+<p><strong>Confirm Secret:</strong> <code class="docutils literal notranslate"><span class="pre">password</span></code></p>
+<p><strong>Timeout:</strong> <code class="docutils literal notranslate"><span class="pre">60</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image141" src="../../../_images/image1413.png" /></td>
+</tr>
+<tr class="row-odd"><td>3. Go to <strong>Access</strong> -&gt; <strong>Profile / Policies</strong> -&gt;
+<strong>Access Profile</strong> then locate the <strong>webtop_demo</strong> profile
+and click <strong>Edit</strong>.</td>
+<td><img alt="image142" src="../../../_images/image1422.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="4">
+<li>Click on <strong>Add New Macro</strong></li>
+</ol>
+</td>
+<td><img alt="image143" src="../../../_images/image1432.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>Name it <code class="docutils literal notranslate"><span class="pre">DUO</span></code> and <strong>Save</strong></li>
+</ol>
+</td>
+<td><img alt="image144" src="../../../_images/image1442.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="6">
+<li><strong>Click</strong> on the <code class="docutils literal notranslate"><span class="pre">+</span></code> between <strong>In</strong> and <strong>Out</strong></li>
+</ol>
+</td>
+<td><img alt="image145" src="../../../_images/image1452.png" /></td>
+</tr>
+<tr class="row-odd"><td>7. Under the <strong>Authentication tab</strong>, search for <strong>RADIUS Auth</strong>
+and click <strong>Add Item</strong></td>
+<td><p class="first"><img alt="image146" src="../../../_images/image1462.png" /></p>
+<p class="last"><img alt="image147" src="../../../_images/image1472.png" /></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first">8. Create a new record, using the following info
+(leave the defaults) and then <strong>Save.</strong></p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">DUO</span> <span class="pre">AUTH</span></code></p>
+<p><strong>AAA Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/DUO_RADIUS</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image148" src="../../../_images/image1481.png" /></td>
+</tr>
+<tr class="row-odd"><td>9. Go to the <strong>Macro DUO</strong> and click on <strong>Edit Terminals</strong>.
+Then <strong>Add Terminal</strong> and <strong>Rename</strong> the terminals according
+to the image. Also <strong>change the order.</strong></td>
+<td><p class="first"><img alt="image149" src="../../../_images/image1491.png" /></p>
+<p class="last"><img alt="image150" src="../../../_images/image1501.png" /></p>
+</td>
+</tr>
+<tr class="row-even"><td>10. <strong>Click</strong> on the <code class="docutils literal notranslate"><span class="pre">+</span></code> between <strong>AD Auth</strong> and
+<strong>Get Ga Code</strong></td>
+<td><img alt="image151" src="../../../_images/image1512.png" /></td>
+</tr>
+<tr class="row-odd"><td>11. Under the <strong>General Purpose</strong> tab, choose <strong>Decision Box</strong>
+and then <strong>Add Item</strong></td>
+<td><img alt="image152" src="../../../_images/image1521.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">12. Create a new record, using the following info
+(leave the defaults).</p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">MFA</span> <span class="pre">DECISION</span></code></p>
+<p><strong>Message:</strong> <code class="docutils literal notranslate"><span class="pre">Choose</span> <span class="pre">one</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">following</span> <span class="pre">two</span> <span class="pre">factor</span> <span class="pre">...</span></code></p>
+<p><strong>Option 1:</strong> <code class="docutils literal notranslate"><span class="pre">GOOGLE</span></code></p>
+<p><strong>Option 2:</strong> <code class="docutils literal notranslate"><span class="pre">DUO</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image153" src="../../../_images/image1531.png" /></td>
+</tr>
+<tr class="row-odd"><td>13. Under the <strong>Branch Rules</strong> tab change the name
+to <code class="docutils literal notranslate"><span class="pre">GOOGLE</span></code> and then <strong>Save</strong>.</td>
+<td><img alt="image154" src="../../../_images/image1541.png" /></td>
+</tr>
+<tr class="row-even"><td>14. <strong>Click</strong> on the <code class="docutils literal notranslate"><span class="pre">+</span></code> in front of the
+<strong>MFA DECISION fallback</strong> branch.</td>
+<td><img alt="image155" src="../../../_images/image1551.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="15">
+<li>Choose <code class="docutils literal notranslate"><span class="pre">DUO</span></code> under the <strong>Macros tab</strong>, then <strong>Add Item</strong>.</li>
+</ol>
+</td>
+<td><img alt="image156" src="../../../_images/image1561.png" /></td>
+</tr>
+<tr class="row-even"><td>16. <strong>Click</strong> on the <code class="docutils literal notranslate"><span class="pre">+</span></code> in front of the <strong>DUO Successful</strong>
+branch.</td>
+<td><img alt="image157" src="../../../_images/image1571.png" /></td>
+</tr>
+<tr class="row-odd"><td>17. Under the <strong>Authentication</strong> tab, choose <strong>AD Query</strong> and
+then <strong>Add Item</strong></td>
+<td><img alt="image158" src="../../../_images/image1581.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">18. Create a new record, using the following info
+(leave the defaults).</p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">AD</span> <span class="pre">Query</span> <span class="pre">DUO</span></code></p>
+<p><strong>Server:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/webtop_demo_aaa_srvr</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image159" src="../../../_images/image1591.png" /></td>
+</tr>
+<tr class="row-odd"><td>19. Under the <strong>Branch Rules</strong> tab, click on <strong>change</strong>
+Expression.</td>
+<td><img alt="image160" src="../../../_images/image1601.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="20">
+<li><strong>Delete</strong> the expression by click on the <code class="docutils literal notranslate"><span class="pre">X</span></code> symbol.</li>
+</ol>
+</td>
+<td><img alt="image161" src="../../../_images/image1612.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">21. Create a new expression, using the following info
+(leave the defaults), then click <strong>Add Expression</strong> and
+<strong>Save</strong></p>
+<blockquote class="last">
+<div><p><strong>Agent Sel:</strong> <code class="docutils literal notranslate"><span class="pre">AD</span> <span class="pre">Auth</span></code></p>
+<p><strong>Condition:</strong> <code class="docutils literal notranslate"><span class="pre">AD</span> <span class="pre">Auth</span> <span class="pre">Passed</span></code></p>
+<p><strong>Active Directory Auth has:</strong> <code class="docutils literal notranslate"><span class="pre">Passed</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image162" src="../../../_images/image1621.png" /></td>
+</tr>
+<tr class="row-even"><td>22. Click on the <strong>AD Query DUO</strong> box, then go to
+<strong>Branch Rules</strong> tab and modify the name to <strong>Passed Query</strong>
+and <strong>Save</strong></td>
+<td><p class="first"><img alt="image163" src="../../../_images/image1631.png" /></p>
+<p class="last"><img alt="image164" src="../../../_images/image1641.png" /></p>
+</td>
+</tr>
+<tr class="row-odd"><td>23. <strong>Click</strong> on the <code class="docutils literal notranslate"><span class="pre">+</span></code> in front of the
+<strong>AD QUERY DUO Passed Query</strong> branch.</td>
+<td><img alt="image165" src="../../../_images/image1651.png" /></td>
+</tr>
+<tr class="row-even"><td>24. Under the <strong>Assignment</strong> tab choose
+<strong>Advanced Resource Assign</strong>, then <strong>Add Item</strong></td>
+<td><img alt="image166" src="../../../_images/image1661.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="25">
+<li>Click on <strong>Add new entry</strong></li>
+</ol>
+</td>
+<td><img alt="image167" src="../../../_images/image1671.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="26">
+<li>Click on <strong>Add/Delete</strong></li>
+</ol>
+</td>
+<td><img alt="image168" src="../../../_images/image1681.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic" start="27">
+<li><p class="first">Add the following resources and then <strong>Save</strong></p>
+<p><strong>Portal Access:</strong> <code class="docutils literal notranslate"><span class="pre">portal_intranet</span></code></p>
+<p><strong>SAML:</strong> <code class="docutils literal notranslate"><span class="pre">AWS_SAML_DEMO,</span> <span class="pre">SALESFORCE_SAML_DEMO</span></code></p>
+<p><strong>Webtop:</strong> <code class="docutils literal notranslate"><span class="pre">webtop_demo_webtop</span></code></p>
+</li>
+</ol>
+</td>
+<td><img alt="image169" src="../../../_images/image1691.png" /></td>
+</tr>
+<tr class="row-even"><td>28. Change the ending to <strong>Allow</strong> and click on
+<strong>Apply Access Policy.</strong></td>
+<td><img alt="image170" src="../../../_images/image1701.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-configure-the-apm-to-use-the-duo-service">
+<h1>Task - Configure the APM to use the DUO Service<a class="headerlink" href="#task-configure-the-apm-to-use-the-duo-service" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="59%" />
+<col width="41%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Profiles / Policies</strong> -&gt;
+<strong>Customization</strong> -&gt; <strong>Advanced</strong></td>
+<td><img alt="image171" src="../../../_images/image1712.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Navigate to <strong>Access Profiles</strong> -&gt; <strong>/Common/webtop_demo</strong>
+-&gt; <strong>Common</strong> -&gt; <strong>header.inc</strong> and insert the line
+<code class="docutils literal notranslate"><span class="pre">&lt;script</span> <span class="pre">src=&quot;https://api-XXXXXXXX.duosecurity.com/frame/hosted/Duo-F5-BIG-IP-v2.js&quot;&gt;&lt;/script&gt;</span></code>
+at the end of file and then <strong>Save</strong>.</p>
+<p class="last"><strong>NOTE:</strong> Use the <code class="docutils literal notranslate"><span class="pre">api</span> <span class="pre">URL</span></code> from your <code class="docutils literal notranslate"><span class="pre">DUO</span> <span class="pre">account</span></code>.</p>
+</td>
+<td><img alt="image172" src="../../../_images/image1721.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Click on <strong>Apply Access Policy</strong></li>
+</ol>
+</td>
+<td><img alt="image173" src="../../../_images/image1731.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first last arabic simple" start="4">
+<li>Restart the Proxy DUO Service. Go to <strong>Start</strong> -&gt; <strong>Services</strong> and then click <code class="docutils literal notranslate"><span class="pre">Restart</span></code></li>
+</ol>
+</td>
+<td><img alt="image174" src="../../../_images/image1741.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">5. Go to <code class="docutils literal notranslate"><span class="pre">https://webtop.vlab.f5demo.com</span></code>. You should see the <strong>Google Authenticator</strong> and
+<strong>DUO</strong> options to use as <code class="docutils literal notranslate"><span class="pre">Second</span> <span class="pre">Factor</span></code>. Try to log in with any user:</p>
+<blockquote class="last">
+<div><ul class="simple">
+<li><strong>sales_manager</strong></li>
+<li><strong>sales_user</strong></li>
+<li><strong>partner_user</strong></li>
+</ul>
+</div></blockquote>
+</td>
+<td><img alt="image175" src="../../../_images/image1751.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="module6.html" title="Lab 5: Set up DUO" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

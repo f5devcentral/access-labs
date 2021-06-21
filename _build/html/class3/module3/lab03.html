@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 3: Custom Per Request Policy - Extended</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 3: Custom Per Request Policy - Extended"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 3: Custom Per Request Policy - Extended &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Environment Overview" href="../module4/intro.html" />
+    <link rel="prev" title="Lab 2: Custom Per Request Policy" href="lab02.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 3: Custom Per Request Policy - Extended</a><ul>
+<li><a class="reference internal" href="#objective">Objective:</a></li>
+<li><a class="reference internal" href="#lab-requirements">Lab Requirements:</a></li>
+<li><a class="reference internal" href="#lab-3-tasks">Lab 3 Tasks:</a><ul>
+<li><a class="reference internal" href="#task-1-prepare-lab-environment">TASK 1: Prepare Lab Environment</a></li>
+<li><a class="reference internal" href="#task-2-review-http-connector-configuration">TASK 2: Review HTTP Connector Configuration</a></li>
+<li><a class="reference internal" href="#task-3-extended-logon-subroutine">TASK 3: Extended Logon Subroutine</a></li>
+<li><a class="reference internal" href="#task-4-testing-reviewing-the-extended-logon-subroutine">TASK 4: Testing &amp; Reviewing the Extended Logon Subroutine</a></li>
+<li><a class="reference internal" href="#task-5-configuring-gating-criteria">TASK 5: Configuring Gating Criteria</a></li>
+<li><a class="reference internal" href="#task-6-testing-gating-criteria">TASK 6: Testing Gating Criteria</a></li>
+<li><a class="reference internal" href="#task-7-end-of-lab3">TASK 7: End of Lab3</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a>
+
+          <span class="right">
+             <a href="../../_sources/class3/module3/lab03.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-3-custom-per-request-policy-extended">
+<h1>Lab 3: Custom Per Request Policy - Extended<a class="headerlink" href="#lab-3-custom-per-request-policy-extended" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this lab is to change the behavior of the custom Per Request Policies
+built during Lab 2.  Lab attendees will expand policies by incorporating HTTP_Connector
+agents to query external API’s and incorporate Gating Criteria to enforce policy behavior
+while accessing the lab application.
+Students will configure the various aspects of this lab using the Visual Policy Editor,
+review the configuration and perform tests of the deployment.</p>
+<div class="section" id="objective">
+<h2>Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Gain a deeper understanding of Per Request Policies and their applicability
+in various delivery and control scenarios.</li>
+<li>Gain a further understanding of Per Request Policy Subroutines and their
+expandaility with HTTP_Connector and gating criteria.</li>
+</ul>
+</div>
+<div class="section" id="lab-requirements">
+<h2>Lab Requirements:<a class="headerlink" href="#lab-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All Lab requirements will be noted in the tasks that follow</li>
+<li>Estimated completion time: 20 minutes.</li>
+</ul>
+</div>
+<div class="section" id="lab-3-tasks">
+<h2>Lab 3 Tasks:<a class="headerlink" href="#lab-3-tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-1-prepare-lab-environment">
+<h3>TASK 1: Prepare Lab Environment<a class="headerlink" href="#task-1-prepare-lab-environment" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">On <strong>bigip1.f5lab.local</strong>, navigate to <strong>Access -&gt; Overview -&gt; Active Sessions</strong> and</p>
+<p>confirm all active sessions have been killed.</p>
+</li>
+<li><p class="first">If any sessions are active, click all checkboxes by the active session and then click</p>
+<p>the <strong>Kill Selected Sessions</strong> button.  In the resulting dialogue window ensure the</p>
+<p><strong>Session ID/Subsession ID</strong> is checked and click the <strong>Delete</strong> button.</p>
+</li>
+<li><p class="first">Close any open browser windows on the Jumphost desktop.</p>
+<p>This prepares the environment for further user testing.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-001.png"><img alt="image001" src="../../_images/lab3-001.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-002.png"><img alt="image002" src="../../_images/lab3-002.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-2-review-http-connector-configuration">
+<h3>TASK 2: Review HTTP Connector Configuration<a class="headerlink" href="#task-2-review-http-connector-configuration" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic">
+<li><p class="first">On <strong>bigip1.f5lab.local</strong>, navigate to <strong>Access -&gt; Authentication -&gt; HTTP Connector -&gt;</strong></p>
+<p><strong>HTTP Connector Transport</strong>.</p>
+</li>
+<li><p class="first">Click on the <strong>http_connector_transport</strong> link.</p>
+</li>
+</ol>
+<p><strong>Note:</strong> <em>This configured resource provides DNS resolution and HTTPS functionality</em></p>
+<p class="last"><em>enabling access to queried Web Service and API endpoints.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-003.png"><img alt="image003" src="../../_images/lab3-003.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-004.png"><img alt="image004" src="../../_images/lab3-004.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple">
+<li>Navigate to <strong>Access -&gt; Authentication -&gt; HTTP Connector -&gt; HTTP Connector Request</strong>.</li>
+<li>Click on the <strong>MSGraphAPI_RequestToken</strong> link.</li>
+</ol>
+<p><strong>Note:</strong> <em>This configured resource retrieves an oAuth Bearer Token to be used to query the</em></p>
+<p><em>Microsoft Graph API.</em></p>
+<p><strong>Note:</strong> <em>While values like tenant_id, client_id &amp; client_secret have been statically</em></p>
+<p><em>entered for the purposes of this lab, these could have been referenced variables set</em></p>
+<p class="last"><em>in the Per Request Policy flow. Screenshot may show different values then your lab.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-005.png"><img alt="image005" src="../../_images/lab3-005.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-006.png"><img alt="image006" src="../../_images/lab3-006.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple">
+<li>Navigate to <strong>Access -&gt; Authentication -&gt; HTTP Connector -&gt; HTTP Connector Request</strong>.</li>
+<li>Click on the <strong>MSGraphAPI_GetUserProfile</strong> link.</li>
+</ol>
+<p><strong>Note:</strong> <em>This configured resource uses a previously obtained oAuth Bearer Token and</em></p>
+<p><em>queries the Microsoft Graph API for the queried user’s profile information.</em></p>
+<p class="last"><strong>Note:</strong> <em>The Application (client_id) has been granted API Permissions for User.Read.All</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-007.png"><img alt="image007" src="../../_images/lab3-007.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-008.png"><img alt="image008" src="../../_images/lab3-008.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-3-extended-logon-subroutine">
+<h3>TASK 3: Extended Logon Subroutine<a class="headerlink" href="#task-3-extended-logon-subroutine" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic">
+<li><p class="first">Navigate to <strong>Access -&gt; Profiles/Policies -&gt; Per-Request Policies</strong> and then click the</p>
+<p><strong>Edit</strong> link for the <strong>app.acme.com_prp</strong> Per Request Policy.</p>
+</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>This may already be open.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-032.png"><img alt="image032" src="../../_images/lab3-032.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">In the resulting Visual Policy Editor window for the On  <strong>app.acme.com_prp</strong>, expand the</p>
+<p><strong>Logon</strong> subroutine and click the <strong>+ (Plus Symbol)</strong> on the <strong>Successful</strong> branch</p>
+<p>following the <strong>AD Query</strong> and before the <strong>Variable Assign</strong>.</p>
+</li>
+<li><p class="first">In the pop-up window, select the <strong>General Purpose</strong> tab, then click the radio button</p>
+<p>on the <strong>HTTP Connector</strong> action line, then click <strong>Add Item</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-009.png"><img alt="image009" src="../../_images/lab3-009.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-010.png"><img alt="image010" src="../../_images/lab3-010.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="4">
+<li><p class="first">In the resulting <strong>HTTP Connector</strong> window, change the <strong>Name</strong> field to <strong>MSGraphAPI</strong></p>
+<p><strong>Request Token</strong>.</p>
+</li>
+<li><p class="first">In the <strong>HTTP Connector</strong> section, Select <strong>/Common/MSGraphAPI_RequestToken</strong> from the</p>
+<p>the drop down for <strong>HTTP Connector Request</strong> and then click <strong>Save</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-011.png"><img alt="image011" src="../../_images/lab3-011.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="6">
+<li><p class="first">In the <strong>Logon</strong> subroutine and click the <strong>+ (Plus Symbol)</strong> on the <strong>Successful</strong></p>
+<p>branch following the <strong>MSGraphAPI Request Token</strong> and before the <strong>Variable Assign</strong>.</p>
+</li>
+<li><p class="first">In the pop-up window, select the <strong>General Purpose</strong> tab, then click the radio button</p>
+<p>on the <strong>HTTP Connector</strong> action line, then click <strong>Add Item</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-012.png"><img alt="image012" src="../../_images/lab3-012.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-013.png"><img alt="image013" src="../../_images/lab3-013.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="8">
+<li><p class="first">In the resulting <strong>HTTP Connector</strong> window, change the <strong>Name</strong> field to <strong>MSGraphAPI</strong></p>
+<p><strong>Get User Profile</strong>.</p>
+</li>
+<li><p class="first">In the <strong>HTTP Connector</strong> section, Select <strong>/Common/MSGraphAPI_GetUserProfile</strong> from the</p>
+<p>the drop down for <strong>HTTP Connector Request</strong> and then click <strong>Save</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-014.png"><img alt="image014" src="../../_images/lab3-014.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>Note:</strong> <em>The extending of Per Request Policies using the HTTP Connector can be leveraged</em></p>
+<p><em>to query any Web Service or API endpoint.  In this case, MS Graph API is being leveraged</em></p>
+<p class="last"><em>to retrieve additional information regarding a logged in user.</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="10">
+<li>In the <strong>Logon</strong> subroutine click the link for the <strong>Variable Assign</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-015.png"><img alt="image015" src="../../_images/lab3-015.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="11">
+<li><p class="first">In the resulting <strong>Variable Assign</strong> window, in the <strong>Variable Assign</strong> section, click</p>
+<p>the <strong>Add new entry</strong> button four(4) times. Click the <strong>change</strong> link in the first</p>
+<p><strong>empty</strong> row.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-016.png"><img alt="image016" src="../../_images/lab3-016.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="12">
+<li><p class="first">In the resulting assignment window use the following values:</p>
+<p><strong>LEFT SIDE</strong></p>
+<ul class="simple">
+<li><strong>Custom Variable</strong></li>
+<li><strong>Unsecure</strong></li>
+<li><strong>Text Window:</strong> <strong>session.custom.displayName</strong></li>
+</ul>
+<p><strong>RIGHT SIDE</strong></p>
+<ul class="simple">
+<li><strong>Session Variable</strong></li>
+<li><strong>Text Window:</strong> <strong>subsession.http_connector.body.displayName</strong></li>
+</ul>
+</li>
+<li><p class="first">Click <strong>Finished</strong> once complete.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-017.png"><img alt="image017" src="../../_images/lab3-017.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic" start="14">
+<li><p class="first">Repeat the process again for the remaining two(2) <strong>empty</strong> rows using the values shown</p>
+<p>below.</p>
+</li>
+</ol>
+<p><strong>ROW 2</strong></p>
+<ul class="simple">
+<li><strong>LEFT SIDE</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>Custom Variable</strong></li>
+<li><strong>Unsecure</strong></li>
+<li><strong>Text Window:</strong> <strong>session.custom.jobTitle</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>RIGHT SIDE</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>Session Variable</strong></li>
+<li><strong>Text Window:</strong> <strong>subsession.http_connector.body.jobTitle</strong></li>
+</ul>
+<p><strong>ROW 3</strong></p>
+<ul class="simple">
+<li><strong>LEFT SIDE</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>Custom Variable</strong></li>
+<li><strong>Unsecure</strong></li>
+<li><strong>Text Window:</strong> <strong>session.custom.mobilePhone</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>RIGHT SIDE</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>Session Variable</strong></li>
+<li><strong>Text Window:</strong> <strong>subsession.http_connector.body.mobilePhone</strong></li>
+</ul>
+<p><strong>ROW 4</strong></p>
+<ul class="simple">
+<li><strong>LEFT SIDE</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>Custom Variable</strong></li>
+<li><strong>Unsecure</strong></li>
+<li><strong>Text Window:</strong> <strong>subsession.client.ip.address</strong></li>
+</ul>
+<ul class="simple">
+<li><strong>RIGHT SIDE</strong></li>
+</ul>
+<ul class="last simple">
+<li><strong>Session Variable</strong></li>
+<li><strong>Text Window:</strong> <strong>perflow.client.ip.address</strong></li>
+</ul>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-018.png"><img alt="image018" src="../../_images/lab3-018.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../_images/lab3-019.png"><img alt="image019" src="../../_images/lab3-019.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-042.png"><img alt="image042" src="../../_images/lab3-042.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="15">
+<li>Review the <strong>Variable Assign</strong> and click <strong>Save</strong> once completed.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-020.png"><img alt="image020" src="../../_images/lab3-020.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="16">
+<li><p class="first">In the <strong>Per-Request Policy</strong> section, click the <strong>+ (Plus Symbol)</strong> on the <strong>Allow</strong></p>
+<p>branch following the <strong>Logon</strong> subroutine and the <strong>URL Branching</strong> agent.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-021.png"><img alt="image021" src="../../_images/lab3-021.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="17">
+<li><p class="first">In the pop-up window, select the <strong>General Purpose</strong> tab, then click the radio button</p>
+<p>on the <strong>HTTP Headers</strong> action line, then click <strong>Add Item</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-022.png"><img alt="image022" src="../../_images/lab3-022.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic" start="18">
+<li><p class="first">In the resulting <strong>HTTP Headers</strong> window, click the <strong>Add new entry</strong> button three(3)</p>
+<p>times to add three(3) rows in the <strong>Header Modify Section</strong>.  Use the following values</p>
+<p>to complete each added row.</p>
+</li>
+</ol>
+<p><strong>ROW 1</strong></p>
+<ul class="simple">
+<li><strong>Header Operation:</strong> <strong>replace</strong></li>
+<li><strong>Header Name:</strong> <strong>displayName</strong></li>
+<li><strong>Header Value:</strong> <strong>%{session.custom.displayName}</strong></li>
+</ul>
+<p><strong>ROW 2</strong></p>
+<ul class="simple">
+<li><strong>Header Operation:</strong> <strong>replace</strong></li>
+<li><strong>Header Name:</strong> <strong>jobTitle</strong></li>
+<li><strong>Header Value:</strong> <strong>%{session.custom.jobTitle}</strong></li>
+</ul>
+<p><strong>ROW 3</strong></p>
+<ul class="simple">
+<li><strong>Header Operation:</strong> <strong>replace</strong></li>
+<li><strong>Header Name:</strong> <strong>mobilePhone</strong></li>
+<li><strong>Header Value:</strong> <strong>%{session.custom.mobilePhone}</strong></li>
+</ul>
+<ol class="last arabic simple" start="19">
+<li>Click <strong>Save</strong> once completed.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-023.png"><img alt="image023" src="../../_images/lab3-023.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-024.png"><img alt="image024" src="../../_images/lab3-024.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-4-testing-reviewing-the-extended-logon-subroutine">
+<h3>TASK 4: Testing &amp; Reviewing the Extended Logon Subroutine<a class="headerlink" href="#task-4-testing-reviewing-the-extended-logon-subroutine" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Return to Firefox on the <strong>Jumphost</strong> test access to the <strong>app.acme.com</strong> application and</p>
+<p>access App1.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-025.png"><img alt="image025" src="../../_images/lab3-025.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="2">
+<li>Note the newly injected headers into <strong>Application 1’s</strong> display page.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-026.png"><img alt="image026" src="../../_images/lab3-026.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">Return to <strong>bigip1.f5lab.local</strong>, navigate to <strong>Access -&gt; Overview -&gt; Active Sessions</strong>.</p>
+<p>Expand the <strong>+ (Plus Symbol)</strong> to see the subsession.</p>
+</li>
+<li><p class="first">Click on the <strong>View</strong> link in the <strong>Variables</strong> column for the listed subsession.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-027.png"><img alt="image027" src="../../_images/lab3-027.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>Review the variables collected via the HTTP Connector Requests.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-028.png"><img alt="image028" src="../../_images/lab3-028.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="6">
+<li><p class="first">Navigate to <strong>Access -&gt; Overview -&gt; Active Sessions</strong>. Click on the <strong>Session ID</strong> link</p>
+<p>in the <strong>Session ID</strong> column for the listed active session.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-034.png"><img alt="image034" src="../../_images/lab3-034.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="7">
+<li><p class="first">Review the actions in the Session log, particularly those associated with HTTP Connector</p>
+<p>requests.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-029.png"><img alt="image029" src="../../_images/lab3-029.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-5-configuring-gating-criteria">
+<h3>TASK 5: Configuring Gating Criteria<a class="headerlink" href="#task-5-configuring-gating-criteria" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic">
+<li><p class="first">Navigate to <strong>Access -&gt; Profiles/Policies -&gt; Per-Request Policies</strong> and then click the</p>
+<p><strong>Edit</strong> link for the <strong>app.acme.com_prp</strong> Per Request Policy.</p>
+</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>This may already be open.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-032.png"><img alt="image032" src="../../_images/lab3-032.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">In the resulting Visual Policy Editor window for <strong>app.acme.com_prp</strong>, expand the</p>
+<p><strong>Logon</strong> subroutine and click the <strong>Subroutine Settings/Rename</strong> link.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-030.png"><img alt="image030" src="../../_images/lab3-030.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">In the pop-up window, in the <strong>Gating Criteria</strong> field, enter</p>
+<p><strong>perflow.client.ip.address</strong> and click <strong>Save</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-031.png"><img alt="image031" src="../../_images/lab3-031.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-6-testing-gating-criteria">
+<h3>TASK 6: Testing Gating Criteria<a class="headerlink" href="#task-6-testing-gating-criteria" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Return to Firefox on the <strong>Jumphost</strong> test access to the <strong>app.acme.com</strong> application and</p>
+<p>access <strong>App1</strong>. Re-login to the application if necessary.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-025.png"><img alt="image025" src="../../_images/lab3-025.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-040.png"><img alt="image040" src="../../_images/lab3-040.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">Confirm on that your session is active on <strong>bigip1.f5lab.local</strong>, by navigating to</p>
+<p><strong>Access -&gt; Overview -&gt; Active Sessions</strong>. Expand the <strong>+ (Plus Symbol)</strong> to see the</p>
+<p>subsession.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab3-033.png"><img alt="image033" src="../../_images/lab3-033.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">Return to the <strong>Jumphost</strong>.  Do <strong>NOT</strong> close the browser and the already opened</p>
+<p>application.</p>
+</li>
+<li><p class="first">Navigate to the Jumphost desktop and click on the <strong>Change IP 10.1.10.11</strong> link (Confirm</p>
+<p>the elevated Administrator privlege pop-up).</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-035.png"><img alt="image035" src="../../_images/lab3-035.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-036.png"><img alt="image036" src="../../_images/lab3-036.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="5">
+<li><p class="first">Return to Firefox and the <strong>app.acme.com</strong> application by accessing App1 again. Note that</p>
+<p>you will be re-prompted for access.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-025.png"><img alt="image025" src="../../_images/lab3-025.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../_images/image1007.png"><img alt="image100" src="../../_images/image1007.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-041.png"><img alt="image041" src="../../_images/lab3-041.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="6">
+<li><p class="first">Return to <strong>bigip1.f5lab.local</strong>, and navigate to <strong>Access -&gt; Overview -&gt; Active</strong></p>
+<p><strong>Sessions</strong>. Expand the <strong>+ (Plus Symbol)</strong> to see the two(2) subsessions now associated</p>
+<p>with your session. (You may alternatively refresh the screen if already opened.)</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab3-037.png"><img alt="image037" src="../../_images/lab3-037.png" style="width: 800px;" /></a></p>
+<p><a class="reference internal" href="../../_images/lab3-038.png"><img alt="image038" src="../../_images/lab3-038.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab3-039.png"><img alt="image039" src="../../_images/lab3-039.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>Note:</strong> <em>The are multiple examples of Gating Criteria. In this example, client IP was</em></p>
+<p><em>used to show that any changes in the connecting entity can result in establishing a new</em></p>
+<p><em>subsession. What happens in new subsessions, the number of subsessions and how they are</em></p>
+<p class="last"><em>controlled is based on the individual customer/application need.</em></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-7-end-of-lab3">
+<h3>TASK 7: End of Lab3<a class="headerlink" href="#task-7-end-of-lab3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>This concludes Lab3, feel free to review and test the configuration.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image00111.png"><img alt="image000" src="../../_images/image00111.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="lab02.html" title="Lab 2: Custom Per Request Policy" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module4/intro.html" title="Environment Overview" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

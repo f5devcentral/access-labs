@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 1: Creating a SAML Service Provider(SP)</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 1: Creating a SAML Service Provider(SP)"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 1: Creating a SAML Service Provider(SP) &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Environment Overview" href="../module2/intro.html" />
+    <link rel="prev" title="Environment Overview" href="intro.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 1: Creating a SAML Service Provider(SP)</a><ul>
+<li><a class="reference internal" href="#task-1-access-the-lab-environment">Task 1 - Access the Lab Environment</a></li>
+<li><a class="reference internal" href="#task-2-import-postman-collections">Task 2 - Import Postman Collections</a></li>
+<li><a class="reference internal" href="#task-3-import-idp-signing-certificate">Task 3 - Import IDP Signing Certificate</a></li>
+<li><a class="reference internal" href="#task-4-create-an-saml-idp-connector">Task 4 - Create an SAML IDP Connector</a></li>
+<li><a class="reference internal" href="#task-5-create-an-saml-sp-service">Task 5 - Create an SAML SP Service</a></li>
+<li><a class="reference internal" href="#task-6-explore-configuration-via-the-big-ip-gui">Task 6 - Explore configuration via the BIG-IP GUI</a></li>
+<li><a class="reference internal" href="#task-7-deleting-a-saml-service-provider-sp-service-configuration">Task 7 - Deleting a SAML Service Provider(SP) Service Configuration</a></li>
+<li><a class="reference internal" href="#task-8-ensure-objects-were-removed-via-gui">Task 8 - Ensure objects were removed via GUI</a></li>
+<li><a class="reference internal" href="#task-9-lab-clean-up">Task 9 - Lab Clean up</a></li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class4.html">400 Series: Access Automation</a>
+
+          <span class="right">
+             <a href="../../_sources/class4/module1/lab01.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-1-creating-a-saml-service-provider-sp">
+<h1>Lab 1: Creating a SAML Service Provider(SP)<a class="headerlink" href="#lab-1-creating-a-saml-service-provider-sp" title="Permalink to this headline">¶</a></h1>
+<p id="class4-module1-lab1">In this lab you will learn how to work with the SP Service and IdP Connector.</p>
+<div class="section" id="task-1-access-the-lab-environment">
+<h2>Task 1 - Access the Lab Environment<a class="headerlink" href="#task-1-access-the-lab-environment" title="Permalink to this headline">¶</a></h2>
+<p>To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).</p>
+<ol class="arabic">
+<li><p class="first">Click <strong>DEPLOYMENT</strong> located on the top left corner to display the environment</p>
+</li>
+<li><p class="first">Click <strong>ACCESS</strong> next to jumphost.f5lab.local</p>
+<blockquote>
+<div><p><img alt="image101" src="../../_images/1012.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Select your RDP resolution.</p>
+</li>
+<li><p class="first">The RDP client on your local host establishes a RDP connection to the Jump Host.</p>
+</li>
+<li><p class="first">Login with the following credentials:</p>
+<blockquote>
+<div><ul class="simple">
+<li>User: <strong>f5lab\user1</strong></li>
+<li>Password: <strong>user1</strong></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-2-import-postman-collections">
+<h2>Task 2 - Import Postman Collections<a class="headerlink" href="#task-2-import-postman-collections" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">From the Jumphost, open <strong>Postman</strong> via the desktop shortcut or toolbar at the bottom</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dismiss any prompts to update Postman.</p>
+</div>
+<p><img alt="image001" src="../../_images/00117.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Yes</strong> if prompted for “Do you want to allow this app to make changes to your device?”</p>
+<blockquote>
+<div><p><img alt="image002" src="../../_images/00218.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Import</strong> located on the top left of the Postman application</p>
+<blockquote>
+<div><p><img alt="image003" src="../../_images/00317.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Upload Files</strong></p>
+<p><img alt="image004" src="../../_images/00418.png" /></p>
+</li>
+<li><p class="first">Navigate to C:\access-labs\class4\module1\student_files, select <strong>student-class4-module1-lab1.postman_collection.json</strong>, and click <strong>Open</strong></p>
+<blockquote>
+<div><p><img alt="image005" src="../../_images/00518.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Import</strong></p>
+<p><img alt="image006" src="../../_images/00617.png" /></p>
+</li>
+<li><p class="first">A collection called <strong>student-class4-module1-lab1</strong> will appear on the left side in Postman</p>
+</li>
+</ol>
+</div>
+<div class="section" id="task-3-import-idp-signing-certificate">
+<h2>Task 3 - Import IDP Signing Certificate<a class="headerlink" href="#task-3-import-idp-signing-certificate" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Expand the <strong>student-class4-module1-lab1</strong> collection to see the subfolders and requests.</p>
+<p><img alt="image007" src="../../_images/00718.png" /></p>
+</li>
+<li><p class="first">Select the <strong>bigip-import-cert-idp</strong> request.</p>
+</li>
+<li><p class="first">Notice the request endpoint is <strong>/mgmt/shared/file-transfer/uploads</strong>.  This endpoint allows us to upload files to the /var/config/rest/downloads directory on the BIG-IP.</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are unfamiliar with Postman, the information in curly braces are variables that have been defined inside the collection.  If you wish to see the variable values simply click the three dots on the collection that allows you display more options. Click Edit and then Variables.</p>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Body</strong> to display what will be passed in the POST request</p>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The request contains only the PEM formated certificate of our AzureAD Identity Provider.</p>
+</div>
+</div></blockquote>
+<p><img alt="image008" src="../../_images/00817.png" /></p>
+</li>
+<li><p class="first">Click the blue <strong>Send</strong> button in the upper right corner</p>
+</li>
+<li><p class="first">In the response body we see where the file is stored and its file name.</p>
+<p><img alt="image009" src="../../_images/00917.png" /></p>
+</li>
+<li><p class="first">Select the <strong>bigip-install-cert-idp</strong> request.</p>
+</li>
+<li><p class="first">Examine the body of this request.  This request installs the certificate we previously uploaded to the BIG-IPs crypto store.</p>
+<blockquote>
+<div><p><img alt="image010" src="../../_images/01017.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click the blue <strong>Send</strong> button in the upper right corner</p>
+</li>
+<li><p class="first">In the response body we a see certificate named <strong>class4-module1-lab1-idp</strong> has been installed to the crypto store.</p>
+<blockquote>
+<div><p><img alt="image011" src="../../_images/01118.png" /></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-4-create-an-saml-idp-connector">
+<h2>Task 4 - Create an SAML IDP Connector<a class="headerlink" href="#task-4-create-an-saml-idp-connector" title="Permalink to this headline">¶</a></h2>
+<p>In order to create an SP service the IDP Connector must exist.  This is because the SP Service endpoint contains the binding information to the IDP Connector.</p>
+<ol class="arabic">
+<li><p class="first">Select the <strong>bigip-create-idp connector-azuread</strong> request</p>
+</li>
+<li><p class="first">Notice the request endpoint is <strong>/mgmt/tm/apm/aaa/saml-idp-connector/</strong>.</p>
+</li>
+<li><p class="first">Click <strong>Body</strong> to display what will be passed in the POST request.  The body contains all the necessary setting in order to integrate with AzureAD.</p>
+<blockquote>
+<div><p><img alt="image012" src="../../_images/01218.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click the blue <strong>Send</strong> button in the upper right corner</p>
+</li>
+<li><p class="first">The response body contains all of the information related the connector and links to other endpoints that are related to this connectors configuration.</p>
+<blockquote>
+<div><p><img alt="image013" src="../../_images/01319.png" /></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-5-create-an-saml-sp-service">
+<h2>Task 5 - Create an SAML SP Service<a class="headerlink" href="#task-5-create-an-saml-sp-service" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Select the <strong>bigip-create-sp service-bigip</strong></p>
+</li>
+<li><p class="first">Notice the request endpoint is <strong>/mgmt/tm/apm/aaa/saml/</strong>.</p>
+</li>
+<li><p class="first">Click <strong>Body</strong> to display what will be passed in the POST request.  The body contains all the necessary setting for the SP service, plus a binding to the IDP Connector we just created.</p>
+<blockquote>
+<div><p><img alt="image014" src="../../_images/01417.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click the blue <strong>Send</strong> button in the upper right corner</p>
+</li>
+<li><p class="first">The response body contains all of the information related the SP Service and links to other endpoints that are related to this SP Services configuration.</p>
+<blockquote>
+<div><p><img alt="image015" src="../../_images/01518.png" /></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-6-explore-configuration-via-the-big-ip-gui">
+<h2>Task 6 - Explore configuration via the BIG-IP GUI<a class="headerlink" href="#task-6-explore-configuration-via-the-big-ip-gui" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">From the jumphost, open a browser and navigate to <a class="reference external" href="https://bigip1.f5lab.local">https://bigip1.f5lab.local</a></p>
+</li>
+<li><p class="first">Login to the BIG-IP GUI with the following credentials:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Username: <strong>admin</strong></li>
+<li>Password: <strong>admin</strong></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Navigate to System -&gt; Certificate Management -&gt; Traffic Certificate Management -&gt; SSL Certificate List.  Click on <strong>SSL Certificate List</strong> and not the + plus symbol.</p>
+<blockquote>
+<div><p><img alt="image016" src="../../_images/01616.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">You can see the certificate <strong>class4-module1-lab1-idp</strong> from Task 1 was successfully imported.</p>
+<blockquote>
+<div><p><img alt="image017" src="../../_images/01716.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Navigate to Access &gt;&gt; Federation &gt;&gt; SAML Service Provider &gt;&gt; Local SP Services.  Click on <strong>Local SP Services</strong> and not the + (plus symbol).</p>
+<blockquote>
+<div><p><img alt="image018" src="../../_images/01816.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">You can see a SP service object was created with the name <strong>class4-module1-lab1-sp</strong> and successfully bound to an IDP Connector named <strong>class4-module1-lab1-idp</strong>.</p>
+<blockquote>
+<div><p><img alt="image019" src="../../_images/01917.png" /></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-7-deleting-a-saml-service-provider-sp-service-configuration">
+<h2>Task 7 - Deleting a SAML Service Provider(SP) Service Configuration<a class="headerlink" href="#task-7-deleting-a-saml-service-provider-sp-service-configuration" title="Permalink to this headline">¶</a></h2>
+<p id="class4-module1-lab1-delete">With imperative call objects must be deleted in the reverse order they are typically created in.  This is because objects that are currently in use cannot be deleted.</p>
+<ol class="arabic">
+<li><p class="first">From Postman, inside the collection Student-class4-module1-lab1 open the subfolder <strong>Delete Objects</strong></p>
+</li>
+<li><p class="first">Click <strong>bigip-delete-sp service</strong></p>
+</li>
+<li><p class="first">Notice the body is empty.  Also, the endpoint we are using is the same endpoint we used to create the SP service plus the partition and object name.</p>
+<blockquote>
+<div><p><img alt="image020" src="../../_images/02016.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click the blue <strong>Send</strong> button in the upper right corner.</p>
+</li>
+<li><p class="first">Notice nothing is returned in the response body but the Response code is a 200 OK.</p>
+<blockquote>
+<div><p><img alt="image021" src="../../_images/02115.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">If you click <strong>Send</strong> a second time you will you get a message back stating the object is not found and a Status Code of 404.  That’s because the object was deleted with the prior request.</p>
+<blockquote>
+<div><p><img alt="image022" src="../../_images/02215.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>bigip-delete-idp connector</strong></p>
+</li>
+<li><p class="first">Click the blue <strong>send</strong> button in the upper right corner.</p>
+<blockquote>
+<div><p><img alt="image023" src="../../_images/02316.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">You will receive a response code of 200 OK.</p>
+<blockquote>
+<div><p><img alt="image024" src="../../_images/02416.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>bigip-delete-idp cert</strong></p>
+</li>
+<li><p class="first">Click the blue <strong>send</strong> button in the upper right corner.</p>
+<blockquote>
+<div><p><img alt="image025" src="../../_images/02516.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">You will receive a response code of 200 OK.</p>
+<blockquote>
+<div><p><img alt="image026" src="../../_images/02615.png" /></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-8-ensure-objects-were-removed-via-gui">
+<h2>Task 8 - Ensure objects were removed via GUI<a class="headerlink" href="#task-8-ensure-objects-were-removed-via-gui" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Return to the jumpbox’s browser and navigate to <a class="reference external" href="https://bigip1.f5lab.local">https://bigip1.f5lab.local</a></p>
+</li>
+<li><p class="first">Login to the BIG-IP GUI with the following credentials:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Username: <strong>admin</strong></li>
+<li>Password: <strong>admin</strong></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Navigate to System &gt;&gt; Certificate Management &gt;&gt; Traffic Certificate Management &gt;&gt; SSL Certificate List.  Click on <strong>SSL Certificate List</strong> and not the + (plus symbol).</p>
+<blockquote>
+<div><p><img alt="image016" src="../../_images/01616.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Notice the certificate <strong>class4-module1-lab1-idp</strong> was deleted</p>
+<p><img alt="image027" src="../../_images/02715.png" /></p>
+</li>
+<li><p class="first">Navigate to Access &gt;&gt; Federation &gt;&gt; SAML Service Provider &gt;&gt; Local SP Services.  Click on <strong>Local SP Services</strong> and not the + (plus symbol).</p>
+<blockquote>
+<div><p><img alt="image018" src="../../_images/01816.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Notice the SP Service was deleted</p>
+<blockquote>
+<div><p><img alt="image028" src="../../_images/02815.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Mouse over SAML Service Provider on the top of the screen and click External IdP Connectors.</p>
+<blockquote>
+<div><p><img alt="image029" src="../../_images/02915.png" /></p>
+</div></blockquote>
+</li>
+<li><p class="first">Notice the IDP Connector was deleted.</p>
+<blockquote>
+<div><p><img alt="image030" src="../../_images/03013.png" /></p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="task-9-lab-clean-up">
+<h2>Task 9 - Lab Clean up<a class="headerlink" href="#task-9-lab-clean-up" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>From Postman, Click the <strong>3 dots</strong> on the bottom right of the student-class4-module1-lab1 Collection.</li>
+<li>Click <strong>Delete</strong></li>
+</ol>
+<p><img alt="image031" src="../../_images/03113.png" /></p>
+<p>This concludes the APM lab on creating and deleting APM objects via iControlREST.</p>
+<blockquote>
+<div><img alt="image000" src="../../_images/00028.png" /></div></blockquote>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="intro.html" title="Environment Overview" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module2/intro.html" title="Environment Overview" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

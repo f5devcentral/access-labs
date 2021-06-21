@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 3: Setup a Salesforce Connector</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 3: Setup a Salesforce Connector"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 3: Setup a Salesforce Connector &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lab – Setup Salesforce Connector" href="lab1.html" />
+    <link rel="prev" title="Lab – Setup AWS Connector" href="../module3/lab1.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 3: Setup a Salesforce Connector</a></li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="../class9.html">Class 9: Multi-Factor Auth for Cloud Applications</a>
+
+          <span class="right">
+             <a href="../../../_sources/archived/class9/module4/module4.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-3-setup-a-salesforce-connector">
+<h1>Lab 3: Setup a Salesforce Connector<a class="headerlink" href="#lab-3-setup-a-salesforce-connector" title="Permalink to this headline">¶</a></h1>
+<p>In this module you will learn how to configure a Salesforce Connector.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html">Lab – Setup Salesforce Connector</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-create-a-local-idp-service-to-salesforce">Task - Create a local IDP Service to Salesforce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-download-idp-metadata-from-big-ip-for-salesforce">Task - Download IdP metadata from BIG-IP for Salesforce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-create-an-idp-provider-in-salesforce">Task - Create an IdP provider in Salesforce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-create-a-new-user-in-salesforce">Task - Create a new user in Salesforce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-modify-the-users-in-active-directory">Task - Modify the users in Active Directory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-create-an-external-sp-connector-to-salesforce">Task - Create an external SP connector to Salesforce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-bind-idp-and-sp-connector-to-salesforce">Task - Bind IdP and SP Connector to Salesforce</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-create-a-salesforce-saml-resource-in-big-ip">Task - Create a Salesforce SAML resource in BIG-IP</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lab1.html#task-assign-the-salesforce-saml-resource">Task - Assign the SALESFORCE SAML resource</a></li>
+</ul>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="../module3/lab1.html" title="Lab – Setup AWS Connector" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab1.html" title="Lab – Setup Salesforce Connector" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab – Setup Salesforce Connector</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab – Setup Salesforce Connector"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab – Setup Salesforce Connector &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Lab 4: Set up Google Authenticator (GA)" href="../module5/module5.html" />
+    <link rel="prev" title="Lab 3: Setup a Salesforce Connector" href="module4.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class3/class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab – Setup Salesforce Connector</a></li>
+<li><a class="reference internal" href="#task-create-a-local-idp-service-to-salesforce">Task - Create a local IDP Service to Salesforce</a></li>
+<li><a class="reference internal" href="#task-download-idp-metadata-from-big-ip-for-salesforce">Task - Download IdP metadata from BIG-IP for Salesforce</a></li>
+<li><a class="reference internal" href="#task-create-an-idp-provider-in-salesforce">Task - Create an IdP provider in Salesforce</a></li>
+<li><a class="reference internal" href="#task-create-a-new-user-in-salesforce">Task - Create a new user in Salesforce</a></li>
+<li><a class="reference internal" href="#task-modify-the-users-in-active-directory">Task - Modify the users in Active Directory</a></li>
+<li><a class="reference internal" href="#task-create-an-external-sp-connector-to-salesforce">Task - Create an external SP connector to Salesforce</a></li>
+<li><a class="reference internal" href="#task-bind-idp-and-sp-connector-to-salesforce">Task - Bind IdP and SP Connector to Salesforce</a></li>
+<li><a class="reference internal" href="#task-create-a-salesforce-saml-resource-in-big-ip">Task - Create a Salesforce SAML resource in BIG-IP</a></li>
+<li><a class="reference internal" href="#task-assign-the-salesforce-saml-resource">Task - Assign the SALESFORCE SAML resource</a></li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../../archived.html">Archived Identity &amp; Access Management Labs</a>
+              &gt; <a href="../class9.html">Class 9: Multi-Factor Auth for Cloud Applications</a>
+              &gt; <a href="module4.html">Lab 3: Setup a Salesforce Connector</a>
+
+          <span class="right">
+             <a href="../../../_sources/archived/class9/module4/lab1.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-setup-salesforce-connector">
+<h1>Lab – Setup Salesforce Connector<a class="headerlink" href="#lab-setup-salesforce-connector" title="Permalink to this headline">¶</a></h1>
+<p>This lab will teach you how to create a SAML Salesforce connector.
+Estimated completion time: <strong>30 minutes</strong></p>
+</div>
+<div class="section" id="task-create-a-local-idp-service-to-salesforce">
+<h1>Task - Create a local IDP Service to Salesforce<a class="headerlink" href="#task-create-a-local-idp-service-to-salesforce" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="52%" />
+<col width="48%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Logon onto BIG-IP, then go to <strong>Access</strong>
+-&gt; <strong>Federation: SAML Identity Provider</strong>
+-&gt; <strong>Local Idp Services</strong> -&gt; <strong>Create</strong></td>
+<td><img alt="image83" src="../../../_images/image832.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Enter the following values (leave others default) on the
+<strong>General Settings</strong></p>
+<blockquote class="last">
+<div><p><strong>Idp Service Name:</strong> <code class="docutils literal notranslate"><span class="pre">SALESFORCE_IDP_DEMO</span></code></p>
+<p><strong>IdP Entity ID:</strong> <code class="docutils literal notranslate"><span class="pre">https://webtop.vlab.f5demo.com/idp/f5/</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image84" src="../../../_images/image842.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">3. Enter the following values (leave others default) on the
+<strong>Assertion Settings</strong>.</p>
+<blockquote>
+<div><p><strong>Assertion Subject Type:</strong> <code class="docutils literal notranslate"><span class="pre">Email</span> <span class="pre">Address</span></code></p>
+<p><strong>Assertion Subject Value:</strong> <code class="docutils literal notranslate"><span class="pre">%{session.ad.last.attr.mail}</span></code></p>
+<p><strong>Authentication Context Class Reference:</strong></p>
+</div></blockquote>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport</span></code></p>
+</td>
+<td><img alt="image85" src="../../../_images/image852.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">4. Enter the following values (leave others default) on the
+<strong>Security Settings</strong>.</p>
+<blockquote class="last">
+<div><p><strong>Signing Key:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/IDP_CERT_F5DEMO.key</span></code></p>
+<p><strong>Signing Certificate:</strong> <code class="docutils literal notranslate"><span class="pre">/Common/IDP_CERT_F5DEMO.crt</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image85_2" src="../../../_images/image85_2.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-download-idp-metadata-from-big-ip-for-salesforce">
+<h1>Task - Download IdP metadata from BIG-IP for Salesforce<a class="headerlink" href="#task-download-idp-metadata-from-big-ip-for-salesforce" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Federation: SAML Identity Provider</strong>
+-&gt; <strong>Local IdP Services</strong>, select the <strong>SALESFORCE_IDP_DEMO</strong>
+object, then click <strong>Export Metadata</strong>. Leave the
+<strong>Sign Metadata</strong> to <strong>No</strong>, and then click <strong>Download</strong>.</td>
+<td><p class="first"><img alt="image86" src="../../../_images/image862.png" /></p>
+<p class="last"><img alt="image86_2" src="../../../_images/image86_2.png" /></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-an-idp-provider-in-salesforce">
+<h1>Task - Create an IdP provider in Salesforce<a class="headerlink" href="#task-create-an-idp-provider-in-salesforce" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>Log in to Salesforce <code class="docutils literal notranslate"><span class="pre">https://login.salesforce.com</span></code></li>
+</ol>
+</td>
+<td><img alt="image87" src="../../../_images/image872.png" /></td>
+</tr>
+<tr class="row-even"><td>2. In Quick Find search box, type <strong>single</strong>, and then click
+<strong>Single Sign-On Settings.</strong>
+After that click the <strong>Edit</strong> button and check the
+<strong>SAML Enabled</strong> box, and then click <strong>Save</strong>.</td>
+<td><p class="first"><img alt="image88" src="../../../_images/image882.png" /></p>
+<p class="last"><img alt="image89" src="../../../_images/image892.png" /></p>
+</td>
+</tr>
+<tr class="row-odd"><td>3. Click <strong>New from Metadata file</strong>.Then click <strong>Choose File</strong>,
+select <code class="docutils literal notranslate"><span class="pre">SALESFORCE_IDP_DEMO_metadata.xml</span></code> export file you
+downloaded from BIG-IP, and then click <strong>Create.</strong></td>
+<td><p class="first"><img alt="image90" src="../../../_images/image902.png" /></p>
+<p class="last"><img alt="image91" src="../../../_images/image913.png" /></p>
+</td>
+</tr>
+<tr class="row-even"><td>4. In the <strong>Identity Provider Certificate</strong> area, click
+<strong>Choose File</strong> and navigate to <strong>Downloads</strong> to select
+the certificate named <code class="docutils literal notranslate"><span class="pre">IDP_CERT_F5DEMO.crt.</span></code>
+Uncheck the <code class="docutils literal notranslate"><span class="pre">Single</span> <span class="pre">Logout</span> <span class="pre">box</span></code> and <strong>Save.</strong></td>
+<td><img alt="image92" src="../../../_images/image922.png" /></td>
+</tr>
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>Click the <strong>Download Metadata</strong>.</li>
+</ol>
+</td>
+<td><img alt="image93" src="../../../_images/image932.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-a-new-user-in-salesforce">
+<h1>Task - Create a new user in Salesforce<a class="headerlink" href="#task-create-a-new-user-in-salesforce" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>Log in to Salesforce <code class="docutils literal notranslate"><span class="pre">https://login.salesforce.com</span></code></li>
+</ol>
+</td>
+<td><img alt="image87" src="../../../_images/image872.png" /></td>
+</tr>
+<tr class="row-even"><td>2. Under Administration, click <strong>Users</strong> -&gt; <strong>Users</strong>
+-&gt; <strong>New User.</strong></td>
+<td><img alt="image94" src="../../../_images/image942.png" /></td>
+</tr>
+<tr class="row-odd"><td><p class="first">3. Enter the following values (leave others default) on the
+<strong>New User</strong>.</p>
+<blockquote>
+<div><p><strong>First Name:</strong> <code class="docutils literal notranslate"><span class="pre">Sales</span></code></p>
+<p><strong>Last Name:</strong> <code class="docutils literal notranslate"><span class="pre">Manager</span></code></p>
+<p><strong>E mail:</strong> <code class="docutils literal notranslate"><span class="pre">sales_manager&#64;yourdomain</span></code></p>
+<p><strong>Username:</strong> <code class="docutils literal notranslate"><span class="pre">sales_manager&#64;yourdomain</span></code></p>
+<p><strong>Nickname:</strong> <code class="docutils literal notranslate"><span class="pre">sales_manager</span></code></p>
+<p><strong>Role:</strong> <code class="docutils literal notranslate"><span class="pre">VP,</span> <span class="pre">North</span> <span class="pre">American</span> <span class="pre">Sales</span></code></p>
+<p><strong>User License:</strong> <code class="docutils literal notranslate"><span class="pre">Free</span></code></p>
+</div></blockquote>
+<p>Repeat steps to the following users and change the <strong>Role</strong>
+as you want:</p>
+<p><strong>Sales User</strong> = <code class="docutils literal notranslate"><span class="pre">sales_user&#64;yourdomain</span></code></p>
+<p class="last"><strong>Partner User</strong> = <code class="docutils literal notranslate"><span class="pre">partner_user&#64;yourdomain</span></code></p>
+</td>
+<td><img alt="image95" src="../../../_images/image952.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-modify-the-users-in-active-directory">
+<h1>Task - Modify the users in Active Directory<a class="headerlink" href="#task-modify-the-users-in-active-directory" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. From the <strong>Win 7</strong> Jumpbox open a
+<strong>Remote Desktop Connection</strong> to Win 2008 server <code class="docutils literal notranslate"><span class="pre">10.1.1.251</span></code>
+Log in using <strong>username:</strong> <code class="docutils literal notranslate"><span class="pre">administrator</span></code> and <strong>password:</strong>
+<code class="docutils literal notranslate"><span class="pre">password</span></code>.</td>
+<td><img alt="image96" src="../../../_images/image962.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Open the <strong>Active Directory Users and Computers**console,
+then right-click on the **Sales Manager</strong> user and then
+click <strong>Properties</strong>, modify the <code class="docutils literal notranslate"><span class="pre">E-mail</span></code> parameter
+according to the user that you already created at Salesforce.
+(<code class="docutils literal notranslate"><span class="pre">sales_manager&#64;yourdomain</span></code>). Repeat steps to the following
+users:</p>
+<blockquote class="last">
+<div><p><strong>Sales User</strong> = <code class="docutils literal notranslate"><span class="pre">sales_user&#64;yourdomain</span></code></p>
+<p><strong>Partner User</strong> = <code class="docutils literal notranslate"><span class="pre">partner_user&#64;yourdomain</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image97" src="../../../_images/image972.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-an-external-sp-connector-to-salesforce">
+<h1>Task - Create an external SP connector to Salesforce<a class="headerlink" href="#task-create-an-external-sp-connector-to-salesforce" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Logon onto BIG-IP, then go to <strong>Access</strong>
+-&gt; <strong>Federation: SAML Identity Provider</strong> -&gt;
+<strong>External SP Connectors</strong> -&gt; <strong>Create</strong> -&gt; <strong>From Metadata</strong></td>
+<td><img alt="image97_2" src="../../../_images/image97_2.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Enter the following values (leave others default) then
+click <strong>OK</strong></p>
+<blockquote>
+<div><p><strong>Select File:</strong> <code class="docutils literal notranslate"><span class="pre">SAMLSP-XXXX.xml</span></code></p>
+<p><strong>Service Provider Name:</strong> <code class="docutils literal notranslate"><span class="pre">SALESFORCE_EXT_SP</span></code></p>
+</div></blockquote>
+<p class="last">Use the <code class="docutils literal notranslate"><span class="pre">XML</span> <span class="pre">file</span></code> that you downloaded from <strong>TASK 3</strong>.</p>
+</td>
+<td><img alt="image98" src="../../../_images/image982.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-bind-idp-and-sp-connector-to-salesforce">
+<h1>Task - Bind IdP and SP Connector to Salesforce<a class="headerlink" href="#task-bind-idp-and-sp-connector-to-salesforce" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Federation: SAML Identity Provider</strong>
+-&gt; <strong>Local IdP Services</strong>, select the <code class="docutils literal notranslate"><span class="pre">SALESFORCE_IDP_DEMO</span></code>
+object, then click <strong>Bind/Unbind SP Connector</strong>. Then select
+<code class="docutils literal notranslate"><span class="pre">Common/SALESFORCE_EXT_SP</span></code> as SP connector, and click <strong>OK</strong>.</td>
+<td><p class="first"><img alt="image99" src="../../../_images/image992.png" /></p>
+<p class="last"><img alt="image100" src="../../../_images/image1002.png" /></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-create-a-salesforce-saml-resource-in-big-ip">
+<h1>Task - Create a Salesforce SAML resource in BIG-IP<a class="headerlink" href="#task-create-a-salesforce-saml-resource-in-big-ip" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Federation: SAML Resources</strong>
+-&gt; <strong>Create.</strong></td>
+<td><img alt="image100_2" src="../../../_images/image100_2.png" /></td>
+</tr>
+<tr class="row-even"><td><p class="first">2. Enter the following values (leave others default) on the
+<strong>New SAML Resource</strong> tab, then click <strong>Finished.</strong></p>
+<blockquote class="last">
+<div><p><strong>Name:</strong> <code class="docutils literal notranslate"><span class="pre">SALESFORCE_SAML_DEMO</span></code></p>
+<p><strong>SSO Configuration:</strong> <code class="docutils literal notranslate"><span class="pre">SALESFORCE_IDP_DEMO</span></code></p>
+<p><strong>Caption:</strong> <code class="docutils literal notranslate"><span class="pre">SALESFORCE</span> <span class="pre">(SAML)</span></code></p>
+</div></blockquote>
+</td>
+<td><img alt="image101" src="../../../_images/image1013.png" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-assign-the-salesforce-saml-resource">
+<h1>Task - Assign the SALESFORCE SAML resource<a class="headerlink" href="#task-assign-the-salesforce-saml-resource" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="49%" />
+<col width="51%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>1. Go to <strong>Access</strong> -&gt; <strong>Profiles/Policies</strong> -&gt;
+<strong>Access Profiles</strong>, then click <strong>Edit</strong> for <code class="docutils literal notranslate"><span class="pre">webtop_demo</span></code>,
+a new browser tab will open</td>
+<td><img alt="image101_2" src="../../../_images/image101_2.png" /></td>
+</tr>
+<tr class="row-even"><td>2. Click on the <strong>Advanced Resource Assign</strong> object, a new
+window will open. Click <strong>Add/Delete</strong>, then choose
+<code class="docutils literal notranslate"><span class="pre">/Common/AWS_SAML_DEMO</span></code> and <code class="docutils literal notranslate"><span class="pre">/Common/SALESFORCE_SAML_DEMO</span></code>
+from the <strong>SAML</strong> tab and click <strong>Update</strong>, then <strong>Save</strong>.</td>
+<td><p class="first"><img alt="image101_3" src="../../../_images/image101_3.png" /></p>
+<p><img alt="image101_4" src="../../../_images/image101_4.png" /></p>
+<p class="last"><img alt="image102" src="../../../_images/image1022.png" /></p>
+</td>
+</tr>
+<tr class="row-odd"><td>3. Click <strong>Apply Access Policy</strong> in the top left and then
+close the browser tab</td>
+<td><img alt="image102_2" src="../../../_images/image102_2.png" /></td>
+</tr>
+<tr class="row-even"><td><ol class="first arabic" start="4">
+<li><p class="first">Go to <code class="docutils literal notranslate"><span class="pre">https://webtop.vlab.f5demo.com</span></code> from the jump host,</p>
+<p>You can login with any user:</p>
+</li>
+</ol>
+<ul class="simple">
+<li><strong>sales_user</strong></li>
+<li><strong>sales_manager</strong></li>
+<li><strong>partner_user</strong></li>
+</ul>
+<p class="last">You should see two <code class="docutils literal notranslate"><span class="pre">SAML</span></code> resources <strong>AWS</strong> and
+<strong>SALESFORCE</strong></p>
+</td>
+<td><img alt="image103" src="../../../_images/image1032.png" /></td>
+</tr>
+<tr class="row-odd"><td>5. Click on the <strong>AWS</strong> and <strong>SALESFORCE</strong> links. You should
+be able to access <strong>both</strong> because of <strong>SSO</strong> (<code class="docutils literal notranslate"><span class="pre">SAML</span></code>).</td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="module4.html" title="Lab 3: Setup a Salesforce Connector" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="../module5/module5.html" title="Lab 4: Set up Google Authenticator (GA)" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../../_static/js/index.js"></script>
+  <script src="../../../_static/js/jquery.appear.js"></script>
+  <script src="../../../_static/js/printThis.js"></script>
+  <script src="../../../_static/js/bootstrap.min.js"></script>
+  <script src="../../../_static/js/clouddocs.js"></script>
+  <script src="../../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>

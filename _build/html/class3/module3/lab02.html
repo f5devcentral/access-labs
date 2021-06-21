@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<head>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-PPZPQ6');</script>
+  <!-- End Google Tag Manager -->
+    <title>Lab 2: Custom Per Request Policy</title>
+  
+
+  <meta charset="utf-8">
+  <!-- Twitter Bootstrap viewport setting -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- F5 metadata -->
+  <meta name="title" content="Lab 2: Custom Per Request Policy"/>
+  <meta name="product" content="F5 Identity and Access Management Solutions"/>
+  <meta name="version" content=""/>
+  <meta name="updated_date"  content="2021-06-21 13:23:29"/>
+  <meta name="archived" content="Archived documents excluded"/>
+  <meta name="doc_type" content="Manual"/>
+  <meta name="lifecycle" content="release"/>
+  <meta name="F5 Identity and Access Management Solutions" content=""/>
+
+
+  
+
+  
+  <link href="https://cdn.f5.com/favicon.ico" rel="icon">
+
+</head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 2: Custom Per Request Policy &#8212; F5 Identity and Access Management Solutions  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" href="../../_static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/f5-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/CoveoFullSearch.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/21fb8a09c3.css" type="text/css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Lab 3: Custom Per Request Policy - Extended" href="lab03.html" />
+    <link rel="prev" title="Lab 1: Access Guided Configuration - Per Request Policy" href="lab01.html" /> 
+  </head><body>
+  <div id="clouddocs-header"></div>
+
+    <div id="sidebar" class="section-nav">
+      
+      <!--  version selector ------------------>
+      <div id="version_selector_wrapper">
+      </div>
+      <nav class="nav-sidebartoc">
+
+        
+         <h5>F5 Identity and Access Management Solutions  </h5>
+        
+
+        <hr>
+        <span class="nav-sidebartoc">
+            <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../class1/class1.html">100 Series: Access Foundational Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class2/class2.html">200 Series: Assisted Deployment Use Cases</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class4/class4.html">400 Series: Access Automation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../class5/class5.html">500 Series: Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../archived/archived.html">Archived Identity &amp; Access Management Labs</a></li>
+</ul>
+
+        </span><!-- Use this file to add extra links to the bottom of the ToC sidebar -->
+<hr>
+  <span class="nav-sidebartoc">
+ <!-- insert content here -->
+  </span>
+      </nav>
+    </div>
+
+
+    <div id="right-sidebar">
+      <h7 style="font-weight:normal">On this page:</h7>
+      <nav class="nav-sidebartoc">
+        <span class="nav-sidebartoc">
+            <ul>
+<li><a class="reference internal" href="#">Lab 2: Custom Per Request Policy</a><ul>
+<li><a class="reference internal" href="#objective">Objective:</a></li>
+<li><a class="reference internal" href="#lab-requirements">Lab Requirements:</a></li>
+<li><a class="reference internal" href="#lab-2-tasks">Lab 2 Tasks:</a><ul>
+<li><a class="reference internal" href="#task-1-prepare-lab-environment">TASK 1: Prepare Lab Environment</a></li>
+<li><a class="reference internal" href="#task-2-review-existing-configuration">TASK 2: Review Existing Configuration</a></li>
+<li><a class="reference internal" href="#task-3-uri-dynamic-filtering-via-ad-group-membership">TASK 3: URI Dynamic Filtering (via AD Group Membership)</a></li>
+<li><a class="reference internal" href="#task-4-uri-datagroup-filtering-via-ad-group-membership">TASK 4: URI DataGroup Filtering (via AD Group Membership)</a></li>
+<li><a class="reference internal" href="#task-5-testing-uri-dynamic-datagroup-filtering">TASK 5: Testing URI Dynamic &amp; DataGroup Filtering</a></li>
+<li><a class="reference internal" href="#task-6-adding-a-new-application-app3">TASK 6: Adding a new Application (App3)</a></li>
+<li><a class="reference internal" href="#task-7-dynamic-group-checks">TASK 7: Dynamic Group Checks</a></li>
+<li><a class="reference internal" href="#task-8-testing-dynamic-group-checks">TASK 8: Testing Dynamic Group Checks</a></li>
+<li><a class="reference internal" href="#task-9-step-up-authentication-client-cert-auth">TASK 9: Step-Up Authentication (Client Cert Auth)</a></li>
+<li><a class="reference internal" href="#task-10-testing-step-up-authentication-client-cert-auth">TASK 10: Testing Step-Up Authentication (Client Cert Auth)</a></li>
+<li><a class="reference internal" href="#task-11-end-of-lab2">TASK 11: End of Lab2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+         </span>
+      </nav>
+    </div>
+
+
+
+
+
+  
+  <div class="main active" id="content" >
+    <article class="docs-container site-article-inner">
+              <!-- custom breadcrumb -->
+        <h5>
+            <a href="../../index.html">F5 Identity and Access Management Solutions</a>
+              &gt; <a href="../class3.html">300 Series: Advanced Use Cases &amp; Solutions</a>
+
+          <span class="right">
+             <a href="../../_sources/class3/module3/lab02.rst.txt" rel="nofollow">Source</a> |
+             <a href="https://github.com/f5devcentral/f5-agility-labs-iam">Edit on <i class="fa fa-github" aria-hidden="true"></i></a>
+          </span>
+        </h5>
+        <!-- end custom breadcrumb -->
+      
+
+
+    <!--a title="Export PDF" id="export-pdf" class="btn btn btn-link pull-right">View PDF</a-->
+    <button type="button" id="export-pdf" class="btn btn-link right">PDF</button>
+
+
+    
+     
+         <div class="sidebar" id="version-warning" style="display: none;">
+           <p class="first sidebar-title">
+           <span class="icon fa fa-info-circle fa-lg"></span> Version notice:</p>
+           <p class="last" id="currentVersion"></p>
+          </div>
+
+
+     <div role="main">
+        
+  <div class="section" id="lab-2-custom-per-request-policy">
+<h1>Lab 2: Custom Per Request Policy<a class="headerlink" href="#lab-2-custom-per-request-policy" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of this lab is to build a custom Per Request Policy (PRP) flow and
+then extend that policy with additional subroutines to perform dynamic updates
+to access controls and authentication requirements. Per Request Policies will
+restrict or grant access based on dynamic queries of AD Group Membership and the
+URI accessed. Step-up authentication will also be leveraged.
+Students will configure the various aspects using the Visual Policy Editor,
+review the configuration and perform tests of the deployment.</p>
+<div class="section" id="objective">
+<h2>Objective:<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Gain a deeper understanding of Per Request Policies and their applicability
+in various delivery and control scenarios</li>
+<li>Gain a further understanding of Per Request Policy subroutines and their
+use in dynamic queries and step-up authentication.</li>
+</ul>
+</div>
+<div class="section" id="lab-requirements">
+<h2>Lab Requirements:<a class="headerlink" href="#lab-requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>All Lab requirements will be noted in the tasks that follow</li>
+<li>Estimated completion time: 30 minutes</li>
+</ul>
+</div>
+<div class="section" id="lab-2-tasks">
+<h2>Lab 2 Tasks:<a class="headerlink" href="#lab-2-tasks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="task-1-prepare-lab-environment">
+<h3>TASK 1: Prepare Lab Environment<a class="headerlink" href="#task-1-prepare-lab-environment" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">From the Jumphost desktop, click on the <strong>Remove-User1-from-App2</strong> PowerShell Script.</p>
+<p>This prepares the environment for further user testing.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-001.png"><img alt="image001" src="../../_images/lab2-001.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-2-review-existing-configuration">
+<h3>TASK 2: Review Existing Configuration<a class="headerlink" href="#task-2-review-existing-configuration" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">On <strong>bigip1.f5lab.local</strong>, navigate to <strong>Local Traffic -&gt; Virtual Servers -&gt; Virtual</strong></p>
+<p><strong>Server Lists</strong>.</p>
+</li>
+<li><p class="first">Click on the link for the <strong>app.acme.com_vs</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-002.png"><img alt="image002" src="../../_images/lab2-002.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">Within the <strong>app.acme.com_vs</strong> configuration, scroll down to the <strong>Access Policy</strong></p>
+<p>section, note the Per Session and Per Request policies applied.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-003.png"><img alt="image003" src="../../_images/lab2-003.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="4">
+<li><p class="first">Navigate to <strong>Access -&gt; Profiles/Policies -&gt; Access Profiles (Per-Session Policies)</strong> and</p>
+<p>then click the <strong>Edit</strong> link for the <strong>app.acme.com_psp</strong> Per Session Policy.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-004.png"><img alt="image004" src="../../_images/lab2-004.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="5">
+<li><p class="first">Note that the <strong>app.acme.com_psp</strong> Access Policy simply has <strong>Start -&gt; Allow</strong>.  All</p>
+<p>Access configurations will occur in the Per Request Policy.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-005.png"><img alt="image005" src="../../_images/lab2-005.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="6">
+<li><p class="first">Navigate to <strong>Access -&gt; Profiles/Policies -&gt; Per-Request Policies</strong> and then click the</p>
+<p><strong>Edit</strong> link for the <strong>app.acme.com_prp</strong> Per Request Policy.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-006.png"><img alt="image006" src="../../_images/lab2-006.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="7">
+<li><p class="first">Review the <strong>app.acme.com_prp</strong> Per Request Policy and the subroutine.</p>
+</li>
+<li><p class="first">Click on the <strong>+ (Plus Symbol)</strong> to expand the <strong>Logon</strong> Subroutine at the bottom of the</p>
+<p>policy window.  Then click on the  <strong>Subroutine Settings / Rename</strong> link.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-007.png"><img alt="image007" src="../../_images/lab2-007.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="9">
+<li><p class="first">Review the <strong>Logon</strong> subroutine settings.  These settings will determine inactivity</p>
+<p>timers and session lifetime.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-008.png"><img alt="image008" src="../../_images/lab2-008.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple" start="10">
+<li>Open <strong>Firefox</strong>, click on the <strong>app.acme.com</strong> link provided in the Bookmark toolbar.</li>
+<li>Logon to the resulting logon page with <strong>UserID: user1</strong> and <strong>Password: user1</strong></li>
+</ol>
+<p><strong>Note:</strong> <em>User1 has buttons to all applications even though user1 does not currently have</em></p>
+<p class="last"><em>the necessary group access for all applications.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab2-009.png"><img alt="image009" src="../../_images/lab2-009.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab2-010.png"><img alt="image010" src="../../_images/lab2-010.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-3-uri-dynamic-filtering-via-ad-group-membership">
+<h3>TASK 3: URI Dynamic Filtering (via AD Group Membership)<a class="headerlink" href="#task-3-uri-dynamic-filtering-via-ad-group-membership" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>Note:</strong> <em>This provides the ability to dynamically deploy new applications based on</em></p>
+<p><em>standardized URI paths and control access to those applications (via group membership)</em></p>
+<p><em>without needing to re-entrantly edit the Per Request Policy again.</em></p>
+<ol class="last arabic">
+<li><p class="first">Navigate to <strong>Access -&gt; Profiles/Policies -&gt; Per-Request Policies</strong> and then click the</p>
+<p><strong>Edit</strong> link for the <strong>app.acme.com_prp</strong> Per Request Policy.</p>
+</li>
+<li><p class="first">In the resulting Visual Policy Editor window, click on the <strong>+ (Plus Symbol)</strong> on the</p>
+<p><strong>apps</strong> branch following <strong>URL Branching</strong>.</p>
+</li>
+<li><p class="first">In the pop-up window, select the <strong>General Purpose</strong> tab, then click the radio button</p>
+<p>on the <strong>Empty</strong> action line, then click <strong>Add Item</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-011.png"><img alt="image011" src="../../_images/lab2-011.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="4">
+<li>Enter <strong>URI - Dynamic Mapping</strong> in the <strong>Name</strong> field.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-012.png"><img alt="image012" src="../../_images/lab2-012.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="5">
+<li>In the next window, click the <strong>Add Branch Rule</strong>.</li>
+<li>In the new section, enter <strong>App Access</strong> in the <strong>Name</strong> field.</li>
+<li>Click the <strong>change</strong> link.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-013.png"><img alt="image013" src="../../_images/lab2-013.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple" start="8">
+<li>In the resulting window, click on the <strong>Advanced</strong> tab.</li>
+<li>Paste the expression below into the provided window and then click <strong>Finished</strong>.</li>
+</ol>
+<p><strong>Explanation:</strong> <em>The expression shown parses the incoming URI to extract a portion of the</em></p>
+<p class="last"><em>URI to use as a variable in determining an AD Group Name dynamically.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-014.png"><img alt="image014" src="../../_images/lab2-014.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expression is shown below for copy and paste convenience</strong></p>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">expr</span> <span class="k">{[</span><span class="nv">mcget</span> <span class="k">{</span><span class="nv">subsession.ad.last.attr.memberOf</span><span class="k">}]</span> <span class="nv">contains</span> <span class="s2">&quot;CN=[findstr [mcget {perflow.category_lookup.result.url}] &quot;http&quot; 26 &quot;/&quot;],OU=Groups,DC=f5lab,DC=local&quot;</span><span class="k">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="10">
+<li>Click <strong>Save</strong> in the resulting window.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-015.png"><img alt="image015" src="../../_images/lab2-015.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="11">
+<li><p class="first">Review the added <strong>URI - Dynamic Mapping</strong> agent.  Ensure the <strong>Allow</strong> and <strong>Reject</strong></p>
+<p>endings are set as shown.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-016.png"><img alt="image016" src="../../_images/lab2-016.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-4-uri-datagroup-filtering-via-ad-group-membership">
+<h3>TASK 4: URI DataGroup Filtering (via AD Group Membership)<a class="headerlink" href="#task-4-uri-datagroup-filtering-via-ad-group-membership" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>Note:</strong> <em>This provides the ability to dynamically deploy new applications based on</em></p>
+<p><em>standardized URI paths defined in DataGroups and control access to those applications</em></p>
+<p><em>(via group membership) without needing to re-entrantly edit the Per Request Policy again.</em></p>
+<ol class="last arabic">
+<li><p class="first">In the Visual Policy Editor window, click on the <strong>+ (Plus Symbol)</strong> on the <strong>members</strong></p>
+<p>branch following <strong>URL Branching</strong>.</p>
+</li>
+<li><p class="first">In the pop-up window, select the <strong>General Purpose</strong> tab, then click the radio button</p>
+<p>on the <strong>Empty</strong> action line, then click <strong>Add Item</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-017.png"><img alt="image017" src="../../_images/lab2-017.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Enter <strong>URI - DataGroup Mapping</strong> in the <strong>Name</strong> field.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-018.png"><img alt="image018" src="../../_images/lab2-018.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="4">
+<li>In the next window, click the <strong>Add Branch Rule</strong>.</li>
+<li>In the new section, enter <strong>Member Access</strong> in the <strong>Name</strong> field.</li>
+<li>Click the <strong>change</strong> link.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-019.png"><img alt="image019" src="../../_images/lab2-019.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple" start="7">
+<li>In the resulting window, click on the <strong>Advanced</strong> tab.</li>
+<li>Paste the expression below into the provided window and then click <strong>Finished</strong>.</li>
+</ol>
+<p><strong>Explanation:</strong> <em>For environments in which URI’s and AD Groups may not be standardized,</em></p>
+<p><em>parsing the URI and then leveraging a Data Group match allows for non-standard matching</em></p>
+<p class="last"><em>between URI and AD Groups. (Data Groups can be updated via REST (AS3 Declarations) calls.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-020.png"><img alt="image020" src="../../_images/lab2-020.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Expression is shown below for copy and paste convenience</strong></p>
+<div class="highlight-tcl notranslate"><div class="highlight"><pre><span></span><span class="k">expr</span> <span class="k">{[</span><span class="nv">mcget</span> <span class="k">{</span><span class="nv">subsession.ad.last.attr.memberOf</span><span class="k">}]</span> <span class="nv">contains</span> <span class="s2">&quot;[class match -value [findstr [mcget {perflow.category_lookup.result.url}] &quot;http&quot; 28 &quot;/&quot;] eq acme_app.acme.com_dg]&quot;</span><span class="k">}</span>
+</pre></div>
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="9">
+<li>Click <strong>Save</strong> in the resulting window.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-021.png"><img alt="image021" src="../../_images/lab2-021.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="10">
+<li><p class="first">Review the added <strong>URI - DataGroup Mapping</strong> agent.  Ensure the <strong>Allow</strong> and <strong>Reject</strong></p>
+<p>endings are set as shown.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-022.png"><img alt="image022" src="../../_images/lab2-022.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="11">
+<li><p class="first">In the administration window, navigate to <strong>Local Traffic -&gt; iRules -&gt; Data Group List</strong></p>
+<p>and then click the <strong>acme_app.acme.com_dg</strong> data group link.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-042.png"><img alt="image042" src="../../_images/lab2-042.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="12">
+<li><p class="first">In the <strong>String</strong> field, enter <strong>serviceB</strong> and in the <strong>Value</strong> field enter</p>
+<p><strong>CN=member-services-B,OU=Groups,DC=f5lab,DC=local</strong> then click the <strong>Add</strong> button.</p>
+</li>
+<li><p class="first">When correctly added, click the <strong>Update</strong> button.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-043.png"><img alt="image043" src="../../_images/lab2-043.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-5-testing-uri-dynamic-datagroup-filtering">
+<h3>TASK 5: Testing URI Dynamic &amp; DataGroup Filtering<a class="headerlink" href="#task-5-testing-uri-dynamic-datagroup-filtering" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Return to <strong>Firefox</strong> test access to all the applications again for <strong>app.acme.com</strong>.</p>
+</li>
+<li><p class="first">Access to <strong>App1</strong>, <strong>Member Services A</strong> and the <strong>Admin</strong> application is still granted</p>
+<p>based on current AD Group Membership for user1.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab2-023.png"><img alt="image023" src="../../_images/lab2-023.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab2-024.png"><img alt="image024" src="../../_images/lab2-024.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">Access to <strong>App2</strong> and <strong>Member Services B</strong> are denied based on current AD Group</p>
+<p>Membership for user1.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-025.png"><img alt="image025" src="../../_images/lab2-025.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-6-adding-a-new-application-app3">
+<h3>TASK 6: Adding a new Application (App3)<a class="headerlink" href="#task-6-adding-a-new-application-app3" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Deploy <strong>App3</strong> by clicking on the <strong>Deploy App3</strong> PowerShell link provided on the</p>
+<p>jumphost desktop.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-026.png"><img alt="image026" src="../../_images/lab2-026.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic" start="2">
+<li><p class="first">Return to <strong>Firefox</strong> to see the newly deployed <strong>App3</strong> and test access to it.  You</p>
+<p>may need to refresh your browser to see the new <strong>App3</strong> applicationn button.</p>
+</li>
+<li><p class="first">Even though <strong>App3</strong> is newly deployed, user1 access is still blocked based on AD Group</p>
+<p>membership.</p>
+</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>No policy changes were required due to the dynamic URI mapping configured.</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab2-027.png"><img alt="image027" src="../../_images/lab2-027.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab2-028.png"><img alt="image028" src="../../_images/lab2-028.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-7-dynamic-group-checks">
+<h3>TASK 7: Dynamic Group Checks<a class="headerlink" href="#task-7-dynamic-group-checks" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>Note:</strong> <em>This provides the ability to dynamically enforce controlled application access</em></p>
+<p><em>without requiring the user to logon/logoff to acquire new permissions or restrictions.</em></p>
+<ol class="last arabic">
+<li><p class="first">Navigate to <strong>Access -&gt; Profiles/Policies -&gt; Per-Request Policies</strong> and then click the</p>
+<p><strong>Edit</strong> link for the <strong>app.acme.com_prp</strong> Per Request Policy (or use the already open</p>
+<p>browser tab).</p>
+</li>
+<li><p class="first">In the resulting Visual Policy Editor window, click on the <strong>Add New Subroutine</strong> link.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-029.png"><img alt="image029" src="../../_images/lab2-029.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Enter <strong>Dynamic GroupCheck</strong> in the <strong>Name</strong> field and then click <strong>Save</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-030.png"><img alt="image030" src="../../_images/lab2-030.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="4">
+<li><p class="first">Click on the <strong>+ (Plus Symbol)</strong> to expand the <strong>Dynamic GroupCheck</strong> Subroutine.  Then</p>
+<p>click on the <strong>+ (Plus Symbol)</strong> between the <strong>In</strong> and <strong>Out</strong> tags.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-031.png"><img alt="image031" src="../../_images/lab2-031.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="5">
+<li><p class="first">In the resulting window, click the <strong>Assignment</strong> tab, then select the radio button on</p>
+<p>the <strong>Variable Assign</strong> row, then the click <strong>Add Item</strong> button.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-061.png"><img alt="image061" src="../../_images/lab2-061.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="6">
+<li><p class="first">In the <strong>Variable Assign</strong> window, click the <strong>Add new entry</strong> button.  In the new</p>
+<p>added row, click the <strong>Change</strong> link.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-062.png"><img alt="image062" src="../../_images/lab2-062.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="7">
+<li>Modify the empty assignment as follows, then click the <strong>Finished</strong> button.<ul>
+<li><strong>Custom Variable: subsession.logon.last.username</strong></li>
+<li><strong>Session Variable: session.logon.last.username</strong></li>
+</ul>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-063.png"><img alt="image063" src="../../_images/lab2-063.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="8">
+<li>Verify the variable assignment, then click the <strong>Save</strong> button.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-064.png"><img alt="image064" src="../../_images/lab2-064.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="9">
+<li><p class="first">In the <strong>Dynamic GroupCheck</strong> Subroutine click the <strong>+ (Plus Symbol)</strong> following the</p>
+<p><strong>Variable Assign</strong></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-060.png"><img alt="image060" src="../../_images/lab2-060.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="10">
+<li><p class="first">In the resulting window, click the <strong>Authentication</strong> tab, then select the radio button</p>
+<p>on the <strong>AD Query</strong> row, then click <strong>Add Item</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-032.png"><img alt="image032" src="../../_images/lab2-032.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="11">
+<li><p class="first">In the resulting <strong>AD Query</strong> window, select <strong>/Common/f5lab.local</strong> from the <strong>Server</strong></p>
+<p>dropdown.</p>
+</li>
+<li><p class="first">Enter the following <strong>sAMAccountName=%{subsession.logon.last.username}</strong> in the</p>
+<p><strong>SearchFilter</strong> field.</p>
+</li>
+<li><p class="first">Under the <strong>Required Attributes</strong> section click the <strong>X</strong> icon for all attributes except</p>
+<p><strong>memberOf</strong> (row 9).</p>
+</li>
+<li><p class="first">Click the <strong>Save</strong> button when completed.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab2-033.png"><img alt="image033" src="../../_images/lab2-033.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab2-034.png"><img alt="image034" src="../../_images/lab2-034.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="15">
+<li>In the <strong>Dynamic GroupCheck</strong> Subroutine, click the <strong>Subroutine Settings/Rename</strong> link.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-035.png"><img alt="image035" src="../../_images/lab2-035.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic simple" start="16">
+<li>In the <strong>Dynamic GroupCheck</strong> Subroutine Settings change the following values:</li>
+</ol>
+<ul class="simple">
+<li><strong>Inactivity Timeout (sec): 60</strong></li>
+<li><strong>Max Subsession Life (sec): 60</strong></li>
+<li><strong>Subroutine Timeout (sec): 120</strong></li>
+</ul>
+<ol class="last arabic simple" start="17">
+<li>Click the <strong>Save</strong> button.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-036.png"><img alt="image036" src="../../_images/lab2-036.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="18">
+<li>Verify the <strong>Dynamic GroupCheck</strong> Subroutine contains both AD Query and Variable Assign
+objects.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-065.png"><img alt="image065" src="../../_images/lab2-065.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="19">
+<li><p class="first">In the main section of the <strong>app.acme.com_prp</strong> policy click the <strong>+ (Plus Symbol)</strong> in</p>
+<p>both the <strong>apps</strong> and <strong>member</strong> branches.</p>
+</li>
+<li><p class="first">In the resulting pop-up window, click the <strong>Subroutines</strong> tab, the click the radio</p>
+<p>button on the <strong>Dynamic GroupCheck</strong> and then click the <strong>Add Item</strong> button. Do this</p>
+<p>for both branches.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-037.png"><img alt="image037" src="../../_images/lab2-037.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="21">
+<li>Review the policy changes to confirm subroutines have been added correctly.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-038.png"><img alt="image038" src="../../_images/lab2-038.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-8-testing-dynamic-group-checks">
+<h3>TASK 8: Testing Dynamic Group Checks<a class="headerlink" href="#task-8-testing-dynamic-group-checks" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic">
+<li><p class="first">Add <strong>user1</strong> to the <strong>app2</strong>, <strong>app3</strong> and <strong>member-service-B</strong> AD Groups by clicking</p>
+<p>on the <strong>Add-User1-to-App2</strong>, <strong>Add-User1-to-App3</strong> and <strong>Add-User1-to-MemberServiceB</strong></p>
+<p>PowerShell scripts on the jumphost desktop.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-039.png"><img alt="image039" src="../../_images/lab2-039.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">Return to <strong>Firefox</strong> test access to applications <strong>app1</strong>, <strong>app2</strong> and <strong>app3</strong>.</p>
+<p><strong>Note:</strong> <em>60 seconds should elapse (the subsession timeout) before testing access to</em></p>
+<p><em>the applications begin.</em></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-040.png"><img alt="image040" src="../../_images/lab2-040.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="3">
+<li><p class="first">Test access to the <strong>ServiceB</strong> application.</p>
+<p><strong>Note:</strong> <em>60 seconds should elapse (the subsession timeout) before testing access to</em></p>
+<p><em>the application begins.</em></p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><p class="first"><a class="reference internal" href="../../_images/lab2-045.png"><img alt="image045" src="../../_images/lab2-045.png" style="width: 800px;" /></a></p>
+<p class="last"><a class="reference internal" href="../../_images/lab2-046.png"><img alt="image046" src="../../_images/lab2-046.png" style="width: 800px;" /></a></p>
+</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first arabic" start="4">
+<li><p class="first">Return to Jumphost desktop and run the <strong>Remove-User1-from-App2</strong>.</p>
+</li>
+<li><p class="first">Return to <strong>Firefox</strong> test access to application <strong>app2</strong>. <strong>Note:</strong> <em>60 seconds should</em></p>
+<p><em>elapse (the subsession timeout) before testing to the application begins.</em></p>
+</li>
+</ol>
+<p class="last"><strong>Note:</strong> <em>No user logon/logoff event needed to occur to change application access!</em></p>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-041.png"><img alt="image041" src="../../_images/lab2-041.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-9-step-up-authentication-client-cert-auth">
+<h3>TASK 9: Step-Up Authentication (Client Cert Auth)<a class="headerlink" href="#task-9-step-up-authentication-client-cert-auth" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><p class="first"><strong>Note:</strong> <em>This provides the ability to require additional authentication/authorization</em></p>
+<p><em>to priviledged pages or resources.</em></p>
+<ol class="last arabic">
+<li><p class="first">Navigate to <strong>Access -&gt; Profiles/Policies -&gt; Per-Request Policies</strong> and then click the</p>
+<p><strong>Edit</strong> link for the <strong>app.acme.com_prp</strong> Per Request Policy (or use the already open</p>
+<p>browser tab).</p>
+</li>
+<li><p class="first">In the resulting Visual Policy Editor window, click on the <strong>Add New Subroutine</strong> link</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-047.png"><img alt="image047" src="../../_images/lab2-047.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Enter <strong>CertAuth</strong> in the <strong>Name</strong> field and then click <strong>Save</strong>.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-048.png"><img alt="image048" src="../../_images/lab2-048.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="4">
+<li><p class="first">Click on the <strong>+ (Plus Symbol)</strong> to expand the <strong>CertAuth</strong> Subroutine.  Then click on</p>
+<p>the <strong>+ (Plus Symbol)</strong> between the <strong>In</strong> and <strong>Out</strong> tags.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-049.png"><img alt="image049" src="../../_images/lab2-049.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="5">
+<li><p class="first">In the resulting window, click the <strong>Authentication</strong> tab, then select the radio button</p>
+<p>on the <strong>0n-Demand Cert Auth</strong> row, then click <strong>Add Item</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-050.png"><img alt="image050" src="../../_images/lab2-050.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="6">
+<li><p class="first">In the resulting <strong>On-Demand Cert Auth**</strong> window, select <strong>Require</strong> from the</p>
+<p><strong>Auth Mode</strong> dropdown and click <strong>Save</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-051.png"><img alt="image051" src="../../_images/lab2-051.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="7">
+<li>In the <strong>On-Demand Cert Auth</strong> Subroutine, click the <strong>Edit Terminals</strong> link.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-052.png"><img alt="image052" src="../../_images/lab2-052.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="8">
+<li><p class="first">In the <strong>Terminals</strong> window, click the <strong>Add Terminal</strong> link.</p>
+</li>
+<li><p class="first">In the resulting section, change the <strong>Name</strong> to <strong>Fail</strong>, select the red color (#2) from</p>
+<p>the dropdown and then click <strong>Save</strong>.  The arrows can be used to change positions.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-053.png"><img alt="image053" src="../../_images/lab2-053.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="10">
+<li><p class="first">In the <strong>On-Demand Cert Auth</strong> Subroutine, click the <strong>Out</strong> terminal link and change</p>
+<p>the value the <strong>Fail</strong> by clicking the radio button and then clicking <strong>Save</strong>.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-054.png"><img alt="image054" src="../../_images/lab2-054.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="11">
+<li><p class="first">In the main section of the <strong>app.acme.com_prp</strong> policy click the <strong>+ (Plus Symbol)</strong> in</p>
+<p>the <strong>admin</strong> branch.</p>
+</li>
+<li><p class="first">In the resulting pop-up window, click the <strong>Subroutines</strong> tab, the click the radio</p>
+<p>button on the <strong>CertAuth</strong> and then click the <strong>Add Item</strong> button.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-055.png"><img alt="image055" src="../../_images/lab2-055.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="13">
+<li><p class="first">Review the added <strong>CertAuth</strong> Subroutine.  Ensure the <strong>Allow</strong> and <strong>Reject</strong></p>
+<p>endings are set as shown.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-056.png"><img alt="image056" src="../../_images/lab2-056.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-10-testing-step-up-authentication-client-cert-auth">
+<h3>TASK 10: Testing Step-Up Authentication (Client Cert Auth)<a class="headerlink" href="#task-10-testing-step-up-authentication-client-cert-auth" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>Return to <strong>Firefox</strong>. Test access to the <strong>Admin</strong> application.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-057.png"><img alt="image057" src="../../_images/lab2-057.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic" start="2">
+<li><p class="first">A Certificate Authentication prompt will now display. Review the certificate and click</p>
+<p>the <strong>OK</strong> button.</p>
+</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-058.png"><img alt="image058" src="../../_images/lab2-058.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple" start="3">
+<li>Access is now correctly granted to the <strong>Admin</strong> application.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/lab2-059.png"><img alt="image059" src="../../_images/lab2-059.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="task-11-end-of-lab2">
+<h3>TASK 11: End of Lab2<a class="headerlink" href="#task-11-end-of-lab2" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils align-default">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><ol class="first last arabic simple">
+<li>This concludes Lab2, feel free to review and test the configuration.</li>
+</ol>
+</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="../../_images/image00111.png"><img alt="image000" src="../../_images/image00111.png" style="width: 800px;" /></a></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+     </div>
+    
+     <div class="row next-prev-btn-row">
+       <div class="col-lg-12">
+       
+        <a href="lab01.html" title="Lab 1: Access Guided Configuration - Per Request Policy" accesskey="p" class="btn btn-primary left"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Previous</a>
+       
+       
+          <a href="lab03.html" title="Lab 3: Custom Per Request Policy - Extended" accesskey="n" class="btn btn-primary right">Next <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+       
+     </div>
+     </div>
+    
+
+    </article>
+  </div>
+
+</div>
+
+
+  <div id="clouddocs-footer"></div>
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+
+  <script src="../../_static/js/index.js"></script>
+  <script src="../../_static/js/jquery.appear.js"></script>
+  <script src="../../_static/js/printThis.js"></script>
+  <script src="../../_static/js/bootstrap.min.js"></script>
+  <script src="../../_static/js/clouddocs.js"></script>
+  <script src="../../_static/js/CoveoJsSearch.Lazy.min.js"></script>
+  </body>
+</html>
