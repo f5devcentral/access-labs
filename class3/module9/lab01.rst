@@ -338,3 +338,9 @@ Task 5 - Test VPN Access (again)
 .. |image034| image:: media/lab01/034.png
 .. |image035| image:: media/lab01/035.png
 .. |image036| image:: media/lab01/036.png
+.. |image037| image:: media/lab01/037.png
+.. |image0010| image:: media/lab01/0010.png
+.. |image0020| image:: media/lab01/0020.png
+.. |image0030| image:: media/lab01/0030.png
+.. |image0040| image:: media/lab01/0040.png
+.. |image0050| image:: media/lab01/0050.png
