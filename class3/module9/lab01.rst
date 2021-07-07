@@ -8,7 +8,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
 #. Click **ACCESS** next to jumphost.f5lab.local
 
-   |image001|
+   |image0010|
 
 #. Select your RDP resolution.
 
@@ -23,22 +23,22 @@ To access your dedicated student lab environment, you will need a web browser an
 
 #. Click the **Classes** tab at the top of the page.
 
-	|image002|
+	 |image0020|
 
 #. Scroll down the page until you see **309 SSL VPN** on the left
 
-   |image003|
+   |image0030|
 
 #. Hover over tile **SSL VPN - AD Authentication + MFA**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
 
    +---------------+-------------+
-   | |image039|    | |image004|  |
+   | |image037|    | |image0040| |
    +---------------+-------------+
 
 #. The screen should refresh displaying the progress of the automation within 30 seconds.  Scroll to the bottom of the automation workflow to ensure all requests succeeded.  If you experience errors try running the automation a second time or open an issue on the `Access Labs Repo <https://github.com/f5devcentral/access-labs>`__.
 
-   |image005|
+   |image0050|
 
 Task 1 - Build Network Access Components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -306,10 +306,6 @@ Task 5 - Test VPN Access (again)
 
 
 
-.. |image001| image:: media/lab01/001.png
-.. |image002| image:: media/lab01/002.png
-.. |image003| image:: media/lab01/003.png
-.. |image004| image:: media/lab01/004.png
 .. |image005| image:: media/lab01/005.png
 .. |image006| image:: media/lab01/006.png
 .. |image007| image:: media/lab01/007.png
