@@ -195,7 +195,7 @@ Task 3 - Per Session Access Policy
 #.  Click **Save**
 #.  Click the **Deny** end point on the fallback branch from from *Advanced Resource Assign**.  Choose **Allow**  and **Save**
 
-      |iamge013|
+      |image013|
 
 #.  Click **Apply Access Policy**
 
@@ -223,61 +223,63 @@ Task 4 - Test VPN Access
       | Password:  | F5twister$                         |
       +------------+------------------------------------+
 
-      |image010|
+      |image025|
+
+#.  Click **Next** and enter the password and click **Sign in* then **Yes**
 
 #. Once authenticated the user is presented a Webtop with a single VPN icon.
 
-      |image011|
+      |image026|
 
 #. Assuming the VPN has already been installed the user is notified that the client is attempting to start
 
-      |image012|
+      |image027|
 
       .. Note::  You may be prompted to download the VPN update.  This is what a user will experience if you have auto-update enabled in the VPN Connectivity Profile. Click Download and wait for the components to update.
 
 #. A popup opens displaying the status of the VPN connection.  The status will eventually become **Connected**
 
-      |image013|
+      |image028|
 
       .. Note::  If you lose the pop-up check the system tray for the little red ball.  Right click and choose **restore**
 
 #. Click **Disconnect**
 
-.. |image005| image:: media/lab01/005.png
-.. |image006| image:: media/lab01/006.png
-.. |image007| image:: media/lab01/007.png
-.. |image008| image:: media/lab01/008.png
-.. |image009| image:: media/lab01/009.png
-.. |image010| image:: media/lab01/010.png
-.. |image011| image:: media/lab01/011.png
-.. |image012| image:: media/lab01/012.png
-.. |image013| image:: media/lab01/013.png
-.. |image014| image:: media/lab01/014.png
-.. |image015| image:: media/lab01/015.png
-.. |image016| image:: media/lab01/016.png
-.. |image017| image:: media/lab01/017.png
-.. |image018| image:: media/lab01/018.png
-.. |image019| image:: media/lab01/019.png
-.. |image020| image:: media/lab01/020.png
-.. |image021| image:: media/lab01/021.png
-.. |image022| image:: media/lab01/022.png
-.. |image023| image:: media/lab01/023.png
-.. |image024| image:: media/lab01/024.png
-.. |image025| image:: media/lab01/025.png
-.. |image026| image:: media/lab01/026.png
-.. |image027| image:: media/lab01/027.png
-.. |image028| image:: media/lab01/028.png
-.. |image029| image:: media/lab01/029.png
-.. |image030| image:: media/lab01/030.png
-.. |image031| image:: media/lab01/031.png
-.. |image032| image:: media/lab01/032.png
-.. |image033| image:: media/lab01/033.png
-.. |image034| image:: media/lab01/034.png
-.. |image035| image:: media/lab01/035.png
-.. |image036| image:: media/lab01/036.png
-.. |image037| image:: media/lab01/037.png
-.. |image0010| image:: media/lab01/0010.png
-.. |image0020| image:: media/lab01/0020.png
-.. |image0030| image:: media/lab01/0030.png
-.. |image0040| image:: media/lab01/0040.png
-.. |image0050| image:: media/lab01/0050.png
+.. |image005| image:: ./media/lab02/005.png
+.. |image006| image:: ./media/lab02/006.png
+.. |image007| image:: ./media/lab02/007.png
+.. |image008| image:: ./media/lab02/008.png
+.. |image009| image:: ./media/lab02/009.png
+.. |image010| image:: ./media/lab02/010.png
+.. |image011| image:: ./media/lab02/011.png
+.. |image012| image:: ./media/lab02/012.png
+.. |image013| image:: ./media/lab02/013.png
+.. |image014| image:: ./media/lab02/014.png
+.. |image015| image:: ./media/lab02/015.png
+.. |image016| image:: ./media/lab02/016.png
+.. |image017| image:: ./media/lab02/017.png
+.. |image018| image:: ./media/lab02/018.png
+.. |image019| image:: ./media/lab02/019.png
+.. |image020| image:: ./media/lab02/020.png
+.. |image021| image:: ./media/lab02/021.png
+.. |image022| image:: ./media/lab02/022.png
+.. |image023| image:: ./media/lab02/023.png
+.. |image024| image:: ./media/lab02/024.png
+.. |image025| image:: ./media/lab02/025.png
+.. |image026| image:: ./media/lab02/026.png
+.. |image027| image:: ./media/lab02/027.png
+.. |image028| image:: ./media/lab02/028.png
+.. |image029| image:: ./media/lab02/029.png
+.. |image030| image:: ./media/lab02/030.png
+.. |image031| image:: ./media/lab02/031.png
+.. |image032| image:: ./media/lab02/032.png
+.. |image033| image:: ./media/lab02/033.png
+.. |image034| image:: ./media/lab02/034.png
+.. |image035| image:: ./media/lab02/035.png
+.. |image036| image:: ./media/lab02/036.png
+.. |image037| image:: ./media/lab02/037.png
+.. |image0010| image:: ./media/lab02/0010.png
+.. |image0020| image:: ./media/lab02/0020.png
+.. |image0030| image:: ./media/lab02/0030.png
+.. |image0040| image:: ./media/lab02/0040.png
+.. |image0050| image:: ./media/lab02/0050.png
