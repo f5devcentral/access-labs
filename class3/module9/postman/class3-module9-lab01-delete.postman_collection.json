@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "2c691eec-ac9c-4f3e-bb80-61862aa2facc",
+		"_postman_id": "215d109f-a3a8-435a-a0bc-abed425d90bb",
 		"name": "class3-module9-lab01-delete",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -1215,15 +1215,15 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
-											"    pm.test(\"AAA Radius servers \"+VS_NAME+\"-radius-servers created\", function () {",
+											"    pm.test(\"AAA Radius servers \"+VS_NAME+\" deleted\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
 											"} else ",
-											"    pm.test(\"AAA Radius servers \"+VS_NAME+\"-radius-servers exists\", function () {",
-											"        pm.response.to.have.status(409);",
+											"    pm.test(\"AAA Radius servers \"+VS_NAME+\" does not exist\", function () {",
+											"        pm.response.to.have.status(404);",
 											"    });"
 										],
 										"type": "text/javascript"
@@ -1292,18 +1292,16 @@
 									"listen": "test",
 									"script": {
 										"exec": [
-											"var VS_NAME = pm.collectionVariables.get(\"VS_NAME\");",
+											"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");",
 											"",
 											"if (responseCode.code === 200) {",
-											"pm.test(VS_NAME+\"-radius-pool created\", function () {",
-											"    pm.response.to.have.status(200);",
-											"});",
+											"    pm.test(\"Pool \"+VS_NAME+\" Deleted\", function () {",
+											"        pm.response.to.have.status(200);",
+											"    });",
 											"} else ",
-											"pm.test(VS_NAME+\"-radius-pool exists\", function () {",
-											"    pm.response.to.have.status(409);",
-											"});",
-											"",
-											""
+											"    pm.test(\"Pool \"+VS_NAME+\" does not exist\", function () {",
+											"        pm.response.to.have.status(404);",
+											"    });"
 										],
 										"type": "text/javascript"
 									}
@@ -1371,13 +1369,19 @@
 									"script": {
 										"exec": [
 											"if (responseCode.code === 200) {",
-											"    pm.test(\"Node 10.1.20.8 created\", function () {",
+											"    pm.test(\"Node 10.1.20.8 deleted\", function () {",
 											"        pm.response.to.have.status(200);",
 											"    });",
-											"} else ",
-											"    pm.test(\"Node 10.1.20.8 exists\", function () {",
-											"        pm.response.to.have.status(409);",
-											"    });"
+											"} else if (responseCode.code === 404) { ",
+											"    pm.test(\"Node 10.1.20.8 does not exist\", function () {",
+											"        pm.response.to.have.status(404);",
+											"    });",
+											"} else if (responseCode.code === 400) {",
+											"    pm.test(\"Unable to delete node 10.1.20.8. Still in use\", function () {",
+											"        pm.expect(pm.response.text()).to.include(\"member of pool\");",
+											"    });",
+											"",
+											"}"
 										],
 										"type": "text/javascript"
 									}

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "cf441516-b168-4f8c-8894-a388744e42c9",
+		"_postman_id": "ba32110b-349d-404e-934a-d552416231d9",
 		"name": "class3-module9-lab01-create",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -509,7 +509,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "\n{\n\t\"name\":\"{{VS_NAME}}-radius-pool\",\n\t\"members\":[\n\t\t{\n\t\t\"name\":\"10.1.20.8:1812\",\n\t\t\"address\":\"10.1.20.8\",\n\t\t\"monitor\": \"/Common/gateway_icmp\"\n\t\t\t\n\t\t}\n\t\t]\n}"
+									"raw": "\n{\n\t\"name\":\"{{VS1_NAME}}-radius-pool\",\n\t\"members\":[\n\t\t{\n\t\t\"name\":\"10.1.20.8:1812\",\n\t\t\"address\":\"10.1.20.8\",\n\t\t\"monitor\": \"/Common/gateway_icmp\"\n\t\t\t\n\t\t}\n\t\t]\n}"
 								},
 								"url": {
 									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/ltm/pool/",
@@ -585,7 +585,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n\r\n    \"name\": \"{{VS_NAME}}-radius-servers\",\r\n    \"authPort\": 1812,\r\n    \"locationSpecific\": \"true\",\r\n    \"mode\": \"auth\",\r\n    \"pool\": \"/Common/{{VS_NAME}}-radius-pool\",\r\n    \"radiusCharset\": \"cp1252\",\r\n    \"retries\": 3,\r\n    \"secret\": \"secret\",\r\n    \"serviceType\": \"default\",\r\n    \"timeout\": 5,\r\n    \"usePool\": \"enabled\"\r\n}"
+									"raw": "{\r\n\r\n    \"name\": \"{{VS1_NAME}}-radius-servers\",\r\n    \"authPort\": 1812,\r\n    \"locationSpecific\": \"true\",\r\n    \"mode\": \"auth\",\r\n    \"pool\": \"/Common/{{VS1_NAME}}-radius-pool\",\r\n    \"radiusCharset\": \"cp1252\",\r\n    \"retries\": 3,\r\n    \"secret\": \"secret\",\r\n    \"serviceType\": \"default\",\r\n    \"timeout\": 5,\r\n    \"usePool\": \"enabled\"\r\n}"
 								},
 								"url": {
 									"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/aaa/radius/",
@@ -852,7 +852,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\r\n    \"class\": \"ADC\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n       \"class\": \"ADC\",\r\n       \"schemaVersion\": \"3.14.0\",\r\n       \"id\": \"APM\",\r\n       \"{{PARTITION_NAME}}\": {\r\n          \"class\": \"Tenant\",\r\n          \"{{VS1_NAME}}\": {\r\n             \"class\": \"Application\",\r\n             \"template\": \"generic\",\r\n             \"{{VS1_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                   \"{{BIGIP_ADDRESS1}}\"\r\n                ],\r\n                \"virtualPort\": 443,\r\n                \"serverTLS\": \"{{VS1_NAME}}-clientssl\",\r\n                \"pool\": \"ad-pool\",\r\n        \t\t\"snat\": \"auto\",\r\n                \"profileConnectivity\": {\r\n                \t\"bigip\": \"/Common/{{VS1_NAME}}-cp\"\r\n\t\t\t\t},\r\n        \t\t\"profileAccess\": {\r\n        \t\t\t\"bigip\": \"/Common/{{VS1_NAME}}-psp\"\r\n        \t\t\t}\r\n\t            },\r\n\t\t\t    \"{{VS1_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                        {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                        }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                },\r\n                \"ad-pool\": {\r\n                    \"class\": \"Pool\",  \r\n                        \"members\": [\r\n                            {\r\n                            \"serverAddresses\": [\r\n                            \"10.1.20.7\"\r\n                            ],\r\n                            \"servicePort\": 3389\r\n                            }\r\n                        ],\r\n                    \"monitors\": [\r\n                        \"icmp\"\r\n                    ]\r\n                }\r\n\r\n            }\r\n       }\r\n    }\r\n\r\n}\r\n                \r\n             \r\n          \r\n       \r\n    \r\n"
+									"raw": "{\r\n    \"class\": \"AS3\",\r\n    \"action\": \"deploy\",\r\n    \"persist\": true,\r\n    \"declaration\": {\r\n        \"class\": \"ADC\",\r\n        \"schemaVersion\": \"3.19.0\",\r\n        \"id\": \"APM\",\r\n        \"label\": \"{{VS1_NAME}}\",\r\n        \"remark\": \"VPN Lab01\",\r\n        \"{{PARTITION_NAME}}\": {\r\n            \"class\": \"Tenant\",\r\n            \"defaultRouteDomain\": 0,\r\n            \"{{VS1_NAME}}\": {\r\n                \"class\": \"Application\",\r\n                \"template\": \"generic\",\r\n            \"{{VS1_NAME}}\": {\r\n                \"class\": \"Service_HTTPS\",\r\n                \"virtualAddresses\": [\r\n                    \"{{BIGIP_ADDRESS1}}\"\r\n                ],\r\n                \"serverTLS\": \"{{VS1_NAME}}-clientssl\",\r\n                \"pool\": \"ad_pool\",\r\n                \"snat\": \"auto\"\r\n                },\r\n                \"ad_pool\": {\r\n                    \"class\": \"Pool\",\r\n                \"monitors\": [\r\n                    \"icmp\"\r\n                ],\r\n                    \"members\": [\r\n                        {\r\n                            \"servicePort\": 3389,\r\n                            \"serverAddresses\": [\r\n                                \"10.1.20.7\"\r\n                            ]\r\n                        }\r\n                    ]\r\n                },\r\n                \"{{VS1_NAME}}-clientssl\": {\r\n                    \"class\": \"TLS_Server\",\r\n                    \"certificates\": [\r\n                    {\r\n                        \"certificate\": \"tlsserver_local_cert\"\r\n                    }\r\n                    ]\r\n                },\r\n                \"tlsserver_local_cert\": {\r\n                    \"class\": \"Certificate\",\r\n                    \"certificate\": {\"bigip\":\"/Common/acme.com-wildcard\"},\r\n                    \"privateKey\": {\"bigip\":\"/Common/acme.com-wildcard\"}\r\n                }\r\n            }\r\n        }\r\n    }\r\n}"
 								},
 								"url": {
 									"raw": "https://{{BIGIP_MGMT}}/mgmt/shared/appsvcs/declare",
