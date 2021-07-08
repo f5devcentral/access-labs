@@ -1,5 +1,5 @@
-Lab 1: SSL VPN - AD Authentication + MFA
-===========================================
+Lab 1: SSL VPN - AD Authentication and  MFA
+============================================
 
 Section 1.1 - Setup Lab Environment
 -------------------------------------
@@ -57,7 +57,7 @@ Task 1 - Build Network Access Components
 #.  Give the Network Access list a name and caption
 
       +-------------+----------------+
-      | Name        |  VPN           |
+      | Name        |  vpn-lab01-vpn |
       +-------------+----------------+
       | Caption     | Corp VPN       |
       +-------------+----------------+
@@ -68,7 +68,7 @@ Task 1 - Build Network Access Components
 
 #.  Click on the **Network Settings** tab
 #.  Click the **+** next to **IPV4 Lease Pool** to create a lease Pool
-#.  Give the pool a name **vpn-vpn-pool**
+#.  Give the pool a name **vpn-lab01-vpn_pool**
 #.  Click the radio button next to IP address
 #.  Enter **10.1.20.254**
 #.  Click **Add**
@@ -86,22 +86,23 @@ Task 1 - Build Network Access Components
       |image019|
 
 #.  Navigate to **Access** --> **Connectivity/VPN** --> **Connectivity** --> **Profiles**
-#.  Click **Create**
-#.  Profile Name **vpn-connectivity** and Parent Profile **/Common/connectivity**
+#.  Click **Add**
+#.  Profile Name **vpn-lab01-cp** and Parent Profile **/Common/connectivity**
 #.  Click **OK**
 
       |image023|
 
 #.  Navigate to **Access** --> **Webtops** --> **Webtop Sections**
 #.  Click **Create**
-#.  Enter name **vpn-network_access**
+#.  Enter name **vpn-lab01-network_access**
+#.  Change caption to be **Network Access**
 #.  Click **Finished**
 
       |image020|
 
 #.  Navigate to **Access** --> **Webtops** --> **Webtop Lists**
 #.  Click **Create**
-#.  Click on **vpn-webtop**
+#.  Click on **vpn-lab01-webtop**
 #.  Select **Full** from the drop down menu
 #.  Customization type **Modern**
 #.  Click **Finished**
@@ -116,9 +117,9 @@ Task 2 - Per Session Access Policy
 #.  Click **Create** to create a new per session policy for VPN
 
       +----------------------+----------------+
-      | Name                 |  vpn-psp       |
+      | Name                 |  vpn-lab01-psp |
       +----------------------+----------------+
-      | Profile Type         |  Full          |
+      | Profile Type         |  All           |
       +----------------------+----------------+
       | Customization Type   |  Modern        |
       +----------------------+----------------+
@@ -128,11 +129,14 @@ Task 2 - Per Session Access Policy
       |image024|
 
 
-#.  Locate profile **vpn-psp** and click on **Edit**.  This opens the Visual Policy Editor (VPE) and we can take a look at the policy
+#.  Locate profile **vpn-lab01-psp** and click on **Edit**.  This opens the Visual Policy Editor (VPE) and we can take a look at the policy
 
       |image001|
 
 #.  Click the **+** between **Start** and **Deny**
+
+      |image038|
+
 #.  Click the **Logon Page** Radio button and click **Add Item**
 
       |image025|
@@ -143,9 +147,11 @@ Task 2 - Per Session Access Policy
 
 #.  Click the **+** between **Logon Page** and **Deny**
 #.  Click the **Authentication Tab** and click the **AD Auth** radio button.  Cick **Add Item**
-#.  Click the drop down for **Server** and select **/common/lab-ad-auth**.  Click **Save**
+#.  Click the drop down for **Server** and select **/common/vpn-lab01-ad-servers**.  Click **Save**
 
-      |image027|
+      |image039|
+
+    .. Note::  AAA Active Directory object was created through automation.  If you want more details on how to create this object see APM 100 Series labs.
 
 #.  Click on the **+** between **AD Auth** and **Deny**
 #.  Click on the **Assignment** tab and choose **Advanced Resource Assign**.  Click **Add Item**
@@ -154,9 +160,9 @@ Task 2 - Per Session Access Policy
 
       |image028|
 
-#.  Click the **Network Access** tab and check the box for **/Common/VPN**
-#.  Click the **Webtop** tab and click the radio button for **/Common/vpn-webtop**
-#.  Click the **Webtop Sections** tab and check the box for **/Common/vpn-network_access**
+#.  Click the **Network Access** tab and check the box for **/Common/vpn-lab01-vpn**
+#.  Click the **Webtop** tab and click the radio button for **/Common/vpn-lab01-webtop**
+#.  Click the **Webtop Sections** tab and check the box for **/Common/vpn-lab01-network_access**
 #.  Click **Update**
 
       |image029|
@@ -176,10 +182,17 @@ Task 3 - Apply Policy and profiles to Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #.  Navigate to **Local Traffic** --> **Virtual Servers** --> **Virtual Server List**
-#.  Click on **vpn-lab** Virtual Server
+
+    .. Note::  Due to how the automation is deployed in the lab the Virtual Server has been deployed in it's own partition.  In your own environment you can choose to deploy the Virtual Server in a specific parition or in Common.
+
+#.  From the Partition drop down in the upper right choose **vpn-lab01**
+
+      |image041|
+
+#.  Click on **vpn-lab01** Virtual Server (not the redirect server)
 #.  Scroll down to the **Access Policy** section
-#.  Select the **vpn-psp** from the **Access Profile** drop down menu
-#.  Click the drop down for ""Connectivity Profle** and choose the **vpn-connectivity** from the menu
+#.  Select the **vpn-lab01-psp** from the **Access Profile** drop down menu
+#.  Click the drop down for ""Connectivity Profle** and choose the **vpn-lab01-cp** from the menu
 
       |image033|
 
@@ -222,7 +235,11 @@ Task 5 - Adding Radius MFA
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #.  Navigate to **Access** --> **Authentication** --> **RADIUS**
-#.  Click **Create** from the upper Right
+#.  From the **Partition** drop down menu at the top right change your partition back to **Common**
+
+    .. Note:: The Radius server has already been built.
+
+#.  Click on **vpn-lab01-radius-server** and examine the properties
 
       +-------------------------------+------------------------+
       | Name:                         | vpn-lab01-radius       |
@@ -240,19 +257,21 @@ Task 5 - Adding Radius MFA
       | Secret:                       | secret                 |
       +-------------------------------+------------------------+
 
-#.  Click **Finished**
 #.  Navigate to **Access** --> **Profiles/Policies** --> **Access Profiles (Per-Session Policies)**
-#.  Click on **Edit** next to the **vpn-psp** Profile
+#.  Click on **Edit** next to the **vpn-lab01-psp** Profile
 #.  Click on the **+** between **AD Auth** and **Advanced Resource Assign**
 #.  From the **Logon** tab select **Logon Page** and click **Add Item**
 #.  In the name field enter **MFA Prompt**
 #.  On row 1 the Username field change the **Read Only** value to **Yes**
+
+      |iamge043|
+
 #.  Under **Customization** change **Logon Page Input Field #2 to **PIN** and **Logon Button** to **Validate**
 #.  Click **Save**
 
     .. Note:: In this lab we are using FreeRadius with a pre-configured users and PINs. For this particular setup we need to present two login pages.  One for AD Auth and one for MFA.  Setting the Username entry to Read Only will ensure we will reuse the sanem username.  If you were to add MFA via Radius for other MFA vendors please follow the vendors integration documentation.
 
-      |image034|
+      |image044|
 
 #.  Click on the **+** between **MFA Prompt** and **Advanced Resource Assign**.
 #.  Click on the **Authentication** tab and choose **Radius Auth**
@@ -305,7 +324,7 @@ Task 5 - Test VPN Access (again)
 #. Click **Disconnect**
 
 
-
+.. |image001| image:: media/lab01/001.png
 .. |image005| image:: media/lab01/005.png
 .. |image006| image:: media/lab01/006.png
 .. |image007| image:: media/lab01/007.png
@@ -339,6 +358,11 @@ Task 5 - Test VPN Access (again)
 .. |image035| image:: media/lab01/035.png
 .. |image036| image:: media/lab01/036.png
 .. |image037| image:: media/lab01/037.png
+.. |image038| image:: media/lab01/038.png
+.. |image039| image:: media/lab01/039.png
+.. |image040| image:: media/lab01/040.png
+.. |image041| image:: media/lab01/041.png
+.. |image042| image:: media/lab01/042.png
 .. |image0010| image:: media/lab01/0010.png
 .. |image0020| image:: media/lab01/0020.png
 .. |image0030| image:: media/lab01/0030.png
