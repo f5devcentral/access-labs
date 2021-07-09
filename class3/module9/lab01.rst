@@ -264,7 +264,7 @@ Task 5 - Adding Radius MFA
 #.  In the name field enter **MFA Prompt**
 #.  On row 1 the Username field change the **Read Only** value to **Yes**
 
-      |iamge043|
+      |image043|
 
 #.  Under **Customization** change **Logon Page Input Field #2 to **PIN** and **Logon Button** to **Validate**
 #.  Click **Save**
@@ -363,6 +363,8 @@ Task 5 - Test VPN Access (again)
 .. |image040| image:: media/lab01/040.png
 .. |image041| image:: media/lab01/041.png
 .. |image042| image:: media/lab01/042.png
+.. |image043| image:: media/lab01/043.png
+.. |image044| image:: media/lab01/044.png
 .. |image0010| image:: media/lab01/0010.png
 .. |image0020| image:: media/lab01/0020.png
 .. |image0030| image:: media/lab01/0030.png

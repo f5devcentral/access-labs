@@ -40,8 +40,9 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image0050|
 
-Task 1 - Build Network Access Components
+Task 1 - Review Network Access Components
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. Note::  The network access components were built in Lab01 and have been recreated in Lab02
 
 #.  While in the jumphost, launch Chrome and click on the bigip1 bookmark.
 #.  Log in to bigip1.f5lab.local
@@ -50,61 +51,33 @@ Task 1 - Build Network Access Components
       - Password: **admin**
 
 #.  Navigate to **Access** --> **Connectivity/VPN** --> **Network Access (VPN)** --> **Network Access Lists**
-#.  Click the **create** button
+#.  Click the **vpn-lab01-vpn** network access resource
 
       |image016|
 
-#.  Give the Network Access list a name and caption
-
-      +-------------+----------------+
-      | Name        |  VPN           |
-      +-------------+----------------+
-      | Caption     | Corp VPN       |
-      +-------------+----------------+
-
-#.  Click **Finished**
-
-      |image017|
-
 #.  Click on the **Network Settings** tab
-#.  Click the **+** next to **IPV4 Lease Pool** to create a lease Pool
-#.  Give the pool a name **vpn-vpn-pool**
-#.  Click the radio button next to IP address
-#.  Enter **10.1.20.254**
-#.  Click **Add**
-#.  Click **Update**
+#.  We are using the **vpn-lab01-vpn_pool** lease pool
+#.  Split tunneling is enabled for only the internal network traffic
 
       |image018|
 
       .. Note:: For the purposes of this lab we are only going to use a single IP address for the lease pool.  In a production environment you should set this range to as many as you need.
 
-#.  Back at the Network Access object we will configure VPN for split tunneling only accepting traffic destined to the internal network through the VPN tunnel.  Click the radio button **Use split tunneling for traffic**.
-#.  Enter IP Address **10.1.20.0**
-#.  Enter Mask **255.255.255.0**
-#.  Click **Update**
-
-      |image019|
-
 #.  Navigate to **Access** --> **Connectivity/VPN** --> **Connectivity** --> **Profiles**
-#.  Click **Create**
-#.  Profile Name **vpn-connectivity** and Parent Profile **/Common/connectivity**
+#.  Click on **vpn-lab01-cp** then scroll to the bottom and click **Edit**
+#.  Profile name is **/Common/vpn-lab01-cp** and Parent Profile **/Common/connectivity**
 #.  Click **OK**
 
       |image023|
 
 #.  Navigate to **Access** --> **Webtops** --> **Webtop Sections**
-#.  Click **Create**
-#.  Enter name **vpn-network_access**
-#.  Click **Finished**
+#.  Click **vpn-lab01-network_access**
 
       |image020|
 
 #.  Navigate to **Access** --> **Webtops** --> **Webtop Lists**
-#.  Click **Create**
-#.  Click on **vpn-webtop**
-#.  Select **Full** from the drop down menu
-#.  Customization type **Modern**
-#.  Click **Finished**
+#.  Click **vpn-lab01-webtop**
+#.  This is a type **Full** and using **Modern** customization type.
 
       |image021|
 
@@ -162,9 +135,9 @@ Task 3 - Per Session Access Policy
 #.  Click **Create** to create a new per session policy for VPN
 
       +----------------------+----------------+
-      | Name                 |  vpn-psp       |
+      | Name                 |  vpn-lab02-psp |
       +----------------------+----------------+
-      | Profile Type         |  Full          |
+      | Profile Type         |  All           |
       +----------------------+----------------+
       | Customization Type   |  Modern        |
       +----------------------+----------------+
@@ -174,7 +147,7 @@ Task 3 - Per Session Access Policy
       |image024|
 
 
-#.  Locate profile **vpn-psp** and click on **Edit**.  This opens the Visual Policy Editor (VPE) and we can take a look at the policy
+#.  Locate profile **vpn-lab02-psp** and click on **Edit**.  This opens the Visual Policy Editor (VPE) and we can take a look at the policy
 
       |image005|
 
@@ -187,9 +160,12 @@ Task 3 - Per Session Access Policy
 
       |image012|
 
-#.  Click the **+** between **SAML Auth** and **Deny**
+#.  Click the **+** between **SAML Auth** and **Deny** on the **Successful** branch
 #.  Click the **Assignment** tab and choose **Advanced Resource Assign** then **Add Item**
 #.  Click **Add new entry** button then the **Add/Delete** link
+
+      |image038|
+
 #.  Click the **Network Acces** tab and choose the object, then the Webtop tab, then the webtop setion.
 #.  Click **Update**
 #.  Click **Save**
@@ -199,14 +175,17 @@ Task 3 - Per Session Access Policy
 
 #.  Click **Apply Access Policy**
 
+      |image039|
+
 Task 4 - Apply Policy and profiles to Virtual Server
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 #.  Navigate to **Local Traffic** --> **Virtual Servers** --> **Virtual Server List**
-#.  Click on **vpn-lab** Virtual Server
+#.  From the **Partition** menu in the upper right choose **vpn-lab01**
+#.  Click on **vpn-lab01** Virtual Server
 #.  Scroll down to the **Access Policy** section
-#.  Select the **vpn-psp** from the **Access Profile** drop down menu
-#.  Click the drop down for ""Connectivity Profle** and choose the **vpn-connectivity** from the menu
+#.  Select the **vpn-lab02-psp** from the **Access Profile** drop down menu
+#.  Click the drop down for ""Connectivity Profle** and choose the **vpn-lab01-cp** from the menu
 
       |image033|
 
@@ -278,6 +257,10 @@ Task 4 - Test VPN Access
 .. |image035| image:: ./media/lab02/035.png
 .. |image036| image:: ./media/lab02/036.png
 .. |image037| image:: ./media/lab02/037.png
+.. |image038| image:: ./media/lab02/038.png
+.. |image039| image:: ./media/lab02/039.png
+.. |image041| image:: ./media/lab02/041.png
+.. |image042| image:: ./media/lab02/042.png
 .. |image0010| image:: ./media/lab02/0010.png
 .. |image0020| image:: ./media/lab02/0020.png
 .. |image0030| image:: ./media/lab02/0030.png
