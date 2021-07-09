@@ -16,7 +16,6 @@ This lab documents provides foundational concepts for understanding Access Polic
 302 - Ephemeral Authentication
 --------------------------------
 
-
 .. toctree::
    :maxdepth: 1
    :caption: Version 15.1 Labs:

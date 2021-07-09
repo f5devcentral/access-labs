@@ -148,10 +148,10 @@ Task 3 - Per Session Access Policy
 
 
 #.  Locate profile **vpn-lab02-psp** and click on **Edit**.  This opens the Visual Policy Editor (VPE) and we can take a look at the policy
+#.  Click the **+** between **Start** and **Deny**
 
       |image005|
 
-#.  Click the **+** between **Start** and **Deny**
 #.  Click on the **Authentication** tab, scroll to **SAML Auth** and click **Add Item**
 
       |image011|
