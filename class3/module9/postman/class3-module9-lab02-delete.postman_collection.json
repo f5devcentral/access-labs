@@ -29,10 +29,10 @@
 							"listen": "prerequest",
 							"script": {
 								"exec": [
-									"pm.collectionVariables.set(\"DNS1_NAME\", \"solution1.acme.com\");\r",
-									"pm.collectionVariables.set(\"VS1_NAME\", \"solution1\");\r",
-									"pm.collectionVariables.set(\"PATH_NAME\", \"solution1\");\r",
-									"pm.collectionVariables.set(\"PARTITION_NAME\", \"solution1\");\r",
+									"pm.collectionVariables.set(\"DNS1_NAME\", \"sp.acme.com\");\r",
+									"pm.collectionVariables.set(\"VS1_NAME\", \"vpn-lab01\");\r",
+									"pm.collectionVariables.set(\"PATH_NAME\", \"vpn-lab01\");\r",
+									"pm.collectionVariables.set(\"PARTITION_NAME\", \"vpn-lab01\");\r",
 									"pm.collectionVariables.set(\"CUSTOM_TYPE\", \"modern\");\r",
 									"\r",
 									"\r",
@@ -799,6 +799,181 @@
 			]
 		},
 		{
+			"name": "PSP Copy",
+			"item": [
+				{
+					"name": "bigip-delete-profile-psp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");\r",
+									"\r",
+									"if (responseCode.code === 200) {\r",
+									"    pm.test(\"Profile \"+VS_NAME+\"-psp Deleted\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"} else \r",
+									"    pm.test(\"Profile \"+VS_NAME+\"-psp Does Not Exist\", function () {\r",
+									"        pm.response.to.have.status(404);\r",
+									"    });\r",
+									"\r",
+									"setTimeout(function(){}, 2000);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-REST-Coordination-Id",
+								"type": "text",
+								"value": "",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/profile/access/~Common~vpn-lab02-psp",
+							"protocol": "https",
+							"host": [
+								"{{BIGIP_MGMT}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"profile",
+								"access",
+								"~Common~vpn-lab02-psp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip-delete-policy-psp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var VS_NAME = pm.collectionVariables.get(\"VS1_NAME\");\r",
+									"\r",
+									"if (responseCode.code === 200) {\r",
+									"    pm.test(\"Policy \"+VS_NAME+\"-psp deleted\", function () {\r",
+									"        pm.response.to.have.status(200);\r",
+									"    });\r",
+									"} else \r",
+									"    pm.test(\"Policy \"+VS_NAME+\"-psp does not exist\", function () {\r",
+									"        pm.response.to.have.status(404);\r",
+									"    });\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-REST-Coordination-Id",
+								"type": "text",
+								"value": "{{TRANSID}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/policy/access-policy/~Common~vpn-lab02-psp",
+							"protocol": "https",
+							"host": [
+								"{{BIGIP_MGMT}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"policy",
+								"access-policy",
+								"~Common~vpn-lab02-psp"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
 			"name": "APM Objects",
 			"item": [
 				{
@@ -1540,6 +1715,182 @@
 							]
 						}
 					]
+				}
+			]
+		},
+		{
+			"name": "BIGIP SP Copy",
+			"item": [
+				{
+					"name": "bigip-delete-sp service",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var DNS_NAME = pm.collectionVariables.get(\"AAD_VPN_SP\");",
+									"",
+									"if (responseCode.code === 200) {",
+									"",
+									"    pm.test(\"SAML SP Service \"+DNS_NAME+\"-sp deleted\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"} else {",
+									"    pm.test(\"SAML SP Service \"+DNS_NAME+\"-sp does not exist\", function () {",
+									"        pm.response.to.have.status(404);",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-REST-Coordination-Id",
+								"type": "text",
+								"value": "{{TRANSID}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/aaa/saml/~Common~AAD_VPN_SP",
+							"protocol": "https",
+							"host": [
+								"{{BIGIP_MGMT}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"aaa",
+								"saml",
+								"~Common~AAD_VPN_SP"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "bigip-delete-idp connector",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var VS_NAME = pm.collectionVariables.get(\"AAD_SAML_IDP\");",
+									"",
+									"if (responseCode.code === 200) {",
+									"",
+									"    pm.test(\"SAML IDP connector \"+VS_NAME+\"-idp deleted\", function () {",
+									"        pm.response.to.have.status(200);",
+									"    });",
+									"} else ",
+									"    pm.test(\"SAML IDP connector \"+VS_NAME+\"-idp does not exist\", function () {",
+									"        pm.response.to.have.status(404);",
+									"    });",
+									"",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "admin",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "X-F5-REST-Coordination-Id",
+								"type": "text",
+								"value": "{{TRANSID}}",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://{{BIGIP_MGMT}}/mgmt/tm/apm/aaa/saml-idp-connector/~Common~AAD_SAML_IDP",
+							"protocol": "https",
+							"host": [
+								"{{BIGIP_MGMT}}"
+							],
+							"path": [
+								"mgmt",
+								"tm",
+								"apm",
+								"aaa",
+								"saml-idp-connector",
+								"~Common~AAD_SAML_IDP"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
