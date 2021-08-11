@@ -1,4 +1,4 @@
-Lab 2: Deploy Priviledged User Access (PUA) or Ephemeral Authentication using Radius
+Lab 2: Deploy Priviledged User Access (PUA) using Radius
 =======================================================================================
 
 In this lab ephemeral authentication is configured on Access Policy Manager (APM) using Radius authentication. 
@@ -525,7 +525,7 @@ Task 12 - Create the CAC AUTH Macro
 
    |image78|
 
-#. Click **+* (plus symbol)** on the Found Branch between GET UPN from CAC and CAC Failure
+#. Click **+ (plus symbol)** on the Found Branch between GET UPN from CAC and CAC Failure
 
    |image79|
 
@@ -742,9 +742,9 @@ Navigate to Local Traffic >> Virtual Servers
    |image117|
 
 #. Ephemeral Authentication
-   *. Set Access Configuration to **pua.access.conf**
-   *. Set LDAP Authentication Configuration to **pua.ldap.conf**
-   *. Click **Update**
+   #. Set Access Configuration to **pua.access.conf**
+   #. Set LDAP Authentication Configuration to **pua.ldap.conf**
+   #. Click **Update**
 
    |image122|
 
