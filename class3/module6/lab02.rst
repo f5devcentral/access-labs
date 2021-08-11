@@ -339,7 +339,7 @@ Task 10 - Create an GET UPN from CAC Macro
 
    |image43|
 
-# Click **+ (plus symbol)** to the right of NO UPN
+#. Click **+ (plus symbol)** to the right of NO UPN
 
    |image44|
 
