@@ -255,8 +255,8 @@ Task 7 - Create a Server SSL Profile
 #. Enter **server_certsso** for profile name
 #. Change the Configuraiton from Basic to Advanced via the dropdown box.
 #. **Check** the two custom boxes next to **Certificate** and **Key**
-#. Select **F5CertSSO.f5lab.local.crt** from the **certificate** dropbox box
-#. Select **F5CertSSO.f5lab.local.key** from the **key** dropdown box
+#. Select **F5CertSSO.f5lab.local** from the **certificate** dropbox box
+#. Select **F5CertSSO.f5lab.local** from the **key** dropdown box
 #. **Check** the custom box for **Servername**.
 #. Enter the name **mtls.acme.com**
 
@@ -265,8 +265,8 @@ Task 7 - Create a Server SSL Profile
 
 #. Check the **custom** box about the **Client Certificate Constrained Delegation** box
 #. Select **Enabled** from the **Client Certificate Constrained Delegation** dropdown box
-#. Select **F5SubCA.f5lab.local.crt** from the **CA Certificate** dropdown box
-#. Select **F5SubCA.f5lab.local.key** from the **CA Key dropdown** box
+#. Select **F5SubCA.f5lab.local** from the **CA Certificate** dropdown box
+#. Select **F5SubCA.f5lab.local** from the **CA Key dropdown** box
 #. **Click** Finished
 
    |image029|
