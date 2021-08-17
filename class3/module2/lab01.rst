@@ -587,6 +587,7 @@ Task 15 - Access mtls.acme.com with Dynamic Certificate
    - OTP: **123456**
 
    |image044|
+
 #. You will be logged into the site as **user1@f5lab.local**
 
    .. note::
@@ -726,8 +727,8 @@ This concludes our lab on APM C3D Enchancements
 .. |image082| image:: media/lab01/image082.png
 .. |image083| image:: media/lab01/image083.png
 .. |image084| image:: media/lab01/image084.png
-.. |image085| image:: media/lab01/image085.png
-.. |image086| image:: media/lab01/image086.png
+.. |image085| image:: media/lab01/085.png
+.. |image086| image:: media/lab01/086.png
 .. |image087| image:: media/lab01/087.png
 .. |image088| image:: media/lab01/088.png
 .. |image089| image:: media/lab01/089.png
