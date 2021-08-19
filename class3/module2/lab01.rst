@@ -587,6 +587,7 @@ Task 15 - Access mtls.acme.com with Dynamic Certificate
    - OTP: **123456**
 
    |image044|
+
 #. You will be logged into the site as **user1@f5lab.local**
 
    .. note::
@@ -681,17 +682,17 @@ This concludes our lab on APM C3D Enchancements
 .. |image038| image:: media/lab01/image038.png
 .. |image039| image:: media/lab01/039.png
 .. |image040| image:: media/lab01/040.png
-.. |image041| image:: media/lab01/image041.png
-.. |image042| image:: media/lab01/image042.png
+.. |image041| image:: media/lab01/041.png
+.. |image042| image:: media/lab01/042.png
 .. |image043| image:: media/lab01/image043.png
 .. |image044| image:: media/lab01/image044.png
 	:width: 800px
-.. |image045| image:: media/lab01/image045.png
+.. |image045| image:: media/lab01/045.png
 .. |image048| image:: media/lab01/image048.png
 .. |image049| image:: media/lab01/image049.png
 .. |image050| image:: media/lab01/image050.png
 	:width: 800px
-.. |image051| image:: media/lab01/image051.png
+.. |image051| image:: media/lab01/051.png
 .. |image054| image:: media/lab01/image054.png
 	:width: 800px
 .. |image055| image:: media/lab01/image055.png
@@ -726,8 +727,8 @@ This concludes our lab on APM C3D Enchancements
 .. |image082| image:: media/lab01/image082.png
 .. |image083| image:: media/lab01/image083.png
 .. |image084| image:: media/lab01/image084.png
-.. |image085| image:: media/lab01/image085.png
-.. |image086| image:: media/lab01/image086.png
+.. |image085| image:: media/lab01/085.png
+.. |image086| image:: media/lab01/086.png
 .. |image087| image:: media/lab01/087.png
 .. |image088| image:: media/lab01/088.png
 .. |image089| image:: media/lab01/089.png
