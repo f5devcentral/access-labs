@@ -73,15 +73,15 @@ Task 3 - Explore the icontrolRest Endpoints
 
       |image007|
 
-#.  Expand the **Create Transaction** subfolder and click on the request **bigip-create-transaction**
+#. Expand the **Create Transaction** subfolder and click on the request **bigip-create-transaction**
 
-      .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First, you create the transaction by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent configuration requests that contain the transaction ID header to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the transaction is commited in the final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is processed sucessfully or none of the configuration changes are made.  This is extremely important to ensure all the required information is correct for building a working policy.
+      .. note::  When creating or modifying a policy it must be performed within a transaction.  A transaction occurs in multiple steps.  First, you create the transaction by receiving a transaction ID from the BIG-IP.  Next, you pass subsequent configuration requests that contain the transaction ID header to the BIG-IP.  The BIG-IP does not process these requests.  Instead it holds those requests until the transaction is committed in the final step.  It's important to understand that transactions have an all or nothing approach.  Either every request in the transaction is processed successfully or none of the configuration changes are made.  This is extremely important to ensure all the required information is correct for building a working policy.
 
 #. Click on Body. The only thing in the Body are open and close curly braces.
 
       |image008|
 
-#. Click on **Tests** in Postman, Tests are performed after the response from the endpoint is retreived.  This javascript parses the response body for the transId and saves it as a variable for use in subsequent requests.
+#. Click on **Tests** in Postman, Tests are performed after the response from the endpoint is retrieved.  This javascript parses the response body for the transId and saves it as a variable for use in subsequent requests.
 
       |image009|
 
@@ -91,7 +91,7 @@ Task 3 - Explore the icontrolRest Endpoints
 
       |image010|
 
-#. Expand the **Baseline Customization Groups** subfolder.  There are five mandatory customization groups created anytime an APM Per-Session Policy is created. A Customization Group defines the look of a particualar object such as the difference between the logout page on 13.1 and 15.1. Not all policy-items have a customization group.  Any Agent that is enduser facing will have a customization group associated with it. That includes items such as logon pages, webtops, logout pages.  Whereas something such as an Active Directory Authentication will not have a customization group.
+#. Expand the **Baseline Customization Groups** subfolder.  There are five mandatory customization groups created anytime an APM Per-Session Policy is created. A Customization Group defines the look of a particular object such as the difference between the logout page on 13.1 and 15.1. Not all policy-items have a customization group.  Any Agent that is enduser facing will have a customization group associated with it. That includes items such as logon pages, webtops, logout pages.  Whereas something such as an Active Directory Authentication will not have a customization group.
 
 #. Click **bigip-create-customization group-logout**
 
