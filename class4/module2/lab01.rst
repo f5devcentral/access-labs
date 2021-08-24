@@ -2,7 +2,7 @@ Lab 1: Create a baseline Per-Session Policy
 ===============================================
 .. _class4-module2-lab1:
 
-In this lab you will learn about the API calls necessary to build the basline Access Policy as if you had clicked **create** from GUI.  The graphic below depicts the basic flow required for creating a policy via API.
+In this lab you will learn about the API calls necessary to build the baseline Access Policy as if you had clicked **create** from GUI.  The graphic below depicts the basic flow required for creating a policy via API.
 
      |image100|
 
@@ -111,61 +111,63 @@ Task 3 - Explore the icontrolRest Endpoints
 
 #.  To create a Deny Terminal in a policy it takes three requests. A good rule of thumb is every object you manually build in Visual Policy Editor will take three Requests  The first defines a **customization group**, the second defines an **agent**, and the third defines a **policy-item**.
 
-#. Click **bigip-create-customization group-deny emding**.  This customization group request is same as all previous customization group requests except for the name and the value of the **type** JSON key is **logout**
+#. Click **bigip-create-customization group-end deny**.  Click on **Body**. This customization group request is same as all previous customization group requests except for the name and the value of the **type** JSON key is **logout**
 
-#. Click **bigip-create-agent-deny ending**.  An agent contains the operational settings for that object. For example, an AD authentication agent would contain the list of AD servers to be used or a SAMl Agent would contain the SAML Service Provider to be used.  In the case of an ending it will only contain the previously defined customization group.
+      |image044|
+
+#. Click **bigip-create-agent-deny ending**.  An agent contains the operational settings for that object. For example, an AD authentication agent would contain the list of AD servers to be used or a SAML Agent would contain the SAML Service Provider to be used.  In the case of an ending it will only contain the previously defined customization group.
 
 #. The endpoint is **/mgmt/tm/apm/policy/agent/ending-deny**. Each agent type has its own endpoint unlike customization groups.
 
-    |image014|
+      |image014|
 
-#. Click **bigip-create-policy item-deny ending**.  A Policy-Item contains all the settings related to its placement in the flow such as branch rules. Since this is an ending we will not see any branch rules but will see references to this policy-item after a few more steps. Additional settings of how the ending is displayed in Visual Policy Editor are also specified here such as caption and color. Lastly there will always be a reference to an Agent via its name.  The agent specified is the agent in the previous request.
+#. Click **bigip-create-policy item-Deny ending**.  A Policy-Item contains all the settings related to its placement in the flow such as branch rules. Since this is an ending we will not see any branch rules but will see references to this policy-item after a few more steps. Additional settings of how the ending is displayed in Visual Policy Editor are also specified here such as caption and color. Lastly there will always be a reference to an Agent via its name.  The agent specified is the agent in the previous request.
 
-    |image015|
+      |image015|
 
 #. Expand the **Allow Ending** subfolder
 
-    |image016|
+      |image016|
 
 #. There is only an agent and policy-item.  If the connection is allowed the user will not be see anything displayed from APM so no need for a customization group.  This is an example of a policy-item that is not enduser facing.
 
 #. Click **Body**.  The allow agent only contains a name and partition.
 
-    |image017|
+      |image017|
 
 #. Click **bigip-create-policy item-allow ending**.  Then, click **Body**.
 
-#. The structure of an allow ending is similiar to the previous deny ending.  Since this is an ending it doesn't contain any branch rules.
+#. The structure of an allow ending is similar to the previous deny ending.  Since this is an ending it doesn't contain any branch rules.
 
-    |image018|
+      |image018|
 
 #. Expand the **Start Item** subfolder and notice there is only a single request.  There is not an agent or customization group required for the start-item.
 
-    |image019|
+      |image019|
 
 #. Click **bigip-create-policy item-start** and then **Body**
 
 #. The **Rules** JSON key defines the branch rules for a policy-item.  All Policy-items except for terminal endpoints contain a **rules** condition.  In this case, the Start policy-item connects to the Deny Terminal.    Secondly, the **Rules** JSON key is defined as an array because of the brackets.  This will allow the definition of multiple branch rules using expressions. An example of this is an authentication Policy-item having a success and failure branch.  This will be covered in future labs.
 
-    |image020|
+      |image020|
 
 #. Expand the **Create Policy** subfolder
 
-    |image021|
+      |image021|
 
 #. Click **bigip-create-policy** and then **Body**
 
 #. In order to create a policy all of the policy-items  MUST be defined inside the **items** JSON key array.  In this case we are only building a empty policy so only three items Start Item, Deny Terminal, and Allow Terminal are defined.
 
-    |image022|
+      |image022|
 
 #. Expand the **Create Profile** subfolder.
 
-    |image023|
+      |image023|
 
 #. Click **bigip-create-profile** and then **Body**.   It contains the various setting related to timers, sessions, and logging.  The body also contains the five baseline customization groups defined at the beginning of the collection.
 
-    |image024|
+      |image024|
 
 #. Expand the **Commit Transaction** subfolder.
 
@@ -336,6 +338,7 @@ This concludes the lab on building a baseline Access Policy
 .. |image040| image:: media/lab01/040.png
 .. |image041| image:: media/lab01/041.png
 .. |image042| image:: media/lab01/042.png
+.. |image043| image:: media/lab01/043.png
 .. |image043| image:: media/lab01/043.png
 .. |image100| image:: media/lab01/100.png
 .. |image101| image:: media/lab01/101.png
