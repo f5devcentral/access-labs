@@ -52,30 +52,6 @@ To access your dedicated student lab environment, you will need a web browser an
    |issues|
 
 
-Intro to Access Profiles and Policies
------------------------------------------------
-Access Policy Manager (APM) provides two types of policies.
-
-**Per-session policy**
-
-    The per-session policy runs when a client initiates a session. (A per-session policy is also known as an access policy.) Depending on the actions you include in the access policy, it can authenticate the user and perform other actions that populate session variables with data for use throughout the session.
-
-**Per-request policy**
-
-    After a session starts, a per-request policy runs each time the client makes an HTTP or HTTPS request. Because of this behavior, a per-request policy is particularly useful in the context of a Zero Trust scenario, where the client requires re-verification on every request. A per-request policy can include a subroutine, which starts a subsession. Multiple subsessions can exist at one time. You cannot use subroutines in macros within per-request policies.
-
-You can associate one access policy and one per-request policy with a virtual server.
-
-**Access Session**
-
-    An access session is recorded when a client initiates a connection through a per-session policy.  Once an access session is established it has a set of timeouts set within the Access profile.  A session will terminate if it reaches a timeout or the client ends the session.  An access session is now not limited by a license but by the platform running APM.  For more information on APM licensing see `K15624537: BIG-IP APM Licensing for BIG-IP Standard Platforms <https://support.f5.com/csp/article/K15624537>`_
-
-**Subsession**
-
-    A subsession is part of the per-request policy framework.  It starts when a subroutine (within a per-request policy) runs and continues until reaching the maximum lifetime specified in the subroutine properties, or until the session terminates. A subsession populates subsession variables that are available for the duration of the subsession. Subsession variables and events that occur during a subsession are logged.
-
-    Multiple subsessions can exist at the same time. The maximum number of subsessions allowed varies across platforms. The total number of subsessions is limited by the session limits in APM (128 * max sessions). Creating a subsession does not count against the license limit.
-
 
 
 Objectives
