@@ -184,7 +184,7 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image034|
 
-#. The policy should now look like below
+#. The policy should now look like the one below
 
     |image035|
 
