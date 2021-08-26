@@ -223,7 +223,7 @@ Task 4 - Test Step-Up Authentication
 
     |image039|
 
-#.  After successfully providing a certificate you know have access to the admin page.
+#.  After successfully providing a certificate you kow have access to the admin page.
 
     |image011|
 
@@ -251,7 +251,7 @@ Task 1 - Add Header Injection to an existing Per-Request Policy
 
     |image015|
 
-#. Click the **Plus Symbol (+)** on the Pass branch between SAML Auth and Allow
+#. Click the **Plus Symbol (+)** on the Pass branch between SAML Auth and Allow Terminal
 
     |image041|
 
@@ -263,7 +263,7 @@ Task 1 - Add Header Injection to an existing Per-Request Policy
 
 #. Click **Add new entry**
 #. Enter the Header Name **email**
-#. Enter the Header Value **%{session.saml.last.nameIDValue}
+#. Enter the Header Value **%{session.saml.last.nameIDValue}**
 #. Click **Save**
 
     |image043|
@@ -286,11 +286,11 @@ Task 2 - Test Header Injection
 
     |image010|
 
-#. The page is now requires a new SAML assertion requuiring a higher level authentication context class.  The user is now prompted for certificte authentication.  Selet the **user1** certifcate
+#. Selet the **user1** certifcate
 
     |image039|
 
-#.  After successfully providing a certificate you know have access to the admin page.
+#.  The admin page succesfully parsed the new email header and displays it on the screen
 
     |image040|
 
