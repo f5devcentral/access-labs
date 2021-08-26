@@ -191,7 +191,7 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 Task 3 - Attach the Per-Request Policy 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- #. Navigate to Local Traffic >> Virtual Servers >> Virtual Server List. Not the Plus Symbol (+)   
+#. Navigate to Local Traffic >> Virtual Servers >> Virtual Server List. Not the Plus Symbol (+)   
 
     |image036|
 
@@ -219,7 +219,7 @@ Task 4 - Test Step-Up Authentication
 
     |image010|
 
-#. The page is now requires a new SAML assertion requuiring a higher level authentication context class.  The user is now prompted for certificte authentication.  Selet the **user1** certifcate
+#. The page is now requires a new SAML assertion with a higher level authentication context class.  The user is now prompted for certificte authentication.  Selet the **user1** certifcate
 
     |image039|
 
@@ -236,7 +236,7 @@ Task 1 - Add Header Injection to an existing Per-Request Policy
 
 
 
-#. BIG-IP APM often has access to information that the application may not have access to natively.  However, through the power of the per-request policy we can inject additional headers into each request .  Let's explore adding an additional header after the SAML auth subroutine.
+#. BIG-IP APM often has access to information that the application may not have access to natively.  Through the power of the per-request policy we can inject additional headers into each request .  Let's explore adding an additional header after the SAML auth subroutine.
 #. From a browser navigate to https://bigip1.f5lab.local
 
 #. Login with username **admin** and password **admin**
@@ -245,19 +245,19 @@ Task 1 - Add Header Injection to an existing Per-Request Policy
 
 #. Navigate to Access >> Profiles/Policies >> Per-Request Policies.
 
-    |image013|
+    |image045|
 
 #.  Click **Edit** to the right of add-prp
 
     |image015|
 
- #. Click the **Plus Symbol (+)** on the Pass branch between SAML Auth and Allow
+#. Click the **Plus Symbol (+)** on the Pass branch between SAML Auth and Allow
 
     |image041|
 
- #. Click the **General Purpose** tab.
- #. Select **HTTP Headers**
- #. Click **Add Item**
+#. Click the **General Purpose** tab.
+#. Select **HTTP Headers**
+#. Click **Add Item**
 
     |image042|   
 
@@ -369,4 +369,5 @@ Section 4 - Lab Cleanup
 .. |image042| image:: ./media/lab03/042.png
 .. |image043| image:: ./media/lab03/043.png
 .. |image044| image:: ./media/lab03/044.png
+.. |image045| image:: ./media/lab03/045.png
 
