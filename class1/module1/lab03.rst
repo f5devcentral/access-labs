@@ -104,13 +104,13 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image018|
 
-#. Click **Add Terminal
+#. Click **Add Terminal**
 
     |image019|
 
-#. Enter the Nme **Fail** on the line with a red #2
+#. Enter the Name **Fail** on the line with a red #2
 #. Enter the Name **Pass** on the line with a green #1 
-#. Click the **up arrow** on the pass line to it to the top
+#. Click the **up arrow** on the pass line to move it above the Fail Terminal
 
     |image020|
 
@@ -135,7 +135,7 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image024|
 
-#. From the AAA Server dropdown select **/Common/app.acme.com-sp-serv**
+#. From the AAA Server dropdown select **/Common/app.acme.com-1-sp-serv**
 #. Click **Save**
 
     |image025|
@@ -156,16 +156,16 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image028|
 
- #. For URL Contains enter **https://app.acme.com/admin/** 
- #. Click **Finished**
+#. For URL Contains enter **https://app.acme.com/admin/** 
+#. Click **Finished**
 
     |image029|
 
- #. Click **Save**
+#. Click **Save**
 
     |image030|
 
- #. Click the **Plus Symbol (+)** on the MFA branch between URL branching and Allow
+#. Click the **Plus Symbol (+)** on the MFA branch between URL branching and Allow
 
     |image031|
 
@@ -184,14 +184,14 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image034|
 
-#. The policy should now look like below
+#. The policy should now look like the one below
 
     |image035|
 
 Task 3 - Attach the Per-Request Policy 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
- #. Navigate to Local Traffic >> Virtual Servers >> Virtual Server List. Not the Plus Symbol (+)   
+#. Navigate to Local Traffic >> Virtual Servers >> Virtual Server List. Not the Plus Symbol (+)   
 
     |image036|
 
@@ -219,11 +219,11 @@ Task 4 - Test Step-Up Authentication
 
     |image010|
 
-#. The page is now requires a new SAML assertion requuiring a higher level authentication context class.  The user is now prompted for certificte authentication.  Selet the **user1** certifcate
+#. The page is now requires a new SAML assertion with a higher level authentication context class.  The user is now prompted for certificte authentication.  Selet the **user1** certifcate
 
     |image039|
 
-#.  After successfully providing a certificate you know have access to the admin page.
+#.  After successfully providing a certificate you kow have access to the admin page.
 
     |image011|
 
@@ -236,7 +236,7 @@ Task 1 - Add Header Injection to an existing Per-Request Policy
 
 
 
-#. BIG-IP APM often has access to information that the application may not have access to natively.  However, through the power of the per-request policy we can inject additional headers into each request .  Let's explore adding an additional header after the SAML auth subroutine.
+#. BIG-IP APM often has access to information that the application may not have access to natively.  Through the power of the per-request policy we can inject additional headers into each request .  Let's explore adding an additional header after the SAML auth subroutine.
 #. From a browser navigate to https://bigip1.f5lab.local
 
 #. Login with username **admin** and password **admin**
@@ -245,25 +245,25 @@ Task 1 - Add Header Injection to an existing Per-Request Policy
 
 #. Navigate to Access >> Profiles/Policies >> Per-Request Policies.
 
-    |image013|
+    |image045|
 
 #.  Click **Edit** to the right of add-prp
 
     |image015|
 
- #. Click the **Plus Symbol (+)** on the Pass branch between SAML Auth and Allow
+#. Click the **Plus Symbol (+)** on the Pass branch between SAML Auth and Allow Terminal
 
     |image041|
 
- #. Click the **General Purpose** tab.
- #. Select **HTTP Headers**
- #. Click **Add Item**
+#. Click the **General Purpose** tab.
+#. Select **HTTP Headers**
+#. Click **Add Item**
 
     |image042|   
 
 #. Click **Add new entry**
 #. Enter the Header Name **email**
-#. Enter the Header Value **%{session.saml.last.nameIDValue}
+#. Enter the Header Value **%{session.saml.last.nameIDValue}**
 #. Click **Save**
 
     |image043|
@@ -286,11 +286,11 @@ Task 2 - Test Header Injection
 
     |image010|
 
-#. The page is now requires a new SAML assertion requuiring a higher level authentication context class.  The user is now prompted for certificte authentication.  Selet the **user1** certifcate
+#. Selet the **user1** certifcate
 
     |image039|
 
-#.  After successfully providing a certificate you know have access to the admin page.
+#.  The admin page succesfully parsed the new email header and displays it on the screen
 
     |image040|
 
@@ -323,4 +323,51 @@ Section 4 - Lab Cleanup
    |image000|
 
 
+
+.. |image000| image:: ./media/lab03/000.png
+.. |image001| image:: ./media/lab03/001.png
+.. |image002| image:: ./media/lab03/002.png
+.. |image003| image:: ./media/lab03/003.png
+.. |image004| image:: ./media/lab03/004.png
+.. |image005| image:: ./media/lab03/005.png
+.. |image006| image:: ./media/lab03/006.png
+.. |image007| image:: ./media/lab03/007.png
+.. |image008| image:: ./media/lab03/008.png
+.. |image009| image:: ./media/lab03/009.png
+.. |image010| image:: ./media/lab03/010.png
+.. |image011| image:: ./media/lab03/011.png
+.. |image012| image:: ./media/lab03/012.png
+.. |image013| image:: ./media/lab03/013.png
+.. |image014| image:: ./media/lab03/014.png
+.. |image015| image:: ./media/lab03/015.png
+.. |image016| image:: ./media/lab03/016.png
+.. |image017| image:: ./media/lab03/017.png
+.. |image018| image:: ./media/lab03/018.png
+.. |image019| image:: ./media/lab03/019.png
+.. |image020| image:: ./media/lab03/020.png
+.. |image021| image:: ./media/lab03/021.png
+.. |image022| image:: ./media/lab03/022.png
+.. |image023| image:: ./media/lab03/023.png
+.. |image024| image:: ./media/lab03/024.png
+.. |image025| image:: ./media/lab03/025.png
+.. |image026| image:: ./media/lab03/026.png
+.. |image027| image:: ./media/lab03/027.png
+.. |image028| image:: ./media/lab03/028.png
+.. |image029| image:: ./media/lab03/029.png
+.. |image030| image:: ./media/lab03/030.png
+.. |image031| image:: ./media/lab03/031.png
+.. |image032| image:: ./media/lab03/032.png
+.. |image033| image:: ./media/lab03/033.png
+.. |image034| image:: ./media/lab03/034.png
+.. |image035| image:: ./media/lab03/035.png
+.. |image036| image:: ./media/lab03/036.png
+.. |image037| image:: ./media/lab03/037.png
+.. |image038| image:: ./media/lab03/038.png
+.. |image039| image:: ./media/lab03/039.png
+.. |image040| image:: ./media/lab03/040.png
+.. |image041| image:: ./media/lab03/041.png
+.. |image042| image:: ./media/lab03/042.png
+.. |image043| image:: ./media/lab03/043.png
+.. |image044| image:: ./media/lab03/044.png
+.. |image045| image:: ./media/lab03/045.png
 
