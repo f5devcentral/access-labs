@@ -104,13 +104,13 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image018|
 
-#. Click **Add Terminal
+#. Click **Add Terminal**
 
     |image019|
 
-#. Enter the Nme **Fail** on the line with a red #2
+#. Enter the Name **Fail** on the line with a red #2
 #. Enter the Name **Pass** on the line with a green #1 
-#. Click the **up arrow** on the pass line to it to the top
+#. Click the **up arrow** on the pass line to move it above the Fail Terminal
 
     |image020|
 
@@ -135,7 +135,7 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image024|
 
-#. From the AAA Server dropdown select **/Common/app.acme.com-sp-serv**
+#. From the AAA Server dropdown select **/Common/app.acme.com-1-sp-serv**
 #. Click **Save**
 
     |image025|
@@ -156,16 +156,16 @@ Task 2 - Create a Step-up Authentication Per-Request Policy
 
     |image028|
 
- #. For URL Contains enter **https://app.acme.com/admin/** 
- #. Click **Finished**
+#. For URL Contains enter **https://app.acme.com/admin/** 
+#. Click **Finished**
 
     |image029|
 
- #. Click **Save**
+#. Click **Save**
 
     |image030|
 
- #. Click the **Plus Symbol (+)** on the MFA branch between URL branching and Allow
+#. Click the **Plus Symbol (+)** on the MFA branch between URL branching and Allow
 
     |image031|
 
