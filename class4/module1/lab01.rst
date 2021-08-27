@@ -216,8 +216,8 @@ Task 8 - Ensure objects were removed via GUI
 
 #. Login to the BIG-IP GUI with the following credentials:
 
-    - Username: **admin**
-    - Password: **admin**
+     - Username: **admin**
+     - Password: **admin**
 
 #. Navigate to System >> Certificate Management >> Traffic Certificate Management >> SSL Certificate List.  Click on **SSL Certificate List** and not the + (plus symbol).
 
@@ -245,18 +245,16 @@ Task 8 - Ensure objects were removed via GUI
 
 Task 9 - Lab Clean up
 ---------------------------------
-
-
-#. From Postman, Click the **3 dots** on the bottom right of the student-class4-module1-lab1 Collection.
+#. From Postman, Mouse over the title of the collection and click the **3 dots** next to student-class4-module1-lab1 Collection.
 
 #. Click **Delete**
 
-    |image031|
+     |image031|
 
 
 This concludes the APM lab on creating and deleting APM objects via iControlREST.
 
-    |image000|
+     |image000|
 
 
 .. |image000| image:: media/lab01/000.png
