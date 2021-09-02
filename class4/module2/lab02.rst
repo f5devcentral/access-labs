@@ -107,6 +107,7 @@ Task 3 - Review the SAML SP Policy-item
 
       |image016|
 
+
 Task 4 - Create a SAML SP policy
 -------------------------------------------
 
@@ -238,6 +239,7 @@ This concludes the lab on creating and deleting a SAML SP Access Policy.
 .. |image010| image:: media/lab02/010.png
 .. |image012| image:: media/lab02/012.png
 .. |image013| image:: media/lab02/013.png
+.. |image014| image:: media/lab02/014.png
 .. |image015| image:: media/lab02/015.png
 .. |image016| image:: media/lab02/016.png
 .. |image017| image:: media/lab02/017.png
