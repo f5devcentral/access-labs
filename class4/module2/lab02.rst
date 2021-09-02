@@ -144,7 +144,7 @@ Task 4 - Create a SAML SP policy
         },
 
 
-      |image020|
+    |image020|
 
 
 #. After you are done editing the request, click **Save** in the upper right corner.  Runner will not pickup any changes that are not saved causing the automation to fail.
