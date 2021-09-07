@@ -1,4 +1,4 @@
-Lab 1: Cert Auth to Keberos SSO
+Lab 1: Cert Auth to Kerberos SSO
 =====================================
 
 Task 1 - Setup Lab Environment
@@ -27,11 +27,11 @@ To access your dedicated student lab environment, you will require a web browser
 
 	|image002|
 
-#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
+#. Scroll down the page until you see **306 Per-Session Access Control** on the left
 
    |image003|
 
-#. Hover over tile **Intro to Per-Request Policies**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **Cert Auth to Kerberos SSOs**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
    +---------------+-------------+
    | |image004|    | |image005|  |
@@ -404,11 +404,11 @@ Task 9 - Lab Cleanup
 
     |image002|
 
-#. Scroll down the page until you see **101 Intro to Access Foundational Concepts** on the left
+#. Scroll down the page until you see **06 Per-Session Access Control** on the left
 
    |image003|
 
-#. Hover over tile **Visual Policy Editor (VPE) Overview**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **Cert Auth to Kerberos SSO**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
     +---------------+-------------+
     | |image004|    | |image007|  |
