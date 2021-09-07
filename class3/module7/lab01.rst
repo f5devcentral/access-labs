@@ -391,7 +391,7 @@ Task 8 - Test the Configuration
 
 #. You are successfully logged into the https://cert2kerb.acme.com website
 
-    |image61|
+    |image62|
 
 
 
@@ -471,3 +471,20 @@ Task 9 - Lab Cleanup
 .. |image043| image:: ./media/lab01/043.png
 .. |image044| image:: ./media/lab01/044.png
 .. |image045| image:: ./media/lab01/045.png
+.. |image046| image:: ./media/lab01/046.png
+.. |image047| image:: ./media/lab01/047.png
+.. |image048| image:: ./media/lab01/048.png
+.. |image049| image:: ./media/lab01/049.png
+.. |image050| image:: ./media/lab01/050.png
+.. |image051| image:: ./media/lab01/051.png
+.. |image052| image:: ./media/lab01/052.png
+.. |image053| image:: ./media/lab01/053.png
+.. |image054| image:: ./media/lab01/054.png
+.. |image055| image:: ./media/lab01/055.png
+.. |image056| image:: ./media/lab01/056.png
+.. |image057| image:: ./media/lab01/057png
+.. |image058| image:: ./media/lab01/058.png
+.. |image059| image:: ./media/lab01/059.png
+.. |image060| image:: ./media/lab01/060.png
+.. |image061| image:: ./media/lab01/061.png
+.. |image062| image:: ./media/lab01/062.png
