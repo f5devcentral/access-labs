@@ -482,7 +482,7 @@ Task 9 - Lab Cleanup
 .. |image054| image:: ./media/lab01/054.png
 .. |image055| image:: ./media/lab01/055.png
 .. |image056| image:: ./media/lab01/056.png
-.. |image057| image:: ./media/lab01/057png
+.. |image057| image:: ./media/lab01/057.png
 .. |image058| image:: ./media/lab01/058.png
 .. |image059| image:: ./media/lab01/059.png
 .. |image060| image:: ./media/lab01/060.png
