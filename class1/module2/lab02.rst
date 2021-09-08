@@ -52,66 +52,125 @@ To access your dedicated student lab environment, you will require a web browser
 Section 2 - Basic Portal Resource
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Task 1 - Create a portal resource
+Task 1 - Create a Webtop 
+--------------------------
+
+#. From a browser navigate to https://bigip1.f5lab.local
+
+#. Login with username **admin** and password **admin**
+
+   |image009|
+
+
+#. Navigate to **Access** >> **Webtops** >> **Webtop Lists** >> click the **Plus Sign(+)**.
+
+   |image010|
+
+#. Enter the Name **full-webtop**
+#. From the Type dropdown menu select **Full**
+#. Click **Finished**.
+
+   |image011|
+
+
+Task 2 - Create a portal resource
 ---------------------------------------
 
-#. Expand the **Access** tab from the main menu on the left and navigate
-   to **Webtops** > **Webtop Lists**.
+#. Navigate to **Access** >> **Connectivity/VPN** >> **Portal Access Lists** >> click the **Plus Sign(+)**.
 
-#. Click **Create** to create a new Webtop called **MyFullWebtop**,
-   select Type **Full** , uncheck  **Minimize To Tray** and
-   click **Finished**.
+   |image012|
 
 
-Task 2 - Add a Webtop Resource to an existing Policy
+#. Enter the Name **files**
+#. From the Link Type dropdown menu select **Application URI**
+#. Enter the Application URI **http://files-master.f5lab.local**
+#. Enter the Caption *files**
+#. Click **Create**
+
+   |image013|
+
+Task 3 - Create a Connectivity Profile
+---------------------------------------
+
+#. Navigate to **Access** >> **Connectivity/VPN** >> **Connectivity** >>  **Profiles** >>click the **Plus Sign(+)**.
+
+   |image014|
+
+
+#. Enter the Name **webtop-cp**
+#. From the Parent Profile dropdown menu select **/Common/connectivity**
+#. Click **OK**
+
+   |image015|
+
+Task 4 - Add new profiles to an existing Virtual Server
+---------------------------------------------------------
+
+#. Navigate to **Local Traffic** >> **Virtual Servers** >> **Virtual Server List**
+
+   |image016|
+
+#. Click **webtop-https**
+
+   |image017
+
+#. In Content Rewrite Section, select **rewrite** from the Rewrite Profile dropdown menu.
+#. In Access Policy Section, select **webtop-cp** from the Connectivity Profile dropdown menu.
+#. Click **Update**
+
+   |image018|
+
+Task 5 - Add a Webtop Resource to an existing Policy
 ------------------------------------------------------
 
-#. Browse to **Access** > **Profiles / Policies > Access Profiles (Per-Session Policies)**, click on **Edit** for **MyAccessPolicy**. A new tab should open to the Visual Policy Editor for **MyAccessPolicy**.
+#. Navigate to **Access** > **Profiles / Policies** > **Access Profiles (Per-Session Policies)**, 
 
-   |Lab4-Image4|
+    |image019|
 
-#. In between the AD Auth APM Item and the Allow APM item click the + option to add an item.
+#. Click on **Edit** for **webtop-psp**. 
 
-   |Lab4-Image5|
+   |image020|
 
-#. Select the **Advanced Resource Assign** object. Click on the "Assignment Tab" and select the "Advanced Resource Assign" radio button. Click **Add Item**.
+#. Click the Plus Sign(+) in between the AD Auth policy item and the Allow Terminal .
 
-   |Lab4-Image6|
+   |image021|
 
-#. Then Click the "Add New Entry" button.
+#. Click on the **Assignment Tab**
+#. Select the **Advanced Resource Assign** radio button
+#. Click **Add Item**
 
-   |Lab4-Image7|
+   |image022|
 
+#. Click the **Add New Entry** button.
+#. Click the **Add/Delete** button
 
-#. Then under the "Expression Section" click the "Add/Delete" button
+   |image023|
 
-#. Click on the **Webtop** tab, select the radio button for **MyFullWebtop**. Click on the **Webop Links** tab, and select the radio button for **F5Rocks** then click the **Update** button at the bottom of the screen.
+#. Click on the **Portal Access** tab
+#. Select the radio button for **/Common/files**
 
-   |Lab4-Image8|
+   |image024|
+
+#. Click on the **Webtop** tab
+#. Select the radio button for **/Common/full-webtop**
+#. Click the **Update** button at the bottom of the screen.
+
+   |image025|
 
 #. Click **Save**.
 
-#. At the top left of the browser window, click on **Apply Access Policy** , then close the tab. Replace the Access Profile on your app-https VIP with your myaccesspolicy Access profile and set the Per-Request Policy to None
+   |image026|
 
-   |Lab4-Image9|
+#. At the top left of the browser window, click on **Apply Access Policy**
 
-#. Navigate to **Local Traffic** --> **Virtual Servers** --> **Virtual Server List**
-
-    .. Note:: Make sure you are in the **Common Partition**
-
-        |Lab4-Image17|
-
-#. Open the **app-https** Virtual server, scroll down to the **Access Policy** section and ensure that **myaccesspolicy** has been assigned to this virtual server.
-
-    |Lab4-Image18|
+   |image027|
 
 
 
 Task 3 - Test the Configuration
 ---------------------------------
 
-#. Open a **New Incognito** web browser to the virtual server created in the previous lab by navigating to **https://app.acme.com**. You will be presented with a Logon page similar to the one from the last lab.
-
+#. Open a **New Incognito** web browser and navigate to **https://webtop.acme.com**. 
 #. Enter the following credentials:
 
     +-------------+--------------+
@@ -122,11 +181,18 @@ Task 3 - Test the Configuration
 
 #. Click **Logon**.
 
-   This will open the APM Webtop landing page that shows the resources you are allowed to access. In this lab, we've only configured one resource:
+   |image028|
 
-   **F5 Rocks**, but you can add as many as you want and they will appear on this Webtop page.
 
-   |Lab4-Image10|
+   ..note:: This will open the APM landing page that shows the resources you are allowed to access. In this lab, we've only configured a single resource but you can add as many as you want and they will appear on this Webtop page.
+
+#. Click the **F5** Resource on the webtop
+
+   |image029|
+
+#.  The Files site opens in a new tab,  but notice you are not redirected to http://files.f5lab.local.  Instead you are being reverse proxied to the site through https://webtop.acme.com   
+
+   |image030| 
 
 Section 3 - Lab Cleanup
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,11 +206,11 @@ Task 1 - Run Cleanup automation
 
     |image002|
 
-#. Scroll down the page until you see **06 Per-Session Access Control** on the left
+#. Scroll down the page until you see **102 Webtop Features** on the left
 
    |image003|
 
-#. Hover over tile **Cert Auth to Kerberos SSO**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
+#. Hover over tile **Portal Resources**. A start and stop icon should appear within the tile.  Click the **Stop** Button to trigger the automation to remove any prebuilt objects from the environment
 
     +---------------+-------------+
     | |image004|    | |image007|  |

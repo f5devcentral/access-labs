@@ -61,7 +61,7 @@ Task 2 - Create a Webtop
 
    |image010|
 
-#. Enter the Name **Full-Webtop**
+#. Enter the Name **full-webtop**
 #. From the Type dropdown menu select **Full**
 #. Click **Finished**.
 
