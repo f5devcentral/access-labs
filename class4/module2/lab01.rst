@@ -43,7 +43,7 @@ Task 2 - Import Postman Collections
 
       |image002|
 
-#. Click **Import** located on the top left of the Postman application
+#. Click **Import** located on the **Scratch Pad** menu bar
 
       |image003|
 
@@ -171,56 +171,51 @@ Task 3 - Explore the icontrolRest Endpoints
 
 #. Expand the **Commit Transaction** subfolder.
 
-    |image025|
+      |image025|
 
 #. Click **bigip-commit-transaction** and then **Body**.
 
 #. Notice the request is sent to the endpoint **/mgmt/tm/transaction/** along with the transactionID using the PUT Method.  The body contains the **state** JSON Key with the value **VALIDATING**.  This request triggers the BIG-IP to process all the requests that contain the transactionID header.  After the transaction is completed you will recieve a 200 OK.  If you receive any status code but 200 OK, one or more of the requests in the transaction could not be completed.
 
-    |image026|
+      |image026|
 
 #. Expand the **Apply Policy** subfolder.
 
-    |image027|
+      |image027|
 
 #. Click **bigip-apply Policy** and then **Body**
 
 #. The Request is sent to the endpoint **/mgmt/tm/apm/profile/access/** using the PATCH Method.  When a patch is sent to the endpoint of a profile with the JSON body **"generationAction": "increment"** it instructs the BIG-IP that you want to Apply Policy.  Think commit changes.
 
-    |image028|
+      |image028|
 
 
 
 Task 4 - Create your first policy using automation
 -----------------------------------------------------------------------
 
-#.  Now that we have walked through all the API calls required to create a policy through automation, we will use Postman Runner to create it.
+#. Now that we have walked through all the API calls required to create a policy through automation, we will use Postman Runner to create it.
 
-#.  Hover over the Collection name **student-class4-module2-lab1** with your mouse and click the **Arrow** icon.
+#. Hover over the Collection name **student-class4-module2-lab1** with your mouse and click the **three dots** icon. Then choose **Run Collection**
 
-    |image029|
+      |image029|
 
-#. Click the **Create Policy** folder
+#. Uncheck **bigip-delete-profile-psp** and **bigip-delete-policy-psp**
 
-    |image030|
+      |image030|
 
-#. Click **Run** and Postman Runner will open.
+#. Check only **Save Responses** and click **Run student-class4-module2-lab1**
 
-    |image031|
+      |image031|
 
-#. Click the blue button **Run student-class...** and the API requests will start being sent to the BIG-IP.
+#. The **Passed** results will display a value of two even through there were more requests than two.   Postman will display either passed or failed for only the requests that contain **Test** conditions.   In this example, only the Commit Transaction request and the Apply Policy request contain **Tests**.  Another thing to note, the requests that contained the transaction ID will always receive a 200 OK unless sent to an invalid endpoint or the JSON is improperly formatted.  Remember with a transaction, a request is not actually processed until the transaction is committed.
+#. Close Runner by clicking the **X** on the tab open for runner.
 
-    |image032|
-
-#. The **Pass** circle will display a value of two even through there were more requests than two.   Postman will display either passed or failed for only the requests that contain **Test** conditions.   In this example, only the Commit Transaction request and the Apply Policy request contain **Tests**.  Another thing to note,  The requests that contained the transaction ID will always receive a 200 OK unless sent to an invalid endpoint or the JSON is improperly formatted.  Remember with a transaction, a request is not actually processed until the transaction is commited.
-#. Close Runner by clicking the **X** in the top right corner.
-
-
-    |image033|
+      |image033|
 
 #. Collapse the main **Create Policy** folder so only two folders are displayed in the collection
 
-    |image041|
+      |image041|
 
 
 #. Open a browser and navigate to https://bigip1.f5lab.local
@@ -232,15 +227,15 @@ Task 4 - Create your first policy using automation
 
 #. Navigate to Access>>Profiles/Policies>>Access Profiles (Per-Session Policies).  Do not click the plus symbol.
 
-    |image034|
+      |image034|
 
 #. The policy you created via automation is displayed.  Click **Edit**.
 
-    |image035|
+      |image035|
 
-#.  The policy is empty as planned.  This collection of requests is a baseline for creating anything in APM regarfless of how basic or complex the Access Policy.
+#.  The policy is empty as planned.  This collection of requests is a baseline for creating anything in APM regardless of how basic or complex the Access Policy.
 
-    |image036|
+      |image036|
 
 
 Task 5 - Deleting an Access Profile
@@ -249,13 +244,13 @@ Task 5 - Deleting an Access Profile
 
 #. From Postman, Expand the **Delete Policy** subfolder.
 
-    |image037|
+      |image037|
 
-#.  The first thing you will notice is it takes fewer requests to delete a policy than it does to create it.    In order to delete a policy you need to first delete the profile and then the policy.
+#. The first thing you will notice is it takes fewer requests to delete a policy than it does to create it.    In order to delete a policy you need to first delete the profile and then the policy.
 
 #. Click **bigip-delete-profile-psp**.  To delete a profile you send a DELETE request to the /mgmt/tm/apm/profile/access endpoint along with the Partition and profile name.
 
-    |image038|
+      |image038|
 
 #. Click the blue **send** button in the upper right corner.  You will receive a 200 OK response.  This is an indication that the profile was found and deleted.
 
@@ -272,11 +267,11 @@ Task 5 - Deleting an Access Profile
 
 #. Navigate to Access>>Profiles/Policies>>Access Profiles (Per-Session Policies).  Do not click the **+** (plus symbol).
 
-    |image034|
+      |image034|
 
 #. The Policy has been successfully deleted.
 
-    |image040|
+      |image040|
 
 
 Task 6 - Lab Cleanup
@@ -284,14 +279,14 @@ Task 6 - Lab Cleanup
 
 #. From Postman, Click the **3 dots** on the bottom right of the student-class4-module2-lab1 Collection.
 
-#. Click **Delete**
+#. Click **Delete** and *Delete** again.
 
-    |image042|
+      |image042|
 
 This concludes the lab on building a baseline Access Policy
 
 
-   |image000|
+      |image000|
 
 
 

@@ -61,7 +61,17 @@ This lab documents provides foundational concepts for understanding Access Polic
    module5/lab*
 
 
-309  - SSL VPN
+306 - Per-Session Access Control
+-------------------------------------
+.. toctree::
+   :maxdepth: 1
+   :glob:
+
+   module7/intro.rst
+   module7/lab*
+
+
+307  - SSL VPN
 ------------------
 .. toctree::
    :maxdepth: 1
