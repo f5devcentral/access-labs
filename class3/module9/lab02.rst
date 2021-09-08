@@ -30,7 +30,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image0030|
 
-#. Hover over tile **SSL VPN - AD Authentication + MFA**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SSL VPN - SAML Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
 
    +---------------+-------------+
