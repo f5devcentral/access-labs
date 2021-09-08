@@ -485,7 +485,7 @@ Task 2 - Implement Static Parameter values
 .. |image020| image:: media/lab02/020.png
    :width: 800px
 .. |image021| image:: media/lab02/021.png
-:width: 800px
+   :width: 800px
 .. |image022| image:: media/lab02/022.png
    :width: 800px
 .. |image023| image:: media/lab02/023.png

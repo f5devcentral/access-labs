@@ -327,7 +327,7 @@ Task 6 - Create a Client-Side SSL Profile
 
     |image052|
 
-#. Enter the name **cert2kerb-client
+#. Enter the name **cert2kerb-client**
 #. Select the **custom box** to the right on the Certificate Key Chain line
 #. Click **Add**
 
@@ -391,7 +391,7 @@ Task 8 - Test the Configuration
 
 #. You are successfully logged into the https://cert2kerb.acme.com website
 
-    |image62|
+    |image062|
 
 
 

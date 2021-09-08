@@ -334,6 +334,6 @@ This concludes the lab on building a baseline Access Policy
 .. |image041| image:: media/lab01/041.png
 .. |image042| image:: media/lab01/042.png
 .. |image043| image:: media/lab01/043.png
-.. |image043| image:: media/lab01/043.png
+.. |image044| image:: media/lab01/044.png
 .. |image100| image:: media/lab01/100.png
 .. |image101| image:: media/lab01/101.png
