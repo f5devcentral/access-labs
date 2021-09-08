@@ -70,7 +70,7 @@ Task 2 - Create a Webtop
 Task 3 - Create a webtop Link Resource
 -----------------------------------------
 
-#. Navigate to **Access** > **Webtops >** **Webtop Link** >> click the **Plus Sign(+)**.
+#. Navigate to **Access** > **Webtops >** **Webtop Links** >> click the **Plus Sign(+)**.
 
    |image012|
 
@@ -158,7 +158,7 @@ Task 5 - Test the Configuration
 
    but you can add as many as you want and they will appear on this Webtop page.
 
-#.  Click the **F5** Resource on the webtop
+#. Click the **F5** Resource on the webtop
 
    |image024|
 
