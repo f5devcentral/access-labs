@@ -1,9 +1,10 @@
 Lab 1: Webtop Links
 ====================
+A full webtop provides an access policy ending for an access policy branch to which you can optionally assign portal access resources, app tunnels, remote desktops, and webtop links, in addition to network access tunnels.
 
-In this lab, we will add a Webtop resource to the Access Policy
-created in the previous lab. A full webtop provides an access policy ending for an access policy branch to which you can optionally assign portal access resources, app tunnels, remote desktops, and webtop links, in addition to network access tunnels.
-Then, the full webtop provides your clients with a web page on which they can choose resources, including a network access connection to start.
+In this lab you will explore how to create a Webtop Link resource that will enable an administrator to add bookmarks to commonly used Webpages that do not require rewriting.  Webtop links point to external sites or even other sites hosted and protected by BIG-IP APM Virtual Servers.
+
+
 
 Task 1 - Setup Lab Environment
 -----------------------------------

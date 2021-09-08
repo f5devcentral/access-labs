@@ -1,9 +1,9 @@
 Lab 2: Portal Resources
 =========================
 
-In this lab, we will add a Webtop resource to the Access Policy
-created in the previous lab. A full webtop provides an access policy ending for an access policy branch to which you can optionally assign portal access resources, app tunnels, remote desktops, and webtop links, in addition to network access tunnels.
-Then, the full webtop provides your clients with a web page on which they can choose resources, including a network access connection to start.
+A full webtop provides an access policy ending for an access policy branch to which you can optionally assign portal access resources, app tunnels, remote desktops, and webtop links, in addition to network access tunnels.
+
+In this lab we will explore how to configure a Portal Access Resource to perform reverse proxy functionality.
 
 
 Section 1 - Setup Lab Environment
@@ -112,7 +112,7 @@ Task 4 - Add new profiles to an existing Virtual Server
 
 #. Click **webtop-https**
 
-   |image017
+   |image017|
 
 #. In Content Rewrite Section, select **rewrite** from the Rewrite Profile dropdown menu.
 #. In Access Policy Section, select **webtop-cp** from the Connectivity Profile dropdown menu.
