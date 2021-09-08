@@ -154,9 +154,7 @@ Task 5 - Test the Configuration
    |image023|
 
 
-   ..note:: This will open the APM landing page that shows the resources you are allowed to access. In this lab, we've only configured a single resource
-
-   but you can add as many as you want and they will appear on this Webtop page.
+   ..note:: This will open the APM landing page that shows the resources you are allowed to access. In this lab, we've only configured a single resource but you can add as many as you want and they will appear on this Webtop page.
 
 #. Click the **F5** Resource on the webtop
 
