@@ -26,7 +26,7 @@ This lab documents provides foundational concepts for understanding Access Polic
 
 .. toctree::
    :maxdepth: 1
-   :caption: Version 16.0 Labs:
+   :caption: Version 16.1 Labs:
    :glob:
 
    module6/intro.rst
@@ -71,7 +71,7 @@ This lab documents provides foundational concepts for understanding Access Polic
    module7/lab*
 
 
-307  - SSL VPN
+309  - SSL VPN
 ------------------
 .. toctree::
    :maxdepth: 1

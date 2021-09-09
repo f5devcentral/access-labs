@@ -4,6 +4,7 @@ Lab 2: SSL VPN SAML Authentication
 Section 1.1 - Setup Lab Environment
 -------------------------------------
 To access your dedicated student lab environment, you will need a web browser and Remote Desktop Protocol (RDP) client software. The web browser will be used to access the Unified Demo Framework (UDF) Training Portal. The RDP client will be used to connect to the jumphost, where you will be able to access the BIG-IP management interfaces (HTTPS, SSH).
+
 #. Click **DEPLOYMENT** located on the top left corner to display the environment
 
 #. Click **ACCESS** next to jumphost.f5lab.local
@@ -29,7 +30,7 @@ To access your dedicated student lab environment, you will need a web browser an
 
    |image0030|
 
-#. Hover over tile **SSL VPN - AD Authentication + MFA**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
+#. Hover over tile **SSL VPN - SAML Authentication**. A start and stop icon should appear within the tile.  Click the **Play** Button to start the automation to build the environment
 
 
    +---------------+-------------+
@@ -233,29 +234,19 @@ Task 4 - Test VPN Access
 .. |image011| image:: ./media/lab02/011.png
 .. |image012| image:: ./media/lab02/012.png
 .. |image013| image:: ./media/lab02/013.png
-.. |image014| image:: ./media/lab02/014.png
-.. |image015| image:: ./media/lab02/015.png
 .. |image016| image:: ./media/lab02/016.png
 .. |image017| image:: ./media/lab02/017.png
 .. |image018| image:: ./media/lab02/018.png
 .. |image019| image:: ./media/lab02/019.png
 .. |image020| image:: ./media/lab02/020.png
 .. |image021| image:: ./media/lab02/021.png
-.. |image022| image:: ./media/lab02/022.png
 .. |image023| image:: ./media/lab02/023.png
 .. |image024| image:: ./media/lab02/024.png
 .. |image025| image:: ./media/lab02/025.png
 .. |image026| image:: ./media/lab02/026.png
 .. |image027| image:: ./media/lab02/027.png
 .. |image028| image:: ./media/lab02/028.png
-.. |image029| image:: ./media/lab02/029.png
-.. |image030| image:: ./media/lab02/030.png
-.. |image031| image:: ./media/lab02/031.png
-.. |image032| image:: ./media/lab02/032.png
 .. |image033| image:: ./media/lab02/033.png
-.. |image034| image:: ./media/lab02/034.png
-.. |image035| image:: ./media/lab02/035.png
-.. |image036| image:: ./media/lab02/036.png
 .. |image037| image:: ./media/lab02/037.png
 .. |image038| image:: ./media/lab02/038.png
 .. |image039| image:: ./media/lab02/039.png
