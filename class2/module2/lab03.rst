@@ -55,8 +55,8 @@ Task 2 - Create a ServerSide SSL Profile
 
 #. Enter Name **adapi.f5lab.local**
 #. Check **Custom** box to the right of the Certificate and Key fields to make them editable.
-#. Select **apiadmin.crt** from the Certificate dropdown
-#. Select **apiadmin.key** from the key dropdown
+#. Select **apiadmin** from the Certificate dropdown
+#. Select **apiadmin** from the key dropdown
 #. Click **Finished** at the Bottom of the page
 
    |image8|
