@@ -45,7 +45,7 @@
     - name: Create LDAP AAA    
       include_role:
         name: createldap_aaa
-        
+      vars:      
         partition_name: Common
         path_name: Shared
         bigip: 10.1.1.4
